@@ -26,6 +26,7 @@ flutter:
   assets:
     - lib/features/components/examples/badge/
     - lib/features/components/examples/button/
+    - lib/features/components/examples/chart/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/switch/
