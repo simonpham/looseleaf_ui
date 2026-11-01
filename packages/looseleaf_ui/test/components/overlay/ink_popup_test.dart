@@ -9,13 +9,11 @@ class _Host extends StatefulWidget {
   const _Host({
     this.centered = false,
     this.scrim = false,
-    this.modal = false,
     this.motion = PopupMotionStyle.pop,
   });
 
   final bool centered;
   final bool scrim;
-  final bool modal;
   final PopupMotionStyle motion;
 
   @override
@@ -26,6 +24,8 @@ class _HostState extends State<_Host> {
   bool open = false;
   final List<OverlayDismissReason> reasons = [];
 
+  void close() => setState(() => open = false);
+
   @override
   Widget build(BuildContext context) => InkPopup(
     open: open,
@@ -33,7 +33,6 @@ class _HostState extends State<_Host> {
     onDismiss: reasons.add,
     centered: widget.centered,
     scrim: widget.scrim,
-    modal: widget.modal,
     motion: widget.motion,
     popupBuilder: (context, position) =>
         const SizedBox(width: 100, height: 60, child: Text('Popup')),
@@ -50,7 +49,7 @@ void main() {
     await tester.tap(find.text('Anchor'));
     await tester.pumpAndSettle();
     final state = tester.state<_HostState>(find.byType(_Host));
-    state.setState(() => state.open = false);
+    state.close();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 60));
     expect(find.text('Popup'), findsOneWidget);
