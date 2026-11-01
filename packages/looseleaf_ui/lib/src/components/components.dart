@@ -14,6 +14,7 @@ export 'package:looseleaf_ui/src/components/breadcrumb/breadcrumb.dart';
 export 'package:looseleaf_ui/src/components/bubble/bubble.dart';
 export 'package:looseleaf_ui/src/components/button/button.dart';
 export 'package:looseleaf_ui/src/components/button_group/button_group.dart';
+export 'package:looseleaf_ui/src/components/calendar/calendar.dart';
 export 'package:looseleaf_ui/src/components/callout/callout.dart';
 export 'package:looseleaf_ui/src/components/card/card.dart';
 export 'package:looseleaf_ui/src/components/carousel/carousel.dart';
