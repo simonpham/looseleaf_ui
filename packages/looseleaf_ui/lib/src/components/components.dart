@@ -27,6 +27,7 @@ export 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 export 'package:looseleaf_ui/src/components/handwritten/handwritten.dart';
 export 'package:looseleaf_ui/src/components/highlight/highlight.dart';
 export 'package:looseleaf_ui/src/components/icon/icon.dart';
+export 'package:looseleaf_ui/src/components/index_card/index_card.dart';
 export 'package:looseleaf_ui/src/components/input/input.dart';
 export 'package:looseleaf_ui/src/components/input_group/input_group.dart';
 export 'package:looseleaf_ui/src/components/input_otp/input_otp.dart';
