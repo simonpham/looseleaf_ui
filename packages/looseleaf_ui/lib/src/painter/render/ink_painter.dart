@@ -6,6 +6,7 @@ import 'package:looseleaf_ui/src/painter/render/grain_mask.dart';
 import 'package:looseleaf_ui/src/painter/render/ink_dash.dart';
 import 'package:looseleaf_ui/src/painter/render/ink_paint_context.dart';
 import 'package:looseleaf_ui/src/painter/render/ink_shaders.dart';
+import 'package:looseleaf_ui/src/painter/render/ink_state_effects.dart';
 import 'package:looseleaf_ui/src/painter/render/ink_text.dart';
 import 'package:looseleaf_ui/src/textures/textures.dart';
 
@@ -309,9 +310,9 @@ class InkPainter {
   }
 
   Path _strokePath(InkShapeNode node, InkStyle style) {
-    final reveal = context.state.reveal;
-    if (node.effects.part == 'reveal' && reveal < 1) {
-      return InkDash.revealed(node, reveal);
+    final InkStateEffects(:reveal, :revealDashes) = context.state;
+    if (node.effects.part == 'reveal' && (reveal < 1 || revealDashes != null)) {
+      return InkDash.revealed(node, reveal, dashes: revealDashes);
     }
     final dashes = style.dashArray ?? const [];
     if (dashes.isEmpty) return node.path;

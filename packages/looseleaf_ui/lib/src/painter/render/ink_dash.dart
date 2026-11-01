@@ -10,11 +10,14 @@ abstract final class InkDash {
     return node.dashCache[key] ??= _dash(node, dashes, offset);
   }
 
-  /// [node]'s outline drawn on up to [fraction]: `stroke-dasharray: 1` with
-  /// `stroke-dashoffset` animating from 1 to 0, upstream's `ll-draw`. Not
-  /// cached, since it changes every animation frame.
-  static Path revealed(InkShapeNode node, double fraction) =>
-      _dash(node, const [1, 1], 1 - fraction.clamp(0.0, 1.0));
+  /// [node]'s outline drawn on up to [fraction]: `stroke-dasharray: 1` (or
+  /// [dashes]) with `stroke-dashoffset` animating from 1 to 0, upstream's
+  /// `ll-draw`. Not cached, since it changes every animation frame.
+  static Path revealed(
+    InkShapeNode node,
+    double fraction, {
+    List<double>? dashes,
+  }) => _dash(node, dashes ?? const [1, 1], 1 - fraction.clamp(0.0, 1.0));
 
   static Path _dash(InkShapeNode node, List<double> dashes, double offset) {
     final metrics = node.path.computeMetrics().toList();

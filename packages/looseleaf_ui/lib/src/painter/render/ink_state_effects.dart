@@ -9,6 +9,7 @@ class InkStateEffects {
     this.partShift = 0,
     this.swipe = 1,
     this.reveal = 1,
+    this.revealDashes,
   });
 
   /// Rest: nothing hidden, nothing shifted.
@@ -30,6 +31,12 @@ class InkStateEffects {
   /// keyframes (`stroke-dashoffset` 1 → 0 over `stroke-dasharray: 1`); 1
   /// shows it whole.
   final double reveal;
+
+  /// A `stroke-dasharray` (in `pathLength` units) for `reveal` parts that
+  /// replaces the draw-on's `1`, so [reveal] moves a dash window along the
+  /// line instead of drawing it on: the spinner's `.42 .58` loop. Null is
+  /// the plain draw-on.
+  final List<double>? revealDashes;
 
   /// The opacity of an element with `data-hide-on` [states].
   double opacityFor(Set<String> states) {
