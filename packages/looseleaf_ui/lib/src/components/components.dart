@@ -11,4 +11,5 @@ export 'package:looseleaf_ui/src/components/kbd/kbd.dart';
 export 'package:looseleaf_ui/src/components/scribble/scribble.dart';
 export 'package:looseleaf_ui/src/components/skeleton/skeleton.dart';
 export 'package:looseleaf_ui/src/components/strike/strike.dart';
+export 'package:looseleaf_ui/src/components/textarea/textarea.dart';
 export 'package:looseleaf_ui/src/components/underline/underline.dart';

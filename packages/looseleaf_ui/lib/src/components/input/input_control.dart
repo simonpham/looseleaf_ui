@@ -31,6 +31,7 @@ class InputControl extends StatefulWidget {
     this.autofillHints,
     this.maxLines = 1,
     this.minLines,
+    this.expands = false,
     this.padding = InputMetrics.padding,
     this.alignment = AlignmentDirectional.centerStart,
     this.onChanged,
@@ -69,6 +70,10 @@ class InputControl extends StatefulWidget {
 
   /// Lines shown at least.
   final int? minLines;
+
+  /// Fills the height it is given and scrolls past it; needs null
+  /// [maxLines] and [minLines].
+  final bool expands;
 
   /// The inset around the text (upstream `px-3 py-1`).
   final EdgeInsetsGeometry padding;
@@ -169,6 +174,7 @@ class _InputControlState extends State<InputControl>
       autofillHints: widget.autofillHints,
       maxLines: widget.maxLines,
       minLines: widget.minLines,
+      expands: widget.expands,
       onChanged: widget.onChanged,
       onSubmitted: widget.onSubmitted,
       onEditingComplete: widget.onEditingComplete,

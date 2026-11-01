@@ -24,6 +24,7 @@ abstract final class Spacing {
   static const double d40 = 40;
   static const double d48 = 48;
   static const double d64 = 64;
+  static const double d96 = 96;
 
   /// `--ll-hit`: the comfortable touch target.
   static const double hit = 40;
