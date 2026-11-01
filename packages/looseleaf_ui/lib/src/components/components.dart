@@ -1,5 +1,6 @@
 export 'package:looseleaf_ui/src/components/accordion/accordion.dart';
 export 'package:looseleaf_ui/src/components/alert/alert.dart';
+export 'package:looseleaf_ui/src/components/alert_dialog/alert_dialog.dart';
 export 'package:looseleaf_ui/src/components/annotate/annotate.dart';
 export 'package:looseleaf_ui/src/components/arrow/arrow.dart';
 export 'package:looseleaf_ui/src/components/art/art.dart';
