@@ -16,6 +16,7 @@ export 'package:looseleaf_ui/src/components/collapsible/collapsible.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox.dart';
 export 'package:looseleaf_ui/src/components/confetti/confetti.dart';
 export 'package:looseleaf_ui/src/components/date_picker/date_picker.dart';
+export 'package:looseleaf_ui/src/components/desk/desk.dart';
 export 'package:looseleaf_ui/src/components/direction/direction.dart';
 export 'package:looseleaf_ui/src/components/doodle/doodle.dart';
 export 'package:looseleaf_ui/src/components/dropzone/dropzone.dart';
