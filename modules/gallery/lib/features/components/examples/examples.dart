@@ -4,6 +4,7 @@ export 'package:gallery/features/components/examples/badge/badge.dart';
 export 'package:gallery/features/components/examples/boil/boil.dart';
 export 'package:gallery/features/components/examples/button/button.dart';
 export 'package:gallery/features/components/examples/chart/chart.dart';
+export 'package:gallery/features/components/examples/checkbox/checkbox.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
 export 'package:gallery/features/components/examples/kbd/kbd.dart';
 export 'package:gallery/features/components/examples/label/label.dart';

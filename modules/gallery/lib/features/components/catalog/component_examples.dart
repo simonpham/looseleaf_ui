@@ -10,6 +10,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'boil': boilExamples,
   'button': buttonExamples,
   'chart': chartExamples,
+  'checkbox': checkboxExamples,
   'doodle': doodleExamples,
   'kbd': kbdExamples,
   'label': labelExamples,
