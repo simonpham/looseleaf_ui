@@ -16,6 +16,7 @@ export 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
 export 'package:looseleaf_ui/src/components/scribble/scribble.dart';
 export 'package:looseleaf_ui/src/components/skeleton/skeleton.dart';
 export 'package:looseleaf_ui/src/components/spinner/spinner.dart';
+export 'package:looseleaf_ui/src/components/squiggle/squiggle.dart';
 export 'package:looseleaf_ui/src/components/stamp/stamp.dart';
 export 'package:looseleaf_ui/src/components/sticker/sticker.dart';
 export 'package:looseleaf_ui/src/components/strike/strike.dart';
