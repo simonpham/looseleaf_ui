@@ -20,6 +20,7 @@ export 'package:looseleaf_ui/src/components/card/card.dart';
 export 'package:looseleaf_ui/src/components/carousel/carousel.dart';
 export 'package:looseleaf_ui/src/components/checkbox/checkbox.dart';
 export 'package:looseleaf_ui/src/components/circled/circled.dart';
+export 'package:looseleaf_ui/src/components/clipboard/clipboard.dart';
 export 'package:looseleaf_ui/src/components/collapsible/collapsible.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox.dart';
 export 'package:looseleaf_ui/src/components/confetti/confetti.dart';
