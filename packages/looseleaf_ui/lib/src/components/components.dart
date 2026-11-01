@@ -40,6 +40,7 @@ export 'package:looseleaf_ui/src/components/input_group/input_group.dart';
 export 'package:looseleaf_ui/src/components/input_otp/input_otp.dart';
 export 'package:looseleaf_ui/src/components/kbd/kbd.dart';
 export 'package:looseleaf_ui/src/components/label/label.dart';
+export 'package:looseleaf_ui/src/components/label_tag/label_tag.dart';
 export 'package:looseleaf_ui/src/components/lettering/lettering.dart';
 export 'package:looseleaf_ui/src/components/marker/marker.dart';
 export 'package:looseleaf_ui/src/components/mascot/mascot.dart';
