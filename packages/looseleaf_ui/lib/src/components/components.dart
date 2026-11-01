@@ -53,6 +53,7 @@ export 'package:looseleaf_ui/src/components/separator/separator.dart';
 export 'package:looseleaf_ui/src/components/signature/signature.dart';
 export 'package:looseleaf_ui/src/components/skeleton/skeleton.dart';
 export 'package:looseleaf_ui/src/components/slider/slider.dart';
+export 'package:looseleaf_ui/src/components/sonner/sonner.dart';
 export 'package:looseleaf_ui/src/components/spinner/spinner.dart';
 export 'package:looseleaf_ui/src/components/squiggle/squiggle.dart';
 export 'package:looseleaf_ui/src/components/stamp/stamp.dart';
