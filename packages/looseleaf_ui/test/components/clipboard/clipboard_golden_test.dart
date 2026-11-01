@@ -17,7 +17,7 @@ void main() {
     tester.view.physicalSize = const Size(2400, 1100);
     tester.view.devicePixelRatio = 2;
     addTearDown(tester.view.reset);
-    final theme = const LooseleafThemeData();
+    const theme = LooseleafThemeData();
     final hand = theme.typography.face(
       KevinSansFace.hand,
       cssSize: 17,
