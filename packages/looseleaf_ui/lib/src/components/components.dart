@@ -52,6 +52,7 @@ export 'package:looseleaf_ui/src/components/stepper/stepper.dart';
 export 'package:looseleaf_ui/src/components/sticker/sticker.dart';
 export 'package:looseleaf_ui/src/components/strike/strike.dart';
 export 'package:looseleaf_ui/src/components/switch/switch.dart';
+export 'package:looseleaf_ui/src/components/tabs/tabs.dart';
 export 'package:looseleaf_ui/src/components/tally/tally.dart';
 export 'package:looseleaf_ui/src/components/textarea/textarea.dart';
 export 'package:looseleaf_ui/src/components/toggle/toggle.dart';
