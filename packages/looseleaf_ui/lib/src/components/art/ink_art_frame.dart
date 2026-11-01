@@ -11,13 +11,10 @@ class InkArtFrame {
     required this.pad,
   });
 
-  /// Parses an engine [result], keeping its layers in drawing order.
+  /// Parses an engine [result]'s whole markup (its defs and wrappers
+  /// included, as die cuts add them around the parts).
   factory InkArtFrame.of(ink.InkResult result) => InkArtFrame(
-    document: InkDocument.parseLayers({
-      for (final layer in result.layers)
-        if (result.parts[layer] case final part? when part.isNotEmpty)
-          layer.name: part,
-    }),
+    document: InkDocument.parse(result.svg),
     width: result.w,
     height: result.h,
     pad: result.pad,

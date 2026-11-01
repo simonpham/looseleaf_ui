@@ -85,14 +85,14 @@ class InkArt extends StatelessWidget {
       art = Transform.flip(flipX: flipX, flipY: flipY, child: art);
     }
     if (rotation != 0) art = Transform.rotate(angle: rotation, child: art);
+    final decorative = ExcludeSemantics(child: IgnorePointer(child: art));
     final label = semanticLabel;
-    if (label == null)
-      return ExcludeSemantics(child: IgnorePointer(child: art));
+    if (label == null) return decorative;
     return Semantics(
       container: true,
       image: true,
       label: label,
-      child: ExcludeSemantics(child: IgnorePointer(child: art)),
+      child: decorative,
     );
   }
 }
