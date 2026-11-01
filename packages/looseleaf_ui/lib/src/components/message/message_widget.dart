@@ -42,11 +42,19 @@ class Message extends StatefulWidget {
 
 class _MessageState extends State<Message> {
   int _footers = 0;
+  int _ghosts = 0;
 
   void _countFooter(int delta) {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       setState(() => _footers += delta);
+    });
+  }
+
+  void _countGhost(int delta) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      setState(() => _ghosts += delta);
     });
   }
 
@@ -66,6 +74,8 @@ class _MessageState extends State<Message> {
         align: widget.align,
         hasFooter: _footers > 0,
         countFooter: _countFooter,
+        hasGhost: _ghosts > 0,
+        countGhost: _countGhost,
         child: DefaultTextStyle.merge(
           style: theme.typography.face(KevinSansFace.hand, cssSize: 15),
           child: Row(

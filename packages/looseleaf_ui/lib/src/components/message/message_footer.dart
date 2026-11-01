@@ -3,7 +3,7 @@ import 'package:looseleaf_ui/src/components/message/message_scope.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// A quiet hand note under a message's bubbles: edited, seen, a time.
-/// 14 px muted text, 12 px in from the bubble's edge. Its message's
+/// 14 px muted text, 12 px in from the bubble's edge (flush beside a ghost bubble). Its message's
 /// [MessageAvatar] rides above it.
 ///
 /// Mirrors `MessageFooter` in upstream `src/components/ui/message.tsx`.
@@ -39,7 +39,10 @@ class _MessageFooterState extends State<MessageFooter> {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Spacing.d12),
+      padding: switch (MessageScope.maybeOf(context)?.hasGhost ?? false) {
+        true => EdgeInsets.zero,
+        false => const EdgeInsets.symmetric(horizontal: Spacing.d12),
+      },
       child: DefaultTextStyle.merge(
         style: theme.typography.face(
           KevinSansFace.hand,

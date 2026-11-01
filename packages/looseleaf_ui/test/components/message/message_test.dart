@@ -159,4 +159,42 @@ void main() {
       expect(word.ink, 1);
     }
   });
+
+  testWidgets('a ghost bubble pulls the header and footer flush', (
+    tester,
+  ) async {
+    Widget message(BubbleVariant variant) => componentHost(
+      SizedBox(
+        width: 400,
+        child: Message(
+          children: [
+            MessageContent(
+              children: [
+                const MessageHeader(child: Text('Stubby')),
+                Bubble(
+                  variant: variant,
+                  children: const [BubbleContent(child: Text('words'))],
+                ),
+                const MessageFooter(child: Text('seen')),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+    double inset(String text) =>
+        tester.getTopLeft(find.text(text)).dx -
+        tester.getTopLeft(find.byType(MessageContent)).dx;
+
+    await tester.pumpWidget(message(BubbleVariant.muted));
+    await tester.pump();
+    expect(inset('Stubby'), 12);
+    expect(inset('seen'), 12);
+
+    await tester.pumpWidget(message(BubbleVariant.ghost));
+    await tester.pump();
+    expect(inset('Stubby'), 0);
+    expect(inset('seen'), 0);
+    expect(inset('words'), 0);
+  });
 }

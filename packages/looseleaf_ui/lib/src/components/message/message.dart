@@ -3,6 +3,7 @@ export 'package:looseleaf_ui/src/components/message/message_avatar.dart';
 export 'package:looseleaf_ui/src/components/message/message_caret.dart';
 export 'package:looseleaf_ui/src/components/message/message_content.dart';
 export 'package:looseleaf_ui/src/components/message/message_footer.dart';
+export 'package:looseleaf_ui/src/components/message/message_ghost.dart';
 export 'package:looseleaf_ui/src/components/message/message_group.dart';
 export 'package:looseleaf_ui/src/components/message/message_header.dart';
 export 'package:looseleaf_ui/src/components/message/message_scope.dart';

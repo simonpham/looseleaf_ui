@@ -87,7 +87,7 @@ class Bubble extends StatelessWidget {
       ),
     };
     final fullWidth = variant == BubbleVariant.ghost;
-    return BubbleScope(
+    final scoped = BubbleScope(
       variant: variant,
       align: side,
       shape: shape,
@@ -114,6 +114,8 @@ class Bubble extends StatelessWidget {
         ),
       ),
     );
+    if (!fullWidth) return scoped;
+    return MessageGhost(child: scoped);
   }
 
   Widget _place(BubbleReactions chip) {
