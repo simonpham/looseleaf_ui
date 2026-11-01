@@ -45,6 +45,7 @@ export 'package:looseleaf_ui/src/components/index_card/index_card.dart';
 export 'package:looseleaf_ui/src/components/input/input.dart';
 export 'package:looseleaf_ui/src/components/input_group/input_group.dart';
 export 'package:looseleaf_ui/src/components/input_otp/input_otp.dart';
+export 'package:looseleaf_ui/src/components/item/item.dart';
 export 'package:looseleaf_ui/src/components/kbd/kbd.dart';
 export 'package:looseleaf_ui/src/components/label/label.dart';
 export 'package:looseleaf_ui/src/components/label_tag/label_tag.dart';
