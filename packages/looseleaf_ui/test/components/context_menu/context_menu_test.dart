@@ -87,7 +87,10 @@ void main() {
   testWidgets('keys move, skip disabled rows and choose', (tester) async {
     final chosen = <String>[];
     await tester.pumpWidget(overlayHost(_menu(chosen: chosen)));
-    await _rightClick(tester, tester.getCenter(find.text('Right-click anywhere')));
+    await _rightClick(
+      tester,
+      tester.getCenter(find.text('Right-click anywhere')),
+    );
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.pumpAndSettle();
@@ -100,7 +103,10 @@ void main() {
 
   testWidgets('a right click outside closes it', (tester) async {
     await tester.pumpWidget(overlayHost(_menu()));
-    await _rightClick(tester, tester.getCenter(find.text('Right-click anywhere')));
+    await _rightClick(
+      tester,
+      tester.getCenter(find.text('Right-click anywhere')),
+    );
     expect(find.text('Back'), findsOneWidget);
     await _rightClick(tester, const Offset(4, 4));
     expect(find.text('Back'), findsNothing);
@@ -125,7 +131,10 @@ void main() {
 
   testWidgets('a disabled region ignores right clicks', (tester) async {
     await tester.pumpWidget(overlayHost(_menu(disabled: true)));
-    await _rightClick(tester, tester.getCenter(find.text('Right-click anywhere')));
+    await _rightClick(
+      tester,
+      tester.getCenter(find.text('Right-click anywhere')),
+    );
     expect(find.text('Back'), findsNothing);
   });
 
@@ -144,7 +153,10 @@ void main() {
   testWidgets('the slip is a menu for screen readers', (tester) async {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(overlayHost(_menu()));
-    await _rightClick(tester, tester.getCenter(find.text('Right-click anywhere')));
+    await _rightClick(
+      tester,
+      tester.getCenter(find.text('Right-click anywhere')),
+    );
     expect(
       tester.getSemantics(find.text('Back')),
       isSemantics(role: SemanticsRole.menuItem, isEnabled: true),

@@ -44,7 +44,8 @@ class ContextMenu extends StatefulWidget {
 
   /// The nearest context menu's controller.
   static InkContextMenuController of(BuildContext context) {
-    final scope = context.dependOnInheritedWidgetOfExactType<InkContextMenuScope>();
+    final scope = context
+        .dependOnInheritedWidgetOfExactType<InkContextMenuScope>();
     if (scope == null) throw FlutterError('No ContextMenu above this widget.');
     return scope.controller;
   }

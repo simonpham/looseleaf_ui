@@ -60,7 +60,9 @@ void main() {
                               child: Text('More tools'),
                             ),
                             content: ContextMenuSubContent(
-                              children: [ContextMenuItem(child: Text('Save page as…'))],
+                              children: [
+                                ContextMenuItem(child: Text('Save page as…')),
+                              ],
                             ),
                           ),
                           const ContextMenuSeparator(),
