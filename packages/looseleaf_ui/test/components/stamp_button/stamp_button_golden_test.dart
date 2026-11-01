@@ -77,21 +77,21 @@ void main() {
           StampSurface(
             child: ColoredBox(
               color: theme.colors.slip,
-              child: Padding(
-                padding: const EdgeInsets.all(Spacing.d24),
+              child: const Padding(
+                padding: EdgeInsets.all(Spacing.d24),
                 child: SizedBox(
                   width: 360,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: Spacing.d12,
                     children: [
-                      const Text('Invoice 2026-031'),
-                      const Text('Twelve notebooks, felt tips'),
-                      const SizedBox(height: Spacing.d96),
+                      Text('Invoice 2026-031'),
+                      Text('Twelve notebooks, felt tips'),
+                      SizedBox(height: Spacing.d96),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         spacing: Spacing.d16,
-                        children: const [
+                        children: [
                           StampButton(
                             stamp: 'stamp-approved',
                             seed: 'approve',
