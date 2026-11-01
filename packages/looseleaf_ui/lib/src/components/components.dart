@@ -45,6 +45,7 @@ export 'package:looseleaf_ui/src/components/rating/rating.dart';
 export 'package:looseleaf_ui/src/components/reveal/reveal.dart';
 export 'package:looseleaf_ui/src/components/ribbon/ribbon.dart';
 export 'package:looseleaf_ui/src/components/scribble/scribble.dart';
+export 'package:looseleaf_ui/src/components/scroll_area/scroll_area.dart';
 export 'package:looseleaf_ui/src/components/separator/separator.dart';
 export 'package:looseleaf_ui/src/components/signature/signature.dart';
 export 'package:looseleaf_ui/src/components/skeleton/skeleton.dart';
