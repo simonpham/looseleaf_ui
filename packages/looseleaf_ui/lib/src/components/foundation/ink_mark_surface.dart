@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/foundation/ink_mark_wipe.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 
@@ -20,7 +21,7 @@ enum InkMarkDraw {
 /// the drawing back and draws it on after [delay], once mounted.
 ///
 /// [InkMarkDraw.reveal] uses the surface's own draw-on of `reveal` parts;
-/// [InkMarkDraw.wipe] clips the whole drawing. Reduced motion just shows it.
+/// [InkMarkDraw.wipe] clips the whole drawing with [InkMarkWipe]. Reduced motion just shows it.
 ///
 /// The phase logic of upstream `useMarkPhase` (`src/hooks/use-mark-ink.tsx`):
 /// a mark plays when it first mounts rather than when it scrolls into view,
@@ -49,58 +50,32 @@ class InkMarkSurface extends StatefulWidget {
   /// Sizes the surface; null fills the constraints.
   final Widget? child;
 
-  /// `--ll-dur-draw`.
-  static const Duration drawDuration = Duration(milliseconds: 600);
-
   @override
   State<InkMarkSurface> createState() => _InkMarkSurfaceState();
 }
 
-class _InkMarkSurfaceState extends State<InkMarkSurface>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _wipe = AnimationController(
-    vsync: this,
-    duration: InkMarkSurface.drawDuration,
-    value: 1,
-  );
+class _InkMarkSurfaceState extends State<InkMarkSurface> {
   Timer? _timer;
-  bool _started = true;
+  late bool _started = !_revealing;
 
-  @override
-  void initState() {
-    super.initState();
-    if (!widget.animate) return;
-    _started = false;
-    _wipe.value = 0;
-  }
+  bool get _revealing => widget.animate && widget.draw == InkMarkDraw.reveal;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (_started || _timer != null) return;
     if (InkMotion.reducedIn(context)) {
-      _start(animate: false);
+      setState(() => _started = true);
       return;
     }
-    _timer = Timer(widget.delay, () => _start(animate: true));
-  }
-
-  void _start({required bool animate}) {
-    if (!mounted) return;
-    setState(() => _started = true);
-    if (!animate) {
-      _wipe.value = 1;
-      return;
-    }
-    unawaited(
-      _wipe.animateTo(1, curve: InkMotion.easeOut),
-    );
+    _timer = Timer(widget.delay, () {
+      if (mounted) setState(() => _started = true);
+    });
   }
 
   @override
   void dispose() {
     _timer?.cancel();
-    _wipe.dispose();
     super.dispose();
   }
 
@@ -110,63 +85,20 @@ class _InkMarkSurfaceState extends State<InkMarkSurface>
       source: widget.source,
       seed: widget.seed,
       still: true,
-      states: switch (widget.animate &&
-          _started &&
-          widget.draw == InkMarkDraw.reveal) {
+      states: switch (_revealing && _started) {
         true => const {InkState.checked},
         false => const {},
       },
-      drawOn: widget.animate && widget.draw == InkMarkDraw.reveal,
+      drawOn: _revealing,
       child: widget.child,
     );
-    final shown = Visibility.maintain(visible: _started, child: surface);
-    if (!widget.animate || widget.draw == InkMarkDraw.reveal) return shown;
-    return ClipRect(
-      clipper: _WipeClipper(
-        _wipe,
-        Directionality.maybeOf(context) ?? TextDirection.ltr,
-      ),
-      child: shown,
-    );
+    if (widget.draw == InkMarkDraw.wipe) {
+      return InkMarkWipe(
+        animate: widget.animate,
+        delay: widget.delay,
+        child: surface,
+      );
+    }
+    return Visibility.maintain(visible: _started, child: surface);
   }
-}
-
-/// `ll-wipe`: `clip-path: inset(-10% 100% -10% -4%)` to
-/// `inset(-10% -4% -10% -4%)`, overflowing far enough for the frame's pad.
-class _WipeClipper extends CustomClipper<Rect> {
-  _WipeClipper(this.progress, this.direction) : super(reclip: progress);
-
-  final Animation<double> progress;
-  final TextDirection direction;
-
-  static const double _overflow = 32;
-
-  @override
-  Rect getClip(Size size) {
-    final full = Rect.fromLTRB(
-      -_overflow,
-      -_overflow,
-      size.width + _overflow,
-      size.height + _overflow,
-    );
-    final shown = full.width * progress.value;
-    return switch (direction) {
-      TextDirection.ltr => Rect.fromLTWH(
-        full.left,
-        full.top,
-        shown,
-        full.height,
-      ),
-      TextDirection.rtl => Rect.fromLTRB(
-        full.right - shown,
-        full.top,
-        full.right,
-        full.bottom,
-      ),
-    };
-  }
-
-  @override
-  bool shouldReclip(_WipeClipper oldClipper) =>
-      oldClipper.progress != progress || oldClipper.direction != direction;
 }

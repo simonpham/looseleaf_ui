@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
@@ -96,6 +97,7 @@ void main() {
             source: _source,
             seed: 's',
             animate: true,
+            draw: InkMarkDraw.reveal,
             delay: Duration(milliseconds: 100),
             child: Text('one two three four five six seven eight'),
           ),
@@ -129,6 +131,7 @@ void main() {
           source: _source,
           seed: 's',
           animate: true,
+          draw: InkMarkDraw.reveal,
           delay: Duration(seconds: 1),
           child: Text('reduced'),
         ),
@@ -158,5 +161,30 @@ void main() {
     await tester.pump();
     expect(find.bySemanticsLabel('words'), findsOneWidget);
     handle.dispose();
+  });
+
+  testWidgets('wipe clips the mark in from the reading start', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const InkMarkWipe(
+          delay: Duration(milliseconds: 100),
+          child: SizedBox(width: 100, height: 20),
+        ),
+      ),
+    );
+    Rect clip() {
+      final render = tester.renderObject<RenderClipRect>(
+        find.byType(ClipRect),
+      );
+      return render.clipper?.getClip(const Size(100, 20)) ?? Rect.zero;
+    }
+
+    expect(clip().width, 0);
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(clip().width, greaterThan(0));
+    expect(clip().right, lessThan(132));
+    await tester.pumpAndSettle();
+    expect(clip().right, 132);
   });
 }
