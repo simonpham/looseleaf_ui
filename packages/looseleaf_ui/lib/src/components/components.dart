@@ -28,6 +28,7 @@ export 'package:looseleaf_ui/src/components/direction/direction.dart';
 export 'package:looseleaf_ui/src/components/doodle/doodle.dart';
 export 'package:looseleaf_ui/src/components/dropzone/dropzone.dart';
 export 'package:looseleaf_ui/src/components/empty/empty.dart';
+export 'package:looseleaf_ui/src/components/folder/folder.dart';
 export 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 export 'package:looseleaf_ui/src/components/handwritten/handwritten.dart';
 export 'package:looseleaf_ui/src/components/highlight/highlight.dart';
