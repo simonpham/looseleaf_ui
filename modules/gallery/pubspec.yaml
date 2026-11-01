@@ -1,0 +1,22 @@
+name: gallery
+description: The Looseleaf UI gallery. Every component and block with its examples.
+version: 0.1.0
+publish_to: "none"
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  looseleaf_ink:
+    path: ../../packages/looseleaf_ink
+  looseleaf_ui:
+    path: ../../packages/looseleaf_ui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lints: ^6.0.0

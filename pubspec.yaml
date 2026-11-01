@@ -1,0 +1,14 @@
+name: looseleaf_workspace
+publish_to: "none"
+
+workspace:
+  - apps/gallery
+  - modules/gallery
+  - packages/looseleaf_ink
+  - packages/looseleaf_ui
+
+environment:
+  sdk: ^3.13.0
+
+dev_dependencies:
+  lints: ^6.0.0
