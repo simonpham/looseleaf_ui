@@ -31,6 +31,7 @@ export 'package:looseleaf_ui/src/components/marker/marker.dart';
 export 'package:looseleaf_ui/src/components/mascot/mascot.dart';
 export 'package:looseleaf_ui/src/components/message/message.dart';
 export 'package:looseleaf_ui/src/components/native_select/native_select.dart';
+export 'package:looseleaf_ui/src/components/pagination/pagination.dart';
 export 'package:looseleaf_ui/src/components/progress/progress.dart';
 export 'package:looseleaf_ui/src/components/quote/quote.dart';
 export 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
