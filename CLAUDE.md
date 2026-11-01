@@ -29,7 +29,7 @@ tools/parity/export.sh <path to a looseleaf checkout>
 | Directory | Purpose |
 |-----------|---------|
 | `packages/looseleaf_ink/` | Ink engine, pure Dart: rng, noise, pens, strokes, shapes, fills, the `Ink` builder, recipes (one per component), paper, art, charts. Outputs SVG markup per state layer |
-| `packages/looseleaf_ui/` | Flutter: the SVG-subset `InkPainter`, frame cache, `LooseleafTheme` (paint tokens, Kevin Sans), `Spacing`, and the widgets |
+| `packages/looseleaf_ui/` | Flutter: the SVG-subset `InkPainter`, frame cache, `LooseleafTheme` (paint tokens, Kevin Sans), `Spacing`, and the widgets. Porting a component: [COMPONENTS.md](packages/looseleaf_ui/COMPONENTS.md) |
 | `modules/gallery/` | The gallery: component pages, examples, blocks |
 | `apps/gallery/` | Entry point only |
 | `tools/parity/` | Exports fixtures from the original TypeScript for the parity tests |
