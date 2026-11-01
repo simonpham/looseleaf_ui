@@ -18,6 +18,7 @@ export 'package:looseleaf_ui/src/components/spinner/spinner.dart';
 export 'package:looseleaf_ui/src/components/stamp/stamp.dart';
 export 'package:looseleaf_ui/src/components/sticker/sticker.dart';
 export 'package:looseleaf_ui/src/components/strike/strike.dart';
+export 'package:looseleaf_ui/src/components/switch/switch.dart';
 export 'package:looseleaf_ui/src/components/textarea/textarea.dart';
 export 'package:looseleaf_ui/src/components/typing_indicator/typing_indicator.dart';
 export 'package:looseleaf_ui/src/components/underline/underline.dart';
