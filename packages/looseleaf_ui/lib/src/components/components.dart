@@ -71,6 +71,7 @@ export 'package:looseleaf_ui/src/components/tape/tape.dart';
 export 'package:looseleaf_ui/src/components/textarea/textarea.dart';
 export 'package:looseleaf_ui/src/components/toggle/toggle.dart';
 export 'package:looseleaf_ui/src/components/toggle_group/toggle_group.dart';
+export 'package:looseleaf_ui/src/components/tooltip/tooltip.dart';
 export 'package:looseleaf_ui/src/components/typewriter/typewriter.dart';
 export 'package:looseleaf_ui/src/components/typing_indicator/typing_indicator.dart';
 export 'package:looseleaf_ui/src/components/typography/typography.dart';
