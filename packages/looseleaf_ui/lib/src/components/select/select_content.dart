@@ -185,7 +185,7 @@ class _SelectViewportState extends State<_SelectViewport> {
   }
 
   void _keepInPlace(ScrollController scroll) {
-    final shift = SelectMetrics.chevron + SelectMetrics.scrollButtonPadding * 2;
+    const shift = SelectMetrics.chevron + SelectMetrics.scrollButtonPadding * 2;
     SchedulerBinding.instance.addPostFrameCallback((_) {
       if (!mounted || !scroll.hasClients) return;
       final position = scroll.position;
