@@ -1,6 +1,9 @@
+export 'package:gallery/features/components/examples/asterisk/asterisk.dart';
 export 'package:gallery/features/components/examples/badge/badge.dart';
 export 'package:gallery/features/components/examples/button/button.dart';
 export 'package:gallery/features/components/examples/chart/chart.dart';
 export 'package:gallery/features/components/examples/kbd/kbd.dart';
+export 'package:gallery/features/components/examples/label/label.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar.dart';
+export 'package:gallery/features/components/examples/squiggle/squiggle.dart';
 export 'package:gallery/features/components/examples/switch/switch.dart';
