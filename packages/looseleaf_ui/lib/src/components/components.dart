@@ -20,6 +20,7 @@ export 'package:looseleaf_ui/src/components/highlight/highlight.dart';
 export 'package:looseleaf_ui/src/components/icon/icon.dart';
 export 'package:looseleaf_ui/src/components/input/input.dart';
 export 'package:looseleaf_ui/src/components/input_group/input_group.dart';
+export 'package:looseleaf_ui/src/components/input_otp/input_otp.dart';
 export 'package:looseleaf_ui/src/components/kbd/kbd.dart';
 export 'package:looseleaf_ui/src/components/label/label.dart';
 export 'package:looseleaf_ui/src/components/lettering/lettering.dart';
