@@ -14,6 +14,7 @@ export 'package:looseleaf_ui/src/components/collapsible/collapsible.dart';
 export 'package:looseleaf_ui/src/components/confetti/confetti.dart';
 export 'package:looseleaf_ui/src/components/direction/direction.dart';
 export 'package:looseleaf_ui/src/components/doodle/doodle.dart';
+export 'package:looseleaf_ui/src/components/empty/empty.dart';
 export 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 export 'package:looseleaf_ui/src/components/handwritten/handwritten.dart';
 export 'package:looseleaf_ui/src/components/highlight/highlight.dart';
