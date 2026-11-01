@@ -2,6 +2,7 @@
 library;
 
 export 'package:looseleaf_ink/looseleaf_ink.dart';
+export 'package:looseleaf_ui/src/components/components.dart';
 export 'package:looseleaf_ui/src/frame/frame.dart';
 export 'package:looseleaf_ui/src/painter/painter.dart';
 export 'package:looseleaf_ui/src/surface/surface.dart';
