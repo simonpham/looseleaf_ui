@@ -47,6 +47,7 @@ class Paper extends StatefulWidget {
     this.curl = false,
     this.seed,
     this.padding = EdgeInsets.zero,
+    this.decor,
     this.child,
   });
 
@@ -94,6 +95,10 @@ class Paper extends StatefulWidget {
 
   /// Space between the sheet's edge and [child].
   final EdgeInsetsGeometry padding;
+
+  /// Drawn decor filling the whole sheet over the paper and under [child]
+  /// (a page's punched holes, a coffee ring); decorative.
+  final Widget? decor;
 
   /// What is written on the sheet.
   final Widget? child;
@@ -196,6 +201,10 @@ class _PaperState extends State<Paper> with InkSeed {
             curl: widget.curl,
           ),
         ),
+        if (widget.decor case final decor?)
+          Positioned.fill(
+            child: ExcludeSemantics(child: IgnorePointer(child: decor)),
+          ),
         Padding(
           padding: widget.padding,
           child: widget.child ?? const SizedBox.shrink(),

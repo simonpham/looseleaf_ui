@@ -28,6 +28,7 @@ abstract final class Spacing {
   static const double d52 = 52;
   static const double d56 = 56;
   static const double d64 = 64;
+  static const double d68 = 68;
   static const double d76 = 76;
   static const double d80 = 80;
   static const double d96 = 96;
