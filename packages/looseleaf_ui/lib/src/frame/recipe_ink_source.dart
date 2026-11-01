@@ -78,4 +78,13 @@ class RecipeInkSource<P> extends InkSource {
       pad: frame.pad,
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      other is RecipeInkSource<P> &&
+      identical(other.recipe, recipe) &&
+      other.paramsKey == paramsKey;
+
+  @override
+  int get hashCode => Object.hash(recipe, paramsKey);
 }
