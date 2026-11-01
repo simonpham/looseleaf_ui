@@ -49,10 +49,12 @@ class LooseleafTypography {
   /// The body line height multiplier.
   final double lineHeight;
 
-  /// Kevin Sans in [face] at the CSS size [cssSize] (before size-adjust).
+  /// Kevin Sans in [face] at the CSS size [cssSize] (before size-adjust),
+  /// with the CSS unitless [cssLineHeight] (defaults to the body's).
   TextStyle face(
     KevinSansFace face, {
     double? cssSize,
+    double? cssLineHeight,
     FontWeight fontWeight = FontWeight.w400,
     Color? color,
   }) => TextStyle(
@@ -60,13 +62,24 @@ class LooseleafTypography {
     package: package,
     fontSize: (cssSize ?? bodySize) * face.sizeAdjust,
     fontWeight: fontWeight,
-    height: lineHeight / face.sizeAdjust,
+    height: (cssLineHeight ?? lineHeight) / face.sizeAdjust,
+    leadingDistribution: TextLeadingDistribution.even,
     color: color,
   );
 
   /// Interface text: labels, buttons, body copy (`--font-hand`).
   TextStyle interface({double? cssSize, Color? color}) =>
       face(KevinSansFace.hand, cssSize: cssSize, color: color);
+
+  /// Form labels, upstream `<Label>`: `font-hand text-[15px] leading-none
+  /// font-bold`.
+  TextStyle label({Color? color}) => face(
+    KevinSansFace.hand,
+    cssSize: 15,
+    cssLineHeight: 1,
+    fontWeight: FontWeight.w700,
+    color: color,
+  );
 
   /// Titles and headings (`--font-script`, semibold upstream).
   TextStyle title({double? cssSize, Color? color}) => face(
