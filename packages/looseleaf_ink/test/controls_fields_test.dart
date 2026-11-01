@@ -121,14 +121,49 @@ final Map<String, _Check<Object?>> _checks = {
     ),
     (p) => p.toJson(),
   ),
+  'field-choice': _Check<NoParams>(
+    fieldChoiceRecipe,
+    (_) => const NoParams(),
+    (p) => p.toJson(),
+  ),
+  'field-error': _Check<NoParams>(
+    fieldErrorRecipe,
+    (_) => const NoParams(),
+    (p) => p.toJson(),
+  ),
+  'input-group': _Check<NoParams>(
+    inputGroupRecipe,
+    (_) => const NoParams(),
+    (p) => p.toJson(),
+  ),
+  'input-group-rule': _Check<InputGroupRuleParams>(
+    inputGroupRuleRecipe,
+    (p) => InputGroupRuleParams(
+      edge: InputGroupEdge.values.byName(p['edge'] as String),
+    ),
+    (p) => p.toJson(),
+  ),
+  'input-otp-slot': _Check<OtpSlotParams>(
+    otpSlotRecipe,
+    (p) => OtpSlotParams(
+      invalid: _b(p['invalid']),
+      disabled: _b(p['disabled']),
+      active: _b(p['active']),
+      filled: _b(p['filled']),
+    ),
+    (p) => p.toJson(),
+  ),
+  'prompt-input-body': _Check<PromptInputBodyParams>(
+    promptInputBodyRecipe,
+    (p) => PromptInputBodyParams(disabled: _b(p['disabled'])),
+    (p) => p.toJson(),
+  ),
 };
 
 void main() {
-  final fixture =
-      jsonDecode(
-            File('test/fixtures/controls_fields.json').readAsStringSync(),
-          )
-          as _Json;
+  final fixture = jsonDecode(
+    File('test/fixtures/controls_fields.json').readAsStringSync(),
+  ) as _Json;
   for (final c in (fixture['frames'] as List).cast<_Json>()) {
     test(c['name'], () {
       final check = _checks[c['recipe']];
@@ -136,4 +171,19 @@ void main() {
       check.run(c);
     });
   }
+
+  final tiles = jsonDecode(
+    File('test/fixtures/controls_fields_tiles.json').readAsStringSync(),
+  ) as _Json;
+  for (final c in (tiles['otpCaret'] as List).cast<_Json>()) {
+    test('otpCaretTile ${c['seed']}', () {
+      expect(otpCaretTile(c['seed'] as String), c['out']);
+    });
+  }
+  test('otpCaretTile matches otpCss', () {
+    expect(
+      tiles['otpCss'],
+      contains('--ll-otp-caret:${otpCaretTile('otp|caret')}}'),
+    );
+  });
 }
