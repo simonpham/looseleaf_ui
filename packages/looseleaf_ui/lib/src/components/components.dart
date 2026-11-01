@@ -28,6 +28,7 @@ export 'package:looseleaf_ui/src/components/desk/desk.dart';
 export 'package:looseleaf_ui/src/components/dialog/dialog.dart';
 export 'package:looseleaf_ui/src/components/direction/direction.dart';
 export 'package:looseleaf_ui/src/components/doodle/doodle.dart';
+export 'package:looseleaf_ui/src/components/dropdown_menu/dropdown_menu.dart';
 export 'package:looseleaf_ui/src/components/dropzone/dropzone.dart';
 export 'package:looseleaf_ui/src/components/empty/empty.dart';
 export 'package:looseleaf_ui/src/components/envelope/envelope.dart';
