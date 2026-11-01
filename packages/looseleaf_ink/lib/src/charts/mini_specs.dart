@@ -50,6 +50,19 @@ final class SparkSpec extends ChartSpec {
 
   @override
   SparkLayout layout(Box box, [bool calm = false]) => layoutSpark(this, box);
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'type': 'spark',
+    'variant': variant.name,
+    'values': values,
+    'min': min,
+    'max': max,
+    'slot': slot,
+    'ends': ends,
+    'extremes': extremes,
+    'state': state.name,
+  };
 }
 
 /// One tally row.
@@ -75,6 +88,14 @@ final class TallyRow {
 
   /// The count.
   final double count;
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'key': key,
+    'name': name,
+    'slot': slot,
+    'count': count,
+  };
 }
 
 /// A tally chart: rows of five-bar gates.
@@ -108,6 +129,16 @@ final class TallySpec extends ChartSpec {
   @override
   TallyLayout layout(Box box, [bool calm = false]) =>
       layoutTally(this, box, calm);
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'type': 'tally',
+    'rows': [for (final r in rows) r.toJson()],
+    'unit': unit,
+    'totals': totals,
+    'state': state.name,
+    'stateText': ?stateText,
+  };
 }
 
 /// How a heatmap is laid out.
@@ -118,7 +149,7 @@ final class HeatLabel {
   /// A label.
   const HeatLabel(this.i, this.text);
 
-  /// Row or column index.
+  /// ChartRow or column index.
   final int i;
 
   /// The text.
@@ -163,7 +194,7 @@ final class HeatSpec extends ChartSpec {
   /// Column labels.
   final List<HeatLabel> colLabels;
 
-  /// Row labels.
+  /// ChartRow labels.
   final List<HeatLabel> rowLabels;
 
   /// The colour slot.
@@ -187,4 +218,24 @@ final class HeatSpec extends ChartSpec {
   @override
   HeatLayout layout(Box box, [bool calm = false]) =>
       layoutHeat(this, box, calm);
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'type': 'heat',
+    'cols': cols,
+    'rows': rows,
+    'levels': levels,
+    'levelCount': levelCount,
+    'colLabels': [for (final l in colLabels) l.toJson()],
+    'rowLabels': [for (final l in rowLabels) l.toJson()],
+    'slot': slot,
+    'variant': variant.name,
+    'legend': switch (legend) {
+      final l? => {'less': l.less, 'more': l.more},
+      null => null,
+    },
+    'patterns': patterns,
+    'state': state.name,
+    'stateText': ?stateText,
+  };
 }

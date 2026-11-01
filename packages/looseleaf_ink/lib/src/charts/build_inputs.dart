@@ -5,8 +5,8 @@ import 'package:looseleaf_ink/src/charts/xy_spec.dart';
 
 /// A data row: field name to value.
 ///
-/// Mirrors `Row` in `src/lib/ink/charts/chart-build.ts`.
-typedef Row = Map<String, Object?>;
+/// Mirrors `ChartRow` in `src/lib/ink/charts/chart-build.ts`.
+typedef ChartRow = Map<String, Object?>;
 
 /// A series to draw from the rows' [key] field; null looks are automatic.
 ///
@@ -160,7 +160,7 @@ final class XYBuildInput {
   });
 
   /// The data.
-  final List<Row> rows;
+  final List<ChartRow> rows;
 
   /// The category (or scatter x) field.
   final String xKey;

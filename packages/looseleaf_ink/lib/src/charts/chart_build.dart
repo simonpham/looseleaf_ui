@@ -34,8 +34,8 @@ const int maxPoints = 1500;
 /// lines reduced with [lttb]; [total] is the original count when thinned.
 ///
 /// Mirrors `capRows` in `src/lib/ink/charts/chart-build.ts`.
-({List<Row> rows, int? total}) capRows(
-  List<Row> rows,
+({List<ChartRow> rows, int? total}) capRows(
+  List<ChartRow> rows,
   List<String> keys,
   XYKind kind,
   String xKey,
@@ -48,7 +48,7 @@ const int maxPoints = 1500;
   );
   if (kind == XYKind.bar && n > limit) {
     final size = (n / limit).ceil();
-    final out = <Row>[];
+    final out = <ChartRow>[];
     for (var i = 0; i < n; i += size) {
       final chunk = rows.sublist(i, math.min(n, i + size));
       final row = <String, Object?>{xKey: chunk[0][xKey]};
@@ -148,7 +148,7 @@ XYSpec buildXY(XYBuildInput input) => buildXYRows(input).spec;
 /// Builds an XY chart spec from rows, with the rows actually drawn.
 ///
 /// Mirrors `buildXYRows` in `src/lib/ink/charts/chart-build.ts`.
-({XYSpec spec, List<Row> rows}) buildXYRows(XYBuildInput i) {
+({XYSpec spec, List<ChartRow> rows}) buildXYRows(XYBuildInput i) {
   final scatter = i.kind == XYKind.scatter;
   final capped = capRows(
     i.rows,
@@ -287,7 +287,7 @@ XYSeries _series(
   XYBuildInput i,
   SeriesInput s,
   int idx,
-  List<Row> rows,
+  List<ChartRow> rows,
   bool scatter,
 ) {
   final kind = s.kind ?? i.kind;

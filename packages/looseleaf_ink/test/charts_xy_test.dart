@@ -89,12 +89,12 @@ AxisDomain? _domain(Object? v) => switch (v) {
   _ => null,
 };
 
-List<Row> _rows(String name) => [
+List<ChartRow> _rows(String name) => [
   for (final r in (_fx['data'] as Map<String, dynamic>)[name] as List)
     Map<String, Object?>.from(r as Map),
 ];
 
-XYBuildInput _input(Map<String, dynamic> i, List<Row> rows, bool fmt) =>
+XYBuildInput _input(Map<String, dynamic> i, List<ChartRow> rows, bool fmt) =>
     XYBuildInput(
       rows: rows,
       xKey: i['xKey'] as String,
