@@ -31,6 +31,32 @@ lib/src/components/
 
 Theme pieces you will use: `LooseleafTheme.of(context)` (colors, typography, density), `theme.typography.face(KevinSansFace.hand, cssSize:, cssLineHeight:, fontWeight:)`, `theme.typography.label()`, `Spacing`, `InkMotion` (durations, curves, `InkMotion.of(context, duration)` for reduced motion).
 
+## Paper surfaces
+
+Anything that sits on a sheet (card, dialog, sheet, drawer, popover, menus, select, command, sidebar, field, item) is a `Paper` with its own stock and padding. Never paint a paper background by hand.
+
+| Piece | What it does |
+|-------|--------------|
+| `Paper` | A sheet with `child` on it: `stock`, `edge`, `tilt` / `tiltDegrees`, `rules`, `tape`, `fastener`, `shadow` (`PaperShadow.stock`, `.none`, `.lift`, …), `curl`, `padding`, `decor` (a drawn layer over the paper, like a page's holes). Sizes to `child`. Calm cuts edges, flattens tilt, hides tape and fasteners. |
+| `PaperBackground` | Just the sheet (face, tooth, shadow, rules, tilt), filling its parent. Use it in a `Stack` when `Paper`'s layout does not fit. Cut sheets paint directly; drawn edges and curls run `sheetRecipe`. |
+| `PaperRules`, `PaperFastener`, `Tape` | The printed rules, a clip / pin / staple / binder clip, a strip of tape. |
+| `PaperInk` (foundation) | `tier(theme)`, `calm(theme)`, `tiltMax(theme)`, `tilt(context, degrees, factor:)` for props and decor. |
+| `InkArt(drop: DropKind.tape / .prop)` | A prop's drop shadow. |
+
+Faces in recipe markup (`<!--ll-face:…-->`) need nothing special: `InkSurface` paints any faced frame like upstream `SheetLayers` (casts, then faces and ink runs in order). The painters behind it are public for custom work: `PaperFacePainter`, `PaperShadowPainter`, `PaperRulesPainter`.
+
+### Overlays (`components/overlay/`)
+
+`InkPopup` is the whole popup: give it `open`, `onOpenChange`, a `popupBuilder(context, position)` and the trigger as `child`.
+
+- Placement: `side`, `align`, `sideOffset`, `alignOffset`, `collisionPadding`, `avoidCollisions`, `anchor` (a rect in the trigger's coordinates, for a context menu), or `centered: true` for dialogs. `position` gives the side after a flip and `anchorCenter` for an arrow.
+- Motion: `PopupMotionStyle.pop` (popovers, menus, tooltips), `.sheetDrop` (dialogs), `.fade`, `.none`. It stays mounted through the exit.
+- Dismissal: Escape (topmost layer first), outside taps (share `groupId` with a `TapRegion` around the trigger), `dismissOnFocusOutside`; `onDismiss` hears the `OverlayDismissReason`.
+- Focus: `autofocus`, `modal` (traps Tab, blocks the app), `restoreFocus` (skipped after an outside tap).
+- Barrier: `modal` (clear) or `scrim` (Looseleaf's warm vignette, `OverlayScrim`).
+
+Write the popup on `PaperPopup` (slip, `lift` shadow, hairline when calm, `pointer: PopupPointer.popoverSize` for an arrow; add the pointer's `reach` to `sideOffset`). The pieces are public for layouts `InkPopup` does not cover (an edge sheet): `AnchoredOverlay`, `OverlayPosition.resolve`, `OverlayDismiss`, `OverlayFocus`, `OverlayScrim`, `PopupMotion`. `Popover` and `Tooltip` are the reference ports.
+
 ## The widget shape
 
 ```dart
