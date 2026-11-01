@@ -26,8 +26,12 @@ The Dart port reproduces V8's math bit for bit: `JsMath` ports the fdlibm `sin`,
 | `ink_draw` | `shapes.json`, `fills.json` | every `*Lines` function and the `Ink` markup of every shape and fill |
 | `ink_builder` | `builder.json` | `Ink` layers, groups, parts, defs, clips, text, lean merging, knobs, masks |
 | `ink_button` | `recipes.json`, `button.json` | the recipe framework and `runRecipe(buttonRecipe)` frames |
+| `ink_marks_text` | `marks_text.json` | text marks (underline, strike, scribble, highlight, tally, arrow, bracket, circled, quote, signature, squiggle, margin bracket, marker rule) and their helpers, boil knobs |
+| `ink_marks_surfaces` | `marks_surfaces.json` | attachment, bubble, carousel, code block, corkboard, dropzone, empty, flip card, peel corner |
+| `ink_marks_scenes` | `marks_scenes.json` | confetti pieces and flights, polaroid scenes, rating, receipt and barcode, reveal nib, ribbon, stamp button |
+| `ink_marks_tools` | `marks_tools.json` | sketchpad recipes and stroke markup, sticker board item, sticker sheet, stepper, tear-off, typewriter plan and caret, typing indicator |
 
-A recipe port adds an exporter that runs `runRecipe` over its variants (see `ink_button.ts`) and a Dart test that compares `RawFrame.parts` per layer.
+A recipe port adds an exporter that runs `runRecipe` over its variants (see `ink_button.ts`, or `runCases`/`spread` in `recipe_cases.ts`) and a Dart test that compares `RawFrame.parts` per layer.
 
 Fixtures were last exported from upstream commit `747ba9f`.
 
