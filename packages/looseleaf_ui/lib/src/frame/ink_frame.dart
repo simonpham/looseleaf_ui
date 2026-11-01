@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:looseleaf_ui/src/frame/ink_sheet.dart';
 import 'package:looseleaf_ui/src/painter/painter.dart';
 
 /// A drawn, parsed frame: its layers in paint order and the documents that
@@ -13,6 +14,7 @@ class InkFrame {
     required this.pad,
     required this.layers,
     required this.documents,
+    this.sheet,
   });
 
   final String key;
@@ -27,6 +29,10 @@ class InkFrame {
 
   /// Layer name to the document holding it.
   final Map<String, InkDocument> documents;
+
+  /// The paint stack when the frame holds paper faces; its layers then
+  /// paint through [InkSheet.document] instead of [documents].
+  final InkSheet? sheet;
 
   bool has(String layer) => documents.containsKey(layer);
 

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
+import 'package:looseleaf_ink/looseleaf_ink.dart' as ink;
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/painter/painter.dart';
 import 'package:looseleaf_ui/src/surface/ink_motion.dart';
@@ -94,11 +95,112 @@ class InkSurfacePainter extends CustomPainter {
         reveal: motion.reveal.value,
       ),
     );
-    for (final layer in frame.layers) {
-      _paintLayer(canvas, frame, layer, context, hasRest: hasRest);
+    switch (frame.sheet) {
+      case final sheet?:
+        _paintSheet(canvas, frame, sheet, context, hasRest: hasRest);
+      case null:
+        for (final layer in frame.layers) {
+          _paintLayer(canvas, frame, layer, context, hasRest: hasRest);
+        }
     }
     if (isolated) canvas.restore();
     canvas.restore();
+  }
+
+  static bool _always(String layer, InkState? state, {required bool hasRest}) =>
+      layer == InkLayers.rest || (!hasRest && _alwaysWithoutRest(state));
+
+  double _opacityOf(String layer, {required bool hasRest}) {
+    final state = InkState.ofLayer(layer);
+    return switch ((_always(layer, state, hasRest: hasRest), state)) {
+      (true, _) => 1.0,
+      (false, final shown?) => motion.layerOpacity(shown),
+      (false, null) => 0.0,
+    };
+  }
+
+  void _paintSheet(
+    Canvas canvas,
+    InkFrame frame,
+    InkSheet sheet,
+    InkPaintContext context, {
+    required bool hasRest,
+  }) {
+    for (final cast in sheet.casts) {
+      _paintCast(canvas, frame, cast);
+    }
+    final box = Rect.fromLTWH(
+      -frame.pad,
+      -frame.pad,
+      frame.width + 2 * frame.pad,
+      frame.height + 2 * frame.pad,
+    );
+    for (final piece in sheet.pieces) {
+      switch (piece) {
+        case InkSheetFace(:final spec, :final layer, :final path):
+          final opacity = _opacityOf(layer, hasRest: hasRest);
+          if (opacity <= 0) continue;
+          final faded = opacity < 1;
+          if (faded) {
+            canvas.saveLayer(
+              box,
+              Paint()..color = Color.fromRGBO(0, 0, 0, opacity),
+            );
+          }
+          PaperFacePainter.paint(
+            canvas,
+            path,
+            stock: spec.stock,
+            seed: spec.seed,
+            theme: theme,
+            box: box,
+            veil: spec.veil,
+            textures: context.textures,
+          );
+          if (faded) canvas.restore();
+        case InkSheetRun(:final groups):
+          for (final (layer, part) in groups) {
+            _paintLayer(
+              canvas,
+              frame,
+              layer,
+              context,
+              hasRest: hasRest,
+              document: sheet.document,
+              part: part,
+            );
+          }
+      }
+    }
+  }
+
+  void _paintCast(Canvas canvas, InkFrame frame, ink.FaceSpec spec) {
+    final cast = spec.cast;
+    if (cast == null) return;
+    final [top, right, bottom, left] = cast.inset;
+    final rect = Rect.fromLTRB(
+      left,
+      top,
+      frame.width - right,
+      frame.height - bottom,
+    );
+    final radius = cast.radius;
+    final box = switch (radius) {
+      [final tl, final tr, final br, final bl] => RRect.fromRectAndCorners(
+        rect,
+        topLeft: Radius.circular(tl),
+        topRight: Radius.circular(tr),
+        bottomRight: Radius.circular(br),
+        bottomLeft: Radius.circular(bl),
+      ),
+      _ => RRect.fromRectAndRadius(rect, Radius.zero),
+    };
+    PaperShadowPainter.paint(
+      canvas,
+      box,
+      PaperShadowPainter.layersOf(cast.kind, all: radius != null),
+      theme: theme,
+    );
   }
 
   void _paintLayer(
@@ -107,17 +209,13 @@ class InkSurfacePainter extends CustomPainter {
     String layer,
     InkPaintContext context, {
     required bool hasRest,
+    InkDocument? document,
+    String? part,
   }) {
-    final document = frame.documents[layer];
-    if (document == null) return;
+    final source = document ?? frame.documents[layer];
+    if (source == null) return;
     final state = InkState.ofLayer(layer);
-    final always =
-        layer == InkLayers.rest || (!hasRest && _alwaysWithoutRest(state));
-    final opacity = switch ((always, state)) {
-      (true, _) => 1.0,
-      (false, final shown?) => motion.layerOpacity(shown),
-      (false, null) => 0.0,
-    };
+    final opacity = _opacityOf(layer, hasRest: hasRest);
     if (opacity <= 0) return;
     canvas.save();
     if (layer == InkLayers.rest) {
@@ -129,12 +227,19 @@ class InkSurfacePainter extends CustomPainter {
       canvas.translate(sunk * 0.6, dy);
     }
     if (state == InkState.checked || state == InkState.indeterminate) {
-      _pop(canvas, frame.boundsOf(layer), switch (always) {
+      _pop(canvas, frame.boundsOf(layer), switch (_always(
+        layer,
+        state,
+        hasRest: hasRest,
+      )) {
         true => 1,
         false => motion.pop(state ?? InkState.checked),
       });
     }
-    InkPainter(document, context).paintLayer(canvas, layer, opacity: opacity);
+    InkPainter(
+      source,
+      context,
+    ).paintLayer(canvas, part ?? layer, opacity: opacity);
     canvas.restore();
   }
 

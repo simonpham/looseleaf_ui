@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:looseleaf_ui/src/frame/ink_frame.dart';
 import 'package:looseleaf_ui/src/frame/ink_frame_request.dart';
 import 'package:looseleaf_ui/src/frame/ink_layers.dart';
+import 'package:looseleaf_ui/src/frame/ink_sheet.dart';
 import 'package:looseleaf_ui/src/frame/ink_source.dart';
 import 'package:looseleaf_ui/src/painter/painter.dart';
 
@@ -134,11 +135,14 @@ class _Entry {
   final Map<String, InkDocument> documents = {};
   final Set<String> drawnLazy = {};
   int chars = 0;
+  InkSheet? _sheet;
   InkFrame? _frame;
 
   void addEager(Map<String, String> parts) {
     if (parts.isEmpty) return;
-    final document = InkDocument.parseLayers(parts);
+    final sheet = InkSheet.of(InkLayers.sorted(parts.keys), parts);
+    _sheet = sheet;
+    final document = sheet?.document ?? InkDocument.parseLayers(parts);
     for (final layer in parts.keys) {
       documents[layer] = document;
     }
@@ -160,5 +164,6 @@ class _Entry {
     pad: pad,
     layers: InkLayers.sorted(documents.keys),
     documents: Map.unmodifiable(documents),
+    sheet: _sheet,
   );
 }
