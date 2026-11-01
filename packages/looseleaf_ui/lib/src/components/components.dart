@@ -1,3 +1,4 @@
+export 'package:looseleaf_ui/src/components/accordion/accordion.dart';
 export 'package:looseleaf_ui/src/components/annotate/annotate.dart';
 export 'package:looseleaf_ui/src/components/arrow/arrow.dart';
 export 'package:looseleaf_ui/src/components/art/art.dart';
