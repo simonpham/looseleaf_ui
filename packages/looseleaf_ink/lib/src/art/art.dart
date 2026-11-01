@@ -1,4 +1,11 @@
+export 'package:looseleaf_ink/src/art/catalog/catalog.dart';
+export 'package:looseleaf_ink/src/art/doodles/doodles.dart';
 export 'package:looseleaf_ink/src/art/dsl/dsl.dart';
 export 'package:looseleaf_ink/src/art/gen/gen.dart';
+export 'package:looseleaf_ink/src/art/icons/icons.dart';
+export 'package:looseleaf_ink/src/art/mascots/mascots.dart';
 export 'package:looseleaf_ink/src/art/model/model.dart';
+export 'package:looseleaf_ink/src/art/props/props.dart';
+export 'package:looseleaf_ink/src/art/scenes/scenes.dart';
+export 'package:looseleaf_ink/src/art/stickers/stickers.dart';
 export 'package:looseleaf_ink/src/art/text/text.dart';
