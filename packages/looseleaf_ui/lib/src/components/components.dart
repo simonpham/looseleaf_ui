@@ -23,6 +23,7 @@ export 'package:looseleaf_ui/src/components/confetti/confetti.dart';
 export 'package:looseleaf_ui/src/components/corkboard/corkboard.dart';
 export 'package:looseleaf_ui/src/components/date_picker/date_picker.dart';
 export 'package:looseleaf_ui/src/components/desk/desk.dart';
+export 'package:looseleaf_ui/src/components/dialog/dialog.dart';
 export 'package:looseleaf_ui/src/components/direction/direction.dart';
 export 'package:looseleaf_ui/src/components/doodle/doodle.dart';
 export 'package:looseleaf_ui/src/components/dropzone/dropzone.dart';
