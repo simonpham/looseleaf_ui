@@ -24,6 +24,7 @@ export 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
 export 'package:looseleaf_ui/src/components/reveal/reveal.dart';
 export 'package:looseleaf_ui/src/components/ribbon/ribbon.dart';
 export 'package:looseleaf_ui/src/components/scribble/scribble.dart';
+export 'package:looseleaf_ui/src/components/signature/signature.dart';
 export 'package:looseleaf_ui/src/components/skeleton/skeleton.dart';
 export 'package:looseleaf_ui/src/components/spinner/spinner.dart';
 export 'package:looseleaf_ui/src/components/squiggle/squiggle.dart';
