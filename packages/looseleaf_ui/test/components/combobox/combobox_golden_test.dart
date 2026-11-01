@@ -171,6 +171,7 @@ void main() {
                           ),
                         ),
                         ComboboxContent(
+                          seed: 'popup',
                           children: [
                             ComboboxInput(
                               placeholder: 'Search framework...',

@@ -2,11 +2,13 @@ import 'dart:math' as math;
 
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/combobox/combobox_metrics.dart';
-import 'package:looseleaf_ui/src/components/combobox/combobox_popup_surface.dart';
 import 'package:looseleaf_ui/src/components/combobox/combobox_scope.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
+import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 
-/// The popup of a [Combobox]: hangs 6 px under the trigger or field, as
-/// wide as it (at least 208 px), and holds the search box and the list.
+/// The popup of a [Combobox]: a flat slip of paper ([PaperPopup]) that
+/// hangs 6 px under the trigger or field, as wide as it (at least 208 px),
+/// and holds the search box and the list.
 ///
 /// It shows while the combobox is open; a tap outside it or Escape closes
 /// it. Its place in the tree does not matter: it is drawn in the nearest
@@ -19,6 +21,7 @@ class ComboboxContent extends StatefulWidget {
     required this.children,
     this.offset = ComboboxMetrics.sideOffset,
     this.width,
+    this.seed,
   });
 
   /// Usually a [ComboboxInput] (the search box) and a [ComboboxList].
@@ -30,11 +33,14 @@ class ComboboxContent extends StatefulWidget {
   /// A fixed width over the anchor's.
   final double? width;
 
+  /// Pins the paper's drawing.
+  final String? seed;
+
   @override
   State<ComboboxContent> createState() => _ComboboxContentState();
 }
 
-class _ComboboxContentState extends State<ComboboxContent> {
+class _ComboboxContentState extends State<ComboboxContent> with InkSeed {
   final OverlayPortalController _portal = OverlayPortalController();
 
   @override
@@ -93,7 +99,9 @@ class _ComboboxContentState extends State<ComboboxContent> {
                       ),
                   child: child,
                 ),
-                child: ComboboxPopupSurface(
+                child: PaperPopup(
+                  seed: inkSeed(widget.seed),
+                  tilt: false,
                   child: ComboboxScope(
                     controller: controller,
                     revision: scope.revision,

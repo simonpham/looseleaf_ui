@@ -16,7 +16,6 @@ export 'package:looseleaf_ui/src/components/combobox/combobox_label.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox_list.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox_loading.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox_metrics.dart';
-export 'package:looseleaf_ui/src/components/combobox/combobox_popup_surface.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox_row.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox_scope.dart';
 export 'package:looseleaf_ui/src/components/combobox/combobox_separator.dart';
