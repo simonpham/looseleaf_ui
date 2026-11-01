@@ -30,6 +30,7 @@ export 'package:looseleaf_ui/src/components/lettering/lettering.dart';
 export 'package:looseleaf_ui/src/components/marker/marker.dart';
 export 'package:looseleaf_ui/src/components/mascot/mascot.dart';
 export 'package:looseleaf_ui/src/components/message/message.dart';
+export 'package:looseleaf_ui/src/components/message_scroller/message_scroller.dart';
 export 'package:looseleaf_ui/src/components/native_select/native_select.dart';
 export 'package:looseleaf_ui/src/components/pagination/pagination.dart';
 export 'package:looseleaf_ui/src/components/progress/progress.dart';
