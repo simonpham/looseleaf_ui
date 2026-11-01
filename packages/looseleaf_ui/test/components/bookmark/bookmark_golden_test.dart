@@ -35,7 +35,7 @@ void main() {
                     children: [
                       Bookmark(value: false, onChanged: (_) {}, seed: 'off'),
                       Bookmark(value: true, onChanged: (_) {}, seed: 'on'),
-                      Bookmark(value: false, disabled: true, seed: 'dis'),
+                      const Bookmark(value: false, disabled: true, seed: 'dis'),
                       Bookmark(
                         value: false,
                         onChanged: (_) {},
@@ -63,12 +63,12 @@ void main() {
                         ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 320,
                     child: Stack(
                       clipBehavior: Clip.none,
                       children: [
-                        const Paper(
+                        Paper(
                           seed: 'marked',
                           padding: EdgeInsets.all(Spacing.d24),
                           child: SizedBox(
@@ -77,7 +77,7 @@ void main() {
                             child: Text('Chapter three'),
                           ),
                         ),
-                        const Positioned(
+                        Positioned(
                           top: -Spacing.d4,
                           right: Spacing.d24,
                           child: BookmarkRibbon(seed: 'r1'),
