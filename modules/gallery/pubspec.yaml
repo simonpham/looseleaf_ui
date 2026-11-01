@@ -24,4 +24,5 @@ dev_dependencies:
 
 flutter:
   assets:
+    - lib/features/components/examples/badge/
     - lib/features/components/examples/button/
