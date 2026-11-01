@@ -3,6 +3,7 @@ export 'package:looseleaf_ui/src/components/annotate/annotate.dart';
 export 'package:looseleaf_ui/src/components/arrow/arrow.dart';
 export 'package:looseleaf_ui/src/components/art/art.dart';
 export 'package:looseleaf_ui/src/components/asterisk/asterisk.dart';
+export 'package:looseleaf_ui/src/components/avatar/avatar.dart';
 export 'package:looseleaf_ui/src/components/badge/badge.dart';
 export 'package:looseleaf_ui/src/components/boil/boil.dart';
 export 'package:looseleaf_ui/src/components/bracket/bracket.dart';
