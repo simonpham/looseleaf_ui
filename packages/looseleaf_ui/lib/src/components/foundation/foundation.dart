@@ -7,4 +7,5 @@ export 'package:looseleaf_ui/src/components/foundation/ink_mark.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_mark_measure.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_mark_surface.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_mark_wipe.dart';
+export 'package:looseleaf_ui/src/components/foundation/ink_roving_focus.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_seed.dart';
