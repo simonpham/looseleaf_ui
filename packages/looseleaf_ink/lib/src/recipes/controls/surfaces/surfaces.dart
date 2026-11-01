@@ -1,2 +1,10 @@
-/// Control recipes: surfaces.
-library;
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/accordion_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/alert_dialog_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/alert_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/avatar_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/badge_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/breadcrumb_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/button_group_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/card_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/hover_card_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/kbd_ink.dart';
