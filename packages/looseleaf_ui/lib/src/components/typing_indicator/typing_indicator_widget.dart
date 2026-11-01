@@ -58,9 +58,9 @@ class TypingIndicator extends StatefulWidget {
 
   /// The indicator's size per variant (`w-14 h-6`, `w-20 h-6`).
   static Size sizeOf(TypingVariant variant) => switch (variant) {
-    TypingVariant.dots => const Size(Spacing.d48 + Spacing.d8, Spacing.d24),
+    TypingVariant.dots => const Size(Spacing.d56, Spacing.d24),
     TypingVariant.squiggle => const Size(
-      Spacing.d64 + Spacing.d16,
+      Spacing.d80,
       Spacing.d24,
     ),
   };
