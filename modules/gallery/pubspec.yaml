@@ -15,8 +15,13 @@ dependencies:
     path: ../../packages/looseleaf_ink
   looseleaf_ui:
     path: ../../packages/looseleaf_ui
+  provider: ^6.1.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   lints: ^6.0.0
+
+flutter:
+  assets:
+    - lib/features/components/examples/button/
