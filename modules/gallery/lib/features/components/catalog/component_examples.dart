@@ -12,6 +12,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'chart': chartExamples,
   'checkbox': checkboxExamples,
   'doodle': doodleExamples,
+  'highlight': highlightExamples,
   'kbd': kbdExamples,
   'label': labelExamples,
   'label-tag': labelTagExamples,
@@ -25,4 +26,5 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'switch': switchExamples,
   'toggle': toggleExamples,
   'typing-indicator': typingIndicatorExamples,
+  'underline': underlineExamples,
 };

@@ -34,6 +34,7 @@ flutter:
     - lib/features/components/examples/chart/
     - lib/features/components/examples/checkbox/
     - lib/features/components/examples/doodle/
+    - lib/features/components/examples/highlight/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
     - lib/features/components/examples/label_tag/
@@ -47,3 +48,4 @@ flutter:
     - lib/features/components/examples/switch/
     - lib/features/components/examples/toggle/
     - lib/features/components/examples/typing_indicator/
+    - lib/features/components/examples/underline/
