@@ -40,9 +40,14 @@ The Dart port reproduces V8's math bit for bit: `JsMath` ports the fdlibm `sin`,
 | `ink_paper` | `paper.json` | stocks, rule geometry and CSS layers, sheet shadows, drops, tilts, tile offsets, edge specs, `sheetOutline` per edge kind, face marks, `faceLook`, `faceClip`, `translatePath`, `pathBox`, `faceSvg`, `renderFaces` |
 | `ink_paper_props` | `paper_props.json` | every paper prop (tape kinds and ends, clip, pin, staple, binder clip, stitches, rubber band, coffee ring, sticky curl, ruler) |
 | `ink_paper_textures` | `paper_textures.json` | paper and desk backgrounds, texture CSS vars, SVG pattern and grain mask defs (tile images swapped for `{tile:<name>}`) |
+| `ink_charts` | `charts.json` | chart scales and ticks, number formats, text measure, label picking, curves, LTTB, heatmap data (calendar and grid) |
+| `ink_charts_xy` | `charts_xy.json`, `charts_xy_*.json` | `buildXY` specs over many datasets and options, `capRows`, looks, summaries, tables, `layoutXY` (bar, line, area, stacked, horizontal, scatter, notes, bands, refs, states) with cursors, hit tests and key steps |
+| `ink_charts_polar` | `charts_polar.json` | pie, radar, radial, gauge, spark, tally and heatmap layouts through `layoutChart`, with cursors, hit tests and key steps |
 
 A recipe port adds an exporter that runs `runRecipe` over its variants (see `ink_button.ts`, or `runCases`/`spread` in `recipe_cases.ts`) and a Dart test that compares `RawFrame.parts` per layer.
 
 Fixtures were last exported from upstream commit `747ba9f`.
+
+The chart exporters share `charts_support.ts` (JSON-safe layouts with their cursors, hits and steps).
 
 Each exporter in `exporters/` imports the original through its `@/` alias and calls `writeFixture` (`write.ts`) with a path under the repo root.
