@@ -8,3 +8,4 @@ export 'package:looseleaf_ink/src/core/core.dart';
 export 'package:looseleaf_ink/src/draw/draw.dart';
 export 'package:looseleaf_ink/src/geom/geom.dart';
 export 'package:looseleaf_ink/src/pen/pen.dart';
+export 'package:looseleaf_ink/src/recipes/recipes.dart';

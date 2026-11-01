@@ -1,0 +1,237 @@
+{
+ "order": [
+  {
+   "names": [
+    "focus",
+    "rest",
+    "hover"
+   ],
+   "out": [
+    "rest",
+    "hover",
+    "focus"
+   ]
+  },
+  {
+   "names": [
+    "pressed",
+    "busy",
+    "checked",
+    "disabled",
+    "rest",
+    "open",
+    "invalid",
+    "indeterminate",
+    "focus",
+    "hover"
+   ],
+   "out": [
+    "rest",
+    "disabled",
+    "invalid",
+    "checked",
+    "indeterminate",
+    "open",
+    "busy",
+    "hover",
+    "pressed",
+    "focus"
+   ]
+  },
+  {
+   "names": [],
+   "out": []
+  }
+ ],
+ "stringify": [
+  {
+   "v": null,
+   "out": "null"
+  },
+  {
+   "v": true,
+   "out": "true"
+  },
+  {
+   "v": false,
+   "out": "false"
+  },
+  {
+   "v": "a\"b\\c\n\t\u0001é",
+   "out": "\"a\\\"b\\\\c\\n\\t\\u0001é\""
+  },
+  {
+   "v": 0,
+   "out": "0"
+  },
+  {
+   "v": 0,
+   "out": "0"
+  },
+  {
+   "v": 1.5,
+   "out": "1.5"
+  },
+  {
+   "v": 1e+21,
+   "out": "1e+21"
+  },
+  {
+   "v": 1e-7,
+   "out": "1e-7"
+  },
+  {
+   "v": 123456789.125,
+   "out": "123456789.125"
+  },
+  {
+   "v": "__NaN",
+   "out": "\"NaN\""
+  },
+  {
+   "v": "__Infinity",
+   "out": "\"NaN\""
+  },
+  {
+   "v": [
+    1,
+    "x",
+    null,
+    null,
+    [
+     true
+    ]
+   ],
+   "out": "[1,\"x\",null,null,[true]]"
+  },
+  {
+   "v": {
+    "b": 1,
+    "a": "x",
+    "d": null,
+    "nested": {
+     "z": [
+      1,
+      {
+       "y": 2,
+       "x": 1
+      }
+     ],
+     "A": 0
+    }
+   },
+   "out": "{\"a\":\"x\",\"b\":1,\"d\":null,\"nested\":{\"A\":0,\"z\":[1,{\"x\":1,\"y\":2}]}}"
+  },
+  {
+   "v": {
+    "variant": "default",
+    "size": "sm",
+    "disabled": true
+   },
+   "out": "{\"disabled\":true,\"size\":\"sm\",\"variant\":\"default\"}"
+  }
+ ],
+ "buckets": [
+  {
+   "w": 37,
+   "h": 23,
+   "out": {
+    "w": 36,
+    "h": 24
+   }
+  },
+  {
+   "w": 1,
+   "h": 1,
+   "out": {
+    "w": 4,
+    "h": 2
+   }
+  },
+  {
+   "w": 100.4,
+   "h": 35.2,
+   "out": {
+    "w": 100,
+    "h": 36
+   }
+  },
+  {
+   "w": 2,
+   "h": 0.9,
+   "out": {
+    "w": 4,
+    "h": 2
+   }
+  },
+  {
+   "w": 361,
+   "h": 44,
+   "out": {
+    "w": 360,
+    "h": 44
+   }
+  },
+  {
+   "w": 37,
+   "h": 23,
+   "q": [
+    8,
+    8
+   ],
+   "out": {
+    "w": 40,
+    "h": 24
+   }
+  }
+ ],
+ "knobsKeys": [
+  {
+   "k": {
+    "wobble": 1,
+    "misreg": 1,
+    "bleed": 1,
+    "width": 1
+   },
+   "out": "1,1,1,1"
+  },
+  {
+   "k": {
+    "wobble": 0.333,
+    "misreg": 1.005,
+    "bleed": 2,
+    "width": 0.30000000000000004
+   },
+   "out": "0.33,1,2,0.3"
+  }
+ ],
+ "resolved": [
+  {
+   "density": "comfortable",
+   "out": {
+    "wobble": 1.2,
+    "misreg": 0.8,
+    "bleed": 1.4,
+    "width": 1.1
+   }
+  },
+  {
+   "density": "compact",
+   "out": {
+    "wobble": 1.2,
+    "misreg": 0.68,
+    "bleed": 1.4,
+    "width": 1.034
+   }
+  },
+  {
+   "density": "calm",
+   "out": {
+    "wobble": 1,
+    "misreg": 1,
+    "bleed": 1.4,
+    "width": 1
+   }
+  }
+ ]
+}
