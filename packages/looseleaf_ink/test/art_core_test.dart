@@ -141,6 +141,60 @@ StampOpts _stampOpts(Map<String, dynamic> o) => StampOpts(
   grain: o['grain'] as bool?,
 );
 
+ArtColour _colourOf(Object? v) => ArtColour.parse(v as String) ?? ArtColour.sil;
+
+ArtPart _partOf(List<dynamic> p) {
+  Object? at(int i) => switch (i < p.length) {
+    true => p[i],
+    false => null,
+  };
+  return switch (p[0]) {
+    'f' => FillPart(_colourOf(p[1]), p[2] as String, _d(at(3))),
+    's' => StrokePart(p[1] as String, _d(at(2))),
+    'c' => ColourStrokePart(_colourOf(p[1]), p[2] as String, _d(at(3))),
+    'd' => DotPart(_d(p[1]) ?? 0, _d(p[2]) ?? 0, _d(at(3))),
+    'h' => HighlightPart(p[1] as String, _d(at(2))),
+    _ => TextPart(
+      p[1] as String,
+      _d(p[2]) ?? 0,
+      _d(p[3]) ?? 0,
+      _d(p[4]) ?? 0,
+      switch (at(5)) {
+        final String c => _colourOf(c),
+        _ => null,
+      },
+      _enum(LetterFont.values, at(6)),
+    ),
+  };
+}
+
+List<ArtPart>? _partsOf(Object? v) => switch (v) {
+  final List<dynamic> list => [
+    for (final p in list) _partOf(p as List<dynamic>),
+  ],
+  _ => null,
+};
+
+ArtDef _defOf(Map<String, dynamic> d) => ArtDef(
+  grid: switch (d['grid']) {
+    24 => ArtGrid.icon,
+    64 => ArtGrid.doodle,
+    [final num w, final num h] => ArtGrid(w.toDouble(), h.toDouble()),
+    _ => ArtGrid.doodle,
+  },
+  parts: _partsOf(d['parts']) ?? const [],
+  small: _partsOf(d['small']),
+  micro: _partsOf(d['micro']),
+  hi: _partsOf(d['hi']),
+  nibK: _d(d['nibK']),
+  tags: (d['tags'] as List?)?.cast<String>(),
+);
+
+List<Map<String, Object?>> _problems(List<Problem> problems) => [
+  for (final p in problems)
+    {'level': p.level.name, 'code': p.code, 'msg': p.msg, 'at': ?p.at},
+];
+
 void _expectResult(InkResult r, Map<String, dynamic> out) {
   expect(r.svg, out['svg']);
   expect([r.pad, r.w, r.h], [out['pad'], out['w'], out['h']]);
@@ -342,6 +396,54 @@ void main() {
       expect(mascotPropDefs.keys, ids['mascotProps']);
       expect(mascotFrames.keys, ids['mascotFrames']);
       expect(scenes.keys, ids['scenes']);
+    });
+  });
+
+  final validation = _fixture['validation'] as Map<String, dynamic>;
+  group('validation', () {
+    test('the catalog', () {
+      final tables = <String, Map<String, ArtDef>>{
+        'icons': icons,
+        'doodles': doodles,
+        'stickers': {
+          for (final MapEntry(:key, :value) in stickers.entries)
+            if (value case final ArtDef def) key: def,
+        },
+        'mascot': mascot,
+        'props': mascotPropDefs,
+        'frames': mascotFrames,
+        'scenes': scenes,
+      };
+      final found = [
+        for (final MapEntry(key: table, value: defs) in tables.entries)
+          for (final MapEntry(:key, :value) in defs.entries)
+            if (validateArt(value, glyph: hasGlyph) case final problems
+                when problems.isNotEmpty)
+              {'table': table, 'id': key, 'out': _problems(problems)},
+      ];
+      expect(found, validation['catalog']);
+    });
+    test('crafted definitions', () {
+      for (final c in _list(validation['bad'])) {
+        final def = _defOf(c['def'] as Map<String, dynamic>);
+        final problems = validateArt(
+          def,
+          kind: _enum(ArtKind.values, c['kind']),
+          glyph: hasGlyph,
+        );
+        expect(_problems(problems), c['out'], reason: '${c['def']}');
+      }
+    });
+    test('checkPath', () {
+      for (final c in _list(validation['paths'])) {
+        final r = checkPath(c['d'] as String);
+        final out = c['out'] as Map<String, dynamic>;
+        final reason = c['d'] as String;
+        expect(r.errors, out['errors'], reason: reason);
+        expect(r.warnings, out['warnings'], reason: reason);
+        expect(r.bbox?.toList(), out['bbox'], reason: reason);
+        expect(r.strokes, out['strokes'], reason: reason);
+      }
     });
   });
 }

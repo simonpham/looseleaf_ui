@@ -1,7 +1,7 @@
 // The art library through its drawing entry points (drawSkeleton, dieCut, renderSticker, drawMascot), the art DSL,
 // glyph lettering, badges and rubber stamps, for packages/looseleaf_ink/test/art_*_test.dart.
 import { badgeSkeleton, dieCut, drawSkeleton, renderSticker, stamp, variantFor, partsFor, type DieCutOpts, type DrawOpts } from '@/lib/ink/art-draw'
-import { parsePath, polygonsOf, tokenize, kindOfDef } from '@/lib/ink/art/dsl'
+import { checkPath, parsePath, polygonsOf, tokenize, kindOfDef, validateArt } from '@/lib/ink/art/dsl'
 import { capHeight, hasGlyph, measureText, textPath } from '@/lib/ink/art/glyph-text'
 import { drawMascot, mascotVariant } from '@/lib/ink/art/mascot-draw'
 import { icons, iconBatches, kebabIconName, resolveIconName } from '@/lib/ink/art/icons'
@@ -156,7 +156,33 @@ const meta = {
   },
 }
 
-writeChunks('art_core', badgeDies, { dsl, text, badges, stamps, meta })
+// Validation: every catalog definition (with the glyph lookup), crafted bad definitions and paths.
+const catalogs: Array<[string, Record<string, unknown>]> = [
+  ['icons', icons], ['doodles', doodles], ['stickers', stickers], ['mascot', mascot],
+  ['props', mascotProps.propDefs], ['frames', mascotProps.frames], ['scenes', scenes],
+]
+const catalogProblems = catalogs.flatMap(([table, defs]) =>
+  Object.entries(defs)
+    .filter(([, def]) => !('gen' in (def as object)))
+    .map(([id, def]) => ({ table, id, out: validateArt(def as ArtDef, { glyph: hasGlyph }) }))
+    .filter((c) => c.out.length),
+)
+const bad: Array<{ def: ArtDef; kind?: string }> = [
+  { def: { grid: 24, parts: [] } },
+  { def: { grid: [4, 600], parts: [['s', 'M1 1 L5 5', 2]], nibK: 0.5, tags: ['', 'ok'] } },
+  { def: { grid: 24, parts: [['f', 'acc', 'M1 1 L30 1 L30 30 Z', 4], ['c', 'sil', 'M3 3 L9 9', 0.5], ['d', 30, 1, 9], ['d', 5, 5, 0.2], ['t', 'H~I', 12, 12, 4, 'ink', 'type'], ['h', 'X1 2']] } },
+  { def: { grid: 64, parts: [['s', 'M10 10 L20 20 L10 10.1 Q', 1.6], ['s', 'L1 1 Z 3', 1], ['s', 'O 10 10 -2 M1', 1], ['s', 'E 5 5 0 2 0 9 Z', 1]] }, kind: 'doodle' },
+  { def: { grid: 64, parts: [['s', 'M10 10 L20 20 L30 30 L40 40 L50 50 L20 20 L10 10'], ['s', 'M10.123 10 L20.555 20']], small: [['s', 'M10 10 L20 20 L30 30 L40 40 L50 50 L20 20 L10 10'], ['s', 'M10.123 10 L20.555 20']] } },
+  { def: { grid: 24, parts: Array.from({ length: 8 }, () => ['s', 'M4.2 4.4 L8.1 8.3'] as const), micro: Array.from({ length: 10 }, (_, i) => ['d', 5 + i, 6, 1] as const), hi: [['s', 'M4.2 4.4 L8.1 8.3', 1.5]] } },
+  { def: { grid: [64, 72], parts: [['f', 'sil', 'M-9 -9 L99 -9 L99 99 Z'], ['c', 'sky~', 'M2 2 L70 80', 1.45], ['t', 'Hi', 30, 40, 6]] } },
+]
+const validation = {
+  catalog: catalogProblems,
+  bad: bad.map((c) => ({ ...c, out: validateArt(c.def, { kind: c.kind as never, glyph: hasGlyph }) })),
+  paths: ['', '   ', 'M1 1 L2', 'L1 1', 'M1 1 Z', 'M1 1 L2 2 L3 1 Z 4', 'O 1 1', 'O 1 1 0', 'O 1 1 2 -1', 'E 1 1 2 2 0', 'E 1 1 -2 2 0 9', 'M1 1 Q1 2 3', 'M1 1 C1 2 3 4 5', '5 M1 1 L2 2', 'M1 1 L2 2 # ?', 'M10 10 L20 10 L20 20 L10.1 10.1', 'M1.234 1 L2 2', 'M1 1 L2 2 L3 3 L4 4', 'O 12 12 6 E 5 5 2 2 0 90 L1 1', 'M2 2 l3 4 5 6 Z'].map((d) => ({ d, out: checkPath(d) })),
+}
+
+writeChunks('art_core', badgeDies, { dsl, text, badges, stamps, meta, validation })
 
 // Icons: every variant in the ui tone, and doodle-toned with accents at one size.
 const iconIds = Object.keys(icons)
