@@ -10,8 +10,10 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'chart': chartExamples,
   'kbd': kbdExamples,
   'label': labelExamples,
+  'separator': separatorExamples,
   'sidebar': sidebarExamples,
   'squiggle': squiggleExamples,
+  'strike': strikeExamples,
   'switch': switchExamples,
   'toggle': toggleExamples,
 };

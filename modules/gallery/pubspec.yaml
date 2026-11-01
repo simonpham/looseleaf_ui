@@ -30,7 +30,9 @@ flutter:
     - lib/features/components/examples/chart/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
+    - lib/features/components/examples/separator/
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/squiggle/
+    - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
     - lib/features/components/examples/toggle/
