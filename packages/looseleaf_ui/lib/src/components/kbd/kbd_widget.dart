@@ -105,9 +105,9 @@ class _KbdState extends State<Kbd> with InkSeed {
               child: SizedBox(
                 height: _height.of(context),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    start: Spacing.d4,
-                    end: Spacing.d4 + depth,
+                  padding: EdgeInsets.only(
+                    left: Spacing.d4,
+                    right: Spacing.d4 + depth,
                     bottom: depth,
                   ),
                   child: Center(widthFactor: 1, child: widget.child),
