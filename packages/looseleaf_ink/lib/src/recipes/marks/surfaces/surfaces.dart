@@ -1,2 +1,9 @@
-/// The surfaces mark recipes.
-library;
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/attachment_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/bubble_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/carousel_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/code_block_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/corkboard_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/dropzone_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/empty_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/flip_card_ink.dart';
+export 'package:looseleaf_ink/src/recipes/marks/surfaces/peel_corner_ink.dart';
