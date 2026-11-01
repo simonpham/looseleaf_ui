@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
-import '../../support/component_host.dart';
 import '../../support/kevin_sans.dart';
 import '../../support/overlay_host.dart';
 import '../../support/paper_panel.dart';
