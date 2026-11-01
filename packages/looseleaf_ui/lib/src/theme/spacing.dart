@@ -9,6 +9,7 @@ abstract final class Spacing {
   static const double d4 = 4;
   static const double d6 = 6;
   static const double d8 = 8;
+  static const double d9 = 9;
   static const double d10 = 10;
   static const double d12 = 12;
   static const double d14 = 14;
@@ -19,6 +20,7 @@ abstract final class Spacing {
   static const double d24 = 24;
   static const double d26 = 26;
   static const double d28 = 28;
+  static const double d30 = 30;
   static const double d32 = 32;
   static const double d34 = 34;
   static const double d36 = 36;
