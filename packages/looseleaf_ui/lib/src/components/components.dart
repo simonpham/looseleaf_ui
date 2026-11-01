@@ -67,6 +67,7 @@ export 'package:looseleaf_ui/src/components/stamp/stamp.dart';
 export 'package:looseleaf_ui/src/components/stamp_button/stamp_button.dart';
 export 'package:looseleaf_ui/src/components/stepper/stepper.dart';
 export 'package:looseleaf_ui/src/components/sticker/sticker.dart';
+export 'package:looseleaf_ui/src/components/sticky_note/sticky_note.dart';
 export 'package:looseleaf_ui/src/components/strike/strike.dart';
 export 'package:looseleaf_ui/src/components/switch/switch.dart';
 export 'package:looseleaf_ui/src/components/table/table.dart';
