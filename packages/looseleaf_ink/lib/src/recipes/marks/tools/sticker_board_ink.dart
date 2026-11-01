@@ -4,6 +4,8 @@ import 'package:looseleaf_ink/src/draw/draw.dart';
 import 'package:looseleaf_ink/src/geom/geom.dart';
 import 'package:looseleaf_ink/src/pen/pen.dart';
 import 'package:looseleaf_ink/src/recipes/framework/framework.dart';
+import 'package:looseleaf_ink/src/recipes/marks/scenes/scenes.dart';
+import 'package:looseleaf_ink/src/textures/textures.dart';
 
 /// One sticker placed on a board.
 ///
@@ -250,4 +252,48 @@ void _draw(Ink ink, Box size, ItemFrameParams params, RecipeContext ctx) {
       opts: _simple,
     );
   });
+}
+
+/// The stickers on a board as one SVG document of [width] × [height]:
+/// mended [items] in stacking order, each drawn at [size] pixels and placed
+/// by its centre, rotation and scale, over a [background] fill (paper by
+/// default, none when null). Grain tile images come from [uri]; [resolve]
+/// post-processes the markup.
+///
+/// Mirrors `composeBoardSvg` in `src/lib/ink/recipes/sticker-board-ink.ts`.
+String composeBoardSvg(
+  List<StickerBoardItem> items,
+  TileUri uri, {
+  required double width,
+  required double height,
+  required double size,
+  String? background = 'var(--ll-paper)',
+  String Function(String svg)? resolve,
+}) {
+  final ordered = [...wholeItems(items).indexed]
+    ..sort((a, b) {
+      final byZ = (a.$2.z - b.$2.z).sign.toInt();
+      if (byZ != 0) return byZ;
+      return a.$1.compareTo(b.$1);
+    });
+  final body = StringBuffer();
+  for (final (i, (_, it)) in ordered.indexed) {
+    final face = stickerFace(it.name, size, it.id, idPrefix: 'll-x$i');
+    if (face == null) continue;
+    final cx = face.box.x + face.box.w / 2, cy = face.box.y + face.box.h / 2;
+    body.write(
+      '<g transform="translate(${n(it.x)} ${n(it.y)}) rotate(${n(it.rot)}) '
+      'scale(${n(it.scale, 100)}) translate(${n(-cx)} ${n(-cy)})">${face.svg}</g>',
+    );
+  }
+  final bg = switch (background) {
+    final fill? =>
+      '<rect width="${n(width)}" height="${n(height)}" fill="$fill"/>',
+    null => '',
+  };
+  final svg =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="${n(width)}" height="${n(height)}" '
+      'viewBox="0 0 ${n(width)} ${n(height)}">'
+      '<defs>${svgMaskDefs(uri)}</defs>$bg$body</svg>';
+  return resolve?.call(svg) ?? svg;
 }
