@@ -8,8 +8,8 @@ import 'package:looseleaf_ui/src/components/icon/icon.dart';
 import 'package:looseleaf_ui/src/components/native_select/native_select_list.dart';
 import 'package:looseleaf_ui/src/components/native_select/native_select_metrics.dart';
 import 'package:looseleaf_ui/src/components/native_select/native_select_option.dart';
-import 'package:looseleaf_ui/src/components/native_select/native_select_popup_surface.dart';
 import 'package:looseleaf_ui/src/components/native_select/native_select_typeahead.dart';
+import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
@@ -404,7 +404,9 @@ class _NativeSelectState<T> extends State<NativeSelect<T>> with InkSeed {
                   maxHeight: NativeSelectMetrics.listMaxHeight,
                 ),
                 child: IntrinsicWidth(
-                  child: NativeSelectPopupSurface(
+                  child: PaperPopup(
+                    seed: '${inkSeed(widget.seed)}|popup',
+                    tilt: false,
                     child: NativeSelectList<T>(
                       entries: widget.options,
                       value: widget.value,
