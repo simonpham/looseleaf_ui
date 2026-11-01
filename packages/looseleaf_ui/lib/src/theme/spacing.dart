@@ -1,0 +1,38 @@
+/// Spacing tokens for widget dimensions: padding, gaps, icon sizes, radii.
+///
+/// The steps follow Looseleaf's `--ll-space-*` scale (2 to 34 px) plus the
+/// round sizes widgets need beyond it. `hit` is the default touch target.
+abstract final class Spacing {
+  static const double d1 = 1;
+  static const double d2 = 2;
+  static const double d4 = 4;
+  static const double d6 = 6;
+  static const double d8 = 8;
+  static const double d10 = 10;
+  static const double d12 = 12;
+  static const double d14 = 14;
+  static const double d16 = 16;
+  static const double d18 = 18;
+  static const double d20 = 20;
+  static const double d22 = 22;
+  static const double d24 = 24;
+  static const double d26 = 26;
+  static const double d28 = 28;
+  static const double d32 = 32;
+  static const double d34 = 34;
+  static const double d40 = 40;
+  static const double d48 = 48;
+  static const double d64 = 64;
+
+  /// `--ll-hit`: the comfortable touch target.
+  static const double hit = 40;
+
+  /// `--ll-hit` in compact density.
+  static const double hitCompact = 32;
+
+  /// `--ll-hit` in calm density.
+  static const double hitCalm = 28;
+
+  /// `--ll-hit-min`: the smallest touch target.
+  static const double hitMin = 24;
+}
