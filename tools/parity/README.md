@@ -53,6 +53,12 @@ A recipe port adds an exporter that runs `runRecipe` over its variants (see `ink
 
 Fixtures were last exported from upstream commit `747ba9f`.
 
+## Component fixtures
+
+| Exporter | Fixture | Covers |
+|---|---|---|
+| `code_highlight` | `packages/looseleaf_ui/test/fixtures/code_highlight.json` | the code block lexer (`src/lib/code-highlight.ts`): tokens and lines per language over snippets and real upstream files, diff parsing, results and counts, language aliases and file names |
+
 The chart exporters share `charts_support.ts` (JSON-safe layouts with their cursors, hits and steps).
 
 Each exporter in `exporters/` imports the original through its `@/` alias and calls `writeFixture` (`write.ts`) with a path under the repo root.
