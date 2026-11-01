@@ -8,3 +8,6 @@ export 'package:looseleaf_ink/src/recipes/controls/surfaces/button_group_ink.dar
 export 'package:looseleaf_ink/src/recipes/controls/surfaces/card_ink.dart';
 export 'package:looseleaf_ink/src/recipes/controls/surfaces/hover_card_ink.dart';
 export 'package:looseleaf_ink/src/recipes/controls/surfaces/kbd_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/overlay_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/sheet_ink.dart';
+export 'package:looseleaf_ink/src/recipes/controls/surfaces/table_ink.dart';
