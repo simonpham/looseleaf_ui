@@ -103,6 +103,7 @@ export 'package:looseleaf_ui/src/components/stamp_button/stamp_button.dart';
 export 'package:looseleaf_ui/src/components/stepper/stepper.dart';
 export 'package:looseleaf_ui/src/components/sticker/sticker.dart';
 export 'package:looseleaf_ui/src/components/sticker_board/sticker_board.dart';
+export 'package:looseleaf_ui/src/components/sticker_picker/sticker_picker.dart';
 export 'package:looseleaf_ui/src/components/sticker_sheet/sticker_sheet.dart';
 export 'package:looseleaf_ui/src/components/sticky_note/sticky_note.dart';
 export 'package:looseleaf_ui/src/components/strike/strike.dart';
