@@ -35,6 +35,11 @@ The Dart port reproduces V8's math bit for bit: `JsMath` ports the fdlibm `sin`,
 | `ink_marks_surfaces` | `marks_surfaces.json` | attachment, bubble, carousel, code block, corkboard, dropzone, empty, flip card, peel corner |
 | `ink_marks_scenes` | `marks_scenes.json` | confetti pieces and flights, polaroid scenes, rating, receipt and barcode, reveal nib, ribbon, stamp button |
 | `ink_marks_tools` | `marks_tools.json` | sketchpad recipes and stroke markup, sticker board item, sticker sheet, stepper, tear-off, typewriter plan and caret, typing indicator |
+| `ink_art` | `art_core_*.json`, `art_icons_*.json`, `art_doodles_*.json`, `art_stickers_*.json`, `art_mascot_*.json`, `art_scenes_*.json` | the art DSL, lettering, badges and stamps; every icon, doodle, sticker, mascot pose, mascot prop and frame, and scene through `drawSkeleton`, `renderSticker` and `drawMascot` at several sizes, tiers and options (compact JSON, split under 900 KB) |
+| `ink_art_data` | `lib/src/art/{icons,doodles,stickers,mascots,scenes,props}`, `lib/src/art/text/glyph_data.dart` | not a fixture: generates the Dart art catalog and glyph data from the evaluated upstream tables, then runs `dart format` |
+| `ink_paper` | `paper.json` | stocks, rule geometry and CSS layers, sheet shadows, drops, tilts, tile offsets, edge specs, `sheetOutline` per edge kind, face marks, `faceLook`, `faceClip`, `translatePath`, `pathBox`, `faceSvg`, `renderFaces` |
+| `ink_paper_props` | `paper_props.json` | every paper prop (tape kinds and ends, clip, pin, staple, binder clip, stitches, rubber band, coffee ring, sticky curl, ruler) |
+| `ink_paper_textures` | `paper_textures.json` | paper and desk backgrounds, texture CSS vars, SVG pattern and grain mask defs (tile images swapped for `{tile:<name>}`) |
 
 A recipe port adds an exporter that runs `runRecipe` over its variants (see `ink_button.ts`, or `runCases`/`spread` in `recipe_cases.ts`) and a Dart test that compares `RawFrame.parts` per layer.
 

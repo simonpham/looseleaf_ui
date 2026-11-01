@@ -1,5 +1,6 @@
 export 'package:looseleaf_ink/src/art/catalog/catalog.dart';
 export 'package:looseleaf_ink/src/art/doodles/doodles.dart';
+export 'package:looseleaf_ink/src/art/draw/draw.dart';
 export 'package:looseleaf_ink/src/art/dsl/dsl.dart';
 export 'package:looseleaf_ink/src/art/gen/gen.dart';
 export 'package:looseleaf_ink/src/art/icons/icons.dart';

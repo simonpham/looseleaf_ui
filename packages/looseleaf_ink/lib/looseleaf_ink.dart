@@ -7,5 +7,7 @@ export 'package:looseleaf_ink/src/builder/builder.dart';
 export 'package:looseleaf_ink/src/core/core.dart';
 export 'package:looseleaf_ink/src/draw/draw.dart';
 export 'package:looseleaf_ink/src/geom/geom.dart';
+export 'package:looseleaf_ink/src/paper/paper.dart';
 export 'package:looseleaf_ink/src/pen/pen.dart';
 export 'package:looseleaf_ink/src/recipes/recipes.dart';
+export 'package:looseleaf_ink/src/textures/textures.dart';
