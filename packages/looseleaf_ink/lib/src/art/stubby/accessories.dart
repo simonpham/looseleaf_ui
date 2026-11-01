@@ -435,7 +435,7 @@ final Acc dashedFrame = Acc(
 /// A scribble drawn from `(x, y)`, [frac] of it done.
 ///
 /// Mirrors `scribble` in `src/lib/ink/art/mascots/props.ts`.
-Acc scribble(double x, double y, [double frac = 1]) => Acc(
+Acc scribbleAcc(double x, double y, [double frac = 1]) => Acc(
   m: [_c(PaintKey.pencil, loopsPath(x, y, 59 - x, 5.2, 4, -6, 2, frac), 0.5)],
   s: [_c(PaintKey.pencil, loopsPath(x, y, 59 - x, 5.2, 3, -6, 2.1, frac), 0.8)],
   u: [_c(PaintKey.pencil, loopsPath(x, y, 59 - x, 5.4, 2, -6, 2.1, frac), 1.5)],

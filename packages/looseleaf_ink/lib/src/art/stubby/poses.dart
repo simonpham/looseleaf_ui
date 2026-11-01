@@ -25,7 +25,7 @@ ArtDef writeDef(int frame) {
     PoseSpec(
       face: const Face(eyes: EyeKind.squint, mouth: MouthKind.tongue),
       turn: Xf(rot: rot, dx: dx),
-      acc: scribble(t.x + 1.8, t.y + 2.4, const [0.42, 0.72, 1.0][frame]),
+      acc: scribbleAcc(t.x + 1.8, t.y + 2.4, const [0.42, 0.72, 1.0][frame]),
       tags: const ['busy', 'loading', 'progress', 'typing', 'draw'],
     ),
   );
