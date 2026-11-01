@@ -146,7 +146,7 @@ final class HeatCells {
   /// Column labels.
   final List<HeatLabel> colLabels;
 
-  /// ChartRow labels.
+  /// Row labels.
   final List<HeatLabel> rowLabels;
 
   /// The largest value.

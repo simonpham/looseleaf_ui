@@ -19,7 +19,7 @@ final class HeatCell {
   /// Column.
   final int col;
 
-  /// ChartRow.
+  /// Row.
   final int row;
 
   /// Left.

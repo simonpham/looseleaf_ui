@@ -149,7 +149,7 @@ final class HeatLabel {
   /// A label.
   const HeatLabel(this.i, this.text);
 
-  /// ChartRow or column index.
+  /// Row or column index.
   final int i;
 
   /// The text.
@@ -194,7 +194,7 @@ final class HeatSpec extends ChartSpec {
   /// Column labels.
   final List<HeatLabel> colLabels;
 
-  /// ChartRow labels.
+  /// Row labels.
   final List<HeatLabel> rowLabels;
 
   /// The colour slot.
