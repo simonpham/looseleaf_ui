@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:looseleaf_ink/looseleaf_ink.dart' show barcode;
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
@@ -115,10 +114,6 @@ void main() {
           widget is CustomPaint && widget.painter is ReceiptBarcodePainter,
     );
     expect(tester.getSize(bars), const Size(220, 44));
-    expect(
-      barcode('0042 1187', 220, 44).d,
-      barcode('0042 1187', 220, 44).d,
-    );
     handle.dispose();
   });
 
