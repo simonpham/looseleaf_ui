@@ -20,13 +20,13 @@ void main() {
     await tester.pumpWidget(
       componentHost(
         goldenPanel(
-          SizedBox(
+          const SizedBox(
             width: 480,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: Spacing.d24,
               children: [
-                const Quote(
+                Quote(
                   children: [
                     QuoteText(
                       seed: 'default',
@@ -41,13 +41,13 @@ void main() {
                     ),
                   ],
                 ),
-                const QuoteText(
+                QuoteText(
                   size: QuoteSize.sm,
                   tone: MarkPen.blue,
                   seed: 'sm',
                   child: Text('Small marks, blue pen.'),
                 ),
-                const QuoteText(
+                QuoteText(
                   size: QuoteSize.lg,
                   tone: MarkPen.ink,
                   weight: MarkWeight.brush,
