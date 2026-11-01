@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/calendar/calendar.dart';
 import 'package:looseleaf_ui/src/components/date_picker/date_picker_format.dart';
 import 'package:looseleaf_ui/src/components/date_picker/date_picker_presets.dart';
 import 'package:looseleaf_ui/src/components/date_picker/date_picker_shell.dart';
@@ -20,8 +21,8 @@ final RegExp _rangeSeparator = RegExp(r'\s+(?:–|—|-|to)\s+|\s*[–—]\s*');
 /// 9/9/26") or pick on a two-month calendar under the field.
 ///
 /// Mirrors `DateRangePicker` in upstream
-/// `src/components/ui/date-picker.tsx`. The calendar comes through
-/// [calendarBuilder] until the Calendar component is ported.
+/// `src/components/ui/date-picker.tsx`. The popup holds a two-month
+/// [Calendar.range]; swap it through [calendarBuilder].
 class DateRangePicker extends StatelessWidget {
   const DateRangePicker({
     super.key,
@@ -55,7 +56,7 @@ class DateRangePicker extends StatelessWidget {
 
   final ValueChanged<DateRange?>? onChanged;
 
-  /// The calendar in the popup.
+  /// The calendar in the popup; a two-month [Calendar.range] when null.
   final DateRangeCalendarBuilder? calendarBuilder;
 
   /// The text for each end; date-fns `PP` by default.
@@ -174,8 +175,8 @@ class DateRangePicker extends StatelessWidget {
           },
         ),
       },
-      calendar: (context, close) => switch (builder) {
-        final build? => build(context, value, (range) {
+      calendar: (context, close) {
+        void onSelect(DateRange? range) {
           onChanged?.call(range);
           final to = range?.to;
           if (closeOnSelect &&
@@ -184,8 +185,24 @@ class DateRangePicker extends StatelessWidget {
               !isSameDay(range.from, to)) {
             close();
           }
-        }, isDisabled),
-        null => const SizedBox.shrink(),
+        }
+
+        return switch (builder) {
+          final build? => build(context, value, onSelect, isDisabled),
+          null => Calendar.range(
+            numberOfMonths: 2,
+            selected: value,
+            onSelect: onSelect,
+            defaultMonth: value?.from,
+            today: now?.call(),
+            isDateDisabled: isDisabled,
+            autofocus: true,
+            seed: switch (seed) {
+              final pinned? => '$pinned|calendar',
+              null => null,
+            },
+          ),
+        };
       },
     );
   }

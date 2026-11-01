@@ -111,7 +111,7 @@ void main() {
   });
 
   testWidgets('date-picker-open with presets', (tester) async {
-    tester.view.physicalSize = const Size(1400, 800);
+    tester.view.physicalSize = const Size(1400, 1100);
     tester.view.devicePixelRatio = 2;
     addTearDown(tester.view.reset);
     await tester.pumpWidget(
@@ -136,12 +136,7 @@ void main() {
                       ])
                         DatePreset(label: label, value: () => _day),
                     ],
-                    calendarBuilder: (context, selected, onSelect, _) =>
-                        const SizedBox(
-                          width: 250,
-                          height: 250,
-                          child: Center(child: Text('Calendar')),
-                        ),
+                    now: () => DateTime(2026, 9, 15),
                   ),
                 ),
               ),

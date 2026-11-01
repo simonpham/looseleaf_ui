@@ -206,4 +206,78 @@ void main() {
     expect(range, DateRange(from: DateTime(2026, 9), to: DateTime(2026, 9, 9)));
     expect(find.text('Sep 1, 2026 – Sep 9, 2026'), findsOneWidget);
   });
+
+  testWidgets('the default calendar opens on the day and picks one', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1600, 1400);
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.reset);
+    DateTime? value = DateTime(2026, 9, 17);
+    await tester.pumpWidget(
+      overlayHost(
+        SizedBox(
+          width: 260,
+          child: StatefulBuilder(
+            builder: (context, setState) => DatePicker(
+              value: value,
+              min: DateTime(2026, 9, 3),
+              onChanged: (next) => setState(() => value = next),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.bySemanticsLabel('Choose date'));
+    await tester.pumpAndSettle();
+    expect(find.byType(Calendar), findsOneWidget);
+    expect(find.text('September 2026'), findsOneWidget);
+    final disabled = tester.widget<CalendarDayButton>(
+      find.ancestor(
+        of: find.text('2').first,
+        matching: find.byType(CalendarDayButton),
+      ),
+    );
+    expect(disabled.disabled, isTrue);
+    await tester.tap(find.text('17').last);
+    await tester.pumpAndSettle();
+    expect(value, DateTime(2026, 9, 17));
+    expect(find.byType(Calendar), findsNothing);
+    await tester.tap(find.bySemanticsLabel('Choose date'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('24').last);
+    await tester.pumpAndSettle();
+    expect(value, DateTime(2026, 9, 24));
+    expect(find.byType(Calendar), findsNothing);
+  });
+
+  testWidgets('the default range calendar shows two months', (tester) async {
+    tester.view.physicalSize = const Size(2000, 1400);
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.reset);
+    DateRange? range = DateRange(from: DateTime(2026, 9, 24));
+    await tester.pumpWidget(
+      overlayHost(
+        SizedBox(
+          width: 300,
+          child: StatefulBuilder(
+            builder: (context, setState) => DateRangePicker(
+              value: range,
+              open: true,
+              onChanged: (next) => setState(() => range = next),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('September 2026'), findsOneWidget);
+    expect(find.text('October 2026'), findsOneWidget);
+    await tester.tap(find.text('6').last);
+    await tester.pumpAndSettle();
+    expect(
+      range,
+      DateRange(from: DateTime(2026, 9, 24), to: DateTime(2026, 10, 6)),
+    );
+  });
 }

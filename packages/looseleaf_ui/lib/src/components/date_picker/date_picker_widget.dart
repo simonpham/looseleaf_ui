@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/calendar/calendar.dart';
 import 'package:looseleaf_ui/src/components/date_picker/date_picker_format.dart';
 import 'package:looseleaf_ui/src/components/date_picker/date_picker_presets.dart';
 import 'package:looseleaf_ui/src/components/date_picker/date_picker_shell.dart';
@@ -21,13 +22,13 @@ typedef DatePickerCalendarBuilder = Widget Function(
 /// DatePicker(
 ///   value: due,
 ///   onChanged: (day) => setState(() => due = day),
-///   calendarBuilder: (context, selected, onSelect, isDisabled) => …,
+///   min: DateTime.now(),
 /// )
 /// ```
 ///
 /// Mirrors `DatePicker` in upstream `src/components/ui/date-picker.tsx`.
-/// The popup's month grid is upstream's `Calendar`; pass it through
-/// [calendarBuilder] until the Calendar component is ported.
+/// The popup's month grid is a [Calendar] opened on the chosen day; swap
+/// it through [calendarBuilder].
 class DatePicker extends StatelessWidget {
   const DatePicker({
     super.key,
@@ -61,7 +62,7 @@ class DatePicker extends StatelessWidget {
 
   final ValueChanged<DateTime?>? onChanged;
 
-  /// The calendar in the popup.
+  /// The calendar in the popup; a single [Calendar] when null.
   final DatePickerCalendarBuilder? calendarBuilder;
 
   /// The field's text for a day; date-fns `PP` by default.
@@ -176,12 +177,31 @@ class DatePicker extends StatelessWidget {
           },
         ),
       },
-      calendar: (context, close) => switch (builder) {
-        final build? => build(context, current, (day) {
+      calendar: (context, close) {
+        void onSelect(DateTime? day) {
+          if (day == null && current != null && typeable) {
+            if (closeOnSelect) close();
+            return;
+          }
           onChanged?.call(day);
           if (closeOnSelect && day != null) close();
-        }, isDisabled),
-        null => const SizedBox.shrink(),
+        }
+
+        return switch (builder) {
+          final build? => build(context, current, onSelect, isDisabled),
+          null => Calendar(
+            selected: current,
+            onSelect: onSelect,
+            defaultMonth: current,
+            today: now?.call(),
+            isDateDisabled: isDisabled,
+            autofocus: true,
+            seed: switch (seed) {
+              final pinned? => '$pinned|calendar',
+              null => null,
+            },
+          ),
+        };
       },
     );
   }
