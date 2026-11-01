@@ -17,7 +17,7 @@ void main() {
     tester.view.physicalSize = const Size(1640, 1640);
     tester.view.devicePixelRatio = 2;
     addTearDown(tester.view.reset);
-    final theme = const LooseleafThemeData();
+    const theme = LooseleafThemeData();
     await tester.pumpWidget(
       componentHost(
         RepaintBoundary(
