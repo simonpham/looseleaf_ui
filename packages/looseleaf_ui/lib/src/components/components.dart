@@ -80,6 +80,7 @@ export 'package:looseleaf_ui/src/components/seal/seal.dart';
 export 'package:looseleaf_ui/src/components/select/select.dart';
 export 'package:looseleaf_ui/src/components/separator/separator.dart';
 export 'package:looseleaf_ui/src/components/sheet/sheet.dart';
+export 'package:looseleaf_ui/src/components/sidebar/sidebar.dart';
 export 'package:looseleaf_ui/src/components/signature/signature.dart';
 export 'package:looseleaf_ui/src/components/skeleton/skeleton.dart';
 export 'package:looseleaf_ui/src/components/sketchpad/sketchpad.dart';
