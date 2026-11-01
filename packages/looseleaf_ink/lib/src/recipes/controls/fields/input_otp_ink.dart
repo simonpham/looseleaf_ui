@@ -138,11 +138,12 @@ const StrokeOpts _caretOpts = StrokeOpts(
   simple: true,
 );
 
-/// A CSS `url(...)` of the slot's hand-drawn I-beam caret (9 × 28), drawn in
-/// `currentColor`. Upstream uses it with seed `otp|caret`.
+/// The slot's hand-drawn I-beam caret (9 × 28) in `currentColor`, the
+/// drawing inside [otpCaretTile]. Upstream uses it with seed `otp|caret`.
 ///
-/// Mirrors `caretTile` in `src/lib/ink/recipes/input-otp-ink.ts`.
-String otpCaretTile(String seed) {
+/// Mirrors the drawing of `caretTile` in
+/// `src/lib/ink/recipes/input-otp-ink.ts`.
+InkResult otpCaret(String seed) {
   final ink = Ink(seed, tier: Tier.lo, grain: false);
   ink.layer(LayerName.rest, () {
     final rng = ink.next('caret');
@@ -178,7 +179,14 @@ String otpCaretTile(String seed) {
         _caretOpts.merge(const StrokeOpts(width: 0.3, wobble: 0.3)),
       );
   });
-  final svg = ink.toSvg(w: 9, h: 28, pad: 0).svg;
+  return ink.toSvg(w: 9, h: 28, pad: 0);
+}
+
+/// A CSS `url(...)` of the [otpCaret] drawing.
+///
+/// Mirrors `caretTile` in `src/lib/ink/recipes/input-otp-ink.ts`.
+String otpCaretTile(String seed) {
+  final svg = otpCaret(seed).svg;
   final doc =
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 28" width="9" '
       'height="28">$svg</svg>';
