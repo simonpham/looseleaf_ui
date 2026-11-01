@@ -1,3 +1,4 @@
+export 'package:looseleaf_ui/src/components/annotate/annotate.dart';
 export 'package:looseleaf_ui/src/components/art/art.dart';
 export 'package:looseleaf_ui/src/components/badge/badge.dart';
 export 'package:looseleaf_ui/src/components/boil/boil.dart';
