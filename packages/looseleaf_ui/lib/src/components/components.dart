@@ -43,6 +43,7 @@ export 'package:looseleaf_ui/src/components/envelope/envelope.dart';
 export 'package:looseleaf_ui/src/components/field/field.dart';
 export 'package:looseleaf_ui/src/components/flip_card/flip_card.dart';
 export 'package:looseleaf_ui/src/components/folder/folder.dart';
+export 'package:looseleaf_ui/src/components/form/form.dart';
 export 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 export 'package:looseleaf_ui/src/components/handwritten/handwritten.dart';
 export 'package:looseleaf_ui/src/components/highlight/highlight.dart';
