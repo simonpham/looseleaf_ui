@@ -34,6 +34,7 @@ class OverlayScrim extends StatelessWidget {
     Widget scrim = GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: onDismiss,
+      onSecondaryTap: onDismiss,
       excludeFromSemantics: true,
       child: const SizedBox.expand(),
     );
