@@ -70,28 +70,10 @@ void _draw(Ink ink, Box size, CarouselTickParams params, RecipeContext ctx) {
       true => -1.0,
       false => 1.0,
     };
-    final List<Pt> pts;
-    if (slash) {
-      final reach = 4 * params.pitch + rng.gauss(2, 1);
-      pts = seg(
-        cx - dir * reach,
-        y0 + len * 0.86 + grow,
-        cx + dir * (3 + rng.gauss(0, 0.5)),
-        y0 + len * 0.14 - grow,
-        rng.gauss(0, 0.6),
-        9,
-      );
-    } else {
-      final lean = dir * rng.range(0.6, 1.6);
-      pts = seg(
-        cx + lean + rng.gauss(0, 0.4),
-        y0 - grow + rng.gauss(0, 0.4),
-        cx - lean + rng.gauss(0, 0.5),
-        y0 + len + grow + rng.gauss(0, 0.5),
-        rng.gauss(0, 0.5),
-        5,
-      );
-    }
+    final pts = switch (slash) {
+      true => _slashPts(rng, cx, y0, len, grow, dir, params.pitch),
+      false => _tickPts(rng, cx, y0, len, grow, dir),
+    };
     ink.stroke(
       pts,
       pen,
@@ -136,4 +118,43 @@ void _draw(Ink ink, Box size, CarouselTickParams params, RecipeContext ctx) {
         false => stroke(PenName.blue, 2, 'ck', 2.1),
       },
     );
+}
+
+List<Pt> _slashPts(
+  Rng rng,
+  double cx,
+  double y0,
+  double len,
+  double grow,
+  double dir,
+  double pitch,
+) {
+  final reach = 4 * pitch + rng.gauss(2, 1);
+  return seg(
+    cx - dir * reach,
+    y0 + len * 0.86 + grow,
+    cx + dir * (3 + rng.gauss(0, 0.5)),
+    y0 + len * 0.14 - grow,
+    rng.gauss(0, 0.6),
+    9,
+  );
+}
+
+List<Pt> _tickPts(
+  Rng rng,
+  double cx,
+  double y0,
+  double len,
+  double grow,
+  double dir,
+) {
+  final lean = dir * rng.range(0.6, 1.6);
+  return seg(
+    cx + lean + rng.gauss(0, 0.4),
+    y0 - grow + rng.gauss(0, 0.4),
+    cx - lean + rng.gauss(0, 0.5),
+    y0 + len + grow + rng.gauss(0, 0.5),
+    rng.gauss(0, 0.5),
+    5,
+  );
 }
