@@ -30,4 +30,4 @@ SOFTWARE.
 
 ## IBM Plex Mono
 
-IBM Plex Mono (IBM), SIL Open Font License 1.1, if bundled for code blocks.
+IBM Plex Mono Regular, the monospace face of code blocks and inline code, is bundled in `packages/looseleaf_ui/assets/fonts/IBMPlexMono-Regular.ttf`, as shipped by Looseleaf. Copyright © 2017 IBM Corp. with Reserved Font Name "Plex", licensed under the SIL Open Font License 1.1; the full license is in `packages/looseleaf_ui/assets/fonts/IBMPlexMono-OFL.txt`.

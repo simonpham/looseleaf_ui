@@ -26,3 +26,6 @@ flutter:
         - asset: assets/fonts/KevinSans-Regular.ttf
         - asset: assets/fonts/KevinSans-Bold.ttf
           weight: 700
+    - family: IBMPlexMono
+      fonts:
+        - asset: assets/fonts/IBMPlexMono-Regular.ttf

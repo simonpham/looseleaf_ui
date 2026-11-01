@@ -37,6 +37,10 @@ class LooseleafTypography {
     this.lineHeight = 1.55,
   });
 
+  /// The bundled monospace family, IBM Plex Mono (`--font-mono`), shipped
+  /// by this package.
+  static const String monoFamily = 'IBMPlexMono';
+
   /// The bundled family name.
   final String fontFamily;
 
@@ -92,6 +96,24 @@ class LooseleafTypography {
   /// Stamps, captions and small labels (`--font-type`).
   TextStyle stamp({double? cssSize, Color? color}) =>
       face(KevinSansFace.type, cssSize: cssSize ?? 12.5, color: color);
+
+  /// Code (`--font-mono`): IBM Plex Mono at the CSS size [cssSize] with
+  /// the CSS unitless [cssLineHeight] (defaults to the body's).
+  TextStyle mono({
+    double? cssSize,
+    double? cssLineHeight,
+    FontWeight fontWeight = FontWeight.w400,
+    Color? color,
+  }) => TextStyle(
+    fontFamily: monoFamily,
+    package: 'looseleaf_ui',
+    fontFamilyFallback: const ['SF Mono', 'Menlo', 'monospace'],
+    fontSize: cssSize ?? bodySize,
+    fontWeight: fontWeight,
+    height: cssLineHeight ?? lineHeight,
+    leadingDistribution: TextLeadingDistribution.even,
+    color: color,
+  );
 
   @override
   bool operator ==(Object other) =>
