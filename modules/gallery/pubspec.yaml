@@ -26,13 +26,19 @@ flutter:
   assets:
     - lib/features/components/examples/asterisk/
     - lib/features/components/examples/badge/
+    - lib/features/components/examples/boil/
     - lib/features/components/examples/button/
     - lib/features/components/examples/chart/
+    - lib/features/components/examples/doodle/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
+    - lib/features/components/examples/label_tag/
+    - lib/features/components/examples/mascot/
     - lib/features/components/examples/separator/
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/squiggle/
+    - lib/features/components/examples/sticker_sheet/
     - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
     - lib/features/components/examples/toggle/
+    - lib/features/components/examples/typing_indicator/
