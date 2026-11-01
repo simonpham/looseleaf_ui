@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/rendering.dart';
+import 'package:looseleaf_ink/looseleaf_ink.dart' as ink;
 import 'package:looseleaf_ui/src/components/art/ink_art_frame.dart';
 import 'package:looseleaf_ui/src/painter/painter.dart';
 import 'package:looseleaf_ui/src/textures/textures.dart';
@@ -15,6 +16,7 @@ class InkArtPainter extends CustomPainter {
     required this.theme,
     required this.currentColor,
     this.shadow = false,
+    this.drop,
   }) : super(repaint: InkTextures.instance);
 
   final InkArtFrame frame;
@@ -22,20 +24,43 @@ class InkArtPainter extends CustomPainter {
   final Color currentColor;
   final bool shadow;
 
-  static const List<({double dy, double blur, double alpha})> _drops = [
-    (dy: 1, blur: 0.6, alpha: 0.26),
-    (dy: 3, blur: 3, alpha: 0.14),
-  ];
+  /// The `drop-shadow` filter the art casts (`dropShadow` in upstream
+  /// `src/lib/ink/paper/shadows.ts`); [shadow] alone means `sticker`.
+  final ink.DropKind? drop;
+
+  static List<({double dy, double blur, double alpha})> _dropsOf(
+    ink.DropKind kind,
+  ) => switch (kind) {
+    ink.DropKind.sheet => const [
+      (dy: 1, blur: 0.75, alpha: 0.22),
+      (dy: 8, blur: 8, alpha: 0.14),
+    ],
+    ink.DropKind.sticker => const [
+      (dy: 1, blur: 0.6, alpha: 0.26),
+      (dy: 3, blur: 3, alpha: 0.14),
+    ],
+    ink.DropKind.tape => const [(dy: 0.6, blur: 0.8, alpha: 0.18)],
+    ink.DropKind.prop => const [
+      (dy: 1, blur: 0.8, alpha: 0.3),
+      (dy: 3, blur: 2.4, alpha: 0.16),
+    ],
+  };
+
+  ink.DropKind? get _drop => switch ((drop, shadow)) {
+    (final ink.DropKind kind, _) => kind,
+    (null, true) => ink.DropKind.sticker,
+    (null, false) => null,
+  };
 
   @override
   void paint(Canvas canvas, Size size) {
     if (size.isEmpty || frame.width <= 0 || frame.height <= 0) return;
     canvas.save();
     canvas.scale(size.width / frame.width, size.height / frame.height);
-    switch (shadow && theme.shadowK > 0) {
-      case true:
-        _paintWithShadow(canvas, size);
-      case false:
+    switch ((_drop, theme.shadowK > 0)) {
+      case (final ink.DropKind kind, true):
+        _paintWithShadow(canvas, size, kind);
+      case _:
         _paintArt(canvas);
     }
     canvas.restore();
@@ -61,12 +86,12 @@ class InkArtPainter extends CustomPainter {
     if (document.usesBlend) canvas.restore();
   }
 
-  void _paintWithShadow(Canvas canvas, Size size) {
+  void _paintWithShadow(Canvas canvas, Size size, ink.DropKind kind) {
     final recorder = ui.PictureRecorder();
     _paintArt(Canvas(recorder));
     final picture = recorder.endRecording();
     final scale = size.width / frame.width;
-    for (final drop in _drops) {
+    for (final drop in _dropsOf(kind)) {
       final sigma = drop.blur / 2 / scale;
       canvas.save();
       canvas.translate(0, drop.dy / scale);
@@ -94,5 +119,6 @@ class InkArtPainter extends CustomPainter {
       !identical(oldDelegate.frame, frame) ||
       oldDelegate.theme != theme ||
       oldDelegate.currentColor != currentColor ||
-      oldDelegate.shadow != shadow;
+      oldDelegate.shadow != shadow ||
+      oldDelegate.drop != drop;
 }

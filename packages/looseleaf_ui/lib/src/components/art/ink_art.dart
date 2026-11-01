@@ -27,6 +27,7 @@ class InkArt extends StatelessWidget {
     this.size,
     this.color,
     this.shadow = false,
+    this.drop,
     this.semanticLabel,
     this.flipX = false,
     this.flipY = false,
@@ -48,6 +49,10 @@ class InkArt extends StatelessWidget {
 
   /// The `ll-drop-sticker` drop shadow.
   final bool shadow;
+
+  /// The drop shadow the art casts, like upstream `dropShadow(kind)`:
+  /// `tape` and `prop` for paper props; wins over [shadow].
+  final ink.DropKind? drop;
 
   /// Names the art for screen readers; decorative when null.
   final String? semanticLabel;
@@ -79,6 +84,7 @@ class InkArt extends StatelessWidget {
         theme: theme,
         currentColor: current,
         shadow: shadow,
+        drop: drop,
       ),
     );
     if (flipX || flipY) {
