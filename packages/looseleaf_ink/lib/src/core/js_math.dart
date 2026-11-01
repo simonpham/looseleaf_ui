@@ -96,7 +96,8 @@ abstract final class JsMath {
     if (d == double.infinity) return 'Infinity';
     if (d == double.negativeInfinity) return '-Infinity';
     if (d == d.truncateToDouble() && d.abs() < 1e21) {
-      return d.toInt().toString();
+      if (d.abs() < 9007199254740992) return d.toInt().toString();
+      return d.toString().substring(0, d.toString().length - 2);
     }
     return d.toString();
   }
