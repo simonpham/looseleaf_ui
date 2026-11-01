@@ -35,6 +35,8 @@ The Dart port reproduces V8's math bit for bit: `JsMath` ports the fdlibm `sin`,
 | `ink_marks_surfaces` | `marks_surfaces.json` | attachment, bubble, carousel, code block, corkboard, dropzone, empty, flip card, peel corner |
 | `ink_marks_scenes` | `marks_scenes.json` | confetti pieces and flights, polaroid scenes, rating, receipt and barcode, reveal nib, ribbon, stamp button |
 | `ink_marks_tools` | `marks_tools.json` | sketchpad recipes and stroke markup, sticker board item, sticker sheet, stepper, tear-off, typewriter plan and caret, typing indicator |
+| `ink_marks_composers` | `marks_composers.json` | `strokesToSvg` and `composeBoardSvg` documents (tile images swapped for `{tile:<name>}`) |
+| `ink_sticker` | `sticker.json` | sticker labels, the catalog, `stickerFace` (art and stamps, peel, border, id prefix) and `kissCut` |
 | `ink_art` | `art_core_*.json`, `art_icons_*.json`, `art_doodles_*.json`, `art_stickers_*.json`, `art_mascot_*.json`, `art_scenes_*.json` | the art DSL, lettering, badges and stamps; every icon, doodle, sticker, mascot pose, mascot prop and frame, and scene through `drawSkeleton`, `renderSticker` and `drawMascot` at several sizes, tiers and options (compact JSON, split under 900 KB) |
 | `ink_art_data` | `lib/src/art/{icons,doodles,stickers,mascots,scenes,props}`, `lib/src/art/text/glyph_data.dart` | not a fixture: generates the Dart art catalog and glyph data from the evaluated upstream tables, then runs `dart format` |
 | `ink_paper` | `paper.json` | stocks, rule geometry and CSS layers, sheet shadows, drops, tilts, tile offsets, edge specs, `sheetOutline` per edge kind, face marks, `faceLook`, `faceClip`, `translatePath`, `pathBox`, `faceSvg`, `renderFaces` |
@@ -43,6 +45,7 @@ The Dart port reproduces V8's math bit for bit: `JsMath` ports the fdlibm `sin`,
 | `ink_charts` | `charts.json` | chart scales and ticks, number formats, text measure, label picking, curves, LTTB, heatmap data (calendar and grid) |
 | `ink_charts_xy` | `charts_xy.json`, `charts_xy_*.json` | `buildXY` specs over many datasets and options, `capRows`, looks, summaries, tables, `layoutXY` (bar, line, area, stacked, horizontal, scatter, notes, bands, refs, states) with cursors, hit tests and key steps |
 | `ink_charts_polar` | `charts_polar.json` | pie, radar, radial, gauge, spark, tally and heatmap layouts through `layoutChart`, with cursors, hit tests and key steps |
+| `ink_chart_recipes` | `chart_recipes_*.json` | chart recipes (xy bars grouped, stacked, horizontal and patterned, lines and dashes, areas, combos, scatter and bubbles, notes, bands and refs, empty and loading; pie, radar, radial, gauge, spark, tally, heatmap; the chart mark's swatches and cursors) at several sizes, calm, hi tier, rtl, compact and lazy-only |
 
 A recipe port adds an exporter that runs `runRecipe` over its variants (see `ink_button.ts`, or `runCases`/`spread` in `recipe_cases.ts`) and a Dart test that compares `RawFrame.parts` per layer.
 

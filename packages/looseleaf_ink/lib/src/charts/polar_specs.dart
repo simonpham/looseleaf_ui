@@ -37,6 +37,16 @@ final class Slice {
 
   /// The outside label; defaults to its share.
   final String? label;
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'key': key,
+    'name': name,
+    'slot': slot,
+    'pattern': pattern.name,
+    'value': value,
+    'label': ?label,
+  };
 }
 
 /// A pie or donut chart.
@@ -77,6 +87,18 @@ final class PieSpec extends ChartSpec {
 
   @override
   PieLayout layout(Box box, [bool calm = false]) => layoutPie(this, box, calm);
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'type': 'pie',
+    'slices': [for (final s in slices) s.toJson()],
+    'inner': inner,
+    'start': start,
+    'labels': labels,
+    'patterns': patterns,
+    'state': state.name,
+    'stateText': ?stateText,
+  };
 }
 
 /// One radar series.
@@ -110,6 +132,16 @@ final class RadarSeries {
 
   /// One value per axis; null for a gap.
   final List<double?> values;
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'key': key,
+    'name': name,
+    'slot': slot,
+    'pattern': pattern.name,
+    'marker': marker.name,
+    'values': values,
+  };
 }
 
 /// A radar (spider) chart.
@@ -163,6 +195,21 @@ final class RadarSpec extends ChartSpec {
   @override
   RadarLayout layout(Box box, [bool calm = false]) =>
       layoutRadar(this, box, calm);
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'type': 'radar',
+    'axes': axes,
+    'series': [for (final s in series) s.toJson()],
+    'max': max,
+    'levels': levels,
+    'ringLabels': ringLabels,
+    'fill': fill,
+    'patterns': patterns,
+    'dots': dots,
+    'state': state.name,
+    'stateText': ?stateText,
+  };
 }
 
 /// One radial bar.
@@ -200,6 +247,17 @@ final class RadialRing {
 
   /// A value label.
   final String? label;
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'key': key,
+    'name': name,
+    'slot': slot,
+    'pattern': pattern.name,
+    'value': value,
+    'max': max,
+    'label': ?label,
+  };
 }
 
 /// A radial bar chart: concentric arcs.
@@ -237,6 +295,17 @@ final class RadialSpec extends ChartSpec {
   @override
   RadialLayout layout(Box box, [bool calm = false]) =>
       layoutRadial(this, box, calm);
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'type': 'radial',
+    'rings': [for (final r in rings) r.toJson()],
+    'start': start,
+    'end': end,
+    'patterns': patterns,
+    'state': state.name,
+    'stateText': ?stateText,
+  };
 }
 
 /// A coloured gauge zone up to [to].
@@ -258,6 +327,13 @@ final class GaugeZone {
 
   /// The fill pattern.
   final FillPattern pattern;
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'to': to,
+    'slot': slot,
+    'pattern': pattern.name,
+  };
 }
 
 /// A gauge (speedometer) chart.
@@ -315,4 +391,20 @@ final class GaugeSpec extends ChartSpec {
   @override
   GaugeLayout layout(Box box, [bool calm = false]) =>
       layoutGauge(this, box, calm);
+
+  /// The upstream JSON shape (unset optional fields left out).
+  Map<String, Object?> toJson() => {
+    'type': 'gauge',
+    'value': value,
+    'min': min,
+    'max': max,
+    'zones': [for (final z in zones) z.toJson()],
+    'sweep': sweep,
+    'ticks': ticks,
+    'minLabel': minLabel,
+    'maxLabel': maxLabel,
+    'patterns': patterns,
+    'state': state.name,
+    'stateText': ?stateText,
+  };
 }
