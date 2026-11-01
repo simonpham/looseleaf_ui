@@ -77,6 +77,7 @@ export 'package:looseleaf_ui/src/components/peel_corner/peel_corner.dart';
 export 'package:looseleaf_ui/src/components/polaroid/polaroid.dart';
 export 'package:looseleaf_ui/src/components/popover/popover.dart';
 export 'package:looseleaf_ui/src/components/progress/progress.dart';
+export 'package:looseleaf_ui/src/components/prompt_input/prompt_input.dart';
 export 'package:looseleaf_ui/src/components/quote/quote.dart';
 export 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
 export 'package:looseleaf_ui/src/components/rating/rating.dart';
