@@ -9,4 +9,5 @@ export 'package:looseleaf_ink/src/art/model/model.dart';
 export 'package:looseleaf_ink/src/art/props/props.dart';
 export 'package:looseleaf_ink/src/art/scenes/scenes.dart';
 export 'package:looseleaf_ink/src/art/stickers/stickers.dart';
+export 'package:looseleaf_ink/src/art/stubby/stubby.dart';
 export 'package:looseleaf_ink/src/art/text/text.dart';
