@@ -39,6 +39,7 @@ export 'package:looseleaf_ui/src/components/dropdown_menu/dropdown_menu.dart';
 export 'package:looseleaf_ui/src/components/dropzone/dropzone.dart';
 export 'package:looseleaf_ui/src/components/empty/empty.dart';
 export 'package:looseleaf_ui/src/components/envelope/envelope.dart';
+export 'package:looseleaf_ui/src/components/field/field.dart';
 export 'package:looseleaf_ui/src/components/folder/folder.dart';
 export 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 export 'package:looseleaf_ui/src/components/handwritten/handwritten.dart';
