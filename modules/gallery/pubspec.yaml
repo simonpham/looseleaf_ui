@@ -24,6 +24,8 @@ dev_dependencies:
 
 flutter:
   assets:
+    - lib/features/blocks/blocks/cta_01/
+    - lib/features/blocks/blocks/empty_inbox/
     - lib/features/components/examples/asterisk/
     - lib/features/components/examples/badge/
     - lib/features/components/examples/boil/

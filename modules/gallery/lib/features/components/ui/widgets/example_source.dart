@@ -2,14 +2,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gallery/features/kit/ui/widgets/widgets.dart';
 
-/// The code of an example, read from the gallery's bundled sources.
+/// The code of an example or a block, read from the gallery's bundled
+/// sources.
 class ExampleSource extends StatefulWidget {
-  const ExampleSource({super.key, required this.source});
+  const ExampleSource({
+    super.key,
+    required this.source,
+    this.root = examplesRoot,
+    this.label = 'examples',
+  });
 
-  /// The file under `lib/features/components/examples/`.
+  /// The file under [root].
   final String source;
 
-  static const String root =
+  /// The bundled folder [source] is relative to.
+  final String root;
+
+  /// The folder name shown before [source] in the title.
+  final String label;
+
+  static const String examplesRoot =
       'packages/gallery/lib/features/components/examples';
 
   @override
@@ -20,7 +32,7 @@ class _ExampleSourceState extends State<ExampleSource> {
   late Future<String> _code = _load();
 
   Future<String> _load() =>
-      rootBundle.loadString('${ExampleSource.root}/${widget.source}');
+      rootBundle.loadString('${widget.root}/${widget.source}');
 
   @override
   void didUpdateWidget(ExampleSource oldWidget) {
@@ -37,7 +49,7 @@ class _ExampleSourceState extends State<ExampleSource> {
       ),
       AsyncSnapshot(data: final code?) => DocCodeBlock(
         code: code,
-        title: 'examples/${widget.source}',
+        title: '${widget.label}/${widget.source}',
       ),
       _ => const SizedBox.shrink(),
     },
