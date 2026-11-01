@@ -27,6 +27,7 @@ flutter:
     - lib/features/blocks/blocks/cta_01/
     - lib/features/blocks/blocks/empty_inbox/
     - lib/features/components/examples/asterisk/
+    - lib/features/components/examples/avatar/
     - lib/features/components/examples/badge/
     - lib/features/components/examples/boil/
     - lib/features/components/examples/button/
@@ -39,6 +40,7 @@ flutter:
     - lib/features/components/examples/separator/
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/squiggle/
+    - lib/features/components/examples/stamp/
     - lib/features/components/examples/sticker_sheet/
     - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
