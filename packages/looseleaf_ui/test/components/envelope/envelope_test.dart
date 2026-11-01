@@ -32,14 +32,14 @@ Widget _envelope({
               EnvelopeTrigger(label: 'Read the letter'),
             ],
           ),
-          EnvelopeLetter(
+          const EnvelopeLetter(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('Dear Ada,'),
+                Text('Dear Ada,'),
                 Focus(
                   debugLabel: 'reply',
-                  child: const SizedBox.square(dimension: 8),
+                  child: SizedBox.square(dimension: 8),
                 ),
               ],
             ),
