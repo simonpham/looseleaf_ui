@@ -7,6 +7,7 @@ export 'package:looseleaf_ui/src/components/avatar/avatar.dart';
 export 'package:looseleaf_ui/src/components/badge/badge.dart';
 export 'package:looseleaf_ui/src/components/boil/boil.dart';
 export 'package:looseleaf_ui/src/components/bracket/bracket.dart';
+export 'package:looseleaf_ui/src/components/breadcrumb/breadcrumb.dart';
 export 'package:looseleaf_ui/src/components/button/button.dart';
 export 'package:looseleaf_ui/src/components/checkbox/checkbox.dart';
 export 'package:looseleaf_ui/src/components/circled/circled.dart';
