@@ -8,4 +8,5 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'button': buttonExamples,
   'kbd': kbdExamples,
   'sidebar': sidebarExamples,
+  'switch': switchExamples,
 };
