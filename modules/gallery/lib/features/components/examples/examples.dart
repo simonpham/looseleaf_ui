@@ -7,3 +7,4 @@ export 'package:gallery/features/components/examples/label/label.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar.dart';
 export 'package:gallery/features/components/examples/squiggle/squiggle.dart';
 export 'package:gallery/features/components/examples/switch/switch.dart';
+export 'package:gallery/features/components/examples/toggle/toggle.dart';

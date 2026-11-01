@@ -13,4 +13,5 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'sidebar': sidebarExamples,
   'squiggle': squiggleExamples,
   'switch': switchExamples,
+  'toggle': toggleExamples,
 };

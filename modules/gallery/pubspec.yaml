@@ -33,3 +33,4 @@ flutter:
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/squiggle/
     - lib/features/components/examples/switch/
+    - lib/features/components/examples/toggle/

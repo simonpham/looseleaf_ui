@@ -28,71 +28,80 @@ class KbdShortcutSheetExample extends StatelessWidget {
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: _maxWidth),
-        child: Card(
-          seed: 'shortcuts',
-          children: [
-            const CardHeader(
-              children: [
-                CardTitle(Text('Keyboard shortcuts')),
-                CardDescription(
-                  Text('Everything you can do without lifting a hand.'),
-                ),
-              ],
-            ),
-            CardContent(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: Spacing.d16,
+        child: SizedBox(
+          width: double.infinity,
+          child: Card(
+            seed: 'shortcuts',
+            children: [
+              const CardHeader(
                 children: [
-                  const Stack(
-                    alignment: AlignmentDirectional.centerEnd,
-                    children: [
-                      Input(
-                        placeholder: 'Search shortcuts',
-                        semanticLabel: 'Search shortcuts',
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(end: Spacing.d12),
-                        child: IgnorePointer(child: Kbd(child: Text('/'))),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      for (final (index, shortcut) in _shortcuts.indexed) ...[
-                        if (index > 0)
-                          const Padding(
-                            padding: EdgeInsets.symmetric(vertical: Spacing.d8),
-                            child: Separator(variant: SeparatorVariant.dashed),
-                          ),
-                        Row(
-                          spacing: Spacing.d16,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                shortcut.what,
-                                style: theme.typography.interface(cssSize: 15),
-                              ),
-                            ),
-                            KbdGroup(
-                              children: [
-                                for (final (keyIndex, key)
-                                    in shortcut.keys.indexed) ...[
-                                  if (keyIndex > 0) plus,
-                                  Kbd(child: Text(key)),
-                                ],
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ],
+                  CardTitle(Text('Keyboard shortcuts')),
+                  CardDescription(
+                    Text('Everything you can do without lifting a hand.'),
                   ),
                 ],
               ),
-            ),
-          ],
+              CardContent(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  spacing: Spacing.d16,
+                  children: [
+                    const Stack(
+                      alignment: AlignmentDirectional.centerEnd,
+                      children: [
+                        Input(
+                          placeholder: 'Search shortcuts',
+                          semanticLabel: 'Search shortcuts',
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.only(end: Spacing.d12),
+                          child: IgnorePointer(child: Kbd(child: Text('/'))),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        for (final (index, shortcut) in _shortcuts.indexed) ...[
+                          if (index > 0)
+                            const Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: Spacing.d8,
+                              ),
+                              child: Separator(
+                                variant: SeparatorVariant.dashed,
+                              ),
+                            ),
+                          Row(
+                            spacing: Spacing.d16,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  shortcut.what,
+                                  style: theme.typography.interface(
+                                    cssSize: 15,
+                                  ),
+                                ),
+                              ),
+                              KbdGroup(
+                                children: [
+                                  for (final (keyIndex, key)
+                                      in shortcut.keys.indexed) ...[
+                                    if (keyIndex > 0) plus,
+                                    Kbd(child: Text(key)),
+                                  ],
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
