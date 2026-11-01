@@ -23,9 +23,9 @@ class OutletFrame extends StatelessWidget {
   static Widget pageFor(GalleryRoute route) => switch (route) {
     HomeRoute() => const HomePage(),
     GettingStartedRoute() => const GettingStartedPage(),
-    FoundationsRoute(topic: null) => const FoundationsPage(),
+    FoundationsRoute(topic: null) => const FoundationsIndexPage(),
     FoundationsRoute(:final topic?) => switch (_topic(topic)) {
-      final found? => FoundationsPage(topic: found),
+      final found? => FoundationTopicPage(topic: found),
       null => NotFoundPage(what: 'topic', missing: topic),
     },
     ComponentsRoute(slug: null) => const ComponentsIndexPage(),
