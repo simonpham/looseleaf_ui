@@ -43,6 +43,7 @@ class Sketchpad extends StatefulWidget {
     this.replay = false,
     this.replaySpeed = 1,
     this.seed,
+    this.focusNode,
     this.child,
   });
 
@@ -85,6 +86,9 @@ class Sketchpad extends StatefulWidget {
   /// Pins the hand of the pad's ink.
   final String? seed;
 
+  /// The canvas's focus node; the pad keeps its own when null.
+  final FocusNode? focusNode;
+
   /// Your own layout of the pad's parts.
   final Widget? child;
 
@@ -94,9 +98,12 @@ class Sketchpad extends StatefulWidget {
 
 class _SketchpadState extends State<Sketchpad> with InkSeed {
   SketchpadController? _own;
-  final FocusNode _canvasFocus = FocusNode(debugLabel: 'sketchpad-canvas');
+  FocusNode? _ownFocus;
   late SketchpadController _listened = _controller;
   late List<SketchStroke> _reported;
+
+  FocusNode get _canvasFocus =>
+      widget.focusNode ?? (_ownFocus ??= FocusNode(debugLabel: 'sketchpad'));
 
   SketchpadController get _controller =>
       widget.controller ?? (_own ??= SketchpadController());
@@ -122,7 +129,7 @@ class _SketchpadState extends State<Sketchpad> with InkSeed {
   void dispose() {
     _listened.removeListener(_onChange);
     _own?.dispose();
-    _canvasFocus.dispose();
+    _ownFocus?.dispose();
     super.dispose();
   }
 
