@@ -5,8 +5,9 @@ import 'package:looseleaf_ink/src/recipes/paper/paper.dart';
 
 /// Where a ticket's tear-off stub is.
 ///
-/// Mirrors `TicketStub` in `src/lib/ink/recipes/ticket-ink.ts`.
-enum TicketStub { end, start, none }
+/// Mirrors `TicketStub` in `src/lib/ink/recipes/ticket-ink.ts`, renamed
+/// to leave `TicketStub` to the widget.
+enum TicketStubSide { end, start, none }
 
 /// Ticket recipe params.
 ///
@@ -24,7 +25,7 @@ final class TicketParams {
   final StockName stock;
 
   /// The stub's side.
-  final TicketStub stub;
+  final TicketStubSide stub;
 
   /// The stub's width.
   final double stubWidth;
@@ -107,8 +108,8 @@ final Recipe<TicketParams> ticketRecipe = defineRecipe<TicketParams>(
     final TicketParams(:stub, :stubWidth) = params;
     final r = ink.next('ticket');
     final rtl = ctx.dir == Dir.rtl;
-    final left = (stub == TicketStub.start) != rtl;
-    final none = stub == TicketStub.none;
+    final left = (stub == TicketStubSide.start) != rtl;
+    final none = stub == TicketStubSide.none;
     final sx = switch ((none, left)) {
       (true, _) => -1.0,
       (false, true) => stubWidth,

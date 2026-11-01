@@ -214,7 +214,7 @@ final Map<String, _Entry<Object?>> _entries = {
     ticketRecipe,
     (p) => TicketParams(
       stock: _stock(p['stock']),
-      stub: TicketStub.values.byName(p['stub'] as String),
+      stub: TicketStubSide.values.byName(p['stub'] as String),
       stubWidth: _d(p['stubWidth']),
       punched: p['punched'] as bool,
     ),
