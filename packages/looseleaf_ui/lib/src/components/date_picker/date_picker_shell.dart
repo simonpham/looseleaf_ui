@@ -2,10 +2,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/button/button.dart';
-import 'package:looseleaf_ui/src/components/date_picker/date_picker_popup_surface.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/icon/icon.dart';
 import 'package:looseleaf_ui/src/components/input/input.dart';
+import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
@@ -437,7 +437,7 @@ class _DatePickerShellState extends State<DatePickerShell> with InkSeed {
           true => Alignment.topRight,
           false => Alignment.topLeft,
         },
-        offset: const Offset(0, Spacing.d4),
+        offset: const Offset(0, Spacing.d8),
         child: TapRegion(
           groupId: _tapGroup,
           onTapOutside: (_) => _setOpen(false),
@@ -451,7 +451,9 @@ class _DatePickerShellState extends State<DatePickerShell> with InkSeed {
               scopesRoute: true,
               namesRoute: true,
               label: widget.calendarLabel,
-              child: DatePickerPopupSurface(
+              child: PaperPopup(
+                seed: '${inkSeed(widget.seed)}|popup',
+                tilt: false,
                 child: switch (wide) {
                   true => Row(
                     mainAxisSize: MainAxisSize.min,
