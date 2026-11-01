@@ -33,5 +33,6 @@ export 'package:looseleaf_ui/src/components/switch/switch.dart';
 export 'package:looseleaf_ui/src/components/tally/tally.dart';
 export 'package:looseleaf_ui/src/components/textarea/textarea.dart';
 export 'package:looseleaf_ui/src/components/toggle/toggle.dart';
+export 'package:looseleaf_ui/src/components/toggle_group/toggle_group.dart';
 export 'package:looseleaf_ui/src/components/typing_indicator/typing_indicator.dart';
 export 'package:looseleaf_ui/src/components/underline/underline.dart';
