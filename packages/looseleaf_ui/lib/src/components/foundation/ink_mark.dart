@@ -99,10 +99,8 @@ class _InkMarkState extends State<InkMark> {
             ),
           ),
     ];
-    final layer = IgnorePointer(
-      child: ExcludeSemantics(
-        child: Stack(clipBehavior: Clip.none, children: marks),
-      ),
+    final layer = _MarkLayer(
+      child: Stack(clipBehavior: Clip.none, children: marks),
     );
     return Stack(
       clipBehavior: Clip.none,
@@ -145,4 +143,30 @@ class _RenderLayoutReporter extends RenderProxyBox {
     super.performLayout();
     onLayout(this);
   }
+}
+
+/// The drawings' layer: never hit, left out of semantics, and without a
+/// baseline, so the marked text alone sets where the mark sits in a line.
+class _MarkLayer extends SingleChildRenderObjectWidget {
+  const _MarkLayer({super.child});
+
+  @override
+  RenderObject createRenderObject(BuildContext context) => _RenderMarkLayer();
+}
+
+class _RenderMarkLayer extends RenderProxyBox {
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) => false;
+
+  @override
+  void visitChildrenForSemantics(RenderObjectVisitor visitor) {}
+
+  @override
+  double? computeDistanceToActualBaseline(TextBaseline baseline) => null;
+
+  @override
+  double? computeDryBaseline(
+    BoxConstraints constraints,
+    TextBaseline baseline,
+  ) => null;
 }
