@@ -56,6 +56,7 @@ export 'package:looseleaf_ui/src/components/progress/progress.dart';
 export 'package:looseleaf_ui/src/components/quote/quote.dart';
 export 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
 export 'package:looseleaf_ui/src/components/rating/rating.dart';
+export 'package:looseleaf_ui/src/components/receipt/receipt.dart';
 export 'package:looseleaf_ui/src/components/resizable/resizable.dart';
 export 'package:looseleaf_ui/src/components/reveal/reveal.dart';
 export 'package:looseleaf_ui/src/components/ribbon/ribbon.dart';
