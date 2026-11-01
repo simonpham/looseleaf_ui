@@ -179,6 +179,7 @@ class _ButtonState extends State<Button> with InkSeed {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           spacing: size.gap,
           children: [
             ?button.leading,
