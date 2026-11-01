@@ -89,6 +89,7 @@ export 'package:looseleaf_ui/src/components/tabs/tabs.dart';
 export 'package:looseleaf_ui/src/components/tally/tally.dart';
 export 'package:looseleaf_ui/src/components/tape/tape.dart';
 export 'package:looseleaf_ui/src/components/textarea/textarea.dart';
+export 'package:looseleaf_ui/src/components/ticket/ticket.dart';
 export 'package:looseleaf_ui/src/components/toggle/toggle.dart';
 export 'package:looseleaf_ui/src/components/toggle_group/toggle_group.dart';
 export 'package:looseleaf_ui/src/components/tooltip/tooltip.dart';
