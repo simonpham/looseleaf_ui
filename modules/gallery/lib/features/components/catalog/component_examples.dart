@@ -6,5 +6,6 @@ import 'package:gallery/features/components/models/models.dart';
 const Map<String, List<GalleryExample>> componentExamples = {
   'badge': badgeExamples,
   'button': buttonExamples,
+  'kbd': kbdExamples,
   'sidebar': sidebarExamples,
 };
