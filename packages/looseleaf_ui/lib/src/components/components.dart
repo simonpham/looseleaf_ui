@@ -19,6 +19,7 @@ export 'package:looseleaf_ui/src/components/calendar/calendar.dart';
 export 'package:looseleaf_ui/src/components/callout/callout.dart';
 export 'package:looseleaf_ui/src/components/card/card.dart';
 export 'package:looseleaf_ui/src/components/carousel/carousel.dart';
+export 'package:looseleaf_ui/src/components/chart/chart.dart';
 export 'package:looseleaf_ui/src/components/checkbox/checkbox.dart';
 export 'package:looseleaf_ui/src/components/circled/circled.dart';
 export 'package:looseleaf_ui/src/components/clipboard/clipboard.dart';
