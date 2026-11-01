@@ -16,6 +16,7 @@ export 'package:looseleaf_ui/src/components/icon/icon.dart';
 export 'package:looseleaf_ui/src/components/input/input.dart';
 export 'package:looseleaf_ui/src/components/kbd/kbd.dart';
 export 'package:looseleaf_ui/src/components/lettering/lettering.dart';
+export 'package:looseleaf_ui/src/components/marker/marker.dart';
 export 'package:looseleaf_ui/src/components/mascot/mascot.dart';
 export 'package:looseleaf_ui/src/components/progress/progress.dart';
 export 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
