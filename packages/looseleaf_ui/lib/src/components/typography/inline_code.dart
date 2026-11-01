@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
-/// A short piece of code in running text: monospace at 85% on a muted
+/// A short piece of code in running text: IBM Plex Mono at 85% on a muted
 /// patch with uneven corners. Use it in a [WidgetSpan] inside [Text.rich],
 /// or on its own.
 ///
@@ -22,7 +22,9 @@ class InlineCode extends StatelessWidget {
 
   final String code;
 
-  /// `--font-mono`.
+  /// `--font-mono` as CSS names it, for widgets that list the families
+  /// themselves; [InlineCode] uses the bundled face through
+  /// `LooseleafTypography.mono`.
   static const List<String> monoFamilies = [
     'IBM Plex Mono',
     'SF Mono',
@@ -58,12 +60,10 @@ class InlineCode extends StatelessWidget {
         ),
         child: Text(
           code,
-          style: TextStyle(
-            fontFamily: monoFamilies.first,
-            fontFamilyFallback: monoFamilies.sublist(1),
-            fontSize: size,
+          style: theme.typography.mono(
+            cssSize: size,
+            cssLineHeight: 1.2,
             fontWeight: FontWeight.w500,
-            height: 1.2,
             color: theme.colors.ink,
           ),
         ),

@@ -152,4 +152,13 @@ void main() {
     );
     expect(tester.getSize(find.byType(Prose)).width, 17 * 32);
   });
+
+  testWidgets('inline code is set in the bundled IBM Plex Mono', (
+    tester,
+  ) async {
+    await tester.pumpWidget(componentHost(const InlineCode('npm run notes')));
+    final style = _style(tester, 'npm run notes');
+    expect(style?.fontFamily, 'packages/looseleaf_ui/IBMPlexMono');
+    expect(style?.fontSize, closeTo(17 * 0.88 * 0.85, 0.001));
+  });
 }
