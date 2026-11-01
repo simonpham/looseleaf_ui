@@ -28,5 +28,12 @@ class InkTween {
     _controller.animateTo(target, duration: duration, curve: curve);
   }
 
+  /// Jumps to [from], then eases to [target], replaying a CSS animation.
+  void replay(double from, double target, Duration duration, Curve curve) {
+    _controller.value = from;
+    _target = from;
+    to(target, duration, curve);
+  }
+
   void dispose() => _controller.dispose();
 }

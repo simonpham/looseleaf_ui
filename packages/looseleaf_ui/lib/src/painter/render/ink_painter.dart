@@ -59,6 +59,11 @@ class InkPainter {
     if (alpha <= 0) return;
     final style = node.style.inherit(parent);
     final shift = context.state.shiftFor(effects.part, effects.misregister);
+    final partClip = context.state.clipFor(
+      effects.part,
+      node.bounds,
+      context.theme.textDirection,
+    );
     final mask = _mask(effects.maskId);
     final blend = switch (effects.blend) {
       InkBlend.none => null,
@@ -71,10 +76,12 @@ class InkPainter {
     final saved =
         layered ||
         shift != Offset.zero ||
+        partClip != null ||
         effects.transform != null ||
         effects.clipPathId != null;
     if (saved) canvas.save();
     if (shift != Offset.zero) canvas.translate(shift.dx, shift.dy);
+    if (partClip != null) canvas.clipRect(partClip);
     if (layered) {
       final layerPaint = Paint()..color = Color.fromRGBO(0, 0, 0, alpha);
       if (blend != null) layerPaint.blendMode = blend;
@@ -298,12 +305,17 @@ class InkPainter {
       ..strokeCap = style.strokeCap ?? StrokeCap.butt
       ..strokeJoin = style.strokeJoin ?? StrokeJoin.miter
       ..strokeMiterLimit = style.strokeMiterLimit ?? 4;
+    canvas.drawPath(_strokePath(node, style), _paint);
+  }
+
+  Path _strokePath(InkShapeNode node, InkStyle style) {
+    final reveal = context.state.reveal;
+    if (node.effects.part == 'reveal' && reveal < 1) {
+      return InkDash.revealed(node, reveal);
+    }
     final dashes = style.dashArray ?? const [];
-    final path = switch (dashes.isEmpty) {
-      true => node.path,
-      false => InkDash.dashed(node, dashes, style.dashOffset ?? 0),
-    };
-    canvas.drawPath(path, _paint);
+    if (dashes.isEmpty) return node.path;
+    return InkDash.dashed(node, dashes, style.dashOffset ?? 0);
   }
 
   bool _setPaint(Canvas canvas, InkPaint paint, Path path, double opacity) {

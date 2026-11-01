@@ -90,6 +90,8 @@ class InkSurfacePainter extends CustomPainter {
       state: InkStateEffects(
         hidden: motion.hidden,
         partShift: motion.partShift.value,
+        swipe: motion.swipe.value,
+        reveal: motion.reveal.value,
       ),
     );
     for (final layer in frame.layers) {

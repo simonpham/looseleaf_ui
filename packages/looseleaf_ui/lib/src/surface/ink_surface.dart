@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
+import 'package:looseleaf_ui/src/surface/ink_motion.dart';
 import 'package:looseleaf_ui/src/surface/ink_state.dart';
 import 'package:looseleaf_ui/src/surface/ink_surface_motion.dart';
 import 'package:looseleaf_ui/src/surface/ink_surface_painter.dart';
@@ -27,6 +28,8 @@ class InkSurface extends StatefulWidget {
     this.sinkSelf = false,
     this.eagerLayers = const {},
     this.still,
+    this.swipeOnHover = false,
+    this.drawOn = false,
   });
 
   /// What draws the frame.
@@ -58,6 +61,15 @@ class InkSurface extends StatefulWidget {
 
   /// Whether the frame stays put on hover; defaults to the theme's.
   final bool? still;
+
+  /// Wipes the frame's `swipe` parts in each time hover starts, like
+  /// upstream's `hover:[&>svg_[data-part=swipe]]:animate-[ll-wipe…]`.
+  final bool swipeOnHover;
+
+  /// Draws the frame's `reveal` parts on when `checked` or `indeterminate`
+  /// turns on, like upstream's `data-touched` draw-on. Pass true only once
+  /// the user has toggled the widget, so marks set from code appear whole.
+  final bool drawOn;
 
   @override
   State<InkSurface> createState() => _InkSurfaceState();
@@ -91,9 +103,7 @@ class _InkSurfaceState extends State<InkSurface> with TickerProviderStateMixin {
 
   void _sync() {
     final theme = LooseleafTheme.of(context);
-    final reduced =
-        theme.motion == LooseleafMotion.reduced ||
-        (MediaQuery.maybeDisableAnimationsOf(context) ?? false);
+    final reduced = InkMotion.reducedIn(context);
     for (final state in widget.states) {
       if (widget.source.lazyLayers.contains(state.layer)) {
         _triggered.add(state.layer);
@@ -104,6 +114,8 @@ class _InkSurfaceState extends State<InkSurface> with TickerProviderStateMixin {
       hasHover: _hasHover,
       still: widget.still ?? theme.still,
       animate: _animate && !reduced,
+      swipeOnHover: widget.swipeOnHover,
+      drawOn: widget.drawOn,
     );
     if (created) {
       _repaint = Listenable.merge([_motion.listenable, InkTextures.instance]);

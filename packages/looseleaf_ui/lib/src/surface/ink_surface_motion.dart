@@ -10,12 +10,15 @@ class InkSurfaceMotion {
   InkSurfaceMotion(this._vsync)
     : tilt = InkTween(_vsync, 0),
       partShift = InkTween(_vsync, 0),
-      sink = InkTween(_vsync, 0);
+      sink = InkTween(_vsync, 0),
+      swipe = InkTween(_vsync, 1),
+      reveal = InkTween(_vsync, 1);
 
   final TickerProvider _vsync;
   final Map<InkState, InkTween> _layers = {};
   final Map<InkState, InkTween> _pops = {};
   final Map<InkState, InkTween> _hides = {};
+  Set<InkState> _previous = const {};
 
   /// The frame's rotation in radians (the hover tilt).
   final InkTween tilt;
@@ -26,10 +29,18 @@ class InkSurfaceMotion {
   /// How far the rest layer has sunk (0 → 1 when pressed).
   final InkTween sink;
 
+  /// How far `swipe` parts have wiped in (see [InkStateEffects.swipe]).
+  final InkTween swipe;
+
+  /// How far `reveal` parts have drawn on (see [InkStateEffects.reveal]).
+  final InkTween reveal;
+
   Listenable get listenable => Listenable.merge([
     tilt.animation,
     partShift.animation,
     sink.animation,
+    swipe.animation,
+    reveal.animation,
     for (final tween in [..._layers.values, ..._pops.values, ..._hides.values])
       tween.animation,
   ]);
@@ -48,13 +59,17 @@ class InkSurfaceMotion {
 
   /// Animates to [states]. [hasHover] says whether the frame has a hover
   /// layer (only then does it tilt); [still] disables the tilt;
-  /// [animate] false jumps. Returns true when new tweens were created, so
+  /// [animate] false jumps. [swipeOnHover] wipes `swipe` parts in as hover
+  /// starts; [drawOn] draws `reveal` parts on as `checked` or
+  /// `indeterminate` turns on. Returns true when new tweens were created, so
   /// the caller re-reads [listenable].
   bool update(
     Set<InkState> states, {
     required bool hasHover,
     required bool still,
     required bool animate,
+    bool swipeOnHover = false,
+    bool drawOn = false,
   }) {
     final created = _ensure(states);
     Duration time(Duration duration) => switch (animate) {
@@ -142,7 +157,44 @@ class InkSurfaceMotion {
     };
     partShift.to(shift, pressTime, pressCurve);
     sink.to(_unit(pressed), pressTime, pressCurve);
+    _playParts(
+      states,
+      hovered: hovered,
+      swipeOnHover: swipeOnHover && animate,
+      drawOn: drawOn && animate,
+    );
     return created;
+  }
+
+  void _playParts(
+    Set<InkState> states, {
+    required bool hovered,
+    required bool swipeOnHover,
+    required bool drawOn,
+  }) {
+    final wasHovered = _hoveredIn(_previous);
+    final wasMarked = _markOf(_previous);
+    _previous = {...states};
+    if (!hovered) swipe.to(1, Duration.zero, InkMotion.easeOut);
+    if (hovered && !wasHovered && swipeOnHover) {
+      swipe.replay(0, 1, InkMotion.sheet, InkMotion.easeOut);
+    }
+    final marked = _markOf(states);
+    if (marked == null || !drawOn) {
+      reveal.to(1, Duration.zero, InkMotion.easeOut);
+      return;
+    }
+    if (marked == wasMarked) return;
+    reveal.replay(0, 1, InkMotion.sheet, InkMotion.easeOut);
+  }
+
+  static bool _hoveredIn(Set<InkState> states) =>
+      states.contains(InkState.hovered) && !states.contains(InkState.disabled);
+
+  static InkState? _markOf(Set<InkState> states) {
+    if (states.contains(InkState.checked)) return InkState.checked;
+    if (states.contains(InkState.indeterminate)) return InkState.indeterminate;
+    return null;
   }
 
   bool _ensure(Set<InkState> states) {
@@ -176,5 +228,7 @@ class InkSurfaceMotion {
     tilt.dispose();
     partShift.dispose();
     sink.dispose();
+    swipe.dispose();
+    reveal.dispose();
   }
 }
