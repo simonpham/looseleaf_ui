@@ -10,6 +10,7 @@ export 'package:looseleaf_ui/src/components/bracket/bracket.dart';
 export 'package:looseleaf_ui/src/components/breadcrumb/breadcrumb.dart';
 export 'package:looseleaf_ui/src/components/button/button.dart';
 export 'package:looseleaf_ui/src/components/card/card.dart';
+export 'package:looseleaf_ui/src/components/carousel/carousel.dart';
 export 'package:looseleaf_ui/src/components/checkbox/checkbox.dart';
 export 'package:looseleaf_ui/src/components/circled/circled.dart';
 export 'package:looseleaf_ui/src/components/collapsible/collapsible.dart';
