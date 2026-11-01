@@ -41,6 +41,7 @@ export 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 export 'package:looseleaf_ui/src/components/page/page.dart';
 export 'package:looseleaf_ui/src/components/pagination/pagination.dart';
 export 'package:looseleaf_ui/src/components/paper/paper.dart';
+export 'package:looseleaf_ui/src/components/popover/popover.dart';
 export 'package:looseleaf_ui/src/components/progress/progress.dart';
 export 'package:looseleaf_ui/src/components/quote/quote.dart';
 export 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
