@@ -59,6 +59,29 @@ FocusNode _focusOf(WidgetTester tester, String title) => tester
     .focusNode!;
 
 void main() {
+  testWidgets('semanticLabel names the bar', (tester) async {
+    final handle = tester.ensureSemantics();
+    await tester.pumpWidget(
+      overlayHost(
+        Menubar(
+          semanticLabel: 'Application',
+          children: [
+            _menu('File', ['New Tab']),
+          ],
+        ),
+      ),
+    );
+    expect(
+      find.bySemanticsLabel('Application'),
+      findsOneWidget,
+    );
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Application')),
+      isSemantics(role: SemanticsRole.menuBar, label: 'Application'),
+    );
+    handle.dispose();
+  });
+
   testWidgets('a tap opens a menu and another closes it', (tester) async {
     final values = <String?>[];
     await tester.pumpWidget(overlayHost(_bar(values: values)));

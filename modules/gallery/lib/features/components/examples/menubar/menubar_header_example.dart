@@ -60,6 +60,7 @@ class _MenubarHeaderExampleState extends State<MenubarHeaderExample> {
                       Flexible(
                         child: Menubar(
                           seed: 'header',
+                          semanticLabel: 'Application',
                           children: [
                             MenubarMenu(
                               trigger: const MenubarTrigger(

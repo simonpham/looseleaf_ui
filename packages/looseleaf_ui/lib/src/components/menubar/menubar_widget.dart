@@ -46,6 +46,7 @@ class Menubar extends StatefulWidget {
     this.value,
     this.onValueChange,
     this.seed,
+    this.semanticLabel,
   });
 
   /// The menus.
@@ -59,6 +60,10 @@ class Menubar extends StatefulWidget {
 
   /// Pins the strip's drawing.
   final String? seed;
+
+  /// The bar's accessible name, like upstream's `aria-label`
+  /// ("Application" in the header example).
+  final String? semanticLabel;
 
   /// The strip's height: `h-10 compact:h-9 calm:h-8`.
   static const ByDensity<double> height = ByDensity(
@@ -134,6 +139,7 @@ class MenubarState extends State<Menubar> with InkSeed {
         container: true,
         explicitChildNodes: true,
         role: SemanticsRole.menuBar,
+        label: widget.semanticLabel,
         child: InkSurface(
           source: _source,
           seed: inkSeed(widget.seed),
