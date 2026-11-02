@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/dropdown_menu/dropdown_menu.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 
 /// The control that opens a [DropdownMenu].
 ///
@@ -54,9 +55,9 @@ class DropdownMenuTrigger extends StatelessWidget {
     final menu = DropdownMenu.of(context);
     final build = builder;
     final Widget control = switch (build) {
-      final build? => Semantics(
+      final build? => InkTriggerSemantics(
         expanded: menu.open,
-        child: build(context, menu),
+        child: Builder(builder: (context) => build(context, menu)),
       ),
       null => Semantics(
         container: true,

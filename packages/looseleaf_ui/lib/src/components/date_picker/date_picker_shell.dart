@@ -317,7 +317,7 @@ class _DatePickerShellState extends State<DatePickerShell> with InkSeed {
                       ),
                       child: SizedBox.square(
                         dimension: cell,
-                        child: Semantics(
+                        child: InkTriggerSemantics(
                           expanded: _open,
                           child: Button(
                             variant: ButtonVariant.ghost,

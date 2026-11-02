@@ -106,6 +106,23 @@ void main() {
     expect(trigger.hasFocus, isTrue);
   });
 
+  testWidgets('a builder trigger reports expanded on its own button', (
+    tester,
+  ) async {
+    final handle = tester.ensureSemantics();
+    await tester.pumpWidget(overlayHost(_popover()));
+    Matcher expanded(bool open) => containsSemantics(
+      isButton: true,
+      hasExpandedState: true,
+      isExpanded: open,
+    );
+    expect(tester.getSemantics(find.byType(Button)), expanded(false));
+    await tester.tap(find.text('Open'));
+    await tester.pumpAndSettle();
+    expect(tester.getSemantics(find.byType(Button)), expanded(true));
+    handle.dispose();
+  });
+
   testWidgets('flips above when there is no room below', (tester) async {
     tester.view.physicalSize = const Size(600, 300);
     tester.view.devicePixelRatio = 1;

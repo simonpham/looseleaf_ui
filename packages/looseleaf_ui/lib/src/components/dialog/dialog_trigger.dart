@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/dialog/dialog.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 
 /// The control that opens a [Dialog] (and the alert dialog, sheet and
 /// drawer, which share its controller).
@@ -46,7 +47,10 @@ class DialogTrigger extends StatelessWidget {
     if (build != null) {
       return TapRegion(
         groupId: dialog.groupId,
-        child: Semantics(expanded: dialog.open, child: build(context, dialog)),
+        child: InkTriggerSemantics(
+          expanded: dialog.open,
+          child: Builder(builder: (context) => build(context, dialog)),
+        ),
       );
     }
     return TapRegion(

@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/popover/popover.dart';
 
 /// The control that opens a [Popover].
@@ -47,9 +48,9 @@ class PopoverTrigger extends StatelessWidget {
     if (build != null) {
       return TapRegion(
         groupId: popover.groupId,
-        child: Semantics(
+        child: InkTriggerSemantics(
           expanded: popover.open,
-          child: build(context, popover),
+          child: Builder(builder: (context) => build(context, popover)),
         ),
       );
     }
