@@ -70,4 +70,100 @@ void main() {
       expect(child.top - group.top, inset.top);
     }
   });
+
+  testWidgets('a badge leaves room at the end of the label, like an action', (
+    tester,
+  ) async {
+    final ends = <double>[];
+    for (final badge in [false, true]) {
+      await _pump(
+        tester,
+        SizedBox(
+          width: 240,
+          child: SidebarMenu(
+            children: [
+              SidebarMenuItem(
+                badge: switch (badge) {
+                  true => const SidebarMenuBadge(child: Text('3')),
+                  false => null,
+                },
+                child: SidebarMenuButton(
+                  onPressed: () {},
+                  child: const SizedBox(key: Key('label'), height: 10),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+      ends.add(tester.getRect(find.byKey(const Key('label'))).right);
+    }
+    expect(ends.first - ends.last, Spacing.d32 - Spacing.d8);
+  });
+
+  testWidgets('a leading action sits over the icon, filled with the pad', (
+    tester,
+  ) async {
+    var folds = 0;
+    await _pump(
+      tester,
+      SizedBox(
+        width: 240,
+        child: SidebarMenu(
+          children: [
+            SidebarMenuItem(
+              leadingAction: SidebarMenuAction(
+                fill: true,
+                semanticLabel: 'Fold',
+                onPressed: () => folds++,
+                child: const SizedBox(key: Key('chevron'), width: 16),
+              ),
+              action: SidebarMenuAction(
+                semanticLabel: 'Add',
+                onPressed: () {},
+                child: const SizedBox(width: 16),
+              ),
+              child: SidebarMenuButton(
+                onPressed: () {},
+                leading: const SizedBox(
+                  key: Key('icon'),
+                  width: 16,
+                  height: 16,
+                ),
+                child: const Text('Notes'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    final button = tester.getRect(find.byType(SidebarMenuButton));
+    Finder action(String label) => find.byWidgetPredicate(
+      (widget) => widget is SidebarMenuAction && widget.semanticLabel == label,
+    );
+    final leading = tester.getRect(action('Fold'));
+    expect(leading.left - button.left, Spacing.d4);
+    expect(leading.center.dy, button.center.dy);
+    expect(
+      leading.overlaps(tester.getRect(find.byKey(const Key('icon')))),
+      isTrue,
+    );
+    expect(
+      tester.getRect(action('Add')).right,
+      button.right - Spacing.d4,
+    );
+    expect(
+      find.descendant(
+        of: action('Fold'),
+        matching: find.byWidgetPredicate(
+          (widget) =>
+              widget is ColoredBox &&
+              widget.color == const LooseleafThemeData().colors.pad,
+        ),
+      ),
+      findsOneWidget,
+    );
+    await tester.tap(find.byKey(const Key('chevron')));
+    expect(folds, 1);
+  });
 }

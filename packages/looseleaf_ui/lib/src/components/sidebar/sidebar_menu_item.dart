@@ -4,7 +4,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// One row of a [SidebarMenu]: its [child] (a [SidebarMenuButton], or a
 /// [Collapsible] holding the button and a [SidebarMenuSub]) with an
-/// optional [action] or [badge] at the end of the button.
+/// optional [action] or [badge] at the end of the button, and an optional
+/// [leadingAction] over its icon.
 ///
 /// Mirrors `SidebarMenuItem` in upstream `src/components/ui/sidebar.tsx`,
 /// whose absolutely placed action and badge children become slots.
@@ -14,6 +15,7 @@ class SidebarMenuItem extends StatefulWidget {
     required this.child,
     this.action,
     this.badge,
+    this.leadingAction,
   });
 
   /// The row's button.
@@ -24,6 +26,12 @@ class SidebarMenuItem extends StatefulWidget {
 
   /// A [SidebarMenuBadge] at the end of the button.
   final Widget? badge;
+
+  /// A second [SidebarMenuAction] at the start of the button, over its
+  /// icon (upstream's `SidebarMenuAction className="start-1"`), usually a
+  /// fold chevron shown on hover with [SidebarMenuAction.fill] so it hides
+  /// the icon under it.
+  final Widget? leadingAction;
 
   @override
   State<SidebarMenuItem> createState() => _SidebarMenuItemState();
@@ -46,25 +54,31 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
     super.dispose();
   }
 
-  Widget _end(Widget child) => PositionedDirectional(
-    top: 0,
-    end: Spacing.d4,
-    child: ValueListenableBuilder(
-      valueListenable: _size,
-      builder: (context, size, child) => SizedBox(
-        height: size.height.resolve(LooseleafTheme.of(context).density),
-        child: Center(child: child),
-      ),
-      child: child,
-    ),
-  );
+  Widget _end(Widget child) => _slot(child, end: Spacing.d4);
+
+  Widget _slot(Widget child, {double? start, double? end}) =>
+      PositionedDirectional(
+        top: 0,
+        start: start,
+        end: end,
+        child: ValueListenableBuilder(
+          valueListenable: _size,
+          builder: (context, size, child) => SizedBox(
+            height: size.height.resolve(LooseleafTheme.of(context).density),
+            child: Center(child: child),
+          ),
+          child: child,
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     final action = widget.action;
     final badge = widget.badge;
+    final leadingAction = widget.leadingAction;
     return SidebarMenuItemScope(
       hasAction: action != null,
+      hasBadge: badge != null,
       buttonSize: _size,
       engaged: _engaged,
       child: MouseRegion(
@@ -88,6 +102,8 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
               widget.child,
               if (badge != null) _end(IgnorePointer(child: badge)),
               if (action != null) _end(action),
+              if (leadingAction != null)
+                _slot(leadingAction, start: Spacing.d4),
             ],
           ),
         ),

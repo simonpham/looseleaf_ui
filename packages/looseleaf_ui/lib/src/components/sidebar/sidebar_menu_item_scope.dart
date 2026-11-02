@@ -8,6 +8,7 @@ class SidebarMenuItemScope extends InheritedWidget {
   const SidebarMenuItemScope({
     super.key,
     required this.hasAction,
+    this.hasBadge = false,
     required this.buttonSize,
     required this.engaged,
     required super.child,
@@ -15,6 +16,10 @@ class SidebarMenuItemScope extends InheritedWidget {
 
   /// The row has a [SidebarMenuAction]: its button leaves room at the end.
   final bool hasAction;
+
+  /// The row has a [SidebarMenuBadge]: its button leaves room at the end
+  /// too (upstream's `group-has-data-[sidebar=menu-badge]/menu-item:pe-8`).
+  final bool hasBadge;
 
   /// The row button's size, reported by the button.
   final ValueNotifier<SidebarMenuButtonSize> buttonSize;
@@ -29,6 +34,7 @@ class SidebarMenuItemScope extends InheritedWidget {
   @override
   bool updateShouldNotify(SidebarMenuItemScope oldWidget) =>
       oldWidget.hasAction != hasAction ||
+      oldWidget.hasBadge != hasBadge ||
       oldWidget.buttonSize != buttonSize ||
       oldWidget.engaged != engaged;
 }

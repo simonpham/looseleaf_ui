@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/sidebar/sidebar.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
+import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// A small button at the end of a row (a menu of row actions), given to
 /// [SidebarMenuItem.action]. With [showOnHover] it only shows while the
@@ -17,6 +18,7 @@ class SidebarMenuAction extends StatelessWidget {
     this.semanticLabel,
     this.focusNode,
     this.forcedStates = const {},
+    this.fill = false,
   });
 
   /// The icon.
@@ -36,17 +38,27 @@ class SidebarMenuAction extends StatelessWidget {
   /// States shown whatever the input, for state grids and goldens.
   final Set<InkState> forcedStates;
 
+  /// Lays the pad's colour under the icon (upstream's `bg-sidebar`), so an
+  /// action over the row's icon hides it while shown.
+  final bool fill;
+
   @override
   Widget build(BuildContext context) {
     final panel = SidebarPanelScope.maybeOf(context);
     if (panel?.collapsedToIcons ?? false) return const SizedBox.shrink();
-    final button = SidebarActionButton(
+    Widget button = SidebarActionButton(
       onPressed: onPressed,
       semanticLabel: semanticLabel,
       focusNode: focusNode,
       forcedStates: forcedStates,
       child: child,
     );
+    if (fill) {
+      button = ColoredBox(
+        color: LooseleafTheme.of(context).colors.pad,
+        child: button,
+      );
+    }
     final engaged = SidebarMenuItemScope.maybeOf(context)?.engaged;
     if (!showOnHover || (panel?.mobile ?? false) || engaged == null) {
       return button;

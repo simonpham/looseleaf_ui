@@ -147,7 +147,8 @@ class _SidebarMenuButtonState extends State<SidebarMenuButton> with InkSeed {
     final active = widget.isActive;
     final engaged =
         states.contains(InkState.hovered) || states.contains(InkState.focused);
-    final hasAction = SidebarMenuItemScope.maybeOf(context)?.hasAction ?? false;
+    final item = SidebarMenuItemScope.maybeOf(context);
+    final endSlot = (item?.hasAction ?? false) || (item?.hasBadge ?? false);
     final height = widget.size.height.resolve(theme.density);
     final style = theme.typography.face(
       KevinSansFace.hand,
@@ -162,7 +163,7 @@ class _SidebarMenuButtonState extends State<SidebarMenuButton> with InkSeed {
         false => theme.colors.ink,
       },
     );
-    final padding = switch ((icons, widget.size, hasAction)) {
+    final padding = switch ((icons, widget.size, endSlot)) {
       (true, SidebarMenuButtonSize.lg, _) => EdgeInsets.zero,
       (true, _, _) => const EdgeInsets.all(Spacing.d8),
       (false, _, true) => const EdgeInsetsDirectional.only(
