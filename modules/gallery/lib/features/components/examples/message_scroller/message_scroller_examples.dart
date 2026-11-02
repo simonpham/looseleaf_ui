@@ -30,4 +30,13 @@ const messageScrollerExamples = <GalleryExample>[
     source: 'message_scroller/message_scroller_earlier_messages_example.dart',
     builder: MessageScrollerEarlierMessagesExample.new,
   ),
+  GalleryExample(
+    title: 'A whole chat',
+    description: 'Everything at once: a transcript that pins your message and follows the reply, streaming words that soak in, a tool-call note, a code slip with a diff, attachments, a typing pencil, day markers, and the composer with its paper plane and stop button.',
+    layout: ExampleLayout.full,
+    stage: ExampleStage.desk,
+    height: 780,
+    source: 'message_scroller/message_scroller_chat_app_example.dart',
+    builder: MessageScrollerChatAppExample.new,
+  ),
 ];

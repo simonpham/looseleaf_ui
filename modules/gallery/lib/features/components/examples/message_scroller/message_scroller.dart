@@ -1,3 +1,6 @@
+export 'package:gallery/features/components/examples/message_scroller/message_scroller_chat_app_data.dart';
+export 'package:gallery/features/components/examples/message_scroller/message_scroller_chat_app_example.dart';
+export 'package:gallery/features/components/examples/message_scroller/message_scroller_chat_app_turn.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_default_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_earlier_messages_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_examples.dart';
