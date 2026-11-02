@@ -28,6 +28,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'dialog': dialogExamples,
   'doodle': doodleExamples,
   'envelope': envelopeExamples,
+  'field': fieldExamples,
   'folder': folderExamples,
   'highlight': highlightExamples,
   'hover-card': hoverCardExamples,

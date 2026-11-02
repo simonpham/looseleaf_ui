@@ -22,6 +22,7 @@ export 'package:gallery/features/components/examples/corkboard/corkboard.dart';
 export 'package:gallery/features/components/examples/dialog/dialog.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
 export 'package:gallery/features/components/examples/envelope/envelope.dart';
+export 'package:gallery/features/components/examples/field/field.dart';
 export 'package:gallery/features/components/examples/folder/folder.dart';
 export 'package:gallery/features/components/examples/highlight/highlight.dart';
 export 'package:gallery/features/components/examples/hover_card/hover_card.dart';
