@@ -24,6 +24,7 @@ class CalendarCaption extends StatelessWidget {
     required this.seed,
     this.layout = CalendarCaptionLayout.label,
     this.formatters = const CalendarFormatters(),
+    this.cellSize,
   });
 
   /// The month shown.
@@ -43,6 +44,10 @@ class CalendarCaption extends StatelessWidget {
 
   final CalendarCaptionLayout layout;
   final CalendarFormatters formatters;
+
+  /// The caption's height and side room; [CalendarMetrics.cell] for the
+  /// density when null.
+  final double? cellSize;
 
   bool _inBounds(DateTime candidate) =>
       !candidate.isBefore(CalendarDates.month(startMonth)) &&
@@ -99,7 +104,7 @@ class CalendarCaption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    final cell = CalendarMetrics.cell.resolve(theme.density);
+    final cell = cellSize ?? CalendarMetrics.cell.resolve(theme.density);
     final children = switch (layout) {
       CalendarCaptionLayout.label => [
         Semantics(

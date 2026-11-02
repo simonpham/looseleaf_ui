@@ -17,6 +17,14 @@ import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/paper/paper.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
+/// Builds the content of [day]'s button in a [Calendar] around its
+/// [number], the date in script.
+typedef CalendarDayContentBuilder = Widget Function(
+  BuildContext context,
+  DateTime day,
+  Widget number,
+);
+
 /// A month on planner paper: the grid ruled by hand, the chosen day
 /// circled in marker, today underlined in felt, a range one highlighter
 /// swipe per week, a day you may not pick hatched out in pencil.
@@ -75,6 +83,8 @@ class Calendar extends StatefulWidget {
     this.padding,
     this.autofocus = false,
     this.formatters = const CalendarFormatters(),
+    this.cellSize,
+    this.dayContentBuilder,
   }) : mode = CalendarMode.single,
        selectedDay = selected,
        onSelectDay = onSelect,
@@ -111,6 +121,8 @@ class Calendar extends StatefulWidget {
     this.padding,
     this.autofocus = false,
     this.formatters = const CalendarFormatters(),
+    this.cellSize,
+    this.dayContentBuilder,
   }) : mode = CalendarMode.multiple,
        selectedDay = null,
        onSelectDay = null,
@@ -147,6 +159,8 @@ class Calendar extends StatefulWidget {
     this.padding,
     this.autofocus = false,
     this.formatters = const CalendarFormatters(),
+    this.cellSize,
+    this.dayContentBuilder,
   }) : mode = CalendarMode.range,
        selectedDay = null,
        onSelectDay = null,
@@ -241,6 +255,16 @@ class Calendar extends StatefulWidget {
   /// The words and numerals.
   final CalendarFormatters formatters;
 
+  /// A day's side (upstream's `--cell`): 40 by default, 34 compact, 30
+  /// calm. Sidebars use `Spacing.d32` like upstream's `[--cell:2rem]`.
+  final double? cellSize;
+
+  /// Builds what sits inside a day's button around its [number], for marks
+  /// of your own such as event dots under the date; upstream wraps
+  /// `CalendarDayButton` in `components.DayButton` for this. The day keeps
+  /// its circle, swipe, underline, hatch and keyboard behaviour.
+  final CalendarDayContentBuilder? dayContentBuilder;
+
   /// The months from [startMonth] or its default to [endMonth] or its
   /// default.
   (DateTime?, DateTime?) bounds(DateTime today) {
@@ -257,6 +281,11 @@ class Calendar extends StatefulWidget {
     };
     return (start, end);
   }
+
+  /// The side of a day: [cellSize], else [CalendarMetrics.cell] for the
+  /// density.
+  double cell(LooseleafDensity density) =>
+      cellSize ?? CalendarMetrics.cell.resolve(density);
 
   @override
   State<Calendar> createState() => _CalendarState();
@@ -488,6 +517,7 @@ class _CalendarState extends State<Calendar> with InkSeed {
               child: CalendarNav(
                 seed: seed,
                 variant: widget.buttonVariant,
+                cellSize: widget.cell(theme.density),
                 previousLabel: widget.formatters.previousMonthLabel,
                 nextLabel: widget.formatters.nextMonthLabel,
                 canPrevious: start == null || months.first.isAfter(start),
@@ -558,7 +588,7 @@ class _CalendarState extends State<Calendar> with InkSeed {
     );
     final theme = LooseleafTheme.of(context);
     final width =
-        CalendarMetrics.cell.resolve(theme.density) * 7 +
+        widget.cell(theme.density) * 7 +
         switch (widget.showWeekNumber) {
           true => CalendarMetrics.weekNumber,
           false => 0,
@@ -571,6 +601,7 @@ class _CalendarState extends State<Calendar> with InkSeed {
           child: CalendarCaption(
             month: month,
             layout: widget.captionLayout,
+            cellSize: widget.cell(theme.density),
             formatters: widget.formatters,
             startMonth: start ?? DateTime(month.year - 100),
             endMonth: end ?? DateTime(month.year + 100, 12),
@@ -590,6 +621,7 @@ class _CalendarState extends State<Calendar> with InkSeed {
             ruled: widget.ruled,
             formatters: widget.formatters,
             active: target,
+            cellSize: widget.cell(theme.density),
             dayBuilder: (context, day, row) =>
                 _day(context, month, day, row, target),
           ),
@@ -616,9 +648,10 @@ class _CalendarState extends State<Calendar> with InkSeed {
     final selected = selection.isSelected(day);
     final today = day == _today;
     final node = _node(day)..skipTraversal = day != target || outside;
+    final number = Text(widget.formatters.day(day));
     return CalendarDayButton(
       day: day,
-      size: CalendarMetrics.cell.resolve(theme.density),
+      size: widget.cell(theme.density),
       focusNode: node,
       outside: outside,
       disabled: _disabled(day),
@@ -633,7 +666,10 @@ class _CalendarState extends State<Calendar> with InkSeed {
         selected: selected,
       ),
       onPressed: () => _pick(day),
-      child: Text(widget.formatters.day(day)),
+      child: switch (widget.dayContentBuilder) {
+        final builder? => builder(context, day, number),
+        null => number,
+      },
     );
   }
 }

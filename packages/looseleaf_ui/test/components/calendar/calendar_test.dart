@@ -372,4 +372,65 @@ void main() {
       isNull,
     );
   });
+
+  testWidgets('cellSize sets the side of every day', (tester) async {
+    await tester.pumpWidget(
+      overlayHost(
+        Calendar(
+          defaultMonth: _september,
+          today: _today,
+          cellSize: Spacing.d32,
+        ),
+      ),
+    );
+    expect(
+      tester.getSize(find.byType(CalendarDayButton).first),
+      const Size.square(Spacing.d32),
+    );
+    expect(
+      tester.getSize(find.byType(CalendarMonthGrid)).width,
+      7 * Spacing.d32,
+    );
+  });
+
+  testWidgets('dayContentBuilder wraps each number and keeps picking', (
+    tester,
+  ) async {
+    DateTime? picked;
+    final built = <DateTime>[];
+    await tester.pumpWidget(
+      overlayHost(
+        StatefulBuilder(
+          builder: (context, setState) => Calendar(
+            selected: picked,
+            onSelect: (day) => setState(() => picked = day),
+            defaultMonth: _september,
+            today: _today,
+            dayContentBuilder: (context, day, number) {
+              built.add(day);
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  number,
+                  if (day == DateTime(2026, 9, 20))
+                    const SizedBox(key: Key('dot'), width: 4, height: 4),
+                ],
+              );
+            },
+          ),
+        ),
+      ),
+    );
+    expect(built, contains(DateTime(2026, 9, 1)));
+    expect(
+      find.descendant(
+        of: find.byType(CalendarDayButton),
+        matching: find.byKey(const Key('dot')),
+      ),
+      findsOneWidget,
+    );
+    await tester.tap(_day(20).first);
+    await tester.pump();
+    expect(picked, DateTime(2026, 9, 20));
+  });
 }

@@ -31,6 +31,7 @@ class CalendarMonthGrid extends StatelessWidget {
     this.ruled = true,
     this.formatters = const CalendarFormatters(),
     this.active,
+    this.cellSize,
   });
 
   /// The rows of seven days, from [CalendarDates.weeks].
@@ -56,11 +57,14 @@ class CalendarMonthGrid extends StatelessWidget {
   /// loop sits over its neighbours.
   final DateTime? active;
 
+  /// A day's side; [CalendarMetrics.cell] for the density when null.
+  final double? cellSize;
+
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     final colors = theme.colors;
-    final cell = CalendarMetrics.cell.resolve(theme.density);
+    final cell = cellSize ?? CalendarMetrics.cell.resolve(theme.density);
     final margin = switch (showWeekNumber) {
       true => CalendarMetrics.weekNumber,
       false => 0.0,

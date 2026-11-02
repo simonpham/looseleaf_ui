@@ -23,6 +23,7 @@ class CalendarNav extends StatelessWidget {
     this.variant = ButtonVariant.ghost,
     this.previousLabel = 'Go to the Previous Month',
     this.nextLabel = 'Go to the Next Month',
+    this.cellSize,
   });
 
   final VoidCallback onPrevious;
@@ -42,6 +43,9 @@ class CalendarNav extends StatelessWidget {
 
   final String previousLabel;
   final String nextLabel;
+
+  /// The row's height; [CalendarMetrics.cell] for the density when null.
+  final double? cellSize;
 
   Widget _button({
     required bool enabled,
@@ -70,7 +74,7 @@ class CalendarNav extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     final rtl = Directionality.of(context) == TextDirection.rtl;
     return SizedBox(
-      height: CalendarMetrics.cell.resolve(theme.density),
+      height: cellSize ?? CalendarMetrics.cell.resolve(theme.density),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
