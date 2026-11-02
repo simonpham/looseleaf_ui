@@ -23,4 +23,5 @@ export 'package:gallery/features/blocks/blocks/sidebar_06/sidebar_06.dart';
 export 'package:gallery/features/blocks/blocks/signup_01/signup_01.dart';
 export 'package:gallery/features/blocks/blocks/signup_02/signup_02.dart';
 export 'package:gallery/features/blocks/blocks/signup_03/signup_03.dart';
+export 'package:gallery/features/blocks/blocks/signup_04/signup_04.dart';
 export 'package:gallery/features/blocks/blocks/testimonials_01/testimonials_01.dart';

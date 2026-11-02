@@ -112,6 +112,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: Signup03Block.new,
     objects: [DeskObject.clips, DeskObject.pins],
   ),
+  'signup-04': GalleryBlock(
+    source: 'blocks/signup_04/signup_04_block.dart',
+    builder: Signup04Block.new,
+    objects: [DeskObject.pencil],
+  ),
   'testimonials-01': GalleryBlock(
     source: 'blocks/testimonials_01/testimonials_01_block.dart',
     builder: Testimonials01Block.new,
