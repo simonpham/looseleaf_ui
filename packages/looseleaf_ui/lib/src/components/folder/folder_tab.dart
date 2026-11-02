@@ -13,7 +13,9 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// folder's stock, 36 px high (32 compact, 28 calm). The open tab stands
 /// 4 px taller and runs into the body; the others sit lower and shaded and
 /// catch a sheen on hover. A disabled tab is a dashed pencil ghost, skipped
-/// by the arrows. Keyboard focus draws a 2 px focus outline.
+/// by the arrows. Keyboard focus draws a 2 px focus outline. [inlinePadding]
+/// replaces the 24 px (20 compact, 16 calm) on each side, as upstream's
+/// `max-sm:px-1.5` does for tabs squeezed into a phone.
 ///
 /// Mirrors `FolderTab` in upstream `src/components/ui/folder.tsx`.
 class FolderTab extends StatefulWidget {
@@ -26,6 +28,7 @@ class FolderTab extends StatefulWidget {
     this.focusNode,
     this.autofocus = false,
     this.forcedStates = const {},
+    this.inlinePadding,
   });
 
   /// The [FolderContent] this tab opens.
@@ -36,6 +39,9 @@ class FolderTab extends StatefulWidget {
 
   /// Drawn as a dashed ghost, skipped by the keyboard, no input.
   final bool disabled;
+
+  /// The space either side of the label; by density when null.
+  final double? inlinePadding;
 
   /// Pins the tab's paper.
   final String? seed;
@@ -71,6 +77,21 @@ class _FolderTabState extends State<FolderTab> with InkSeed {
       widget.focusNode ?? (_ownFocusNode ??= FocusNode());
 
   @override
+  void initState() {
+    super.initState();
+    _focusNode.addListener(_reveal);
+  }
+
+  void _reveal() {
+    if (!_focusNode.hasFocus) return;
+    Scrollable.ensureVisible(
+      context,
+      duration: const Duration(milliseconds: 150),
+      alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+    );
+  }
+
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final roving = InkRovingFocus.maybeOf(context);
@@ -84,6 +105,8 @@ class _FolderTabState extends State<FolderTab> with InkSeed {
   void didUpdateWidget(FolderTab oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (identical(_entry.focusNode, _focusNode)) return;
+    _entry.focusNode.removeListener(_reveal);
+    _focusNode.addListener(_reveal);
     _roving?.unregister(_entry);
     _entry = InkRovingEntry(_focusNode);
     _roving?.register(_entry);
@@ -92,6 +115,7 @@ class _FolderTabState extends State<FolderTab> with InkSeed {
   @override
   void dispose() {
     _roving?.unregister(_entry);
+    _entry.focusNode.removeListener(_reveal);
     _ownFocusNode?.dispose();
     super.dispose();
   }
@@ -147,6 +171,7 @@ class _FolderTabState extends State<FolderTab> with InkSeed {
   ) {
     final theme = LooseleafTheme.of(context);
     final focused = states.contains(InkState.focused);
+    final inline = widget.inlinePadding ?? _inline.of(context);
     final shown = switch (active) {
       true => states.difference(const {InkState.hovered}),
       false => states,
@@ -174,8 +199,8 @@ class _FolderTabState extends State<FolderTab> with InkSeed {
               height: _height.of(context),
               child: Padding(
                 padding: EdgeInsets.only(
-                  left: _inline.of(context),
-                  right: _inline.of(context),
+                  left: inline,
+                  right: inline,
                   top: switch (active) {
                     true => Spacing.d2,
                     false => Spacing.d4,

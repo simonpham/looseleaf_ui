@@ -269,6 +269,7 @@ class _FileExplorerBlockState extends State<FileExplorerBlock> {
                           false => Expanded(
                             child: FolderTab(
                               value: drawer.id,
+                              inlinePadding: Spacing.d6,
                               child: Text(
                                 drawer.name,
                                 maxLines: 1,
@@ -283,6 +284,18 @@ class _FileExplorerBlockState extends State<FileExplorerBlock> {
                   for (final drawer in fileExplorerRoots)
                     FolderContent(
                       value: drawer.id,
+                      padding: EdgeInsets.fromLTRB(
+                        switch (width >= 640) {
+                          true => Spacing.d24,
+                          false => Spacing.d16,
+                        },
+                        Spacing.d32,
+                        switch (width >= 640) {
+                          true => Spacing.d24,
+                          false => Spacing.d16,
+                        },
+                        Spacing.d24,
+                      ),
                       child: FileExplorerBrowser(
                         rootName: drawer.name,
                         trail: trail,

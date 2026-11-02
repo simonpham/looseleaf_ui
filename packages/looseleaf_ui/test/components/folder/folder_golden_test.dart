@@ -21,6 +21,7 @@ void main() {
     await tester.pumpWidget(
       componentHost(
         RepaintBoundary(
+          key: const ValueKey('shot'),
           child: ColoredBox(
             color: theme.colors.desk,
             child: Padding(
@@ -150,7 +151,7 @@ void main() {
     );
     await tester.pumpAndSettle();
     await expectLater(
-      find.byType(RepaintBoundary).last,
+      find.byKey(const ValueKey('shot')),
       matchesGoldenFile('../goldens/folder-stocks.png'),
     );
   });

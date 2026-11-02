@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'dart:ui' show SemanticsRole;
 
 import 'package:flutter/widgets.dart';
@@ -11,7 +12,7 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// The panel a [FolderTab] opens onto: a [Paper] of the folder's stock,
 /// square to the desk, at least 160 px tall, padded 32 px on top and 24 px
-/// elsewhere, with a fold across the top ([crease]). Only the open panel is
+/// elsewhere ([padding] replaces that), with a fold across the top ([crease]). Only the open panel is
 /// built; it is a Tab stop of its own.
 ///
 /// Mirrors `FolderContent` in upstream `src/components/ui/folder.tsx`.
@@ -30,7 +31,11 @@ class FolderContent extends StatefulWidget {
     this.fastenerTone,
     this.shadow = PaperShadow.stock,
     this.seed,
+    this.padding,
   });
+
+  /// The space around [child]; upstream's `px-6 pt-8 pb-6` when null.
+  final EdgeInsetsGeometry? padding;
 
   /// The [FolderTab] that opens it.
   final String value;
@@ -89,6 +94,8 @@ class _FolderContentState extends State<FolderContent> with InkSeed {
     if (folder?.value != widget.value) return const SizedBox.shrink();
     final theme = LooseleafTheme.of(context);
     final seed = inkSeed(widget.seed);
+    final padding =
+        widget.padding?.resolve(Directionality.of(context)) ?? _padding;
     final degrees = switch (widget.tilt) {
       false => 0.0,
       true => widget.tiltDegrees ?? tiltFor(seed, _tiltMax),
@@ -110,7 +117,7 @@ class _FolderContentState extends State<FolderContent> with InkSeed {
           fastenerTone: widget.fastenerTone,
           shadow: widget.shadow,
           seed: seed,
-          padding: _padding,
+          padding: padding,
           decor: switch (widget.crease) {
             false => null,
             true => Transform.rotate(
@@ -128,7 +135,7 @@ class _FolderContentState extends State<FolderContent> with InkSeed {
           },
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              minHeight: _minHeight - _padding.vertical,
+              minHeight: math.max(0.0, _minHeight - padding.vertical),
             ),
             child: DefaultTextStyle.merge(
               style: TextStyle(color: theme.colors.ink),

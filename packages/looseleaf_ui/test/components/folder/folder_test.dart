@@ -177,7 +177,16 @@ void main() {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(_folder());
     expect(
-      tester.getSemantics(find.byType(FolderTabs)),
+      tester.getSemantics(
+        find.descendant(
+          of: find.byType(FolderTabs),
+          matching: find.byWidgetPredicate(
+            (widget) =>
+                widget is Semantics &&
+                widget.properties.role == SemanticsRole.tabBar,
+          ),
+        ),
+      ),
       matchesSemantics(role: SemanticsRole.tabBar, label: 'Mail'),
     );
     expect(
@@ -209,5 +218,89 @@ void main() {
       ),
     );
     handle.dispose();
+  });
+
+  testWidgets('tabs wider than the folder scroll, and a focused tab shows', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Focus(autofocus: true, child: SizedBox.square(dimension: 8)),
+            SizedBox(
+              width: 220,
+              child: Folder(
+                defaultValue: 'a',
+                children: [
+                  FolderTabs(
+                    children: [
+                      FolderTab(value: 'a', child: Text('Sketches')),
+                      FolderTab(value: 'b', child: Text('Notes')),
+                      FolderTab(value: 'c', child: Text('Photographs')),
+                    ],
+                  ),
+                  FolderContent(value: 'a', child: Text('first')),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    await tester.pump();
+    expect(tester.takeException(), isNull);
+    final folder = tester.getRect(find.byType(Folder));
+    expect(
+      tester.getRect(find.text('Photographs')).right,
+      greaterThan(folder.right),
+    );
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.sendKeyEvent(LogicalKeyboardKey.end);
+    await tester.pumpAndSettle();
+    expect(
+      tester.getRect(find.text('Photographs')).right,
+      lessThanOrEqualTo(folder.right),
+    );
+  });
+
+  testWidgets('tabs and panels take their own padding', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 300,
+          child: Folder(
+            defaultValue: 'a',
+            children: [
+              FolderTabs(
+                children: [
+                  Expanded(
+                    child: FolderTab(
+                      value: 'a',
+                      inlinePadding: 6,
+                      child: Text('Sketches'),
+                    ),
+                  ),
+                ],
+              ),
+              FolderContent(
+                value: 'a',
+                padding: EdgeInsets.fromLTRB(16, 32, 16, 24),
+                child: Text('first'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final tab = tester.getRect(find.byType(FolderTab));
+    expect(tab.width, 300 - 2 * Spacing.d16);
+    final body = tester.getRect(find.byType(Paper));
+    expect(
+      tester.getTopLeft(find.text('first')) - body.topLeft,
+      const Offset(16, 32),
+    );
   });
 }
