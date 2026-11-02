@@ -1,10 +1,16 @@
 export 'package:gallery/features/components/examples/sidebar/sidebar_app_sidebar_example.dart';
+export 'package:gallery/features/components/examples/sidebar/sidebar_controlled_and_loading_example.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_demo_example.dart';
+export 'package:gallery/features/components/examples/sidebar/sidebar_docs_toc.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_examples.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_group_action_example.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_group_collapsible_example.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_group_example.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_header_and_footer_example.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_icons_example.dart';
+export 'package:gallery/features/components/examples/sidebar/sidebar_menu_action_and_badge_example.dart';
+export 'package:gallery/features/components/examples/sidebar/sidebar_menu_collapsible_example.dart';
+export 'package:gallery/features/components/examples/sidebar/sidebar_menu_example.dart';
+export 'package:gallery/features/components/examples/sidebar/sidebar_menu_sub_example.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_search_and_loading_example.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar_variants_example.dart';
