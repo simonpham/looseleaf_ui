@@ -9,7 +9,9 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// of the bottom flap, the stamp and its postmark, and the airmail border,
 /// all from the [Envelope]. [children] sit at the foot, 13 % in from the
 /// start, 8 % from the end and the bottom; an [EnvelopeSender] goes to the
-/// top corner and an [EnvelopeTrigger] covers everything.
+/// top corner and an [EnvelopeTrigger] covers everything. An address
+/// taller than a narrow front grows upward over it, like upstream's flex
+/// column, instead of overflowing the panel.
 ///
 /// Mirrors `EnvelopeFront` in upstream `src/components/ui/envelope.tsx`.
 class EnvelopeFront extends StatelessWidget {
@@ -68,10 +70,15 @@ class EnvelopeFront extends StatelessWidget {
                     end: size.width * 0.08,
                     bottom: size.width * 0.08,
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: flowing,
+                  child: OverflowBox(
+                    alignment: AlignmentDirectional.bottomStart,
+                    minHeight: 0,
+                    maxHeight: double.infinity,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: flowing,
+                    ),
                   ),
                 ),
                 ...placed,

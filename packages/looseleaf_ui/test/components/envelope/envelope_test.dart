@@ -153,6 +153,54 @@ void main() {
     expect(FocusManager.instance.primaryFocus?.debugLabel, 'reply');
   });
 
+  testWidgets('a narrow front shrinks the address instead of overflowing', (
+    tester,
+  ) async {
+    Widget sized(double width) => componentHost(
+      Align(
+        alignment: Alignment.topLeft,
+        child: SizedBox(
+          width: width,
+          child: const Envelope(
+            seed: 'narrow',
+            children: [
+              EnvelopeFront(
+                children: [
+                  EnvelopeAddress(
+                    children: [
+                      Text('Mr. Charles Babbage'),
+                      Text('1 Dorset Street, Marylebone'),
+                      Text('London'),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    double fontSize() =>
+        tester
+            .widget<DefaultTextStyle>(
+              find
+                  .ancestor(
+                    of: find.text('London'),
+                    matching: find.byType(DefaultTextStyle),
+                  )
+                  .first,
+            )
+            .style
+            .fontSize ??
+        0;
+
+    await tester.pumpWidget(sized(384));
+    final full = fontSize();
+    await tester.pumpWidget(sized(200));
+    expect(tester.takeException(), isNull);
+    expect(fontSize(), closeTo(full * 0.8, 0.01));
+  });
+
   testWidgets('sealed: the trigger does nothing', (tester) async {
     final changes = <bool>[];
     await tester.pumpWidget(
