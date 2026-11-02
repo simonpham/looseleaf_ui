@@ -19,10 +19,12 @@ class CorkboardStocksExample extends StatelessWidget {
             id: 'list',
             x: 20,
             y: 24,
+            width: Spacing.d224,
             stock: StockName.indexCard,
             label: 'Ideas list',
             pinColor: PaintKey.grass,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('ideas', style: TextStyle(fontWeight: FontWeight.w700)),
@@ -35,6 +37,7 @@ class CorkboardStocksExample extends StatelessWidget {
             id: 'tag',
             x: 270,
             y: 40,
+            width: Spacing.d160,
             stock: StockName.kraft,
             rotate: -4,
             pinColor: PaintKey.tomato,
