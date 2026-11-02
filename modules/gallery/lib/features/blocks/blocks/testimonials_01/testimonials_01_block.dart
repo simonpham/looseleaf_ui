@@ -95,7 +95,7 @@ class Testimonials01Block extends StatelessWidget {
                         false => Spacing.d56,
                       },
                     ),
-                    child: const Testimonials01Wall(),
+                    child: Testimonials01Wall(width: constraints.maxWidth),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: Spacing.d56),

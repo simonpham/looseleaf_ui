@@ -133,7 +133,7 @@ class LandingHero02Block extends StatelessWidget {
                     false => Spacing.d112,
                   },
                 ),
-                child: const LandingHero02Window(),
+                child: LandingHero02Window(width: constraints.maxWidth),
               ),
             ],
           ),

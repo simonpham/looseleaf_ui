@@ -11,7 +11,11 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 /// Mirrors upstream
 /// `src/blocks/testimonials-01/components/testimonials-01-wall.tsx`.
 class Testimonials01Wall extends StatelessWidget {
-  const Testimonials01Wall({super.key});
+  const Testimonials01Wall({super.key, required this.width});
+
+  /// The block's width, which the container breakpoints read (upstream's
+  /// `@container`).
+  final double width;
 
   static const double _noteWidth = 256;
   static const double _sheetWidth = 384;
@@ -178,42 +182,37 @@ class Testimonials01Wall extends StatelessWidget {
         ),
       ),
     ];
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final width = constraints.maxWidth;
-        final columns = switch (width) {
-          >= 896 => 3,
-          >= 672 => 2,
-          _ => 1,
-        };
-        final dropped = columns == 3;
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          spacing: Spacing.d56,
-          children: [
-            for (var start = 0; start < items.length; start += columns)
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: Spacing.d32,
-                children: [
-                  for (var index = start; index < start + columns; index++)
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: switch (dropped && index % 3 == 1) {
-                            true => Spacing.d40,
-                            false => 0,
-                          },
-                        ),
-                        child: items.elementAtOrNull(index) ?? const SizedBox(),
-                      ),
+    final columns = switch (width) {
+      >= 896 => 3,
+      >= 672 => 2,
+      _ => 1,
+    };
+    final dropped = columns == 3;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: Spacing.d56,
+      children: [
+        for (var start = 0; start < items.length; start += columns)
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: Spacing.d32,
+            children: [
+              for (var index = start; index < start + columns; index++)
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: switch (dropped && index % 3 == 1) {
+                        true => Spacing.d40,
+                        false => 0,
+                      },
                     ),
-                ],
-              ),
-          ],
-        );
-      },
+                    child: items.elementAtOrNull(index) ?? const SizedBox(),
+                  ),
+                ),
+            ],
+          ),
+      ],
     );
   }
 }

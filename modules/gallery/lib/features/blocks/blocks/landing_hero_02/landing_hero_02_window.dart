@@ -9,7 +9,11 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 /// Mirrors upstream
 /// `src/blocks/landing-hero-02/components/landing-hero-02-window.tsx`.
 class LandingHero02Window extends StatefulWidget {
-  const LandingHero02Window({super.key});
+  const LandingHero02Window({super.key, required this.width});
+
+  /// The block's width, which the container breakpoints read (upstream's
+  /// `@container`).
+  final double width;
 
   @override
   State<LandingHero02Window> createState() => _LandingHero02WindowState();
@@ -47,270 +51,266 @@ class _LandingHero02WindowState extends State<LandingHero02Window> {
     final theme = LooseleafTheme.of(context);
     final count = _done.values.where((done) => done).length;
     final all = count == _tasks.length;
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final width = constraints.maxWidth;
-        final roomy = width >= 576;
-        final notes = width >= 672;
-        return Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: _maxWidth),
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                const PositionedDirectional(
-                  end: Spacing.d48,
-                  top: -91,
-                  child: IgnorePointer(child: Mascot(pose: 'peek', size: 112)),
-                ),
-                Paper(
-                  tiltDegrees: 0.5,
-                  tape: PaperTape.both,
-                  tapeKind: TapeKind.washiStripes,
-                  shadow: PaperShadow.lift,
-                  seed: 'hero-window',
-                  padding: EdgeInsets.fromLTRB(
-                    switch (roomy) {
-                      true => Spacing.d32,
-                      false => Spacing.d20,
-                    },
-                    Spacing.d20,
-                    switch (roomy) {
-                      true => Spacing.d32,
-                      false => Spacing.d20,
-                    },
-                    switch (roomy) {
-                      true => Spacing.d40,
-                      false => Spacing.d24,
-                    },
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+    final width = widget.width;
+    final roomy = width >= 576;
+    final notes = width >= 672;
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: _maxWidth),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            const PositionedDirectional(
+              end: Spacing.d48,
+              top: -91,
+              child: IgnorePointer(child: Mascot(pose: 'peek', size: 112)),
+            ),
+            Paper(
+              tiltDegrees: 0.5,
+              tape: PaperTape.both,
+              tapeKind: TapeKind.washiStripes,
+              shadow: PaperShadow.lift,
+              seed: 'hero-window',
+              padding: EdgeInsets.fromLTRB(
+                switch (roomy) {
+                  true => Spacing.d32,
+                  false => Spacing.d20,
+                },
+                Spacing.d20,
+                switch (roomy) {
+                  true => Spacing.d32,
+                  false => Spacing.d20,
+                },
+                switch (roomy) {
+                  true => Spacing.d40,
+                  false => Spacing.d24,
+                },
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: Spacing.d16,
+                children: [
+                  Row(
                     spacing: Spacing.d16,
                     children: [
-                      Row(
-                        spacing: Spacing.d16,
-                        children: [
-                          Expanded(
-                            child: Text.rich(
+                      Expanded(
+                        child: Text.rich(
+                          TextSpan(
+                            children: [
+                              const TextSpan(text: 'penmark '),
                               TextSpan(
-                                children: [
-                                  const TextSpan(text: 'penmark '),
-                                  TextSpan(
-                                    text: '/ week 39',
-                                    style: theme.typography.face(
-                                      KevinSansFace.hand,
-                                      cssSize: 16,
-                                      cssLineHeight: 1,
-                                      color: theme.colors.inkMuted,
-                                    ),
-                                  ),
-                                ],
+                                text: '/ week 39',
+                                style: theme.typography.face(
+                                  KevinSansFace.hand,
+                                  cssSize: 16,
+                                  cssLineHeight: 1,
+                                  color: theme.colors.inkMuted,
+                                ),
                               ),
-                              style: theme.typography.face(
-                                KevinSansFace.script,
-                                cssSize: 24,
-                                cssLineHeight: 1,
-                                fontWeight: FontWeight.w700,
-                                color: theme.colors.ink,
-                              ),
-                            ),
-                          ),
-                          AvatarGroup(
-                            children: [
-                              for (final name in _people)
-                                Avatar(children: [AvatarFallback(name: name)]),
                             ],
                           ),
-                        ],
+                          style: theme.typography.face(
+                            KevinSansFace.script,
+                            cssSize: 24,
+                            cssLineHeight: 1,
+                            fontWeight: FontWeight.w700,
+                            color: theme.colors.ink,
+                          ),
+                        ),
                       ),
-                      Tabs(
-                        defaultValue: 'today',
+                      AvatarGroup(
                         children: [
-                          const TabsList(
-                            variant: TabsVariant.line,
-                            children: [
-                              TabsTrigger(value: 'today', child: Text('Today')),
-                              TabsTrigger(
-                                value: 'week',
-                                child: Text('This week'),
-                              ),
-                            ],
-                          ),
-                          TabsContent(
-                            value: 'today',
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              spacing: Spacing.d20,
-                              children: [
-                                Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                        end: switch (notes) {
-                                          true => _notesGutter,
-                                          false => 0,
-                                        },
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.stretch,
-                                        children: [
-                                          for (final task in _tasks)
-                                            _task(context, task.id, task.label),
-                                        ],
-                                      ),
-                                    ),
-                                    if (notes) ...[
-                                      const PositionedDirectional(
-                                        end: _notesGutter - _notesWidth,
-                                        top: _rowHeight,
-                                        width: _notesWidth,
-                                        child: IgnorePointer(
-                                          child: Align(
-                                            alignment: AlignmentDirectional
-                                                .centerStart,
-                                            child: Callout(
-                                              'done before lunch',
-                                              seed: 'note-a',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const PositionedDirectional(
-                                        end: _notesGutter - _notesWidth,
-                                        top: 132,
-                                        width: _notesWidth,
-                                        child: IgnorePointer(
-                                          child: Align(
-                                            alignment: AlignmentDirectional
-                                                .centerStart,
-                                            child: Callout(
-                                              'ask Sam first',
-                                              seed: 'note-b',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ],
-                                ),
-                                Wrap(
-                                  crossAxisAlignment: WrapCrossAlignment.center,
-                                  spacing: Spacing.d20,
-                                  runSpacing: Spacing.d12,
-                                  children: [
-                                    ConstrainedBox(
-                                      constraints: const BoxConstraints(
-                                        minWidth: Spacing.d160,
-                                      ),
-                                      child: _progress(context, count, all),
-                                    ),
-                                    if (all)
-                                      TweenAnimationBuilder<double>(
-                                        tween: Tween(begin: 0, end: 1),
-                                        duration: InkMotion.of(
-                                          context,
-                                          InkMotion.pop,
-                                        ),
-                                        builder: (context, t, child) => Opacity(
-                                          opacity: t,
-                                          child: Transform.scale(
-                                            scale: 1.6 - 0.6 * t,
-                                            child: child,
-                                          ),
-                                        ),
-                                        child: const Stamp(
-                                          text: 'All done',
-                                          ink: StampPadInk.green,
-                                          w: 132,
-                                          h: 48,
-                                          tilt: -6,
-                                        ),
-                                      ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          TabsContent(
-                            value: 'week',
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: Spacing.d4,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                spacing: Spacing.d12,
-                                children: [
-                                  for (final day in _week)
-                                    Row(
-                                      spacing: Spacing.d12,
-                                      children: [
-                                        SizedBox(
-                                          width: _dayWidth,
-                                          child: Text(
-                                            day.day,
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Progress(
-                                            value: day.value.toDouble(),
-                                            size: ProgressSize.sm,
-                                            semanticLabel:
-                                                '${day.day}: ${day.value}% done',
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: _dayWidth,
-                                          child: Text(
-                                            '${day.value}%',
-                                            textAlign: TextAlign.end,
-                                            style: theme.typography.face(
-                                              KevinSansFace.hand,
-                                              cssSize: 14,
-                                              cssLineHeight: 20 / 14,
-                                              color: theme.colors.inkMuted,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          for (final name in _people)
+                            Avatar(children: [AvatarFallback(name: name)]),
                         ],
                       ),
                     ],
                   ),
-                ),
-                if (roomy) ...[
-                  const PositionedDirectional(
-                    start: -Spacing.d24,
-                    bottom: -Spacing.d56,
-                    child: IgnorePointer(
-                      child: Sticker('party-popper', size: 88, rotate: -14),
-                    ),
-                  ),
-                  const PositionedDirectional(
-                    end: -Spacing.d16,
-                    bottom: -Spacing.d44,
-                    child: IgnorePointer(
-                      child: Sticker('rating-five', size: 80, rotate: 9),
-                    ),
+                  Tabs(
+                    defaultValue: 'today',
+                    children: [
+                      const TabsList(
+                        variant: TabsVariant.line,
+                        children: [
+                          TabsTrigger(value: 'today', child: Text('Today')),
+                          TabsTrigger(
+                            value: 'week',
+                            child: Text('This week'),
+                          ),
+                        ],
+                      ),
+                      TabsContent(
+                        value: 'today',
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          spacing: Spacing.d20,
+                          children: [
+                            Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.only(
+                                    end: switch (notes) {
+                                      true => _notesGutter,
+                                      false => 0,
+                                    },
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      for (final task in _tasks)
+                                        _task(context, task.id, task.label),
+                                    ],
+                                  ),
+                                ),
+                                if (notes) ...[
+                                  const PositionedDirectional(
+                                    end: _notesGutter - _notesWidth,
+                                    top: _rowHeight,
+                                    width: _notesWidth,
+                                    child: IgnorePointer(
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional.centerStart,
+                                        child: Callout(
+                                          'done before lunch',
+                                          seed: 'note-a',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const PositionedDirectional(
+                                    end: _notesGutter - _notesWidth,
+                                    top: 132,
+                                    width: _notesWidth,
+                                    child: IgnorePointer(
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional.centerStart,
+                                        child: Callout(
+                                          'ask Sam first',
+                                          seed: 'note-b',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
+                            Wrap(
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              spacing: Spacing.d20,
+                              runSpacing: Spacing.d12,
+                              children: [
+                                ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    minWidth: Spacing.d160,
+                                  ),
+                                  child: _progress(context, count, all),
+                                ),
+                                if (all)
+                                  TweenAnimationBuilder<double>(
+                                    tween: Tween(begin: 0, end: 1),
+                                    duration: InkMotion.of(
+                                      context,
+                                      InkMotion.pop,
+                                    ),
+                                    builder: (context, t, child) => Opacity(
+                                      opacity: t,
+                                      child: Transform.scale(
+                                        scale: 1.6 - 0.6 * t,
+                                        child: child,
+                                      ),
+                                    ),
+                                    child: const Stamp(
+                                      text: 'All done',
+                                      ink: StampPadInk.green,
+                                      w: 132,
+                                      h: 48,
+                                      tilt: -6,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      TabsContent(
+                        value: 'week',
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: Spacing.d4,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            spacing: Spacing.d12,
+                            children: [
+                              for (final day in _week)
+                                Row(
+                                  spacing: Spacing.d12,
+                                  children: [
+                                    SizedBox(
+                                      width: _dayWidth,
+                                      child: Text(
+                                        day.day,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Progress(
+                                        value: day.value.toDouble(),
+                                        size: ProgressSize.sm,
+                                        semanticLabel:
+                                            '${day.day}: ${day.value}% done',
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: _dayWidth,
+                                      child: Text(
+                                        '${day.value}%',
+                                        textAlign: TextAlign.end,
+                                        style: theme.typography.face(
+                                          KevinSansFace.hand,
+                                          cssSize: 14,
+                                          cssLineHeight: 20 / 14,
+                                          color: theme.colors.inkMuted,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
-              ],
+              ),
             ),
-          ),
-        );
-      },
+            if (roomy) ...[
+              const PositionedDirectional(
+                start: -Spacing.d24,
+                bottom: -Spacing.d56,
+                child: IgnorePointer(
+                  child: Sticker('party-popper', size: 88, rotate: -14),
+                ),
+              ),
+              const PositionedDirectional(
+                end: -Spacing.d16,
+                bottom: -Spacing.d44,
+                child: IgnorePointer(
+                  child: Sticker('rating-five', size: 80, rotate: 9),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
     );
   }
 

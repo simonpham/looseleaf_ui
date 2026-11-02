@@ -69,37 +69,7 @@ class LandingHero01Block extends StatelessWidget {
               padding: const EdgeInsets.only(top: Spacing.d20),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: _leadWidth),
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: 'Penmark keeps your team’s notes, tasks and half-formed ideas on ',
-                      ),
-                      _inline(
-                        const Annotate(
-                          type: AnnotateType.underline,
-                          kind: UnderlineMarkKind.wavy,
-                          color: AnnotateColor.blue,
-                          animate: true,
-                          delay: Duration(milliseconds: 600),
-                          seed: 'hero-underline',
-                          child: Text('one calm page'),
-                        ),
-                      ),
-                      const TextSpan(text: ', so the good stuff gets '),
-                      _inline(
-                        const Annotate(
-                          type: AnnotateType.highlight,
-                          color: AnnotateColor.yellow,
-                          animate: true,
-                          delay: Duration(milliseconds: 1100),
-                          seed: 'hero-highlight',
-                          child: Text('found'),
-                        ),
-                      ),
-                      const TextSpan(text: ', not lost.'),
-                    ],
-                  ),
+                child: DefaultTextStyle.merge(
                   style: theme.typography.face(
                     KevinSansFace.hand,
                     cssSize: switch (roomy) {
@@ -111,6 +81,38 @@ class LandingHero01Block extends StatelessWidget {
                       false => 32 / 20,
                     },
                     color: theme.colors.inkSoft,
+                  ),
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        const TextSpan(
+                          text: 'Penmark keeps your team’s notes, tasks and half-formed ideas on ',
+                        ),
+                        _inline(
+                          const Annotate(
+                            type: AnnotateType.underline,
+                            kind: UnderlineMarkKind.wavy,
+                            color: AnnotateColor.blue,
+                            animate: true,
+                            delay: Duration(milliseconds: 600),
+                            seed: 'hero-underline',
+                            child: Text('one calm page'),
+                          ),
+                        ),
+                        const TextSpan(text: ', so the good stuff gets '),
+                        _inline(
+                          const Annotate(
+                            type: AnnotateType.highlight,
+                            color: AnnotateColor.yellow,
+                            animate: true,
+                            delay: Duration(milliseconds: 1100),
+                            seed: 'hero-highlight',
+                            child: Text('found'),
+                          ),
+                        ),
+                        const TextSpan(text: ', not lost.'),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -140,31 +142,33 @@ class LandingHero01Block extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: Spacing.d16),
-              child: Text.rich(
-                TextSpan(
-                  children: [
-                    _inline(
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: Spacing.d4),
-                        child: Annotate(
-                          type: AnnotateType.circle,
-                          color: AnnotateColor.red,
-                          animate: true,
-                          delay: Duration(milliseconds: 1600),
-                          seed: 'hero-free',
-                          child: Text('Free'),
-                        ),
-                      ),
-                    ),
-                    const TextSpan(
-                      text: ' for teams of five. No card, no catch.',
-                    ),
-                  ],
-                ),
+              child: DefaultTextStyle.merge(
                 style: theme.typography.face(
                   KevinSansFace.hand,
                   cssSize: 15,
                   color: theme.colors.inkMuted,
+                ),
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      _inline(
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: Spacing.d4),
+                          child: Annotate(
+                            type: AnnotateType.circle,
+                            color: AnnotateColor.red,
+                            animate: true,
+                            delay: Duration(milliseconds: 1600),
+                            seed: 'hero-free',
+                            child: Text('Free'),
+                          ),
+                        ),
+                      ),
+                      const TextSpan(
+                        text: ' for teams of five. No card, no catch.',
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
