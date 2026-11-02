@@ -40,8 +40,10 @@ flutter:
     - lib/features/components/examples/clipboard/
     - lib/features/components/examples/collapsible/
     - lib/features/components/examples/doodle/
+    - lib/features/components/examples/folder/
     - lib/features/components/examples/highlight/
     - lib/features/components/examples/icon/
+    - lib/features/components/examples/index_card/
     - lib/features/components/examples/input/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
@@ -74,6 +76,7 @@ flutter:
     - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
     - lib/features/components/examples/tabs/
+    - lib/features/components/examples/ticket/
     - lib/features/components/examples/toggle/
     - lib/features/components/examples/typewriter/
     - lib/features/components/examples/typing_indicator/

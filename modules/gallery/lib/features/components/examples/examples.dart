@@ -12,8 +12,10 @@ export 'package:gallery/features/components/examples/circled/circled.dart';
 export 'package:gallery/features/components/examples/clipboard/clipboard.dart';
 export 'package:gallery/features/components/examples/collapsible/collapsible.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
+export 'package:gallery/features/components/examples/folder/folder.dart';
 export 'package:gallery/features/components/examples/highlight/highlight.dart';
 export 'package:gallery/features/components/examples/icon/icon.dart';
+export 'package:gallery/features/components/examples/index_card/index_card.dart';
 export 'package:gallery/features/components/examples/input/input.dart';
 export 'package:gallery/features/components/examples/kbd/kbd.dart';
 export 'package:gallery/features/components/examples/label/label.dart';
@@ -46,6 +48,7 @@ export 'package:gallery/features/components/examples/sticky_note/sticky_note.dar
 export 'package:gallery/features/components/examples/strike/strike.dart';
 export 'package:gallery/features/components/examples/switch/switch.dart';
 export 'package:gallery/features/components/examples/tabs/tabs.dart';
+export 'package:gallery/features/components/examples/ticket/ticket.dart';
 export 'package:gallery/features/components/examples/toggle/toggle.dart';
 export 'package:gallery/features/components/examples/typewriter/typewriter.dart';
 export 'package:gallery/features/components/examples/typing_indicator/typing_indicator.dart';
