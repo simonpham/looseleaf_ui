@@ -60,7 +60,26 @@ class ChartDashboardExample extends StatefulWidget {
 }
 
 class _ChartDashboardExampleState extends State<ChartDashboardExample> {
+  static const double _sm = 640;
+
   bool _calm = false;
+
+  /// Upstream's `grid lg:grid-cols-N`: side by side when there is room,
+  /// stacked on phones.
+  static Widget _band(bool wide, List<(int, Widget)> cards) => switch (wide) {
+    true => Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: Spacing.d16,
+      children: [
+        for (final (flex, card) in cards) Expanded(flex: flex, child: card),
+      ],
+    ),
+    false => Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: Spacing.d16,
+      children: [for (final (_, card) in cards) card],
+    ),
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -83,128 +102,131 @@ class _ChartDashboardExampleState extends State<ChartDashboardExample> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(Spacing.d16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          spacing: Spacing.d16,
-          children: [
-            Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: Button(
-                size: ButtonSize.sm,
-                variant: switch (_calm) {
-                  true => ButtonVariant.primary,
-                  false => ButtonVariant.outline,
-                },
-                onPressed: () => setState(() => _calm = !_calm),
-                child: const Text('calm'),
-              ),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: Spacing.d16,
-              children: [
-                for (final (i, stat) in _stats.indexed)
-                  Expanded(
-                    child: _StatCard(index: i, stat: stat),
-                  ),
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: Spacing.d16,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Card(
-                    seed: 'rev',
-                    children: [
-                      const CardHeader(
-                        children: [
-                          CardTitle(Text('Revenue and costs')),
-                          CardDescription(Text('Dollars per month')),
-                        ],
-                      ),
-                      CardContent(
-                        child: ChartContainer(
-                          config: _revenueConfig,
-                          height: Spacing.d52 * 4,
-                          children: [
-                            AreaChart(
-                              data: _revenue,
-                              xKey: 'month',
-                              label: 'Revenue and costs per month',
-                              yFormatter: (v) => '\$${formatNumber(v / 1000)}k',
-                            ),
-                            const ChartTooltip(),
-                            const ChartLegend(),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Card(
-                    seed: 'plans',
-                    children: [
-                      const CardHeader(
-                        children: [
-                          CardTitle(Text('Plans')),
-                          CardDescription(Text('Users by plan')),
-                        ],
-                      ),
-                      CardContent(
-                        child: ChartContainer(
-                          config: planConfig,
-                          height: Spacing.d52 * 4,
-                          children: [
-                            DonutChart(
-                              data: _plans,
-                              nameKey: 'plan',
-                              valueKey: 'users',
-                              label: 'Users by plan',
-                              showLabels: false,
-                              centerLabel: (_) => const ChartCenterLabel(
-                                value: '1,070',
-                                label: 'users',
-                              ),
-                            ),
-                            const ChartTooltip(),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Card(
-              seed: 'signups',
-              children: [
-                const CardHeader(
-                  children: [CardTitle(Text('Signups this week'))],
-                ),
-                CardContent(
-                  child: ChartContainer(
-                    config: signupConfig,
-                    height: Spacing.d160,
-                    children: [
-                      BarChart(
-                        data: _signups,
-                        xKey: 'day',
-                        label: 'Signups per day',
-                      ),
-                      const ChartTooltip(),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
+        child: LayoutBuilder(
+          builder: (context, constraints) => _page(
+            constraints.maxWidth >= _sm,
+            signupConfig,
+            planConfig,
+          ),
         ),
       ),
     );
   }
+
+  Widget _page(
+    bool wide,
+    Map<String, ChartSeriesConfig> signupConfig,
+    Map<String, ChartSeriesConfig> planConfig,
+  ) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    spacing: Spacing.d16,
+    children: [
+      Align(
+        alignment: AlignmentDirectional.centerEnd,
+        child: Button(
+          size: ButtonSize.sm,
+          variant: switch (_calm) {
+            true => ButtonVariant.primary,
+            false => ButtonVariant.outline,
+          },
+          onPressed: () => setState(() => _calm = !_calm),
+          child: const Text('calm'),
+        ),
+      ),
+      _band(wide, [
+        for (final (i, stat) in _stats.indexed)
+          (1, _StatCard(index: i, stat: stat)),
+      ]),
+      _band(wide, [
+        (
+          2,
+          Card(
+            seed: 'rev',
+            children: [
+              const CardHeader(
+                children: [
+                  CardTitle(Text('Revenue and costs')),
+                  CardDescription(Text('Dollars per month')),
+                ],
+              ),
+              CardContent(
+                child: ChartContainer(
+                  config: _revenueConfig,
+                  height: Spacing.d52 * 4,
+                  children: [
+                    AreaChart(
+                      data: _revenue,
+                      xKey: 'month',
+                      label: 'Revenue and costs per month',
+                      yFormatter: (v) => '\$${formatNumber(v / 1000)}k',
+                    ),
+                    const ChartTooltip(),
+                    const ChartLegend(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        (
+          1,
+          Card(
+            seed: 'plans',
+            children: [
+              const CardHeader(
+                children: [
+                  CardTitle(Text('Plans')),
+                  CardDescription(Text('Users by plan')),
+                ],
+              ),
+              CardContent(
+                child: ChartContainer(
+                  config: planConfig,
+                  height: Spacing.d52 * 4,
+                  children: [
+                    DonutChart(
+                      data: _plans,
+                      nameKey: 'plan',
+                      valueKey: 'users',
+                      label: 'Users by plan',
+                      showLabels: false,
+                      centerLabel: (_) => const ChartCenterLabel(
+                        value: '1,070',
+                        label: 'users',
+                      ),
+                    ),
+                    const ChartTooltip(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ]),
+      Card(
+        seed: 'signups',
+        children: [
+          const CardHeader(
+            children: [CardTitle(Text('Signups this week'))],
+          ),
+          CardContent(
+            child: ChartContainer(
+              config: signupConfig,
+              height: Spacing.d160,
+              children: [
+                BarChart(
+                  data: _signups,
+                  xKey: 'day',
+                  label: 'Signups per day',
+                ),
+                const ChartTooltip(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
 }
 
 class _StatCard extends StatelessWidget {

@@ -20,47 +20,59 @@ const _config = {
 class ChartPieAndDonutExample extends StatelessWidget {
   const ChartPieAndDonutExample({super.key});
 
+  static const double _sm = 640;
+
   @override
-  Widget build(BuildContext context) => Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    spacing: Spacing.d24,
-    children: [
-      const Expanded(
-        child: ChartContainer(
-          config: _config,
-          aspectRatio: 1,
-          children: [
-            PieChart(
-              data: _browsers,
-              nameKey: 'browser',
-              valueKey: 'visitors',
-              label: 'Visitors by browser',
-            ),
-            ChartTooltip(content: ChartTooltipContent(hideLabel: true)),
-            ChartLegend(),
-          ],
-        ),
-      ),
-      Expanded(
-        child: ChartContainer(
-          config: _config,
-          aspectRatio: 1,
-          children: [
-            DonutChart(
-              data: _browsers,
-              nameKey: 'browser',
-              valueKey: 'visitors',
-              label: 'Visitors by browser, donut',
-              centerLabel: (info) => ChartCenterLabel(
-                value: formatNumber(info.active?.value ?? info.total),
-                label: info.active?.name ?? 'visitors',
-              ),
-            ),
-            const ChartTooltip(content: ChartTooltipContent(hideLabel: true)),
-            const ChartLegend(),
-          ],
-        ),
-      ),
-    ],
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final charts = _charts();
+      if (constraints.maxWidth < _sm) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          spacing: Spacing.d24,
+          children: charts,
+        );
+      }
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: Spacing.d24,
+        children: [for (final chart in charts) Expanded(child: chart)],
+      );
+    },
   );
+
+  List<Widget> _charts() => [
+    const ChartContainer(
+      config: _config,
+      aspectRatio: 1,
+      children: [
+        PieChart(
+          data: _browsers,
+          nameKey: 'browser',
+          valueKey: 'visitors',
+          label: 'Visitors by browser',
+        ),
+        ChartTooltip(content: ChartTooltipContent(hideLabel: true)),
+        ChartLegend(),
+      ],
+    ),
+    ChartContainer(
+      config: _config,
+      aspectRatio: 1,
+      children: [
+        DonutChart(
+          data: _browsers,
+          nameKey: 'browser',
+          valueKey: 'visitors',
+          label: 'Visitors by browser, donut',
+          centerLabel: (info) => ChartCenterLabel(
+            value: formatNumber(info.active?.value ?? info.total),
+            label: info.active?.name ?? 'visitors',
+          ),
+        ),
+        const ChartTooltip(content: ChartTooltipContent(hideLabel: true)),
+        const ChartLegend(),
+      ],
+    ),
+  ];
 }

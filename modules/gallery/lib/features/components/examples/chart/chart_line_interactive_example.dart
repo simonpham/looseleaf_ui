@@ -58,30 +58,31 @@ class _ChartLineInteractiveExampleState
                               false => ButtonVariant.outline,
                             },
                             onPressed: () => setState(() => _active = key),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              textBaseline: TextBaseline.alphabetic,
-                              spacing: Spacing.d8,
-                              children: [
-                                Flexible(
-                                  child: Text(
+                            child: Align(
+                              alignment: AlignmentDirectional.centerStart,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
                                     _config[key]?.label ?? key,
+                                    maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: theme.typography.interface(
                                       cssSize: 12,
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  thousands(_total(key)),
-                                  style: theme.typography.face(
-                                    KevinSansFace.script,
-                                    cssSize: 20,
-                                    cssLineHeight: 1,
-                                    fontWeight: FontWeight.w700,
+                                  Text(
+                                    thousands(_total(key)),
+                                    style: theme.typography.face(
+                                      KevinSansFace.script,
+                                      cssSize: 20,
+                                      cssLineHeight: 1,
+                                      fontWeight: FontWeight.w700,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
