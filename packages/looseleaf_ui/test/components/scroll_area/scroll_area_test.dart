@@ -6,11 +6,15 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
 
-Widget _tags({ScrollController? controller}) => SizedBox(
+Widget _tags({
+  ScrollController? controller,
+  ScrollAreaType type = ScrollAreaType.hover,
+}) => SizedBox(
   width: 200,
   height: 200,
   child: ScrollArea(
     controller: controller,
+    type: type,
     child: Column(
       children: [
         for (var i = 0; i < 40; i++)
@@ -32,6 +36,27 @@ void main() {
     await tester.pump();
     expect(_opacity(tester), 1);
     await mouse.moveTo(Offset.zero);
+    await tester.pump();
+    expect(_opacity(tester), 0);
+    await mouse.removePointer();
+    await tester.drag(find.text('Tag 3'), const Offset(0, -100));
+    await tester.pump();
+    expect(_opacity(tester), 1);
+    await tester.pump(const Duration(milliseconds: 700));
+    expect(_opacity(tester), 0);
+  });
+
+  testWidgets('type always keeps the mark shown', (tester) async {
+    await tester.pumpWidget(componentHost(_tags(type: ScrollAreaType.always)));
+    expect(_opacity(tester), 1);
+  });
+
+  testWidgets('type scroll shows the mark only while scrolling', (
+    tester,
+  ) async {
+    await tester.pumpWidget(componentHost(_tags(type: ScrollAreaType.scroll)));
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    await mouse.addPointer(location: tester.getCenter(find.byType(ScrollArea)));
     await tester.pump();
     expect(_opacity(tester), 0);
     await mouse.removePointer();

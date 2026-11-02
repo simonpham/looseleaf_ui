@@ -8,9 +8,25 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// Which ways a [ScrollArea] scrolls.
 enum ScrollAreaOrientation { vertical, horizontal, both }
 
+/// When a [ScrollArea] shows its scroll marks (Radix `type`).
+enum ScrollAreaType {
+  /// While the content overflows.
+  auto,
+
+  /// Always, as long as there is something to scroll.
+  always,
+
+  /// While scrolling, fading 600 ms after it stops.
+  scroll,
+
+  /// While the pointer is over the area or it scrolls (the default).
+  hover,
+}
+
 /// A scrolling region marked with a pencil scroll mark instead of a
-/// platform bar. The mark fades in while the pointer is over the area or
-/// it scrolls, and fades out 600 ms after.
+/// platform bar. By default ([ScrollAreaType.hover]) the mark fades in
+/// while the pointer is over the area or it scrolls, and fades out 600 ms
+/// after; [type] keeps it shown or shows it only while scrolling.
 ///
 /// The viewport takes keyboard focus (arrows and page keys scroll it) and
 /// shows a blue ring while focused from the keyboard. [bleed] pads the
@@ -27,6 +43,7 @@ class ScrollArea extends StatefulWidget {
     required this.child,
     this.orientation = ScrollAreaOrientation.vertical,
     this.bleed = false,
+    this.type = ScrollAreaType.hover,
     this.controller,
     this.horizontalController,
     this.seed,
@@ -37,6 +54,9 @@ class ScrollArea extends StatefulWidget {
 
   /// Pads the content 12 (upstream `p-3`).
   final bool bleed;
+
+  /// When the scroll marks show.
+  final ScrollAreaType type;
 
   /// Drives the vertical scroll (the only one when horizontal).
   final ScrollController? controller;
@@ -89,7 +109,11 @@ class _ScrollAreaState extends State<ScrollArea> {
   @override
   Widget build(BuildContext context) {
     final orientation = widget.orientation;
-    final visible = _hovered || _scrolling;
+    final visible = switch (widget.type) {
+      ScrollAreaType.auto || ScrollAreaType.always => true,
+      ScrollAreaType.scroll => _scrolling,
+      ScrollAreaType.hover => _hovered || _scrolling,
+    };
     final focus = LooseleafTheme.of(context).colors.focus;
     final content = FocusableActionDetector(
       onShowFocusHighlight: (shown) => setState(() => _focusVisible = shown),

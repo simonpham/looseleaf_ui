@@ -18,6 +18,7 @@ class ScrollAreaHorizontalDemoExample extends StatelessWidget {
       child: ScrollArea(
         orientation: ScrollAreaOrientation.horizontal,
         bleed: true,
+        type: ScrollAreaType.always,
         child: Padding(
           padding: const EdgeInsets.all(Spacing.d16),
           child: Row(

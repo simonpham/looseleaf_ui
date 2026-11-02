@@ -21,6 +21,7 @@ class ScrollAreaBothExample extends StatelessWidget {
         seed: 'grid',
         child: ScrollArea(
           orientation: ScrollAreaOrientation.both,
+          type: ScrollAreaType.always,
           child: Padding(
             padding: const EdgeInsets.all(Spacing.d12),
             child: SizedBox(

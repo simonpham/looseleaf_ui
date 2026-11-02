@@ -67,6 +67,7 @@ class _ScrollAreaMessagesExampleState extends State<ScrollAreaMessagesExample> {
                 child: ScrollArea(
                   controller: _log,
                   bleed: true,
+                  type: ScrollAreaType.always,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     spacing: Spacing.d12,
