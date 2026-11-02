@@ -14,12 +14,17 @@ class PaginationPrevious extends StatelessWidget {
     this.onPressed,
     this.disabled = false,
     this.label = 'Previous',
+    this.size = ButtonSize.regular,
     this.seed,
   });
 
   final VoidCallback? onPressed;
   final bool disabled;
   final String label;
+
+  /// The button size (upstream `size`, `default` unless given); below
+  /// 640 wide the matching square icon size.
+  final ButtonSize size;
   final String? seed;
 
   @override
@@ -30,6 +35,7 @@ class PaginationPrevious extends StatelessWidget {
     semanticLabel: 'Go to previous page',
     icon: 'chevron-left',
     before: true,
+    size: size,
     seed: seed,
   );
 }
@@ -44,12 +50,17 @@ class PaginationNext extends StatelessWidget {
     this.onPressed,
     this.disabled = false,
     this.label = 'Next',
+    this.size = ButtonSize.regular,
     this.seed,
   });
 
   final VoidCallback? onPressed;
   final bool disabled;
   final String label;
+
+  /// The button size (upstream `size`, `default` unless given); below
+  /// 640 wide the matching square icon size.
+  final ButtonSize size;
   final String? seed;
 
   @override
@@ -60,6 +71,7 @@ class PaginationNext extends StatelessWidget {
     semanticLabel: 'Go to next page',
     icon: 'chevron-right',
     before: false,
+    size: size,
     seed: seed,
   );
 }
@@ -74,6 +86,7 @@ class PaginationStep extends StatelessWidget {
     required this.semanticLabel,
     required this.icon,
     required this.before,
+    this.size = ButtonSize.regular,
     this.seed,
   });
 
@@ -87,6 +100,9 @@ class PaginationStep extends StatelessWidget {
 
   /// Whether the chevron comes before the word.
   final bool before;
+
+  /// The size with the word; the icon size of the same height without.
+  final ButtonSize size;
   final String? seed;
 
   /// Tailwind's `sm` breakpoint, from where the word shows.
@@ -100,6 +116,12 @@ class PaginationStep extends StatelessWidget {
       return PaginationLink(
         onPressed: onPressed,
         disabled: disabled,
+        size: switch (size) {
+          ButtonSize.xs || ButtonSize.iconXs => ButtonSize.iconXs,
+          ButtonSize.sm || ButtonSize.iconSm => ButtonSize.iconSm,
+          ButtonSize.lg || ButtonSize.iconLg => ButtonSize.iconLg,
+          ButtonSize.regular || ButtonSize.icon => ButtonSize.icon,
+        },
         semanticLabel: semanticLabel,
         seed: seed,
         child: chevron,
@@ -108,7 +130,7 @@ class PaginationStep extends StatelessWidget {
     return PaginationLink(
       onPressed: onPressed,
       disabled: disabled,
-      size: ButtonSize.regular,
+      size: size,
       semanticLabel: semanticLabel,
       seed: seed,
       leading: switch (before) {

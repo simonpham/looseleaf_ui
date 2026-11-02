@@ -47,6 +47,34 @@ void main() {
     expect(find.byType(InkIcon), findsNWidgets(3));
   });
 
+  testWidgets('steps take a size, and its icon size when narrow', (
+    tester,
+  ) async {
+    Widget steps() => componentHost(
+      Pagination(
+        child: PaginationContent(
+          children: [
+            PaginationPrevious(size: ButtonSize.sm, onPressed: () {}),
+            PaginationNext(size: ButtonSize.sm, onPressed: () {}),
+          ],
+        ),
+      ),
+    );
+    await tester.pumpWidget(steps());
+    expect(
+      tester.widgetList<Button>(find.byType(Button)).map((b) => b.size),
+      [ButtonSize.sm, ButtonSize.sm],
+    );
+    tester.view.physicalSize = const Size(500, 400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(steps());
+    expect(
+      tester.widgetList<Button>(find.byType(Button)).map((b) => b.size),
+      [ButtonSize.iconSm, ButtonSize.iconSm],
+    );
+  });
+
   testWidgets('semantics name the steps and mark the current page', (
     tester,
   ) async {

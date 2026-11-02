@@ -59,8 +59,8 @@ class _PaginationSimpleExampleState extends State<PaginationSimpleExample> {
         Pagination(
           child: PaginationContent(
             children: [
-              PaginationPrevious(onPressed: () {}),
-              PaginationNext(onPressed: () {}),
+              PaginationPrevious(size: ButtonSize.sm, onPressed: () {}),
+              PaginationNext(size: ButtonSize.sm, onPressed: () {}),
             ],
           ),
         ),
