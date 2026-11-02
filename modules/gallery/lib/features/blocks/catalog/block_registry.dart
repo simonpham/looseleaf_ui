@@ -97,6 +97,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/newsletter_01/newsletter_01_block.dart',
     builder: Newsletter01Block.new,
   ),
+  'notes-app': GalleryBlock(
+    source: 'blocks/notes_app/notes_app_block.dart',
+    builder: NotesAppBlock.new,
+    objects: [DeskObject.pencil],
+  ),
   'onboarding-01': GalleryBlock(
     source: 'blocks/onboarding_01/onboarding_01_block.dart',
     builder: Onboarding01Block.new,
