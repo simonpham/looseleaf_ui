@@ -122,10 +122,16 @@ class _Typing extends StatefulWidget {
 }
 
 class _TypingState extends State<_Typing> with SingleTickerProviderStateMixin {
-  late final _pulse = AnimationController(
-    vsync: this,
-    duration: const Duration(seconds: 2),
-  );
+  late final AnimationController _pulse;
+
+  @override
+  void initState() {
+    super.initState();
+    _pulse = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+  }
 
   @override
   void didChangeDependencies() {

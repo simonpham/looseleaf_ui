@@ -117,10 +117,7 @@ class PeelCorner extends StatefulWidget {
 class _PeelCornerState extends State<PeelCorner>
     with SingleTickerProviderStateMixin, InkSeed {
   late bool _inner = widget.defaultPeeled;
-  late final AnimationController _k = AnimationController.unbounded(
-    vsync: this,
-    value: _rest(_open),
-  )..addListener(_paint);
+  late final AnimationController _k;
   late final ValueNotifier<double> _peel = ValueNotifier(
     _k.value * widget.size,
   );
@@ -134,6 +131,10 @@ class _PeelCornerState extends State<PeelCorner>
   @override
   void initState() {
     super.initState();
+    _k = AnimationController.unbounded(
+      vsync: this,
+      value: _rest(_open),
+    )..addListener(_paint);
     _settled = _open;
     _paint();
   }

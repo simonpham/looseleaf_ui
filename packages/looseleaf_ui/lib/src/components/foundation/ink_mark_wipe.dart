@@ -29,15 +29,21 @@ class InkMarkWipe extends StatefulWidget {
 
 class _InkMarkWipeState extends State<InkMarkWipe>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _progress = AnimationController(
-    vsync: this,
-    duration: widget.duration,
-    value: switch (widget.animate) {
-      true => 0,
-      false => 1,
-    },
-  );
+  late final AnimationController _progress;
   Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _progress = AnimationController(
+      vsync: this,
+      duration: widget.duration,
+      value: switch (widget.animate) {
+        true => 0,
+        false => 1,
+      },
+    );
+  }
 
   @override
   void didChangeDependencies() {

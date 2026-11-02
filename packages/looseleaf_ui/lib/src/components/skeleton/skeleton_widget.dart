@@ -54,16 +54,22 @@ class _SkeletonState extends State<Skeleton>
   static const Duration _boil = Duration(milliseconds: 1080);
 
   final ValueNotifier<int> _frame = ValueNotifier(0);
-  late final AnimationController _clock = AnimationController(
-    vsync: this,
-    duration: _boil,
-  )..addListener(_tick);
+  late final AnimationController _clock;
 
   int get _phase => hashSeed(inkSeed(widget.seed)) % skeletonFrames;
 
   void _tick() {
     final step = (_clock.value * skeletonFrames).floor();
     _frame.value = (_phase + step) % skeletonFrames;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(
+      vsync: this,
+      duration: _boil,
+    )..addListener(_tick);
   }
 
   @override

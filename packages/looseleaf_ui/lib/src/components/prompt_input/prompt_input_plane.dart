@@ -55,10 +55,16 @@ class _PromptInputPlaneState extends State<PromptInputPlane>
     (1, _rest),
   ];
 
-  late final AnimationController _controller = AnimationController(
-    vsync: this,
-    duration: _duration,
-  );
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: _duration,
+    );
+  }
 
   @override
   void didUpdateWidget(PromptInputPlane oldWidget) {

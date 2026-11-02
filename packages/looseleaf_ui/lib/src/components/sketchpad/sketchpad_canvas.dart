@@ -103,9 +103,7 @@ class _SketchpadCanvasState extends State<SketchpadCanvas>
       'to put the pen down and lift it. F, B, P, M, H and E pick a tool, the '
       'bracket keys change the width, Control Z undoes.';
 
-  late final AnimationController _clock = AnimationController.unbounded(
-    vsync: this,
-  );
+  late final AnimationController _clock;
   _Gesture? _gesture;
   InkDocument? _liveDocument;
   bool _liveDirty = false;
@@ -123,6 +121,9 @@ class _SketchpadCanvasState extends State<SketchpadCanvas>
   @override
   void initState() {
     super.initState();
+    _clock = AnimationController.unbounded(
+      vsync: this,
+    );
     FocusManager.instance.addHighlightModeListener(_onHighlightMode);
   }
 

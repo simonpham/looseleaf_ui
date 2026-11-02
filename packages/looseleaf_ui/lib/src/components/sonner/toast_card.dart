@@ -333,10 +333,16 @@ class _SpinState extends State<_Spin> with SingleTickerProviderStateMixin {
   /// Tailwind's `animate-spin`.
   static const Duration _turn = Duration(seconds: 1);
 
-  late final AnimationController _clock = AnimationController(
-    vsync: this,
-    duration: _turn,
-  );
+  late final AnimationController _clock;
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(
+      vsync: this,
+      duration: _turn,
+    );
+  }
 
   @override
   void didChangeDependencies() {

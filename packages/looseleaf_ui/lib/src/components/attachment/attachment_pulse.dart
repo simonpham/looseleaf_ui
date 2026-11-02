@@ -20,10 +20,7 @@ class _AttachmentPulseState extends State<AttachmentPulse>
     with SingleTickerProviderStateMixin {
   static const Curve _curve = Cubic(0.4, 0, 0.6, 1);
 
-  late final AnimationController _clock = AnimationController(
-    vsync: this,
-    duration: AttachmentMetrics.pulse,
-  );
+  late final AnimationController _clock;
   late final Animation<double> _opacity = TweenSequence<double>([
     TweenSequenceItem(
       tween: Tween(begin: 1.0, end: 0.5).chain(CurveTween(curve: _curve)),
@@ -34,6 +31,15 @@ class _AttachmentPulseState extends State<AttachmentPulse>
       weight: 1,
     ),
   ]).animate(_clock);
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(
+      vsync: this,
+      duration: AttachmentMetrics.pulse,
+    );
+  }
 
   @override
   void didChangeDependencies() {

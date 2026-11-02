@@ -146,13 +146,14 @@ class InkPopup extends StatefulWidget {
 class _InkPopupState extends State<InkPopup>
     with SingleTickerProviderStateMixin {
   final OverlayPortalController _portal = OverlayPortalController();
-  late final AnimationController _motion = AnimationController(vsync: this);
+  late final AnimationController _motion;
   bool _restore = true;
   bool _dismissed = false;
 
   @override
   void initState() {
     super.initState();
+    _motion = AnimationController(vsync: this);
     _restore = widget.restoreFocus;
     if (widget.open) _show(animate: false);
   }

@@ -47,16 +47,22 @@ class MarqueeTrack extends StatefulWidget {
 
 class _MarqueeTrackState extends State<MarqueeTrack>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _loop = AnimationController(
-    vsync: this,
-    duration: const Duration(seconds: 30),
-  );
+  late final AnimationController _loop;
   final GlobalKey _group = GlobalKey();
   int _copies = 2;
   double _groupWidth = 0;
   double _viewport = 0;
   bool _reduced = false;
   bool _measuring = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loop = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 30),
+    );
+  }
 
   @override
   void didChangeDependencies() {

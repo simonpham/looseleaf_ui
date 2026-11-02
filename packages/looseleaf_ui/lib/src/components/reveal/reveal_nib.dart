@@ -32,12 +32,18 @@ class RevealNib extends StatefulWidget {
 
 class _RevealNibState extends State<RevealNib>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _progress = AnimationController(
-    vsync: this,
-    duration: RevealEffect.wipe.duration,
-  );
+  late final AnimationController _progress;
   Timer? _timer;
   bool _started = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _progress = AnimationController(
+      vsync: this,
+      duration: RevealEffect.wipe.duration,
+    );
+  }
 
   @override
   void didChangeDependencies() {

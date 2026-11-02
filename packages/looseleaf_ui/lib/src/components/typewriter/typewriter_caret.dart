@@ -50,10 +50,16 @@ class TypewriterCaret extends StatefulWidget {
 
 class _TypewriterCaretState extends State<TypewriterCaret>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _blink = AnimationController(
-    vsync: this,
-    duration: TypewriterCaret.blink,
-  );
+  late final AnimationController _blink;
+
+  @override
+  void initState() {
+    super.initState();
+    _blink = AnimationController(
+      vsync: this,
+      duration: TypewriterCaret.blink,
+    );
+  }
 
   @override
   void didChangeDependencies() {

@@ -18,19 +18,25 @@ class CollapsibleFold extends StatefulWidget {
 
 class _CollapsibleFoldState extends State<CollapsibleFold>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _fold = AnimationController(
-    vsync: this,
-    duration: InkMotion.sheet,
-    value: switch (widget.open) {
-      true => 1,
-      false => 0,
-    },
-  )..addStatusListener((_) => setState(() {}));
+  late final AnimationController _fold;
 
   late final Animation<double> _curve = CurvedAnimation(
     parent: _fold,
     curve: InkMotion.easeOut,
   );
+
+  @override
+  void initState() {
+    super.initState();
+    _fold = AnimationController(
+      vsync: this,
+      duration: InkMotion.sheet,
+      value: switch (widget.open) {
+        true => 1,
+        false => 0,
+      },
+    )..addStatusListener((_) => setState(() {}));
+  }
 
   @override
   void didUpdateWidget(CollapsibleFold oldWidget) {

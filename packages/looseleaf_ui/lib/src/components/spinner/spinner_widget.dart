@@ -62,7 +62,7 @@ class _SpinnerState extends State<Spinner>
 
   static const int _writeFrames = 3;
 
-  late final AnimationController _clock = AnimationController(vsync: this);
+  late final AnimationController _clock;
   bool _still = false;
 
   bool get _writes => widget.variant == SpinnerVariant.write;
@@ -75,6 +75,12 @@ class _SpinnerState extends State<Spinner>
           false => Spacing.d16,
         };
     return math.max(8, asked.roundToDouble());
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(vsync: this);
   }
 
   @override

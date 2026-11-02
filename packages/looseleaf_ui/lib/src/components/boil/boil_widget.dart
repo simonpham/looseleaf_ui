@@ -8,11 +8,12 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds boiling content for [frame]; [seed] reseeds a drawing's seed for
 /// the frame.
-typedef BoilBuilder = Widget Function(
-  BuildContext context,
-  int frame,
-  String Function(String base) seed,
-);
+typedef BoilBuilder =
+    Widget Function(
+      BuildContext context,
+      int frame,
+      String Function(String base) seed,
+    );
 
 /// Line boil: the ink below is redrawn a few times a second with slightly
 /// different hands, the way hand-drawn animation shimmers.
@@ -66,7 +67,7 @@ class Boil extends StatefulWidget {
 }
 
 class _BoilState extends State<Boil> with SingleTickerProviderStateMixin {
-  late final Ticker _ticker = createTicker(_tick);
+  late final Ticker _ticker;
   int _frame = 0;
 
   int get _count => widget.frames.clamp(2, boilMaxFrames);
@@ -98,6 +99,12 @@ class _BoilState extends State<Boil> with SingleTickerProviderStateMixin {
     if (boiling) return;
     if (_ticker.isActive) _ticker.stop();
     _frame = 0;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _ticker = createTicker(_tick);
   }
 
   @override

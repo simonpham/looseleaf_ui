@@ -75,10 +75,7 @@ class _ProgressState extends State<Progress>
     json: const NoParams().toJson(),
   );
 
-  late final AnimationController _clock = AnimationController(
-    vsync: this,
-    duration: _slide,
-  );
+  late final AnimationController _clock;
   bool _still = false;
 
   double get _max => switch (widget.max.isFinite && widget.max > 0) {
@@ -90,6 +87,15 @@ class _ProgressState extends State<Progress>
     final value = widget.value;
     if (value == null || value.isNaN) return null;
     return value.clamp(0, _max).toDouble();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(
+      vsync: this,
+      duration: _slide,
+    );
   }
 
   @override

@@ -24,11 +24,17 @@ class _CollapsibleSoakState extends State<CollapsibleSoak>
     TweenSequenceItem(tween: Tween(begin: 0.9, end: 1), weight: 45),
   ]).chain(CurveTween(curve: InkMotion.easeOut));
 
-  late final AnimationController _clock = AnimationController(
-    vsync: this,
-    duration: CollapsibleSoak.duration,
-    value: 1,
-  );
+  late final AnimationController _clock;
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(
+      vsync: this,
+      duration: CollapsibleSoak.duration,
+      value: 1,
+    );
+  }
 
   @override
   void didChangeDependencies() {

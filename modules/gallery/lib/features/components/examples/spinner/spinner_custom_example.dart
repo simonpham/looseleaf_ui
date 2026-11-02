@@ -17,10 +17,16 @@ class _LoaderSpinner extends StatefulWidget {
 
 class _LoaderSpinnerState extends State<_LoaderSpinner>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _turn = AnimationController(
-    vsync: this,
-    duration: const Duration(seconds: 1),
-  );
+  late final AnimationController _turn;
+
+  @override
+  void initState() {
+    super.initState();
+    _turn = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+  }
 
   @override
   void didChangeDependencies() {

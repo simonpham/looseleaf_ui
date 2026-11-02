@@ -140,16 +140,8 @@ class Stepper extends StatefulWidget {
 class _StepperState extends State<Stepper>
     with InkSeed, TickerProviderStateMixin {
   final TextEditingController _text = TextEditingController();
-  late final AnimationController _tick = AnimationController(
-    vsync: this,
-    duration: InkMotion.pop,
-    value: 1,
-  );
-  late final AnimationController _rattle = AnimationController(
-    vsync: this,
-    duration: StepperMetrics.rattle,
-    value: 1,
-  );
+  late final AnimationController _tick;
+  late final AnimationController _rattle;
   FocusNode? _ownFocusNode;
   double? _latest;
   int _direction = 1;
@@ -180,6 +172,16 @@ class _StepperState extends State<Stepper>
   @override
   void initState() {
     super.initState();
+    _tick = AnimationController(
+      vsync: this,
+      duration: InkMotion.pop,
+      value: 1,
+    );
+    _rattle = AnimationController(
+      vsync: this,
+      duration: StepperMetrics.rattle,
+      value: 1,
+    );
     _latest = _finite(widget.value);
     _text.text = _shown;
     _focusNode.addListener(_onFocus);

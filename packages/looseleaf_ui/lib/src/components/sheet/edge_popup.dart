@@ -74,11 +74,8 @@ class _EdgePopupState extends State<EdgePopup>
   static const double _flick = 500;
 
   final OverlayPortalController _portal = OverlayPortalController();
-  late final AnimationController _motion = AnimationController(vsync: this);
-  late final CurvedAnimation _curve = CurvedAnimation(
-    parent: _motion,
-    curve: InkMotion.easeOut,
-  );
+  late final AnimationController _motion;
+  late final CurvedAnimation _curve;
   final GlobalKey _sheet = GlobalKey();
   bool _restore = true;
   bool _dragging = false;
@@ -86,6 +83,8 @@ class _EdgePopupState extends State<EdgePopup>
   @override
   void initState() {
     super.initState();
+    _motion = AnimationController(vsync: this);
+    _curve = CurvedAnimation(parent: _motion, curve: InkMotion.easeOut);
     if (widget.open) _show(animate: false);
   }
 

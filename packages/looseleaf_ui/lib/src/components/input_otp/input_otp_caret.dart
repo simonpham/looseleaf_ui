@@ -22,10 +22,16 @@ class _InputOTPCaretState extends State<InputOTPCaret>
   static const Duration _period = Duration(milliseconds: 1100);
   static const double _on = 0.55;
 
-  late final AnimationController _blink = AnimationController(
-    vsync: this,
-    duration: _period,
-  );
+  late final AnimationController _blink;
+
+  @override
+  void initState() {
+    super.initState();
+    _blink = AnimationController(
+      vsync: this,
+      duration: _period,
+    );
+  }
 
   @override
   void didChangeDependencies() {

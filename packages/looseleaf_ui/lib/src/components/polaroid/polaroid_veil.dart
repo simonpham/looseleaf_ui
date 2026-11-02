@@ -25,12 +25,18 @@ class PolaroidVeil extends StatefulWidget {
 
 class _PolaroidVeilState extends State<PolaroidVeil>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _clear = AnimationController(
-    vsync: this,
-    duration: PolaroidVeil.soak,
-  );
+  late final AnimationController _clear;
   Timer? _wait;
   bool _started = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _clear = AnimationController(
+      vsync: this,
+      duration: PolaroidVeil.soak,
+    );
+  }
 
   @override
   void didChangeDependencies() {

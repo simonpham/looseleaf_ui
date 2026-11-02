@@ -68,15 +68,21 @@ class StampSurfaceState extends State<StampSurface>
   late List<StampImpression> _latest = _current;
   final Set<String> _struck = {};
   String _status = '';
-  late final AnimationController _thump = AnimationController(
-    vsync: this,
-    duration: _recoil,
-  );
+  late final AnimationController _thump;
 
   List<StampImpression> get _current => widget.value ?? _inner;
 
   /// The impressions on the page now.
   List<StampImpression> get impressions => _current;
+
+  @override
+  void initState() {
+    super.initState();
+    _thump = AnimationController(
+      vsync: this,
+      duration: _recoil,
+    );
+  }
 
   @override
   void didUpdateWidget(StampSurface oldWidget) {

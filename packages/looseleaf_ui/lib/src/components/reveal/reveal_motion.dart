@@ -29,12 +29,18 @@ class RevealMotion extends StatefulWidget {
 
 class _RevealMotionState extends State<RevealMotion>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _progress = AnimationController(
-    vsync: this,
-    duration: widget.effect.duration,
-  );
+  late final AnimationController _progress;
   Timer? _timer;
   bool _reduced = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _progress = AnimationController(
+      vsync: this,
+      duration: widget.effect.duration,
+    );
+  }
 
   @override
   void didChangeDependencies() {

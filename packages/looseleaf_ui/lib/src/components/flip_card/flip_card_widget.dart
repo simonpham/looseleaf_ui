@@ -94,14 +94,8 @@ class FlipCard extends StatefulWidget {
 
 class _FlipCardState extends State<FlipCard> with TickerProviderStateMixin {
   late bool _inner = widget.defaultFlipped;
-  late final AnimationController _turn = AnimationController(
-    vsync: this,
-    value: switch (_flipped) {
-      true => 1,
-      false => 0,
-    },
-  );
-  late final AnimationController _lift = AnimationController(vsync: this);
+  late final AnimationController _turn;
+  late final AnimationController _lift;
   double? _heading;
 
   bool get _flipped => widget.flipped ?? _inner;
@@ -113,6 +107,19 @@ class _FlipCardState extends State<FlipCard> with TickerProviderStateMixin {
     _sync();
     _lift.duration = InkMotion.of(context, InkMotion.sheet * 2);
     _lift.forward(from: 0);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _turn = AnimationController(
+      vsync: this,
+      value: switch (_flipped) {
+        true => 1,
+        false => 0,
+      },
+    );
+    _lift = AnimationController(vsync: this);
   }
 
   @override

@@ -109,11 +109,7 @@ class ChartCanvas<S extends ChartSpec> extends StatefulWidget {
 class _ChartCanvasState<S extends ChartSpec> extends State<ChartCanvas<S>>
     with InkSeed, SingleTickerProviderStateMixin {
   final FocusNode _focus = FocusNode(debugLabel: 'chart');
-  late final AnimationController _reveal = AnimationController(
-    vsync: this,
-    duration: _draw,
-    value: 1,
-  );
+  late final AnimationController _reveal;
   bool _revealed = false;
   bool _pointerFocus = false;
   ChartLayoutBase? _layout;
@@ -123,6 +119,16 @@ class _ChartCanvasState<S extends ChartSpec> extends State<ChartCanvas<S>>
   static const Duration _draw = Duration(milliseconds: 600);
 
   bool get _canMove => widget.interactive && widget.state == ChartState.ready;
+
+  @override
+  void initState() {
+    super.initState();
+    _reveal = AnimationController(
+      vsync: this,
+      duration: _draw,
+      value: 1,
+    );
+  }
 
   @override
   void didChangeDependencies() {

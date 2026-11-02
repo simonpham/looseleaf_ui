@@ -20,10 +20,16 @@ class _MessageCaretState extends State<MessageCaret>
   static const Duration _period = Duration(seconds: 2);
   static const Curve _pulse = Cubic(0.4, 0, 0.6, 1);
 
-  late final AnimationController _controller = AnimationController(
-    vsync: this,
-    duration: _period,
-  );
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: _period,
+    );
+  }
 
   @override
   void didChangeDependencies() {

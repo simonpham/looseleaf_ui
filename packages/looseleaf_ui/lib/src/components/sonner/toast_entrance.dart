@@ -27,16 +27,22 @@ class ToastEntrance extends StatefulWidget {
 
 class _ToastEntranceState extends State<ToastEntrance>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _clock = AnimationController(
-    vsync: this,
-    duration: switch (widget.arrival) {
-      ToastArrival.toss => ToastEntrance.toss,
-      ToastArrival.drop => ToastEntrance.drop,
-    },
-    value: 1,
-  );
+  late final AnimationController _clock;
 
   static const double _degree = math.pi / 180;
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(
+      vsync: this,
+      duration: switch (widget.arrival) {
+        ToastArrival.toss => ToastEntrance.toss,
+        ToastArrival.drop => ToastEntrance.drop,
+      },
+      value: 1,
+    );
+  }
 
   @override
   void didChangeDependencies() {

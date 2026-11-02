@@ -46,7 +46,7 @@ class SidebarSheet extends StatefulWidget {
 class _SidebarSheetState extends State<SidebarSheet>
     with SingleTickerProviderStateMixin {
   final OverlayPortalController _portal = OverlayPortalController();
-  late final AnimationController _motion = AnimationController(vsync: this);
+  late final AnimationController _motion;
   late final Animation<double> _slide = CurvedAnimation(
     parent: _motion,
     curve: InkMotion.easeOut,
@@ -55,6 +55,7 @@ class _SidebarSheetState extends State<SidebarSheet>
   @override
   void initState() {
     super.initState();
+    _motion = AnimationController(vsync: this);
     if (widget.open) _show();
   }
 

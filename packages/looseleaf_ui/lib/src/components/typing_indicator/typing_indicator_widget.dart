@@ -71,14 +71,20 @@ class TypingIndicator extends StatefulWidget {
 
 class _TypingIndicatorState extends State<TypingIndicator>
     with SingleTickerProviderStateMixin, InkSeed {
-  late final AnimationController _clock = AnimationController.unbounded(
-    vsync: this,
-  );
+  late final AnimationController _clock;
 
   Duration get _cycle => switch (widget.variant) {
     TypingVariant.dots => TypingIndicatorMotion.dotsCycle,
     TypingVariant.squiggle => TypingIndicatorMotion.squiggleCycle,
   };
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController.unbounded(
+      vsync: this,
+    );
+  }
 
   @override
   void didChangeDependencies() {
