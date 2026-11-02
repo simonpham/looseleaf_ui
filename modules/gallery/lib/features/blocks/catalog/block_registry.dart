@@ -136,6 +136,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/otp_01/otp_01_block.dart',
     builder: Otp01Block.new,
   ),
+  'pricing-01': GalleryBlock(
+    source: 'blocks/pricing_01/pricing_01_block.dart',
+    builder: Pricing01Block.new,
+    objects: [DeskObject.pencil, DeskObject.clips],
+  ),
   'profile-page': GalleryBlock(
     source: 'blocks/profile_page/profile_page_block.dart',
     builder: ProfilePageBlock.new,
