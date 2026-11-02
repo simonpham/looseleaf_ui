@@ -184,8 +184,11 @@ class _SidebarProviderState extends State<SidebarProvider> {
           skipTraversal: true,
           onKeyEvent: _focusedKey,
           // Laid out backwards so the pad paints over the page and is hit
-          // first: its rail and shadow reach past its own box.
+          // first: its rail and shadow reach past its own box. Packed to the
+          // reversed row's end, so without a SidebarInset the pad still sits
+          // at the start.
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             textDirection: switch (direction) {
               TextDirection.ltr => TextDirection.rtl,
               TextDirection.rtl => TextDirection.ltr,

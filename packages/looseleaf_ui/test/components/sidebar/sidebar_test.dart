@@ -313,6 +313,39 @@ void main() {
     expect(find.byType(PaperFastener), findsNothing);
   });
 
+  for (final direction in TextDirection.values) {
+    testWidgets('without an inset the pad keeps the start edge ($direction)', (
+      tester,
+    ) async {
+      await _desktop(
+        tester,
+        _stage(
+          Directionality(
+            textDirection: direction,
+            child: const SidebarProvider(
+              children: [
+                Sidebar(
+                  seed: 's',
+                  children: [
+                    SidebarHeader(children: [Text('Pad')]),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+      final stage = tester.getRect(find.byType(SidebarProvider));
+      final pad = tester.getRect(find.byType(SidebarDock));
+      switch (direction) {
+        case TextDirection.ltr:
+          expect(pad.left, stage.left);
+        case TextDirection.rtl:
+          expect(pad.right, stage.right);
+      }
+    });
+  }
+
   testWidgets('SidebarProvider.of throws outside a provider', (tester) async {
     late BuildContext context;
     await tester.pumpWidget(
