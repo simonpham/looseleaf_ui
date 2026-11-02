@@ -65,6 +65,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'notebook': notebookExamples,
   'page': pageExamples,
   'pagination': paginationExamples,
+  'paper': paperExamples,
   'polaroid': polaroidExamples,
   'popover': popoverExamples,
   'progress': progressExamples,

@@ -59,6 +59,7 @@ export 'package:gallery/features/components/examples/navigation_menu/navigation_
 export 'package:gallery/features/components/examples/notebook/notebook.dart';
 export 'package:gallery/features/components/examples/page/page.dart';
 export 'package:gallery/features/components/examples/pagination/pagination.dart';
+export 'package:gallery/features/components/examples/paper/paper.dart';
 export 'package:gallery/features/components/examples/polaroid/polaroid.dart';
 export 'package:gallery/features/components/examples/popover/popover.dart';
 export 'package:gallery/features/components/examples/progress/progress.dart';

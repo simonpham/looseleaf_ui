@@ -87,6 +87,7 @@ flutter:
     - lib/features/components/examples/notebook/
     - lib/features/components/examples/page/
     - lib/features/components/examples/pagination/
+    - lib/features/components/examples/paper/
     - lib/features/components/examples/polaroid/
     - lib/features/components/examples/popover/
     - lib/features/components/examples/progress/
