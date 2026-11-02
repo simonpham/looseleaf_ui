@@ -36,6 +36,7 @@ flutter:
     - lib/features/components/examples/chart/
     - lib/features/components/examples/checkbox/
     - lib/features/components/examples/circled/
+    - lib/features/components/examples/clipboard/
     - lib/features/components/examples/collapsible/
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/highlight/
@@ -47,6 +48,7 @@ flutter:
     - lib/features/components/examples/marquee/
     - lib/features/components/examples/mascot/
     - lib/features/components/examples/message_scroller/
+    - lib/features/components/examples/polaroid/
     - lib/features/components/examples/quote/
     - lib/features/components/examples/reveal/
     - lib/features/components/examples/ribbon/
