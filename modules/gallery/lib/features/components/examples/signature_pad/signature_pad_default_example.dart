@@ -1,0 +1,17 @@
+import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/looseleaf_ui.dart';
+
+class SignaturePadDefaultExample extends StatelessWidget {
+  const SignaturePadDefaultExample({super.key});
+
+  static const _maxWidth = 512.0;
+
+  @override
+  Widget build(BuildContext context) => Align(
+    alignment: AlignmentDirectional.centerStart,
+    child: ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: _maxWidth),
+      child: const SignaturePad(),
+    ),
+  );
+}

@@ -109,6 +109,7 @@ flutter:
     - lib/features/components/examples/sheet/
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/signature/
+    - lib/features/components/examples/signature_pad/
     - lib/features/components/examples/skeleton/
     - lib/features/components/examples/sketchpad/
     - lib/features/components/examples/slider/

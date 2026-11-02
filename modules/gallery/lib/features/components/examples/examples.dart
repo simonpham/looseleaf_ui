@@ -81,6 +81,7 @@ export 'package:gallery/features/components/examples/separator/separator.dart';
 export 'package:gallery/features/components/examples/sheet/sheet.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar.dart';
 export 'package:gallery/features/components/examples/signature/signature.dart';
+export 'package:gallery/features/components/examples/signature_pad/signature_pad.dart';
 export 'package:gallery/features/components/examples/skeleton/skeleton.dart';
 export 'package:gallery/features/components/examples/sketchpad/sketchpad.dart';
 export 'package:gallery/features/components/examples/slider/slider.dart';
