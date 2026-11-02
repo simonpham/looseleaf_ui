@@ -35,6 +35,7 @@ flutter:
     - lib/features/components/examples/badge/
     - lib/features/components/examples/boil/
     - lib/features/components/examples/bracket/
+    - lib/features/components/examples/breadcrumb/
     - lib/features/components/examples/bubble/
     - lib/features/components/examples/button/
     - lib/features/components/examples/card/

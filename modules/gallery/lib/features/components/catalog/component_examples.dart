@@ -13,6 +13,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'badge': badgeExamples,
   'boil': boilExamples,
   'bracket': bracketExamples,
+  'breadcrumb': breadcrumbExamples,
   'bubble': bubbleExamples,
   'button': buttonExamples,
   'card': cardExamples,

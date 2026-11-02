@@ -7,6 +7,7 @@ export 'package:gallery/features/components/examples/avatar/avatar.dart';
 export 'package:gallery/features/components/examples/badge/badge.dart';
 export 'package:gallery/features/components/examples/boil/boil.dart';
 export 'package:gallery/features/components/examples/bracket/bracket.dart';
+export 'package:gallery/features/components/examples/breadcrumb/breadcrumb.dart';
 export 'package:gallery/features/components/examples/bubble/bubble.dart';
 export 'package:gallery/features/components/examples/button/button.dart';
 export 'package:gallery/features/components/examples/card/card.dart';
