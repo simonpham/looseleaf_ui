@@ -87,20 +87,20 @@ class Save extends StatelessWidget {
       children: [
         CodeBlock(
           code: _pubspec,
-          language: 'text',
+          language: 'yaml',
           filename: 'pubspec.yaml',
           seed: 'how-pubspec',
           tape: PaperTape.corner,
         ),
         CodeBlock(
           code: _main,
-          language: 'ts',
+          language: 'dart',
           filename: 'main.dart',
           seed: 'how-main',
         ),
         CodeBlock(
           code: _usage,
-          language: 'ts',
+          language: 'dart',
           filename: 'save.dart',
           seed: 'how-usage',
           tape: PaperTape.corner,

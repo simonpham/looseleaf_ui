@@ -5,7 +5,7 @@ const codeBlockDoc = ComponentDoc(
   slug: 'code-block',
   title: 'Code block',
   category: ComponentCategory.chat,
-  description: 'A typed slip taped to the page: the file name in a typewriter face, the code on a two-color ribbon (red keywords and numbers, black for the rest), line numbers in the margin and a diff mode where removed lines are struck through in red pencil and added ones ticked in green. Ships its own small lexer for tsx, ts, jsx, js, css, json and bash.',
+  description: 'A typed slip taped to the page: the file name in a typewriter face, the code on a two-color ribbon (red keywords and numbers, black for the rest), line numbers in the margin and a diff mode where removed lines are struck through in red pencil and added ones ticked in green. Ships its own small lexer for tsx, ts, jsx, js, css, json, bash, dart and yaml.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(

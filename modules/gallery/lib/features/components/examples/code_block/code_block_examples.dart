@@ -21,7 +21,7 @@ const codeBlockExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'css, json and bash',
-    description: 'The small lexer knows tsx, ts, jsx, js, css, json and bash. The language comes from the file name when you do not say. Long lines wrap with `wrap`.',
+    description: 'The small lexer knows tsx, ts, jsx, js, css, json, bash, dart and yaml. The language comes from the file name when you do not say. Long lines wrap with `wrap`.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'code_block/code_block_languages_example.dart',
