@@ -166,4 +166,36 @@ void main() {
     await tester.tap(find.byKey(const Key('chevron')));
     expect(folds, 1);
   });
+
+  testWidgets('a fit-width button hugs its content at the row start', (
+    tester,
+  ) async {
+    await _pump(
+      tester,
+      SizedBox(
+        width: 240,
+        child: SidebarMenu(
+          children: [
+            SidebarMenuItem(
+              child: SidebarMenuButton(
+                fitWidth: true,
+                onPressed: () {},
+                leading: const SizedBox(width: 16, height: 16),
+                trailing: const SizedBox(key: Key('chevron'), width: 16),
+                child: const SizedBox(width: 60, height: 10),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    final menu = tester.getRect(find.byType(SidebarMenu));
+    final button = tester.getRect(find.byType(InkInteraction));
+    expect(button.left, menu.left);
+    expect(button.width, Spacing.d8 * 4 + 16 + 60 + 16);
+    expect(
+      tester.getRect(find.byKey(const Key('chevron'))).right,
+      button.right - Spacing.d8,
+    );
+  });
 }

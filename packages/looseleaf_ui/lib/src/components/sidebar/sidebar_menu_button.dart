@@ -45,6 +45,7 @@ class SidebarMenuButton extends StatefulWidget {
     this.autofocus = false,
     this.semanticLabel,
     this.forcedStates = const {},
+    this.fitWidth = false,
   });
 
   /// The label, usually a [Text].
@@ -85,6 +86,11 @@ class SidebarMenuButton extends StatefulWidget {
 
   /// States shown whatever the input, for state grids and goldens.
   final Set<InkState> forcedStates;
+
+  /// Sizes the button to its content at the row's start instead of filling
+  /// the row (upstream's `w-fit`); the label still cuts short when space
+  /// runs out.
+  final bool fitWidth;
 
   @override
   State<SidebarMenuButton> createState() => _SidebarMenuButtonState();
@@ -130,14 +136,27 @@ class _SidebarMenuButtonState extends State<SidebarMenuButton> with InkSeed {
         builder: (context, states) => _body(context, states, icons),
       ),
     );
+    final fitted = widget.fitWidth && !icons;
     final tooltip = widget.tooltip;
-    if (tooltip == null) return button;
-    return Tooltip(
-      disabled: !icons || (panel?.mobile ?? false),
-      content: TooltipContent(
-        side: OverlaySide.right,
-        child: Text(tooltip),
+    if (tooltip == null) return _fit(button, fitted);
+    return _fit(
+      Tooltip(
+        disabled: !icons || (panel?.mobile ?? false),
+        content: TooltipContent(
+          side: OverlaySide.right,
+          child: Text(tooltip),
+        ),
+        child: button,
       ),
+      fitted,
+    );
+  }
+
+  static Widget _fit(Widget button, bool fitted) {
+    if (!fitted) return button;
+    return Align(
+      alignment: AlignmentDirectional.centerStart,
+      widthFactor: 1,
       child: button,
     );
   }
@@ -178,9 +197,19 @@ class _SidebarMenuButtonState extends State<SidebarMenuButton> with InkSeed {
         data: IconThemeData(color: theme.colors.inkSoft),
         child: Row(
           spacing: Spacing.d8,
+          mainAxisSize: switch (widget.fitWidth && !icons) {
+            true => MainAxisSize.min,
+            false => MainAxisSize.max,
+          },
           children: [
             ?widget.leading,
-            Expanded(child: widget.child),
+            Flexible(
+              fit: switch (widget.fitWidth && !icons) {
+                true => FlexFit.loose,
+                false => FlexFit.tight,
+              },
+              child: widget.child,
+            ),
             ?widget.trailing,
           ],
         ),
