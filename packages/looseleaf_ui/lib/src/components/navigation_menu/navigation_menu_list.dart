@@ -7,8 +7,9 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// The row of tabs of a [NavigationMenu], 4 px apart, standing on a pencil
-/// line; Left and Right (mirrored in RTL), Home and End walk them. A
-/// [NavigationMenuIndicator] among [children] hangs under the line instead
+/// line, wrapping onto more rows when it is wider than its parent (the
+/// `flex-wrap` upstream's demo puts on the list). Left and Right
+/// (mirrored in RTL), Home and End walk them. A [NavigationMenuIndicator] among [children] hangs under the line instead
 /// of joining the row.
 ///
 /// Mirrors `NavigationMenuList` in upstream
@@ -52,10 +53,11 @@ class _NavigationMenuListState extends State<NavigationMenuList> with InkSeed {
             source: _baseline,
             seed: inkSeed(widget.seed),
             still: true,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.end,
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.end,
               spacing: Spacing.d4,
+              runSpacing: Spacing.d4,
               children: items,
             ),
           ),

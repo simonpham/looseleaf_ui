@@ -307,4 +307,34 @@ void main() {
       );
     }
   });
+
+  testWidgets('a list wider than its parent wraps onto another row', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      overlayHost(
+        SizedBox(
+          width: 240,
+          child: NavigationMenu(
+            semanticLabel: 'Main',
+            child: NavigationMenuList(
+              children: [
+                for (var i = 0; i < 8; i++)
+                  NavigationMenuItem(
+                    child: NavigationMenuLink(
+                      onPressed: () {},
+                      child: Text('Section $i'),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final first = tester.getRect(find.text('Section 0'));
+    final last = tester.getRect(find.text('Section 7'));
+    expect(last.top, greaterThan(first.bottom));
+  });
 }
