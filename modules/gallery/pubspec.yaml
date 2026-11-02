@@ -26,6 +26,7 @@ flutter:
   assets:
     - lib/features/blocks/blocks/cta_01/
     - lib/features/blocks/blocks/empty_inbox/
+    - lib/features/blocks/blocks/inbox/
     - lib/features/blocks/blocks/kanban_board/
     - lib/features/blocks/blocks/login_01/
     - lib/features/blocks/blocks/profile_page/
