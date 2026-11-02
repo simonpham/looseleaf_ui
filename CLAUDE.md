@@ -19,6 +19,9 @@ cd packages/looseleaf_ink && flutter test test/pen_test.dart   # one file
 flutter analyze apps modules packages
 tools/sdk/check_min_sdk.sh                 # analyze with the oldest supported Flutter (3.32.8, via fvm)
 
+# Regenerate the README GIF and screenshot (doc/)
+(cd modules/gallery && README_MEDIA_DIR=/tmp/media flutter test test/render/readme_media_test.dart) && tools/readme/make_media.sh /tmp/media
+
 # Regenerate parity fixtures from the original (see tools/parity/README.md)
 tools/parity/export.sh <path to a looseleaf checkout>
 ```
