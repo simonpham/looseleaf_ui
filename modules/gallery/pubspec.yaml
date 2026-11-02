@@ -31,6 +31,7 @@ flutter:
     - lib/features/components/examples/alert_dialog/
     - lib/features/components/examples/arrow/
     - lib/features/components/examples/asterisk/
+    - lib/features/components/examples/attachment/
     - lib/features/components/examples/avatar/
     - lib/features/components/examples/badge/
     - lib/features/components/examples/boil/

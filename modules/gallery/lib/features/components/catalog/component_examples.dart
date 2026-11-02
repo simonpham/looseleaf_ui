@@ -9,6 +9,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'alert-dialog': alertDialogExamples,
   'arrow': arrowExamples,
   'asterisk': asteriskExamples,
+  'attachment': attachmentExamples,
   'avatar': avatarExamples,
   'badge': badgeExamples,
   'boil': boilExamples,
