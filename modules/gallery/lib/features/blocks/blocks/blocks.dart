@@ -10,6 +10,7 @@ export 'package:gallery/features/blocks/blocks/empty_search/empty_search.dart';
 export 'package:gallery/features/blocks/blocks/error_404/error_404.dart';
 export 'package:gallery/features/blocks/blocks/error_500/error_500.dart';
 export 'package:gallery/features/blocks/blocks/faq_01/faq_01.dart';
+export 'package:gallery/features/blocks/blocks/features_01/features_01.dart';
 export 'package:gallery/features/blocks/blocks/file_explorer/file_explorer.dart';
 export 'package:gallery/features/blocks/blocks/footer_01/footer_01.dart';
 export 'package:gallery/features/blocks/blocks/forgot_password_01/forgot_password_01.dart';

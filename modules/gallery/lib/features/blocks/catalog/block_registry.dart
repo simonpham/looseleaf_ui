@@ -58,6 +58,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: Faq01Block.new,
     objects: [DeskObject.pencil],
   ),
+  'features-01': GalleryBlock(
+    source: 'blocks/features_01/features_01_block.dart',
+    builder: Features01Preview.new,
+  ),
   'file-explorer': GalleryBlock(
     source: 'blocks/file_explorer/file_explorer_block.dart',
     builder: FileExplorerBlock.new,
