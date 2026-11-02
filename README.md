@@ -15,6 +15,8 @@ Hand-drawn Flutter widgets on paper. Every line is drawn with a pen, every surfa
 
 ## 🚀 Run the gallery
 
+Requirements: Flutter 3.32+ / Dart 3.8+.
+
 ```sh
 ./get.sh
 cd apps/gallery && flutter run -d macos

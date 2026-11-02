@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Looseleaf UI is a Flutter port of [Looseleaf](https://github.com/kevintngo/looseleaf) (MIT, credited in `THIRD_PARTY_NOTICES.md`): hand-drawn components on paper. **Dart 3.13+ / Flutter 3.47+**, a Flutter workspace monorepo.
+Looseleaf UI is a Flutter port of [Looseleaf](https://github.com/kevintngo/looseleaf) (MIT, credited in `THIRD_PARTY_NOTICES.md`): hand-drawn components on paper. **Dart 3.8+ / Flutter 3.32+**, a Flutter workspace monorepo.
 
 Code conventions (mandatory): [CONVENTIONS.md](CONVENTIONS.md) (`AGENTS.md` is a copy; keep them identical).
 

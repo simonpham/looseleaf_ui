@@ -1,7 +1,7 @@
 # Code Conventions
 
 ## General
-- **Dart 3.13+**: records, patterns, switch expressions, collection if/for, dot shorthands where the type is clear.
+- **Dart 3.8+ / Flutter 3.32+**: records, patterns, switch expressions, collection if/for, null-aware elements. No dot shorthands and no Flutter API newer than 3.32 (`tools/sdk/check_min_sdk.sh` checks it).
 - **Const**: `const` constructors wherever possible.
 - **Lints**: follow `analysis_options.yaml` (`always_use_package_imports`, `prefer_single_quotes`, `prefer_const_constructors`, `prefer_const_declarations`, `unawaited_futures`, `avoid_print`, trailing commas preserved). No new warnings.
 
