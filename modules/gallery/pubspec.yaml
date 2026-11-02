@@ -63,6 +63,10 @@ flutter:
     - lib/features/blocks/blocks/sidebar_10/
     - lib/features/blocks/blocks/sidebar_11/
     - lib/features/blocks/blocks/sidebar_12/
+    - lib/features/blocks/blocks/sidebar_13/
+    - lib/features/blocks/blocks/sidebar_14/
+    - lib/features/blocks/blocks/sidebar_15/
+    - lib/features/blocks/blocks/sidebar_16/
     - lib/features/blocks/blocks/signup_01/
     - lib/features/blocks/blocks/signup_02/
     - lib/features/blocks/blocks/signup_03/
