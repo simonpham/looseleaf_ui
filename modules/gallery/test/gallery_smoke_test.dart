@@ -30,12 +30,12 @@ void main() {
     });
   }
 
-  testWidgets('the phone layout builds with its drawer', (tester) async {
-    await pumpGallery(
-      tester,
-      const ComponentsRoute('button'),
-      size: const Size(390, 844),
-    );
-    expect(tester.takeException(), isNull);
+  group('at phone width', () {
+    for (final route in routes) {
+      testWidgets('${route.path} lays out without overflow', (tester) async {
+        await pumpGallery(tester, route, size: const Size(390, 844));
+        expect(tester.takeException(), isNull);
+      });
+    }
   });
 }
