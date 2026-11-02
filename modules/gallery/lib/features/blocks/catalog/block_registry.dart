@@ -5,6 +5,10 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 /// Every ported block, by upstream slug. A block gets a page once it has an
 /// entry here.
 const Map<String, GalleryBlock> portedBlocks = {
+  'announcement-bar': GalleryBlock(
+    source: 'blocks/announcement_bar/announcement_bar_block.dart',
+    builder: AnnouncementBarBlock.new,
+  ),
   'cta-01': GalleryBlock(
     source: 'blocks/cta_01/cta_01_block.dart',
     builder: Cta01Block.new,
