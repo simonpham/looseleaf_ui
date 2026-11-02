@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/tear_off/tear_off_body.dart';
 import 'package:looseleaf_ui/src/components/tear_off/tear_off_scope.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 
@@ -11,7 +12,8 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 /// Put a [TearOffBody] and a [TearOffStub] in [children]. The stub tears
 /// on a tap, on Enter or Space, or when pulled at least half way along the
 /// perforation; it swings off, falls and leaves the layout. [orientation]
-/// [Axis.vertical] hangs the stub under the body. Uncontrolled it keeps its
+/// [Axis.vertical] hangs the stub under the body. Side by side, the body
+/// gives way to a narrow parent (upstream `min-w-0 flex-1`). Uncontrolled it keeps its
 /// own state ([defaultTorn]); pass [torn] and [onTornChange] to control it,
 /// and set `torn: false` to put the stub back (it drops in). A screen
 /// reader hears [tornMessage] once it comes off.
@@ -155,7 +157,13 @@ class _TearOffState extends State<TearOff> {
       false => Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: widget.children,
+        children: [
+          for (final child in widget.children)
+            switch (child) {
+              TearOffBody() => Flexible(child: child),
+              _ => child,
+            },
+        ],
       ),
     };
     return TearOffScope(

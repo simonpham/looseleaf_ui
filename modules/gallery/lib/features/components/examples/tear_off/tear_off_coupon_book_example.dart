@@ -78,9 +78,11 @@ class _TearOffCouponBookExampleState extends State<TearOffCouponBookExample> {
             ),
           ],
         ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
+        Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
           spacing: Spacing.d12,
+          runSpacing: Spacing.d8,
           children: [
             Text(
               'Redeemed $_redeemed time${switch (_redeemed) {

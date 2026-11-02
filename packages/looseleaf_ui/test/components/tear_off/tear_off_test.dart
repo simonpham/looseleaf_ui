@@ -193,4 +193,28 @@ void main() {
     await tester.pump();
     expect(find.text('10% off'), findsNothing);
   });
+
+  testWidgets('side by side, the body gives way to a narrow parent', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 260,
+          child: Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: TearOff(
+              children: [
+                TearOffBody(width: 200, child: Text('Studio night')),
+                TearOffStub(width: 120, children: [Text('10% off')]),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(tester.getSize(find.byType(TearOffBody)).width, 140);
+    expect(tester.getSize(find.byType(TearOffStub)).width, 120);
+  });
 }
