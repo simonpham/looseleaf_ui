@@ -47,10 +47,10 @@ class _Checkout01FormState extends State<Checkout01Form> {
   };
 
   static final _cardNumber = TextInputFormatter.withFunction(
-    (_, next) => _formatted(formatCardNumber(next.text)),
+    (_, next) => _formatted(checkoutCardNumber(next.text)),
   );
   static final _expiry = TextInputFormatter.withFunction(
-    (_, next) => _formatted(formatExpiry(next.text)),
+    (_, next) => _formatted(checkoutExpiry(next.text)),
   );
 
   static TextEditingValue _formatted(String text) => TextEditingValue(

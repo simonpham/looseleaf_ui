@@ -62,7 +62,7 @@ class Checkout01Basket extends StatelessWidget {
                                   .copyWith(fontWeight: FontWeight.w700),
                             ),
                             Text(
-                              '${product.note} · €${money(product.cents)}',
+                              '${product.note} · €${checkoutMoney(product.cents)}',
                               style: theme.typography.interface(
                                 cssSize: 14,
                                 color: theme.colors.inkMuted,

@@ -75,7 +75,7 @@ class Checkout01Summary extends StatelessWidget {
           liveRegion: true,
           label: switch (empty) {
             true => 'The basket is empty.',
-            false => 'Total €${money(totals.total)}.',
+            false => 'Total €${checkoutMoney(totals.total)}.',
           },
           child: const SizedBox.shrink(),
         ),
@@ -85,7 +85,7 @@ class Checkout01Summary extends StatelessWidget {
           onPressed: onPay,
           child: Text(switch (placing) {
             true => 'Placing your order…',
-            false => 'Pay €${money(totals.total)}',
+            false => 'Pay €${checkoutMoney(totals.total)}',
           }),
         ),
         Padding(
@@ -104,7 +104,7 @@ class Checkout01Summary extends StatelessWidget {
                       children: [
                         TextSpan(
                           text:
-                              'psst: free delivery over ${money(freeShippingFrom)}, and ',
+                              'psst: free delivery over ${checkoutMoney(checkoutFreeShippingFrom)}, and ',
                         ),
                         TextSpan(
                           text: 'PAPER10',

@@ -48,7 +48,7 @@ class Checkout01Delivery extends StatelessWidget {
                                   Text(
                                     switch (shipping[method.id] ?? 0) {
                                       0 => 'free',
-                                      final cents => '€${money(cents)}',
+                                      final cents => '€${checkoutMoney(cents)}',
                                     },
                                     style: const TextStyle(
                                       fontWeight: FontWeight.w400,

@@ -20,7 +20,7 @@ typedef CheckoutTotals = ({
 typedef CheckoutMonth = ({int year, int month});
 
 /// An order once it is paid.
-typedef PlacedOrder = ({
+typedef CheckoutPlacedOrder = ({
   String number,
   String email,
   String name,
@@ -47,7 +47,7 @@ const List<CheckoutProduct> checkoutProducts = [
 
 const List<int> checkoutDefaultQty = [1, 2, 1];
 
-String money(int cents) => (cents / 100).toStringAsFixed(2);
+String checkoutMoney(int cents) => (cents / 100).toStringAsFixed(2);
 
 const List<CheckoutMethod> checkoutMethods = [
   (
@@ -79,8 +79,8 @@ const Map<String, CheckoutPromo> checkoutPromos = {
   ),
 };
 
-const freeShippingFrom = 5000;
-const vatPercent = 23;
+const checkoutFreeShippingFrom = 5000;
+const checkoutVatPercent = 23;
 
 CheckoutTotals checkoutTotals(List<int> qty, String method, String? code) {
   var subtotal = 0;
@@ -96,7 +96,8 @@ CheckoutTotals checkoutTotals(List<int> qty, String method, String? code) {
   final freeStandard = promo?.freeStandard ?? false;
   final shipping = switch (method) {
     _ when subtotal == 0 => 0,
-    'standard' when subtotal - discount >= freeShippingFrom || freeStandard =>
+    'standard'
+        when subtotal - discount >= checkoutFreeShippingFrom || freeStandard =>
       0,
     'express' when freeStandard => base - checkoutMethods.first.cents,
     _ => base,
@@ -106,12 +107,12 @@ CheckoutTotals checkoutTotals(List<int> qty, String method, String? code) {
     subtotal: subtotal,
     discount: discount,
     shipping: shipping,
-    vat: (total * vatPercent / (100 + vatPercent)).round(),
+    vat: (total * checkoutVatPercent / (100 + checkoutVatPercent)).round(),
     total: total,
   );
 }
 
-bool luhn(String digits) {
+bool checkoutLuhn(String digits) {
   var sum = 0;
   for (var i = 0; i < digits.length; i++) {
     var digit = int.parse(digits[digits.length - 1 - i]);
@@ -129,7 +130,7 @@ String _digits(String raw, int max) {
   return digits.substring(0, digits.length.clamp(0, max));
 }
 
-String formatCardNumber(String raw) {
+String checkoutCardNumber(String raw) {
   final digits = _digits(raw, 19);
   if (RegExp('^3[47]').hasMatch(digits)) {
     return [
@@ -143,7 +144,7 @@ String formatCardNumber(String raw) {
       .trim();
 }
 
-String formatExpiry(String raw) {
+String checkoutExpiry(String raw) {
   final digits = _digits(raw, 4);
   if (digits.length == 1 && int.parse(digits) > 1) return '0$digits/';
   if (digits.length > 2) {
@@ -152,7 +153,7 @@ String formatExpiry(String raw) {
   return digits;
 }
 
-CheckoutMonth currentMonth() {
+CheckoutMonth checkoutCurrentMonth() {
   final now = DateTime.now();
   return (year: now.year, month: now.month);
 }
@@ -244,7 +245,7 @@ Map<String, String? Function(Object? value)> checkoutValidators({
       if (!RegExp(r'^\d{13,19}$').hasMatch(digits)) {
         return 'A card number has 13 to 19 digits.';
       }
-      if (luhn(digits)) return null;
+      if (checkoutLuhn(digits)) return null;
       return 'That number does not add up. Check each digit.';
     },
     'expiry': (value) {

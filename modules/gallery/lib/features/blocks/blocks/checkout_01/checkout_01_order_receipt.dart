@@ -41,7 +41,7 @@ class Checkout01OrderReceipt extends StatelessWidget {
             if (qty[index] > 0)
               ReceiptLine(
                 qty: qty[index],
-                price: Text(money(product.cents * qty[index])),
+                price: Text(checkoutMoney(product.cents * qty[index])),
                 child: Text(product.name),
               ),
         ],
@@ -50,30 +50,30 @@ class Checkout01OrderReceipt extends StatelessWidget {
         ReceiptLines(
           children: [
             ReceiptLine(
-              price: Text(money(totals.subtotal)),
+              price: Text(checkoutMoney(totals.subtotal)),
               child: const Text('subtotal'),
             ),
             if (totals.discount > 0)
               ReceiptLine(
-                price: Text('-${money(totals.discount)}'),
+                price: Text('-${checkoutMoney(totals.discount)}'),
                 child: Text('code $code'),
               ),
             ReceiptLine(
               price: Text(switch (totals.shipping) {
                 0 => 'free',
-                final cents => money(cents),
+                final cents => checkoutMoney(cents),
               }),
               child: const Text('delivery'),
             ),
             ReceiptLine(
-              price: Text(money(totals.vat)),
-              child: const Text('of which VAT $vatPercent%'),
+              price: Text(checkoutMoney(totals.vat)),
+              child: const Text('of which VAT $checkoutVatPercent%'),
             ),
           ],
         ),
       ReceiptTotal(
         circled: ReceiptPen.redfelt,
-        child: Text(money(totals.total)),
+        child: Text(checkoutMoney(totals.total)),
       ),
       if (full) ...[
         const ReceiptDivider(),

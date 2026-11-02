@@ -11,7 +11,7 @@ class Checkout01Done extends StatefulWidget {
     required this.onKeepShopping,
   });
 
-  final PlacedOrder order;
+  final CheckoutPlacedOrder order;
   final VoidCallback onKeepShopping;
 
   @override

@@ -25,7 +25,7 @@ class Checkout01Block extends StatefulWidget {
 
   /// Places the order; throw to show why it was not placed.
   final FutureOr<void> Function(
-    PlacedOrder order,
+    CheckoutPlacedOrder order,
     Map<String, Object?> values,
   )?
   onPlace;
@@ -37,13 +37,13 @@ class Checkout01Block extends StatefulWidget {
 class _Checkout01BlockState extends State<Checkout01Block> {
   final _form = FormController(initialValues: checkoutDefaultValues);
   late final _validators = checkoutValidators(
-    today: widget.today ?? currentMonth(),
+    today: widget.today ?? checkoutCurrentMonth(),
     method: () => _method,
   );
   late List<int> _qty = List.of(widget.defaultQty);
   String? _code;
   var _placing = false;
-  PlacedOrder? _placed;
+  CheckoutPlacedOrder? _placed;
   var _failure = '';
 
   static const double _maxWidth = 1152;
