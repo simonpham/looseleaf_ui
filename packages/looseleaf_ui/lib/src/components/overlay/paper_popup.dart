@@ -91,6 +91,11 @@ class PaperPopup extends StatelessWidget {
   /// The pointer's size; no pointer when null.
   final Size? pointer;
 
+  /// Whether [context] sits on a popup's paper, where a nested sheet (a
+  /// [Command]'s) puts its own paper away, like upstream's `NESTED` rule.
+  static bool isAround(BuildContext context) =>
+      context.getInheritedWidgetOfExactType<_PaperPopupScope>() != null;
+
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
@@ -115,7 +120,7 @@ class PaperPopup extends StatelessWidget {
       padding: padding,
       child: DefaultTextStyle.merge(
         style: theme.typography.interface(color: theme.colors.ink),
-        child: child,
+        child: _PaperPopupScope(child: child),
       ),
     );
     final sized = ConstrainedBox(
@@ -174,6 +179,13 @@ class PaperPopup extends StatelessWidget {
       ],
     );
   }
+}
+
+class _PaperPopupScope extends InheritedWidget {
+  const _PaperPopupScope({required super.child});
+
+  @override
+  bool updateShouldNotify(_PaperPopupScope oldWidget) => false;
 }
 
 class _PointerRail extends SingleChildLayoutDelegate {

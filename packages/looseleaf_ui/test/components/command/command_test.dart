@@ -336,4 +336,30 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     expect(_controller(tester).highlighted, 'Cards');
   });
+
+  testWidgets('writes on its own paper outside a popup', (tester) async {
+    await tester.pumpWidget(overlayHost(_palette()));
+    expect(
+      find.descendant(of: find.byType(Command), matching: find.byType(Paper)),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('puts its paper away inside a popover', (tester) async {
+    await tester.pumpWidget(
+      overlayHost(
+        Popover(
+          defaultOpen: true,
+          content: PopoverContent(seed: 'p', child: _palette()),
+          child: const Text('Open'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(Command), findsOneWidget);
+    expect(
+      find.descendant(of: find.byType(Command), matching: find.byType(Paper)),
+      findsNothing,
+    );
+  });
 }

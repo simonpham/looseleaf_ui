@@ -1,13 +1,16 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/command/command.dart';
+import 'package:looseleaf_ui/src/components/drawer/drawer.dart';
+import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 import 'package:looseleaf_ui/src/components/paper/paper.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// A command palette: a [CommandInput] that filters a [CommandList] of
 /// [CommandItem]s as you type, on a flat slip of paper with a cut edge
-/// and the `lift` shadow ([sheet] false drops the paper, as inside a
-/// dialog or popover).
+/// and the `lift` shadow. Inside a popup (a popover, hover card, select or
+/// menu, anything on [PaperPopup]) or a drawer, the popup is already the
+/// paper, so the palette puts its own away; [sheet] false always drops it.
 ///
 /// Focus stays in the search box: the arrows (and Ctrl + N / P / J / K),
 /// Home and End move the highlighter, Enter chooses. Rows match when the
@@ -58,7 +61,8 @@ class Command extends StatefulWidget {
   /// Usually a [CommandInput] and a [CommandList].
   final List<Widget> children;
 
-  /// Writes the palette on paper.
+  /// Writes the palette on paper, unless it sits on a popup's or a
+  /// drawer's paper already.
   final bool sheet;
 
   /// The paper stock.
@@ -124,6 +128,10 @@ class _CommandState extends State<Command> {
       ..onValueChange = widget.onValueChange;
   }
 
+  static bool _nested(BuildContext context) =>
+      PaperPopup.isAround(context) ||
+      context.getInheritedWidgetOfExactType<DrawerScope>() != null;
+
   @override
   void dispose() {
     _controller.dispose();
@@ -147,7 +155,7 @@ class _CommandState extends State<Command> {
         container: true,
         explicitChildNodes: true,
         label: widget.semanticLabel,
-        child: switch (widget.sheet) {
+        child: switch (widget.sheet && !_nested(context)) {
           true => Paper(
             stock: widget.stock,
             edge: widget.edge,
