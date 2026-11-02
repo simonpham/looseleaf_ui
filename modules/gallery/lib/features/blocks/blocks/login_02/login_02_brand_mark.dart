@@ -1,0 +1,52 @@
+import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/looseleaf_ui.dart';
+
+/// A hand-drawn brand mark for a sign-in button, in the ink of the text
+/// around it.
+///
+/// Mirrors upstream `src/blocks/login-02/components/login-02-brand-marks.tsx`.
+class Login02BrandMark extends StatelessWidget {
+  const Login02BrandMark(this.name, {super.key, this.size = Spacing.d16});
+
+  /// The mark: `github`.
+  final String name;
+
+  /// The size in pixels.
+  final double size;
+
+  static const Map<String, ArtDef> _marks = {
+    'github': ArtDef(
+      grid: ArtGrid.icon,
+      parts: [
+        StrokePart(
+          'M6.3 3.9 C8 4 9.3 5 10.1 5.8 C11.4 5.5 12.7 5.5 14 5.8 C14.8 5 16.1 4 17.8 3.9 C18.4 5.2 18.4 6.6 18 7.8 C19.3 9 19.8 10.8 19.6 12.6 C19.2 16.6 15.9 19.1 12 19 C8.1 18.9 4.8 16.6 4.5 12.6 C4.3 10.8 4.8 9 6.1 7.8 C5.7 6.6 5.7 5.2 6.3 3.9',
+          1.1,
+        ),
+        StrokePart(
+          'M9.9 19 C9.3 20.3 8 20.9 6.7 20.5',
+          0.95,
+        ),
+        StrokePart(
+          'M14.3 19 C15 20.4 16.4 20.9 17.9 20.3',
+          0.95,
+        ),
+      ],
+    ),
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    final def = _marks[name];
+    if (def == null) return SizedBox.square(dimension: size);
+    return InkArt(
+      cacheKey: 'auth-brand|$name|${JsMath.numberToString(size)}',
+      draw: () => drawSkeleton(
+        def,
+        size,
+        name,
+        const DrawOpts(tone: ArtTone.ui, kind: ArtKind.icon, nib: 1.6),
+      ).result,
+      size: Size.square(size),
+    );
+  }
+}

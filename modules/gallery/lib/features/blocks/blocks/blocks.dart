@@ -3,6 +3,7 @@ export 'package:gallery/features/blocks/blocks/empty_inbox/empty_inbox.dart';
 export 'package:gallery/features/blocks/blocks/inbox/inbox.dart';
 export 'package:gallery/features/blocks/blocks/kanban_board/kanban_board.dart';
 export 'package:gallery/features/blocks/blocks/login_01/login_01.dart';
+export 'package:gallery/features/blocks/blocks/login_02/login_02.dart';
 export 'package:gallery/features/blocks/blocks/profile_page/profile_page.dart';
 export 'package:gallery/features/blocks/blocks/settings_appearance/settings_appearance.dart';
 export 'package:gallery/features/blocks/blocks/signup_01/signup_01.dart';
