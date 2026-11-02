@@ -17,7 +17,7 @@ class SkeletonCardDemoExample extends StatelessWidget {
         spacing: Spacing.d8,
         children: [
           Skeleton(width: 250, height: Spacing.d16),
-          Skeleton(width: 200, height: Spacing.d16),
+          Skeleton(width: Spacing.d200, height: Spacing.d16),
         ],
       ),
     ],

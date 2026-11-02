@@ -21,7 +21,7 @@ class SkeletonDemoExample extends StatelessWidget {
               child: const Skeleton(height: Spacing.d16),
             ),
             ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 200),
+              constraints: const BoxConstraints(maxWidth: Spacing.d200),
               child: const Skeleton(height: Spacing.d16),
             ),
           ],

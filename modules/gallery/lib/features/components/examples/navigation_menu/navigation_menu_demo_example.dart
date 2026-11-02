@@ -17,7 +17,7 @@ const _componentsWidth = 500.0;
 const _listWidth = 300.0;
 
 /// `w-[200px]`.
-const _simpleWidth = 200.0;
+const _simpleWidth = Spacing.d200;
 
 const _components = [
   (
