@@ -1,73 +1,32 @@
-import 'dart:async';
-
-import 'package:flutter/services.dart' as services;
 import 'package:flutter/widgets.dart';
-import 'package:gallery/features/kit/ui/widgets/copy_button.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
-/// A slip of code: a file name header with a copy button over monospace
-/// lines that scroll sideways. Mirrors `DocCodeBlock` in `src/docs/kit/DocCodeBlock.tsx`.
+/// A slip of code on a docs page: the file name, a copy button and the
+/// highlighted lines, flat on the page.
+///
+/// Mirrors `CodeBlock` in upstream `src/docs/kit/CodeBlock.tsx`. Dart is
+/// highlighted with the TypeScript grammar, which reads it well.
 class DocCodeBlock extends StatelessWidget {
   const DocCodeBlock({super.key, required this.code, this.title = 'dart'});
 
   final String code;
+
+  /// The file name in the header; its extension picks the grammar.
   final String title;
 
+  String get _language => switch (title.split('.').last) {
+    'dart' => 'ts',
+    'json' => 'json',
+    'sh' || 'Terminal' => 'bash',
+    _ => 'text',
+  };
+
   @override
-  Widget build(BuildContext context) {
-    final theme = LooseleafTheme.of(context);
-    final trimmed = code.trimRight();
-    return Paper(
-      stock: StockName.slip,
-      tilt: false,
-      shadow: PaperShadow.slip,
-      seed: 'code:$title',
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: const EdgeInsetsDirectional.only(
-              start: Spacing.d16,
-              end: Spacing.d8,
-              top: Spacing.d6,
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    title,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.typography.stamp(
-                      cssSize: 13,
-                      color: theme.colors.inkMuted,
-                    ),
-                  ),
-                ),
-                CopyButton(
-                  onCopy: () => unawaited(
-                    services.Clipboard.setData(
-                      services.ClipboardData(text: trimmed),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Separator(variant: SeparatorVariant.dashed),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.all(Spacing.d16),
-            child: Text(
-              trimmed,
-              style: theme.typography.mono(
-                cssSize: 13.5,
-                cssLineHeight: 1.6,
-                color: theme.colors.ink,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => CodeBlock(
+    code: code.trimRight(),
+    language: _language,
+    filename: title,
+    tilt: false,
+    seed: 'code:$title',
+  );
 }

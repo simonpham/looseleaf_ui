@@ -1,4 +1,3 @@
-export 'package:gallery/features/kit/ui/widgets/copy_button.dart';
 export 'package:gallery/features/kit/ui/widgets/doc_chip.dart';
 export 'package:gallery/features/kit/ui/widgets/doc_code_block.dart';
 export 'package:gallery/features/kit/ui/widgets/doc_heading.dart';
