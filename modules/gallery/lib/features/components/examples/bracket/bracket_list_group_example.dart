@@ -28,7 +28,7 @@ class BracketListGroupExample extends StatelessWidget {
             ),
           ),
         ),
-        const Callout('the base'),
+        const Flexible(child: Callout('the base')),
       ],
     );
   }

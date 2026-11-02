@@ -29,12 +29,14 @@ class _ArrowPointAtExampleState extends State<ArrowPointAtExample> {
             child: Row(
               spacing: Spacing.d8,
               children: [
-                Text(
-                  'the important one',
-                  style: theme.typography.face(
-                    KevinSansFace.script,
-                    cssSize: 24,
-                    color: theme.colors.inkYou,
+                Flexible(
+                  child: Text(
+                    'the important one',
+                    style: theme.typography.face(
+                      KevinSansFace.script,
+                      cssSize: 24,
+                      color: theme.colors.inkYou,
+                    ),
                   ),
                 ),
                 Arrow(

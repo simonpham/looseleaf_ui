@@ -7,9 +7,10 @@ class CalloutDefaultExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
       spacing: Spacing.d4,
+      runSpacing: Spacing.d8,
       children: [
         DecoratedBox(
           decoration: BoxDecoration(

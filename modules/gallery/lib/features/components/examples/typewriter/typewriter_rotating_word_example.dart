@@ -22,20 +22,22 @@ class TypewriterRotatingWordExample extends StatelessWidget {
             cssLineHeight: 1.25,
           ),
         ),
-        SizedBox(
-          width: _cssSize * 11,
-          child: Typewriter.phrases(
-            const ['notebooks', 'stickers', 'tape', 'small good things'],
-            mode: TypingMode.cycle,
-            loop: true,
-            cursor: CaretShape.block,
-            pause: const Duration(milliseconds: 1100),
-            speed: 14,
-            style: theme.typography.face(
-              KevinSansFace.type,
-              cssSize: _cssSize,
-              cssLineHeight: 1.25,
-              color: theme.colors.orangeText,
+        Flexible(
+          child: SizedBox(
+            width: _cssSize * 11,
+            child: Typewriter.phrases(
+              const ['notebooks', 'stickers', 'tape', 'small good things'],
+              mode: TypingMode.cycle,
+              loop: true,
+              cursor: CaretShape.block,
+              pause: const Duration(milliseconds: 1100),
+              speed: 14,
+              style: theme.typography.face(
+                KevinSansFace.type,
+                cssSize: _cssSize,
+                cssLineHeight: 1.25,
+                color: theme.colors.orangeText,
+              ),
             ),
           ),
         ),

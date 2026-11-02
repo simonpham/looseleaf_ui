@@ -243,8 +243,10 @@ class _AnnotatePlaygroundExampleState extends State<AnnotatePlaygroundExample> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: Spacing.d28),
-                      child: Row(
+                      child: Wrap(
                         spacing: Spacing.d12,
+                        runSpacing: Spacing.d8,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           Text('times I have read it', style: pencil),
                           const Tally(count: 7, animate: true),
