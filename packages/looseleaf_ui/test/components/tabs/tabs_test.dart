@@ -203,4 +203,44 @@ void main() {
     ];
     expect(widths, everyElement(closeTo((300 - 2 * Spacing.d4) / 3, 0.5)));
   });
+
+  testWidgets(
+    'spacing sets the list-to-panel gap, closed panels take none; triggers take side room',
+    (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        componentHost(
+          const Tabs(
+            defaultValue: 'a',
+            spacing: Spacing.d24,
+            children: [
+              TabsList(
+                children: [
+                  TabsTrigger(
+                    value: 'a',
+                    horizontalPadding: Spacing.d8,
+                    child: Text('Tab a'),
+                  ),
+                ],
+              ),
+              TabsContent(value: 'a', child: Text('Panel a')),
+              TabsContent(value: 'b', child: Text('Panel b')),
+            ],
+          ),
+        ),
+      );
+      expect(
+        tester.getRect(find.byType(Tabs)).bottom,
+        tester.getRect(find.text('Panel a')).bottom,
+      );
+      final list = tester.getRect(find.byType(TabsList));
+      final panel = tester.getRect(find.byType(TabsContent));
+      expect(panel.top - list.bottom, Spacing.d24);
+      final trigger = tester.getRect(find.byType(TabsTrigger));
+      final label = tester.getRect(find.text('Tab a'));
+      expect(label.left - trigger.left, Spacing.d8);
+      expect(trigger.right - label.right, Spacing.d8);
+    },
+  );
 }

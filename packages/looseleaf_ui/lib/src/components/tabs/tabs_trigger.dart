@@ -23,6 +23,7 @@ class TabsTrigger extends StatefulWidget {
     this.focusNode,
     this.autofocus = false,
     this.forcedStates = const {},
+    this.horizontalPadding = Spacing.d16,
   });
 
   /// The [TabsContent] this tab opens.
@@ -40,6 +41,10 @@ class TabsTrigger extends StatefulWidget {
 
   /// States shown whatever the input, for state grids and goldens.
   final Set<InkState> forcedStates;
+
+  /// The room either side of the label (upstream `px-4`); narrow tab rows
+  /// use `px-2` or `px-2.5`.
+  final double horizontalPadding;
 
   @override
   State<TabsTrigger> createState() => _TabsTriggerState();
@@ -194,8 +199,8 @@ class _TabsTriggerState extends State<TabsTrigger> with InkSeed {
             height: _height.of(context),
             child: Padding(
               padding: EdgeInsets.only(
-                left: Spacing.d16,
-                right: Spacing.d16,
+                left: widget.horizontalPadding,
+                right: widget.horizontalPadding,
                 top: switch (vertical) {
                   true => Spacing.d2,
                   false => Spacing.d4,

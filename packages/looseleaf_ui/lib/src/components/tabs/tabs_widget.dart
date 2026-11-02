@@ -1,10 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
+import 'package:looseleaf_ui/src/components/tabs/tabs_content.dart';
 import 'package:looseleaf_ui/src/components/tabs/tabs_scope.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Panels behind index-divider tabs: a [TabsList] of [TabsTrigger]s and a
-/// [TabsContent] per tab, 12 apart, stacked (or side by side when
+/// [TabsContent] per tab, [spacing] apart, stacked (or side by side when
 /// [orientation] is vertical).
 ///
 /// Controlled with [value] and [onValueChange], or left to itself from
@@ -31,6 +32,7 @@ class Tabs extends StatefulWidget {
     this.onValueChange,
     this.orientation = TabsOrientation.horizontal,
     this.activationMode = TabsActivationMode.automatic,
+    this.spacing = Spacing.d12,
   });
 
   final List<Widget> children;
@@ -47,6 +49,10 @@ class Tabs extends StatefulWidget {
   final TabsOrientation orientation;
   final TabsActivationMode activationMode;
 
+  /// The gap between the [TabsList] and the [TabsContent] (upstream
+  /// `gap-3`; blocks set `gap-2` to `gap-6`).
+  final double spacing;
+
   @override
   State<Tabs> createState() => _TabsState();
 }
@@ -60,21 +66,35 @@ class _TabsState extends State<Tabs> {
     widget.onValueChange?.call(value);
   }
 
+  /// A closed panel is left out, so it takes no [Tabs.spacing] either, like
+  /// upstream's unmounted Radix content.
+  static bool _closed(Widget child, String? open) => switch (child) {
+    TabsContent(:final value) ||
+    Flexible(child: TabsContent(:final value)) => value != open,
+    _ => false,
+  };
+
   @override
-  Widget build(BuildContext context) => TabsScope(
-    value: widget.value ?? _value,
-    orientation: widget.orientation,
-    activationMode: widget.activationMode,
-    select: _select,
-    child: Flex(
-      direction: switch (widget.orientation) {
-        TabsOrientation.horizontal => Axis.vertical,
-        TabsOrientation.vertical => Axis.horizontal,
-      },
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: Spacing.d12,
-      children: widget.children,
-    ),
-  );
+  Widget build(BuildContext context) {
+    final open = widget.value ?? _value;
+    return TabsScope(
+      value: open,
+      orientation: widget.orientation,
+      activationMode: widget.activationMode,
+      select: _select,
+      child: Flex(
+        direction: switch (widget.orientation) {
+          TabsOrientation.horizontal => Axis.vertical,
+          TabsOrientation.vertical => Axis.horizontal,
+        },
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: widget.spacing,
+        children: [
+          for (final child in widget.children)
+            if (!_closed(child, open)) child,
+        ],
+      ),
+    );
+  }
 }
