@@ -90,6 +90,7 @@ class _InkMarkSurfaceState extends State<InkMarkSurface> {
         false => const {},
       },
       drawOn: _revealing,
+      drawOnDuration: InkMotion.draw,
       child: widget.child,
     );
     if (widget.draw == InkMarkDraw.wipe) {

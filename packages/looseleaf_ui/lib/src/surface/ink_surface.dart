@@ -30,6 +30,7 @@ class InkSurface extends StatefulWidget {
     this.still,
     this.swipeOnHover = false,
     this.drawOn = false,
+    this.drawOnDuration = InkMotion.sheet,
   });
 
   /// What draws the frame.
@@ -70,6 +71,10 @@ class InkSurface extends StatefulWidget {
   /// turns on, like upstream's `data-touched` draw-on. Pass true only once
   /// the user has toggled the widget, so marks set from code appear whole.
   final bool drawOn;
+
+  /// How long [drawOn] takes: [InkMotion.sheet] for a control's tick,
+  /// [InkMotion.draw] for a mark.
+  final Duration drawOnDuration;
 
   @override
   State<InkSurface> createState() => _InkSurfaceState();
@@ -116,6 +121,7 @@ class _InkSurfaceState extends State<InkSurface> with TickerProviderStateMixin {
       animate: _animate && !reduced,
       swipeOnHover: widget.swipeOnHover,
       drawOn: widget.drawOn,
+      drawOnDuration: widget.drawOnDuration,
     );
     if (created) {
       _repaint = Listenable.merge([_motion.listenable, InkTextures.instance]);

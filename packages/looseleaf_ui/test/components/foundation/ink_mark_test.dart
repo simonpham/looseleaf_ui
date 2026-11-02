@@ -124,6 +124,45 @@ void main() {
     expect(visibilityOf(1).visible, isTrue);
   });
 
+  testWidgets('a revealed mark draws on over --ll-dur-draw', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        InkMarkSurface(
+          source: InkSource.callback(
+            id: 'mark',
+            paramsKey: 'mark',
+            draw: (request) => const InkMarkup(parts: {'rest': ''}, pad: 0),
+          ),
+          seed: 's',
+          animate: true,
+          child: const SizedBox.square(dimension: Spacing.d24),
+        ),
+      ),
+    );
+    final surface = tester.widget<InkSurface>(find.byType(InkSurface));
+    expect(surface.drawOnDuration, InkMotion.draw);
+  });
+
+  testWidgets('the draw-on runs for the given duration', (tester) async {
+    final motion = InkSurfaceMotion(tester);
+    addTearDown(motion.dispose);
+    void play(Duration duration) => motion.update(
+      const {InkState.checked},
+      hasHover: false,
+      still: true,
+      animate: true,
+      drawOn: true,
+      drawOnDuration: duration,
+    );
+    motion.update(const {}, hasHover: false, still: true, animate: true);
+    play(InkMotion.draw);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 450));
+    expect(motion.reveal.value, lessThan(1));
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(motion.reveal.value, 1);
+  });
+
   testWidgets('reduced motion shows the mark at once', (tester) async {
     await tester.pumpWidget(
       componentHost(

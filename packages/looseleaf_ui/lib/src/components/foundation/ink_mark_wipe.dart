@@ -15,16 +15,13 @@ class InkMarkWipe extends StatefulWidget {
     required this.child,
     this.animate = true,
     this.delay = Duration.zero,
-    this.duration = InkMarkWipe.drawDuration,
+    this.duration = InkMotion.draw,
   });
 
   final Widget child;
   final bool animate;
   final Duration delay;
   final Duration duration;
-
-  /// `--ll-dur-draw`.
-  static const Duration drawDuration = Duration(milliseconds: 600);
 
   @override
   State<InkMarkWipe> createState() => _InkMarkWipeState();

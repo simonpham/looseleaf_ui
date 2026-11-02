@@ -61,7 +61,7 @@ class InkSurfaceMotion {
   /// layer (only then does it tilt); [still] disables the tilt;
   /// [animate] false jumps. [swipeOnHover] wipes `swipe` parts in as hover
   /// starts; [drawOn] draws `reveal` parts on as `checked` or
-  /// `indeterminate` turns on. Returns true when new tweens were created, so
+  /// `indeterminate` turns on, over [drawOnDuration]. Returns true when new tweens were created, so
   /// the caller re-reads [listenable].
   bool update(
     Set<InkState> states, {
@@ -70,6 +70,7 @@ class InkSurfaceMotion {
     required bool animate,
     bool swipeOnHover = false,
     bool drawOn = false,
+    Duration drawOnDuration = InkMotion.sheet,
   }) {
     final created = _ensure(states);
     Duration time(Duration duration) => switch (animate) {
@@ -162,6 +163,7 @@ class InkSurfaceMotion {
       hovered: hovered,
       swipeOnHover: swipeOnHover && animate,
       drawOn: drawOn && animate,
+      drawOnDuration: drawOnDuration,
     );
     return created;
   }
@@ -171,6 +173,7 @@ class InkSurfaceMotion {
     required bool hovered,
     required bool swipeOnHover,
     required bool drawOn,
+    required Duration drawOnDuration,
   }) {
     final wasHovered = _hoveredIn(_previous);
     final wasMarked = _markOf(_previous);
@@ -185,7 +188,7 @@ class InkSurfaceMotion {
       return;
     }
     if (marked == wasMarked) return;
-    reveal.replay(0, 1, InkMotion.sheet, InkMotion.easeOut);
+    reveal.replay(0, 1, drawOnDuration, InkMotion.easeOut);
   }
 
   static bool _hoveredIn(Set<InkState> states) =>

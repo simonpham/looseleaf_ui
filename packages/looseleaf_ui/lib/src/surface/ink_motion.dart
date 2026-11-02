@@ -8,8 +8,12 @@ abstract final class InkMotion {
   static const Duration fade = Duration(milliseconds: 150);
   static const Duration pop = Duration(milliseconds: 180);
 
-  /// `--ll-dur-sheet`: the `swipe` wipe and the `reveal` draw-on.
+  /// `--ll-dur-sheet`: the `swipe` wipe and a control's `reveal` draw-on
+  /// (a checkbox tick).
   static const Duration sheet = Duration(milliseconds: 300);
+
+  /// `--ll-dur-draw`: a mark drawing itself on (`ll-draw`, `ll-wipe`).
+  static const Duration draw = Duration(milliseconds: 600);
 
   /// CSS `ease-out`.
   static const Curve easeOut = Cubic(0, 0, 0.58, 1);
