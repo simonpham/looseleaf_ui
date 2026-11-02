@@ -61,6 +61,7 @@ flutter:
     - lib/features/components/examples/polaroid/
     - lib/features/components/examples/progress/
     - lib/features/components/examples/quote/
+    - lib/features/components/examples/radio_group/
     - lib/features/components/examples/rating/
     - lib/features/components/examples/receipt/
     - lib/features/components/examples/reveal/
@@ -72,6 +73,7 @@ flutter:
     - lib/features/components/examples/signature/
     - lib/features/components/examples/skeleton/
     - lib/features/components/examples/slider/
+    - lib/features/components/examples/spinner/
     - lib/features/components/examples/squiggle/
     - lib/features/components/examples/stamp/
     - lib/features/components/examples/stamp_button/
