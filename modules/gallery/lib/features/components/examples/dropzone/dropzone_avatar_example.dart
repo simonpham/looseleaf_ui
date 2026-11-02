@@ -26,9 +26,10 @@ class DropzoneAvatarExample extends StatelessWidget {
       accept: const ['image/png', 'image/jpeg'],
       maxSize: 1024 * 1024,
       onBrowse: () async => [_pick],
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: _minHeight),
-        child: const DropzoneArea(children: [_Content()]),
+      child: const DropzoneArea(
+        minHeight: _minHeight,
+        padding: Spacing.d16,
+        children: [_Content()],
       ),
     ),
   );

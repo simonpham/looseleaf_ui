@@ -17,6 +17,8 @@ class DropzoneArea extends StatefulWidget {
     this.seed,
     this.semanticLabel,
     this.autofocus = false,
+    this.minHeight,
+    this.padding,
     this.forcedStates = const {},
   });
 
@@ -32,18 +34,27 @@ class DropzoneArea extends StatefulWidget {
 
   final bool autofocus;
 
+  /// The smallest height, replacing [DropzoneArea.defaultMinHeight]'s per-density
+  /// value, like upstream's `min-h-*` classes (`min-h-32` on the attach
+  /// example).
+  final double? minHeight;
+
+  /// The inner padding on every side, replacing [DropzoneArea.defaultPadding]'s
+  /// per-density value (upstream `p-*`).
+  final double? padding;
+
   /// States shown whatever the input, for goldens.
   final Set<InkState> forcedStates;
 
   /// `min-h-40 compact:min-h-32 calm:min-h-24`.
-  static const ByDensity<double> minHeight = ByDensity(
+  static const ByDensity<double> defaultMinHeight = ByDensity(
     comfortable: Spacing.d160,
     compact: Spacing.d128,
     calm: Spacing.d96,
   );
 
   /// `p-6 compact:p-5 calm:p-3`.
-  static const ByDensity<double> padding = ByDensity(
+  static const ByDensity<double> defaultPadding = ByDensity(
     comfortable: Spacing.d24,
     compact: Spacing.d20,
     calm: Spacing.d12,
@@ -64,7 +75,8 @@ class _DropzoneAreaState extends State<DropzoneArea> with InkSeed {
       invalid: zone.invalid && !disabled,
       disabled: disabled,
     );
-    final pad = DropzoneArea.padding.resolve(theme.density);
+    final pad =
+        widget.padding ?? DropzoneArea.defaultPadding.resolve(theme.density);
     return Semantics(
       container: true,
       button: true,
@@ -103,7 +115,9 @@ class _DropzoneAreaState extends State<DropzoneArea> with InkSeed {
               still: true,
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  minHeight: DropzoneArea.minHeight.resolve(theme.density),
+                  minHeight:
+                      widget.minHeight ??
+                      DropzoneArea.defaultMinHeight.resolve(theme.density),
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(pad),

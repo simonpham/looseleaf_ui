@@ -139,6 +139,36 @@ void main() {
     expect(surface.states, contains(InkState.open));
   });
 
+  testWidgets('minHeight and padding replace the density metrics', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      overlayHost(
+        const SizedBox(
+          width: 320,
+          child: Dropzone(
+            child: DropzoneArea(
+              minHeight: Spacing.d224,
+              padding: Spacing.d16,
+              children: [
+                SizedBox(
+                  key: ValueKey('content'),
+                  width: double.infinity,
+                  height: 10,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(DropzoneArea)).height, Spacing.d224);
+    final area = tester.getRect(find.byType(DropzoneArea));
+    final content = tester.getRect(find.byKey(const ValueKey('content')));
+    expect(content.center.dy, area.center.dy);
+    expect(content.left - area.left, Spacing.d16);
+  });
+
   testWidgets('disabled does not browse', (tester) async {
     await tester.pumpWidget(overlayHost(const _Harness(disabled: true)));
     await tester.tap(find.byType(DropzoneArea), warnIfMissed: false);

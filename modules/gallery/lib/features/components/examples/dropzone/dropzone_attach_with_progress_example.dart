@@ -107,6 +107,7 @@ class _DropzoneAttachWithProgressExampleState
                 spacing: Spacing.d12,
                 children: [
                   const DropzoneArea(
+                    minHeight: Spacing.d128,
                     children: [
                       DropzoneIcon(),
                       DropzoneTitle(),
