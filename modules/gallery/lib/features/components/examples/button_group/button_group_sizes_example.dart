@@ -12,30 +12,33 @@ class ButtonGroupSizesExample extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    spacing: Spacing.d32,
-    children: [
-      for (final (label, size, iconSize) in _rows)
-        ButtonGroup(
-          semanticLabel: label,
-          children: [
-            for (final text in [label, 'Button', 'Group'])
+  Widget build(BuildContext context) => SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: Spacing.d32,
+      children: [
+        for (final (label, size, iconSize) in _rows)
+          ButtonGroup(
+            semanticLabel: label,
+            children: [
+              for (final text in [label, 'Button', 'Group'])
+                Button(
+                  variant: ButtonVariant.outline,
+                  size: size,
+                  onPressed: () {},
+                  child: Text(text),
+                ),
               Button(
                 variant: ButtonVariant.outline,
-                size: size,
+                size: iconSize,
+                semanticLabel: 'Add',
                 onPressed: () {},
-                child: Text(text),
+                child: const InkIcon('plus'),
               ),
-            Button(
-              variant: ButtonVariant.outline,
-              size: iconSize,
-              semanticLabel: 'Add',
-              onPressed: () {},
-              child: const InkIcon('plus'),
-            ),
-          ],
-        ),
-    ],
+            ],
+          ),
+      ],
+    ),
   );
 }

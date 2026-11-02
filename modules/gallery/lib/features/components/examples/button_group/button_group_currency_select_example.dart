@@ -46,47 +46,52 @@ class _ButtonGroupCurrencySelectExampleState
         ButtonGroup(
           semanticLabel: 'Send money',
           children: [
-            ButtonGroup(
-              children: [
-                Select(
-                  value: _currency,
-                  onChanged: (currency) => setState(() => _currency = currency),
-                  content: SelectContent(
-                    children: [
-                      for (final (symbol, label) in _currencies)
-                        SelectItem(
-                          value: symbol,
-                          textValue: label,
-                          child: Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(text: '$symbol '),
-                                TextSpan(
-                                  text: label,
-                                  style: TextStyle(
-                                    color: theme.colors.inkMuted,
+            Flexible(
+              child: ButtonGroup(
+                children: [
+                  Select(
+                    value: _currency,
+                    onChanged: (currency) =>
+                        setState(() => _currency = currency),
+                    content: SelectContent(
+                      children: [
+                        for (final (symbol, label) in _currencies)
+                          SelectItem(
+                            value: symbol,
+                            textValue: label,
+                            child: Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(text: '$symbol '),
+                                  TextSpan(
+                                    text: label,
+                                    style: TextStyle(
+                                      color: theme.colors.inkMuted,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                    ],
-                  ),
-                  child: const SelectTrigger(semanticLabel: 'Currency'),
-                ),
-                SizedBox(
-                  width: _amountWidth,
-                  child: Input(
-                    controller: _amount,
-                    placeholder: '10.00',
-                    keyboardType: const TextInputType.numberWithOptions(
-                      decimal: true,
+                      ],
                     ),
-                    semanticLabel: 'Amount',
+                    child: const SelectTrigger(semanticLabel: 'Currency'),
                   ),
-                ),
-              ],
+                  Flexible(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: _amountWidth),
+                      child: Input(
+                        controller: _amount,
+                        placeholder: '10.00',
+                        keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true,
+                        ),
+                        semanticLabel: 'Amount',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             ButtonGroup(
               children: [
