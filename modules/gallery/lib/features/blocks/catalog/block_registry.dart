@@ -70,6 +70,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/settings_billing/settings_billing_block.dart',
     builder: SettingsBillingBlock.new,
   ),
+  'sidebar-01': GalleryBlock(
+    source: 'blocks/sidebar_01/sidebar_01_block.dart',
+    builder: Sidebar01Block.new,
+  ),
   'signup-01': GalleryBlock(
     source: 'blocks/signup_01/signup_01_block.dart',
     builder: Signup01Block.new,

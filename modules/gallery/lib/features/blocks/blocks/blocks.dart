@@ -13,6 +13,7 @@ export 'package:gallery/features/blocks/blocks/logos_01/logos_01.dart';
 export 'package:gallery/features/blocks/blocks/profile_page/profile_page.dart';
 export 'package:gallery/features/blocks/blocks/settings_appearance/settings_appearance.dart';
 export 'package:gallery/features/blocks/blocks/settings_billing/settings_billing.dart';
+export 'package:gallery/features/blocks/blocks/sidebar_01/sidebar_01.dart';
 export 'package:gallery/features/blocks/blocks/signup_01/signup_01.dart';
 export 'package:gallery/features/blocks/blocks/signup_02/signup_02.dart';
 export 'package:gallery/features/blocks/blocks/signup_03/signup_03.dart';
