@@ -455,15 +455,19 @@ class _DatePickerShellState extends State<DatePickerShell> with InkSeed {
                 seed: '${inkSeed(widget.seed)}|popup',
                 tilt: false,
                 child: switch (wide) {
-                  true => Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: parts,
+                  true => IntrinsicHeight(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: parts,
+                    ),
                   ),
-                  false => Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: parts,
+                  false => IntrinsicWidth(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: parts,
+                    ),
                   ),
                 },
               ),
