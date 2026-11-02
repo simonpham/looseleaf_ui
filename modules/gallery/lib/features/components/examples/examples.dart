@@ -57,6 +57,7 @@ export 'package:gallery/features/components/examples/sidebar/sidebar.dart';
 export 'package:gallery/features/components/examples/signature/signature.dart';
 export 'package:gallery/features/components/examples/skeleton/skeleton.dart';
 export 'package:gallery/features/components/examples/slider/slider.dart';
+export 'package:gallery/features/components/examples/sonner/sonner.dart';
 export 'package:gallery/features/components/examples/spinner/spinner.dart';
 export 'package:gallery/features/components/examples/squiggle/squiggle.dart';
 export 'package:gallery/features/components/examples/stamp/stamp.dart';

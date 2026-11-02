@@ -63,6 +63,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'signature': signatureExamples,
   'skeleton': skeletonExamples,
   'slider': sliderExamples,
+  'sonner': sonnerExamples,
   'spinner': spinnerExamples,
   'squiggle': squiggleExamples,
   'stamp': stampExamples,

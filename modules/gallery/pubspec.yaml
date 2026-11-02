@@ -85,6 +85,7 @@ flutter:
     - lib/features/components/examples/signature/
     - lib/features/components/examples/skeleton/
     - lib/features/components/examples/slider/
+    - lib/features/components/examples/sonner/
     - lib/features/components/examples/spinner/
     - lib/features/components/examples/squiggle/
     - lib/features/components/examples/stamp/
