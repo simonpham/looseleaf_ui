@@ -48,6 +48,7 @@ flutter:
     - lib/features/components/examples/clipboard/
     - lib/features/components/examples/code_block/
     - lib/features/components/examples/collapsible/
+    - lib/features/components/examples/combobox/
     - lib/features/components/examples/command/
     - lib/features/components/examples/context_menu/
     - lib/features/components/examples/corkboard/
