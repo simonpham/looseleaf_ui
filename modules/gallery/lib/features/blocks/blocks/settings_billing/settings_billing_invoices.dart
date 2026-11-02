@@ -11,8 +11,8 @@ class SettingsBillingInvoices extends StatefulWidget {
     this.onDownload,
   });
 
-  final List<Invoice> invoices;
-  final ValueChanged<Invoice>? onDownload;
+  final List<BillingInvoice> invoices;
+  final ValueChanged<BillingInvoice>? onDownload;
 
   @override
   State<SettingsBillingInvoices> createState() =>
@@ -24,7 +24,7 @@ class _SettingsBillingInvoicesState extends State<SettingsBillingInvoices> {
 
   var _all = false;
 
-  Widget _invoice(Invoice invoice, int index, double width) => Column(
+  Widget _invoice(BillingInvoice invoice, int index, double width) => Column(
     spacing: Spacing.d12,
     children: [
       Receipt(

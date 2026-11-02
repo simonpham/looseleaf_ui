@@ -33,12 +33,12 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
         '${usage.label.toLowerCase()} (${usage.usedText} of ${target.limitOf(usage)}${usage.unit})',
   ].join(', ');
 
-  void _switch(PlanChange change) {
+  void _switch(BillingChange change) {
     final target = _picked;
     widget.onChanged(target);
     setState(
       () => _done = switch (change.kind) {
-        PlanChangeKind.upgrade => 'You are on ${target.name} now.',
+        BillingChangeKind.upgrade => 'You are on ${target.name} now.',
         _ => 'Done. ${target.name} starts on $billingRenews.',
       },
     );
@@ -78,7 +78,7 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
                     TextSpan(
                       text: switch (plan.cents) {
                         0 => 'Free',
-                        final cents => '${money(cents)} a month',
+                        final cents => '${billingMoney(cents)} a month',
                       },
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -102,7 +102,7 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
     final theme = LooseleafTheme.of(context);
     final current = widget.current;
     final target = _picked;
-    final change = planChange(current, target);
+    final change = billingPlanChange(current, target);
     final over = _over(target);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -120,7 +120,7 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
                   TicketTitle(Text('${current.name} plan')),
                   TicketDescription(
                     Text(
-                      '${money(current.cents)} a month · renews $billingRenews',
+                      '${billingMoney(current.cents)} a month · renews $billingRenews',
                     ),
                   ),
                   const TicketNumber(Text('No. 0042')),
@@ -214,7 +214,7 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
             },
           ),
         ),
-        if (change.kind == PlanChangeKind.upgrade)
+        if (change.kind == BillingChangeKind.upgrade)
           Alert(
             variant: AlertTone.info,
             icon: const InkIcon('info'),
@@ -222,12 +222,12 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
               AlertTitle(Text('Move up to ${target.name}')),
               AlertDescription(
                 Text(
-                  'From $billingRenews you will pay ${money(change.monthly)} a month. Today we charge ${money(change.today)} for the $billingDaysLeft days left in this month, and nothing more.',
+                  'From $billingRenews you will pay ${billingMoney(change.monthly)} a month. Today we charge ${billingMoney(change.today)} for the $billingDaysLeft days left in this month, and nothing more.',
                 ),
               ),
             ],
           ),
-        if (change.kind == PlanChangeKind.downgrade)
+        if (change.kind == BillingChangeKind.downgrade)
           Alert(
             variant: AlertTone.warning,
             icon: const InkIcon('triangle-alert'),
@@ -237,7 +237,7 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
                 Text(
                   'You keep ${current.name} until $billingRenews, then pay ${switch (change.monthly) {
                     0 => 'nothing',
-                    final monthly => '${money(monthly)} a month',
+                    final monthly => '${billingMoney(monthly)} a month',
                   }}. Nothing is charged today.${switch (over) {
                     '' => '',
                     _ => ' You use more than ${target.name} holds: $over. The extra stays readable but cannot be edited.',
@@ -252,10 +252,10 @@ class _SettingsBillingPlanState extends State<SettingsBillingPlan> {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             Button(
-              disabled: change.kind == PlanChangeKind.same,
+              disabled: change.kind == BillingChangeKind.same,
               onPressed: () => _switch(change),
               child: Text(switch (change.kind) {
-                PlanChangeKind.same => 'Pick another plan',
+                BillingChangeKind.same => 'Pick another plan',
                 _ => 'Switch to ${target.name}',
               }),
             ),

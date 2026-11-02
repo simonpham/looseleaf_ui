@@ -65,52 +65,53 @@ enum BillingUsage {
   final num used;
   final String unit;
 
-  String get usedText => '${formatNumber(used)}$unit';
+  String get usedText => '${billingFormatNumber(used)}$unit';
 }
 
 /// [value] like JavaScript prints it: `8`, `8.4`.
-String formatNumber(num value) => switch (value == value.roundToDouble()) {
-  true => '${value.round()}',
-  false => '$value',
-};
+String billingFormatNumber(num value) =>
+    switch (value == value.roundToDouble()) {
+      true => '${value.round()}',
+      false => '$value',
+    };
 
-String money(int cents) => '\$${(cents / 100).toStringAsFixed(2)}';
+String billingMoney(int cents) => '\$${(cents / 100).toStringAsFixed(2)}';
 
 const int billingDaysLeft = 18;
 const int billingDaysInCycle = 30;
 const String billingRenews = '14 Oct';
 
-enum PlanChangeKind { same, upgrade, downgrade }
+enum BillingChangeKind { same, upgrade, downgrade }
 
 /// Moving from one plan to another: what it costs today and every month.
-typedef PlanChange = ({PlanChangeKind kind, int today, int monthly});
+typedef BillingChange = ({BillingChangeKind kind, int today, int monthly});
 
-PlanChange planChange(BillingPlan from, BillingPlan to) {
+BillingChange billingPlanChange(BillingPlan from, BillingPlan to) {
   if (from == to) {
-    return (kind: PlanChangeKind.same, today: 0, monthly: to.cents);
+    return (kind: BillingChangeKind.same, today: 0, monthly: to.cents);
   }
   if (to.cents > from.cents) {
     return (
-      kind: PlanChangeKind.upgrade,
+      kind: BillingChangeKind.upgrade,
       today: ((to.cents - from.cents) * billingDaysLeft / billingDaysInCycle)
           .round(),
       monthly: to.cents,
     );
   }
-  return (kind: PlanChangeKind.downgrade, today: 0, monthly: to.cents);
+  return (kind: BillingChangeKind.downgrade, today: 0, monthly: to.cents);
 }
 
-typedef InvoiceLine = ({String name, String price});
+typedef BillingInvoiceLine = ({String name, String price});
 
-typedef Invoice = ({
+typedef BillingInvoice = ({
   String number,
   String date,
-  List<InvoiceLine> lines,
+  List<BillingInvoiceLine> lines,
   String total,
   String paidWith,
 });
 
-const List<Invoice> billingInvoices = [
+const List<BillingInvoice> billingInvoices = [
   (
     number: '2026-0009',
     date: '14 Sep 2026',
@@ -162,4 +163,4 @@ const List<Invoice> billingInvoices = [
 ];
 
 /// A card on file.
-typedef SavedCard = ({String brand, String last4, String expiry});
+typedef BillingCard = ({String brand, String last4, String expiry});

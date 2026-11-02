@@ -5,10 +5,10 @@ final RegExp _expiry = RegExp(r'^(0[1-9]|1[0-2])/\d{2}$');
 final RegExp _cvc = RegExp(r'^\d{3,4}$');
 final RegExp _cardDigits = RegExp(r'^\d{13,19}$');
 
-String digitsOf(String value) => value.replaceAll(_nonDigits, '');
+String billingDigits(String value) => value.replaceAll(_nonDigits, '');
 
 /// The Luhn checksum every card number passes.
-bool luhn(String digits) {
+bool billingLuhn(String digits) {
   var sum = 0;
   for (var i = 0; i < digits.length; i++) {
     var digit = int.parse(digits[digits.length - 1 - i]);
@@ -21,7 +21,7 @@ bool luhn(String digits) {
   return digits.isNotEmpty && sum % 10 == 0;
 }
 
-String cardBrand(String digits) {
+String billingCardBrand(String digits) {
   if (digits.startsWith('4')) return 'Visa';
   if (_mastercard.hasMatch(digits)) return 'Mastercard';
   if (_amex.hasMatch(digits)) return 'Amex';
@@ -29,8 +29,8 @@ String cardBrand(String digits) {
 }
 
 /// Groups the digits in fours, or 4-6-5 for Amex.
-String formatCardNumber(String raw) {
-  final all = digitsOf(raw);
+String billingFormatCardNumber(String raw) {
+  final all = billingDigits(raw);
   final digits = all.substring(0, all.length.clamp(0, 19));
   if (_amex.hasMatch(digits)) {
     return [
@@ -46,8 +46,8 @@ String formatCardNumber(String raw) {
 }
 
 /// `MM/YY` as you type: `1` stays, `3` becomes `03/`.
-String formatExpiry(String raw) {
-  final all = digitsOf(raw);
+String billingFormatExpiry(String raw) {
+  final all = billingDigits(raw);
   final digits = all.substring(0, all.length.clamp(0, 4));
   if (digits.length == 1 && int.parse(digits) > 1) return '0$digits/';
   if (digits.length > 2) {
@@ -56,22 +56,23 @@ String formatExpiry(String raw) {
   return digits;
 }
 
-String? validateCardName(Object? value) => switch ('${value ?? ''}'.trim()) {
-  final name when name.length < 2 =>
-    'Type the name as it is printed on the card.',
-  _ => null,
-};
+String? billingValidateCardName(Object? value) =>
+    switch ('${value ?? ''}'.trim()) {
+      final name when name.length < 2 =>
+        'Type the name as it is printed on the card.',
+      _ => null,
+    };
 
-String? validateCardNumber(Object? value) {
+String? billingValidateCardNumber(Object? value) {
   final digits = '${value ?? ''}'.replaceAll(' ', '');
   if (!_cardDigits.hasMatch(digits)) {
     return 'A card number has 13 to 19 digits.';
   }
-  if (!luhn(digits)) return 'That number does not add up. Check each digit.';
-  return null;
+  if (billingLuhn(digits)) return null;
+  return 'That number does not add up. Check each digit.';
 }
 
-String? validateCardExpiry(Object? value, DateTime today) {
+String? billingValidateCardExpiry(Object? value, DateTime today) {
   final expiry = '${value ?? ''}';
   if (!_expiry.hasMatch(expiry)) return 'Write it as MM/YY, like 08/28.';
   final [month, year] = expiry.split('/').map(int.parse).toList();
@@ -82,7 +83,7 @@ String? validateCardExpiry(Object? value, DateTime today) {
   return null;
 }
 
-String? validateCardCvc(Object? value) => switch (_cvc.hasMatch(
+String? billingValidateCardCvc(Object? value) => switch (_cvc.hasMatch(
   '${value ?? ''}',
 )) {
   true => null,

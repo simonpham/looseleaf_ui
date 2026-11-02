@@ -24,7 +24,7 @@ class SettingsBillingBlock extends StatefulWidget {
   /// null.
   final DateTime? today;
   final FutureOr<void> Function(Map<String, Object?> values)? onSaveDetails;
-  final ValueChanged<Invoice>? onDownload;
+  final ValueChanged<BillingInvoice>? onDownload;
 
   @override
   State<SettingsBillingBlock> createState() => _SettingsBillingBlockState();
@@ -35,15 +35,15 @@ class _SettingsBillingBlockState extends State<SettingsBillingBlock> {
 
   late BillingPlan _plan = widget.defaultPlan;
   BillingPlan? _scheduled;
-  SavedCard _card = (brand: 'Visa', last4: '4242', expiry: '08/28');
+  BillingCard _card = (brand: 'Visa', last4: '4242', expiry: '08/28');
   var _cardSaved = false;
 
   void _changePlan(BillingPlan next) {
-    final kind = planChange(_plan, next).kind;
+    final kind = billingPlanChange(_plan, next).kind;
     setState(() {
-      if (kind == PlanChangeKind.upgrade) _plan = next;
+      if (kind == BillingChangeKind.upgrade) _plan = next;
       _scheduled = switch (kind) {
-        PlanChangeKind.downgrade => next,
+        BillingChangeKind.downgrade => next,
         _ => null,
       };
     });

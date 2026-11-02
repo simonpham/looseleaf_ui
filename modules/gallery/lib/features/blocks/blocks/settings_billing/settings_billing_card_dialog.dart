@@ -14,7 +14,7 @@ class SettingsBillingCardDialog extends StatefulWidget {
     this.today,
   });
 
-  final ValueChanged<SavedCard> onSaved;
+  final ValueChanged<BillingCard> onSaved;
 
   /// The month cards must not have expired before; this month when null.
   final DateTime? today;
@@ -58,7 +58,7 @@ class _SettingsBillingCardDialogState extends State<SettingsBillingCardDialog> {
     _form.handleSubmit((values) {
       final digits = '${values['number']}'.replaceAll(' ', '');
       widget.onSaved((
-        brand: cardBrand(digits),
+        brand: billingCardBrand(digits),
         last4: digits.substring(digits.length - 4),
         expiry: '${values['expiry']}',
       ));
@@ -141,16 +141,16 @@ class _SettingsBillingCardDialogState extends State<SettingsBillingCardDialog> {
                   name: 'name',
                   label: 'Name on card',
                   controller: _name,
-                  validator: validateCardName,
+                  validator: billingValidateCardName,
                   placeholder: 'Jo Delacroix',
                   autofill: const [AutofillHints.creditCardName],
                 ),
                 InkFormField<String>(
                   name: 'number',
-                  validator: validateCardNumber,
+                  validator: billingValidateCardNumber,
                   builder: (context, field) {
-                    final brand = cardBrand(
-                      digitsOf(field.value ?? ''),
+                    final brand = billingCardBrand(
+                      billingDigits(field.value ?? ''),
                     );
                     return FormItem(
                       children: [
@@ -167,7 +167,7 @@ class _SettingsBillingCardDialogState extends State<SettingsBillingCardDialog> {
                                 placeholder: '4242 4242 4242 4242',
                                 keyboardType: TextInputType.number,
                                 inputFormatters: [
-                                  _formatter(formatCardNumber),
+                                  _formatter(billingFormatCardNumber),
                                 ],
                                 onChanged: field.onChanged,
                                 onSubmitted: (_) => _submit(),
@@ -194,12 +194,12 @@ class _SettingsBillingCardDialogState extends State<SettingsBillingCardDialog> {
                         name: 'expiry',
                         label: 'Expires',
                         controller: _expiry,
-                        validator: (value) => validateCardExpiry(
+                        validator: (value) => billingValidateCardExpiry(
                           value,
                           widget.today ?? DateTime.now(),
                         ),
                         placeholder: 'MM/YY',
-                        formatters: [_formatter(formatExpiry)],
+                        formatters: [_formatter(billingFormatExpiry)],
                         autofill: const [
                           AutofillHints.creditCardExpirationDate,
                         ],
@@ -210,7 +210,7 @@ class _SettingsBillingCardDialogState extends State<SettingsBillingCardDialog> {
                         name: 'cvc',
                         label: 'Security code',
                         controller: _cvc,
-                        validator: validateCardCvc,
+                        validator: billingValidateCardCvc,
                         placeholder: '123',
                         formatters: [LengthLimitingTextInputFormatter(4)],
                         autofill: const [AutofillHints.creditCardSecurityCode],
