@@ -114,6 +114,7 @@ export 'package:looseleaf_ui/src/components/table/table.dart';
 export 'package:looseleaf_ui/src/components/tabs/tabs.dart';
 export 'package:looseleaf_ui/src/components/tally/tally.dart';
 export 'package:looseleaf_ui/src/components/tape/tape.dart';
+export 'package:looseleaf_ui/src/components/tear_off/tear_off.dart';
 export 'package:looseleaf_ui/src/components/textarea/textarea.dart';
 export 'package:looseleaf_ui/src/components/ticket/ticket.dart';
 export 'package:looseleaf_ui/src/components/toggle/toggle.dart';
