@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
+import 'package:looseleaf_ui/src/components/table/float/float.dart';
 import 'package:looseleaf_ui/src/components/table/table.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
@@ -10,6 +11,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// pencil rules between rows (each offset so no two look alike, faded at
 /// the row ends), and a highlighter band behind a hovered or selected row.
 /// Columns share the width; a table wider than its space scrolls sideways.
+/// An [InkTableCell] can span columns ([InkTableCell.colSpan]); a [sticky]
+/// table scrolls its body under a header that stays put.
 ///
 /// Named `InkTable` because Flutter's widgets library has a `Table`.
 ///
@@ -34,6 +37,9 @@ class InkTable extends StatefulWidget {
     this.footer,
     this.caption,
     this.columnWidths,
+    this.sticky = false,
+    this.maxHeight,
+    this.controller,
   });
 
   final TableHeader? header;
@@ -47,11 +53,25 @@ class InkTable extends StatefulWidget {
   /// otherwise.
   final Map<int, TableColumnWidth>? columnWidths;
 
+  /// Pins the header rows on the paper color while the body scrolls under
+  /// them (upstream `sticky`). Give the table a [maxHeight] to scroll in.
+  final bool sticky;
+
+  /// The height the table scrolls in, like upstream's
+  /// `containerClassName="max-h-72"`; null lets it grow.
+  final double? maxHeight;
+
+  /// Drives the vertical scroll of a table given a [maxHeight].
+  final ScrollController? controller;
+
   @override
   State<InkTable> createState() => _InkTableState();
 }
 
 class _InkTableState extends State<InkTable> {
+  ScrollController? _ownScroll;
+  final ValueNotifier<double> _stick = ValueNotifier(0);
+  ScrollController? _listened;
   final List<ValueNotifier<double>> _bands = [];
   final List<bool> _hovered = [];
 
@@ -94,8 +114,31 @@ class _InkTableState extends State<InkTable> {
     _bands[index].value = _bandOf(widget.body.rows[index], hovered: hovered);
   }
 
+  ScrollController get _scroll =>
+      widget.controller ?? (_ownScroll ??= ScrollController());
+
+  void _onScroll() {
+    final scroll = _listened;
+    if (scroll == null || !scroll.hasClients) return;
+    _stick.value = scroll.offset;
+  }
+
+  void _listen() {
+    final next = switch (widget.maxHeight) {
+      null => null,
+      _ => _scroll,
+    };
+    if (identical(next, _listened)) return;
+    _listened?.removeListener(_onScroll);
+    _listened = next;
+    next?.addListener(_onScroll);
+  }
+
   @override
   void dispose() {
+    _listened?.removeListener(_onScroll);
+    _ownScroll?.dispose();
+    _stick.dispose();
     for (final band in _bands) {
       band.dispose();
     }
@@ -108,47 +151,61 @@ class _InkTableState extends State<InkTable> {
     final theme = LooseleafTheme.of(context);
     final direction = Directionality.of(context);
     final height = _rowHeight.of(context);
+    final floats = <Widget>[];
+    final columns = _columnCount;
+    TableRow row(
+      TableSection section,
+      int index,
+      InkTableRow row, {
+      required bool rule,
+      ValueNotifier<double>? band,
+    }) => _row(
+      _RowContext(
+        theme: theme,
+        direction: direction,
+        height: height,
+        section: section,
+        index: index,
+        rule: rule,
+        band: band ?? _noBand,
+        columns: columns,
+        stick: widget.sticky && section == TableSection.header,
+        floats: floats,
+      ),
+      row,
+    );
     final rows = <TableRow>[
-      for (final (index, row) in (widget.header?.rows ?? const []).indexed)
-        _row(
-          theme,
-          direction,
-          height,
-          TableSection.header,
-          index,
-          row,
-          rule: true,
-        ),
-      for (final (index, row) in widget.body.rows.indexed)
-        _row(
-          theme,
-          direction,
-          height,
+      for (final (index, header) in (widget.header?.rows ?? const []).indexed)
+        row(TableSection.header, index, header, rule: true),
+      for (final (index, body) in widget.body.rows.indexed)
+        row(
           TableSection.body,
           index,
-          row,
+          body,
           rule: index < widget.body.rows.length - 1,
           band: _bands[index],
         ),
-      for (final (index, row) in (widget.footer?.rows ?? const []).indexed)
-        _row(
-          theme,
-          direction,
-          height,
-          TableSection.footer,
-          index,
-          row,
-          rule: index == 0,
-        ),
+      for (final (index, footer) in (widget.footer?.rows ?? const []).indexed)
+        row(TableSection.footer, index, footer, rule: index == 0),
     ];
+    final grid = Table(
+      defaultColumnWidth: const IntrinsicColumnWidth(flex: 1),
+      columnWidths: widget.columnWidths,
+      defaultVerticalAlignment: TableCellVerticalAlignment.intrinsicHeight,
+      children: rows,
+    );
     final table = DefaultTextStyle.merge(
       style: theme.typography.face(KevinSansFace.hand, cssSize: 15),
-      child: Table(
-        defaultColumnWidth: const IntrinsicColumnWidth(flex: 1),
-        columnWidths: widget.columnWidths,
-        defaultVerticalAlignment: TableCellVerticalAlignment.intrinsicHeight,
-        children: rows,
-      ),
+      child: switch (floats.isEmpty) {
+        true => grid,
+        false => TableFloatLayout(
+          stick: switch (widget.sticky) {
+            true => _stick,
+            false => null,
+          },
+          children: [grid, ...floats],
+        ),
+      },
     );
     final caption = widget.caption;
     final content = Column(
@@ -156,7 +213,7 @@ class _InkTableState extends State<InkTable> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [table, ?caption],
     );
-    return LayoutBuilder(
+    final sideways = LayoutBuilder(
       builder: (context, constraints) => SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         clipBehavior: Clip.none,
@@ -166,69 +223,144 @@ class _InkTableState extends State<InkTable> {
         },
       ),
     );
-  }
-
-  TableRow _row(
-    LooseleafThemeData theme,
-    TextDirection direction,
-    double height,
-    TableSection section,
-    int index,
-    InkTableRow row, {
-    required bool rule,
-    ValueNotifier<double>? band,
-  }) {
-    final cells = row.cells;
-    final rowBand = band ?? _noBand;
-    final footer = section == TableSection.footer;
-    return TableRow(
-      children: [
-        for (final (column, cell) in cells.indexed)
-          MouseRegion(
-            onEnter: switch (section) {
-              TableSection.body => (_) => _hover(index, true),
-              _ => null,
-            },
-            onExit: switch (section) {
-              TableSection.body => (_) => _hover(index, false),
-              _ => null,
-            },
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: row.onTap,
-              child: CustomPaint(
-                painter: TableCellPainter(
-                  theme: theme,
-                  section: section,
-                  row: index,
-                  column: column,
-                  first: column == 0,
-                  last: column == cells.length - 1,
-                  rule: rule,
-                  direction: direction,
-                  band: rowBand,
-                ),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: height),
-                  child: Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: DefaultTextStyle.merge(
-                      style: TextStyle(
-                        fontWeight: switch (footer) {
-                          true => FontWeight.w700,
-                          false => null,
-                        },
-                      ),
-                      child: cell,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-      ],
+    _listen();
+    final maxHeight = widget.maxHeight;
+    if (maxHeight == null) return sideways;
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: maxHeight),
+      child: SingleChildScrollView(controller: _scroll, child: sideways),
     );
   }
+
+  int get _columnCount {
+    var count = 0;
+    for (final row in [
+      ...?widget.header?.rows,
+      ...widget.body.rows,
+      ...?widget.footer?.rows,
+    ]) {
+      var slots = 0;
+      for (final cell in row.cells) {
+        slots += _span(cell);
+      }
+      count = math.max(count, slots);
+    }
+    return count;
+  }
+
+  static int _span(Widget cell) => switch (cell) {
+    InkTableCell(:final colSpan) => math.max(1, colSpan),
+    _ => 1,
+  };
+
+  TableRow _row(_RowContext at, InkTableRow row) {
+    final slots = <Widget>[];
+    var column = 0;
+    for (final cell in row.cells) {
+      final span = _span(cell);
+      final decorated = _cell(at, row, cell, column, span);
+      if (span == 1 && !at.stick) {
+        slots.add(decorated);
+        column++;
+        continue;
+      }
+      final link = TableFloatLink(span: span);
+      at.floats.add(
+        TableFloat(
+          link: link,
+          stick: at.stick,
+          child: switch (at.stick) {
+            true => ColoredBox(color: at.theme.colors.card, child: decorated),
+            false => decorated,
+          },
+        ),
+      );
+      for (var covered = 0; covered < span; covered++) {
+        slots.add(TableFloatSlot(link: link));
+      }
+      column += span;
+    }
+    while (slots.length < at.columns) {
+      slots.add(const SizedBox.shrink());
+    }
+    return TableRow(children: slots);
+  }
+
+  Widget _cell(
+    _RowContext at,
+    InkTableRow row,
+    Widget cell,
+    int column,
+    int span,
+  ) => MouseRegion(
+    onEnter: switch (at.section) {
+      TableSection.body => (_) => _hover(at.index, true),
+      _ => null,
+    },
+    onExit: switch (at.section) {
+      TableSection.body => (_) => _hover(at.index, false),
+      _ => null,
+    },
+    child: GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: row.onTap,
+      child: CustomPaint(
+        painter: TableCellPainter(
+          theme: at.theme,
+          section: at.section,
+          row: at.index,
+          column: column,
+          first: column == 0,
+          last: column + span >= at.columns,
+          rule: at.rule,
+          direction: at.direction,
+          band: at.band,
+        ),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: at.height),
+          child: Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: DefaultTextStyle.merge(
+              style: TextStyle(
+                fontWeight: switch (at.section == TableSection.footer) {
+                  true => FontWeight.w700,
+                  false => null,
+                },
+              ),
+              child: cell,
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+/// What every cell of one row shares.
+class _RowContext {
+  const _RowContext({
+    required this.theme,
+    required this.direction,
+    required this.height,
+    required this.section,
+    required this.index,
+    required this.rule,
+    required this.band,
+    required this.columns,
+    required this.stick,
+    required this.floats,
+  });
+
+  final LooseleafThemeData theme;
+  final TextDirection direction;
+  final double height;
+  final TableSection section;
+  final int index;
+  final bool rule;
+  final ValueNotifier<double> band;
+  final int columns;
+  final bool stick;
+  final List<Widget> floats;
 }
 
 /// Lays the table out at [width], or at its narrowest when that is wider:

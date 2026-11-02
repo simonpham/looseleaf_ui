@@ -31,55 +31,52 @@ class TableStickyHeaderExample extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 spacing: Spacing.d12,
                 children: [
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxHeight: _maxHeight),
-                    child: SingleChildScrollView(
-                      child: InkTable(
-                        header: const TableHeader(
-                          rows: [
-                            InkTableRow(
-                              cells: [
-                                TableHead(child: Text('Day')),
-                                TableHead(child: Text('Page')),
-                                TableHead(
-                                  child: Align(
-                                    alignment: AlignmentDirectional.centerEnd,
-                                    child: Text('Words'),
-                                  ),
-                                ),
-                              ],
+                  InkTable(
+                    sticky: true,
+                    maxHeight: _maxHeight,
+                    header: const TableHeader(
+                      rows: [
+                        InkTableRow(
+                          cells: [
+                            TableHead(child: Text('Day')),
+                            TableHead(child: Text('Page')),
+                            TableHead(
+                              child: Align(
+                                alignment: AlignmentDirectional.centerEnd,
+                                child: Text('Words'),
+                              ),
                             ),
                           ],
                         ),
-                        body: TableBody(
-                          rows: [
-                            for (final row in _rows)
-                              InkTableRow(
-                                cells: [
-                                  InkTableCell(child: Text(row.day)),
-                                  InkTableCell(child: Text(row.page)),
-                                  InkTableCell(
-                                    child: Align(
-                                      alignment: AlignmentDirectional.centerEnd,
-                                      child: Text(
-                                        '${row.words}',
-                                        style: const TextStyle(
-                                          fontFeatures: [
-                                            FontFeature.tabularFigures(),
-                                          ],
-                                        ),
-                                      ),
+                      ],
+                    ),
+                    body: TableBody(
+                      rows: [
+                        for (final row in _rows)
+                          InkTableRow(
+                            cells: [
+                              InkTableCell(child: Text(row.day)),
+                              InkTableCell(child: Text(row.page)),
+                              InkTableCell(
+                                child: Align(
+                                  alignment: AlignmentDirectional.centerEnd,
+                                  child: Text(
+                                    '${row.words}',
+                                    style: const TextStyle(
+                                      fontFeatures: [
+                                        FontFeature.tabularFigures(),
+                                      ],
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                          ],
-                        ),
-                      ),
+                            ],
+                          ),
+                      ],
                     ),
                   ),
                   Text(
-                    'Twenty-four pages: scroll the list.',
+                    'Twenty-four pages: scroll the list, the head stays put.',
                     style: theme.typography.interface(
                       cssSize: 14,
                       color: theme.colors.inkMuted,

@@ -58,6 +58,10 @@ Iterable<TableCellPainter> _painters(WidgetTester tester) => tester
     .map((paint) => paint.painter)
     .whereType<TableCellPainter>();
 
+final Finder _float = find.byWidgetPredicate(
+  (widget) => widget.runtimeType.toString() == 'TableFloat',
+);
+
 TextStyle? _style(WidgetTester tester, String text) =>
     tester.renderObject<RenderParagraph>(find.text(text)).text.style;
 
@@ -221,5 +225,150 @@ void main() {
       find.textContaining('a long note'),
     );
     expect(paragraph.didExceedMaxLines, isFalse);
+  });
+
+  testWidgets('a cell spans the columns it covers', (tester) async {
+    var taps = 0;
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 360,
+          child: InkTable(
+            body: TableBody(
+              rows: [
+                const InkTableRow(
+                  cells: [
+                    InkTableCell(child: Text('Ada')),
+                    InkTableCell(child: Text('Design')),
+                    InkTableCell(child: Text(r'$80')),
+                  ],
+                ),
+                InkTableRow(
+                  onTap: () => taps++,
+                  cells: const [
+                    InkTableCell(colSpan: 2, child: Text('Total')),
+                    InkTableCell(child: Text(r'$80')),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    final total = tester.getRect(
+      find.ancestor(of: find.text('Total'), matching: _float),
+    );
+    final design = tester.getRect(
+      find
+          .ancestor(of: find.text('Design'), matching: find.byType(CustomPaint))
+          .first,
+    );
+    final ada = tester.getRect(
+      find
+          .ancestor(of: find.text('Ada'), matching: find.byType(CustomPaint))
+          .first,
+    );
+    expect(total.left, ada.left);
+    expect(total.right, design.right);
+    expect(total.top, ada.bottom);
+    final spanning = _painters(
+      tester,
+    ).singleWhere((painter) => painter.row == 1 && painter.column == 0);
+    expect(spanning.first, isTrue);
+    expect(spanning.last, isFalse);
+    await tester.tap(find.text('Total'));
+    expect(taps, 1);
+  });
+
+  testWidgets('a spanning cell never widens its columns', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 300,
+          child: InkTable(
+            body: TableBody(
+              rows: [
+                InkTableRow(
+                  cells: [
+                    InkTableCell(child: Text('a')),
+                    InkTableCell(child: Text('b')),
+                  ],
+                ),
+                InkTableRow(
+                  cells: [
+                    InkTableCell(colSpan: 2, child: Text('No results.')),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(Table)).width, 300);
+    expect(
+      tester
+          .getSize(
+            find.ancestor(
+              of: find.text('No results.'),
+              matching: _float,
+            ),
+          )
+          .width,
+      300,
+    );
+  });
+
+  testWidgets('a sticky header stays put while the body scrolls', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 300,
+          child: InkTable(
+            sticky: true,
+            maxHeight: 200,
+            header: const TableHeader(
+              rows: [
+                InkTableRow(
+                  cells: [
+                    TableHead(child: Text('Day')),
+                    TableHead(child: Text('Words')),
+                  ],
+                ),
+              ],
+            ),
+            body: TableBody(
+              rows: [
+                for (var i = 0; i < 20; i++)
+                  InkTableRow(
+                    cells: [
+                      InkTableCell(child: Text('Day $i')),
+                      InkTableCell(child: Text('${i * 10}')),
+                    ],
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(InkTable)).height, 200);
+    final top = tester.getTopLeft(find.byType(InkTable)).dy;
+    final head = tester.getTopLeft(find.text('Day')).dy;
+    final first = tester.getTopLeft(find.text('Day 0')).dy;
+    await tester.drag(find.text('Day 2'), const Offset(0, -150));
+    await tester.pump();
+    expect(tester.getTopLeft(find.text('Day')).dy, head);
+    expect(tester.getTopLeft(find.text('Day 0')).dy, lessThan(first - 100));
+    expect(head - top, lessThan(Spacing.d44));
+    final slip = tester.widget<ColoredBox>(
+      find
+          .ancestor(of: find.text('Day'), matching: find.byType(ColoredBox))
+          .first,
+    );
+    expect(slip.color, colors.card);
   });
 }

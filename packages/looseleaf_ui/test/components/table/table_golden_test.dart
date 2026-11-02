@@ -161,4 +161,67 @@ void main() {
       matchesGoldenFile('../goldens/table-wrap.png'),
     );
   });
+
+  testWidgets('table-span-sticky in the light theme', (tester) async {
+    tester.view.physicalSize = const Size(800, 600);
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.reset);
+    final scroll = ScrollController();
+    addTearDown(scroll.dispose);
+    await tester.pumpWidget(
+      componentHost(
+        paperPanel(
+          SizedBox(
+            width: 320,
+            child: InkTable(
+              sticky: true,
+              maxHeight: Spacing.d224,
+              controller: scroll,
+              header: const TableHeader(
+                rows: [
+                  InkTableRow(
+                    cells: [
+                      TableHead(child: Text('Day')),
+                      TableHead(child: Text('Page')),
+                      TableHead(child: Text('Words')),
+                    ],
+                  ),
+                ],
+              ),
+              body: TableBody(
+                rows: [
+                  for (var i = 0; i < 8; i++)
+                    InkTableRow(
+                      selected: i == 3,
+                      cells: [
+                        InkTableCell(child: Text('Day $i')),
+                        InkTableCell(child: Text('p. ${12 + i * 3}')),
+                        InkTableCell(child: Text('${180 + i * 97}')),
+                      ],
+                    ),
+                ],
+              ),
+              footer: const TableFooter(
+                rows: [
+                  InkTableRow(
+                    cells: [
+                      InkTableCell(colSpan: 2, child: Text('Total')),
+                      InkTableCell(child: Text('4156')),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    scroll.jumpTo(scroll.position.maxScrollExtent);
+    await tester.pumpAndSettle();
+    await expectLater(
+      find.byType(RepaintBoundary).first,
+      matchesGoldenFile('../goldens/table-span-sticky.png'),
+    );
+  });
 }

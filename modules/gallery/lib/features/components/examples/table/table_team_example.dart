@@ -165,8 +165,7 @@ class TableTeamExample extends StatelessWidget {
                   rows: [
                     InkTableRow(
                       cells: [
-                        const InkTableCell(child: Text('Total')),
-                        const InkTableCell(child: SizedBox.shrink()),
+                        const InkTableCell(colSpan: 2, child: Text('Total')),
                         InkTableCell(
                           child: Align(
                             alignment: AlignmentDirectional.centerEnd,

@@ -302,20 +302,18 @@ class _TableDataTableDemoExampleState extends State<TableDataTableDemoExample> {
               if (pageRows.isEmpty)
                 InkTableRow(
                   cells: [
-                    const InkTableCell(child: SizedBox.shrink()),
-                    for (final _ in columns)
-                      const InkTableCell(child: SizedBox.shrink()),
-                    const InkTableCell(child: SizedBox.shrink()),
+                    InkTableCell(
+                      colSpan: columns.length + 2,
+                      child: const SizedBox(
+                        height: Spacing.d80,
+                        child: Center(child: Text('No results.')),
+                      ),
+                    ),
                   ],
                 ),
             ],
           ),
         ),
-        if (pageRows.isEmpty)
-          const SizedBox(
-            height: Spacing.d96,
-            child: Center(child: Text('No results.')),
-          ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: Spacing.d16),
           child: Row(

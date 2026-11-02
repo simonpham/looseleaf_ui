@@ -18,8 +18,8 @@ const tableExamples = <GalleryExample>[
     builder: TableDataTableExample.new,
   ),
   GalleryExample(
-    title: 'Scrolling body',
-    description: 'A table in a scroller with a fixed height: the body scrolls inside the card.',
+    title: 'Sticky header',
+    description: '`sticky` pins the header row on the paper color while the body scrolls under it; `maxHeight` gives the scroller its height, like the original\'s `containerClassName="max-h-72"`.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'table/table_sticky_header_example.dart',
