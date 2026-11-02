@@ -82,7 +82,13 @@ class Login02Cover extends StatelessWidget {
                 fastener: FastenerKind.pin,
                 tiltDegrees: -3,
                 width: Spacing.d112,
-                minHeight: Spacing.d40,
+                minHeight: 0,
+                padding: const EdgeInsets.fromLTRB(
+                  Spacing.d12,
+                  Spacing.d24,
+                  Spacing.d12,
+                  Spacing.d12,
+                ),
                 seed: 'login-02-note',
                 children: [
                   Text(

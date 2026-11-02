@@ -19,19 +19,19 @@ class Error404Scene extends StatelessWidget {
       stain: true,
       fastener: FastenerKind.pin,
       fastenerTone: Accent.tomato,
-      minHeight: Spacing.d80,
+      minHeight: 0,
+      padding: EdgeInsets.all(Spacing.d28),
       seed: 'error-404-napkin',
       children: [
         NapkinContent(
-          Center(
-            child: Lettering(
-              '404',
-              size: LetteringSize.hero,
-              tone: LetteringTone.tomato,
-              seed: 'error-404-digits',
-              header: false,
-            ),
+          Lettering(
+            '404',
+            size: LetteringSize.hero,
+            tone: LetteringTone.tomato,
+            seed: 'error-404-digits',
+            header: false,
           ),
+          alignment: Alignment.center,
         ),
       ],
     );

@@ -157,7 +157,7 @@ class Testimonials01Wall extends StatelessWidget {
         child: IndexCard(
           seed: 't-kofi',
           fastener: FastenerKind.clip,
-          minHeight: Spacing.d40,
+          minHeight: 0,
           children: [
             IndexCardHeader(children: [IndexCardTitle(Text('Kofi says'))]),
             IndexCardContent(

@@ -96,7 +96,7 @@ class Checkout01Summary extends StatelessWidget {
               tiltDegrees: 2,
               seed: 'checkout-hint',
               width: _hintWidth,
-              minHeight: Spacing.d40,
+              minHeight: 0,
               children: [
                 StickyNoteContent(
                   Text.rich(

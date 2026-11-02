@@ -56,7 +56,13 @@ class NotesAppNoteCard extends StatelessWidget {
             true => Accent.lemon,
             false => null,
           },
-          minHeight: Spacing.d28,
+          minHeight: 0,
+          padding: const EdgeInsets.fromLTRB(
+            Spacing.d16,
+            0,
+            Spacing.d16,
+            Spacing.d24 + Spacing.d1,
+          ),
           maxWidth: double.infinity,
           children: [
             IndexCardHeader(

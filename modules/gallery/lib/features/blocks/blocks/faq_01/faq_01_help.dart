@@ -12,7 +12,7 @@ class Faq01Help extends StatelessWidget {
   Widget build(BuildContext context) => IndexCard(
     flag: Accent.tangerine,
     seed: 'faq-help',
-    minHeight: Spacing.d40,
+    minHeight: 0,
     maxWidth: double.infinity,
     children: [
       IndexCardHeader(

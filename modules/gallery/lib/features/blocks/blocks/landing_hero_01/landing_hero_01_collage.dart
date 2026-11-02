@@ -48,7 +48,7 @@ class LandingHero01Collage extends StatelessWidget {
       seed: 'hero-roadmap',
       fastener: FastenerKind.clip,
       maxWidth: _cardWidth,
-      minHeight: Spacing.d40,
+      minHeight: 0,
       children: [
         IndexCardHeader(children: [IndexCardTitle(Text('Roadmap'))]),
         IndexCardContent(

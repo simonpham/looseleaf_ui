@@ -85,42 +85,36 @@ class SettingsProfileCard extends StatelessWidget {
             ],
           ),
           IndexCardFooter(
+            wrap: true,
+            spacing: Spacing.d16,
             children: [
-              Expanded(
-                child: Wrap(
-                  spacing: Spacing.d16,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    if (website.isNotEmpty)
-                      _Fact(
-                        icon: 'link',
-                        height: _footRow,
-                        child: Text(
-                          website.replaceFirst(RegExp('^https?://'), ''),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    if (zone case (value: _, :final label))
-                      _Fact(
-                        icon: 'globe',
-                        height: _footRow,
-                        child: Text(label),
-                      ),
-                    if (values['discoverable'] == false)
-                      SizedBox(
-                        height: _footRow,
-                        child: Center(
-                          widthFactor: 1,
-                          child: Text(
-                            'not in search',
-                            style: TextStyle(color: theme.colors.inkSoft),
-                          ),
-                        ),
-                      ),
-                  ],
+              if (website.isNotEmpty)
+                _Fact(
+                  icon: 'link',
+                  height: _footRow,
+                  child: Text(
+                    website.replaceFirst(RegExp('^https?://'), ''),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
+              if (zone case (value: _, :final label))
+                _Fact(
+                  icon: 'globe',
+                  height: _footRow,
+                  child: Text(label),
+                ),
+              if (values['discoverable'] == false)
+                SizedBox(
+                  height: _footRow,
+                  child: Center(
+                    widthFactor: 1,
+                    child: Text(
+                      'not in search',
+                      style: TextStyle(color: theme.colors.inkSoft),
+                    ),
+                  ),
+                ),
             ],
           ),
         ],

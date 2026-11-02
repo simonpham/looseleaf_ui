@@ -33,7 +33,7 @@ class Otp01Block extends StatelessWidget {
               fastener: FastenerKind.pin,
               tiltDegrees: 2,
               width: _noteWidth,
-              minHeight: Spacing.d40,
+              minHeight: 0,
               seed: 'otp-01-note',
               children: [
                 Text(
