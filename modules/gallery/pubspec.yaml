@@ -30,6 +30,7 @@ flutter:
     - lib/features/blocks/blocks/cta_01/
     - lib/features/blocks/blocks/dashboard_analytics/
     - lib/features/blocks/blocks/empty_inbox/
+    - lib/features/blocks/blocks/empty_search/
     - lib/features/blocks/blocks/error_404/
     - lib/features/blocks/blocks/error_500/
     - lib/features/blocks/blocks/faq_01/

@@ -32,6 +32,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/empty_inbox/empty_inbox_block.dart',
     builder: EmptyInboxBlock.new,
   ),
+  'empty-search': GalleryBlock(
+    source: 'blocks/empty_search/empty_search_block.dart',
+    builder: EmptySearchBlock.new,
+    objects: [DeskObject.pencil],
+  ),
   'error-404': GalleryBlock(
     source: 'blocks/error_404/error_404_block.dart',
     builder: Error404Block.new,
