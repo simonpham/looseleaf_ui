@@ -1,4 +1,5 @@
 export 'package:gallery/features/blocks/blocks/announcement_bar/announcement_bar.dart';
+export 'package:gallery/features/blocks/blocks/calendar_planner/calendar_planner.dart';
 export 'package:gallery/features/blocks/blocks/chat_app/chat_app.dart';
 export 'package:gallery/features/blocks/blocks/checkout_01/checkout_01.dart';
 export 'package:gallery/features/blocks/blocks/cta_01/cta_01.dart';
