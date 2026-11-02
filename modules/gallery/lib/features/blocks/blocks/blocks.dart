@@ -13,3 +13,4 @@ export 'package:gallery/features/blocks/blocks/profile_page/profile_page.dart';
 export 'package:gallery/features/blocks/blocks/settings_appearance/settings_appearance.dart';
 export 'package:gallery/features/blocks/blocks/signup_01/signup_01.dart';
 export 'package:gallery/features/blocks/blocks/signup_02/signup_02.dart';
+export 'package:gallery/features/blocks/blocks/testimonials_01/testimonials_01.dart';
