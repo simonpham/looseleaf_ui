@@ -35,50 +35,52 @@ class SidebarCalendars extends StatelessWidget {
       spacing: Spacing.d8,
       children: [
         for (final (index, group) in groups.indexed) ...[
-          Padding(
+          SidebarGroup(
             padding: const EdgeInsets.symmetric(horizontal: Spacing.d8),
-            child: Collapsible(
-              defaultOpen: index == 0,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  GroupFoldLabel(title: group.name),
-                  CollapsibleContent(
-                    child: SidebarGroupContent(
-                      child: SidebarMenu(
-                        children: [
-                          for (final item in group.items)
-                            SidebarMenuItem(
-                              child: Semantics(
-                                checked: value.contains(item.name),
-                                child: SidebarMenuButton(
-                                  onPressed: () => _toggle(item.name),
-                                  leading: Opacity(
-                                    opacity: switch (value.contains(
-                                      item.name,
-                                    )) {
-                                      true => 1,
-                                      false => 0.7,
-                                    },
-                                    child: InkIcon(
-                                      switch (value.contains(item.name)) {
-                                        true => 'square-check',
-                                        false => 'square',
+            children: [
+              Collapsible(
+                defaultOpen: index == 0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    GroupFoldLabel(title: group.name),
+                    CollapsibleContent(
+                      child: SidebarGroupContent(
+                        child: SidebarMenu(
+                          children: [
+                            for (final item in group.items)
+                              SidebarMenuItem(
+                                child: Semantics(
+                                  checked: value.contains(item.name),
+                                  child: SidebarMenuButton(
+                                    onPressed: () => _toggle(item.name),
+                                    leading: Opacity(
+                                      opacity: switch (value.contains(
+                                        item.name,
+                                      )) {
+                                        true => 1,
+                                        false => 0.7,
                                       },
-                                      color: item.tone.of(theme.colors),
+                                      child: InkIcon(
+                                        switch (value.contains(item.name)) {
+                                          true => 'square-check',
+                                          false => 'square',
+                                        },
+                                        color: item.tone.of(theme.colors),
+                                      ),
                                     ),
+                                    child: Text(item.name),
                                   ),
-                                  child: Text(item.name),
                                 ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
           const Separator(),
         ],

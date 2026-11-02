@@ -1,10 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
-/// A month on the pad to pick a day from.
-///
-/// Upstream shrinks the day cells to 32 px (`[--cell:2rem]`); [Calendar]
-/// has no cell size, so the month is scaled down to the pad's width.
+/// A month on the pad to pick a day from, its day cells 32 px (30 px
+/// compact) to fit the pad.
 ///
 /// Mirrors `DatePicker` in upstream
 /// `src/blocks/sidebar-shared/sidebar-calendar.tsx`.
@@ -19,18 +17,25 @@ class SidebarDatePicker extends StatelessWidget {
   final ValueChanged<DateTime> onSelect;
 
   @override
-  Widget build(BuildContext context) => Padding(
+  Widget build(BuildContext context) => SidebarGroup(
     padding: const EdgeInsets.symmetric(vertical: Spacing.d8),
-    child: FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Calendar(
-        selected: selected,
-        defaultMonth: selected,
-        padding: EdgeInsets.zero,
-        onSelect: (picked) {
-          if (picked != null) onSelect(picked);
-        },
+    children: [
+      SidebarGroupContent(
+        child: Center(
+          child: Calendar(
+            selected: selected,
+            defaultMonth: selected,
+            padding: EdgeInsets.zero,
+            cellSize: switch (LooseleafTheme.of(context).density) {
+              LooseleafDensity.compact => Spacing.d30,
+              _ => Spacing.d32,
+            },
+            onSelect: (picked) {
+              if (picked != null) onSelect(picked);
+            },
+          ),
+        ),
       ),
-    ),
+    ],
   );
 }
