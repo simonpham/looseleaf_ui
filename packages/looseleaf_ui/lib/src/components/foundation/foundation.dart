@@ -13,3 +13,4 @@ export 'package:looseleaf_ui/src/components/foundation/ink_roving_focus.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_seed.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_trigger_semantics.dart';
 export 'package:looseleaf_ui/src/components/foundation/paper_ink.dart';
+export 'package:looseleaf_ui/src/components/foundation/span_text_style.dart';

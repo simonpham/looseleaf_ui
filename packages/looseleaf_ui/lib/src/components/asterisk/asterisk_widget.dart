@@ -72,7 +72,7 @@ class _AsteriskState extends State<Asterisk> with InkSeed {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    final text = DefaultTextStyle.of(context).style;
+    final text = SpanTextStyle.resolve(context);
     final kevinSans =
         text.fontFamily?.endsWith(theme.typography.fontFamily) ?? false;
     final em =
@@ -87,24 +87,26 @@ class _AsteriskState extends State<Asterisk> with InkSeed {
       final onPressed => _link(onPressed, glyph),
     };
     final child = widget.child;
-    return Text.rich(
-      TextSpan(
-        children: [
-          if (child != null)
+    return SpanTextStyle(
+      child: Text.rich(
+        TextSpan(
+          children: [
+            if (child != null)
+              WidgetSpan(
+                alignment: PlaceholderAlignment.baseline,
+                baseline: TextBaseline.alphabetic,
+                child: child,
+              ),
             WidgetSpan(
-              alignment: PlaceholderAlignment.baseline,
+              alignment: PlaceholderAlignment.aboveBaseline,
               baseline: TextBaseline.alphabetic,
-              child: child,
+              child: Transform.translate(
+                offset: Offset(0, -Asterisk.raiseEm * em),
+                child: mark,
+              ),
             ),
-          WidgetSpan(
-            alignment: PlaceholderAlignment.aboveBaseline,
-            baseline: TextBaseline.alphabetic,
-            child: Transform.translate(
-              offset: Offset(0, -Asterisk.raiseEm * em),
-              child: mark,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

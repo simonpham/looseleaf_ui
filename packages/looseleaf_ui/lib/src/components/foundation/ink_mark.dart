@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/ink_mark_measure.dart';
 import 'package:looseleaf_ui/src/components/foundation/ink_mark_surface.dart';
+import 'package:looseleaf_ui/src/components/foundation/span_text_style.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
@@ -21,7 +22,8 @@ typedef InkMarkSourceBuilder = InkSource Function(LineParams line);
 ///
 /// Mirrors upstream `useMarkInk` (`src/hooks/use-mark-ink.tsx`). Text is
 /// found in every [RenderParagraph] under [child]; a child without text is
-/// marked as one box.
+/// marked as one box. Inside a [WidgetSpan] the text takes the enclosing
+/// span's style ([SpanTextStyle]), like the inline element it mirrors.
 class InkMark extends StatefulWidget {
   const InkMark({
     super.key,
@@ -102,13 +104,15 @@ class _InkMarkState extends State<InkMark> {
     final layer = _MarkLayer(
       child: Stack(clipBehavior: Clip.none, children: marks),
     );
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        if (!widget.over) Positioned.fill(child: layer),
-        _LayoutReporter(onLayout: _onLayout, child: widget.child),
-        if (widget.over) Positioned.fill(child: layer),
-      ],
+    return SpanTextStyle(
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          if (!widget.over) Positioned.fill(child: layer),
+          _LayoutReporter(onLayout: _onLayout, child: widget.child),
+          if (widget.over) Positioned.fill(child: layer),
+        ],
+      ),
     );
   }
 }

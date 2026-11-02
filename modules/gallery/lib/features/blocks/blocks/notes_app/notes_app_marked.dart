@@ -43,7 +43,7 @@ class NotesAppMarked extends StatelessWidget {
                             color: mark.color,
                             kind: mark.kind,
                             seed: '$seed:$i:$j',
-                            child: Text(piece.text, style: style),
+                            child: Text(piece.text),
                           ),
                         ),
                       },
