@@ -18,7 +18,8 @@ class ComponentThumbnail extends StatelessWidget {
   final GalleryExample? example;
 
   static const double _aspect = 16 / 10;
-  static const Size _canvas = Size(448, 280);
+  static const double _stageWidth = 640;
+  static const double _stageMinHeight = 400;
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +38,15 @@ class ComponentThumbnail extends StatelessWidget {
       ),
       final shown => FittedBox(
         fit: BoxFit.contain,
-        child: SizedBox.fromSize(
-          size: _canvas,
-          child: Center(
+        alignment: Alignment.topCenter,
+        child: SizedBox(
+          width: _stageWidth,
+          height: shown.height,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: _stageMinHeight),
             child: Padding(
-              padding: const EdgeInsets.all(Spacing.d24),
-              child: shown.builder(),
+              padding: const EdgeInsets.all(Spacing.d32),
+              child: Center(child: shown.builder()),
             ),
           ),
         ),
