@@ -81,50 +81,58 @@ class _EmptyInboxBlockState extends State<EmptyInboxBlock> {
                           EmptyHeader(
                             children: [
                               EmptyMedia(
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  spacing: Spacing.d4,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: Spacing.d8,
-                                      ),
-                                      child: ExcludeSemantics(
-                                        child: Circled(
-                                          tone: MarkPen.red,
-                                          weight: MarkWeight.brush,
-                                          seed: 'inbox-zero',
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: Spacing.d4,
-                                            ),
-                                            child: Text(
-                                              '0',
-                                              style: theme.typography.face(
-                                                KevinSansFace.script,
-                                                cssSize: 48,
-                                                cssLineHeight: 1,
-                                                fontWeight: FontWeight.w700,
-                                                color: theme.colors.ink,
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    spacing: Spacing.d4,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: Spacing.d8,
+                                        ),
+                                        child: ExcludeSemantics(
+                                          child: Circled(
+                                            tone: MarkPen.red,
+                                            weight: MarkWeight.brush,
+                                            seed: 'inbox-zero',
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: Spacing.d4,
+                                                  ),
+                                              child: Text(
+                                                '0',
+                                                style: theme.typography.face(
+                                                  KevinSansFace.script,
+                                                  cssSize: 48,
+                                                  cssLineHeight: 1,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: theme.colors.ink,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    const Mascot(pose: 'celebrate', size: 112),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                        top: Spacing.d32,
+                                      const Mascot(
+                                        pose: 'celebrate',
+                                        size: 112,
                                       ),
-                                      child: Sticker(
-                                        'done',
-                                        size: 50,
-                                        rotate: 9,
+                                      const Padding(
+                                        padding: EdgeInsets.only(
+                                          top: Spacing.d32,
+                                        ),
+                                        child: Sticker(
+                                          'done',
+                                          size: 50,
+                                          rotate: 9,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                               const EmptyTitle(child: Text('Inbox zero')),
