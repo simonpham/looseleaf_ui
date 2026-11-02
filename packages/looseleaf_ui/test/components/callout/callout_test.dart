@@ -69,6 +69,35 @@ void main() {
     expect(lines, greaterThan(2));
   });
 
+  testWidgets('a narrow space wraps the words beside the arrow', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Align(
+          alignment: Alignment.topLeft,
+          child: SizedBox(
+            width: 120,
+            child: Callout('check the date!', direction: ArrowDirection.right),
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(tester.getSize(find.byType(Callout)).width, lessThanOrEqualTo(120));
+    expect(tester.getSize(find.byType(Handwritten)).height, greaterThan(40));
+
+    await tester.pumpWidget(
+      componentHost(
+        const Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [Text('the total'), Callout('so true')],
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('animated words fade in after the delay', (tester) async {
     await tester.pumpWidget(
       componentHost(

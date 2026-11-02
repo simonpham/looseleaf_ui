@@ -186,14 +186,21 @@ class _CalloutState extends State<Callout> with InkSeed {
   }
 
   /// Upstream's `LAYOUT` table: the words on the arrow's tail.
+  /// Beside the arrow the words shrink and wrap when the row runs out of
+  /// room, like upstream's flex item; [IntrinsicWidth] keeps that working
+  /// inside an unbounded row.
   Widget _layout(Widget words, Widget? arrow) {
     final children = [words, ?arrow];
     final reversed = children.reversed.toList();
-    Widget row(List<Widget> items, CrossAxisAlignment align) => Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: align,
-      spacing: Spacing.d6,
-      children: items,
+    final beside = [Flexible(child: words), ?arrow];
+    final besideReversed = beside.reversed.toList();
+    Widget row(List<Widget> items, CrossAxisAlignment align) => IntrinsicWidth(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: align,
+        spacing: Spacing.d6,
+        children: items,
+      ),
     );
     Widget column(List<Widget> items) => Column(
       mainAxisSize: MainAxisSize.min,
@@ -201,14 +208,14 @@ class _CalloutState extends State<Callout> with InkSeed {
       children: items,
     );
     return switch (widget.direction) {
-      ArrowDirection.right => row(children, CrossAxisAlignment.center),
-      ArrowDirection.left => row(reversed, CrossAxisAlignment.center),
+      ArrowDirection.right => row(beside, CrossAxisAlignment.center),
+      ArrowDirection.left => row(besideReversed, CrossAxisAlignment.center),
       ArrowDirection.down => column(children),
       ArrowDirection.up => column(reversed),
-      ArrowDirection.downRight => row(children, CrossAxisAlignment.start),
-      ArrowDirection.downLeft => row(reversed, CrossAxisAlignment.start),
-      ArrowDirection.upRight => row(children, CrossAxisAlignment.end),
-      ArrowDirection.upLeft => row(reversed, CrossAxisAlignment.end),
+      ArrowDirection.downRight => row(beside, CrossAxisAlignment.start),
+      ArrowDirection.downLeft => row(besideReversed, CrossAxisAlignment.start),
+      ArrowDirection.upRight => row(beside, CrossAxisAlignment.end),
+      ArrowDirection.upLeft => row(besideReversed, CrossAxisAlignment.end),
     };
   }
 }
