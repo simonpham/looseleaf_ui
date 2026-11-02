@@ -39,6 +39,7 @@ flutter:
     - lib/features/blocks/blocks/settings_appearance/
     - lib/features/blocks/blocks/signup_01/
     - lib/features/blocks/blocks/signup_02/
+    - lib/features/blocks/blocks/signup_03/
     - lib/features/blocks/blocks/testimonials_01/
     - lib/features/components/examples/accordion/
     - lib/features/components/examples/alert/

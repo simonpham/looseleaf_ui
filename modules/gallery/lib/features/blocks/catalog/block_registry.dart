@@ -69,6 +69,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/signup_02/signup_02_block.dart',
     builder: Signup02Block.new,
   ),
+  'signup-03': GalleryBlock(
+    source: 'blocks/signup_03/signup_03_block.dart',
+    builder: Signup03Block.new,
+    objects: [DeskObject.clips, DeskObject.pins],
+  ),
   'testimonials-01': GalleryBlock(
     source: 'blocks/testimonials_01/testimonials_01_block.dart',
     builder: Testimonials01Block.new,
