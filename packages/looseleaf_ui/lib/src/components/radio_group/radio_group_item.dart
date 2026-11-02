@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
@@ -12,6 +14,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 ///
 /// A [label] sits after the ring and is part of it: tapping or hovering
 /// the label works like the ring, and screen readers read it as the name.
+/// The ring lines up with the label's first line, so a label with a line
+/// of help under it (or a [description]) keeps the ring beside its title.
 ///
 /// Mirrors `RadioGroupItem` in upstream `src/components/ui/radio-group.tsx`.
 class InkRadioGroupItem<T> extends StatefulWidget {
@@ -19,6 +23,7 @@ class InkRadioGroupItem<T> extends StatefulWidget {
     super.key,
     required this.value,
     this.label,
+    this.description,
     this.disabled = false,
     this.invalid,
     this.size = Spacing.d16,
@@ -34,6 +39,10 @@ class InkRadioGroupItem<T> extends StatefulWidget {
 
   /// The label after the ring, usually a [Text].
   final Widget? label;
+
+  /// A line of help under the [label], in regular muted `text-sm` (the
+  /// docs' `<p className="text-sm text-ink-muted">` beside the `Label`).
+  final Widget? description;
 
   /// A dashed ring, no input, skipped by the arrows.
   final bool disabled;
@@ -159,21 +168,49 @@ class _RadioGroupItemState<T> extends State<InkRadioGroupItem<T>> with InkSeed {
     );
     final label = widget.label;
     if (label == null) return ring;
+    final description = widget.description;
     final theme = LooseleafTheme.of(context);
+    final style = theme.typography.label(
+      color: switch (disabled) {
+        true => theme.colors.pencilText,
+        false => theme.colors.ink,
+      },
+    );
+    final lineHeight = MediaQuery.textScalerOf(
+      context,
+    ).scale((style.fontSize ?? 0) * (style.height ?? 1));
+    final band = math.max(widget.size, lineHeight);
     return Row(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       spacing: Spacing.d12,
       children: [
-        ring,
+        SizedBox(
+          height: band,
+          child: Center(child: ring),
+        ),
         Flexible(
-          child: InkContent(
-            style: theme.typography.label(
-              color: switch (disabled) {
-                true => theme.colors.pencilText,
-                false => theme.colors.ink,
-              },
-            ),
-            child: label,
+          child: Padding(
+            padding: EdgeInsets.only(top: (band - lineHeight) / 2),
+            child: switch (description) {
+              null => InkContent(style: style, child: label),
+              final help => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: Spacing.d4,
+                children: [
+                  InkContent(style: style, child: label),
+                  InkContent(
+                    style: theme.typography.face(
+                      KevinSansFace.hand,
+                      cssSize: 14,
+                      cssLineHeight: 20 / 14,
+                      color: theme.colors.inkMuted,
+                    ),
+                    child: help,
+                  ),
+                ],
+              ),
+            },
           ),
         ),
       ],

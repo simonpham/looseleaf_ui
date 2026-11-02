@@ -67,6 +67,20 @@ void main() {
                 invalid: true,
                 children: [_item('Card'), _item('PayPal'), _item('Cash')],
               ),
+              const InkRadioGroup<String>(
+                value: 'studio',
+                children: [
+                  InkRadioGroupItem(
+                    value: 'studio',
+                    size: Spacing.d20,
+                    seed: 'studio',
+                    label: Text('Studio'),
+                    description: Text(
+                      'Ten notebooks and the good highlighters.',
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

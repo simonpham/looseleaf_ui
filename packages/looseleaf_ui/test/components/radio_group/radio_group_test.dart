@@ -134,4 +134,39 @@ void main() {
     expect(changed, isNull);
     expect(_states(tester, 'Alpha'), {InkState.disabled});
   });
+
+  testWidgets('the ring lines up with the title, the description is regular', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Align(
+          alignment: Alignment.topLeft,
+          child: InkRadioGroup<String>(
+            value: 'a',
+            children: [
+              InkRadioGroupItem(
+                value: 'a',
+                size: Spacing.d20,
+                label: Text('Studio'),
+                description: Text('Ten notebooks'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    final ring = tester.getRect(find.byType(InkSurface));
+    final title = tester.getRect(find.text('Studio'));
+    expect(ring.center.dy, closeTo(title.center.dy, 0.5));
+    final help = tester.widget<DefaultTextStyle>(
+      find
+          .ancestor(
+            of: find.text('Ten notebooks'),
+            matching: find.byType(DefaultTextStyle),
+          )
+          .first,
+    );
+    expect(help.style.fontWeight, FontWeight.w400);
+  });
 }
