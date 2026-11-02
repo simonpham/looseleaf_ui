@@ -8,6 +8,10 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// [divider] rules it off from the content with a drawn [rule] and 24 px of
 /// room (upstream's `border-b`).
 ///
+/// [crossAxisAlignment] [CrossAxisAlignment.center] centres the title and
+/// description and their lines (upstream `justify-items-center
+/// text-center`), as sign-in cards do.
+///
 /// Mirrors `CardHeader` in upstream `src/components/ui/card.tsx`.
 class CardHeader extends StatelessWidget {
   const CardHeader({
@@ -16,6 +20,7 @@ class CardHeader extends StatelessWidget {
     this.rule = CardRuleStyle.pencil,
     this.seed,
     this.padding = const EdgeInsets.symmetric(horizontal: Spacing.d24),
+    this.crossAxisAlignment = CrossAxisAlignment.start,
     required this.children,
   });
 
@@ -31,14 +36,19 @@ class CardHeader extends StatelessWidget {
   /// The padding around the header (`px-6`).
   final EdgeInsetsGeometry padding;
 
+  /// How the title and description line up: start, or centred with
+  /// centred lines.
+  final CrossAxisAlignment crossAxisAlignment;
+
   /// The title, description and an optional [CardAction].
   final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
     final action = children.whereType<CardAction>().firstOrNull;
-    final text = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    final centered = crossAxisAlignment == CrossAxisAlignment.center;
+    final column = Column(
+      crossAxisAlignment: crossAxisAlignment,
       mainAxisSize: MainAxisSize.min,
       spacing: Spacing.d8,
       children: [
@@ -46,6 +56,13 @@ class CardHeader extends StatelessWidget {
           if (child is! CardAction) child,
       ],
     );
+    final Widget text = switch (centered) {
+      true => DefaultTextStyle.merge(
+        textAlign: TextAlign.center,
+        child: column,
+      ),
+      false => column,
+    };
     final Widget body = switch (action) {
       null => text,
       final end => Row(

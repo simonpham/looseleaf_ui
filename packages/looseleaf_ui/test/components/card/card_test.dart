@@ -79,4 +79,84 @@ void main() {
     );
     handle.dispose();
   });
+
+  testWidgets('a centred header centres the title and its lines', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 300,
+          child: Card(
+            children: [
+              CardHeader(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CardTitle(Text('Welcome back')),
+                  CardDescription(Text('Sign in to your notebook')),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    final card = tester.getCenter(find.byType(Card)).dx;
+    expect(
+      tester.getCenter(find.text('Welcome back')).dx,
+      moreOrLessEquals(card),
+    );
+    expect(
+      tester.getCenter(find.text('Sign in to your notebook')).dx,
+      moreOrLessEquals(card),
+    );
+    expect(
+      tester
+          .widget<RichText>(
+            find.descendant(
+              of: find.text('Welcome back'),
+              matching: find.byType(RichText),
+            ),
+          )
+          .textAlign,
+      TextAlign.center,
+    );
+  });
+
+  testWidgets('a footer can stack its children or wrap them', (tester) async {
+    Widget footer(CardFooter footer) =>
+        componentHost(SizedBox(width: 220, child: Card(children: [footer])));
+    await tester.pumpWidget(
+      footer(
+        const CardFooter(
+          direction: Axis.vertical,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: Spacing.d8,
+          children: [Text('Up 5.2%'), Text('Since January')],
+        ),
+      ),
+    );
+    final up = tester.getRect(find.text('Up 5.2%'));
+    final since = tester.getRect(find.text('Since January'));
+    expect(since.top - up.bottom, Spacing.d8);
+    expect(since.left, up.left);
+    await tester.pumpWidget(
+      footer(
+        const CardFooter(
+          wrap: true,
+          spacing: Spacing.d8,
+          runSpacing: Spacing.d4,
+          children: [
+            SizedBox(key: Key('a'), width: 100, height: 20),
+            SizedBox(key: Key('b'), width: 100, height: 20),
+          ],
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final a = tester.getRect(find.byKey(const Key('a')));
+    final b = tester.getRect(find.byKey(const Key('b')));
+    expect(b.top - a.bottom, Spacing.d4);
+    expect(b.left, a.left);
+  });
 }
