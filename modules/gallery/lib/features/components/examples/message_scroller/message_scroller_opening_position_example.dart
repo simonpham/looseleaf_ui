@@ -93,7 +93,9 @@ class _MessageScrollerOpeningPositionExampleState
       },
       children: [
         for (final (position, label) in _positions)
-          ToggleGroupItem(value: position, child: Text(label)),
+          Expanded(
+            child: ToggleGroupItem(value: position, child: Text(label)),
+          ),
       ],
     ),
   );
