@@ -4,6 +4,7 @@ export 'package:gallery/features/blocks/blocks/checkout_01/checkout_01.dart';
 export 'package:gallery/features/blocks/blocks/cta_01/cta_01.dart';
 export 'package:gallery/features/blocks/blocks/empty_inbox/empty_inbox.dart';
 export 'package:gallery/features/blocks/blocks/faq_01/faq_01.dart';
+export 'package:gallery/features/blocks/blocks/file_explorer/file_explorer.dart';
 export 'package:gallery/features/blocks/blocks/footer_01/footer_01.dart';
 export 'package:gallery/features/blocks/blocks/inbox/inbox.dart';
 export 'package:gallery/features/blocks/blocks/kanban_board/kanban_board.dart';

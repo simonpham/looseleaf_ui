@@ -33,6 +33,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: Faq01Block.new,
     objects: [DeskObject.pencil],
   ),
+  'file-explorer': GalleryBlock(
+    source: 'blocks/file_explorer/file_explorer_block.dart',
+    builder: FileExplorerBlock.new,
+  ),
   'footer-01': GalleryBlock(
     source: 'blocks/footer_01/footer_01_block.dart',
     builder: Footer01Block.new,
