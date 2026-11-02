@@ -4,6 +4,8 @@ Hand-drawn Flutter widgets on paper. Every line is drawn with a pen, every surfa
 
 > All credit for the design goes to [Looseleaf](https://github.com/kevintngo/looseleaf) by [@kevintngo](https://github.com/kevintngo) ([live site](https://kevintngo.github.io/looseleaf/)). This repo is a Flutter port of it, MIT like the original. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
+![Switches, checkboxes, tabs and a toast, all drawn by hand](doc/demo.gif)
+
 > **TL;DR**
 > 1. Add `looseleaf_ui` to your `pubspec.yaml`.
 > 2. Wrap your app in `LooseleafTheme`.
@@ -57,6 +59,8 @@ That's it. Every widget takes a `seed`: the same seed always draws the same hand
 A few names differ from shadcn/ui so they don't clash with Flutter's own widgets: `InkIcon`, `InkTable`, `PaperPage`, `InkForm`, `InkRadioGroup`, `InkClipboard`, `InkItem`. The full list is in [COMPONENTS.md](packages/looseleaf_ui/COMPONENTS.md).
 
 ## 🍎 Run the gallery
+
+![The gallery home](doc/home.jpg)
 
 ```sh
 ./get.sh
