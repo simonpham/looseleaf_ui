@@ -11,9 +11,9 @@ import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
-/// A note on a [Corkboard]: a 176 px sticky note (any [stock]) in script
-/// handwriting, held by a push pin, or by a strip of tape when not
-/// [pinned]. Pick it up and drag it, or focus it and use the keyboard.
+/// A note on a [Corkboard]: a [width] (176 px) sticky note (any [stock])
+/// in script handwriting, held by a push pin, or by a strip of tape when
+/// not [pinned]. Pick it up and drag it, or focus it and use the keyboard.
 ///
 /// [id] names it in the board's layout; [x], [y] and [rotate] place it
 /// until the layout says otherwise (with no [rotate] the turn comes from
@@ -29,6 +29,7 @@ class CorkboardNote extends StatefulWidget {
     this.x = Spacing.d16,
     this.y = Spacing.d16,
     this.rotate,
+    this.width = defaultWidth,
     this.stock = StockName.stickyYellow,
     this.pinned = true,
     this.pinColor,
@@ -41,7 +42,7 @@ class CorkboardNote extends StatefulWidget {
   });
 
   /// Upstream's `w-44`.
-  static const double width = Spacing.d176;
+  static const double defaultWidth = Spacing.d176;
 
   /// The arrow-key step, and with Shift.
   static const double step = Spacing.d8;
@@ -75,6 +76,10 @@ class CorkboardNote extends StatefulWidget {
 
   /// The starting turn in degrees; seeded from [id] when null.
   final double? rotate;
+
+  /// The note's width (upstream's `w-44`, or a `w-*` class); a [bare]
+  /// note is as wide as its [child].
+  final double width;
 
   /// The sticky note's paper.
   final StockName stock;
@@ -371,7 +376,7 @@ class _CorkboardNoteState extends State<CorkboardNote> with InkSeed {
     final sheet = switch (widget.bare) {
       true => widget.child,
       false => SizedBox(
-        width: CorkboardNote.width,
+        width: widget.width,
         child: Paper(
           stock: widget.stock,
           edge: const EdgeSpec.all(EdgeKind.cut),

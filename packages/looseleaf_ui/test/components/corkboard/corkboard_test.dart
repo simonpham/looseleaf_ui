@@ -52,6 +52,28 @@ void main() {
     expect(tester.getSize(find.byType(Paper).first).width, Spacing.d176);
   });
 
+  testWidgets('a note takes its own width', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 600,
+          child: Corkboard(
+            height: 360,
+            children: [
+              CorkboardNote(
+                id: 'list',
+                width: Spacing.d224,
+                stock: StockName.indexCard,
+                child: Text('ideas'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(Paper)).width, Spacing.d224);
+  });
+
   testWidgets('arrows move, R turns and Enter raises the focused note', (
     tester,
   ) async {
