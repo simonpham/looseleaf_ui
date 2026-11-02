@@ -5,12 +5,14 @@ const typewriterDoc = ComponentDoc(
   slug: 'typewriter',
   title: 'Typewriter',
   category: ComponentCategory.typography,
-  description: 'Text that types itself in the typewriter face, with an inked caret. Keys land at uneven speeds and hold at commas and periods; several phrases can go one under the other or be typed, held and backspaced in turn.',
+  description:
+      'Text that types itself in the typewriter face, with an inked caret. Keys land at uneven speeds and hold at commas and periods; several phrases can go one under the other or be typed, held and backspaced in turn.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Typewriter',
-      description: 'An inline element. The animation is aria-hidden; the whole text sits in the accessibility tree once, in a polite live region that only changes when you change `text`. Without JavaScript, or with reduced motion, the finished text is simply there.',
+      description:
+          'An inline element. The animation is aria-hidden; the whole text sits in the accessibility tree once, in a polite live region that only changes when you change `text`. Without JavaScript, or with reduced motion, the finished text is simply there.',
       props: [
         PropDoc(
           name: 'text',
@@ -22,13 +24,15 @@ const typewriterDoc = ComponentDoc(
           name: 'mode',
           type: '"lines" | "cycle"',
           defaultValue: '"lines"',
-          description: 'lines: each phrase on its own line. cycle: type a phrase, hold it, backspace it, type the next (a loop or a rotating word).',
+          description:
+              'lines: each phrase on its own line. cycle: type a phrase, hold it, backspace it, type the next (a loop or a rotating word).',
         ),
         PropDoc(
           name: 'speed',
           type: 'number',
           defaultValue: '22',
-          description: 'Characters per second, as an average: every key has its own delay.',
+          description:
+              'Characters per second, as an average: every key has its own delay.',
         ),
         PropDoc(
           name: 'delay / pause',
@@ -40,19 +44,22 @@ const typewriterDoc = ComponentDoc(
           name: 'loop',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Start again from an empty page when done. The live region is switched off while it loops, so it is never read twice.',
+          description:
+              'Start again from an empty page when done. The live region is switched off while it loops, so it is never read twice.',
         ),
         PropDoc(
           name: 'cursor',
           type: '"bar" | "block" | "underscore" | false',
           defaultValue: '"bar"',
-          description: 'The caret, drawn with the pen. Solid while typing, blinking when it rests (not blinking with reduced motion).',
+          description:
+              'The caret, drawn with the pen. Solid while typing, blinking when it rests (not blinking with reduced motion).',
         ),
         PropDoc(
           name: 'reserve',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Keep the room of the finished text (the longest phrase of a cycle) from the first frame, so nothing around it moves while it types. The element becomes an `inline-block` (or the `display` your className sets) with an invisible copy of the finished text in flow and the typed text laid over it. Off, it is an inline element that grows as it types and can sit inside a sentence.',
+          description:
+              'Keep the room of the finished text (the longest phrase of a cycle) from the first frame, so nothing around it moves while it types. The element becomes an `inline-block` (or the `display` your className sets) with an invisible copy of the finished text in flow and the typed text laid over it. Off, it is an inline element that grows as it types and can sit inside a sentence.',
         ),
         PropDoc(
           name: 'startOnView',
@@ -63,7 +70,8 @@ const typewriterDoc = ComponentDoc(
         PropDoc(
           name: 'onDone',
           type: '() => void',
-          description: 'Called when the last character is on the page (never when looping).',
+          description:
+              'Called when the last character is on the page (never when looping).',
         ),
         PropDoc(
           name: 'seed',

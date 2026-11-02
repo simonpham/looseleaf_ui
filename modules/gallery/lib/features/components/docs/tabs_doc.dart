@@ -5,13 +5,15 @@ const tabsDoc = ComponentDoc(
   slug: 'tabs',
   title: 'Tabs',
   category: ComponentCategory.navigation,
-  description: 'Index-divider tabs: the active one is lifted and filled with highlighter, and the pencil baseline breaks under it. Also a hairline `line` style with a blue felt underline, and vertical binder tabs. Radix behavior and roving focus are untouched.',
+  description:
+      'Index-divider tabs: the active one is lifted and filled with highlighter, and the pencil baseline breaks under it. Also a hairline `line` style with a blue felt underline, and vertical binder tabs. Radix behavior and roving focus are untouched.',
   status: ComponentStatus.stable,
   upstream: 'tabs',
   parts: [
     PartDoc(
       name: 'Tabs',
-      description: 'The Radix Tabs root. Vertical tabs lay the list and the panel side by side.',
+      description:
+          'The Radix Tabs root. Vertical tabs lay the list and the panel side by side.',
       props: [
         PropDoc(
           name: 'value / defaultValue / onValueChange',
@@ -22,13 +24,15 @@ const tabsDoc = ComponentDoc(
           name: 'orientation',
           type: '"horizontal" | "vertical"',
           defaultValue: '"horizontal"',
-          description: 'Vertical draws binder tabs on a spine and moves with ArrowUp / ArrowDown.',
+          description:
+              'Vertical draws binder tabs on a spine and moves with ArrowUp / ArrowDown.',
         ),
         PropDoc(
           name: 'activationMode',
           type: '"automatic" | "manual"',
           defaultValue: '"automatic"',
-          description: 'Automatic opens a tab as focus reaches it; manual waits for Enter or Space.',
+          description:
+              'Automatic opens a tab as focus reaches it; manual waits for Enter or Space.',
         ),
         PropDoc(
           name: 'dir',
@@ -40,19 +44,22 @@ const tabsDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'TabsList',
-      description: 'The `role="tablist"` row (or column). `tabsListVariants` is exported for consumers that style their own list.',
+      description:
+          'The `role="tablist"` row (or column). `tabsListVariants` is exported for consumers that style their own list.',
       props: [
         PropDoc(
           name: 'variant',
           type: '"default" | "line"',
           defaultValue: '"default"',
-          description: '`default` = paper index tabs; `line` = hairline with the active tab underlined in blue felt.',
+          description:
+              '`default` = paper index tabs; `line` = hairline with the active tab underlined in blue felt.',
         ),
       ],
     ),
     PartDoc(
       name: 'TabsTrigger',
-      description: 'A tab (Radix Trigger, a button). It hosts its own drawing: sketch and baseline at rest, felt outline on hover, highlighter fill when active, a blue ring on keyboard focus.',
+      description:
+          'A tab (Radix Trigger, a button). It hosts its own drawing: sketch and baseline at rest, felt outline on hover, highlighter fill when active, a blue ring on keyboard focus.',
       props: [
         PropDoc(
           name: 'value',
@@ -75,7 +82,8 @@ const tabsDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'TabsContent',
-      description: 'The panel (`role="tabpanel"`, focusable with Tab). It fades in when its tab opens.',
+      description:
+          'The panel (`role="tabpanel"`, focusable with Tab). It fades in when its tab opens.',
     ),
   ],
   a11y: [

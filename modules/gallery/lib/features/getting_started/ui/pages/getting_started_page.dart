@@ -19,7 +19,8 @@ class GettingStartedPage extends StatelessWidget {
     return DocPage(
       kicker: 'Start here',
       title: 'Getting started',
-      description: 'Add one package, wrap your app in LooseleafTheme and use the widgets like any other. It takes about a minute.',
+      description:
+          'Add one package, wrap your app in LooseleafTheme and use the widgets like any other. It takes about a minute.',
       children: [
         for (final step in guideSteps)
           DocSection(

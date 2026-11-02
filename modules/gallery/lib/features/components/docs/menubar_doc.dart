@@ -5,13 +5,15 @@ const menubarDoc = ComponentDoc(
   slug: 'menubar',
   title: 'Menubar',
   category: ComponentCategory.navigation,
-  description: 'A desktop-style menu bar: a strip of paper with a pencil ruler along its foot and the menu titles written on it. Hovered, focused or open, a title wears the highlighter; each menu opens the same slip as the dropdown. Roving focus, hover-to-switch and typeahead are Radix\'s.',
+  description:
+      'A desktop-style menu bar: a strip of paper with a pencil ruler along its foot and the menu titles written on it. Hovered, focused or open, a title wears the highlighter; each menu opens the same slip as the dropdown. Roving focus, hover-to-switch and typeahead are Radix\'s.',
   status: ComponentStatus.stable,
   upstream: 'menubar',
   parts: [
     PartDoc(
       name: 'Menubar',
-      description: 'The bar (Radix Menubar root, role=menubar) and the ink host of the strip: a pale paper-shade body under a fine felt outline, a pencil ruler\'s ticks along the foot. Hairline and without the ruler in calm density.',
+      description:
+          'The bar (Radix Menubar root, role=menubar) and the ink host of the strip: a pale paper-shade body under a fine felt outline, a pencil ruler\'s ticks along the foot. Hairline and without the ruler in calm density.',
       props: [
         PropDoc(
           name: 'value / defaultValue / onValueChange',
@@ -39,11 +41,13 @@ const menubarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MenubarMenu',
-      description: 'One title with its menu (Radix Menu). Give it a `value` when the bar is controlled.',
+      description:
+          'One title with its menu (Radix Menu). Give it a `value` when the bar is controlled.',
     ),
     PartDoc(
       name: 'MenubarTrigger',
-      description: 'A title on the strip (role=menuitem). It is not an ink host: hover, focus and open wear the highlighter.',
+      description:
+          'A title on the strip (role=menuitem). It is not an ink host: hover, focus and open wear the highlighter.',
     ),
     PartDoc(
       name: 'MenubarPortal',
@@ -51,7 +55,8 @@ const menubarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MenubarContent',
-      description: 'The slip: a Paper that is also the Radix content (role=menu). Rows scroll in a viewport inside it so the shadow is not cut. `max-h-*`, `overflow-*` and `overscroll-*` in `className` are applied to that viewport (shadcn code writes them on the content), the rest stays on the slip. Every Radix Content prop passes through.',
+      description:
+          'The slip: a Paper that is also the Radix content (role=menu). Rows scroll in a viewport inside it so the shadow is not cut. `max-h-*`, `overflow-*` and `overscroll-*` in `className` are applied to that viewport (shadcn code writes them on the content), the rest stays on the slip. Every Radix Content prop passes through.',
       props: [
         PropDoc(
           name: 'align',
@@ -136,7 +141,8 @@ const menubarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MenubarCheckboxItem',
-      description: 'A pencil box at the start of the row, ticked in blue felt when `checked`.',
+      description:
+          'A pencil box at the start of the row, ticked in blue felt when `checked`.',
       props: [
         PropDoc(
           name: 'checked',
@@ -174,7 +180,8 @@ const menubarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MenubarShortcut',
-      description: 'Keys at the end of a row: a string is drawn as keycaps (`⌘T` is two keys, `Ctrl+N` two, `F5` one), anything else is put in as it is.',
+      description:
+          'Keys at the end of a row: a string is drawn as keycaps (`⌘T` is two keys, `Ctrl+N` two, `F5` one), anything else is put in as it is.',
     ),
     PartDoc(
       name: 'MenubarSub',
@@ -182,7 +189,8 @@ const menubarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MenubarSubTrigger',
-      description: 'The row that opens it, with a hand-drawn chevron; it keeps the highlighter while its sub-menu is open.',
+      description:
+          'The row that opens it, with a hand-drawn chevron; it keeps the highlighter while its sub-menu is open.',
       props: [
         PropDoc(
           name: 'inset',
@@ -195,7 +203,8 @@ const menubarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MenubarSubContent',
-      description: 'The sub-menu\'s own slip, set down beside its row with its first row level with the one that opened it (`alignOffset` -4, the slip\'s padding).',
+      description:
+          'The sub-menu\'s own slip, set down beside its row with its first row level with the one that opened it (`alignOffset` -4, the slip\'s padding).',
     ),
   ],
   a11y: [

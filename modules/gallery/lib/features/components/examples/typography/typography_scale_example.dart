@@ -21,7 +21,8 @@ class TypographyScaleExample extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                text: 'Most of what I remember from a book is in the margins. Run ',
+                text:
+                    'Most of what I remember from a book is in the margins. Run ',
               ),
               WidgetSpan(
                 alignment: PlaceholderAlignment.baseline,

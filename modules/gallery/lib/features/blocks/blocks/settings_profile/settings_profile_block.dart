@@ -95,7 +95,8 @@ class _SettingsProfileBlockState extends State<SettingsProfileBlock> {
         if (!mounted) return;
         setState(
           () => _failure = switch ('$error') {
-            '' => 'Your changes were not saved. Nothing was lost, so try again in a moment.',
+            '' =>
+              'Your changes were not saved. Nothing was lost, so try again in a moment.',
             final message => message,
           },
         );
@@ -256,7 +257,8 @@ class _SettingsProfileBlockState extends State<SettingsProfileBlock> {
               'Email',
               validator: profileValidateEmail,
               placeholder: 'ada@notes.dev',
-              description: 'Receipts and sign-in links go here. It is never shown on your card.',
+              description:
+                  'Receipts and sign-in links go here. It is never shown on your card.',
               autofill: const [AutofillHints.email],
               keyboard: TextInputType.emailAddress,
             ),

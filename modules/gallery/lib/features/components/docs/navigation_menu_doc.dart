@@ -5,19 +5,22 @@ const navigationMenuDoc = ComponentDoc(
   slug: 'navigation-menu',
   title: 'Navigation Menu',
   category: ComponentCategory.navigation,
-  description: 'A site\'s top navigation as a strip of index dividers: pencil-sketched tabs standing on a pencil line, the open one lifted and washed with highlighter, the current page filled. Its panel drops from under the strip as a slip of paper that follows the size of what is inside, and a felt-tip underline slides along to the open tab. Hover intent, arrow keys and the motion between panels are Radix\'s.',
+  description:
+      'A site\'s top navigation as a strip of index dividers: pencil-sketched tabs standing on a pencil line, the open one lifted and washed with highlighter, the current page filled. Its panel drops from under the strip as a slip of paper that follows the size of what is inside, and a felt-tip underline slides along to the open tab. Hover intent, arrow keys and the motion between panels are Radix\'s.',
   status: ComponentStatus.stable,
   upstream: 'navigation-menu',
   parts: [
     PartDoc(
       name: 'NavigationMenu',
-      description: 'The Radix root (`nav`). Renders the shared viewport slip after its children unless told not to. The panel is not portalled: it hangs from the strip, so its `z-index` counts inside the nearest stacking context. Inside a Paper, a card or any other isolated header, give that element a z-index (`z-(--ll-z-raised)`) so the panel drops over the content that follows it.',
+      description:
+          'The Radix root (`nav`). Renders the shared viewport slip after its children unless told not to. The panel is not portalled: it hangs from the strip, so its `z-index` counts inside the nearest stacking context. Inside a Paper, a card or any other isolated header, give that element a z-index (`z-(--ll-z-raised)`) so the panel drops over the content that follows it.',
       props: [
         PropDoc(
           name: 'viewport',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'One slip shared by every panel, resized to the open one (and the panels slide inside it). `false`: each panel is a slip of its own set down under its tab.',
+          description:
+              'One slip shared by every panel, resized to the open one (and the panels slide inside it). `false`: each panel is a slip of its own set down under its tab.',
         ),
         PropDoc(
           name: 'value / defaultValue / onValueChange',
@@ -33,13 +36,15 @@ const navigationMenuDoc = ComponentDoc(
         PropDoc(
           name: 'dir / orientation',
           type: '',
-          description: 'Radix\'s. The tabs, arrows and drawings follow the reading direction.',
+          description:
+              'Radix\'s. The tabs, arrows and drawings follow the reading direction.',
         ),
       ],
     ),
     PartDoc(
       name: 'NavigationMenuList',
-      description: 'The row of tabs (`ul`). It is the ink host of the pencil line they stand on.',
+      description:
+          'The row of tabs (`ul`). It is the ink host of the pencil line they stand on.',
     ),
     PartDoc(
       name: 'NavigationMenuItem',
@@ -47,12 +52,14 @@ const navigationMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'NavigationMenuTrigger',
-      description: 'A tab that opens a panel (a button, `aria-expanded`). Its drawing: a faint pencil sketch at rest, highlighter and felt under the pointer, lifted with a wash while open. The chevron turns over when it opens.',
+      description:
+          'A tab that opens a panel (a button, `aria-expanded`). Its drawing: a faint pencil sketch at rest, highlighter and felt under the pointer, lifted with a wash while open. The chevron turns over when it opens.',
       props: [
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same tab. Default: from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same tab. Default: from useId().',
         ),
         PropDoc(
           name: 'disabled',
@@ -64,21 +71,25 @@ const navigationMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'NavigationMenuContent',
-      description: 'A panel\'s contents. In the shared viewport it slides between items, clipped to the slip; without the viewport it is a slip of its own. Links inside it are rows.',
+      description:
+          'A panel\'s contents. In the shared viewport it slides between items, clipped to the slip; without the viewport it is a slip of its own. Links inside it are rows.',
     ),
     PartDoc(
       name: 'NavigationMenuViewport',
-      description: 'The shared slip the open panel is written on: a Paper (a CSS sheet) around Radix\'s clipping viewport, dropped from under the strip and resized to fit.',
+      description:
+          'The shared slip the open panel is written on: a Paper (a CSS sheet) around Radix\'s clipping viewport, dropped from under the strip and resized to fit.',
     ),
     PartDoc(
       name: 'NavigationMenuLink',
-      description: 'A link. Inside a panel it is a row that wears the highlighter (the current one stays on it). In the strip itself it is a tab, like the triggers, and the current page (`active`) is filled with highlighter: pass `asChild` to use your router\'s link. Inside a panel every svg without a `size-*` class is drawn 16 px (the icon rule), so give art such as a Mascot an explicit size.',
+      description:
+          'A link. Inside a panel it is a row that wears the highlighter (the current one stays on it). In the strip itself it is a tab, like the triggers, and the current page (`active`) is filled with highlighter: pass `asChild` to use your router\'s link. Inside a panel every svg without a `size-*` class is drawn 16 px (the icon rule), so give art such as a Mascot an explicit size.',
       props: [
         PropDoc(
           name: 'active',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'The current page: `aria-current="page"`, `data-active`, and the filled tab.',
+          description:
+              'The current page: `aria-current="page"`, `data-active`, and the filled tab.',
         ),
         PropDoc(
           name: 'seed',
@@ -89,11 +100,13 @@ const navigationMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'NavigationMenuIndicator',
-      description: 'The felt-tip underline under the strip that slides to the open tab and stretches to fit it. Shown only while a panel is open. Put it inside the List, after the items.',
+      description:
+          'The felt-tip underline under the strip that slides to the open tab and stretches to fit it. Shown only while a panel is open. Put it inside the List, after the items.',
     ),
     PartDoc(
       name: 'navigationMenuTriggerStyle',
-      description: 'The class of a tab (a cva). Radix links in the strip already wear it; use it for your own element that should look like a tab.',
+      description:
+          'The class of a tab (a cva). Radix links in the strip already wear it; use it for your own element that should look like a tab.',
     ),
   ],
   a11y: [

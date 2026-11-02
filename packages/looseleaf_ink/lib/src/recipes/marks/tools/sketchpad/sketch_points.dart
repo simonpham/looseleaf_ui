@@ -13,15 +13,19 @@ const double _minStep = 2.2;
   final r = <double>[];
   for (final (x, y, pr) in src) {
     if (!x.isFinite || !y.isFinite) continue;
-    if (p case [..., final last]
-        when JsMath.hypot(x - last.x, y - last.y) < _minStep) {
+    if (p case [
+      ...,
+      final last,
+    ] when JsMath.hypot(x - last.x, y - last.y) < _minStep) {
       continue;
     }
     p.add((x, y));
     r.add(pr ?? -1);
   }
-  if (src case [..., (final tx, final ty, final tp)]
-      when p.length > 1 && tx.isFinite && ty.isFinite) {
+  if (src case [
+    ...,
+    (final tx, final ty, final tp),
+  ] when p.length > 1 && tx.isFinite && ty.isFinite) {
     final last = p[p.length - 1];
     if (JsMath.hypot(tx - last.x, ty - last.y) > 0.4) {
       p.add((tx, ty));

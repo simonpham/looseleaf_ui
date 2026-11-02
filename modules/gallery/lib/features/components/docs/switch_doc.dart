@@ -5,19 +5,22 @@ const switchDoc = ComponentDoc(
   slug: 'switch',
   title: 'Switch',
   category: ComponentCategory.forms,
-  description: 'An on/off switch drawn as one clean felt pill: the terracotta marker fills the track when it is on, and a paper coin for a thumb slides across. Radix Switch underneath.',
+  description:
+      'An on/off switch drawn as one clean felt pill: the terracotta marker fills the track when it is on, and a paper coin for a thumb slides across. Radix Switch underneath.',
   status: ComponentStatus.stable,
   upstream: 'switch',
   parts: [
     PartDoc(
       name: 'Switch',
-      description: 'Radix Switch.Root (a <button role="switch">, plus Radix\'s hidden checkbox inside a form) with the track drawn behind it and the thumb (data-slot="switch-thumb") inside. On, hover, focus and pressed follow the element\'s state in CSS, so a click never redraws anything.',
+      description:
+          'Radix Switch.Root (a <button role="switch">, plus Radix\'s hidden checkbox inside a form) with the track drawn behind it and the thumb (data-slot="switch-thumb") inside. On, hover, focus and pressed follow the element\'s state in CSS, so a click never redraws anything.',
       props: [
         PropDoc(
           name: 'size',
           type: '"default" | "sm"',
           defaultValue: '"default"',
-          description: '44 x 24 px or 36 x 20 px (calm density always uses the small one). The thumb and its travel follow the size through two custom properties.',
+          description:
+              '44 x 24 px or 36 x 20 px (calm density always uses the small one). The thumb and its travel follow the size through two custom properties.',
         ),
         PropDoc(
           name: 'checked',
@@ -38,22 +41,26 @@ const switchDoc = ComponentDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Dashed pencil track on a graphite wash. Not focusable, no hover.',
+          description:
+              'Dashed pencil track on a graphite wash. Not focusable, no hover.',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'true draws the outline in red pencil, and keeps it red on top of the fill when the switch is on.',
+          description:
+              'true draws the outline in red pencil, and keeps it red on top of the fill when the switch is on.',
         ),
         PropDoc(
           name: 'name / value / required / form',
           type: 'string | boolean',
-          description: 'Forwarded to Radix\'s hidden input: on submits "on" (or `value`), off submits nothing.',
+          description:
+              'Forwarded to Radix\'s hidden input: on submits "on" (or `value`), off submits nothing.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same track and coin. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same track and coin. Default: derived from useId().',
         ),
       ],
     ),

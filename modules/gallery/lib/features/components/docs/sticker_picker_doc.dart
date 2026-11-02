@@ -5,33 +5,39 @@ const stickerPickerDoc = ComponentDoc(
   slug: 'sticker-picker',
   title: 'Sticker picker',
   category: ComponentCategory.forms,
-  description: 'A popover of stickers to choose from: a search field, category chips and a grid you walk with the arrow keys. Reach for it in a comment box, a reaction bar or a profile editor. The highlighted sticker peels its corner.',
+  description:
+      'A popover of stickers to choose from: a search field, category chips and a grid you walk with the arrow keys. Reach for it in a comment box, a reaction bar or a profile editor. The highlighted sticker peels its corner.',
   status: ComponentStatus.isNew,
   upstream: 'popover',
   parts: [
     PartDoc(
       name: 'StickerPicker',
-      description: 'A Popover (same open, defaultOpen, onOpenChange, modal) that also holds what the grid needs: the catalog, the recent list and what happens on choosing.',
+      description:
+          'A Popover (same open, defaultOpen, onOpenChange, modal) that also holds what the grid needs: the catalog, the recent list and what happens on choosing.',
       props: [
         PropDoc(
           name: 'onSelect',
           type: '(sticker: StickerPickerItem) => void',
-          description: 'Called with { name, label, category, categoryLabel, tags } when one is chosen (Enter, or a tap).',
+          description:
+              'Called with { name, label, category, categoryLabel, tags } when one is chosen (Enter, or a tap).',
         ),
         PropDoc(
           name: 'value',
           type: 'string | null',
-          description: 'The sticker chosen elsewhere: it is marked in the grid (aria-selected, and a check).',
+          description:
+              'The sticker chosen elsewhere: it is marked in the grid (aria-selected, and a check).',
         ),
         PropDoc(
           name: 'stickers',
           type: '(string | { name; label?; category?; tags? })[]',
-          description: 'Offer only these, in this order, under your own labels, categories and search words. Names that have not been drawn are skipped. Default: everything in the art library, grouped by the batch it was drawn in.',
+          description:
+              'Offer only these, in this order, under your own labels, categories and search words. Names that have not been drawn are skipped. Default: everything in the art library, grouped by the batch it was drawn in.',
         ),
         PropDoc(
           name: 'recent',
           type: 'string[]',
-          description: 'Ids to show first under "Recent" (in the unfiltered view). Keep them in your own state.',
+          description:
+              'Ids to show first under "Recent" (in the unfiltered view). Keep them in your own state.',
         ),
         PropDoc(
           name: 'closeOnSelect',
@@ -44,11 +50,13 @@ const stickerPickerDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'StickerPickerTrigger',
-      description: 'The PopoverTrigger: pass asChild and any button. To open it from somewhere else, put a PopoverAnchor (from @/components/ui/popover) inside the StickerPicker.',
+      description:
+          'The PopoverTrigger: pass asChild and any button. To open it from somewhere else, put a PopoverAnchor (from @/components/ui/popover) inside the StickerPicker.',
     ),
     PartDoc(
       name: 'StickerPickerContent',
-      description: 'The slip that opens: search field, category chips, the grid, and a caption naming the highlighted sticker. Its body exists only while open, so the search starts fresh every time.',
+      description:
+          'The slip that opens: search field, category chips, the grid, and a caption naming the highlighted sticker. Its body exists only while open, so the search starts fresh every time.',
       props: [
         PropDoc(
           name: 'columns',
@@ -71,13 +79,15 @@ const stickerPickerDoc = ComponentDoc(
         PropDoc(
           name: 'align / side / …',
           type: 'PopoverContent props',
-          description: 'Everything PopoverContent takes (stock, pin, tape, arrow, sideOffset).',
+          description:
+              'Everything PopoverContent takes (stock, pin, tape, arrow, sideOffset).',
         ),
       ],
     ),
     PartDoc(
       name: 'useStickerPicker',
-      description: 'The picker\'s context (catalog, recent, value, choose) for building your own content.',
+      description:
+          'The picker\'s context (catalog, recent, value, choose) for building your own content.',
     ),
   ],
   a11y: [

@@ -6,361 +6,421 @@ const List<BlockDoc> allBlockDocs = [
   BlockDoc(
     slug: 'announcement-bar',
     title: 'Announcement bar',
-    description: 'A strip of kraft paper taped across the top of the page: a New ribbon, one sentence, a link and a dismiss button. Looks right on paper or on the desk.',
+    description:
+        'A strip of kraft paper taped across the top of the page: a New ribbon, one sentence, a link and a dismiss button. Looks right on paper or on the desk.',
     tags: ['marketing', 'banner', 'ribbon'],
   ),
   BlockDoc(
     slug: 'calendar-planner',
     title: 'Calendar planner',
-    description: 'A month planner: the hand-ruled Calendar with dots on the days that have something on, the chosen day written one event to a line on an index card, what comes next, and a dialog to add, change or cross out an event. Days say how many events they hold to a screen reader. Made for the desk; the sheets bring their own paper.',
+    description:
+        'A month planner: the hand-ruled Calendar with dots on the days that have something on, the chosen day written one event to a line on an index card, what comes next, and a dialog to add, change or cross out an event. Days say how many events they hold to a screen reader. Made for the desk; the sheets bring their own paper.',
     tags: ['calendar', 'planner', 'dialog', 'productivity'],
   ),
   BlockDoc(
     slug: 'chat-app',
     title: 'Chat app',
-    description: 'A two-pane chat for a pen-pal look: a pad of conversations with search and an unread filter, and a thread with a transcript that pins your message and follows the reply as it is written word by word, attachments, tool notes, a code slip with a diff, and the composer on its napkin. One pane at a time on a phone. Both panes are sheets of paper, so it looks right on paper or on the desk.',
+    description:
+        'A two-pane chat for a pen-pal look: a pad of conversations with search and an unread filter, and a thread with a transcript that pins your message and follows the reply as it is written word by word, attachments, tool notes, a code slip with a diff, and the composer on its napkin. One pane at a time on a phone. Both panes are sheets of paper, so it looks right on paper or on the desk.',
     tags: ['app', 'chat', 'messages', 'composer'],
   ),
   BlockDoc(
     slug: 'checkout-01',
     title: 'Checkout 01',
-    description: 'Checkout on one taped page: contact, delivery (choice cards that show what each costs right now, with no address asked for a pick-up) and a card checked as you type (Luhn, expiry, grouped digits), beside a basket with quantity steppers, a promo code and a till receipt that rewrites itself with the delivery, discount and VAT. A failed try lists what needs a look with buttons to the fields; placing the order swaps the page for a thank-you with the receipt stamped PAID. The text and forms sit on sheets of their own, so it looks right on paper or on the desk.',
+    description:
+        'Checkout on one taped page: contact, delivery (choice cards that show what each costs right now, with no address asked for a pick-up) and a card checked as you type (Luhn, expiry, grouped digits), beside a basket with quantity steppers, a promo code and a till receipt that rewrites itself with the delivery, discount and VAT. A failed try lists what needs a look with buttons to the fields; placing the order swaps the page for a thank-you with the receipt stamped PAID. The text and forms sit on sheets of their own, so it looks right on paper or on the desk.',
     tags: ['commerce', 'checkout', 'receipt', 'form', 'validation'],
   ),
   BlockDoc(
     slug: 'cta-01',
     title: 'Call to action, ticket',
-    description: 'One big admit-one ticket: riso lettering, two buttons, and a stub with Stubby celebrating and a serial number. Looks right on paper or on the desk.',
+    description:
+        'One big admit-one ticket: riso lettering, two buttons, and a stub with Stubby celebrating and a serial number. Looks right on paper or on the desk.',
     tags: ['marketing', 'cta', 'ticket'],
   ),
   BlockDoc(
     slug: 'dashboard-01',
     title: 'Dashboard 01',
-    description: 'The classic admin page: a sidebar hung from a binder clip, four numbers, an area chart you can re-cut by date and a table you can select, hide columns from, page through and edit. Mirrors shadcn\'s dashboard-01. Looks right on the desk (the page is a sheet set on it) and on plain paper.',
+    description:
+        'The classic admin page: a sidebar hung from a binder clip, four numbers, an area chart you can re-cut by date and a table you can select, hide columns from, page through and edit. Mirrors shadcn\'s dashboard-01. Looks right on the desk (the page is a sheet set on it) and on plain paper.',
     tags: ['dashboard', 'sidebar', 'chart', 'table'],
   ),
   BlockDoc(
     slug: 'dashboard-analytics',
     title: 'Analytics dashboard',
-    description: 'Traffic on one sheet of paper: four sparkline numbers, visitors day by day against the days before, where they came from, the top pages and a checkout funnel with its biggest drop circled. The date range re-works every figure. The sheet brings its own paper, so it reads the same on the desk and on a plain page.',
+    description:
+        'Traffic on one sheet of paper: four sparkline numbers, visitors day by day against the days before, where they came from, the top pages and a checkout funnel with its biggest drop circled. The date range re-works every figure. The sheet brings its own paper, so it reads the same on the desk and on a plain page.',
     tags: ['dashboard', 'analytics', 'charts', 'table'],
   ),
   BlockDoc(
     slug: 'dashboard-finance',
     title: 'Finance dashboard',
-    description: 'A household ledger on a three-hole-punched sheet: balances written up as a till receipt with the total circled, money in and out, budgets as pencil bars that turn to a red word when a pot is overspent, a donut, and a transactions table with status chips you can filter, sort and add to. Brings its own paper, so it reads the same on the desk and on a plain page.',
+    description:
+        'A household ledger on a three-hole-punched sheet: balances written up as a till receipt with the total circled, money in and out, budgets as pencil bars that turn to a red word when a pot is overspent, a donut, and a transactions table with status chips you can filter, sort and add to. Brings its own paper, so it reads the same on the desk and on a plain page.',
     tags: ['dashboard', 'finance', 'receipt', 'table', 'charts'],
   ),
   BlockDoc(
     slug: 'empty-inbox',
     title: 'Empty inbox',
-    description: 'A taped inbox card with three filters and an empty state under each: inbox zero with Stubby celebrating beside a hand-circled 0, all quiet, and nothing starred. Looks right on paper or on the desk.',
+    description:
+        'A taped inbox card with three filters and an empty state under each: inbox zero with Stubby celebrating beside a hand-circled 0, all quiet, and nothing starred. Looks right on paper or on the desk.',
     tags: ['empty state', 'inbox', 'stubby', 'tabs'],
   ),
   BlockDoc(
     slug: 'empty-search',
     title: 'Empty search',
-    description: 'A contacts list with a live search. When nothing matches, Stubby comes out with his magnifying glass, quotes the words back, and offers to clear the box or try a search that works. Looks right on paper or on the desk.',
+    description:
+        'A contacts list with a live search. When nothing matches, Stubby comes out with his magnifying glass, quotes the words back, and offers to clear the box or try a search that works. Looks right on paper or on the desk.',
     tags: ['empty state', 'search', 'stubby', 'input group'],
   ),
   BlockDoc(
     slug: 'error-404',
     title: '404, page not found',
-    description: 'A torn scrap with 404 in riso lettering and Stubby shrugging beside it, a sentence, a search box (press / to reach it) and two ways out, all on one taped sheet. Looks right on paper or on the desk.',
+    description:
+        'A torn scrap with 404 in riso lettering and Stubby shrugging beside it, a sentence, a search box (press / to reach it) and two ways out, all on one taped sheet. Looks right on paper or on the desk.',
     tags: ['marketing', 'error', '404', 'stubby'],
   ),
   BlockDoc(
     slug: 'error-500',
     title: '500, server error',
-    description: 'Stubby says oops and a pink sticky note says sorry, over an incident slip with the request, the time and a circled reference with a barcode and a copy button; try again, go home, check the status. Looks right on paper or on the desk.',
+    description:
+        'Stubby says oops and a pink sticky note says sorry, over an incident slip with the request, the time and a circled reference with a barcode and a copy button; try again, go home, check the status. Looks right on paper or on the desk.',
     tags: ['marketing', 'error', '500', 'stubby'],
   ),
   BlockDoc(
     slug: 'faq-01',
     title: 'FAQ on ruled paper',
-    description: 'An accordion written on ruled notebook paper, every line on the printed rules, with a flagged "still stuck?" index card and Stubby beside it. Looks right on paper or on the desk.',
+    description:
+        'An accordion written on ruled notebook paper, every line on the printed rules, with a flagged "still stuck?" index card and Stubby beside it. Looks right on paper or on the desk.',
     tags: ['marketing', 'faq', 'accordion'],
   ),
   BlockDoc(
     slug: 'features-01',
     title: 'Features, cards and bento',
-    description: 'A feature section in two looks: three index cards with doodle icons, or a bento of a ruled page, a sticky note, a polaroid, a receipt and a ticket pinned to a corkboard (variant="bento"). Looks right on paper or on the desk.',
+    description:
+        'A feature section in two looks: three index cards with doodle icons, or a bento of a ruled page, a sticky note, a polaroid, a receipt and a ticket pinned to a corkboard (variant="bento"). Looks right on paper or on the desk.',
     tags: ['marketing', 'features', 'bento', 'corkboard'],
   ),
   BlockDoc(
     slug: 'file-explorer',
     title: 'File explorer',
-    description: 'A filing cabinet: the places are the tabs of a manila folder, and inside one you open folders with a trail back, switch between a list and a grid, sort, search, pick several files and delete them (with an Undo). Files are named to a screen reader with their kind, size and date. Made for the desk, where the folder\'s kraft looks right.',
+    description:
+        'A filing cabinet: the places are the tabs of a manila folder, and inside one you open folders with a trail back, switch between a list and a grid, sort, search, pick several files and delete them (with an Undo). Files are named to a screen reader with their kind, size and date. Made for the desk, where the folder\'s kraft looks right.',
     tags: ['files', 'folders', 'list', 'grid'],
   ),
   BlockDoc(
     slug: 'footer-01',
     title: 'Footer, stitched kraft',
-    description: 'A sheet of kraft torn along its top edge and sewn with a running stitch: wordmark and Stubby, three link lists, social buttons, a status badge and a round rubber stamp. Looks right on paper or on the desk.',
+    description:
+        'A sheet of kraft torn along its top edge and sewn with a running stitch: wordmark and Stubby, three link lists, social buttons, a status badge and a round rubber stamp. Looks right on paper or on the desk.',
     tags: ['marketing', 'footer', 'kraft', 'stamp'],
   ),
   BlockDoc(
     slug: 'forgot-password-01',
     title: 'Forgot password 01',
-    description: 'One field asks for a reset link, and the answer never says whether the address has an account. The card then turns into a note that the link is on its way, with a way to send it again. Taped card, Stubby searching. Made for the desk.',
+    description:
+        'One field asks for a reset link, and the answer never says whether the address has an account. The card then turns into a note that the link is on its way, with a way to send it again. Taped card, Stubby searching. Made for the desk.',
     tags: ['password', 'auth', 'recovery', 'card', 'desk'],
   ),
   BlockDoc(
     slug: 'inbox',
     title: 'Inbox',
-    description: 'Letters on one side, the open one on a sheet of its own on the other. Closed envelopes are unread, opened ones are read; the list is a single tab stop moved with the arrow keys. Folders, a search, unread only, archive, delete, star, mark unread and a reply box, with a status line for every move. On a phone it shows one pane at a time with a way back. Made for the desk.',
+    description:
+        'Letters on one side, the open one on a sheet of its own on the other. Closed envelopes are unread, opened ones are read; the list is a single tab stop moved with the arrow keys. Folders, a search, unread only, archive, delete, star, mark unread and a reply box, with a status line for every move. On a phone it shows one pane at a time with a way back. Made for the desk.',
     tags: ['inbox', 'mail', 'list', 'reading pane'],
   ),
   BlockDoc(
     slug: 'kanban-board',
     title: 'Kanban board',
-    description: 'Three columns of sticky notes on graph paper. Every note has arrow buttons that name the note and the column it goes to, so moving one works from the keyboard and a screen reader; you can also pick a note up and drop it on another column. Add a note at the foot of a column. Made for the desk, fine on a plain page.',
+    description:
+        'Three columns of sticky notes on graph paper. Every note has arrow buttons that name the note and the column it goes to, so moving one works from the keyboard and a screen reader; you can also pick a note up and drop it on another column. Add a note at the foot of a column. Made for the desk, fine on a plain page.',
     tags: ['kanban', 'sticky notes', 'drag and drop', 'productivity'],
   ),
   BlockDoc(
     slug: 'landing-hero-01',
     title: 'Landing hero, split',
-    description: 'A headline in riso lettering with a highlighted phrase, two buttons, social proof and a collage of a polaroid, a sticky note, an index card, a sticker and Stubby, on one taped sheet. Looks right on paper or on the desk.',
+    description:
+        'A headline in riso lettering with a highlighted phrase, two buttons, social proof and a collage of a polaroid, a sticky note, an index card, a sticker and Stubby, on one taped sheet. Looks right on paper or on the desk.',
     tags: ['marketing', 'hero', 'landing'],
   ),
   BlockDoc(
     slug: 'landing-hero-02',
     title: 'Landing hero, centered',
-    description: 'A centered riso headline, two buttons, and the product on a taped page: a checklist you can tick (the bar, the tally and a stamp follow), margin notes and Stubby peeking over the edge. Looks right on paper or on the desk.',
+    description:
+        'A centered riso headline, two buttons, and the product on a taped page: a checklist you can tick (the bar, the tally and a stamp follow), margin notes and Stubby peeking over the edge. Looks right on paper or on the desk.',
     tags: ['marketing', 'hero', 'landing', 'product shot'],
   ),
   BlockDoc(
     slug: 'login-01',
     title: 'Login 01',
-    description: 'A taped sheet on the desk with a hand-written welcome back and Stubby looking over its top edge. Email, password with a show toggle, remember me and a Google button, checked with react-hook-form and zod. Sits on the desk (it brings its own) and reads the same on paper.',
+    description:
+        'A taped sheet on the desk with a hand-written welcome back and Stubby looking over its top edge. Email, password with a show toggle, remember me and a Google button, checked with react-hook-form and zod. Sits on the desk (it brings its own) and reads the same on paper.',
     tags: ['login', 'auth', 'card', 'desk', 'mascot'],
   ),
   BlockDoc(
     slug: 'login-02',
     title: 'Login 02',
-    description: 'Two columns: the form on a sheet of paper, and where the photograph would be a hand-made cover on the desk (graph paper, a greeting, Stubby waving, a pinned note, stickers). The cover shows from 48rem of width. Paper on one side, desk on the other, so it works on either.',
+    description:
+        'Two columns: the form on a sheet of paper, and where the photograph would be a hand-made cover on the desk (graph paper, a greeting, Stubby waving, a pinned note, stickers). The cover shows from 48rem of width. Paper on one side, desk on the other, so it works on either.',
     tags: ['login', 'auth', 'split', 'collage'],
   ),
   BlockDoc(
     slug: 'login-03',
     title: 'Login 03',
-    description: 'A card on a quiet desk with a pencil lying about. Apple and Google buttons, an or-continue-with rule, then email and password. The desk is the muted background of the official block and travels with the block.',
+    description:
+        'A card on a quiet desk with a pencil lying about. Apple and Google buttons, an or-continue-with rule, then email and password. The desk is the muted background of the official block and travels with the block.',
     tags: ['login', 'auth', 'card', 'social', 'desk'],
   ),
   BlockDoc(
     slug: 'login-04',
     title: 'Login 04',
-    description: 'A card that opens into two columns: the form, and a kraft panel with three drawn polaroids taped and pinned to it. Three provider buttons in a row. The pictures stay home below 42rem. Made for the desk.',
+    description:
+        'A card that opens into two columns: the form, and a kraft panel with three drawn polaroids taped and pinned to it. Three provider buttons in a row. The pictures stay home below 42rem. Made for the desk.',
     tags: ['login', 'auth', 'card', 'social', 'polaroid'],
   ),
   BlockDoc(
     slug: 'login-05',
     title: 'Login 05',
-    description: 'Email first, on a plain sheet of paper that is the whole page: Stubby waves, one field emails a sign-in link, Apple and Google below. After the link is sent the form says so and lets you fix the address. Brings its own paper, so it reads the same on the desk or on paper.',
+    description:
+        'Email first, on a plain sheet of paper that is the whole page: Stubby waves, one field emails a sign-in link, Apple and Google below. After the link is sent the form says so and lets you fix the address. Brings its own paper, so it reads the same on the desk or on paper.',
     tags: ['login', 'auth', 'email', 'magic-link', 'social'],
   ),
   BlockDoc(
     slug: 'logos-01',
     title: 'Logo tickers on washi tape',
-    description: 'Two strips of washi tape with customer names in their own type, running in opposite directions, one pause button for both; a plain wrapped list replaces them for reduced motion. Looks right on paper or on the desk.',
+    description:
+        'Two strips of washi tape with customer names in their own type, running in opposite directions, one pause button for both; a plain wrapped list replaces them for reduced motion. Looks right on paper or on the desk.',
     tags: ['marketing', 'logos', 'social proof', 'marquee'],
   ),
   BlockDoc(
     slug: 'newsletter-01',
     title: 'Newsletter sign-up',
-    description: 'A taped card with a labeled email field and a button, beside a kraft envelope that holds a sample letter. A bad address is flagged under the field; a good one opens the envelope and stamps it SUBSCRIBED. Looks right on paper or on the desk.',
+    description:
+        'A taped card with a labeled email field and a button, beside a kraft envelope that holds a sample letter. A bad address is flagged under the field; a good one opens the envelope and stamps it SUBSCRIBED. Looks right on paper or on the desk.',
     tags: ['marketing', 'newsletter', 'form', 'envelope'],
   ),
   BlockDoc(
     slug: 'notes-app',
     title: 'Notes app',
-    description: 'A notebook editor shell: notebooks as binder tabs down a spine, the pages of the open notebook as index cards, and the page itself on ruled spiral paper with a marks toolbar (highlight, underline, circle, cross out). Write mode is plain text in blue felt, Page mode draws the marks; a tally counts how often you have read it. One pane at a time on a phone. Both panes are sheets, so it looks right on paper or on the desk.',
+    description:
+        'A notebook editor shell: notebooks as binder tabs down a spine, the pages of the open notebook as index cards, and the page itself on ruled spiral paper with a marks toolbar (highlight, underline, circle, cross out). Write mode is plain text in blue felt, Page mode draws the marks; a tally counts how often you have read it. One pane at a time on a phone. Both panes are sheets, so it looks right on paper or on the desk.',
     tags: ['app', 'notes', 'editor', 'tabs'],
   ),
   BlockDoc(
     slug: 'onboarding-01',
     title: 'Onboarding checklist',
-    description: 'A taped card with a progress bar and a pencil tally that follow five ticks, a button per step, a stamp and confetti when the last one is done, and a skip link. Looks right on paper or on the desk.',
+    description:
+        'A taped card with a progress bar and a pencil tally that follow five ticks, a button per step, a stamp and confetti when the last one is done, and a skip link. Looks right on paper or on the desk.',
     tags: ['marketing', 'onboarding', 'checklist', 'progress'],
   ),
   BlockDoc(
     slug: 'otp-01',
     title: 'OTP 01',
-    description: 'Verify a code: six hand-drawn boxes on a taped card. The last digit checks it by itself, paste works, a wrong code turns the boxes red and clears them, resend comes back after a wait and the success card wears a rosette. A sticky note gives away the demo code. Made for the desk.',
+    description:
+        'Verify a code: six hand-drawn boxes on a taped card. The last digit checks it by itself, paste works, a wrong code turns the boxes red and clears them, resend comes back after a wait and the success card wears a rosette. A sticky note gives away the demo code. Made for the desk.',
     tags: ['otp', 'auth', 'verify', 'input-otp', 'desk'],
   ),
   BlockDoc(
     slug: 'pricing-01',
     title: 'Pricing 01',
-    description: 'Three price cards taped to the wall with a monthly / yearly switch. The middle plan is the popular one: taller, a medal sticker on its corner and its name highlighted. Prices follow the switch (yearly is two months free, said out loud to screen readers too), feature lists have hand-ticked lines, and a short accordion answers the questions people ask. The text sits on the page itself, so it reads the same on paper or on the desk.',
+    description:
+        'Three price cards taped to the wall with a monthly / yearly switch. The middle plan is the popular one: taller, a medal sticker on its corner and its name highlighted. Prices follow the switch (yearly is two months free, said out loud to screen readers too), feature lists have hand-ticked lines, and a short accordion answers the questions people ask. The text sits on the page itself, so it reads the same on paper or on the desk.',
     tags: ['marketing', 'pricing', 'plans', 'toggle'],
   ),
   BlockDoc(
     slug: 'profile-page',
     title: 'Profile page',
-    description: 'A person\'s page: a taped polaroid holding their photo (or initials) with the name, words, follow and message beside it, four numbers on slips, and three tabs. Activity is pages written week by week in tally marks (this week in marker) and a feed under the day it happened; Notebooks is a shelf of closed covers; Stickers shows the ones earned and, faint, what it takes to earn the rest. The text sits on the page itself, so it reads the same on paper or on the desk.',
+    description:
+        'A person\'s page: a taped polaroid holding their photo (or initials) with the name, words, follow and message beside it, four numbers on slips, and three tabs. Activity is pages written week by week in tally marks (this week in marker) and a feed under the day it happened; Notebooks is a shelf of closed covers; Stickers shows the ones earned and, faint, what it takes to earn the rest. The text sits on the page itself, so it reads the same on paper or on the desk.',
     tags: ['profile', 'social', 'activity', 'tally', 'polaroid'],
   ),
   BlockDoc(
     slug: 'reset-password-01',
     title: 'Reset password 01',
-    description: 'Choose a new password twice, with the rules as a checklist that ticks itself off while you type, then a card that says it is done. Stubby writes it down. Taped card on the desk with a pencil and push-pins.',
+    description:
+        'Choose a new password twice, with the rules as a checklist that ticks itself off while you type, then a card that says it is done. Stubby writes it down. Taped card on the desk with a pencil and push-pins.',
     tags: ['password', 'auth', 'recovery', 'card', 'desk'],
   ),
   BlockDoc(
     slug: 'settings-appearance',
     title: 'Settings: appearance',
-    description: 'Appearance settings for the InkProvider on a page punched at the top: theme, density (comfortable, compact, calm), motion, fine ink, reading direction and the paper to write on, as choice cards. A preview inside its own provider wears every choice at once, and the props to paste into your root provider are written out beneath it. It is a sheet of paper, so it looks right on paper or on the desk.',
+    description:
+        'Appearance settings for the InkProvider on a page punched at the top: theme, density (comfortable, compact, calm), motion, fine ink, reading direction and the paper to write on, as choice cards. A preview inside its own provider wears every choice at once, and the props to paste into your root provider are written out beneath it. It is a sheet of paper, so it looks right on paper or on the desk.',
     tags: ['settings', 'appearance', 'theme', 'density', 'motion'],
   ),
   BlockDoc(
     slug: 'settings-billing',
     title: 'Settings: billing',
-    description: 'Billing settings on a taped, coffee-ringed page: your plan as a ticket with choice cards and an honest price for changing it (upgrades are prorated, downgrades wait for the renewal and warn about what no longer fits), usage as pencil bars, the card on file with a real card form (Luhn check, expiry, auto-formatting), invoice details, and every invoice as a till receipt. It is a sheet of paper, so it looks right on paper or on the desk.',
+    description:
+        'Billing settings on a taped, coffee-ringed page: your plan as a ticket with choice cards and an honest price for changing it (upgrades are prorated, downgrades wait for the renewal and warn about what no longer fits), usage as pencil bars, the card on file with a real card form (Luhn check, expiry, auto-formatting), invoice details, and every invoice as a till receipt. It is a sheet of paper, so it looks right on paper or on the desk.',
     tags: ['settings', 'billing', 'invoices', 'payment'],
   ),
   BlockDoc(
     slug: 'settings-notifications',
     title: 'Settings: notifications',
-    description: 'Notification settings on a page torn from a pad: a how-much dial as choice cards, a ruled table with a hand-ticked box per event and channel, quiet hours with times and days, and a weekly summary. Choices that cannot work together (nothing reaches you, the same time twice, no days) are written under the box that causes them. It is a sheet of paper, so it looks right on paper or on the desk.',
+    description:
+        'Notification settings on a page torn from a pad: a how-much dial as choice cards, a ruled table with a hand-ticked box per event and channel, quiet hours with times and days, and a weekly summary. Choices that cannot work together (nothing reaches you, the same time twice, no days) are written under the box that causes them. It is a sheet of paper, so it looks right on paper or on the desk.',
     tags: ['settings', 'notifications', 'form', 'table'],
   ),
   BlockDoc(
     slug: 'settings-profile',
     title: 'Settings: profile',
-    description: 'Profile settings on a three-hole-punched page: photo upload with size and type checks, name, username (with a taken-name rule), email, bio with a live counter, pronouns, time zone, website and a search switch. react-hook-form and zod, every message written under its field, and an index card that shows how others see you as you type. It is a sheet of paper, so it looks right on paper or on the desk.',
+    description:
+        'Profile settings on a three-hole-punched page: photo upload with size and type checks, name, username (with a taken-name rule), email, bio with a live counter, pronouns, time zone, website and a search switch. react-hook-form and zod, every message written under its field, and an index card that shows how others see you as you type. It is a sheet of paper, so it looks right on paper or on the desk.',
     tags: ['settings', 'profile', 'form', 'validation'],
   ),
   BlockDoc(
     slug: 'sidebar-01',
     title: 'Sidebar 01',
-    description: 'A simple sidebar with the navigation grouped by section: an order pad hung from a binder clip, an edition switcher and a search box on top, the current page in highlighter with a bracket in the margin. Mirrors shadcn\'s sidebar-01. Looks right on the desk and on plain paper.',
+    description:
+        'A simple sidebar with the navigation grouped by section: an order pad hung from a binder clip, an edition switcher and a search box on top, the current page in highlighter with a bracket in the margin. Mirrors shadcn\'s sidebar-01. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'navigation', 'docs'],
   ),
   BlockDoc(
     slug: 'sidebar-02',
     title: 'Sidebar 02',
-    description: 'A sidebar with collapsible sections: each group label is a button that folds its pages away (the chevron turns over), and the page header is a strip of paper that stays at the top while the page scrolls. Mirrors shadcn\'s sidebar-02. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar with collapsible sections: each group label is a button that folds its pages away (the chevron turns over), and the page header is a strip of paper that stays at the top while the page scrolls. Mirrors shadcn\'s sidebar-02. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'navigation', 'collapsible'],
   ),
   BlockDoc(
     slug: 'sidebar-03',
     title: 'Sidebar 03',
-    description: 'A sidebar with submenus: every section is a bold row with its pages listed underneath, hung on a pencil line down the margin. Mirrors shadcn\'s sidebar-03. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar with submenus: every section is a bold row with its pages listed underneath, hung on a pencil line down the margin. Mirrors shadcn\'s sidebar-03. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'navigation', 'submenu'],
   ),
   BlockDoc(
     slug: 'sidebar-04',
     title: 'Sidebar 04',
-    description: 'A floating sidebar with submenus: the pad is set down on the desk with a margin all round and turned a little, 19rem wide, and the page beside it is a second sheet. Mirrors shadcn\'s sidebar-04. At its best on the desk; on plain paper it still reads as two sheets.',
+    description:
+        'A floating sidebar with submenus: the pad is set down on the desk with a margin all round and turned a little, 19rem wide, and the page beside it is a second sheet. Mirrors shadcn\'s sidebar-04. At its best on the desk; on plain paper it still reads as two sheets.',
     tags: ['sidebar', 'floating', 'submenu'],
   ),
   BlockDoc(
     slug: 'sidebar-05',
     title: 'Sidebar 05',
-    description: 'A sidebar with collapsible submenus: each section is a row with a plus that turns into a minus while its pages are showing. Mirrors shadcn\'s sidebar-05. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar with collapsible submenus: each section is a row with a plus that turns into a minus while its pages are showing. Mirrors shadcn\'s sidebar-05. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'navigation', 'collapsible'],
   ),
   BlockDoc(
     slug: 'sidebar-06',
     title: 'Sidebar 06',
-    description: 'A sidebar with submenus as dropdowns: each section opens its pages in a menu beside the pad, and a little sign-up card is tucked into the foot. Mirrors shadcn\'s sidebar-06. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar with submenus as dropdowns: each section opens its pages in a menu beside the pad, and a little sign-up card is tucked into the foot. Mirrors shadcn\'s sidebar-06. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'dropdown', 'form'],
   ),
   BlockDoc(
     slug: 'sidebar-07',
     title: 'Sidebar 07',
-    description: 'A sidebar that collapses to icons: the header button, Ctrl/Cmd+B or the strip on the pad\'s edge shrinks it to a 3rem column, the clip comes off and each icon names itself in a tooltip. Team switcher, folding rows, projects and an account menu. Mirrors shadcn\'s sidebar-07. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar that collapses to icons: the header button, Ctrl/Cmd+B or the strip on the pad\'s edge shrinks it to a 3rem column, the clip comes off and each icon names itself in a tooltip. Team switcher, folding rows, projects and an account menu. Mirrors shadcn\'s sidebar-07. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'icons', 'collapsible', 'app'],
   ),
   BlockDoc(
     slug: 'sidebar-08',
     title: 'Sidebar 08',
-    description: 'An inset sidebar with secondary navigation: the pad has a margin round it and the page becomes a sheet of paper set on the desk beside it. Rows fold open from a chevron, projects keep their menus, support and feedback sit at the foot. Mirrors shadcn\'s sidebar-08. At its best on the desk.',
+    description:
+        'An inset sidebar with secondary navigation: the pad has a margin round it and the page becomes a sheet of paper set on the desk beside it. Rows fold open from a chevron, projects keep their menus, support and feedback sit at the foot. Mirrors shadcn\'s sidebar-08. At its best on the desk.',
     tags: ['sidebar', 'inset', 'app'],
   ),
   BlockDoc(
     slug: 'sidebar-09',
     title: 'Sidebar 09',
-    description: 'Nested sidebars for a mail app: a strip of folder icons and, on the same pad, a second sheet listing the messages of the folder you picked, with search and an Unreads switch. Pick a message and it opens on the page. Mirrors shadcn\'s sidebar-09. Looks right on the desk and on plain paper.',
+    description:
+        'Nested sidebars for a mail app: a strip of folder icons and, on the same pad, a second sheet listing the messages of the folder you picked, with search and an Unreads switch. Pick a message and it opens on the page. Mirrors shadcn\'s sidebar-09. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'nested', 'mail', 'app'],
   ),
   BlockDoc(
     slug: 'sidebar-10',
     title: 'Sidebar 10',
-    description: 'A sidebar with a popover: a notes app with favorites and workspaces on the pad and, in the page header, a star and a "..." that opens a slip of actions built from the same menu parts as the pad. Mirrors shadcn\'s sidebar-10. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar with a popover: a notes app with favorites and workspaces on the pad and, in the page header, a star and a "..." that opens a slip of actions built from the same menu parts as the pad. Mirrors shadcn\'s sidebar-10. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'popover', 'notes', 'app'],
   ),
   BlockDoc(
     slug: 'sidebar-11',
     title: 'Sidebar 11',
-    description: 'A sidebar with a collapsible file tree: the changed files with their letters in the margin, then the folders, each folding open to any depth. Pick a file and the trail in the header follows it. Mirrors shadcn\'s sidebar-11. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar with a collapsible file tree: the changed files with their letters in the margin, then the folders, each folding open to any depth. Pick a file and the trail in the header follows it. Mirrors shadcn\'s sidebar-11. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'tree', 'files'],
   ),
   BlockDoc(
     slug: 'sidebar-12',
     title: 'Sidebar 12',
-    description: 'A sidebar with a calendar: a month to pick a day from, calendars as ticked boxes in folding groups, and your account on top. The picked day becomes the page. Mirrors shadcn\'s sidebar-12. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar with a calendar: a month to pick a day from, calendars as ticked boxes in folding groups, and your account on top. The picked day becomes the page. Mirrors shadcn\'s sidebar-12. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'calendar', 'app'],
   ),
   BlockDoc(
     slug: 'sidebar-13',
     title: 'Sidebar 13',
-    description: 'A sidebar in a dialog: the app\'s settings open in a sheet of their own that is a small app too, with a pad of sections, breadcrumbs and a page of switches. Opens from the Settings row or the header button. Mirrors shadcn\'s sidebar-13. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar in a dialog: the app\'s settings open in a sheet of their own that is a small app too, with a pad of sections, breadcrumbs and a page of switches. Opens from the Settings row or the header button. Mirrors shadcn\'s sidebar-13. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'dialog', 'settings'],
   ),
   BlockDoc(
     slug: 'sidebar-14',
     title: 'Sidebar 14',
-    description: 'A sidebar on the right: the page comes first and the pad hangs from the other edge as a table of contents, folding away with a button at the far end of the header. Mirrors shadcn\'s sidebar-14. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar on the right: the page comes first and the pad hangs from the other edge as a table of contents, folding away with a button at the far end of the header. Mirrors shadcn\'s sidebar-14. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'right', 'docs'],
   ),
   BlockDoc(
     slug: 'sidebar-15',
     title: 'Sidebar 15',
-    description: 'A left and a right sidebar: the notes pad hangs from the left and folds away, the calendar pad is taped in on the right and stays (from the lg breakpoint up), the page is a sheet between them. Mirrors shadcn\'s sidebar-15. Looks right on the desk and on plain paper.',
+    description:
+        'A left and a right sidebar: the notes pad hangs from the left and folds away, the calendar pad is taped in on the right and stays (from the lg breakpoint up), the page is a sheet between them. Mirrors shadcn\'s sidebar-15. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'calendar', 'app'],
   ),
   BlockDoc(
     slug: 'sidebar-16',
     title: 'Sidebar 16',
-    description: 'A sidebar under a sticky site header: a strip of paper runs across the whole window with the toggle button, the trail and a search box, and the pad and the page live below it. Mirrors shadcn\'s sidebar-16. Looks right on the desk and on plain paper.',
+    description:
+        'A sidebar under a sticky site header: a strip of paper runs across the whole window with the toggle button, the trail and a search box, and the pad and the page live below it. Mirrors shadcn\'s sidebar-16. Looks right on the desk and on plain paper.',
     tags: ['sidebar', 'header', 'app'],
   ),
   BlockDoc(
     slug: 'signup-01',
     title: 'Signup 01',
-    description: 'A guest check on the desk: a paper clip, dashed tear lines top and bottom, and a member number in the corner. Name, email, password twice and a Google button, with live messages in the fields. Made for the desk.',
+    description:
+        'A guest check on the desk: a paper clip, dashed tear lines top and bottom, and a member number in the corner. Name, email, password twice and a Google button, with live messages in the fields. Made for the desk.',
     tags: ['signup', 'auth', 'card', 'form', 'desk'],
   ),
   BlockDoc(
     slug: 'signup-02',
     title: 'Signup 02',
-    description: 'Two columns: the form on paper, and on the desk beside it the ticket you are signing up for (admit one, stub still on), a club stamp across the corner and Stubby celebrating. The ticket shows from 48rem of width.',
+    description:
+        'Two columns: the form on paper, and on the desk beside it the ticket you are signing up for (admit one, stub still on), a club stamp across the corner and Stubby celebrating. The ticket shows from 48rem of width.',
     tags: ['signup', 'auth', 'split', 'ticket'],
   ),
   BlockDoc(
     slug: 'signup-03',
     title: 'Signup 03',
-    description: 'A card on a quiet desk with paper clips and push-pins lying about. Password and confirmation side by side, and a tally under them that counts how strong the password is. Terms line under the card.',
+    description:
+        'A card on a quiet desk with paper clips and push-pins lying about. Password and confirmation side by side, and a tally under them that counts how strong the password is. Terms line under the card.',
     tags: ['signup', 'auth', 'card', 'desk', 'password-strength'],
   ),
   BlockDoc(
     slug: 'signup-04',
     title: 'Signup 04',
-    description: 'A card that opens into two columns: the form, and a kraft panel holding a welcome kit of nine stickers that really peel off. Three provider buttons. The sticker sheet stays home below 42rem. Made for the desk.',
+    description:
+        'A card that opens into two columns: the form, and a kraft panel holding a welcome kit of nine stickers that really peel off. Three provider buttons. The sticker sheet stays home below 42rem. Made for the desk.',
     tags: ['signup', 'auth', 'card', 'social', 'stickers'],
   ),
   BlockDoc(
     slug: 'signup-05',
     title: 'Signup 05',
-    description: 'Email first, on a page torn from a pad and laid on the desk: Stubby thinks about it, one field emails a link to start, Apple and Google below. After the link is sent the form says so. Brings its own desk and paper.',
+    description:
+        'Email first, on a page torn from a pad and laid on the desk: Stubby thinks about it, one field emails a link to start, Apple and Google below. After the link is sent the form says so. Brings its own desk and paper.',
     tags: ['signup', 'auth', 'email', 'magic-link', 'social'],
   ),
   BlockDoc(
     slug: 'testimonials-01',
     title: 'Testimonials wall',
-    description: 'Six quotations on six kinds of paper: sticky notes, a torn page, a polaroid, a napkin and an index card, pinned, taped and clipped, under a star rating. Looks right on paper or on the desk.',
+    description:
+        'Six quotations on six kinds of paper: sticky notes, a torn page, a polaroid, a napkin and an index card, pinned, taped and clipped, under a star rating. Looks right on paper or on the desk.',
     tags: ['marketing', 'testimonials', 'social proof'],
   ),
 ];

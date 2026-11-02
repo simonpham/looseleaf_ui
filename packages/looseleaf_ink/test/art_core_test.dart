@@ -6,9 +6,11 @@ import 'package:looseleaf_ink/src/builder/builder.dart';
 import 'package:looseleaf_ink/src/core/core.dart';
 import 'package:test/test.dart';
 
-final Map<String, dynamic> _fixture = jsonDecode(
-  File('test/fixtures/art_core_1.json').readAsStringSync(),
-) as Map<String, dynamic>;
+final Map<String, dynamic> _fixture =
+    jsonDecode(
+          File('test/fixtures/art_core_1.json').readAsStringSync(),
+        )
+        as Map<String, dynamic>;
 
 List<Map<String, dynamic>> _list(Object? v) =>
     (v as List).cast<Map<String, dynamic>>();

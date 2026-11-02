@@ -5,28 +5,33 @@ const tearOffDoc = ComponentDoc(
   slug: 'tear-off',
   title: 'Tear-off',
   category: ComponentCategory.interactive,
-  description: 'A coupon, ticket or raffle strip with a stub you tear off along a perforated line. Pull the stub and it swings off its far corner, tap it or press Enter and it comes away; the ticket keeps a torn edge. Calls onTear once.',
+  description:
+      'A coupon, ticket or raffle strip with a stub you tear off along a perforated line. Pull the stub and it swings off its far corner, tap it or press Enter and it comes away; the ticket keeps a torn edge. Calls onTear once.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'TearOff',
-      description: 'The ticket: an inline flex box holding the body and the stub. Keeps the state (attached or torn), announces the tear politely, and lays the stub beside the ticket or below it.',
+      description:
+          'The ticket: an inline flex box holding the body and the stub. Keeps the state (attached or torn), announces the tear politely, and lays the stub beside the ticket or below it.',
       props: [
         PropDoc(
           name: 'onTear',
           type: '() => void',
-          description: 'Called once when a person tears the stub off (drag, tap or keyboard).',
+          description:
+              'Called once when a person tears the stub off (drag, tap or keyboard).',
         ),
         PropDoc(
           name: 'torn / defaultTorn / onTornChange',
           type: 'boolean',
-          description: 'Controlled or uncontrolled. Setting a controlled `torn` back to false puts a fresh stub on, dropping onto the ticket.',
+          description:
+              'Controlled or uncontrolled. Setting a controlled `torn` back to false puts a fresh stub on, dropping onto the ticket.',
         ),
         PropDoc(
           name: 'orientation',
           type: '"horizontal" | "vertical"',
           defaultValue: '"horizontal"',
-          description: 'The stub is at the end of the line (start side in right-to-left) or below the ticket.',
+          description:
+              'The stub is at the end of the line (start side in right-to-left) or below the ticket.',
         ),
         PropDoc(
           name: 'disabled',
@@ -44,11 +49,13 @@ const tearOffDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'TearOffBody',
-      description: 'The ticket you keep: a Paper whose edge along the seam is perforated, and torn afterwards. Takes every Paper prop except edge.',
+      description:
+          'The ticket you keep: a Paper whose edge along the seam is perforated, and torn afterwards. Takes every Paper prop except edge.',
     ),
     PartDoc(
       name: 'TearOffStub',
-      description: 'The stub: a Paper (index card by default) that is a button. The perforation bites are the paper\'s own perf edge; on top of it are printed dashes, a pair of scissors at the start of the line, and a curled pencil arrow that says which way to pull.',
+      description:
+          'The stub: a Paper (index card by default) that is a button. The perforation bites are the paper\'s own perf edge; on top of it are printed dashes, a pair of scissors at the start of the line, and a curled pencil arrow that says which way to pull.',
       props: [
         PropDoc(
           name: 'label',

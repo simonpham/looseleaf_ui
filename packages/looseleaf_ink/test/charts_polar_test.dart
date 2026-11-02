@@ -6,9 +6,11 @@ import 'package:looseleaf_ink/src/core/core.dart';
 import 'package:looseleaf_ink/src/recipes/framework/framework.dart';
 import 'package:test/test.dart';
 
-final Map<String, dynamic> _fx = jsonDecode(
-  File('test/fixtures/charts_polar.json').readAsStringSync(),
-) as Map<String, dynamic>;
+final Map<String, dynamic> _fx =
+    jsonDecode(
+          File('test/fixtures/charts_polar.json').readAsStringSync(),
+        )
+        as Map<String, dynamic>;
 
 List<Map<String, dynamic>> _list(Object? v) =>
     (v as List? ?? const []).cast<Map<String, dynamic>>();

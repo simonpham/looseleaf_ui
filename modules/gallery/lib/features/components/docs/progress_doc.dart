@@ -5,18 +5,21 @@ const progressDoc = ComponentDoc(
   slug: 'progress',
   title: 'Progress',
   category: ComponentCategory.feedback,
-  description: 'A bar somebody hatched in pencil and is coloring in with a marker. The marker is one full-length pass revealed by a CSS clip up to the value, so changing the value is a transition, not a redraw. Without a value it becomes a scribble sliding across. Radix Progress underneath.',
+  description:
+      'A bar somebody hatched in pencil and is coloring in with a marker. The marker is one full-length pass revealed by a CSS clip up to the value, so changing the value is a transition, not a redraw. Without a value it becomes a scribble sliding across. Radix Progress underneath.',
   status: ComponentStatus.stable,
   upstream: 'progress',
   parts: [
     PartDoc(
       name: 'Progress',
-      description: 'Radix Progress.Root (role=progressbar with aria-valuenow / min / max, data-state loading | complete | indeterminate) and its Indicator, both drawn hosts. The Indicator (data-slot="progress-indicator") is stretched over the whole bar and clipped to the value.',
+      description:
+          'Radix Progress.Root (role=progressbar with aria-valuenow / min / max, data-state loading | complete | indeterminate) and its Indicator, both drawn hosts. The Indicator (data-slot="progress-indicator") is stretched over the whole bar and clipped to the value.',
       props: [
         PropDoc(
           name: 'value',
           type: 'number | null',
-          description: 'How far along, out of `max`; clamped to 0..max (an upload that reports 100.4 is a full bar; Radix alone would call that invalid and start the waiting animation). Leave it out, pass null or NaN for an indeterminate bar (no aria-valuenow).',
+          description:
+              'How far along, out of `max`; clamped to 0..max (an upload that reports 100.4 is a full bar; Radix alone would call that invalid and start the waiting animation). Leave it out, pass null or NaN for an indeterminate bar (no aria-valuenow).',
         ),
         PropDoc(
           name: 'max',
@@ -28,13 +31,15 @@ const progressDoc = ComponentDoc(
           name: 'size',
           type: '"sm" | "default" | "lg"',
           defaultValue: '"default"',
-          description: '12, 16 or 20 px tall. Any h-* class in `className` wins; the drawing follows the box.',
+          description:
+              '12, 16 or 20 px tall. Any h-* class in `className` wins; the drawing follows the box.',
         ),
         PropDoc(
           name: 'tone',
           type: '"marker" | "hi" | "green" | "blue"',
           defaultValue: '"marker"',
-          description: 'The ink: terracotta marker, highlighter, grass marker or sky marker.',
+          description:
+              'The ink: terracotta marker, highlighter, grass marker or sky marker.',
         ),
         PropDoc(
           name: 'getValueLabel',
@@ -45,7 +50,8 @@ const progressDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same bar. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same bar. Default: derived from useId().',
         ),
       ],
     ),

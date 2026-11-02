@@ -8,10 +8,11 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds a popup's content; [position] is where it landed (null until the
 /// first layout, and for centred popups).
-typedef InkPopupBuilder = Widget Function(
-  BuildContext context,
-  OverlayPosition? position,
-);
+typedef InkPopupBuilder =
+    Widget Function(
+      BuildContext context,
+      OverlayPosition? position,
+    );
 
 /// A popup anchored to [child] (or centred, for dialogs), shown while
 /// [open]: the whole overlay behaviour in one widget.

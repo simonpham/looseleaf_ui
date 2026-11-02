@@ -5,12 +5,14 @@ const strikeDoc = ComponentDoc(
   slug: 'strike',
   title: 'Strike',
   category: ComponentCategory.marks,
-  description: 'A red pencil through real words: one line, two lines, or a cross-out. The text stays readable and real underneath, so a price that was 49 can still be copied and read by a screen reader.',
+  description:
+      'A red pencil through real words: one line, two lines, or a cross-out. The text stays readable and real underneath, so a price that was 49 can still be copied and read by a screen reader.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Strike',
-      description: 'A <s> (or your own element with asChild) that hosts the drawing, in front of the words. One line per line of the phrase; a cross-out is one X over the whole phrase.',
+      description:
+          'A <s> (or your own element with asChild) that hosts the drawing, in front of the words. One line per line of the phrase; a cross-out is one X over the whole phrase.',
       props: [
         PropDoc(
           name: 'kind',
@@ -21,7 +23,8 @@ const strikeDoc = ComponentDoc(
         ),
         PropDoc(
           name: 'tone',
-          type: '"red" | "ink" | "blue" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"red" | "ink" | "blue" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"red"',
           description: 'The pen. Red is a waxy colored pencil.',
         ),
@@ -41,7 +44,8 @@ const strikeDoc = ComponentDoc(
           name: 'show',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Show or hide the line. With animate, turning it on plays the draw-on.',
+          description:
+              'Show or hide the line. With animate, turning it on plays the draw-on.',
         ),
         PropDoc(
           name: 'delay',

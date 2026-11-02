@@ -323,9 +323,11 @@ void _helpers(_Json h) {
 }
 
 void main() {
-  final fixture = jsonDecode(
-    File('test/fixtures/marks_text.json').readAsStringSync(),
-  ) as _Json;
+  final fixture =
+      jsonDecode(
+            File('test/fixtures/marks_text.json').readAsStringSync(),
+          )
+          as _Json;
   _helpers(fixture['helpers'] as _Json);
   for (final c in (fixture['frames'] as List).cast<_Json>()) {
     test(c['name'], () {

@@ -52,7 +52,8 @@ void main() {
     expect(
       misses,
       lessThan(40),
-      reason: 'V8 calls the platform pow; fdlibm agrees to the last bit almost always',
+      reason:
+          'V8 calls the platform pow; fdlibm agrees to the last bit almost always',
     );
   });
 

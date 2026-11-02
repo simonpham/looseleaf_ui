@@ -29,7 +29,8 @@ class Sidebar08Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Two sheets on the desk',
                   pose: 'search',
-                  description: 'The pad keeps its distance and the page rests beside it; on a phone the pad slides in over it. Fold a row open to look inside.',
+                  description:
+                      'The pad keeps its distance and the page rests beside it; on a phone the pad slides in over it. Fold a row open to look inside.',
                 ),
               ],
             ),

@@ -31,7 +31,8 @@ class Sidebar14Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Read it from the right',
                   pose: 'peek',
-                  description: 'The pad on this side lists what is on the page. Fold it away with the button in the corner when you would rather just read.',
+                  description:
+                      'The pad on this side lists what is on the page. Fold it away with the button in the corner when you would rather just read.',
                 ),
               ],
             ),

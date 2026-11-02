@@ -5,12 +5,14 @@ const handwrittenDoc = ComponentDoc(
   slug: 'handwritten',
   title: 'Handwritten',
   category: ComponentCategory.typography,
-  description: 'Text that looks written, not typeset: every word sits a hair off the baseline and a touch lighter, by a seeded amount. The words stay real inline text; code, links and forms inside are left exactly as typed.',
+  description:
+      'Text that looks written, not typeset: every word sits a hair off the baseline and a touch lighter, by a seeded amount. The words stay real inline text; code, links and forms inside are left exactly as typed.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Handwritten',
-      description: 'Any element (`as`, a span by default) whose text nodes are split into word spans carrying `--jy` / `--jr` / `--jo`. The component turns them into a relative offset from the baseline and a lighter ink (the words stay plain inline text: a word of its own layer, rotated or faded, was clipped at its advance by WebKit, so a final d, l or ! lost its top); `--jr` is kept for stylesheets of your own. The same seed always writes the same line, on the server and in the browser.',
+      description:
+          'Any element (`as`, a span by default) whose text nodes are split into word spans carrying `--jy` / `--jr` / `--jo`. The component turns them into a relative offset from the baseline and a lighter ink (the words stay plain inline text: a word of its own layer, rotated or faded, was clipped at its advance by WebKit, so a final d, l or ! lost its top); `--jr` is kept for stylesheets of your own. The same seed always writes the same line, on the server and in the browser.',
       props: [
         PropDoc(
           name: 'as',
@@ -22,7 +24,8 @@ const handwrittenDoc = ComponentDoc(
           name: 'strength',
           type: 'number',
           defaultValue: '1',
-          description: '0 renders plain text (no spans, no utility class), 1 is the default hand, 2 a hurried one. Compact density writes it lighter.',
+          description:
+              '0 renders plain text (no spans, no utility class), 1 is the default hand, 2 a hurried one. Compact density writes it lighter.',
         ),
         PropDoc(
           name: 'seed',

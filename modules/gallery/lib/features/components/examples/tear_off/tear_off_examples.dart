@@ -5,7 +5,8 @@ import 'package:gallery/features/components/models/models.dart';
 const tearOffExamples = <GalleryExample>[
   GalleryExample(
     title: 'Default',
-    description: 'Pull the stub away, tap it, or focus it and press Enter. The scissors have already started.',
+    description:
+        'Pull the stub away, tap it, or focus it and press Enter. The scissors have already started.',
     stage: ExampleStage.desk,
     height: 250,
     source: 'tear_off/tear_off_default_example.dart',
@@ -13,7 +14,8 @@ const tearOffExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Stub below',
-    description: 'orientation: Axis.vertical hangs the stub under the ticket, like the free coffee on a punch card. Kraft stock, and it is pulled down.',
+    description:
+        'orientation: Axis.vertical hangs the stub under the ticket, like the free coffee on a punch card. Kraft stock, and it is pulled down.',
     stage: ExampleStage.desk,
     height: 330,
     source: 'tear_off/tear_off_vertical_example.dart',
@@ -21,7 +23,8 @@ const tearOffExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Coupon book',
-    description: 'A real use: onTear redeems the coupon, and a controlled torn state lets the book be reset. The confetti stays inside the ticket.',
+    description:
+        'A real use: onTear redeems the coupon, and a controlled torn state lets the book be reset. The confetti stays inside the ticket.',
     stage: ExampleStage.desk,
     height: 330,
     source: 'tear_off/tear_off_coupon_book_example.dart',

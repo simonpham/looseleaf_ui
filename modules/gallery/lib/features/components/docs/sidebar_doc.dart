@@ -5,19 +5,22 @@ const sidebarDoc = ComponentDoc(
   slug: 'sidebar',
   title: 'Sidebar',
   category: ComponentCategory.navigation,
-  description: 'An order pad hung from the top of the screen: cream paper with a torn top edge and a binder clip. Rows carry their own line of the pad\'s ruling, hover is the highlighter, and the current page is marked with a highlighter swipe and a bracket in the margin. It collapses to icons or slides away, becomes a sheet on phones, and stays cheap for a long menu: only the one active row draws anything.',
+  description:
+      'An order pad hung from the top of the screen: cream paper with a torn top edge and a binder clip. Rows carry their own line of the pad\'s ruling, hover is the highlighter, and the current page is marked with a highlighter swipe and a bracket in the margin. It collapses to icons or slides away, becomes a sheet on phones, and stays cheap for a long menu: only the one active row draws anything.',
   status: ComponentStatus.stable,
   upstream: 'sidebar',
   parts: [
     PartDoc(
       name: 'SidebarProvider',
-      description: 'Holds the open state (cookie `sidebar_state`, 7 days), the Ctrl/Cmd+B shortcut, the phone sheet\'s state and a TooltipProvider. Set the widths with `--sidebar-width` and `--sidebar-width-icon` in `style`.',
+      description:
+          'Holds the open state (cookie `sidebar_state`, 7 days), the Ctrl/Cmd+B shortcut, the phone sheet\'s state and a TooltipProvider. Set the widths with `--sidebar-width` and `--sidebar-width-icon` in `style`.',
       props: [
         PropDoc(
           name: 'defaultOpen',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Initial state when uncontrolled. Read the cookie on the server to restore it.',
+          description:
+              'Initial state when uncontrolled. Read the cookie on the server to restore it.',
         ),
         PropDoc(
           name: 'open / onOpenChange',
@@ -28,7 +31,8 @@ const sidebarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'Sidebar',
-      description: 'The pad. Desktop: a fixed container beside a gap that reserves its width, holding the pad (a Paper: order-pad stock, torn top edge drawn, binder clip). Phone: the same pad in a Sheet. `className` and props go to the fixed container, as upstream.',
+      description:
+          'The pad. Desktop: a fixed container beside a gap that reserves its width, holding the pad (a Paper: order-pad stock, torn top edge drawn, binder clip). Phone: the same pad in a Sheet. `className` and props go to the fixed container, as upstream.',
       props: [
         PropDoc(
           name: 'side',
@@ -40,44 +44,52 @@ const sidebarDoc = ComponentDoc(
           name: 'variant',
           type: '"sidebar" | "floating" | "inset"',
           defaultValue: '"sidebar"',
-          description: '`sidebar` docks to the edge and casts its shadow toward the page; `floating` is set down on the desk a little turned; `inset` leaves room around the pad and turns SidebarInset into a sheet of paper.',
+          description:
+              '`sidebar` docks to the edge and casts its shadow toward the page; `floating` is set down on the desk a little turned; `inset` leaves room around the pad and turns SidebarInset into a sheet of paper.',
         ),
         PropDoc(
           name: 'collapsible',
           type: '"offcanvas" | "icon" | "none"',
           defaultValue: '"offcanvas"',
-          description: 'Slide away, shrink to icons (3rem, labels fade, the margin bracket hides), or never collapse.',
+          description:
+              'Slide away, shrink to icons (3rem, labels fade, the margin bracket hides), or never collapse.',
         ),
         PropDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"pad"',
-          description: 'What the pad is made of. A stock with a cut edge (`paper`, `kraft`...) is a pure CSS sheet.',
+          description:
+              'What the pad is made of. A stock with a cut edge (`paper`, `kraft`...) is a pure CSS sheet.',
         ),
         PropDoc(
           name: 'clip',
           type: 'boolean',
           defaultValue: 'true (false with collapsible="none")',
-          description: 'The binder clip at the top. A docked pad hangs it in the gutter above the torn edge; the phone sheet and a `collapsible="none"` pad have no gutter, so the clip stands on the paper and the pad\'s top padding grows to clear it (`collapsible="none"` is opt-in, since a static pad sits wherever you put it). Never drawn in calm density or when collapsed to icons.',
+          description:
+              'The binder clip at the top. A docked pad hangs it in the gutter above the torn edge; the phone sheet and a `collapsible="none"` pad have no gutter, so the clip stands on the paper and the pad\'s top padding grows to clear it (`collapsible="none"` is opt-in, since a static pad sits wherever you put it). Never drawn in calm density or when collapsed to icons.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always tears and clips the pad the same way.',
+          description:
+              'Pins the hand: the same seed always tears and clips the pad the same way.',
         ),
       ],
     ),
     PartDoc(
       name: 'SidebarTrigger',
-      description: 'A ghost icon Button with a drawn panel glyph that toggles the sidebar (the sheet on phones). Takes every Button prop.',
+      description:
+          'A ghost icon Button with a drawn panel glyph that toggles the sidebar (the sheet on phones). Takes every Button prop.',
     ),
     PartDoc(
       name: 'SidebarRail',
-      description: 'A thin strip on the pad\'s edge that toggles it on click. Not in the tab order (the trigger and Ctrl/Cmd+B are the keyboard routes).',
+      description:
+          'A thin strip on the pad\'s edge that toggles it on click. Not in the tab order (the trigger and Ctrl/Cmd+B are the keyboard routes).',
     ),
     PartDoc(
       name: 'SidebarInset',
-      description: 'The page beside the pad, a `main` region. With `variant="inset"` on the Sidebar it is a sheet of paper on the desk from the `md` breakpoint up (a CSS sheet: no SVG); with any other variant, and on a phone, the sheet is switched off. Pass `before:block` in `className` to keep the sheet beside every pad.',
+      description:
+          'The page beside the pad, a `main` region. With `variant="inset"` on the Sidebar it is a sheet of paper on the desk from the `md` breakpoint up (a CSS sheet: no SVG); with any other variant, and on a phone, the sheet is switched off. Pass `before:block` in `className` to keep the sheet beside every pad.',
     ),
     PartDoc(
       name: 'SidebarHeader',
@@ -106,7 +118,8 @@ const sidebarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SidebarGroupLabel',
-      description: 'The section\'s heading, in the typewriter. It fades and closes up when collapsed to icons.',
+      description:
+          'The section\'s heading, in the typewriter. It fades and closes up when collapsed to icons.',
     ),
     PartDoc(
       name: 'SidebarGroupAction',
@@ -126,13 +139,15 @@ const sidebarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SidebarMenuButton',
-      description: 'The row\'s button, or your link with `asChild`. Not an ink host: hover and keyboard focus wear the highlighter as a CSS background, and a CSS gradient under it is the row\'s line of the pad\'s ruling (so the lines always meet the rows; hidden when collapsed to icons and in calm density). The current page (`isActive`) mounts one small drawing inside it, a highlighter swipe with a bracket in the margin; the `outline` variant draws a pencil box the same way.',
+      description:
+          'The row\'s button, or your link with `asChild`. Not an ink host: hover and keyboard focus wear the highlighter as a CSS background, and a CSS gradient under it is the row\'s line of the pad\'s ruling (so the lines always meet the rows; hidden when collapsed to icons and in calm density). The current page (`isActive`) mounts one small drawing inside it, a highlighter swipe with a bracket in the margin; the `outline` variant draws a pencil box the same way.',
       props: [
         PropDoc(
           name: 'isActive',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Marks the current page: bold, highlighter, margin bracket, `data-active`. With `asChild` the link gets `aria-current="page"` too.',
+          description:
+              'Marks the current page: bold, highlighter, margin bracket, `data-active`. With `asChild` the link gets `aria-current="page"` too.',
         ),
         PropDoc(
           name: 'variant',
@@ -149,7 +164,8 @@ const sidebarDoc = ComponentDoc(
         PropDoc(
           name: 'tooltip',
           type: 'string | TooltipContent props',
-          description: 'Names the row when the sidebar is collapsed to icons (never shown when expanded or on phones).',
+          description:
+              'Names the row when the sidebar is collapsed to icons (never shown when expanded or on phones).',
         ),
       ],
     ),
@@ -161,17 +177,20 @@ const sidebarDoc = ComponentDoc(
           name: 'showOnHover',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Only visible on hover or focus within the row (always visible on touch).',
+          description:
+              'Only visible on hover or focus within the row (always visible on touch).',
         ),
       ],
     ),
     PartDoc(
       name: 'SidebarMenuBadge',
-      description: 'A count at the end of a row, written in blue felt in the script font.',
+      description:
+          'A count at the end of a row, written in blue felt in the script font.',
     ),
     PartDoc(
       name: 'SidebarMenuSkeleton',
-      description: 'A loading row of pencil hatch. Its width is derived from the seed (50 to 90 %), not from a random number, so the server and the client agree.',
+      description:
+          'A loading row of pencil hatch. Its width is derived from the seed (50 to 90 %), not from a random number, so the server and the client agree.',
       props: [
         PropDoc(
           name: 'showIcon',
@@ -188,7 +207,8 @@ const sidebarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SidebarMenuSub',
-      description: 'A nested list under a row, indented, with a pencil line drawn down its start edge (one small drawing per open sub-menu).',
+      description:
+          'A nested list under a row, indented, with a pencil line drawn down its start edge (one small drawing per open sub-menu).',
     ),
     PartDoc(
       name: 'SidebarMenuSubItem',
@@ -196,7 +216,8 @@ const sidebarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SidebarMenuSubButton',
-      description: 'The sub-row\'s link (`a`), or your element with `asChild`. The current one is bold on the highlighter. 28 px high for one line; a title that wraps makes its row taller instead of running over the next one (a trailing `span` still truncates).',
+      description:
+          'The sub-row\'s link (`a`), or your element with `asChild`. The current one is bold on the highlighter. 28 px high for one line; a title that wraps makes its row taller instead of running over the next one (a trailing `span` still truncates).',
       props: [
         PropDoc(
           name: 'isActive',
@@ -214,7 +235,8 @@ const sidebarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'useSidebar',
-      description: '`{ state, open, setOpen, openMobile, setOpenMobile, isMobile, toggleSidebar }`. Throws outside a SidebarProvider.',
+      description:
+          '`{ state, open, setOpen, openMobile, setOpenMobile, isMobile, toggleSidebar }`. Throws outside a SidebarProvider.',
     ),
   ],
   a11y: [

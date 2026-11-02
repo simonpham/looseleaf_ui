@@ -5,47 +5,55 @@ const sonnerDoc = ComponentDoc(
   slug: 'sonner',
   title: 'Sonner',
   category: ComponentCategory.feedback,
-  description: 'Toasts as slips of paper tossed onto the desk. A guest check for success, a pink sticky for errors, yellow for warnings, blue for news; stacked, swipeable, with drawn icons, action buttons, promise toasts and tape or a pin to hold them down. Built on the sonner package: you keep its `toast()` API.',
+  description:
+      'Toasts as slips of paper tossed onto the desk. A guest check for success, a pink sticky for errors, yellow for warnings, blue for news; stacked, swipeable, with drawn icons, action buttons, promise toasts and tape or a pin to hold them down. Built on the sonner package: you keep its `toast()` API.',
   status: ComponentStatus.stable,
   upstream: 'sonner',
   parts: [
     PartDoc(
       name: 'Toaster',
-      description: 'Mount it once near the root of the app. It wraps sonner\'s Toaster in unstyled mode and gives each toast the paper look with classes on sonner\'s own elements, so stacking, swiping, timers, hover-to-expand and the aria-live region are all sonner\'s. Every sonner prop works (`position`, `expand`, `visibleToasts`, `duration`, `gap`, `offset`, `closeButton`, `dir`, `hotkey`, `toastOptions`, `icons`, `id` ...).',
+      description:
+          'Mount it once near the root of the app. It wraps sonner\'s Toaster in unstyled mode and gives each toast the paper look with classes on sonner\'s own elements, so stacking, swiping, timers, hover-to-expand and the aria-live region are all sonner\'s. Every sonner prop works (`position`, `expand`, `visibleToasts`, `duration`, `gap`, `offset`, `closeButton`, `dir`, `hotkey`, `toastOptions`, `icons`, `id` ...).',
       props: [
         PropDoc(
           name: 'decoration',
           type: '"none" | "tape" | "pin"',
           defaultValue: '"none"',
-          description: 'Hold every slip to the page with a strip of masking tape or a push-pin (drawn with CSS on the content box; hidden in calm density).',
+          description:
+              'Hold every slip to the page with a strip of masking tape or a push-pin (drawn with CSS on the content box; hidden in calm density).',
         ),
         PropDoc(
           name: 'portal',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Render the stack into `document.body`. The stack is `position: fixed`, so an ancestor with `container-type` (Tailwind\'s `@container`), `transform`, `filter` or `contain: layout` becomes its containing block and pins the toasts to that box instead of the window. Mount `<Toaster />` at the app root and you never need this; pass `portal` when it has to live inside such a wrapper. The stack appears after the first client render, and repeats the InkProvider\'s density, motion and theme.',
+          description:
+              'Render the stack into `document.body`. The stack is `position: fixed`, so an ancestor with `container-type` (Tailwind\'s `@container`), `transform`, `filter` or `contain: layout` becomes its containing block and pins the toasts to that box instead of the window. Mount `<Toaster />` at the app root and you never need this; pass `portal` when it has to live inside such a wrapper. The stack appears after the first client render, and repeats the InkProvider\'s density, motion and theme.',
         ),
         PropDoc(
           name: 'theme',
           type: '"light" | "dark" | "system"',
           defaultValue: '"light"',
-          description: 'Passed to sonner. There is no next-themes here; Looseleaf themes come from CSS variables and the InkProvider, so the slips follow them without a prop.',
+          description:
+              'Passed to sonner. There is no next-themes here; Looseleaf themes come from CSS variables and the InkProvider, so the slips follow them without a prop.',
         ),
         PropDoc(
           name: 'icons',
           type: 'ToastIcons',
-          description: 'Override the drawn icons: success (circle-check), info, warning (triangle-alert), error (octagon-x), loading (loader-circle, spinning), close.',
+          description:
+              'Override the drawn icons: success (circle-check), info, warning (triangle-alert), error (octagon-x), loading (loader-circle, spinning), close.',
         ),
         PropDoc(
           name: 'toastOptions',
           type: 'ToastOptions',
-          description: 'Sonner\'s options. `classNames` are merged with ours (yours come last); `unstyled` stays on.',
+          description:
+              'Sonner\'s options. `classNames` are merged with ours (yours come last); `unstyled` stays on.',
         ),
       ],
     ),
     PartDoc(
       name: 'toast',
-      description: 'Sonner\'s `toast()` re-exported for convenience: `toast(...)`, `toast.success/error/warning/info/loading/message/custom`, `toast.promise`, `toast.dismiss`. Importing it from "sonner" directly works the same.',
+      description:
+          'Sonner\'s `toast()` re-exported for convenience: `toast(...)`, `toast.success/error/warning/info/loading/message/custom`, `toast.promise`, `toast.dismiss`. Importing it from "sonner" directly works the same.',
     ),
     PartDoc(
       name: 'useSonner',

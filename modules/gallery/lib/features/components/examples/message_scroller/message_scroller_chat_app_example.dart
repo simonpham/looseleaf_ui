@@ -194,7 +194,8 @@ class _MessageScrollerChatAppExampleState
                                                   child: TypingIndicator(
                                                     variant:
                                                         TypingVariant.squiggle,
-                                                    label: 'Stubby is writing a reply',
+                                                    label:
+                                                        'Stubby is writing a reply',
                                                     seed: 'typing',
                                                   ),
                                                 ),

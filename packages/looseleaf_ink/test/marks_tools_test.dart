@@ -217,9 +217,11 @@ StickerBoardItem _itemOf(_Json s) => StickerBoardItem(
 );
 
 void main() {
-  final fixture = jsonDecode(
-    File('test/fixtures/marks_tools.json').readAsStringSync(),
-  ) as _Json;
+  final fixture =
+      jsonDecode(
+            File('test/fixtures/marks_tools.json').readAsStringSync(),
+          )
+          as _Json;
   group('frames', () {
     for (final c in (fixture['frames'] as List).cast<_Json>()) {
       test(c['name'], () {

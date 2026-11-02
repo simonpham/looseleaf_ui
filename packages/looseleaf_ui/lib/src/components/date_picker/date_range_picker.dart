@@ -8,12 +8,13 @@ import 'package:looseleaf_ui/src/components/date_picker/date_range.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 
 /// Builds the two-month grid in a [DateRangePicker]'s popup.
-typedef DateRangeCalendarBuilder = Widget Function(
-  BuildContext context,
-  DateRange? selected,
-  ValueChanged<DateRange?> onSelect,
-  bool Function(DateTime day) isDisabled,
-);
+typedef DateRangeCalendarBuilder =
+    Widget Function(
+      BuildContext context,
+      DateRange? selected,
+      ValueChanged<DateRange?> onSelect,
+      bool Function(DateTime day) isDisabled,
+    );
 
 final RegExp _rangeSeparator = RegExp(r'\s+(?:–|—|-|to)\s+|\s*[–—]\s*');
 

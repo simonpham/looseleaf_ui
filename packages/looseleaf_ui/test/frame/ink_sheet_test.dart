@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 

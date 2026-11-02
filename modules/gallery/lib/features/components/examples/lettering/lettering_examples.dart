@@ -5,13 +5,15 @@ import 'package:gallery/features/components/models/models.dart';
 const letteringExamples = <GalleryExample>[
   GalleryExample(
     title: 'Default',
-    description: 'Ink with a marker-colored second pass, printed a hair out of register.',
+    description:
+        'Ink with a marker-colored second pass, printed a hair out of register.',
     source: 'lettering/lettering_default_example.dart',
     builder: LetteringDefaultExample.new,
   ),
   GalleryExample(
     title: 'Sizes, colors, duotone and wobble',
-    description: 'Five sizes; the second color is a token; a duotone print adds a third pass; wobble writes each word a hair off the baseline.',
+    description:
+        'Five sizes; the second color is a token; a duotone print adds a third pass; wobble writes each word a hair off the baseline.',
     layout: ExampleLayout.stack,
     source: 'lettering/lettering_sizes_and_colours_example.dart',
     builder: LetteringSizesAndColoursExample.new,

@@ -358,9 +358,11 @@ void main() {
     File('test/fixtures/chart_recipes_$part.json').existsSync();
     part++
   ) {
-    final fixture = jsonDecode(
-      File('test/fixtures/chart_recipes_$part.json').readAsStringSync(),
-    ) as _Json;
+    final fixture =
+        jsonDecode(
+              File('test/fixtures/chart_recipes_$part.json').readAsStringSync(),
+            )
+            as _Json;
     group('part $part', () {
       for (final c in _list(fixture['frames'])) {
         test(c['name'], () {

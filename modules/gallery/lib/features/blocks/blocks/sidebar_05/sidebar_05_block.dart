@@ -27,7 +27,8 @@ class Sidebar05Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Plus opens, minus closes',
                   pose: 'wave',
-                  description: 'Open a section on the pad to see its pages. Only one is open to begin with, so the list stays short.',
+                  description:
+                      'Open a section on the pad to see its pages. Only one is open to begin with, so the list stays short.',
                 ),
               ],
             ),

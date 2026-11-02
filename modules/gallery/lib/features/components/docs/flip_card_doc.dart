@@ -5,12 +5,14 @@ const flipCardDoc = ComponentDoc(
   slug: 'flip-card',
   title: 'Flip card',
   category: ComponentCategory.interactive,
-  description: 'An index card with two sides. It turns over in 3D when you click it or press Space, lifting off the desk on the way; the side you cannot see is inert and hidden from assistive technology. For flashcards, reveals, and anything with a back.',
+  description:
+      'An index card with two sides. It turns over in 3D when you click it or press Space, lifting off the desk on the way; the side you cannot see is inert and hidden from assistive technology. For flashcards, reveals, and anything with a back.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'FlipCard',
-      description: 'The root: a perspective box holding the two faces in one grid cell (so it is as big as the bigger face) and, by default, a trigger button over the whole card. Size it with className (default h-48 w-72).',
+      description:
+          'The root: a perspective box holding the two faces in one grid cell (so it is as big as the bigger face) and, by default, a trigger button over the whole card. Size it with className (default h-48 w-72).',
       props: [
         PropDoc(
           name: 'flipped / defaultFlipped / onFlippedChange',
@@ -27,7 +29,8 @@ const flipCardDoc = ComponentDoc(
           name: 'trigger',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Lay a button over the whole card. Turn it off when the faces hold links or buttons, and compose your own FlipCardTrigger.',
+          description:
+              'Lay a button over the whole card. Turn it off when the faces hold links or buttons, and compose your own FlipCardTrigger.',
         ),
         PropDoc(
           name: 'label',
@@ -39,7 +42,8 @@ const flipCardDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FlipCardFront',
-      description: 'The side you see first: a Paper (index card by default). Takes every Paper prop.',
+      description:
+          'The side you see first: a Paper (index card by default). Takes every Paper prop.',
     ),
     PartDoc(
       name: 'FlipCardBack',
@@ -47,13 +51,15 @@ const flipCardDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FlipCardTrigger',
-      description: 'The button that turns the card, with aria-pressed. The default overlay carries a curled arrow in the corner that darkens on hover and a drawn focus ring round the card.',
+      description:
+          'The button that turns the card, with aria-pressed. The default overlay carries a curled arrow in the corner that darkens on hover and a drawn focus ring round the card.',
       props: [
         PropDoc(
           name: 'overlay',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Cover the whole card. Off: it is an ordinary button placed by you.',
+          description:
+              'Cover the whole card. Off: it is an ordinary button placed by you.',
         ),
         PropDoc(
           name: 'hint',

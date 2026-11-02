@@ -5,7 +5,8 @@ import 'package:gallery/features/components/models/models.dart';
 const flipCardExamples = <GalleryExample>[
   GalleryExample(
     title: 'Default',
-    description: 'Click it, or Tab to it and press Space. The card lifts off the desk as it turns.',
+    description:
+        'Click it, or Tab to it and press Space. The card lifts off the desk as it turns.',
     stage: ExampleStage.desk,
     height: 260,
     source: 'flip_card/flip_card_default_example.dart',
@@ -13,7 +14,8 @@ const flipCardExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Notepad flip',
-    description: 'axis: FlipCardAxis.x turns it like a page of a top-bound pad. Any paper works for either face.',
+    description:
+        'axis: FlipCardAxis.x turns it like a page of a top-bound pad. Any paper works for either face.',
     stage: ExampleStage.desk,
     height: 280,
     source: 'flip_card/flip_card_notepad_example.dart',
@@ -21,7 +23,8 @@ const flipCardExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Vocabulary deck',
-    description: 'A real use: a controlled flip card as a study deck. Turning is the answer; Next shows the front of the following card.',
+    description:
+        'A real use: a controlled flip card as a study deck. Turning is the answer; Next shows the front of the following card.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     height: 340,
@@ -30,7 +33,8 @@ const flipCardExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Buttons on the faces',
-    description: 'trigger: false leaves the card free of the overlay, so a face can hold real buttons. The flip button is your own.',
+    description:
+        'trigger: false leaves the card free of the overlay, so a face can hold real buttons. The flip button is your own.',
     stage: ExampleStage.desk,
     height: 300,
     source: 'flip_card/flip_card_custom_trigger_example.dart',

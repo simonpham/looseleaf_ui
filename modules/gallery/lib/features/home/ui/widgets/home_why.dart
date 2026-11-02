@@ -17,25 +17,29 @@ class HomeWhy extends StatelessWidget {
     (
       title: 'Practical',
       flag: Accent.tomato,
-      text: 'Same parts and props as shadcn/ui. Add one package and every widget is there, with nothing to copy and nothing to wire up.',
+      text:
+          'Same parts and props as shadcn/ui. Add one package and every widget is there, with nothing to copy and nothing to wire up.',
       foot: 'one package',
     ),
     (
       title: 'Handmade',
       flag: Accent.sky,
-      text: 'Lines have pressure. Fills are solid and sit in their outlines. Paper has tooth. Every stroke is seeded, so every run draws the same hand.',
+      text:
+          'Lines have pressure. Fills are solid and sit in their outlines. Paper has tooth. Every stroke is seeded, so every run draws the same hand.',
       foot: 'no two alike',
     ),
     (
       title: 'Accessible',
       flag: Accent.grass,
-      text: "Flutter's own semantics underneath: keyboard, focus rings, AA text, 24 px targets, reduced motion. The charm is decoration; the semantics are ordinary.",
+      text:
+          "Flutter's own semantics underneath: keyboard, focus rings, AA text, 24 px targets, reduced motion. The charm is decoration; the semantics are ordinary.",
       foot: 'screen-reader ready',
     ),
     (
       title: 'Themeable',
       flag: Accent.grape,
-      text: 'One set of tokens, three densities. Change a color in LooseleafThemeData and everything follows; switch on calm and a dense dashboard goes quiet.',
+      text:
+          'One set of tokens, three densities. Change a color in LooseleafThemeData and everything follows; switch on calm and a dense dashboard goes quiet.',
       foot: 'tokens + themes',
     ),
   ];
@@ -62,7 +66,8 @@ class HomeWhy extends StatelessWidget {
     ];
     return DeskSection(
       title: 'Why Looseleaf',
-      lede: 'A design system that is fun to look at is only worth shipping if it is also a good component library. Both, on purpose.',
+      lede:
+          'A design system that is fun to look at is only worth shipping if it is also a good component library. Both, on purpose.',
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth < LiveCardRow.twoColumnsFrom) {

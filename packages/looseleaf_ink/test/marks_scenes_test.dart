@@ -118,9 +118,11 @@ List<List<double>> _expectPts(Object? v) => [
 ];
 
 void main() {
-  final fixture = jsonDecode(
-    File('test/fixtures/marks_scenes.json').readAsStringSync(),
-  ) as _Json;
+  final fixture =
+      jsonDecode(
+            File('test/fixtures/marks_scenes.json').readAsStringSync(),
+          )
+          as _Json;
   group('frames', () {
     for (final c in (fixture['frames'] as List).cast<_Json>()) {
       test(c['name'], () {

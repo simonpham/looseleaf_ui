@@ -5,34 +5,41 @@ const alertDoc = ComponentDoc(
   slug: 'alert',
   title: 'Alert',
   category: ComponentCategory.feedback,
-  description: 'A message on a slip of paper, drawn in felt tip. Default and destructive as upstream, plus info, success, warning and a sticky-note variant. Each tone has its own pattern in the margin as well as its own color, and a 16 px icon put first is circled in the tone\'s marker.',
+  description:
+      'A message on a slip of paper, drawn in felt tip. Default and destructive as upstream, plus info, success, warning and a sticky-note variant. Each tone has its own pattern in the margin as well as its own color, and a 16 px icon put first is circled in the tone\'s marker.',
   status: ComponentStatus.stable,
   upstream: 'alert',
   parts: [
     PartDoc(
       name: 'Alert',
-      description: 'A `role="alert"` grid: an optional icon in the first column, title and description in the second. The box, margin pattern and icon circle are the host\'s drawing; there is no border, background or radius of its own.',
+      description:
+          'A `role="alert"` grid: an optional icon in the first column, title and description in the second. The box, margin pattern and icon circle are the host\'s drawing; there is no border, background or radius of its own.',
       props: [
         PropDoc(
           name: 'variant',
-          type: '"default" | "destructive" | "info" | "success" | "warning" | "note"',
+          type:
+              '"default" | "destructive" | "info" | "success" | "warning" | "note"',
           defaultValue: '"default"',
-          description: 'destructive = red felt box, red-pencil hatching in the margin, pale red wash. info = blue felt, double blue-pencil rule. success = green felt, strip of green marker. warning = ink box on a highlighter panel. note = a sticky note with a taped corner (a Paper).',
+          description:
+              'destructive = red felt box, red-pencil hatching in the margin, pale red wash. info = blue felt, double blue-pencil rule. success = green felt, strip of green marker. warning = ink box on a highlighter panel. note = a sticky note with a taped corner (a Paper).',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'AlertTitle',
-      description: 'One line of bold hand text (clamped to one line), in the second grid column.',
+      description:
+          'One line of bold hand text (clamped to one line), in the second grid column.',
     ),
     PartDoc(
       name: 'AlertDescription',
-      description: 'Muted text, in the second grid column; paragraphs get relaxed leading.',
+      description:
+          'Muted text, in the second grid column; paragraphs get relaxed leading.',
     ),
   ],
   a11y: [

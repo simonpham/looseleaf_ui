@@ -5,35 +5,41 @@ const peelCornerDoc = ComponentDoc(
   slug: 'peel-corner',
   title: 'Peel corner',
   category: ComponentCategory.interactive,
-  description: 'A page whose corner curls back to show the sheet underneath. Hover the corner to lift it, drag it to peel along a diagonal crease, click or press Enter to open it. For a discount code, a hint, a secret, a P.S.',
+  description:
+      'A page whose corner curls back to show the sheet underneath. Hover the corner to lift it, drag it to peel along a diagonal crease, click or press Enter to open it. For a discount code, a hint, a secret, a P.S.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'PeelCorner',
-      description: 'The root: a positioned box that holds the page and the sheet under it, draws the turned-back flap (the back of the paper, with its stepped shadow on the sheet underneath) and puts a 56 px corner button over it. The flap is drawn once and scaled about the corner, so crease and shadow stay in proportion at every stage.',
+      description:
+          'The root: a positioned box that holds the page and the sheet under it, draws the turned-back flap (the back of the paper, with its stepped shadow on the sheet underneath) and puts a 56 px corner button over it. The flap is drawn once and scaled about the corner, so crease and shadow stay in proportion at every stage.',
       props: [
         PropDoc(
           name: 'peeled / defaultPeeled / onPeeledChange',
           type: 'boolean',
-          description: 'Controlled or uncontrolled: true when the corner is open and the sheet underneath can be read.',
+          description:
+              'Controlled or uncontrolled: true when the corner is open and the sheet underneath can be read.',
         ),
         PropDoc(
           name: 'size',
           type: 'number',
           defaultValue: '120',
-          description: 'How big the turned-back corner is when open, px. A drag can go about a third further.',
+          description:
+              'How big the turned-back corner is when open, px. A drag can go about a third further.',
         ),
         PropDoc(
           name: 'corner',
           type: '"bottom-right" | "bottom-left"',
           defaultValue: '"bottom-right"',
-          description: 'Which corner curls; the bottom left mirrors the flap, the clip and the underneath content.',
+          description:
+              'Which corner curls; the bottom left mirrors the flap, the clip and the underneath content.',
         ),
         PropDoc(
           name: 'back',
           type: 'PaintKey',
           defaultValue: '"paper"',
-          description: 'The token the flap (the back of the page) is made of: "kraft" for a kraft page, "sticky-yellow" for a sticky note.',
+          description:
+              'The token the flap (the back of the page) is made of: "kraft" for a kraft page, "sticky-yellow" for a sticky note.',
         ),
         PropDoc(
           name: 'label',
@@ -45,11 +51,13 @@ const peelCornerDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PeelCornerPage',
-      description: 'The page you see: a Paper (paper stock, no tilt) cut away along the crease with a clip-path that keeps 40 px of room for its own shadow. Takes every Paper prop.',
+      description:
+          'The page you see: a Paper (paper stock, no tilt) cut away along the crease with a clip-path that keeps 40 px of room for its own shadow. Takes every Paper prop.',
     ),
     PartDoc(
       name: 'PeelCornerUnder',
-      description: 'The sheet underneath: as big as the page, behind it, kraft by default. Its content sits in the corner that peels. inert and aria-hidden until the corner is open, so its links and buttons cannot be reached early.',
+      description:
+          'The sheet underneath: as big as the page, behind it, kraft by default. Its content sits in the corner that peels. inert and aria-hidden until the corner is open, so its links and buttons cannot be reached early.',
     ),
   ],
   a11y: [

@@ -17,9 +17,12 @@ class EmptyContent extends StatelessWidget {
     child: DefaultTextStyle.merge(
       style:
           LooseleafTheme.of(
-                context,
-              ).typography
-              .face(KevinSansFace.hand, cssSize: 14, cssLineHeight: 20 / 14),
+            context,
+          ).typography.face(
+            KevinSansFace.hand,
+            cssSize: 14,
+            cssLineHeight: 20 / 14,
+          ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         spacing: Spacing.d16,

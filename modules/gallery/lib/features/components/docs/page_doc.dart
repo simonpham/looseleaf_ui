@@ -5,30 +5,35 @@ const pageDoc = ComponentDoc(
   slug: 'page',
   title: 'Page',
   category: ComponentCategory.paper,
-  description: 'The app\'s main paper column: a sheet on the desk with a header, content and a footer. It can be three-hole punched (the desk shows through the holes), torn from a pad, ringed with a coffee stain, and its title is underlined by the same hand that wrote it.',
+  description:
+      'The app\'s main paper column: a sheet on the desk with a header, content and a footer. It can be three-hole punched (the desk shows through the holes), torn from a pad, ringed with a coffee stain, and its title is underlined by the same hand that wrote it.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Page',
-      description: 'A Paper laid out as a centered flex column (gap 6, px 6 / 10, py 8 / 10). It takes every Paper prop; the holes and the stain are ink behind the content, turned with the sheet. The holes\' drawing is exactly the page\'s box (it adds no bleed of its own); but a page that fills the window is turned by up to 0.35 degrees and its far corners swing a few px past the window\'s edge, so give a full-width page a container with `overflow-x-clip` (and 8 px of side padding, which keeps its shadow) or lay it square with `tilt={false}`.',
+      description:
+          'A Paper laid out as a centered flex column (gap 6, px 6 / 10, py 8 / 10). It takes every Paper prop; the holes and the stain are ink behind the content, turned with the sheet. The holes\' drawing is exactly the page\'s box (it adds no bleed of its own); but a page that fills the window is turned by up to 0.35 degrees and its far corners swing a few px past the window\'s edge, so give a full-width page a container with `overflow-x-clip` (and 8 px of side padding, which keeps its shadow) or lay it square with `tilt={false}`.',
       props: [
         PropDoc(
           name: 'as',
           type: '"div" | "main" | "article" | "section" | "form"',
           defaultValue: '"div"',
-          description: 'The element. Use `main` when the page is the app\'s main landmark.',
+          description:
+              'The element. Use `main` when the page is the app\'s main landmark.',
         ),
         PropDoc(
           name: 'width',
           type: '"sm" | "md" | "lg" | "xl" | "full"',
           defaultValue: '"md"',
-          description: 'Column width: 32rem, 42rem, 56rem, 72rem or unbounded. Always centered.',
+          description:
+              'Column width: 32rem, 42rem, 56rem, 72rem or unbounded. Always centered.',
         ),
         PropDoc(
           name: 'holes',
           type: '"start" | "top" | "none" | boolean',
           defaultValue: 'false',
-          description: 'Punched holes: three down the start edge (mirrored for right-to-left), or two across the top. `true` is `start`. The desk shows through them; the start padding grows to clear them.',
+          description:
+              'Punched holes: three down the start edge (mirrored for right-to-left), or two across the top. `true` is `start`. The desk shows through them; the start padding grows to clear them.',
         ),
         PropDoc(
           name: 'reinforced',
@@ -53,19 +58,22 @@ const pageDoc = ComponentDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"paper"',
-          description: 'Any Paper stock: paper, slip, graph, dot-grid, kraft, parchment ...',
+          description:
+              'Any Paper stock: paper, slip, graph, dot-grid, kraft, parchment ...',
         ),
         PropDoc(
           name: 'rules',
           type: 'RuleName',
           defaultValue: '"none"',
-          description: 'Printed rules (ruled, graph, dots ...). Ruled paper\'s red margin mirrors in RTL.',
+          description:
+              'Printed rules (ruled, graph, dots ...). Ruled paper\'s red margin mirrors in RTL.',
         ),
         PropDoc(
           name: 'tilt',
           type: 'boolean | number',
           defaultValue: 'true',
-          description: 'Seeded turn of the sheet (under 0.35 degrees for a page). The holes turn with it; text never does.',
+          description:
+              'Seeded turn of the sheet (under 0.35 degrees for a page). The holes turn with it; text never does.',
         ),
         PropDoc(
           name: 'tape / fastener',
@@ -85,7 +93,8 @@ const pageDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PageTitle',
-      description: 'The title, a heading in the script font (41 px). A hand-drawn mark sits under it.',
+      description:
+          'The title, a heading in the script font (41 px). A hand-drawn mark sits under it.',
       props: [
         PropDoc(
           name: 'as',
@@ -97,7 +106,8 @@ const pageDoc = ComponentDoc(
           name: 'underline',
           type: '"single" | "double" | "wavy" | "highlight" | "none"',
           defaultValue: '"single"',
-          description: 'A pen line, two, a wavy one, or a yellow highlighter swipe behind the lower half of the words. Calm density draws a hairline.',
+          description:
+              'A pen line, two, a wavy one, or a yellow highlighter swipe behind the lower half of the words. Calm density draws a hairline.',
         ),
         PropDoc(
           name: 'seed',
@@ -112,11 +122,13 @@ const pageDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PageContent',
-      description: 'The body: a growing flex column (gap 4) that pushes the footer down.',
+      description:
+          'The body: a growing flex column (gap 4) that pushes the footer down.',
     ),
     PartDoc(
       name: 'PageFooter',
-      description: 'A row at the foot of the sheet (page number, actions), muted, 14 px.',
+      description:
+          'A row at the foot of the sheet (page number, actions), muted, 14 px.',
     ),
   ],
   a11y: [

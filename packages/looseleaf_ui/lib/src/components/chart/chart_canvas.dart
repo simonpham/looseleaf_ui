@@ -10,19 +10,21 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Describes the data point at a target for the tooltip and the live
 /// region; null when there is nothing there.
-typedef ChartDescribe = ChartDescribed? Function(
-  int index,
-  int? series,
-  ChartLayoutBase layout,
-);
+typedef ChartDescribe =
+    ChartDescribed? Function(
+      int index,
+      int? series,
+      ChartLayoutBase layout,
+    );
 
 /// Builds a layer over the drawing (a donut's center label) from the
 /// layout and the active point.
-typedef ChartOverlayBuilder = Widget Function(
-  BuildContext context,
-  ChartLayoutBase layout,
-  ChartActive? active,
-);
+typedef ChartOverlayBuilder =
+    Widget Function(
+      BuildContext context,
+      ChartLayoutBase layout,
+      ChartActive? active,
+    );
 
 /// The drawing every chart shares: the recipe sized to the box, its labels
 /// and cursors, the tooltip, the pointer and the keys, the reveal, the
@@ -440,8 +442,11 @@ class _ChartCanvasState<S extends ChartSpec> extends State<ChartCanvas<S>>
           ),
         for (final c in cursors)
           if (!behind(c)) ChartCursorMark(cursor: c, seed: seed),
-        if ((scope.tooltip, active, described)
-            case (final tooltip?, final point?, final told?) when canMove)
+        if ((scope.tooltip, active, described) case (
+          final tooltip?,
+          final point?,
+          final told?,
+        ) when canMove)
           Positioned.fill(
             child: ChartTooltipLayer(
               anchor: Offset(

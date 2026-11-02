@@ -5,16 +5,19 @@ const arrowDoc = ComponentDoc(
   slug: 'arrow',
   title: 'Arrow',
   category: ComponentCategory.marks,
-  description: 'A hand-drawn arrow that points where you tell it: one of eight directions inside its own box, or straight at another element on the page. Straight, curved, or with a loop-the-loop, five heads, and an optional label.',
+  description:
+      'A hand-drawn arrow that points where you tell it: one of eight directions inside its own box, or straight at another element on the page. Straight, curved, or with a loop-the-loop, five heads, and an optional label.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Arrow',
-      description: 'A <span> that fills its box (`className` sizes it, default 80 x 40) with the drawing. Text inside becomes a label, real text placed outside the tail. The svg is aria-hidden and never takes a click.',
+      description:
+          'A <span> that fills its box (`className` sizes it, default 80 x 40) with the drawing. Text inside becomes a label, real text placed outside the tail. The svg is aria-hidden and never takes a click.',
       props: [
         PropDoc(
           name: 'direction',
-          type: '"right" | "left" | "up" | "down" | "up-right" | "up-left" | "down-right" | "down-left"',
+          type:
+              '"right" | "left" | "up" | "down" | "up-right" | "up-left" | "down-right" | "down-left"',
           defaultValue: '"right"',
           description: 'Which way it points, inside its own box.',
         ),
@@ -29,11 +32,13 @@ const arrowDoc = ComponentDoc(
           name: 'head',
           type: '"v" | "two" | "open" | "solid" | "none"',
           defaultValue: '"v"',
-          description: 'The arrowhead: two strokes joined, two loose strokes, an open V, a filled triangle, or none.',
+          description:
+              'The arrowhead: two strokes joined, two loose strokes, an open V, a filled triangle, or none.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"ink"',
           description: 'The pen. Blue felt is the reserved "you" ink.',
         ),
@@ -47,12 +52,14 @@ const arrowDoc = ComponentDoc(
           name: 'bend',
           type: '"up" | "down"',
           defaultValue: '"up"',
-          description: 'Which way a curved shaft bulges: toward the top (the left for a vertical arrow) or the bottom (the right).',
+          description:
+              'Which way a curved shaft bulges: toward the top (the left for a vertical arrow) or the bottom (the right).',
         ),
         PropDoc(
           name: 'pointAt',
           type: 'RefObject<Element> | Element | string',
-          description: 'Aim at another element (a ref, an element or a CSS selector). The arrow leaves the middle of its own box and stops `gap` px short of the target, wherever that is; it follows layout changes.',
+          description:
+              'Aim at another element (a ref, an element or a CSS selector). The arrow leaves the middle of its own box and stops `gap` px short of the target, wherever that is; it follows layout changes.',
         ),
         PropDoc(
           name: 'gap',
@@ -65,13 +72,15 @@ const arrowDoc = ComponentDoc(
           name: 'mirror',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Flip horizontal directions in a right-to-left page, so "next" keeps meaning onwards.',
+          description:
+              'Flip horizontal directions in a right-to-left page, so "next" keeps meaning onwards.',
         ),
         PropDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Draw the arrow on, shaft first, the first time it scrolls into view.',
+          description:
+              'Draw the arrow on, shaft first, the first time it scrolls into view.',
         ),
         PropDoc(
           name: 'show',

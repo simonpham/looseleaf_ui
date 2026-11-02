@@ -5,24 +5,28 @@ const revealDoc = ComponentDoc(
   slug: 'reveal',
   title: 'Reveal',
   category: ComponentCategory.interactive,
-  description: 'Holds its children back until they scroll into view, then draws them on: a wipe along the line, wet ink drying, a sheet dropped on the desk, a stamp, a toss. Direct children can arrive one after another. Without script, and with reduced motion, everything is simply there.',
+  description:
+      'Holds its children back until they scroll into view, then draws them on: a wipe along the line, wet ink drying, a sheet dropped on the desk, a stamp, a toss. Direct children can arrive one after another. Without script, and with reduced motion, everything is simply there.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Reveal',
-      description: 'A wrapper element. It arms itself after mounting (the server sends everything visible), hides its content with opacity, and plays one of the theme\'s own keyframes when an IntersectionObserver says enough of it is on screen. It leaves data-state="hidden|visible" on itself, so anything drawn inside can key on it with group-data-[state=visible]/reveal:…',
+      description:
+          'A wrapper element. It arms itself after mounting (the server sends everything visible), hides its content with opacity, and plays one of the theme\'s own keyframes when an IntersectionObserver says enough of it is on screen. It leaves data-state="hidden|visible" on itself, so anything drawn inside can key on it with group-data-[state=visible]/reveal:…',
       props: [
         PropDoc(
           name: 'effect',
           type: '"wipe" | "soak" | "drop" | "pop" | "toss"',
           defaultValue: '"wipe"',
-          description: 'wipe draws it on along the line (ll-wipe), soak dries it like wet ink (ll-soak), drop lays a sheet down (ll-drop), pop stamps it (ll-pop), toss throws it in (ll-toss).',
+          description:
+              'wipe draws it on along the line (ll-wipe), soak dries it like wet ink (ll-soak), drop lays a sheet down (ll-drop), pop stamps it (ll-pop), toss throws it in (ll-toss).',
         ),
         PropDoc(
           name: 'from',
           type: '"start" | "end"',
           defaultValue: '"start"',
-          description: 'Which end a wipe starts from. The wipe follows the page direction by itself.',
+          description:
+              'Which end a wipe starts from. The wipe follows the page direction by itself.',
         ),
         PropDoc(
           name: 'delay',
@@ -33,7 +37,8 @@ const revealDoc = ComponentDoc(
         PropDoc(
           name: 'stagger',
           type: 'number',
-          description: 'Seconds between direct children (the first 16): they arrive one after another instead of as one block.',
+          description:
+              'Seconds between direct children (the first 16): they arrive one after another instead of as one block.',
         ),
         PropDoc(
           name: 'threshold',
@@ -56,11 +61,13 @@ const revealDoc = ComponentDoc(
           name: 'nib / nibColor',
           type: 'boolean / PaintKey',
           defaultValue: 'false / "tomato"',
-          description: 'A hand-drawn marker tip rides the leading edge of a wipe, as if it were writing the content (wipe without stagger only; a list, `as="ul"` or `"ol"`, has nowhere to put the tip and ignores it). The content is wrapped in one block (a span on a p or a span).',
+          description:
+              'A hand-drawn marker tip rides the leading edge of a wipe, as if it were writing the content (wipe without stagger only; a list, `as="ul"` or `"ol"`, has nowhere to put the tip and ignores it). The content is wrapped in one block (a span on a p or a span).',
         ),
         PropDoc(
           name: 'as',
-          type: '"div" | "section" | "article" | "aside" | "figure" | "ul" | "ol" | "li" | "span" | "p"',
+          type:
+              '"div" | "section" | "article" | "aside" | "figure" | "ul" | "ol" | "li" | "span" | "p"',
           defaultValue: '"div"',
           description: 'The element to render.',
         ),

@@ -5,18 +5,21 @@ const signatureDoc = ComponentDoc(
   slug: 'signature',
   title: 'Signature',
   category: ComponentCategory.marks,
-  description: 'A name signed in the script font with the pen\'s flourish under it: a swoosh with a loop that flicks up past the last letter. The name is ordinary text; the flourish is a drawing that can write itself on.',
+  description:
+      'A name signed in the script font with the pen\'s flourish under it: a swoosh with a loop that flicks up past the last letter. The name is ordinary text; the flourish is a drawing that can write itself on.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Signature',
-      description: 'An inline-block <span> holding the name (in `data-slot="signature-name"`) and the aria-hidden flourish. Size the name with `size` or any text class.',
+      description:
+          'An inline-block <span> holding the name (in `data-slot="signature-name"`) and the aria-hidden flourish. Size the name with `size` or any text class.',
       props: [
         PropDoc(
           name: 'flourish',
           type: '"swoosh" | "underline" | "none"',
           defaultValue: '"swoosh"',
-          description: 'The pen\'s tail: a swoosh with a loop and a crossing stroke, a flourished underline, or nothing.',
+          description:
+              'The pen\'s tail: a swoosh with a loop and a crossing stroke, a flourished underline, or nothing.',
         ),
         PropDoc(
           name: 'size',
@@ -27,9 +30,11 @@ const signatureDoc = ComponentDoc(
         ),
         PropDoc(
           name: 'tone',
-          type: '"blue" | "ink" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"blue" | "ink" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"blue"',
-          description: 'The pen of the flourish (and the color of the name for blue and ink).',
+          description:
+              'The pen of the flourish (and the color of the name for blue and ink).',
         ),
         PropDoc(
           name: 'weight',
@@ -41,7 +46,8 @@ const signatureDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Sign it in the first time it scrolls into view: the name is written left to right, then the flourish.',
+          description:
+              'Sign it in the first time it scrolls into view: the name is written left to right, then the flourish.',
         ),
         PropDoc(
           name: 'show',

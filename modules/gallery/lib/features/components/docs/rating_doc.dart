@@ -5,17 +5,20 @@ const ratingDoc = ComponentDoc(
   slug: 'rating',
   title: 'Rating',
   category: ComponentCategory.forms,
-  description: 'Stars, hearts or suns somebody drew, where you pick how many are filled. Hover previews, half steps are optional, and it is a real radio group (arrow keys, form value), or a plain read-only display with a text alternative. New in Looseleaf: shadcn has no rating.',
+  description:
+      'Stars, hearts or suns somebody drew, where you pick how many are filled. Hover previews, half steps are optional, and it is a real radio group (arrow keys, form value), or a plain read-only display with a text alternative. New in Looseleaf: shadcn has no rating.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Rating',
-      description: 'The row: `role="radiogroup"` of `max` glyphs (or `role="img"` when read-only). The fill of each glyph is its data-state, so previews and choices only change attributes; nothing is redrawn.',
+      description:
+          'The row: `role="radiogroup"` of `max` glyphs (or `role="img"` when read-only). The fill of each glyph is its data-state, so previews and choices only change attributes; nothing is redrawn.',
       props: [
         PropDoc(
           name: 'value / defaultValue / onValueChange',
           type: 'number / number / (value: number) => void',
-          description: 'Controlled or uncontrolled value, 0 to max. 0 means none chosen.',
+          description:
+              'Controlled or uncontrolled value, 0 to max. 0 means none chosen.',
         ),
         PropDoc(
           name: 'max',
@@ -27,31 +30,36 @@ const ratingDoc = ComponentDoc(
           name: 'allowHalf',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Steps of 0.5: two radios per glyph (one over each half) and a half-filled glyph, read from the start side.',
+          description:
+              'Steps of 0.5: two radios per glyph (one over each half) and a half-filled glyph, read from the start side.',
         ),
         PropDoc(
           name: 'icon',
           type: '"star" | "heart" | "sun"',
           defaultValue: '"star"',
-          description: 'The glyph: a single-stroke pentagram, a wavering heart or a sun with rays.',
+          description:
+              'The glyph: a single-stroke pentagram, a wavering heart or a sun with rays.',
         ),
         PropDoc(
           name: 'size',
           type: '"sm" | "default" | "lg"',
           defaultValue: '"default"',
-          description: '20, 24 or 32 px glyphs. Hit areas are 2 px larger than the glyph on the outer sides, so the row is a row of 24 px targets at least.',
+          description:
+              '20, 24 or 32 px glyphs. Hit areas are 2 px larger than the glyph on the outer sides, so the row is a row of 24 px targets at least.',
         ),
         PropDoc(
           name: 'readOnly',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A display: an image with the alt text "Rated 4.5 out of 5" (or your aria-label), no buttons, no tab stop.',
+          description:
+              'A display: an image with the alt text "Rated 4.5 out of 5" (or your aria-label), no buttons, no tab stop.',
         ),
         PropDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Faint pencil glyphs with a graphite fill. The radios are disabled.',
+          description:
+              'Faint pencil glyphs with a graphite fill. The radios are disabled.',
         ),
         PropDoc(
           name: 'clearable',
@@ -62,12 +70,14 @@ const ratingDoc = ComponentDoc(
         PropDoc(
           name: 'name / required',
           type: 'string / boolean',
-          description: '`name` adds a hidden input so the value is in FormData (not while `disabled`). `required` sets aria-required and adds a native input the browser validates, so the form will not submit while the value is 0. A form reset puts the rating back to `defaultValue` (a controlled rating is asked with onValueChange).',
+          description:
+              '`name` adds a hidden input so the value is in FormData (not while `disabled`). `required` sets aria-required and adds a native input the browser validates, so the form will not submit while the value is 0. A form reset puts the rating back to `defaultValue` (a controlled rating is asked with onValueChange).',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'The empty glyphs are drawn in red pencil (filled ones keep their felt outline). FormControl sets it for you.',
+          description:
+              'The empty glyphs are drawn in red pencil (filled ones keep their felt outline). FormControl sets it for you.',
         ),
         PropDoc(
           name: 'getLabel',
@@ -78,13 +88,15 @@ const ratingDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same glyphs. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same glyphs. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'RatingItem',
-      description: 'One glyph, `index` counting from 1, to compose your own row inside `<Rating>` (default: `max` of them are rendered for you). It must be inside a Rating.',
+      description:
+          'One glyph, `index` counting from 1, to compose your own row inside `<Rating>` (default: `max` of them are rendered for you). It must be inside a Rating.',
       props: [
         PropDoc(
           name: 'index',

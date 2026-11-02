@@ -5,19 +5,22 @@ const attachmentDoc = ComponentDoc(
   slug: 'attachment',
   title: 'Attachment',
   category: ComponentCategory.chat,
-  description: 'A file handed over in a conversation: a slip clipped to the message, or a print taped up. Five states (idle, uploading, processing, error, done), a pencil progress bar and a remove button. The pencil traces the slip, dashes it while it is only a promise and goes red when it fails.',
+  description:
+      'A file handed over in a conversation: a slip clipped to the message, or a print taped up. Five states (idle, uploading, processing, error, done), a pencil progress bar and a remove button. The pencil traces the slip, dashes it while it is only a promise and goes red when it fails.',
   status: ComponentStatus.isNew,
   upstream: 'attachment',
   parts: [
     PartDoc(
       name: 'Attachment',
-      description: 'The root and the drawing: a `Paper` slip (horizontal) or a taped photo (vertical) behind the content, with a hand-traced outline on top. A finished slip carries a paper clip, a finished print a strip of tape.',
+      description:
+          'The root and the drawing: a `Paper` slip (horizontal) or a taped photo (vertical) behind the content, with a hand-traced outline on top. A finished slip carries a paper clip, a finished print a strip of tape.',
       props: [
         PropDoc(
           name: 'state',
           type: '"idle" | "uploading" | "processing" | "error" | "done"',
           defaultValue: '"done"',
-          description: 'Idle is a dashed empty slot with no paper, error is red pencil on a red wash, uploading and processing are the same slip with a second, looser pass and a pulsing title.',
+          description:
+              'Idle is a dashed empty slot with no paper, error is red pencil on a red wash, uploading and processing are the same slip with a second, looser pass and a pulsing title.',
         ),
         PropDoc(
           name: 'size',
@@ -41,17 +44,20 @@ const attachmentDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AttachmentGroup',
-      description: 'A row of attachments that scrolls sideways and snaps; padded so the clips, the tape and the focus rings are not cut off.',
+      description:
+          'A row of attachments that scrolls sideways and snaps; padded so the clips, the tape and the focus rings are not cut off.',
     ),
     PartDoc(
       name: 'AttachmentMedia',
-      description: 'The tile a file\'s icon or thumbnail sits in: a paper-shade blob and a pencil loop, red in the error state. A bare glyph is held to 16 px (24 px in a print); a `Doodle` or `Sticker` keeps the size you give it.',
+      description:
+          'The tile a file\'s icon or thumbnail sits in: a paper-shade blob and a pencil loop, red in the error state. A bare glyph is held to 16 px (24 px in a print); a `Doodle` or `Sticker` keeps the size you give it.',
       props: [
         PropDoc(
           name: 'variant',
           type: '"icon" | "image"',
           defaultValue: '"icon"',
-          description: '`image` frames a picture (`<img>`) that covers the tile; it is dimmed while the file is uploading or processing.',
+          description:
+              '`image` frames a picture (`<img>`) that covers the tile; it is dimmed while the file is uploading or processing.',
         ),
       ],
     ),
@@ -61,7 +67,8 @@ const attachmentDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AttachmentTitle',
-      description: 'The file name, bold, truncated; it pulses while the file is uploading or processing.',
+      description:
+          'The file name, bold, truncated; it pulses while the file is uploading or processing.',
     ),
     PartDoc(
       name: 'AttachmentDescription',
@@ -69,12 +76,14 @@ const attachmentDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AttachmentProgress',
-      description: 'The pencil bar: a ruled box with a hatched fill. The fill is drawn once at full length and clipped by CSS to the value, so progress never redraws it.',
+      description:
+          'The pencil bar: a ruled box with a hatched fill. The fill is drawn once at full length and clipped by CSS to the value, so progress never redraws it.',
       props: [
         PropDoc(
           name: 'value',
           type: 'number',
-          description: '0 to `max`. Undefined makes an indeterminate bar (the hatching pulses).',
+          description:
+              '0 to `max`. Undefined makes an indeterminate bar (the hatching pulses).',
         ),
         PropDoc(
           name: 'max',
@@ -86,15 +95,18 @@ const attachmentDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AttachmentActions',
-      description: 'A row for actions; in a vertical attachment it sits on the top right corner of the print.',
+      description:
+          'A row for actions; in a vertical attachment it sits on the top right corner of the print.',
     ),
     PartDoc(
       name: 'AttachmentAction',
-      description: 'A ghost icon Button (remove, retry, download). Takes every Button prop.',
+      description:
+          'A ghost icon Button (remove, retry, download). Takes every Button prop.',
     ),
     PartDoc(
       name: 'AttachmentTrigger',
-      description: 'A button laid over the whole attachment to make it pressable (`asChild` for a link). Give it an `aria-label`. It draws the hover wash and, on keyboard focus, the blue ring round the whole attachment.',
+      description:
+          'A button laid over the whole attachment to make it pressable (`asChild` for a link). Give it an `aria-label`. It draws the hover wash and, on keyboard focus, the blue ring round the whole attachment.',
     ),
   ],
   a11y: [

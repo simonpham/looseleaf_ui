@@ -5,13 +5,15 @@ const paginationDoc = ComponentDoc(
   slug: 'pagination',
   title: 'Pagination',
   category: ComponentCategory.navigation,
-  description: 'Page links as drawn buttons: each number is a Button around your own link, the page you are on is a block of highlighter, the arrows and the ellipsis are hand-drawn. It is just links, so it works with any router, or with plain hrefs and no JavaScript at all.',
+  description:
+      'Page links as drawn buttons: each number is a Button around your own link, the page you are on is a block of highlighter, the arrows and the ellipsis are hand-drawn. It is just links, so it works with any router, or with plain hrefs and no JavaScript at all.',
   status: ComponentStatus.stable,
   upstream: 'pagination',
   parts: [
     PartDoc(
       name: 'Pagination',
-      description: 'The `nav` landmark (`role="navigation"`, labeled "pagination"), centered.',
+      description:
+          'The `nav` landmark (`role="navigation"`, labeled "pagination"), centered.',
     ),
     PartDoc(
       name: 'PaginationContent',
@@ -23,17 +25,20 @@ const paginationDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PaginationLink',
-      description: 'A page link: `<Button asChild>` around an `<a>`, so it is drawn (ghost, or secondary when active) and keeps your `href`, `target` and handlers. `buttonVariants()` on a bare anchor would give layout without the drawing, which is why this wraps a Button.',
+      description:
+          'A page link: `<Button asChild>` around an `<a>`, so it is drawn (ghost, or secondary when active) and keeps your `href`, `target` and handlers. `buttonVariants()` on a bare anchor would give layout without the drawing, which is why this wraps a Button.',
       props: [
         PropDoc(
           name: 'isActive',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'The current page: a block of highlighter, `aria-current="page"`, `data-active`.',
+          description:
+              'The current page: a block of highlighter, `aria-current="page"`, `data-active`.',
         ),
         PropDoc(
           name: 'size',
-          type: '"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"',
+          type:
+              '"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"',
           defaultValue: '"icon"',
           description: 'A Button size. A page number is a square icon button.',
         ),
@@ -41,13 +46,15 @@ const paginationDoc = ComponentDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'For a link that goes nowhere (the first page\'s Previous): drawn dashed, `aria-disabled`, out of the tab order, its click swallowed (your onClick does not run).',
+          description:
+              'For a link that goes nowhere (the first page\'s Previous): drawn dashed, `aria-disabled`, out of the tab order, its click swallowed (your onClick does not run).',
         ),
       ],
     ),
     PartDoc(
       name: 'PaginationPrevious',
-      description: 'A labeled link ("Go to previous page") with a drawn chevron. The word "Previous" hides on phones; the label stays.',
+      description:
+          'A labeled link ("Go to previous page") with a drawn chevron. The word "Previous" hides on phones; the label stays.',
     ),
     PartDoc(
       name: 'PaginationNext',
@@ -55,7 +62,8 @@ const paginationDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PaginationEllipsis',
-      description: 'Three pencil dots for the pages left out; hidden from assistive technology with an `sr-only` "More pages".',
+      description:
+          'Three pencil dots for the pages left out; hidden from assistive technology with an `sr-only` "More pages".',
     ),
   ],
   a11y: [

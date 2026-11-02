@@ -5,24 +5,28 @@ const nativeSelectDoc = ComponentDoc(
   slug: 'native-select',
   title: 'Native Select',
   category: ComponentCategory.forms,
-  description: 'The browser\'s own <select> in a hand-drawn frame with a pencil chevron. You keep the platform\'s popup, mobile picker, typeahead and autofill, and a list of hundreds of options costs nothing. Reach for Select when you want the paper slip.',
+  description:
+      'The browser\'s own <select> in a hand-drawn frame with a pencil chevron. You keep the platform\'s popup, mobile picker, typeahead and autofill, and a list of hundreds of options costs nothing. Reach for Select when you want the paper slip.',
   status: ComponentStatus.stable,
   upstream: 'native-select',
   parts: [
     PartDoc(
       name: 'NativeSelect',
-      description: 'A `<span data-slot="native-select-wrapper">` (the drawn frame, the ink host) around the real `<select data-slot="native-select">` and a chevron. `ref` and every prop go to the select; `className` and `style` go to the frame, except padding and control-only variants (`focus:`, `disabled:` ...).',
+      description:
+          'A `<span data-slot="native-select-wrapper">` (the drawn frame, the ink host) around the real `<select data-slot="native-select">` and a chevron. `ref` and every prop go to the select; `className` and `style` go to the frame, except padding and control-only variants (`focus:`, `disabled:` ...).',
       props: [
         PropDoc(
           name: 'size',
           type: '"default" | "sm"',
           defaultValue: '"default"',
-          description: '36 px or 32 px tall (28 px in calm density). Not the HTML `size` attribute; use `multiple` for a list box.',
+          description:
+              '36 px or 32 px tall (28 px in calm density). Not the HTML `size` attribute; use `multiple` for a list box.',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'true draws the red pencil box, a wavy underline and a bang before the chevron.',
+          description:
+              'true draws the red pencil box, a wavy underline and a bang before the chevron.',
         ),
         PropDoc(
           name: 'disabled',
@@ -32,13 +36,15 @@ const nativeSelectDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'NativeSelectOption',
-      description: 'A styled `<option>` (paper background, ink text where the browser allows).',
+      description:
+          'A styled `<option>` (paper background, ink text where the browser allows).',
     ),
     PartDoc(
       name: 'NativeSelectOptGroup',

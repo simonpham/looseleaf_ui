@@ -22,7 +22,8 @@ class DialogPaperAndPropsExample extends StatelessWidget {
       _Note(
         label: 'Torn page',
         title: 'Torn from a pad',
-        body: 'A pad sheet torn top and bottom, held with a paper clip. The edge is drawn when the dialog opens.',
+        body:
+            'A pad sheet torn top and bottom, held with a paper clip. The edge is drawn when the dialog opens.',
         stock: StockName.pad,
         edge: EdgeSpec(top: EdgeKind.torn, bottom: EdgeKind.torn),
         fastener: FastenerKind.clip,
@@ -31,7 +32,8 @@ class DialogPaperAndPropsExample extends StatelessWidget {
       _Note(
         label: 'Pinned',
         title: 'Sticky business',
-        body: 'A sticky note with a push-pin through it, turned a degree and a half.',
+        body:
+            'A sticky note with a push-pin through it, turned a degree and a half.',
         stock: StockName.stickyYellow,
         fastener: FastenerKind.pin,
         tiltDegrees: 1.4,

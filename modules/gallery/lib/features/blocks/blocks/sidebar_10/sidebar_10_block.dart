@@ -31,7 +31,8 @@ class Sidebar10Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'A blank page, for now',
                   pose: 'write',
-                  description: 'Nothing on this page yet. Open the three dots up in the corner to see what you can do with it.',
+                  description:
+                      'Nothing on this page yet. Open the three dots up in the corner to see what you can do with it.',
                 ),
               ],
             ),

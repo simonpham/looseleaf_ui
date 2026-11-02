@@ -7,11 +7,12 @@ import 'package:looseleaf_ui/src/components/command/command_score.dart';
 
 /// Scores [value] (and its [keywords]) against [search]; above zero shows
 /// the row. Upstream cmdk's `filter` prop.
-typedef CommandFilter = double Function(
-  String value,
-  String search,
-  List<String> keywords,
-);
+typedef CommandFilter =
+    double Function(
+      String value,
+      String search,
+      List<String> keywords,
+    );
 
 /// One registered [CommandItem].
 class CommandEntry {

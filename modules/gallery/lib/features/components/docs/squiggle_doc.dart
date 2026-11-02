@@ -5,13 +5,15 @@ const squiggleDoc = ComponentDoc(
   slug: 'squiggle',
   title: 'Squiggle',
   category: ComponentCategory.marks,
-  description: 'A hand-drawn divider: a wave, a zig-zag, a row of loops, scallops, dashes or dots, drawn to fit whatever width or height you give it. Same semantics as a separator.',
+  description:
+      'A hand-drawn divider: a wave, a zig-zag, a row of loops, scallops, dashes or dots, drawn to fit whatever width or height you give it. Same semantics as a separator.',
   status: ComponentStatus.isNew,
   upstream: 'separator',
   parts: [
     PartDoc(
       name: 'Squiggle',
-      description: 'A <div> that fills its box with one drawn line along its long side. Full width and 16 px high by default; a vertical one is 16 px wide and as high as its container.',
+      description:
+          'A <div> that fills its box with one drawn line along its long side. Full width and 16 px high by default; a vertical one is 16 px wide and as high as its container.',
       props: [
         PropDoc(
           name: 'kind',
@@ -29,11 +31,13 @@ const squiggleDoc = ComponentDoc(
           name: 'decorative',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'true: role="none", hidden from assistive technology. false: a real separator with aria-orientation.',
+          description:
+              'true: role="none", hidden from assistive technology. false: a real separator with aria-orientation.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"ink"',
           description: 'The pen.',
         ),
@@ -47,7 +51,8 @@ const squiggleDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Draw the line on, along its length, the first time it scrolls into view.',
+          description:
+              'Draw the line on, along its length, the first time it scrolls into view.',
         ),
         PropDoc(
           name: 'show',

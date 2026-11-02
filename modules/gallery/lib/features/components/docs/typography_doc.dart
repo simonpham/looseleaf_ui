@@ -5,7 +5,8 @@ const typographyDoc = ComponentDoc(
   slug: 'typography',
   title: 'Typography',
   category: ComponentCategory.typography,
-  description: 'The type scale and a Prose wrapper for the notebook: script headings with a hand-drawn rule, body text in the hand at 17 px on a 1.7 line, blue felt links, marker bullets, mono code chips. Prose styles markup you did not write (markdown, CMS html, MDX).',
+  description:
+      'The type scale and a Prose wrapper for the notebook: script headings with a hand-drawn rule, body text in the hand at 17 px on a 1.7 line, blue felt links, marker bullets, mono code chips. Prose styles markup you did not write (markdown, CMS html, MDX).',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
@@ -22,7 +23,8 @@ const typographyDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Picks which of the three hands draws the rule. Default: from useId().',
+          description:
+              'Picks which of the three hands draws the rule. Default: from useId().',
         ),
       ],
     ),
@@ -54,7 +56,8 @@ const typographyDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'P',
-      description: 'Body paragraph: 17 px on a 1.7 line; a paragraph after a paragraph gets room.',
+      description:
+          'Body paragraph: 17 px on a 1.7 line; a paragraph after a paragraph gets room.',
     ),
     PartDoc(
       name: 'Lead',
@@ -75,7 +78,8 @@ const typographyDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'List',
-      description: 'A bulleted list with marker-colored bullets; `ordered` makes it a numbered <ol> with script numerals. Children are <li>s.',
+      description:
+          'A bulleted list with marker-colored bullets; `ordered` makes it a numbered <ol> with script numerals. Children are <li>s.',
       props: [
         PropDoc(
           name: 'ordered',
@@ -87,15 +91,18 @@ const typographyDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'InlineCode',
-      description: 'Code in a sentence: a mono chip on a paper-shade wash whose corners are not quite square.',
+      description:
+          'Code in a sentence: a mono chip on a paper-shade wash whose corners are not quite square.',
     ),
     PartDoc(
       name: 'Blockquote',
-      description: 'A quotation set into the text: a marker rule down the start edge and the words in the script role. For a pull quote with drawn quotation marks use Quote.',
+      description:
+          'A quotation set into the text: a marker rule down the start edge and the words in the script role. For a pull quote with drawn quotation marks use Quote.',
     ),
     PartDoc(
       name: 'Prose',
-      description: 'Wraps raw markup and styles it, with one hoisted stylesheet scoped to `[data-slot="typography-prose"]` (in the components layer and written with :where(), so any utility class on a child still wins). At most 64 characters wide. Put `ll-not-prose` on a child to opt out. It styles, it does not sanitize: pass trusted or sanitized HTML.',
+      description:
+          'Wraps raw markup and styles it, with one hoisted stylesheet scoped to `[data-slot="typography-prose"]` (in the components layer and written with :where(), so any utility class on a child still wins). At most 64 characters wide. Put `ll-not-prose` on a child to opt out. It styles, it does not sanitize: pass trusted or sanitized HTML.',
     ),
   ],
   a11y: [

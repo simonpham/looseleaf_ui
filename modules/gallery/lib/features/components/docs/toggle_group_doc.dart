@@ -5,18 +5,21 @@ const toggleGroupDoc = ComponentDoc(
   slug: 'toggle-group',
   title: 'Toggle Group',
   category: ComponentCategory.actions,
-  description: 'A row of toggles that belong together: pick one (alignment) or several (bold, italic, underline). Joined outline items share one hand-drawn box with a pencil seam between them; the highlighter body marks what is on.',
+  description:
+      'A row of toggles that belong together: pick one (alignment) or several (bold, italic, underline). Joined outline items share one hand-drawn box with a pencil seam between them; the highlighter body marks what is on.',
   status: ComponentStatus.stable,
   upstream: 'toggle-group',
   parts: [
     PartDoc(
       name: 'ToggleGroup',
-      description: 'A Radix ToggleGroup (single: a radio group; multiple: a toolbar). With variant outline and spacing 0 the group is the ink host and draws the one box around every item; otherwise the items draw themselves. It passes variant, size, spacing and tone down to its items.',
+      description:
+          'A Radix ToggleGroup (single: a radio group; multiple: a toolbar). With variant outline and spacing 0 the group is the ink host and draws the one box around every item; otherwise the items draw themselves. It passes variant, size, spacing and tone down to its items.',
       props: [
         PropDoc(
           name: 'type',
           type: '"single" | "multiple"',
-          description: 'single = at most one item is on (radio semantics); multiple = any number (aria-pressed buttons).',
+          description:
+              'single = at most one item is on (radio semantics); multiple = any number (aria-pressed buttons).',
           required: true,
         ),
         PropDoc(
@@ -34,13 +37,15 @@ const toggleGroupDoc = ComponentDoc(
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean',
-          description: 'Marks the choice as wrong (a Form\'s `FormControl` sets it). The shared box of an outline group turns red pencil; separate toggles each draw a red box. An item\'s own `aria-invalid={false}` wins; a disabled group stays graphite. Put the group in a `Field` and it keeps the width of its buttons (a vertical Field stretches every other child).',
+          description:
+              'Marks the choice as wrong (a Form\'s `FormControl` sets it). The shared box of an outline group turns red pencil; separate toggles each draw a red box. An item\'s own `aria-invalid={false}` wins; a disabled group stays graphite. Put the group in a `Field` and it keeps the width of its buttons (a vertical Field stretches every other child).',
         ),
         PropDoc(
           name: 'spacing',
           type: 'number',
           defaultValue: '0',
-          description: 'Gap between items in the spacing scale (4 px units). 0 joins them: outline items share one box and the seams between them.',
+          description:
+              'Gap between items in the spacing scale (4 px units). 0 joins them: outline items share one box and the seams between them.',
         ),
         PropDoc(
           name: 'tone',
@@ -51,18 +56,21 @@ const toggleGroupDoc = ComponentDoc(
         PropDoc(
           name: 'orientation',
           type: '"horizontal" | "vertical"',
-          description: 'Vertical stacks the items, stretches them to one width, and moves the roving focus to the up and down arrows.',
+          description:
+              'Vertical stacks the items, stretches them to one width, and moves the roving focus to the up and down arrows.',
         ),
         PropDoc(
           name: 'value / defaultValue / onValueChange',
           type: 'Radix',
-          description: 'Controlled and uncontrolled state: a string for single, a string[] for multiple.',
+          description:
+              'Controlled and uncontrolled state: a string for single, a string[] for multiple.',
         ),
         PropDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Disables every item; the joined box turns into a dashed pencil box.',
+          description:
+              'Disables every item; the joined box turns into a dashed pencil box.',
         ),
         PropDoc(
           name: 'seed',
@@ -73,7 +81,8 @@ const toggleGroupDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ToggleGroupItem',
-      description: 'A Radix ToggleGroup item: a toggle that reads variant and size from its group. In a joined group it draws only its seam (at the edge it shares with the item before it), its body and its focus ring.',
+      description:
+          'A Radix ToggleGroup item: a toggle that reads variant and size from its group. In a joined group it draws only its seam (at the edge it shares with the item before it), its body and its focus ring.',
       props: [
         PropDoc(
           name: 'value',
@@ -84,7 +93,8 @@ const toggleGroupDoc = ComponentDoc(
         PropDoc(
           name: 'variant / size',
           type: 'as Toggle',
-          description: 'Used only when the group does not set them. An item that asks for outline in a group with no variant draws a box of its own (the group draws none); only a group with variant outline and spacing 0 shares one box.',
+          description:
+              'Used only when the group does not set them. An item that asks for outline in a group with no variant draws a box of its own (the group draws none); only a group with variant outline and spacing 0 shares one box.',
         ),
         PropDoc(
           name: 'seed',

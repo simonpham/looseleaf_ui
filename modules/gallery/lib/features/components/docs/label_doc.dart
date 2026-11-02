@@ -5,19 +5,22 @@ const labelDoc = ComponentDoc(
   slug: 'label',
   title: 'Label',
   category: ComponentCategory.forms,
-  description: 'The words that go with a field, in the bold hand font, with an optional red pencil star for required fields. It fades with a disabled control and hands its click to it.',
+  description:
+      'The words that go with a field, in the bold hand font, with an optional red pencil star for required fields. It fades with a disabled control and hands its click to it.',
   status: ComponentStatus.stable,
   upstream: 'label',
   parts: [
     PartDoc(
       name: 'Label',
-      description: 'Radix Label.Root (a real <label>). htmlFor or nesting associate it with a control; double-clicking its text does not select it. required draws a star after the text.',
+      description:
+          'Radix Label.Root (a real <label>). htmlFor or nesting associate it with a control; double-clicking its text does not select it. required draws a star after the text.',
       props: [
         PropDoc(
           name: 'required',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A red-pencil star after the text: three crossing strokes, drawn once per label. It is decorative (aria-hidden) and adds nothing to the accessible name: put required on the control so it is announced.',
+          description:
+              'A red-pencil star after the text: three crossing strokes, drawn once per label. It is decorative (aria-hidden) and adds nothing to the accessible name: put required on the control so it is announced.',
         ),
         PropDoc(
           name: 'seed',

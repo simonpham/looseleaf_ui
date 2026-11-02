@@ -178,8 +178,9 @@ void main() {
     await tester.pumpWidget(
       overlayHost(_select(onChanged: chosen.add, off: {'Banana'})),
     );
-    Select.of(tester.element(find.byType(SelectValue))).triggerFocus
-        .requestFocus();
+    Select.of(
+      tester.element(find.byType(SelectValue)),
+    ).triggerFocus.requestFocus();
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.pumpAndSettle();
@@ -223,8 +224,9 @@ void main() {
   ) async {
     final chosen = <String>[];
     await tester.pumpWidget(overlayHost(_select(onChanged: chosen.add)));
-    Select.of(tester.element(find.byType(SelectValue))).triggerFocus
-        .requestFocus();
+    Select.of(
+      tester.element(find.byType(SelectValue)),
+    ).triggerFocus.requestFocus();
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.keyB);
     await tester.pump();

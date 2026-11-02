@@ -5,31 +5,36 @@ const scrollAreaDoc = ComponentDoc(
   slug: 'scroll-area',
   title: 'Scroll Area',
   category: ComponentCategory.layout,
-  description: 'A scroll container whose bar is a pencil "scroll mark": a graphite pull sliding down a faint gutter, gone over once more when a hand is on it. It fades in on hover or scroll, works in both directions, and is Radix underneath.',
+  description:
+      'A scroll container whose bar is a pencil "scroll mark": a graphite pull sliding down a faint gutter, gone over once more when a hand is on it. It fades in on hover or scroll, works in both directions, and is Radix underneath.',
   status: ComponentStatus.stable,
   upstream: 'scroll-area',
   parts: [
     PartDoc(
       name: 'ScrollArea',
-      description: 'The Radix Scroll Area root with its viewport, a vertical mark and the corner. The root clips (that is how scrolling works): use `bleed` when children draw beyond their own box.',
+      description:
+          'The Radix Scroll Area root with its viewport, a vertical mark and the corner. The root clips (that is how scrolling works): use `bleed` when children draw beyond their own box.',
       props: [
         PropDoc(
           name: 'orientation',
           type: '"vertical" | "horizontal" | "both"',
           defaultValue: '"vertical"',
-          description: 'Which marks to mount. Upstream always mounts the vertical one and lets you add `<ScrollBar orientation="horizontal" />` as a child; that still works. With `vertical` the content wrapper Radix adds is an ordinary block (Radix makes it `display: table`, as wide as the widest unbreakable line, so a `truncate` title in a list of cards pushed the cards out of the box); `horizontal` and `both` keep the table so a row of max-content width overflows and scrolls. A sideways row inside a `vertical` area needs a width of its own (`w-max`).',
+          description:
+              'Which marks to mount. Upstream always mounts the vertical one and lets you add `<ScrollBar orientation="horizontal" />` as a child; that still works. With `vertical` the content wrapper Radix adds is an ordinary block (Radix makes it `display: table`, as wide as the widest unbreakable line, so a `truncate` title in a list of cards pushed the cards out of the box); `horizontal` and `both` keep the table so a row of max-content width overflows and scrolls. A sideways row inside a `vertical` area needs a width of its own (`w-max`).',
         ),
         PropDoc(
           name: 'bleed',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Pad the viewport by 12 px so a child\'s focus ring, shadow or ink bleed is not cut at the edge of the scroll area.',
+          description:
+              'Pad the viewport by 12 px so a child\'s focus ring, shadow or ink bleed is not cut at the edge of the scroll area.',
         ),
         PropDoc(
           name: 'type',
           type: '"auto" | "always" | "scroll" | "hover"',
           defaultValue: '"hover"',
-          description: 'When the mark shows (Radix): on hover or scroll, whenever there is overflow, only while scrolling, or always.',
+          description:
+              'When the mark shows (Radix): on hover or scroll, whenever there is overflow, only while scrolling, or always.',
         ),
         PropDoc(
           name: 'scrollHideDelay',
@@ -42,7 +47,8 @@ const scrollAreaDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ScrollBar',
-      description: 'The gutter and its thumb, each its own small drawing. The thumb\'s length follows the content; a thumb over 44 px gets two short cross-strokes at its middle.',
+      description:
+          'The gutter and its thumb, each its own small drawing. The thumb\'s length follows the content; a thumb over 44 px gets two short cross-strokes at its middle.',
       props: [
         PropDoc(
           name: 'orientation',

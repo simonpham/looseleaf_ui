@@ -5,13 +5,15 @@ const textareaDoc = ComponentDoc(
   slug: 'textarea',
   title: 'Textarea',
   category: ComponentCategory.forms,
-  description: 'A multi-line text field on paper: a pencil box around a real <textarea> that grows with its text, with optional hand-ruled lines on the baselines, a drawn resize handle and a character counter.',
+  description:
+      'A multi-line text field on paper: a pencil box around a real <textarea> that grows with its text, with optional hand-ruled lines on the baselines, a drawn resize handle and a character counter.',
   status: ComponentStatus.stable,
   upstream: 'textarea',
   parts: [
     PartDoc(
       name: 'Textarea',
-      description: 'A <span data-slot="textarea-frame"> (the drawn box) around <textarea data-slot="textarea">. As with Input, every prop and ref go to the <textarea>; className and style go to the frame, and padding, resize-* and control variants (placeholder:, focus:, ...) are moved onto the textarea.',
+      description:
+          'A <span data-slot="textarea-frame"> (the drawn box) around <textarea data-slot="textarea">. As with Input, every prop and ref go to the <textarea>; className and style go to the frame, and padding, resize-* and control variants (placeholder:, focus:, ...) are moved onto the textarea.',
       props: [
         PropDoc(
           name: 'inputClassName',
@@ -22,30 +24,35 @@ const textareaDoc = ComponentDoc(
           name: 'ruled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Hand-ruled paper: pencilled rules on the text\'s baselines. It fixes the rhythm (28 px lines, the first 8 px from the top, min height of three lines) and always grows with its text, so lines and text never drift apart.',
+          description:
+              'Hand-ruled paper: pencilled rules on the text\'s baselines. It fixes the rhythm (28 px lines, the first 8 px from the top, min height of three lines) and always grows with its text, so lines and text never drift apart.',
         ),
         PropDoc(
           name: 'autoGrow',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Grow with the text using field-sizing: content, as upstream does. false keeps rows and a fixed height.',
+          description:
+              'Grow with the text using field-sizing: content, as upstream does. false keeps rows and a fixed height.',
         ),
         PropDoc(
           name: 'showCount',
           type:
               'boolean | (info: { length: number; max?: number }) => ReactNode',
           defaultValue: 'false',
-          description: 'A counter in the bottom corner (12 or 12/280 with maxLength), or your own render function. It is the field\'s aria-describedby, so a screen reader hears it on focus, not on every keystroke.',
+          description:
+              'A counter in the bottom corner (12 or 12/280 with maxLength), or your own render function. It is the field\'s aria-describedby, so a screen reader hears it on focus, not on every keystroke.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'true draws the red-pencil box, the wavy underline and a ! in the corner.',
+          description:
+              'true draws the red-pencil box, the wavy underline and a ! in the corner.',
         ),
         PropDoc(
           name: 'disabled / readOnly',
@@ -56,7 +63,8 @@ const textareaDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'TextareaControl',
-      description: 'The bare <textarea> (data-slot="textarea"): typography and reset, no drawing. For composites that draw the box themselves (InputGroup).',
+      description:
+          'The bare <textarea> (data-slot="textarea"): typography and reset, no drawing. For composites that draw the box themselves (InputGroup).',
     ),
   ],
   a11y: [

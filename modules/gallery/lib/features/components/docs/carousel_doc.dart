@@ -5,23 +5,27 @@ const carouselDoc = ComponentDoc(
   slug: 'carousel',
   title: 'Carousel',
   category: ComponentCategory.dataDisplay,
-  description: 'Embla\'s smooth, swipeable scroller with paper furniture: hand-drawn arrows outside the slides (dashed when there is nowhere to go) and, if you want it, a tally under them: one stroke per slide, groups of five with the fifth struck across the other four, the current slide in blue felt. Horizontal or vertical, any number of slides per view, autoplay only if you plug it in.',
+  description:
+      'Embla\'s smooth, swipeable scroller with paper furniture: hand-drawn arrows outside the slides (dashed when there is nowhere to go) and, if you want it, a tally under them: one stroke per slide, groups of five with the fifth struck across the other four, the current slide in blue felt. Horizontal or vertical, any number of slides per view, autoplay only if you plug it in.',
   status: ComponentStatus.stable,
   upstream: 'carousel',
   parts: [
     PartDoc(
       name: 'Carousel',
-      description: 'The `role="region"` (`aria-roledescription="carousel"`, give it a name) that owns the Embla instance and the keys, plus a screen-reader status ("Slide 2 of 5").',
+      description:
+          'The `role="region"` (`aria-roledescription="carousel"`, give it a name) that owns the Embla instance and the keys, plus a screen-reader status ("Slide 2 of 5").',
       props: [
         PropDoc(
           name: 'opts',
           type: 'EmblaOptionsType',
-          description: 'Embla options: `loop`, `align`, `startIndex`, `dragFree`, `slidesToScroll`, `direction: "rtl"` ... (`axis` follows `orientation`).',
+          description:
+              'Embla options: `loop`, `align`, `startIndex`, `dragFree`, `slidesToScroll`, `direction: "rtl"` ... (`axis` follows `orientation`).',
         ),
         PropDoc(
           name: 'plugins',
           type: 'EmblaPluginType[]',
-          description: 'Embla plugins. Autoplay is not on by default: install `embla-carousel-autoplay` and pass it here if you really want it (and give people a way to stop it).',
+          description:
+              'Embla plugins. Autoplay is not on by default: install `embla-carousel-autoplay` and pass it here if you really want it (and give people a way to stop it).',
         ),
         PropDoc(
           name: 'orientation',
@@ -32,7 +36,8 @@ const carouselDoc = ComponentDoc(
         PropDoc(
           name: 'setApi',
           type: '(api: CarouselApi) => void',
-          description: 'Receive the Embla API to read the current slide, listen to `select`, or scroll from outside.',
+          description:
+              'Receive the Embla API to read the current slide, listen to `select`, or scroll from outside.',
         ),
         PropDoc(
           name: 'seed',
@@ -44,15 +49,18 @@ const carouselDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CarouselContent',
-      description: 'Embla\'s window (`overflow: hidden`) and the track inside it. The window is padded across its axis and pulled back with a negative margin so a slide\'s shadow is not cut on the sides that do not slide. Size the track\'s gap with `-ms-*` here and `ps-*` on the items.',
+      description:
+          'Embla\'s window (`overflow: hidden`) and the track inside it. The window is padded across its axis and pulled back with a negative margin so a slide\'s shadow is not cut on the sides that do not slide. Size the track\'s gap with `-ms-*` here and `ps-*` on the items.',
     ),
     PartDoc(
       name: 'CarouselItem',
-      description: 'One slide (`role="group"`, `aria-roledescription="slide"`). `basis-full` by default; `basis-1/2`, `md:basis-1/3` ... show several.',
+      description:
+          'One slide (`role="group"`, `aria-roledescription="slide"`). `basis-full` by default; `basis-1/2`, `md:basis-1/3` ... show several.',
     ),
     PartDoc(
       name: 'CarouselPrevious',
-      description: 'Back one slide: a Button (outline, 32 px) with a hand-drawn arrow, outside the start edge. Dashed and inert on the first slide unless the carousel loops. Takes every Button prop.',
+      description:
+          'Back one slide: a Button (outline, 32 px) with a hand-drawn arrow, outside the start edge. Dashed and inert on the first slide unless the carousel loops. Takes every Button prop.',
     ),
     PartDoc(
       name: 'CarouselNext',
@@ -60,7 +68,8 @@ const carouselDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CarouselDots',
-      description: 'The tally: a `tablist` with a stroke per scroll snap. Each stroke is a `tab` (`aria-selected`, "Go to slide n") and the ink host of its own drawing; clicking goes to that slide. Draws nothing when there is only one slide. New in Looseleaf (shadcn has no indicator).',
+      description:
+          'The tally: a `tablist` with a stroke per scroll snap. Each stroke is a `tab` (`aria-selected`, "Go to slide n") and the ink host of its own drawing; clicking goes to that slide. Draws nothing when there is only one slide. New in Looseleaf (shadcn has no indicator).',
     ),
     PartDoc(
       name: 'CarouselApi',

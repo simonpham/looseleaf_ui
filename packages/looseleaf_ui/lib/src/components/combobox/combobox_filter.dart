@@ -1,10 +1,11 @@
 /// Scores how well an item matches the search: 0 hides it, more is a
 /// better match.
-typedef ComboboxFilter = double Function(
-  String value,
-  String search,
-  List<String> keywords,
-);
+typedef ComboboxFilter =
+    double Function(
+      String value,
+      String search,
+      List<String> keywords,
+    );
 
 /// The default filter: a case-insensitive match of [search] in the value
 /// or a keyword, scored higher at the start of a word, lower when the

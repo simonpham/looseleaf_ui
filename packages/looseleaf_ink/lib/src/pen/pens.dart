@@ -159,10 +159,12 @@ final Map<String, PenSpec> _basePens = {
     feather: 0.6,
     skip: 0.25,
   ),
-  'redfelt': _felt(PaintKey.red)
-      .copyWith(w: 1.75, alpha: 0.9, halo: 0.14, bleed: 1, core: 0.32),
-  'greenfelt': _felt(PaintKey.green)
-      .copyWith(w: 1.75, alpha: 0.9, halo: 0.14, bleed: 1, core: 0.32),
+  'redfelt': _felt(
+    PaintKey.red,
+  ).copyWith(w: 1.75, alpha: 0.9, halo: 0.14, bleed: 1, core: 0.32),
+  'greenfelt': _felt(
+    PaintKey.green,
+  ).copyWith(w: 1.75, alpha: 0.9, halo: 0.14, bleed: 1, core: 0.32),
   'focus': _felt(PaintKey.focus).copyWith(
     w: 2.2,
     alpha: 0.95,

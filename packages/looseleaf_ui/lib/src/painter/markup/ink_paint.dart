@@ -34,8 +34,9 @@ sealed class InkPaint {
   static String urlId(String value) => _urlId(value.trim());
 
   static String _urlId(String value) {
-    final match = RegExp(r'''^url\(\s*['"]?#([^'")]+)['"]?\s*\)$''')
-        .firstMatch(value);
+    final match = RegExp(
+      r'''^url\(\s*['"]?#([^'")]+)['"]?\s*\)$''',
+    ).firstMatch(value);
     if (match == null) throw InkMarkupError('unsupported url "$value"');
     return match[1] ?? '';
   }

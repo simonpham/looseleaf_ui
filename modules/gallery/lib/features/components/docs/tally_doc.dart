@@ -5,12 +5,14 @@ const tallyDoc = ComponentDoc(
   slug: 'tally',
   title: 'Tally',
   category: ComponentCategory.marks,
-  description: 'A count as tally marks, 1 to 99: bundles of four struck through by a fifth. The number is the accessible name, the box is exactly as big as the marks, and it is drawn on the server.',
+  description:
+      'A count as tally marks, 1 to 99: bundles of four struck through by a fifth. The number is the accessible name, the box is exactly as big as the marks, and it is drawn on the server.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Tally',
-      description: 'A <span role="img" aria-label="7"> whose box is the marks\' own footprint, so it sits in a line of text or a table cell without shifting anything.',
+      description:
+          'A <span role="img" aria-label="7"> whose box is the marks\' own footprint, so it sits in a line of text or a table cell without shifting anything.',
       props: [
         PropDoc(
           name: 'count',
@@ -22,11 +24,13 @@ const tallyDoc = ComponentDoc(
           name: 'size',
           type: '"sm" | "md" | "lg" | number',
           defaultValue: '"md"',
-          description: 'Height of the strokes: sm 14 px, md 22, lg 34, or a number of px.',
+          description:
+              'Height of the strokes: sm 14 px, md 22, lg 34, or a number of px.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"ink"',
           description: 'The pen.',
         ),
@@ -39,13 +43,15 @@ const tallyDoc = ComponentDoc(
         PropDoc(
           name: 'label',
           type: 'string',
-          description: 'The accessible name. Default: the number. Say what is counted: "7 votes".',
+          description:
+              'The accessible name. Default: the number. Say what is counted: "7 votes".',
         ),
         PropDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Wipe the marks on, left to right, the first time they scroll into view.',
+          description:
+              'Wipe the marks on, left to right, the first time they scroll into view.',
         ),
         PropDoc(
           name: 'show',

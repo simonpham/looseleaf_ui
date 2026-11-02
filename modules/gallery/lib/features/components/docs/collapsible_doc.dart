@@ -5,13 +5,15 @@ const collapsibleDoc = ComponentDoc(
   slug: 'collapsible',
   title: 'Collapsible',
   category: ComponentCategory.layout,
-  description: 'One panel that folds away behind a trigger. Minimal by design: the panel slides, and if you ask for it, writes a margin brace beside its text. The chevron indicator turns over the same way the accordion\'s does.',
+  description:
+      'One panel that folds away behind a trigger. Minimal by design: the panel slides, and if you ask for it, writes a margin brace beside its text. The chevron indicator turns over the same way the accordion\'s does.',
   status: ComponentStatus.stable,
   upstream: 'collapsible',
   parts: [
     PartDoc(
       name: 'Collapsible',
-      description: 'The Radix Collapsible root (also `group/collapsible`, for your own state-dependent classes).',
+      description:
+          'The Radix Collapsible root (also `group/collapsible`, for your own state-dependent classes).',
       props: [
         PropDoc(
           name: 'open / defaultOpen / onOpenChange',
@@ -28,23 +30,27 @@ const collapsibleDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CollapsibleTrigger',
-      description: 'Any button (use `asChild` with a Button). Radix sets `aria-expanded` and `aria-controls` on it. It carries `group/collapsible-trigger`, which is what the indicator inside it reads its state from, so collapsibles can nest.',
+      description:
+          'Any button (use `asChild` with a Button). Radix sets `aria-expanded` and `aria-controls` on it. It carries `group/collapsible-trigger`, which is what the indicator inside it reads its state from, so collapsibles can nest.',
     ),
     PartDoc(
       name: 'CollapsibleContent',
-      description: 'The panel. It slides open and shut with a height animation that clips the text only while it moves, so a focus ring or ink bleed inside an open panel is never cut (upstream\'s animated `overflow-hidden` cuts it for good).',
+      description:
+          'The panel. It slides open and shut with a height animation that clips the text only while it moves, so a focus ring or ink bleed inside an open panel is never cut (upstream\'s animated `overflow-hidden` cuts it for good).',
       props: [
         PropDoc(
           name: 'bracket',
           type: '"curly" | "square" | false',
           defaultValue: 'false',
-          description: 'Draw a margin bracket beside the opened content and let the text soak in. Wraps the children in one element.',
+          description:
+              'Draw a margin bracket beside the opened content and let the text soak in. Wraps the children in one element.',
         ),
       ],
     ),
     PartDoc(
       name: 'CollapsibleIndicator',
-      description: 'A hand-drawn chevron that turns over when the Collapsible is open. Put it inside the trigger; it takes the props of an Icon (`size`, `className`, `label`).',
+      description:
+          'A hand-drawn chevron that turns over when the Collapsible is open. Put it inside the trigger; it takes the props of an Icon (`size`, `className`, `label`).',
     ),
   ],
   a11y: [

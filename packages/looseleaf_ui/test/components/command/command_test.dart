@@ -246,9 +246,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Calendar'), findsOneWidget);
     expect(
-      CommandScope.of(tester.element(find.byType(CommandInput)))
-          .inputFocus
-          .hasFocus,
+      CommandScope.of(
+        tester.element(find.byType(CommandInput)),
+      ).inputFocus.hasFocus,
       isTrue,
     );
     await tester.sendKeyEvent(LogicalKeyboardKey.escape);

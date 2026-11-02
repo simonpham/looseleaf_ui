@@ -3,11 +3,12 @@ import 'package:looseleaf_ui/src/components/combobox/combobox_scope.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds a custom value display from the chosen [values] and their labels.
-typedef ComboboxValueBuilder = Widget Function(
-  BuildContext context,
-  List<String> values,
-  String Function(String value) labelFor,
-);
+typedef ComboboxValueBuilder =
+    Widget Function(
+      BuildContext context,
+      List<String> values,
+      String Function(String value) labelFor,
+    );
 
 /// The chosen labels inside a [ComboboxTrigger], joined with commas and cut
 /// with an ellipsis, or the graphite [placeholder] when nothing is chosen.

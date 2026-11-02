@@ -106,7 +106,8 @@ class _FormRhfDemoExampleState extends State<FormRhfDemoExample> {
                           children: [
                             InputGroupTextarea(
                               controller: _description,
-                              placeholder: "I'm having an issue with the login button on mobile.",
+                              placeholder:
+                                  "I'm having an issue with the login button on mobile.",
                               minLines: 4,
                               onChanged: field.onChanged,
                             ),

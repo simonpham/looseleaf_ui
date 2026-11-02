@@ -27,7 +27,8 @@ class Sidebar02Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Fold what you are not reading',
                   pose: 'think',
-                  description: 'Every heading on the pad folds shut. Tidy the shelf, and the page you want is one glance away.',
+                  description:
+                      'Every heading on the pad folds shut. Tidy the shelf, and the page you want is one glance away.',
                 ),
               ],
             ),

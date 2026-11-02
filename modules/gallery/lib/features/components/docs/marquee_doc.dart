@@ -5,41 +5,48 @@ const marqueeDoc = ComponentDoc(
   slug: 'marquee',
   title: 'Marquee',
   category: ComponentCategory.interactive,
-  description: 'A ticker written on a strip of washi tape. The text runs along it, fades at the ends, stops while you point at it or focus inside it, and has a pause button. With reduced motion it is a still strip with the text centered.',
+  description:
+      'A ticker written on a strip of washi tape. The text runs along it, fades at the ends, stops while you point at it or focus inside it, and has a pause button. With reduced motion it is a still strip with the text centered.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Marquee',
-      description: 'The band: a strip of the engine\'s tape drawn to the width of the box, with the moving text in a clipped, edge-faded viewport. It repeats its content just enough times to fill the band and loops seamlessly with a CSS animation (keyframes come with the component).',
+      description:
+          'The band: a strip of the engine\'s tape drawn to the width of the box, with the moving text in a clipped, edge-faded viewport. It repeats its content just enough times to fill the band and loops seamlessly with a CSS animation (keyframes come with the component).',
       props: [
         PropDoc(
           name: 'speed',
           type: 'number',
           defaultValue: '60',
-          description: 'px per second. A short text is never slower than a 4 second loop.',
+          description:
+              'px per second. A short text is never slower than a 4 second loop.',
         ),
         PropDoc(
           name: 'direction',
           type: '"start" | "end"',
           defaultValue: '"start"',
-          description: 'Toward the start of the line (like a news ticker, mirrored in right-to-left) or away from it.',
+          description:
+              'Toward the start of the line (like a news ticker, mirrored in right-to-left) or away from it.',
         ),
         PropDoc(
           name: 'tape / color',
           type: 'TapeKind / Accent',
           defaultValue: '"washi-stripes"',
-          description: 'masking, washi-dots, washi-stripes, washi-zigzag, washi-gingham, kraft or clear; color is the print of a washi. `washi-dots` has white dots as big as small letters: keep it for short, large words and put customer names on `washi-gingham`, `washi-stripes` or `masking`.',
+          description:
+              'masking, washi-dots, washi-stripes, washi-zigzag, washi-gingham, kraft or clear; color is the print of a washi. `washi-dots` has white dots as big as small letters: keep it for short, large words and put customer names on `washi-gingham`, `washi-stripes` or `masking`.',
         ),
         PropDoc(
           name: 'paused / defaultPaused / onPausedChange',
           type: 'boolean',
-          description: 'Controlled or uncontrolled pause. Hover and keyboard focus pause it as well.',
+          description:
+              'Controlled or uncontrolled pause. Hover and keyboard focus pause it as well.',
         ),
         PropDoc(
           name: 'controls',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'The pause button. Leave it on for any ticker that runs more than five seconds.',
+          description:
+              'The pause button. Leave it on for any ticker that runs more than five seconds.',
         ),
         PropDoc(
           name: 'label',
@@ -51,7 +58,8 @@ const marqueeDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MarqueeItem',
-      description: 'One phrase, followed by a small hand-drawn star. Pass `separator` for your own glyph, or `false` for none.',
+      description:
+          'One phrase, followed by a small hand-drawn star. Pass `separator` for your own glyph, or `false` for none.',
       props: [
         PropDoc(
           name: 'separator',
@@ -62,7 +70,8 @@ const marqueeDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MarqueeControl',
-      description: 'The pause button, aria-pressed while paused, drawn as a ringed disc with two bars or a triangle. Marquee includes one; compose it yourself only to place it elsewhere.',
+      description:
+          'The pause button, aria-pressed while paused, drawn as a ringed disc with two bars or a triangle. Marquee includes one; compose it yourself only to place it elsewhere.',
     ),
   ],
   a11y: [

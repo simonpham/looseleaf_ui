@@ -5,18 +5,21 @@ const bookmarkDoc = ComponentDoc(
   slug: 'bookmark',
   title: 'Bookmark',
   category: ComponentCategory.paper,
-  description: 'A ribbon bookmark you can press. Unpressed, a dashed pencil ghost of a ribbon marks the place; pressed, the woven, edge-stitched cloth ribbon hangs there in its color and casts a short shadow. It is a Toggle underneath, so `aria-pressed`, Space and Enter come for free. `BookmarkRibbon` is the same ribbon as a page marker with no behavior.',
+  description:
+      'A ribbon bookmark you can press. Unpressed, a dashed pencil ghost of a ribbon marks the place; pressed, the woven, edge-stitched cloth ribbon hangs there in its color and casts a short shadow. It is a Toggle underneath, so `aria-pressed`, Space and Enter come for free. `BookmarkRibbon` is the same ribbon as a page marker with no behavior.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Bookmark',
-      description: 'A Radix Toggle (a `button`) 2 rem wide and 3 rem high, with a hit area 6 px larger all round. It takes every Toggle prop. Its content is its accessible name (default "Bookmark"), visually hidden.',
+      description:
+          'A Radix Toggle (a `button`) 2 rem wide and 3 rem high, with a hit area 6 px larger all round. It takes every Toggle prop. Its content is its accessible name (default "Bookmark"), visually hidden.',
       props: [
         PropDoc(
           name: 'tone',
           type: 'Accent',
           defaultValue: '"tomato"',
-          description: 'The ribbon\'s color: tomato, tangerine, lemon, grass, teal, sky, grape or bubblegum.',
+          description:
+              'The ribbon\'s color: tomato, tangerine, lemon, grass, teal, sky, grape or bubblegum.',
         ),
         PropDoc(
           name: 'pressed / defaultPressed / onPressedChange',
@@ -31,13 +34,15 @@ const bookmarkDoc = ComponentDoc(
         PropDoc(
           name: 'tilt / seed / size',
           type: 'boolean | number / string | number / [w, h]',
-          description: 'A seeded turn under 1.4 degrees (flat in calm density); pins the hand; the box in px for server-rendered drawings.',
+          description:
+              'A seeded turn under 1.4 degrees (flat in calm density); pins the hand; the box in px for server-rendered drawings.',
         ),
       ],
     ),
     PartDoc(
       name: 'BookmarkRibbon',
-      description: 'The ribbon alone, hanging: an aria-hidden, pointer-events-none `div` for a page marker. Place it with `absolute -top-1 end-6` on a sheet.',
+      description:
+          'The ribbon alone, hanging: an aria-hidden, pointer-events-none `div` for a page marker. Place it with `absolute -top-1 end-6` on a sheet.',
       props: [
         PropDoc(
           name: 'tone',

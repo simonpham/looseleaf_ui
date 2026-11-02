@@ -214,7 +214,8 @@ const notesAppNotes = <NotesAppNote>[
     id: 'owning-books',
     notebook: 'reading',
     title: 'On owning books',
-    body: '''Most of what I remember from a book is in the ((margins)): an arrow, a question mark, a small argument with a dead author.
+    body:
+        '''Most of what I remember from a book is in the ((margins)): an arrow, a question mark, a small argument with a dead author.
 
 The good bits get ==a swipe of yellow== so I can find them on the next read, and the parts I do not believe get __a red pencil__.
 
@@ -260,7 +261,8 @@ Butter goes on while it is __still too hot to hold__. Jam only if you mean it.''
     id: 'beds',
     notebook: 'garden',
     title: 'What went in this week',
-    body: '''Sunday: sweet peas along the fence, ==nine of them==, in the wet corner.
+    body:
+        '''Sunday: sweet peas along the fence, ==nine of them==, in the wet corner.
 Monday: rain. Nothing.
 Wednesday: the first radishes are up. ((Already.))
 
@@ -283,7 +285,8 @@ Still to do: move the rosemary before it sulks.''',
     id: 'lisbon',
     notebook: 'trips',
     title: 'Lisbon, three days',
-    body: '''Day one: tram 28 before the crowds, then ==pastel de nata==. Two, not one.
+    body:
+        '''Day one: tram 28 before the crowds, then ==pastel de nata==. Two, not one.
 Day two: walk uphill on purpose. ((Bring the good shoes.))
 Day three: a bookshop with a cat, and __no plan at all__.
 

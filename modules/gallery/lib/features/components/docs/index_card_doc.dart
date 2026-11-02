@@ -5,24 +5,28 @@ const indexCardDoc = ComponentDoc(
   slug: 'index-card',
   title: 'Index card',
   category: ComponentCategory.paper,
-  description: 'A 3 x 5 card of cream stock with a red header rule and blue lines every 30 px. Header, body and footer parts lay out on the printed rules; the card can have its rod hole punched at the foot, a colored flag stuck over its edge, and a pile of cards behind it.',
+  description:
+      'A 3 x 5 card of cream stock with a red header rule and blue lines every 30 px. Header, body and footer parts lay out on the printed rules; the card can have its rod hole punched at the foot, a colored flag stuck over its edge, and a pile of cards behind it.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'IndexCard',
-      description: 'A Paper (`index-card` stock, `index` rules) as a flex column, at most 28 rem wide and at least 14 rem tall. It takes every Paper prop except `stock` and `rules`. Body text is 17 px on a 30 px line so it sits on the lines.',
+      description:
+          'A Paper (`index-card` stock, `index` rules) as a flex column, at most 28 rem wide and at least 14 rem tall. It takes every Paper prop except `stock` and `rules`. Body text is 17 px on a 30 px line so it sits on the lines.',
       props: [
         PropDoc(
           name: 'hole',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Punch the rod hole at the bottom center, in the band under the last blue line; the desk shows through it.',
+          description:
+              'Punch the rod hole at the bottom center, in the band under the last blue line; the desk shows through it.',
         ),
         PropDoc(
           name: 'flag',
           type: 'Accent | false',
           defaultValue: 'false',
-          description: 'A translucent plastic flag stuck over the end edge (tomato, tangerine, lemon, grass, teal, sky, grape, bubblegum). It mirrors in RTL.',
+          description:
+              'A translucent plastic flag stuck over the end edge (tomato, tangerine, lemon, grass, teal, sky, grape, bubblegum). It mirrors in RTL.',
         ),
         PropDoc(
           name: 'stack',
@@ -34,25 +38,30 @@ const indexCardDoc = ComponentDoc(
         PropDoc(
           name: 'as / tape / fastener / tilt / seed',
           type: 'Paper props',
-          description: 'As on any sheet. A card turns less than a page (under 0.25 degrees).',
+          description:
+              'As on any sheet. A card turns less than a page (under 0.25 degrees).',
         ),
       ],
     ),
     PartDoc(
       name: 'IndexCardHeader',
-      description: 'The zone above the red line: 49 px high (the first line box of the grid, the rule is printed 9 px above its foot), its children sit on the line.',
+      description:
+          'The zone above the red line: 49 px high (the first line box of the grid, the rule is printed 9 px above its foot), its children sit on the line.',
     ),
     PartDoc(
       name: 'IndexCardTitle',
-      description: 'The title in the script font, 26 px, leading none. It is one line, sitting on the red rule: a longer title ends in an ellipsis rather than climbing out of the card (the whole text is still in the DOM for screen readers).',
+      description:
+          'The title in the script font, 26 px, leading none. It is one line, sitting on the red rule: a longer title ends in an ellipsis rather than climbing out of the card (the whole text is still in the DOM for screen readers).',
     ),
     PartDoc(
       name: 'IndexCardContent',
-      description: 'The body: starts where the header ends and grows; text on a 30 px line height sits on the blue lines, 2 to 3 px above each.',
+      description:
+          'The body: starts where the header ends and grows; text on a 30 px line height sits on the blue lines, 2 to 3 px above each.',
     ),
     PartDoc(
       name: 'IndexCardFooter',
-      description: 'A row at the foot (a number, a filing mark), 14 px muted, on a 30 px line: it sits on a blue rule like the body text. The card keeps its foot on that grid when its height is 104 + 30n px (`min-h-56` is 224); with another `min-h-*` the footer may cross a rule.',
+      description:
+          'A row at the foot (a number, a filing mark), 14 px muted, on a 30 px line: it sits on a blue rule like the body text. The card keeps its foot on that grid when its height is 104 + 30n px (`min-h-56` is 224); with another `min-h-*` the footer may cross a rule.',
     ),
   ],
   a11y: [

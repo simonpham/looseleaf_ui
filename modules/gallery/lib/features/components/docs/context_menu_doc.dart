@@ -5,7 +5,8 @@ const contextMenuDoc = ComponentDoc(
   slug: 'context-menu',
   title: 'Context Menu',
   category: ComponentCategory.overlays,
-  description: 'The right-click menu, written on the same slip of paper as the dropdown and set down where the pointer was. Highlighter rows, drawn keycaps, pencil boxes and felt ticks, a red pencil hatch for what deletes. It opens on a right click, a long press on touch, or the menu key, and pops in where the pointer was.',
+  description:
+      'The right-click menu, written on the same slip of paper as the dropdown and set down where the pointer was. Highlighter rows, drawn keycaps, pencil boxes and felt ticks, a red pencil hatch for what deletes. It opens on a right click, a long press on touch, or the menu key, and pops in where the pointer was.',
   status: ComponentStatus.stable,
   upstream: 'context-menu',
   parts: [
@@ -15,7 +16,8 @@ const contextMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ContextMenuTrigger',
-      description: 'The region that answers a right click. Use `asChild` to make an existing element the region; `disabled` leaves the browser\'s own menu.',
+      description:
+          'The region that answers a right click. Use `asChild` to make an existing element the region; `disabled` leaves the browser\'s own menu.',
     ),
     PartDoc(
       name: 'ContextMenuPortal',
@@ -23,13 +25,15 @@ const contextMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ContextMenuContent',
-      description: 'The slip: a Paper that is also the Radix content (role=menu), opened at the pointer. A CSS sheet with no SVG unless a torn edge is asked for; rows scroll in a viewport inside it so the shadow is not cut. `max-h-*`, `overflow-*` and `overscroll-*` in `className` are applied to that viewport (shadcn code writes them on the content), the rest stays on the slip. Every Radix Content prop passes through.',
+      description:
+          'The slip: a Paper that is also the Radix content (role=menu), opened at the pointer. A CSS sheet with no SVG unless a torn edge is asked for; rows scroll in a viewport inside it so the shadow is not cut. `max-h-*`, `overflow-*` and `overscroll-*` in `className` are applied to that viewport (shadcn code writes them on the content), the rest stays on the slip. Every Radix Content prop passes through.',
       props: [
         PropDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"slip"',
-          description: 'What it is made of: slip, paper, kraft, sticky-*, index-card ...',
+          description:
+              'What it is made of: slip, paper, kraft, sticky-*, index-card ...',
         ),
         PropDoc(
           name: 'edge',
@@ -95,13 +99,15 @@ const contextMenuDoc = ComponentDoc(
         PropDoc(
           name: 'onSelect',
           type: '(event: Event) => void',
-          description: 'Runs when it is chosen; `event.preventDefault()` keeps the menu open.',
+          description:
+              'Runs when it is chosen; `event.preventDefault()` keeps the menu open.',
         ),
       ],
     ),
     PartDoc(
       name: 'ContextMenuCheckboxItem',
-      description: 'A pencil box at the start of the row, ticked in blue felt when `checked`.',
+      description:
+          'A pencil box at the start of the row, ticked in blue felt when `checked`.',
       props: [
         PropDoc(
           name: 'checked',
@@ -139,7 +145,8 @@ const contextMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ContextMenuShortcut',
-      description: 'Keys at the end of a row: a string is drawn as keycaps (`⌘[` is two keys, `Ctrl+R` two, `F2` one), anything else is put in as it is.',
+      description:
+          'Keys at the end of a row: a string is drawn as keycaps (`⌘[` is two keys, `Ctrl+R` two, `F2` one), anything else is put in as it is.',
     ),
     PartDoc(
       name: 'ContextMenuSub',
@@ -147,7 +154,8 @@ const contextMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ContextMenuSubTrigger',
-      description: 'The row that opens it, with a hand-drawn chevron; it keeps the highlighter while its sub-menu is open.',
+      description:
+          'The row that opens it, with a hand-drawn chevron; it keeps the highlighter while its sub-menu is open.',
       props: [
         PropDoc(
           name: 'inset',
@@ -160,7 +168,8 @@ const contextMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ContextMenuSubContent',
-      description: 'The sub-menu\'s own slip, set down beside its row with its first row level with the one that opened it (`alignOffset` -4, the slip\'s padding). Takes the same paper props as the content.',
+      description:
+          'The sub-menu\'s own slip, set down beside its row with its first row level with the one that opened it (`alignOffset` -4, the slip\'s padding). Takes the same paper props as the content.',
     ),
   ],
   a11y: [

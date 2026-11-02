@@ -32,7 +32,8 @@ class Sidebar04Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Two sheets on one desk',
                   pose: 'sketch',
-                  description: 'The pad floats, the page rests. Nothing is stuck down. On a phone the pad slides in over the page instead.',
+                  description:
+                      'The pad floats, the page rests. Nothing is stuck down. On a phone the pad slides in over the page instead.',
                 ),
               ],
             ),

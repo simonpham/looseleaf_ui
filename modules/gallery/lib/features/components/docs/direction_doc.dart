@@ -5,34 +5,40 @@ const directionDoc = ComponentDoc(
   slug: 'direction',
   title: 'Direction',
   category: ComponentCategory.layout,
-  description: 'Tells every Radix part, every drawing and every logical property which way the page reads. One provider at the root of a right-to-left page (or on an island inside a left-to-right one) turns arrow keys, sub-menus, slider edges, tab shoulders and hand-drawn strokes round together.',
+  description:
+      'Tells every Radix part, every drawing and every logical property which way the page reads. One provider at the root of a right-to-left page (or on an island inside a left-to-right one) turns arrow keys, sub-menus, slider edges, tab shoulders and hand-drawn strokes round together.',
   status: ComponentStatus.stable,
   upstream: 'direction',
   parts: [
     PartDoc(
       name: 'DirectionProvider',
-      description: 'Sets the direction for Radix, the ink engine and the DOM. It renders a layout-neutral wrapper (`display: contents`) that carries `dir`; portalled content (popovers, dialogs, sheets, tooltips, menus) leaves the wrapper, so it is handed the direction through the ink scope and carries `dir` itself.',
+      description:
+          'Sets the direction for Radix, the ink engine and the DOM. It renders a layout-neutral wrapper (`display: contents`) that carries `dir`; portalled content (popovers, dialogs, sheets, tooltips, menus) leaves the wrapper, so it is handed the direction through the ink scope and carries `dir` itself.',
       props: [
         PropDoc(
           name: 'direction',
           type: '"ltr" | "rtl"',
-          description: 'The reading direction. Leave it out to follow the page: the nearest `dir` above the provider, else `<html dir>`, read after mount and whenever it changes (the first render is `ltr` on the server and in hydration).',
+          description:
+              'The reading direction. Leave it out to follow the page: the nearest `dir` above the provider, else `<html dir>`, read after mount and whenever it changes (the first render is `ltr` on the server and in hydration).',
         ),
         PropDoc(
           name: 'dir',
           type: '"ltr" | "rtl"',
-          description: 'Upstream shadcn\'s prop name for `direction`. `direction` wins when both are given.',
+          description:
+              'Upstream shadcn\'s prop name for `direction`. `direction` wins when both are given.',
         ),
       ],
     ),
     PartDoc(
       name: 'useDirection',
-      description: '`useDirection(localDir?)` returns the direction of the nearest provider, `"ltr"` without one. It is Radix\'s own hook, so it stays in step with the keys and thumbs of every Radix part. A `localDir` wins, the way a `dir` prop does on a Radix root.',
+      description:
+          '`useDirection(localDir?)` returns the direction of the nearest provider, `"ltr"` without one. It is Radix\'s own hook, so it stays in step with the keys and thumbs of every Radix part. A `localDir` wins, the way a `dir` prop does on a Radix root.',
       props: [
         PropDoc(
           name: 'localDir',
           type: '"ltr" | "rtl"',
-          description: 'A direction that overrides the context, typically a prop of your own component.',
+          description:
+              'A direction that overrides the context, typically a prop of your own component.',
         ),
       ],
     ),

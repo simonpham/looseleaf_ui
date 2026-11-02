@@ -5,19 +5,22 @@ const commandDoc = ComponentDoc(
   slug: 'command',
   title: 'Command',
   category: ComponentCategory.overlays,
-  description: 'A command palette on a slip of paper. Type and the list is sorted and cut down (cmdk\'s fuzzy match); the row you are on wears the highlighter, keys show as pencil keycaps, an empty search gets Stubby with his magnifier. Put it in a dialog and it is set on a napkin.',
+  description:
+      'A command palette on a slip of paper. Type and the list is sorted and cut down (cmdk\'s fuzzy match); the row you are on wears the highlighter, keys show as pencil keycaps, an empty search gets Stubby with his magnifier. Put it in a dialog and it is set on a napkin.',
   status: ComponentStatus.stable,
   upstream: 'command',
   parts: [
     PartDoc(
       name: 'Command',
-      description: 'The palette (cmdk `Command`): every cmdk prop works (`value`, `onValueChange`, `filter`, `shouldFilter`, `loop`, `label`...). It lies on a slip of paper of its own, which switches itself off inside a Popover, Dialog, Card, Sheet or Drawer that already is paper. Like upstream\'s it is `h-full w-full`: put it in a box with a height, or pass `className="h-auto"` (in a container that only has a `min-height` WebKit resolves `100%` against that and stretches the slip).',
+      description:
+          'The palette (cmdk `Command`): every cmdk prop works (`value`, `onValueChange`, `filter`, `shouldFilter`, `loop`, `label`...). It lies on a slip of paper of its own, which switches itself off inside a Popover, Dialog, Card, Sheet or Drawer that already is paper. Like upstream\'s it is `h-full w-full`: put it in a box with a height, or pass `className="h-auto"` (in a container that only has a `min-height` WebKit resolves `100%` against that and stretches the slip).',
       props: [
         PropDoc(
           name: 'sheet',
           type: 'boolean | { stock, edge, tilt, tape, tapeKind, shadow, seed }',
           defaultValue: 'true',
-          description: 'The slip under the palette. `false` draws none; an object picks another stock (`{ stock: "napkin" }`).',
+          description:
+              'The slip under the palette. `false` draws none; an object picks another stock (`{ stock: "napkin" }`).',
         ),
         PropDoc(
           name: 'label',
@@ -29,7 +32,8 @@ const commandDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CommandDialog',
-      description: 'The palette in a Dialog, set on a napkin with a pinked edge, pinned near the top of the window (a centered sheet would move the search field under your eyes as the list grows and shrinks; `className` overrides it). The title and description are for screen readers only. Opening it with a shortcut (Ctrl / Cmd + K) is yours to wire (see the example).',
+      description:
+          'The palette in a Dialog, set on a napkin with a pinked edge, pinned near the top of the window (a centered sheet would move the search field under your eyes as the list grows and shrinks; `className` overrides it). The title and description are for screen readers only. Opening it with a shortcut (Ctrl / Cmd + K) is yours to wire (see the example).',
       props: [
         PropDoc(
           name: 'title / description',
@@ -41,30 +45,35 @@ const commandDoc = ComponentDoc(
           name: 'showCloseButton',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'The corner x. Off by default (upstream: on): a palette closes with Escape or a click outside.',
+          description:
+              'The corner x. Off by default (upstream: on): a palette closes with Escape or a click outside.',
         ),
         PropDoc(
           name: 'stock / edge / tape / tilt / seed',
           type: 'PaperProps',
           defaultValue: 'stock "napkin"',
-          description: 'What the sheet is made of and how it is cut; passed to the dialog\'s Paper.',
+          description:
+              'What the sheet is made of and how it is cut; passed to the dialog\'s Paper.',
         ),
         PropDoc(
           name: 'commandProps',
           type: 'Omit<CommandProps, \'children\'>',
-          description: 'Props for the Command inside (`shouldFilter`, `filter`, `loop`, `value`...).',
+          description:
+              'Props for the Command inside (`shouldFilter`, `filter`, `loop`, `value`...).',
         ),
       ],
     ),
     PartDoc(
       name: 'CommandInput',
-      description: 'The search field: a magnifier, blue felt text, a double rule drawn under the row (a blue one joins it when the field has focus). One ink drawing, on the wrapper; the input is a plain direct child. A polite status says how many results are left.',
+      description:
+          'The search field: a magnifier, blue felt text, a double rule drawn under the row (a blue one joins it when the field has focus). One ink drawing, on the wrapper; the input is a plain direct child. A polite status says how many results are left.',
       props: [
         PropDoc(
           name: 'resultsLabel',
           type: '(count: number) => string',
           defaultValue: '"No results" | "1 result" | "n results"',
-          description: 'Text of the screen-reader status (translate it). It stays empty until something is typed.',
+          description:
+              'Text of the screen-reader status (translate it). It stays empty until something is typed.',
         ),
         PropDoc(
           name: 'wrapperClassName',
@@ -80,11 +89,13 @@ const commandDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CommandList',
-      description: 'The scrolling list (`role=listbox`, max 300 px). The list scrolls, not the paper, so the slip\'s shadow and edge stay whole. cmdk sets `--cmdk-list-height` on it if you want to animate the height. A listbox may only hold options and groups (axe fails anything else), so `CommandEmpty` and `CommandLoading` are written into a slot beside it; put any other text (a hint, a footer) outside the list.',
+      description:
+          'The scrolling list (`role=listbox`, max 300 px). The list scrolls, not the paper, so the slip\'s shadow and edge stay whole. cmdk sets `--cmdk-list-height` on it if you want to animate the height. A listbox may only hold options and groups (axe fails anything else), so `CommandEmpty` and `CommandLoading` are written into a slot beside it; put any other text (a hint, a footer) outside the list.',
     ),
     PartDoc(
       name: 'CommandEmpty',
-      description: 'Shown by cmdk when nothing matches: Stubby with his magnifier and your words in script. Write it inside `CommandList` as usual; it is drawn just below the (empty) listbox so the listbox stays valid.',
+      description:
+          'Shown by cmdk when nothing matches: Stubby with his magnifier and your words in script. Write it inside `CommandList` as usual; it is drawn just below the (empty) listbox so the listbox stays valid.',
       props: [
         PropDoc(
           name: 'mascot',
@@ -96,23 +107,28 @@ const commandDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CommandLoading',
-      description: 'cmdk\'s `Loading` (a `progressbar`) for results on their way: a line of cursive loops and your words, written beside the listbox like `CommandEmpty`. Pass `progress` if you know it.',
+      description:
+          'cmdk\'s `Loading` (a `progressbar`) for results on their way: a line of cursive loops and your words, written beside the listbox like `CommandEmpty`. Pass `progress` if you know it.',
     ),
     PartDoc(
       name: 'CommandGroup',
-      description: 'Items under a `heading`, set like a typewritten kicker. Groups with no match hide themselves.',
+      description:
+          'Items under a `heading`, set like a typewritten kicker. Groups with no match hide themselves.',
     ),
     PartDoc(
       name: 'CommandItem',
-      description: 'One command. Props of cmdk\'s Item: `value`, `keywords`, `onSelect`, `disabled`, `forceMount`. The row under the cursor (`data-selected`) wears the highlighter; a disabled row is graphite and inert. No ink per row, so a palette of hundreds of commands costs nothing extra.',
+      description:
+          'One command. Props of cmdk\'s Item: `value`, `keywords`, `onSelect`, `disabled`, `forceMount`. The row under the cursor (`data-selected`) wears the highlighter; a disabled row is graphite and inert. No ink per row, so a palette of hundreds of commands costs nothing extra.',
     ),
     PartDoc(
       name: 'CommandShortcut',
-      description: 'The keys for a command at the end of its row. A text child becomes a pencil keycap (Kbd); pass several `<Kbd>`s yourself for a chord.',
+      description:
+          'The keys for a command at the end of its row. A text child becomes a pencil keycap (Kbd); pass several `<Kbd>`s yourself for a chord.',
     ),
     PartDoc(
       name: 'CommandSeparator',
-      description: 'A hand-drawn pencil rule between groups. It is `role="none"` (a listbox may not contain a separator) and hides while a search is typed, like cmdk\'s own.',
+      description:
+          'A hand-drawn pencil rule between groups. It is `role="none"` (a listbox may not contain a separator) and hides while a search is typed, like cmdk\'s own.',
     ),
   ],
   a11y: [

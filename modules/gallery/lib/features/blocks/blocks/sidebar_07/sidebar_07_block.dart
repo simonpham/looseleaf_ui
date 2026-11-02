@@ -28,7 +28,8 @@ class Sidebar07Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Nothing sketched today',
                   pose: 'sketch',
-                  description: 'The button above squeezes the pad down to icons so the page gets all the room. On a phone it opens the pad instead.',
+                  description:
+                      'The button above squeezes the pad down to icons so the page gets all the room. On a phone it opens the pad instead.',
                 ),
               ],
             ),

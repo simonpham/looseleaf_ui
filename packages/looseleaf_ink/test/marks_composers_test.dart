@@ -6,9 +6,11 @@ import 'package:test/test.dart';
 
 typedef _Json = Map<String, dynamic>;
 
-final _Json _fx = jsonDecode(
-  File('test/fixtures/marks_composers.json').readAsStringSync(),
-) as _Json;
+final _Json _fx =
+    jsonDecode(
+          File('test/fixtures/marks_composers.json').readAsStringSync(),
+        )
+        as _Json;
 
 List<_Json> _list(Object? v) => (v as List).cast<_Json>();
 

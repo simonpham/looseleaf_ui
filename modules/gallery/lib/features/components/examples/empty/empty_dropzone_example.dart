@@ -38,7 +38,8 @@ class _EmptyDropzoneExampleState extends State<EmptyDropzoneExample> {
                 liveRegion: true,
                 child: EmptyDescription(
                   child: Text(switch (_files) {
-                    [] => 'or choose them from your computer. PNG, JPG or PDF, up to 10 MB.',
+                    [] =>
+                      'or choose them from your computer. PNG, JPG or PDF, up to 10 MB.',
                     final files => files.join(', '),
                   }),
                 ),

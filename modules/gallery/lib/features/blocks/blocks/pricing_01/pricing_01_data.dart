@@ -90,18 +90,22 @@ int pricing01PerMonth(Pricing01Tier tier, Pricing01Period period) =>
 const List<({String question, String answer})> pricing01Faq = [
   (
     question: 'Can I change plans later?',
-    answer: 'Any time. Going up starts today and you pay only the difference for the days that are left. Going down waits for your next renewal.',
+    answer:
+        'Any time. Going up starts today and you pay only the difference for the days that are left. Going down waits for your next renewal.',
   ),
   (
     question: 'What happens if I run out of notebooks?',
-    answer: 'Nothing is deleted. The extra notebooks stay readable, and you can write in them again when there is room.',
+    answer:
+        'Nothing is deleted. The extra notebooks stay readable, and you can write in them again when there is room.',
   ),
   (
     question: 'Is there a discount for schools or clubs?',
-    answer: 'Yes, 40% off for teachers, students and anyone running a club. Write to us from your school address and we will sort it out.',
+    answer:
+        'Yes, 40% off for teachers, students and anyone running a club. Write to us from your school address and we will sort it out.',
   ),
   (
     question: 'Do you take my card details on this page?',
-    answer: 'No. You pick a plan here and add a card on the next page, where it is checked and stored by our payment provider.',
+    answer:
+        'No. You pick a plan here and add a card on the next page, where it is checked and stored by our payment provider.',
   ),
 ];

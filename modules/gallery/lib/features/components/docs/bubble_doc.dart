@@ -5,58 +5,69 @@ const bubbleDoc = ComponentDoc(
   slug: 'bubble',
   title: 'Bubble',
   category: ComponentCategory.chat,
-  description: 'A chat bubble drawn like a person draws one: a single felt-tip stroke round a pillowy box, a solid fill (blue for what you send, gray or highlighter for the rest) and a tail on the sender\'s side. Also a folded note or a sticky note.',
+  description:
+      'A chat bubble drawn like a person draws one: a single felt-tip stroke round a pillowy box, a solid fill (blue for what you send, gray or highlighter for the rest) and a tail on the sender\'s side. Also a folded note or a sticky note.',
   status: ComponentStatus.isNew,
   upstream: 'bubble',
   parts: [
     PartDoc(
       name: 'BubbleGroup',
-      description: 'A column of bubbles (gap 2). Only the last bubble of a group keeps its tail.',
+      description:
+          'A column of bubbles (gap 2). Only the last bubble of a group keeps its tail.',
     ),
     PartDoc(
       name: 'Bubble',
-      description: 'The row of one message body: aligns itself, carries the variant and the shape, and shares them with its content.',
+      description:
+          'The row of one message body: aligns itself, carries the variant and the shape, and shares them with its content.',
       props: [
         PropDoc(
           name: 'variant',
-          type: '"default" | "secondary" | "muted" | "tinted" | "outline" | "ghost" | "destructive"',
+          type:
+              '"default" | "secondary" | "muted" | "tinted" | "outline" | "ghost" | "destructive"',
           defaultValue: '"default"',
-          description: 'The ink: marker, highlighter, paper shade, a marker wash, paper and a line, nothing at all (prose), or red pencil hatching.',
+          description:
+              'The ink: marker, highlighter, paper shade, a marker wash, paper and a line, nothing at all (prose), or red pencil hatching.',
         ),
         PropDoc(
           name: 'align',
           type: '"start" | "end"',
           defaultValue: '"start" (or the enclosing Message)',
-          description: 'Which end of the row it sits on; the tail follows, and flips in right-to-left.',
+          description:
+              'Which end of the row it sits on; the tail follows, and flips in right-to-left.',
         ),
         PropDoc(
           name: 'shape',
           type: '"cloud" | "note" | "sticky"',
           defaultValue: '"cloud"',
-          description: 'A hand-drawn speech bubble, a folded slip of paper, or a sticky note (note and sticky are a Paper).',
+          description:
+              'A hand-drawn speech bubble, a folded slip of paper, or a sticky note (note and sticky are a Paper).',
         ),
         PropDoc(
           name: 'pen',
           type: '"ink" | "you"',
           defaultValue: '"ink"',
-          description: '`you` writes the outline in blue felt and the words in the script font: the person typing.',
+          description:
+              '`you` writes the outline in blue felt and the words in the script font: the person typing.',
         ),
         PropDoc(
           name: 'tail',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Draw the tail flick. Inside a BubbleGroup the earlier bubbles hide it by themselves.',
+          description:
+              'Draw the tail flick. Inside a BubbleGroup the earlier bubbles hide it by themselves.',
         ),
       ],
     ),
     PartDoc(
       name: 'BubbleContent',
-      description: 'The body, and the element that is drawn. Text is real DOM text; the outline and fill are an aria-hidden svg behind it. `asChild` turns a bubble into a button or link (hover drop-lines, a drawn focus ring).',
+      description:
+          'The body, and the element that is drawn. Text is real DOM text; the outline and fill are an aria-hidden svg behind it. `asChild` turns a bubble into a button or link (hover drop-lines, a drawn focus ring).',
       props: [
         PropDoc(
           name: 'paper',
           type: 'Partial<PaperProps>',
-          description: 'For `note` and `sticky`: tape, fastener, curl, tilt or edge of the sheet.',
+          description:
+              'For `note` and `sticky`: tape, fastener, curl, tilt or edge of the sheet.',
         ),
         PropDoc(
           name: 'seed',
@@ -68,7 +79,8 @@ const bubbleDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'BubbleReactions',
-      description: 'A sticker chip that sits on the edge of a bubble: white vinyl, a cut line, a warm shadow. Put emoji, counts or small buttons inside.',
+      description:
+          'A sticker chip that sits on the edge of a bubble: white vinyl, a cut line, a warm shadow. Put emoji, counts or small buttons inside.',
       props: [
         PropDoc(
           name: 'side',

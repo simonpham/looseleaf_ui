@@ -60,7 +60,8 @@ void main() {
                   _field('Tell us what happened…'),
                   _field(
                     'Grows',
-                    text: 'It grows with what you write,\nline after line,\nuntil you stop.',
+                    text:
+                        'It grows with what you write,\nline after line,\nuntil you stop.',
                   ),
                 ],
               ),

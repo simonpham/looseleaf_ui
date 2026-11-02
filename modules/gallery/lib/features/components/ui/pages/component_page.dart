@@ -83,7 +83,8 @@ class ComponentPage extends StatelessWidget {
           ),
         DocSection(
           title: 'API reference',
-          description: "The parts and props of upstream Looseleaf. The Flutter widgets keep the parts and their names; callbacks and values take Flutter's names (onClick is onPressed, checked is value).",
+          description:
+              "The parts and props of upstream Looseleaf. The Flutter widgets keep the parts and their names; callbacks and values take Flutter's names (onClick is onPressed, checked is value).",
           children: [
             switch (doc.parts) {
               [] => const DocHint(

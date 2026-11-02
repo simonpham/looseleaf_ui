@@ -5,18 +5,22 @@ const calloutDoc = ComponentDoc(
   slug: 'callout',
   title: 'Callout',
   category: ComponentCategory.marks,
-  description: 'A note in the margin: a few handwritten words and a hand arrow pointing at the thing they are about. It is an ordinary box, so put it where it belongs with a class: float it into the margin, absolutely position it, or drop it in a grid cell.',
+  description:
+      'A note in the margin: a few handwritten words and a hand arrow pointing at the thing they are about. It is an ordinary box, so put it where it belongs with a class: float it into the margin, absolutely position it, or drop it in a grid cell.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Callout',
-      description: 'A <span role="note"> with the words (written with a little per-word jitter) and an Arrow. `direction` is where the arrow POINTS, so a note on the right of a paragraph points left. The words sit on the arrow\'s tail side.',
+      description:
+          'A <span role="note"> with the words (written with a little per-word jitter) and an Arrow. `direction` is where the arrow POINTS, so a note on the right of a paragraph points left. The words sit on the arrow\'s tail side.',
       props: [
         PropDoc(
           name: 'direction',
-          type: '"left" | "right" | "up" | "down" | "up-left" | "up-right" | "down-left" | "down-right"',
+          type:
+              '"left" | "right" | "up" | "down" | "up-left" | "up-right" | "down-left" | "down-right"',
           defaultValue: '"left"',
-          description: 'Where the arrow points, so where the thing you are talking about is.',
+          description:
+              'Where the arrow points, so where the thing you are talking about is.',
         ),
         PropDoc(
           name: 'curve',
@@ -32,9 +36,11 @@ const calloutDoc = ComponentDoc(
         ),
         PropDoc(
           name: 'tone',
-          type: '"blue" | "ink" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"blue" | "ink" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"blue"',
-          description: 'The pen of the arrow. Blue felt is the reserved "you" ink and the natural one for notes.',
+          description:
+              'The pen of the arrow. Blue felt is the reserved "you" ink and the natural one for notes.',
         ),
         PropDoc(
           name: 'weight',
@@ -52,7 +58,8 @@ const calloutDoc = ComponentDoc(
           name: 'arrow',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Draw the arrow. Without it the callout is just handwritten words.',
+          description:
+              'Draw the arrow. Without it the callout is just handwritten words.',
         ),
         PropDoc(
           name: 'arrowClassName',
@@ -64,7 +71,8 @@ const calloutDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Write the note on when it first scrolls into view: the words fade in, the arrow draws itself.',
+          description:
+              'Write the note on when it first scrolls into view: the words fade in, the arrow draws itself.',
         ),
         PropDoc(
           name: 'show',

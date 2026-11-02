@@ -8,11 +8,12 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds the cell of [day] in week [row] of a [CalendarMonthGrid].
-typedef CalendarDayBuilder = Widget Function(
-  BuildContext context,
-  DateTime day,
-  int row,
-);
+typedef CalendarDayBuilder =
+    Widget Function(
+      BuildContext context,
+      DateTime day,
+      int row,
+    );
 
 /// One month's table on a [Calendar]: the weekday heads, the week numbers
 /// in a red-ruled margin, and the days, over a hand-ruled grid

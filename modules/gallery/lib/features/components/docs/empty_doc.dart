@@ -5,13 +5,15 @@ const emptyDoc = ComponentDoc(
   slug: 'empty',
   title: 'Empty',
   category: ComponentCategory.feedback,
-  description: 'What a page says when there is nothing on it yet: media, a title in the script font, a line of explanation and an action. The media can be an icon on a slip of paper, Stubby the pencil stub in one of his poses, or a doodle; a `border` draws the sketched, dashed placeholder frame.',
+  description:
+      'What a page says when there is nothing on it yet: media, a title in the script font, a line of explanation and an action. The media can be an icon on a slip of paper, Stubby the pencil stub in one of his poses, or a doodle; a `border` draws the sketched, dashed placeholder frame.',
   status: ComponentStatus.stable,
   upstream: 'empty',
   parts: [
     PartDoc(
       name: 'Empty',
-      description: 'A centered column (gap 6, padding 24, 48 from `md`). Add `border` to `className` and the CSS border becomes a hand-drawn dashed frame with corner ticks; without it nothing is drawn.',
+      description:
+          'A centered column (gap 6, padding 24, 48 from `md`). Add `border` to `className` and the CSS border becomes a hand-drawn dashed frame with corner ticks; without it nothing is drawn.',
       props: [
         PropDoc(
           name: 'seed',
@@ -27,29 +29,35 @@ const emptyDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'EmptyMedia',
-      description: 'The picture above the words (`data-slot="empty-icon"`, as upstream). Children go inside it as they are; `pose` and `doodle` are shortcuts for the art components.',
+      description:
+          'The picture above the words (`data-slot="empty-icon"`, as upstream). Children go inside it as they are; `pose` and `doodle` are shortcuts for the art components.',
       props: [
         PropDoc(
           name: 'variant',
           type: '"default" | "icon"',
           defaultValue: '"default"',
-          description: '`icon` = a 44 px slip of paper with a hatched shadow and the icon (24 px) on it.',
+          description:
+              '`icon` = a 44 px slip of paper with a hatched shadow and the icon (24 px) on it.',
         ),
         PropDoc(
           name: 'pose',
-          type: '"idle" | "wave" | "think" | "write" | "sketch" | "celebrate" | "oops" | "shrug" | "sleep" | "peek" | "point" | "carry" | "halt" | "search" | "unplug"',
-          description: 'Stubby, in a pose. Good matches: `search` no results, `sleep` nothing scheduled, `unplug` offline, `oops` an error, `shrug` not found, `celebrate` all done, `peek` loading, `think` working on it. A pose that has not been drawn yet renders nothing.',
+          type:
+              '"idle" | "wave" | "think" | "write" | "sketch" | "celebrate" | "oops" | "shrug" | "sleep" | "peek" | "point" | "carry" | "halt" | "search" | "unplug"',
+          description:
+              'Stubby, in a pose. Good matches: `search` no results, `sleep` nothing scheduled, `unplug` offline, `oops` an error, `shrug` not found, `celebrate` all done, `peek` loading, `think` working on it. A pose that has not been drawn yet renders nothing.',
         ),
         PropDoc(
           name: 'doodle',
           type: 'string',
-          description: 'A doodle by name (`paper-plane`, `cat-face`, `balloon`, `sparkle`...).',
+          description:
+              'A doodle by name (`paper-plane`, `cat-face`, `balloon`, `sparkle`...).',
         ),
         PropDoc(
           name: 'size',
           type: 'number',
           defaultValue: '96 (Stubby), 80 (doodle)',
-          description: 'Pixels tall. Stubby is a sticker whose box includes his white border, redrawn under 28, under 56 and from 140; the master starts at 56. Doodles are redrawn at 48 and below.',
+          description:
+              'Pixels tall. Stubby is a sticker whose box includes his white border, redrawn under 28, under 56 and from 140; the master starts at 56. Doodles are redrawn at 48 and below.',
         ),
       ],
     ),
@@ -64,7 +72,8 @@ const emptyDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'EmptyContent',
-      description: 'Actions and anything else below the header: a column, centered, max 24 rem.',
+      description:
+          'Actions and anything else below the header: a column, centered, max 24 rem.',
     ),
   ],
   a11y: [

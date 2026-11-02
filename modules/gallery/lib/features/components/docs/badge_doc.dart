@@ -5,59 +5,71 @@ const badgeDoc = ComponentDoc(
   slug: 'badge',
   title: 'Badge',
   category: ComponentCategory.dataDisplay,
-  description: 'A small mark that sits next to a word: a marker stamp, a highlighter swipe, a red-hatched warning, a circled word, and a count that can be written as tally marks. Same variants and asChild as shadcn.',
+  description:
+      'A small mark that sits next to a word: a marker stamp, a highlighter swipe, a red-hatched warning, a circled word, and a count that can be written as tally marks. Same variants and asChild as shadcn.',
   status: ComponentStatus.stable,
   upstream: 'badge',
   parts: [
     PartDoc(
       name: 'Badge',
-      description: 'A span (or, with asChild, the element you hand it) with a hand-drawn layer behind its label. The label is DOM text in the hand font; the drawing is measured from the element and centered on it. Unlike shadcn\'s it has no overflow-hidden (the drawing bleeds a few px outside the box, and clipping would cut it), so to truncate a long label put a truncating span inside it. It draws no aria-invalid state. Each badge is one small ink host (about 2 to 6 KB of svg, drawn at 0.3 to 0.8 ms): fine for a screenful, and for a status column of a few hundred rows if you page it; the ghost variant draws nothing until it is a hovered link.',
+      description:
+          'A span (or, with asChild, the element you hand it) with a hand-drawn layer behind its label. The label is DOM text in the hand font; the drawing is measured from the element and centered on it. Unlike shadcn\'s it has no overflow-hidden (the drawing bleeds a few px outside the box, and clipping would cut it), so to truncate a long label put a truncating span inside it. It draws no aria-invalid state. Each badge is one small ink host (about 2 to 6 KB of svg, drawn at 0.3 to 0.8 ms): fine for a screenful, and for a status column of a few hundred rows if you page it; the ghost variant draws nothing until it is a hovered link.',
       props: [
         PropDoc(
           name: 'variant',
-          type: '"default" | "secondary" | "destructive" | "outline" | "ghost" | "link"',
+          type:
+              '"default" | "secondary" | "destructive" | "outline" | "ghost" | "link"',
           defaultValue: '"default"',
-          description: 'default = a terracotta marker blot that misses a felt-tip pill; secondary = one highlighter swipe; destructive = red-pencil hatch in a red pill (a pattern, not only a hue); outline = the label circled once; ghost and link draw nothing until they are hovered as links.',
+          description:
+              'default = a terracotta marker blot that misses a felt-tip pill; secondary = one highlighter swipe; destructive = red-pencil hatch in a red pill (a pattern, not only a hue); outline = the label circled once; ghost and link draw nothing until they are hovered as links.',
         ),
         PropDoc(
           name: 'size',
           type: '"sm" | "default" | "lg"',
           defaultValue: '"default"',
-          description: '20, 24 and 28 px high. sm sets its label at 13 px: keep it for dense tables, use default anywhere a badge stands alone.',
+          description:
+              '20, 24 and 28 px high. sm sets its label at 13 px: keep it for dense tables, use default anywhere a badge stands alone.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"marker" | "hi" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "bubblegum"',
+          type:
+              '"marker" | "hi" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "bubblegum"',
           defaultValue: '"marker"',
-          description: 'The stationery accent of the default variant\'s fill. Tomato and grape are left out on purpose: ink on them is 3.95:1.',
+          description:
+              'The stationery accent of the default variant\'s fill. Tomato and grape are left out on purpose: ink on them is 3.95:1.',
         ),
         PropDoc(
           name: 'count',
           type: 'number',
-          description: 'A number shown when there are no children, in tabular figures and a min-width, so a column of counts lines up.',
+          description:
+              'A number shown when there are no children, in tabular figures and a min-width, so a column of counts lines up.',
         ),
         PropDoc(
           name: 'max',
           type: 'number',
           defaultValue: '99',
-          description: 'Largest count written in digits; a bigger one shows as `\${max}+`.',
+          description:
+              'Largest count written in digits; a bigger one shows as `\${max}+`.',
         ),
         PropDoc(
           name: 'tally',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Write `count` (1 to 20) as tally marks instead of digits: four uprights and a slash per five. The number stays in the DOM, visually hidden, so screen readers still read it.',
+          description:
+              'Write `count` (1 to 20) as tally marks instead of digits: four uprights and a slash per five. The number stays in the DOM, visually hidden, so screen readers still read it.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same badge, also across remounts. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same badge, also across remounts. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'badgeVariants',
-      description: 'The cva function behind Badge, for styling another element like a badge. Layout and typography classes only: the drawing comes from Badge.',
+      description:
+          'The cva function behind Badge, for styling another element like a badge. Layout and typography classes only: the drawing comes from Badge.',
       props: [
         PropDoc(
           name: 'variant',

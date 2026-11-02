@@ -73,12 +73,10 @@ class _MessageScrollerViewportState extends State<MessageScrollerViewport> {
 
   bool _onScroll(ScrollNotification notification) {
     final controller = MessageScrollerProvider.of(context);
-    if (notification
-        case ScrollUpdateNotification(
-          dragDetails: DragUpdateDetails(),
-          :final scrollDelta?,
-        )
-        when scrollDelta != 0) {
+    if (notification case ScrollUpdateNotification(
+      dragDetails: DragUpdateDetails(),
+      :final scrollDelta?,
+    ) when scrollDelta != 0) {
       controller.userIntent(switch (scrollDelta < 0) {
         true => MessageScrollerDirection.start,
         false => MessageScrollerDirection.end,

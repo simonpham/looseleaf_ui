@@ -5,12 +5,14 @@ const deskDoc = ComponentDoc(
   slug: 'desk',
   title: 'Desk',
   category: ComponentCategory.paper,
-  description: 'The surface everything else lies on: sage bookcloth under a lamp (linen weave, mottling, a warm vignette), with an optional layer of objects behind your content: a coffee ring, a pencil, paper clips, a ruler, push-pins. Paper is only paper against something darker than itself.',
+  description:
+      'The surface everything else lies on: sage bookcloth under a lamp (linen weave, mottling, a warm vignette), with an optional layer of objects behind your content: a coffee ring, a pencil, paper clips, a ruler, push-pins. Paper is only paper against something darker than itself.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Desk',
-      description: 'A `div` with the `ll-desk` surface. It brings the two desk textures with it (a deduplicated `<style>` each, also in server markup), so it works without a provider.',
+      description:
+          'A `div` with the `ll-desk` surface. It brings the two desk textures with it (a deduplicated `<style>` each, also in server markup), so it works without a provider.',
       props: [
         PropDoc(
           name: 'as',
@@ -22,13 +24,15 @@ const deskDoc = ComponentDoc(
           name: 'objects',
           type: 'DeskObject[] | boolean',
           defaultValue: 'false',
-          description: 'Things lying on the blotter behind the content: `coffee`, `pencil`, `clips`, `ruler`, `pins`. `true` is all five. Hidden below the `sm` breakpoint and in calm density.',
+          description:
+              'Things lying on the blotter behind the content: `coffee`, `pencil`, `clips`, `ruler`, `pins`. `true` is all five. Hidden below the `sm` breakpoint and in calm density.',
         ),
         PropDoc(
           name: 'lamp',
           type: 'number | boolean',
           defaultValue: '1',
-          description: 'Strength of the vignette: 0 (or false) removes it, 1 is the theme\'s own (a whisper of shade), above 1 darkens the corners quickly (2.5 is a dim room).',
+          description:
+              'Strength of the vignette: 0 (or false) removes it, 1 is the theme\'s own (a whisper of shade), above 1 darkens the corners quickly (2.5 is a dim room).',
         ),
         PropDoc(
           name: 'seed',
@@ -39,7 +43,8 @@ const deskDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DeskObjects',
-      description: 'The layer of objects on its own: absolutely positioned, aria-hidden, clipped to its container. Place it in any relative container; `Desk` mounts it for you.',
+      description:
+          'The layer of objects on its own: absolutely positioned, aria-hidden, clipped to its container. Place it in any relative container; `Desk` mounts it for you.',
       props: [
         PropDoc(
           name: 'objects',

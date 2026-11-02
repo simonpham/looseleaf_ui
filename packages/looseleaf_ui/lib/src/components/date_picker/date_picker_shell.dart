@@ -11,10 +11,11 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds a part of the popup; [close] closes it.
-typedef DatePickerPopupBuilder = Widget Function(
-  BuildContext context,
-  VoidCallback close,
-);
+typedef DatePickerPopupBuilder =
+    Widget Function(
+      BuildContext context,
+      VoidCallback close,
+    );
 
 /// The field both date pickers share: a select-like pencil box you can
 /// type a date in, with a calendar button in its end cell, or (when not

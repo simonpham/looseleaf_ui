@@ -5,7 +5,8 @@ const accordionDoc = ComponentDoc(
   slug: 'accordion',
   title: 'Accordion',
   category: ComponentCategory.layout,
-  description: 'Ruled rows that open. Each row sits on a hand-pulled pencil rule; a hovered row gets a highlighter swipe, and an opened row turns its chevron over, writes a margin brace beside its text and lets the words soak in. Radix behavior and keyboard support are untouched.',
+  description:
+      'Ruled rows that open. Each row sits on a hand-pulled pencil rule; a hovered row gets a highlighter swipe, and an opened row turns its chevron over, writes a margin brace beside its text and lets the words soak in. Radix behavior and keyboard support are untouched.',
   status: ComponentStatus.stable,
   upstream: 'accordion',
   parts: [
@@ -47,7 +48,8 @@ const accordionDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AccordionItem',
-      description: 'A row: `relative`, with a drawn rule at its foot (not on the last row). Its `value` ties trigger and content together.',
+      description:
+          'A row: `relative`, with a drawn rule at its foot (not on the last row). Its `value` ties trigger and content together.',
       props: [
         PropDoc(
           name: 'value',
@@ -66,7 +68,8 @@ const accordionDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AccordionTrigger',
-      description: 'The row\'s button, inside the Radix header (an h3). Bold hand text, a chevron doodle that turns over when open, a highlighter swipe wiped in on hover and a blue ring on keyboard focus. It is 8 px wider than its text on each side so the swipe has room, and pulled back by the same amount.',
+      description:
+          'The row\'s button, inside the Radix header (an h3). Bold hand text, a chevron doodle that turns over when open, a highlighter swipe wiped in on hover and a blue ring on keyboard focus. It is 8 px wider than its text on each side so the swipe has room, and pulled back by the same amount.',
       props: [
         PropDoc(
           name: 'seed',
@@ -77,7 +80,8 @@ const accordionDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AccordionContent',
-      description: 'The panel (`role="region"`, labeled by its trigger). It slides open with a height animation that clips the text only while it moves (at rest nothing is clipped, so a focus ring inside stays whole), and soaks its text in. `className` reaches the box that holds your children, as upstream\'s does, so `grid gap-3` or `flex flex-col gap-4` space them (the brace\'s wrapper sits between; vertical padding classes such as `pb-0` stay on the outer div, where the brace\'s height is measured).',
+      description:
+          'The panel (`role="region"`, labeled by its trigger). It slides open with a height animation that clips the text only while it moves (at rest nothing is clipped, so a focus ring inside stays whole), and soaks its text in. `className` reaches the box that holds your children, as upstream\'s does, so `grid gap-3` or `flex flex-col gap-4` space them (the brace\'s wrapper sits between; vertical padding classes such as `pb-0` stay on the outer div, where the brace\'s height is measured).',
     ),
   ],
   a11y: [

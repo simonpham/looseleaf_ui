@@ -5,32 +5,39 @@ const receiptDoc = ComponentDoc(
   slug: 'receipt',
   title: 'Receipt',
   category: ComponentCategory.paper,
-  description: 'Thermal till paper: pinked (or perforated, or torn) at both ends, printed in the typewriter font, its lines a description list, its total circled in red felt tip by whoever checked it, ending in a barcode made from the number under it.',
+  description:
+      'Thermal till paper: pinked (or perforated, or torn) at both ends, printed in the typewriter font, its lines a description list, its total circled in red felt tip by whoever checked it, ending in a barcode made from the number under it.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Receipt',
-      description: 'A Paper on the `receipt` stock, a centered 18 rem column with the type font. It takes every Paper prop except `stock`, `rules` and `edge`.',
+      description:
+          'A Paper on the `receipt` stock, a centered 18 rem column with the type font. It takes every Paper prop except `stock`, `rules` and `edge`.',
       props: [
         PropDoc(
           name: 'ends',
-          type: '"zig" | "perf" | "torn" | "cut" | "deckle" | "crimp" | "scallop"',
+          type:
+              '"zig" | "perf" | "torn" | "cut" | "deckle" | "crimp" | "scallop"',
           defaultValue: '"zig"',
-          description: 'The cut of both ends: the tear bar\'s sawtooth, a perforation, torn, or plain.',
+          description:
+              'The cut of both ends: the tear bar\'s sawtooth, a perforation, torn, or plain.',
         ),
       ],
     ),
     PartDoc(
       name: 'ReceiptHeader',
-      description: 'The shop: its first child is the name in spaced capitals, the rest is address and date, centered.',
+      description:
+          'The shop: its first child is the name in spaced capitals, the rest is address and date, centered.',
     ),
     PartDoc(
       name: 'ReceiptLines',
-      description: 'A `dl` between two dashed rules; put a `ReceiptLine` in it for each item.',
+      description:
+          'A `dl` between two dashed rules; put a `ReceiptLine` in it for each item.',
     ),
     PartDoc(
       name: 'ReceiptLine',
-      description: 'One item: a `div` holding a `dt` (the item; a long name wraps onto a second line, as a thermal printer would, and never hides behind an ellipsis) and a `dd` (the price, tabular figures, aligned to the end, on the first line).',
+      description:
+          'One item: a `div` holding a `dt` (the item; a long name wraps onto a second line, as a thermal printer would, and never hides behind an ellipsis) and a `dd` (the price, tabular figures, aligned to the end, on the first line).',
       props: [
         PropDoc(
           name: 'qty',
@@ -59,7 +66,8 @@ const receiptDoc = ComponentDoc(
           name: 'circled',
           type: 'boolean | "red" | "blue" | "ink"',
           defaultValue: 'false',
-          description: 'Circle the amount in felt tip. `true` is red. Calm density draws a hairline loop.',
+          description:
+              'Circle the amount in felt tip. `true` is red. Calm density draws a hairline loop.',
         ),
         PropDoc(
           name: 'seed',
@@ -74,7 +82,8 @@ const receiptDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ReceiptBarcode',
-      description: 'Bars from `value` in a `figure` with the number printed under them. The same number always prints the same bars, on the server and in the browser.',
+      description:
+          'Bars from `value` in a `figure` with the number printed under them. The same number always prints the same bars, on the server and in the browser.',
       props: [
         PropDoc(
           name: 'value',

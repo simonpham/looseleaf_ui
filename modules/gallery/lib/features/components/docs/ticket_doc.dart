@@ -5,18 +5,21 @@ const ticketDoc = ComponentDoc(
   slug: 'ticket',
   title: 'Ticket',
   category: ComponentCategory.paper,
-  description: 'A ticket with concave corners, a bite out of both edges where the stub tears off, and a row of holes along the tear. The holes are cut out of the paper, so the desk (and the shadow) show through. A body, a stub, spaced capitals in the typewriter font and a serial number in red.',
+  description:
+      'A ticket with concave corners, a bite out of both edges where the stub tears off, and a row of holes along the tear. The holes are cut out of the paper, so the desk (and the shadow) show through. A body, a stub, spaced capitals in the typewriter font and a serial number in red.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Ticket',
-      description: 'A flex row. Its whole silhouette is one drawn sheet, tilted and shadowed as one; the content on it is real DOM. Until it is measured (or given `size`) it wears a plain card.',
+      description:
+          'A flex row. Its whole silhouette is one drawn sheet, tilted and shadowed as one; the content on it is real DOM. Until it is measured (or given `size`) it wears a plain card.',
       props: [
         PropDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"kraft"',
-          description: 'What it is printed on: kraft, index-card (cream), sticky-yellow (a cinema ticket), sticky-pink ...',
+          description:
+              'What it is printed on: kraft, index-card (cream), sticky-yellow (a cinema ticket), sticky-pink ...',
         ),
         PropDoc(
           name: 'stub',
@@ -29,28 +32,33 @@ const ticketDoc = ComponentDoc(
           name: 'stubWidth',
           type: 'number',
           defaultValue: '88',
-          description: 'Width of the stub in px; the tear line sits that far from the edge.',
+          description:
+              'Width of the stub in px; the tear line sits that far from the edge.',
         ),
         PropDoc(
           name: 'punched',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A hole punched through the body, at the end of the reading line beside the tear (the words start at the other side): the ticket has been used.',
+          description:
+              'A hole punched through the body, at the end of the reading line beside the tear (the words start at the other side): the ticket has been used.',
         ),
         PropDoc(
           name: 'tilt / seed / size',
           type: 'boolean | number / string | number / [w, h]',
-          description: 'A seeded turn under 1.2 degrees (or degrees, or false); pins the hand; the box in px for server-rendered drawings.',
+          description:
+              'A seeded turn under 1.2 degrees (or degrees, or false); pins the hand; the box in px for server-rendered drawings.',
         ),
       ],
     ),
     PartDoc(
       name: 'TicketBody',
-      description: 'The part you keep: padded inside the printed frame, in the type font, its content centered vertically.',
+      description:
+          'The part you keep: padded inside the printed frame, in the type font, its content centered vertically.',
     ),
     PartDoc(
       name: 'TicketStub',
-      description: 'The part the doorman tears off: an `aside` with `role="note"` (ancillary to the ticket, not a page landmark), `stubWidth` wide, content centered.',
+      description:
+          'The part the doorman tears off: an `aside` with `role="note"` (ancillary to the ticket, not a page landmark), `stubWidth` wide, content centered.',
     ),
     PartDoc(
       name: 'TicketTitle',

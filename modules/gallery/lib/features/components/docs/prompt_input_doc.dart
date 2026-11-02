@@ -5,28 +5,33 @@ const promptInputDoc = ComponentDoc(
   slug: 'prompt-input',
   title: 'Prompt input',
   category: ComponentCategory.chat,
-  description: 'The composer of a chat: a napkin strip with a writing line, an auto-growing textarea, room for attachments and a paper-plane send button that flies off when the message goes. Enter sends, Shift+Enter breaks the line, IME composition is left alone, and while a reply streams the button becomes a stop button. Slots for slash commands and @mentions, with no data of their own.',
+  description:
+      'The composer of a chat: a napkin strip with a writing line, an auto-growing textarea, room for attachments and a paper-plane send button that flies off when the message goes. Enter sends, Shift+Enter breaks the line, IME composition is left alone, and while a reply streams the button becomes a stop button. Slots for slash commands and @mentions, with no data of their own.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'PromptInput',
-      description: 'The form and the state: text (controlled or not), status, submit, stop, and the trigger word under the caret. It is a `Paper` (default stock `napkin`, crimped edge), so any Paper prop works.',
+      description:
+          'The form and the state: text (controlled or not), status, submit, stop, and the trigger word under the caret. It is a `Paper` (default stock `napkin`, crimped edge), so any Paper prop works.',
       props: [
         PropDoc(
           name: 'onSubmit',
           type: '(value: string, event: FormEvent) => void',
-          description: 'Called on Enter (or Ctrl/Cmd+Enter) and on the submit button. Not called when the text is empty, the chat is busy or the composer is disabled.',
+          description:
+              'Called on Enter (or Ctrl/Cmd+Enter) and on the submit button. Not called when the text is empty, the chat is busy or the composer is disabled.',
         ),
         PropDoc(
           name: 'value / defaultValue / onValueChange',
           type: 'string',
-          description: 'Controlled or uncontrolled text. An uncontrolled composer clears after a send (`clearOnSubmit`); a controlled one clears itself in `onSubmit`.',
+          description:
+              'Controlled or uncontrolled text. An uncontrolled composer clears after a send (`clearOnSubmit`); a controlled one clears itself in `onSubmit`.',
         ),
         PropDoc(
           name: 'status',
           type: '"ready" | "submitted" | "streaming" | "error"',
           defaultValue: '"ready"',
-          description: '`submitted` and `streaming` turn the send button into a stop button and block sending. Matches the status of common chat hooks.',
+          description:
+              '`submitted` and `streaming` turn the send button into a stop button and block sending. Matches the status of common chat hooks.',
         ),
         PropDoc(
           name: 'onStop',
@@ -50,7 +55,8 @@ const promptInputDoc = ComponentDoc(
           name: 'lockWhileStreaming',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Make the text read-only while the reply streams. By default you can type the next message; sending waits.',
+          description:
+              'Make the text read-only while the reply streams. By default you can type the next message; sending waits.',
         ),
         PropDoc(
           name: 'submitOn',
@@ -62,26 +68,31 @@ const promptInputDoc = ComponentDoc(
         PropDoc(
           name: 'triggers',
           type: '(string | { char: string; atStart?: boolean })[]',
-          description: 'Characters that open a suggestion list at the start of a word: `"@"`, or `{ char: "/", atStart: true }` for commands only at the start of the message.',
+          description:
+              'Characters that open a suggestion list at the start of a word: `"@"`, or `{ char: "/", atStart: true }` for commands only at the start of the message.',
         ),
         PropDoc(
           name: 'onTriggerChange',
           type: '(trigger | null) => void',
-          description: 'Called when the word under the caret starts or stops being a trigger word.',
+          description:
+              'Called when the word under the caret starts or stops being a trigger word.',
         ),
       ],
     ),
     PartDoc(
       name: 'PromptInputAttachments',
-      description: 'A wrapping row above the text for attachment chips. Hidden while empty.',
+      description:
+          'A wrapping row above the text for attachment chips. Hidden while empty.',
     ),
     PartDoc(
       name: 'PromptInputBody',
-      description: 'The writing area. It draws the pencil line under the text and, while the textarea has focus, the same line again in blue felt.',
+      description:
+          'The writing area. It draws the pencil line under the text and, while the textarea has focus, the same line again in blue felt.',
     ),
     PartDoc(
       name: 'PromptInputTextarea',
-      description: 'The textarea, set in the script font in blue felt (your hand). It grows with its text (`field-sizing`, with a script fallback for Firefox) up to `maxRows`, then scrolls. It carries `aria-controls` and `aria-activedescendant` while a suggestion list is open.',
+      description:
+          'The textarea, set in the script font in blue felt (your hand). It grows with its text (`field-sizing`, with a script fallback for Firefox) up to `maxRows`, then scrolls. It carries `aria-controls` and `aria-activedescendant` while a suggestion list is open.',
       props: [
         PropDoc(
           name: 'minRows / maxRows',
@@ -114,7 +125,8 @@ const promptInputDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PromptInputButton',
-      description: 'A ghost `Button` (type button) for attach, voice, model. Give an icon-only one an `aria-label`.',
+      description:
+          'A ghost `Button` (type button) for attach, voice, model. Give an icon-only one an `aria-label`.',
     ),
     PartDoc(
       name: 'PromptInputHint',
@@ -122,32 +134,38 @@ const promptInputDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PromptInputSubmit',
-      description: 'Send, and stop. A paper plane that flies off on every send; a `type="button"` stop button while busy. Disabled and pencilled-in while the text is empty.',
+      description:
+          'Send, and stop. A paper plane that flies off on every send; a `type="button"` stop button while busy. Disabled and pencilled-in while the text is empty.',
     ),
     PartDoc(
       name: 'PromptInputSuggestions',
-      description: 'A slip above the composer, open while the caret is in a trigger word. A `role="listbox"`; it takes no focus (the caret stays in the textarea) and is driven from the textarea: Arrow keys move, Enter or Tab pick, Escape closes it for that word.',
+      description:
+          'A slip above the composer, open while the caret is in a trigger word. A `role="listbox"`; it takes no focus (the caret stays in the textarea) and is driven from the textarea: Arrow keys move, Enter or Tab pick, Escape closes it for that word.',
       props: [
         PropDoc(
           name: 'trigger',
           type: 'string',
-          description: 'Only open for this trigger character, so `/` and `@` can each have a list.',
+          description:
+              'Only open for this trigger character, so `/` and `@` can each have a list.',
         ),
         PropDoc(
           name: 'open',
           type: 'boolean',
-          description: 'Force it open or shut, for example `open={items.length > 0}`: a listbox without options is not valid.',
+          description:
+              'Force it open or shut, for example `open={items.length > 0}`: a listbox without options is not valid.',
         ),
       ],
     ),
     PartDoc(
       name: 'PromptInputSuggestion',
-      description: 'One `role="option"`. Highlighted with a highlighter swipe when active (hover or keyboard).',
+      description:
+          'One `role="option"`. Highlighted with a highlighter swipe when active (hover or keyboard).',
       props: [
         PropDoc(
           name: 'onSelect',
           type: '() => void',
-          description: 'Runs on click, Enter or Tab. The usual body is `replaceTrigger("/summarize")` from `usePromptInput()`.',
+          description:
+              'Runs on click, Enter or Tab. The usual body is `replaceTrigger("/summarize")` from `usePromptInput()`.',
         ),
         PropDoc(
           name: 'disabled',
@@ -158,7 +176,8 @@ const promptInputDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'usePromptInput',
-      description: 'The composer\'s state and actions inside it: `value`, `setValue`, `status`, `submit()`, `stop()`, `focus()`, `trigger` ({ char, query, from, to } or null), `replaceTrigger(text)`, `dismissTrigger()`.',
+      description:
+          'The composer\'s state and actions inside it: `value`, `setValue`, `status`, `submit()`, `stop()`, `focus()`, `trigger` ({ char, query, from, to } or null), `replaceTrigger(text)`, `dismissTrigger()`.',
     ),
   ],
   a11y: [

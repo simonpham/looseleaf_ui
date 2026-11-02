@@ -5,41 +5,49 @@ const separatorDoc = ComponentDoc(
   slug: 'separator',
   title: 'Separator',
   category: ComponentCategory.layout,
-  description: 'A rule that visually or semantically separates content, drawn by hand: pencil, ledger dashes, a squiggle, dots, a strip of tape, a running stitch or a torn edge of paper. Horizontal or vertical, with an optional centered label.',
+  description:
+      'A rule that visually or semantically separates content, drawn by hand: pencil, ledger dashes, a squiggle, dots, a strip of tape, a running stitch or a torn edge of paper. Horizontal or vertical, with an optional centered label.',
   status: ComponentStatus.stable,
   upstream: 'separator',
   parts: [
     PartDoc(
       name: 'Separator',
-      description: 'A Radix Separator (asChild is not offered: the element is the drawing\'s host). Without children it is a 1 px hairline whose drawing is centered on it and spills up to 12 px across it (a hairline host, so layout is exactly shadcn\'s). Along its length the host clips (`overflow-x: clip` for a horizontal rule, `overflow-y: clip` for a vertical one), so a rule that ends at the window edge never scrolls the page sideways. With children it becomes a labeled divider: two rules around your text.',
+      description:
+          'A Radix Separator (asChild is not offered: the element is the drawing\'s host). Without children it is a 1 px hairline whose drawing is centered on it and spills up to 12 px across it (a hairline host, so layout is exactly shadcn\'s). Along its length the host clips (`overflow-x: clip` for a horizontal rule, `overflow-y: clip` for a vertical one), so a rule that ends at the window edge never scrolls the page sideways. With children it becomes a labeled divider: two rules around your text.',
       props: [
         PropDoc(
           name: 'orientation',
           type: '"horizontal" | "vertical"',
           defaultValue: '"horizontal"',
-          description: 'Horizontal is h-px w-full; vertical is w-px h-full (give it a height in a flex row, or self-stretch).',
+          description:
+              'Horizontal is h-px w-full; vertical is w-px h-full (give it a height in a flex row, or self-stretch).',
         ),
         PropDoc(
           name: 'decorative',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'As Radix: decorative rules are role=none and invisible to assistive tech; set false for a real thematic break (role=separator).',
+          description:
+              'As Radix: decorative rules are role=none and invisible to assistive tech; set false for a real thematic break (role=separator).',
         ),
         PropDoc(
           name: 'variant',
-          type: '"pencil" | "dashed" | "wavy" | "dotted" | "tape" | "stitched" | "torn"',
+          type:
+              '"pencil" | "dashed" | "wavy" | "dotted" | "tape" | "stitched" | "torn"',
           defaultValue: '"pencil"',
-          description: 'pencil = a graphite line drawn against a ruler; dashed = ledger dashes; wavy = a felt-tip squiggle; dotted = ink dots; tape = a strip of kraft tape stuck across; stitched = a running stitch in marker thread; torn = a strip of paper torn along both edges. Calm density draws tape, stitched and torn as the pencil rule.',
+          description:
+              'pencil = a graphite line drawn against a ruler; dashed = ledger dashes; wavy = a felt-tip squiggle; dotted = ink dots; tape = a strip of kraft tape stuck across; stitched = a running stitch in marker thread; torn = a strip of paper torn along both edges. Calm density draws tape, stitched and torn as the pencil rule.',
         ),
         PropDoc(
           name: 'children',
           type: 'ReactNode',
-          description: 'Puts a label in the middle ("or", "continue with"): two rules of the same variant either side, the text in the hand font. The label is real text, read by screen readers when the separator is decorative.',
+          description:
+              'Puts a label in the middle ("or", "continue with"): two rules of the same variant either side, the text in the hand font. The label is real text, read by screen readers when the separator is decorative.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same rule. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same rule. Default: derived from useId().',
         ),
       ],
     ),

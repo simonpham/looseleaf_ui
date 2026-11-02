@@ -5,46 +5,54 @@ const inputDoc = ComponentDoc(
   slug: 'input',
   title: 'Input',
   category: ComponentCategory.forms,
-  description: 'A one-line text field: a pencil box on paper around a real <input>, with blue felt for what you type. It draws its own hover, focus ring, invalid (red pencil and a !), disabled (dashes) and read-only (printed) states.',
+  description:
+      'A one-line text field: a pencil box on paper around a real <input>, with blue felt for what you type. It draws its own hover, focus ring, invalid (red pencil and a !), disabled (dashes) and read-only (printed) states.',
   status: ComponentStatus.stable,
   upstream: 'input',
   parts: [
     PartDoc(
       name: 'Input',
-      description: 'A <span data-slot="input-frame"> (the drawn box: it owns the size, the drawing and the state) around <input data-slot="input">. Everything you pass goes to the <input>, as in shadcn, and ref is the input. className and style go to the frame, so width, height, margin, flex and grid placement, font size and text color work as they always did; padding, resize-* and variants like placeholder: or file: are moved onto the input, which keeps the whole box clickable and the text inset exactly as in shadcn.',
+      description:
+          'A <span data-slot="input-frame"> (the drawn box: it owns the size, the drawing and the state) around <input data-slot="input">. Everything you pass goes to the <input>, as in shadcn, and ref is the input. className and style go to the frame, so width, height, margin, flex and grid placement, font size and text color work as they always did; padding, resize-* and variants like placeholder: or file: are moved onto the input, which keeps the whole box clickable and the text inset exactly as in shadcn.',
       props: [
         PropDoc(
           name: 'inputClassName',
           type: 'string',
-          description: 'Classes appended to the <input> itself, after the ones moved there from className.',
+          description:
+              'Classes appended to the <input> itself, after the ones moved there from className.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same box, also across remounts. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same box, also across remounts. Default: derived from useId().',
         ),
         PropDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A real disabled input, drawn as dashed pencil on a pale wash. Under a disabled <fieldset> the input is still disabled, but the box is not redrawn.',
+          description:
+              'A real disabled input, drawn as dashed pencil on a pale wash. Under a disabled <fieldset> the input is still disabled, but the box is not redrawn.',
         ),
         PropDoc(
           name: 'readOnly',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Focusable and selectable, drawn as a printed field: a pale wash and one quiet pencil line, no hover.',
+          description:
+              'Focusable and selectable, drawn as a printed field: a pale wash and one quiet pencil line, no hover.',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'true draws the red-pencil box, the wavy underline and the ! mark (and reserves room for it at the end of the line). Set it from your validation, as with shadcn.',
+          description:
+              'true draws the red-pencil box, the wavy underline and the ! mark (and reserves room for it at the end of the line). Set it from your validation, as with shadcn.',
         ),
       ],
     ),
     PartDoc(
       name: 'InputControl',
-      description: 'The bare <input> (data-slot="input"): typography and reset, no drawing. Input renders it inside the frame; a composite that draws the box itself (InputGroup, a search bar) uses it directly.',
+      description:
+          'The bare <input> (data-slot="input"): typography and reset, no drawing. Input renders it inside the frame; a composite that draws the box itself (InputGroup, a search bar) uses it directly.',
     ),
   ],
   a11y: [

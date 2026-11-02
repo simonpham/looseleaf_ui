@@ -5,52 +5,62 @@ const underlineDoc = ComponentDoc(
   slug: 'underline',
   title: 'Underline',
   category: ComponentCategory.marks,
-  description: 'A pen line under real words: single, double, wavy or scribbled, in felt, pencil or marker. It follows the phrase line by line when it wraps, and can draw itself on as it scrolls into view.',
+  description:
+      'A pen line under real words: single, double, wavy or scribbled, in felt, pencil or marker. It follows the phrase line by line when it wraps, and can draw itself on as it scrolls into view.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Underline',
-      description: 'A <span> (or your own element with asChild) that hosts the drawing. One aria-hidden line per line of the phrase, measured from the browser\'s own line boxes.',
+      description:
+          'A <span> (or your own element with asChild) that hosts the drawing. One aria-hidden line per line of the phrase, measured from the browser\'s own line boxes.',
       props: [
         PropDoc(
           name: 'kind',
           type: '"single" | "double" | "wavy" | "scribble"',
           defaultValue: '"single"',
-          description: 'The line. Single rises to the right like a real one; double is two pulls; wavy is a squiggle; scribble is a fast zig-zag.',
+          description:
+              'The line. Single rises to the right like a real one; double is two pulls; wavy is a squiggle; scribble is a fast zig-zag.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"ink"',
-          description: 'The pen. Blue is the reserved "you" felt; red is for corrections.',
+          description:
+              'The pen. Blue is the reserved "you" felt; red is for corrections.',
         ),
         PropDoc(
           name: 'weight',
           type: '"fine" | "regular" | "brush"',
           defaultValue: '"regular"',
-          description: 'Fine-liner, felt tip or brush pen. Text under 15 px takes the fine-liner by itself, and the pen grows with larger type.',
+          description:
+              'Fine-liner, felt tip or brush pen. Text under 15 px takes the fine-liner by itself, and the pen grows with larger type.',
         ),
         PropDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Draw the line on, left to right, the first time the phrase scrolls into view. Reduced motion just shows it.',
+          description:
+              'Draw the line on, left to right, the first time the phrase scrolls into view. Reduced motion just shows it.',
         ),
         PropDoc(
           name: 'show',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Show or hide the line. With animate, turning it on plays the draw-on.',
+          description:
+              'Show or hide the line. With animate, turning it on plays the draw-on.',
         ),
         PropDoc(
           name: 'delay',
           type: 'number',
-          description: 'Milliseconds to wait before the first line draws on; each further line follows a beat later.',
+          description:
+              'Milliseconds to wait before the first line draws on; each further line follows a beat later.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand. Default: derived from useId(), so server and client draw the same line.',
+          description:
+              'Pins the hand. Default: derived from useId(), so server and client draw the same line.',
         ),
       ],
     ),

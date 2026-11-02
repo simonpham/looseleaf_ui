@@ -182,7 +182,8 @@ NotifyProblems validateNotify(NotifyPrefs prefs) {
   return (
     channels: switch (reachable) {
       true => null,
-      false => 'You asked to hear about things, but every box is empty. Tick at least one.',
+      false =>
+        'You asked to hear about things, but every box is empty. Tick at least one.',
     },
     quiet: quiet,
   );

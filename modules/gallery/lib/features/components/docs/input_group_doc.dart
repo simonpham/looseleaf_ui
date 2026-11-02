@@ -5,36 +5,42 @@ const inputGroupDoc = ComponentDoc(
   slug: 'input-group',
   title: 'Input Group',
   category: ComponentCategory.forms,
-  description: 'One hand-drawn field around an icon, some text, a button and the control, so a search box or a URL field is a single box instead of three. The box takes the control\'s focus, invalid and disabled states, and grows with a textarea. The same parts as shadcn\'s Input Group.',
+  description:
+      'One hand-drawn field around an icon, some text, a button and the control, so a search box or a URL field is a single box instead of three. The box takes the control\'s focus, invalid and disabled states, and grows with a textarea. The same parts as shadcn\'s Input Group.',
   status: ComponentStatus.stable,
   upstream: 'input-group',
   parts: [
     PartDoc(
       name: 'InputGroup',
-      description: 'The group: a `<div role="group">` that is the ink host. It draws the Input\'s pencil box once (rest), a red one (invalid) and a dashed one (disabled) as additive layers that follow the control in CSS. The control must be a direct child for the theme\'s own selectors; a deeper control works through `has-[...]` classes. `data-disabled` and `data-invalid` on the group work by hand.',
+      description:
+          'The group: a `<div role="group">` that is the ink host. It draws the Input\'s pencil box once (rest), a red one (invalid) and a dashed one (disabled) as additive layers that follow the control in CSS. The control must be a direct child for the theme\'s own selectors; a deeper control works through `has-[...]` classes. `data-disabled` and `data-invalid` on the group work by hand.',
       props: [
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'InputGroupAddon',
-      description: 'Something beside or above/below the control. It is a role=group; clicking it focuses the control, except when the click lands on a button, link, select or another control inside it.',
+      description:
+          'Something beside or above/below the control. It is a role=group; clicking it focuses the control, except when the click lands on a button, link, select or another control inside it.',
       props: [
         PropDoc(
           name: 'align',
           type: '"inline-start" | "inline-end" | "block-start" | "block-end"',
           defaultValue: '"inline-start"',
-          description: 'Where it sits. The block alignments stack it above or below the control and make the group grow taller.',
+          description:
+              'Where it sits. The block alignments stack it above or below the control and make the group grow taller.',
         ),
       ],
     ),
     PartDoc(
       name: 'InputGroupButton',
-      description: 'A Button for an addon: ghost by default. Put it inside an InputGroupAddon (a disabled button directly in the group would make the whole group look disabled).',
+      description:
+          'A Button for an addon: ghost by default. Put it inside an InputGroupAddon (a disabled button directly in the group would make the whole group look disabled).',
       props: [
         PropDoc(
           name: 'size',
@@ -52,11 +58,13 @@ const inputGroupDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'InputGroupInput',
-      description: 'The single-line control: the bare input of Input, with `data-slot="input-group-control"`. Every input prop works.',
+      description:
+          'The single-line control: the bare input of Input, with `data-slot="input-group-control"`. Every input prop works.',
     ),
     PartDoc(
       name: 'InputGroupTextarea',
-      description: 'The multi-line control: the bare textarea of Textarea, with `data-slot="input-group-control"`. It grows with its text.',
+      description:
+          'The multi-line control: the bare textarea of Textarea, with `data-slot="input-group-control"`. It grows with its text.',
     ),
   ],
   a11y: [

@@ -40,8 +40,10 @@ class _Sidebar15BlockState extends State<Sidebar15Block> {
                     title: 'Two pads, one page',
                     pose: 'carry',
                     description: switch (wide) {
-                      true => 'Notes on the left, your week on the right. Pick a day in the month and the kicker above follows.',
-                      false => 'Notes on the left, your week on the right. Widen the window and the week pad opens.',
+                      true =>
+                        'Notes on the left, your week on the right. Pick a day in the month and the kicker above follows.',
+                      false =>
+                        'Notes on the left, your week on the right. Widen the window and the week pad opens.',
                     },
                   ),
                 ],

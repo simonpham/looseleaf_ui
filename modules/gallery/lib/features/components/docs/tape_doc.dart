@@ -5,18 +5,22 @@ const tapeDoc = ComponentDoc(
   slug: 'tape',
   title: 'Tape',
   category: ComponentCategory.paper,
-  description: 'A strip of masking, washi, kraft or cellophane tape, drawn: translucent, with slit lines along its edges, crinkles and torn or pinked ends. Stick it across a corner, use it as a label, or let Paper place it for you.',
+  description:
+      'A strip of masking, washi, kraft or cellophane tape, drawn: translucent, with slit lines along its edges, crinkles and torn or pinked ends. Stick it across a corner, use it as a label, or let Paper place it for you.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Tape',
-      description: 'An intrinsic svg: its size is its `length` and `height`, so it is complete in server markup and needs no measuring. Position it with className (`absolute -top-3 left-6`).',
+      description:
+          'An intrinsic svg: its size is its `length` and `height`, so it is complete in server markup and needs no measuring. Position it with className (`absolute -top-3 left-6`).',
       props: [
         PropDoc(
           name: 'kind',
-          type: '"masking" | "washi-dots" | "washi-stripes" | "washi-zigzag" | "washi-gingham" | "kraft" | "clear"',
+          type:
+              '"masking" | "washi-dots" | "washi-stripes" | "washi-zigzag" | "washi-gingham" | "kraft" | "clear"',
           defaultValue: '"masking"',
-          description: 'Crepe masking tape; four printed washi patterns (dots, diagonal stripes, zigzag, gingham); gummed kraft with fiber streaks; nearly invisible cellophane.',
+          description:
+              'Crepe masking tape; four printed washi patterns (dots, diagonal stripes, zigzag, gingham); gummed kraft with fiber streaks; nearly invisible cellophane.',
         ),
         PropDoc(
           name: 'length',
@@ -33,17 +37,20 @@ const tapeDoc = ComponentDoc(
         PropDoc(
           name: 'angle',
           type: 'number',
-          description: 'Degrees it lies at. Default: seeded within +-4. Clamped like a sheet\'s tilt (calm density lays every strip flat).',
+          description:
+              'Degrees it lies at. Default: seeded within +-4. Clamped like a sheet\'s tilt (calm density lays every strip flat).',
         ),
         PropDoc(
           name: 'ends',
           type: '"saw" | "torn" | "straight" | "scissor"',
-          description: 'How the strip ends. Default follows the kind: masking and kraft are torn with a sawtooth, washi is pinked, clear is straight.',
+          description:
+              'How the strip ends. Default follows the kind: masking and kraft are torn with a sawtooth, washi is pinked, clear is straight.',
         ),
         PropDoc(
           name: 'color',
           type: 'Accent',
-          description: 'Print color of a washi tape: tomato, tangerine, lemon, grass, teal, sky, grape or bubblegum.',
+          description:
+              'Print color of a washi tape: tomato, tangerine, lemon, grass, teal, sky, grape or bubblegum.',
         ),
         PropDoc(
           name: 'seed',

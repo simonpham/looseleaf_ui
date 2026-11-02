@@ -39,7 +39,8 @@ const _css = '''@media (min-width: 40rem) {
 const _json =
     '{\n  "name": "looseleaf",\n  "private": true,\n  "keywords": ["paper", null]\n}';
 
-const _bash = r'''$ npx shadcn add https://kevintngo.github.io/looseleaf/r/bubble.json https://kevintngo.github.io/looseleaf/r/message.json --overwrite
+const _bash =
+    r'''$ npx shadcn add https://kevintngo.github.io/looseleaf/r/bubble.json https://kevintngo.github.io/looseleaf/r/message.json --overwrite
 # then draw something
 export FOO=$BAR && echo "${FOO}" | grep -i tags''';
 

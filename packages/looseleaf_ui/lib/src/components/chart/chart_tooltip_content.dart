@@ -17,19 +17,21 @@ enum ChartTooltipIndicator {
 }
 
 /// Replaces a tooltip label.
-typedef ChartTooltipLabelFormatter = Widget Function(
-  String label,
-  List<ChartTooltipItem> payload,
-);
+typedef ChartTooltipLabelFormatter =
+    Widget Function(
+      String label,
+      List<ChartTooltipItem> payload,
+    );
 
 /// Replaces a whole tooltip row.
-typedef ChartTooltipFormatter = Widget Function(
-  Object? value,
-  String name,
-  ChartTooltipItem item,
-  int index,
-  ChartRow? payload,
-);
+typedef ChartTooltipFormatter =
+    Widget Function(
+      Object? value,
+      String name,
+      ChartTooltipItem item,
+      int index,
+      ChartRow? payload,
+    );
 
 /// The tooltip's slip of paper: a label in the script hand and one row
 /// per series with a swatch that matches the drawing, the series name and

@@ -5,12 +5,14 @@ const doodleDoc = ComponentDoc(
   slug: 'doodle',
   title: 'Doodle',
   category: ComponentCategory.stickersDoodles,
-  description: 'Margin doodles: a star, a sun, a flower, a mushroom. Line-led, with one flat fill in register. Use them in the decoration layer, on empty states and in corners of cards.',
+  description:
+      'Margin doodles: a star, a sun, a flower, a mushroom. Line-led, with one flat fill in register. Use them in the decoration layer, on empty states and in corners of cards.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Doodle',
-      description: 'An intrinsic ink svg drawn from a skeleton at the size you ask for, redrawn (not scaled) below 72 px.',
+      description:
+          'An intrinsic ink svg drawn from a skeleton at the size you ask for, redrawn (not scaled) below 72 px.',
       props: [
         PropDoc(
           name: 'name',
@@ -22,7 +24,8 @@ const doodleDoc = ComponentDoc(
           name: 'size',
           type: 'number',
           defaultValue: '96',
-          description: 'Pixels. Below 72 the 48 px redraw (silhouette and one detail, heavier line), from 72 the 96 px master, from 128 the hero tier.',
+          description:
+              'Pixels. Below 72 the 48 px redraw (silhouette and one detail, heavier line), from 72 the 96 px master, from 128 the hero tier.',
         ),
         PropDoc(
           name: 'accent',
@@ -38,7 +41,8 @@ const doodleDoc = ComponentDoc(
         PropDoc(
           name: 'rotate',
           type: 'number',
-          description: 'Degrees. Corner flourishes are drawn for the top-left and turned by you.',
+          description:
+              'Degrees. Corner flourishes are drawn for the top-left and turned by you.',
         ),
         PropDoc(
           name: 'flip',

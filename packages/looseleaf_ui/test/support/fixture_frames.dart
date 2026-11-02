@@ -20,9 +20,11 @@ class FixtureFrame {
   final Map<String, String> parts;
 
   static List<FixtureFrame> load() {
-    final json = jsonDecode(
-      File('test/fixtures/frames.json').readAsStringSync(),
-    ) as Map<String, Object?>;
+    final json =
+        jsonDecode(
+              File('test/fixtures/frames.json').readAsStringSync(),
+            )
+            as Map<String, Object?>;
     return [
       for (final frame in json['frames'] as List)
         FixtureFrame((frame as Map).cast<String, Object?>()),

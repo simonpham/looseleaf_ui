@@ -5,42 +5,51 @@ const buttonDoc = ComponentDoc(
   slug: 'button',
   title: 'Button',
   category: ComponentCategory.actions,
-  description: 'The thing you press. A marker-filled primary, a highlighter secondary, an inked outline, a whisper-box ghost, a solid red destructive and a hand-underlined link, in every shadcn size.',
+  description:
+      'The thing you press. A marker-filled primary, a highlighter secondary, an inked outline, a whisper-box ghost, a solid red destructive and a hand-underlined link, in every shadcn size.',
   status: ComponentStatus.stable,
   upstream: 'button',
   parts: [
     PartDoc(
       name: 'Button',
-      description: 'A real <button> (or, with asChild, any element you hand it) with a hand-drawn layer behind its label. The label stays DOM text in the hand font; the drawing is measured from the element, never from the text.',
+      description:
+          'A real <button> (or, with asChild, any element you hand it) with a hand-drawn layer behind its label. The label stays DOM text in the hand font; the drawing is measured from the element, never from the text.',
       props: [
         PropDoc(
           name: 'variant',
-          type: '"default" | "destructive" | "outline" | "secondary" | "ghost" | "link"',
+          type:
+              '"default" | "destructive" | "outline" | "secondary" | "ghost" | "link"',
           defaultValue: '"default"',
-          description: 'default = terracotta marker fill and an ink box; destructive = a solid red fill with paper lettering and a red box; outline = an inked box on paper; secondary = highlighter; ghost = a whisper of pencil that lights up under a highlighter swipe on hover; link = a blue felt underline that gets a second, heavier stroke on hover.',
+          description:
+              'default = terracotta marker fill and an ink box; destructive = a solid red fill with paper lettering and a red box; outline = an inked box on paper; secondary = highlighter; ghost = a whisper of pencil that lights up under a highlighter swipe on hover; link = a blue felt underline that gets a second, heavier stroke on hover.',
         ),
         PropDoc(
           name: 'size',
-          type: '"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"',
+          type:
+              '"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"',
           defaultValue: '"default"',
-          description: '36, 24, 32 and 40 px high (the shadcn sizes); the icon sizes are squares of 36, 24, 32 and 40. Compact density is one step tighter, calm two (and calm is hairline: a pencil.fine outline, a single-pass fill). In the xs sizes an Icon inside is drawn at the 12 px tier.',
+          description:
+              '36, 24, 32 and 40 px high (the shadcn sizes); the icon sizes are squares of 36, 24, 32 and 40. Compact density is one step tighter, calm two (and calm is hairline: a pencil.fine outline, a single-pass fill). In the xs sizes an Icon inside is drawn at the 12 px tier.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same button, also across remounts. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same button, also across remounts. Default: derived from useId().',
         ),
         PropDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Dashed pencil box on a pale wash. A real disabled attribute on buttons, aria-disabled on asChild elements.',
+          description:
+              'Dashed pencil box on a pale wash. A real disabled attribute on buttons, aria-disabled on asChild elements.',
         ),
       ],
     ),
     PartDoc(
       name: 'buttonVariants',
-      description: 'The cva function behind Button, for styling a link or trigger like a button. Layout and typography classes only: the drawing comes from Button.',
+      description:
+          'The cva function behind Button, for styling a link or trigger like a button. Layout and typography classes only: the drawing comes from Button.',
       props: [
         PropDoc(
           name: 'variant',

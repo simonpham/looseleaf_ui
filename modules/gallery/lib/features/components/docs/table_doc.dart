@@ -5,24 +5,28 @@ const tableDoc = ComponentDoc(
   slug: 'table',
   title: 'Table',
   category: ComponentCategory.dataDisplay,
-  description: 'Rows and columns on a ruled page. Every rule is a pencil pull drawn once by the pen and printed by CSS (so a hundred rows cost no drawings), the header has an accountant\'s double rule, and a hovered or selected row is a highlighter swipe.',
+  description:
+      'Rows and columns on a ruled page. Every rule is a pencil pull drawn once by the pen and printed by CSS (so a hundred rows cost no drawings), the header has an accountant\'s double rule, and a hovered or selected row is a highlighter swipe.',
   status: ComponentStatus.stable,
   upstream: 'table',
   parts: [
     PartDoc(
       name: 'Table',
-      description: 'A `<table>` in a scroll container. The container is padded 12 px and pulled back by 12 px (layout unchanged) so a focus ring or swipe at the edge is not clipped. `className` goes to the table, `containerClassName` to the container. The other parts read a context from it and throw a readable error when used outside a `Table` (a browser would drop a stray `<tr>` anyway).',
+      description:
+          'A `<table>` in a scroll container. The container is padded 12 px and pulled back by 12 px (layout unchanged) so a focus ring or swipe at the edge is not clipped. `className` goes to the table, `containerClassName` to the container. The other parts read a context from it and throw a readable error when used outside a `Table` (a browser would drop a stray `<tr>` anyway).',
       props: [
         PropDoc(
           name: 'sticky',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Pin the header row to the top of the container while the body scrolls. Give the container a height with `containerClassName="max-h-72"`. The header takes `--ll-table-bg` (default the card color) so rows scroll under it.',
+          description:
+              'Pin the header row to the top of the container while the body scrolls. Give the container a height with `containerClassName="max-h-72"`. The header takes `--ll-table-bg` (default the card color) so rows scroll under it.',
         ),
         PropDoc(
           name: 'containerClassName',
           type: 'string',
-          description: 'Classes for the scroll container (height, max-width, a different bleed). The container\'s padding is transparent but real: it overlaps 12 px of whatever sits directly above or below the table, so keep a gap of at least 12 px (a `gap-4` or `mt-4` is plenty), or take the bleed away with `containerClassName="m-0 w-full p-0"` when nothing at the table\'s edge draws outside its box.',
+          description:
+              'Classes for the scroll container (height, max-width, a different bleed). The container\'s padding is transparent but real: it overlaps 12 px of whatever sits directly above or below the table, so keep a gap of at least 12 px (a `gap-4` or `mt-4` is plenty), or take the bleed away with `containerClassName="m-0 w-full p-0"` when nothing at the table\'s edge draws outside its box.',
         ),
       ],
     ),
@@ -32,23 +36,28 @@ const tableDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'TableBody',
-      description: '`<tbody>`. Rows are ruled by hand; the last one is left open, as upstream does.',
+      description:
+          '`<tbody>`. Rows are ruled by hand; the last one is left open, as upstream does.',
     ),
     PartDoc(
       name: 'TableFooter',
-      description: '`<tfoot>`. Bold text and the double rule turned upside down above the first row.',
+      description:
+          '`<tfoot>`. Bold text and the double rule turned upside down above the first row.',
     ),
     PartDoc(
       name: 'TableRow',
-      description: '`<tr>`, 44 px tall (36 compact, 32 calm). Hover lights a 40% swipe; `data-state="selected"` (or `aria-selected="true"`) lights the full swipe. A row cannot hold an svg, so both are CSS.',
+      description:
+          '`<tr>`, 44 px tall (36 compact, 32 calm). Hover lights a 40% swipe; `data-state="selected"` (or `aria-selected="true"`) lights the full swipe. A row cannot hold an svg, so both are CSS.',
     ),
     PartDoc(
       name: 'TableHead',
-      description: '`<th>`. Column names are written in the script font in blue felt (plain bold in calm density). `aria-sort` on it turns the label to ink; put your sort button inside.',
+      description:
+          '`<th>`. Column names are written in the script font in blue felt (plain bold in calm density). `aria-sort` on it turns the label to ink; put your sort button inside.',
     ),
     PartDoc(
       name: 'TableCell',
-      description: '`<td>`. Padded 12 px; a checkbox cell loses its end padding as upstream does.',
+      description:
+          '`<td>`. Padded 12 px; a checkbox cell loses its end padding as upstream does.',
     ),
     PartDoc(
       name: 'TableCaption',

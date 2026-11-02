@@ -24,7 +24,8 @@ const List<GuideStep> guideSteps = [
   ),
   GuideStep(
     title: 'Wrap your app',
-    description: 'LooseleafTheme gives every widget below it the paint tokens, Kevin Sans, density, tier and motion.',
+    description:
+        'LooseleafTheme gives every widget below it the paint tokens, Kevin Sans, density, tier and motion.',
     paragraphs: [
       'Put it above your WidgetsApp (or MaterialApp, if you keep one). Decode the paper and grain textures once at startup: painting works before they are ready, the tooth just shows up a frame later.',
     ],

@@ -5,19 +5,22 @@ const tooltipDoc = ComponentDoc(
   slug: 'tooltip',
   title: 'Tooltip',
   category: ComponentCategory.overlays,
-  description: 'A sticky note stuck next to a control, with a felt-tip arrow pointing at it. It names an icon button or adds a hint, opens on hover and keyboard focus with a shared delay, and never hides anything a person needs to be able to read.',
+  description:
+      'A sticky note stuck next to a control, with a felt-tip arrow pointing at it. It names an icon button or adds a hint, opens on hover and keyboard focus with a shared delay, and never hides anything a person needs to be able to read.',
   status: ComponentStatus.stable,
   upstream: 'tooltip',
   parts: [
     PartDoc(
       name: 'TooltipProvider',
-      description: 'Wrap the app or a region once. Its delays are shared by every tooltip inside, and after one has opened the next opens at once (`skipDelayDuration`). Renders no element.',
+      description:
+          'Wrap the app or a region once. Its delays are shared by every tooltip inside, and after one has opened the next opens at once (`skipDelayDuration`). Renders no element.',
       props: [
         PropDoc(
           name: 'delayDuration',
           type: 'number',
           defaultValue: '0',
-          description: 'Milliseconds of hover before a tooltip opens (upstream\'s default is 0; 300-700 is calmer for dense toolbars).',
+          description:
+              'Milliseconds of hover before a tooltip opens (upstream\'s default is 0; 300-700 is calmer for dense toolbars).',
         ),
         PropDoc(
           name: 'skipDelayDuration',
@@ -30,13 +33,15 @@ const tooltipDoc = ComponentDoc(
           name: 'disableHoverableContent',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Close as soon as the pointer leaves the trigger, without letting it travel onto the note.',
+          description:
+              'Close as soon as the pointer leaves the trigger, without letting it travel onto the note.',
         ),
       ],
     ),
     PartDoc(
       name: 'Tooltip',
-      description: 'The root (Radix Tooltip): `open`, `defaultOpen`, `onOpenChange`, and a per-tooltip `delayDuration`. It needs a `TooltipProvider` above it (once, at the app root, as in upstream\'s current source): without one Radix throws "`Tooltip` must be used within `TooltipProvider`".',
+      description:
+          'The root (Radix Tooltip): `open`, `defaultOpen`, `onOpenChange`, and a per-tooltip `delayDuration`. It needs a `TooltipProvider` above it (once, at the app root, as in upstream\'s current source): without one Radix throws "`Tooltip` must be used within `TooltipProvider`".',
     ),
     PartDoc(
       name: 'TooltipTrigger',
@@ -45,7 +50,8 @@ const tooltipDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'TooltipContent',
-      description: 'The sticky note: a Paper that is also the tooltip content (a CSS sheet, so it costs no SVG). Radix places it (`side`, `align`, `sideOffset`) and turns the arrow to face the trigger.',
+      description:
+          'The sticky note: a Paper that is also the tooltip content (a CSS sheet, so it costs no SVG). Radix places it (`side`, `align`, `sideOffset`) and turns the arrow to face the trigger.',
       props: [
         PropDoc(
           name: 'arrow',
@@ -57,25 +63,29 @@ const tooltipDoc = ComponentDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"sticky-yellow"',
-          description: 'What the note is made of: sticky-yellow, sticky-pink, sticky-blue, sticky-green, slip, index-card ...',
+          description:
+              'What the note is made of: sticky-yellow, sticky-pink, sticky-blue, sticky-green, slip, index-card ...',
         ),
         PropDoc(
           name: 'tilt',
           type: 'boolean | number',
           defaultValue: 'true',
-          description: 'Seeded tilt of the note (sticky stock turns up to 1.6 degrees); the text stays upright.',
+          description:
+              'Seeded tilt of the note (sticky stock turns up to 1.6 degrees); the text stays upright.',
         ),
         PropDoc(
           name: 'sideOffset',
           type: 'number',
           defaultValue: '1',
-          description: 'Gap between the trigger and the note, on top of the arrow\'s height.',
+          description:
+              'Gap between the trigger and the note, on top of the arrow\'s height.',
         ),
         PropDoc(
           name: 'collisionPadding',
           type: 'number | Partial<Record<Side, number>>',
           defaultValue: '8',
-          description: 'Room kept between the note and the viewport edge when it has to shift to fit (upstream\'s default is 0: a note at the edge of a toolbar touched the window).',
+          description:
+              'Room kept between the note and the viewport edge when it has to shift to fit (upstream\'s default is 0: a note at the edge of a toolbar touched the window).',
         ),
         PropDoc(
           name: 'seed',

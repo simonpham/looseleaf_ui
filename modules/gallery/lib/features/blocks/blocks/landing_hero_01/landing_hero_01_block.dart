@@ -86,7 +86,8 @@ class LandingHero01Block extends StatelessWidget {
                     TextSpan(
                       children: [
                         const TextSpan(
-                          text: 'Penmark keeps your team’s notes, tasks and half-formed ideas on ',
+                          text:
+                              'Penmark keeps your team’s notes, tasks and half-formed ideas on ',
                         ),
                         _inline(
                           const Annotate(

@@ -152,7 +152,8 @@ const List<AppearanceChoice<LooseleafMotion>> appearanceMotions = [
   (
     value: LooseleafMotion.system,
     name: 'Follow my device',
-    help: 'Ink is written on, paper settles. Off when your device asks for less motion.',
+    help:
+        'Ink is written on, paper settles. Off when your device asks for less motion.',
     ready: true,
   ),
   (

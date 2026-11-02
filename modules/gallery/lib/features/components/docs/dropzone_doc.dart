@@ -5,23 +5,27 @@ const dropzoneDoc = ComponentDoc(
   slug: 'dropzone',
   title: 'Dropzone',
   category: ComponentCategory.forms,
-  description: 'A patch of paper, stitched round its edge, that files can be dropped on or picked into. It checks type, size and count and tells you why a file was refused; it hands you File objects and shows them in a ruled list with thumbnails and progress lines. It uploads nothing: that part is yours.',
+  description:
+      'A patch of paper, stitched round its edge, that files can be dropped on or picked into. It checks type, size and count and tells you why a file was refused; it hands you File objects and shows them in a ruled list with thumbnails and progress lines. It uploads nothing: that part is yours.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Dropzone',
-      description: 'The state and the layout (a flex column). Without children it is a `DropzoneArea` (icon, title, description), `DropzoneRejections` and `DropzoneList`. The accepted files are `File` objects; uncontrolled (`defaultFiles`) or controlled (`files` + `onFilesChange`, called with the whole list).',
+      description:
+          'The state and the layout (a flex column). Without children it is a `DropzoneArea` (icon, title, description), `DropzoneRejections` and `DropzoneList`. The accepted files are `File` objects; uncontrolled (`defaultFiles`) or controlled (`files` + `onFilesChange`, called with the whole list).',
       props: [
         PropDoc(
           name: 'accept',
           type: 'string | string[]',
-          description: 'What the picker offers and what is accepted: `image/*`, `image/png`, `.pdf`, comma separated or an array. Extensions are checked case-insensitively.',
+          description:
+              'What the picker offers and what is accepted: `image/*`, `image/png`, `.pdf`, comma separated or an array. Extensions are checked case-insensitively.',
         ),
         PropDoc(
           name: 'multiple',
           type: 'boolean',
           defaultValue: 'true',
-          description: '`false`: one file, a new one replaces the old, extra files in one drop are refused.',
+          description:
+              '`false`: one file, a new one replaces the old, extra files in one drop are refused.',
         ),
         PropDoc(
           name: 'maxFiles / maxSize / minSize',
@@ -31,33 +35,39 @@ const dropzoneDoc = ComponentDoc(
         PropDoc(
           name: 'validator',
           type: '(file: File) => FileError | null',
-          description: 'Your own check per file; return `{ code, message }` to refuse it.',
+          description:
+              'Your own check per file; return `{ code, message }` to refuse it.',
         ),
         PropDoc(
           name: 'messages',
           type: 'Partial<Record<code, string | ((file) => string)>>',
-          description: 'Your words for the reasons (`file-invalid-type`, `file-too-large`, `file-too-small`, `too-many-files`), for translation.',
+          description:
+              'Your words for the reasons (`file-invalid-type`, `file-too-large`, `file-too-small`, `too-many-files`), for translation.',
         ),
         PropDoc(
           name: 'onDrop / onReject',
           type: '(accepted, rejected) => void',
-          description: 'Called for every drop or pick with what was taken and what was not (each rejection has its `file` and `errors[{ code, message }]`).',
+          description:
+              'Called for every drop or pick with what was taken and what was not (each rejection has its `file` and `errors[{ code, message }]`).',
         ),
         PropDoc(
           name: 'id / name / required',
           type: '',
-          description: 'On the file input (`id` is for a Label). The accepted files are put in it (DataTransfer) so a plain <form> submits them, dropped ones included; a form reset empties the list with the input (or goes back to `defaultFiles`).',
+          description:
+              'On the file input (`id` is for a Label). The accepted files are put in it (DataTransfer) so a plain <form> submits them, dropped ones included; a form reset empties the list with the input (or goes back to `defaultFiles`).',
         ),
         PropDoc(
           name: 'disabled / invalid',
           type: 'boolean',
-          description: 'Pale dashed stitches, nothing happens / red stitches on a pink wash (also `aria-invalid` on the input).',
+          description:
+              'Pale dashed stitches, nothing happens / red stitches on a pink wash (also `aria-invalid` on the input).',
         ),
       ],
     ),
     PartDoc(
       name: 'DropzoneArea',
-      description: 'The patch you drop on: a `<label>` (a click anywhere opens the picker) round the real, visually hidden file input (Tab reaches it, Enter and Space open the picker). Drawn as a paper-shade patch with a cut edge and an even running stitch a few pixels in (stitches of uneven length, even in calm); the stitches turn blue on a yellow wash while a file is over it, and the drawing wiggles. `inputProps` reaches the input.',
+      description:
+          'The patch you drop on: a `<label>` (a click anywhere opens the picker) round the real, visually hidden file input (Tab reaches it, Enter and Space open the picker). Drawn as a paper-shade patch with a cut edge and an even running stitch a few pixels in (stitches of uneven length, even in calm); the stitches turn blue on a yellow wash while a file is over it, and the drawing wiggles. `inputProps` reaches the input.',
       props: [
         PropDoc(
           name: 'inputProps',
@@ -74,27 +84,33 @@ const dropzoneDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DropzoneIcon',
-      description: 'The picture at the top: an upload arrow, or, while a file is over the zone, Stubby carrying a tied-up parcel (the `carry` pose). Pass children to draw your own.',
+      description:
+          'The picture at the top: an upload arrow, or, while a file is over the zone, Stubby carrying a tied-up parcel (the `carry` pose). Pass children to draw your own.',
     ),
     PartDoc(
       name: 'DropzoneTitle',
-      description: '"Drop files here or browse", the last word underlined in blue script. Pass your own words as children.',
+      description:
+          '"Drop files here or browse", the last word underlined in blue script. Pass your own words as children.',
     ),
     PartDoc(
       name: 'DropzoneDescription',
-      description: 'Small print. By default it states the limits the zone was given ("PNG, JPG up to 5 MB each, at most 3 files"); nothing is drawn if there are none.',
+      description:
+          'Small print. By default it states the limits the zone was given ("PNG, JPG up to 5 MB each, at most 3 files"); nothing is drawn if there are none.',
     ),
     PartDoc(
       name: 'DropzoneRejections',
-      description: 'Why files were refused, one line each, in a `role="alert"`. Cleared by the next clean drop.',
+      description:
+          'Why files were refused, one line each, in a `role="alert"`. Cleared by the next clean drop.',
     ),
     PartDoc(
       name: 'DropzoneList',
-      description: 'The accepted files (`<ul>`, named "Selected files"), one `DropzoneItem` each. A function child draws the rows: `{(file, index) => <DropzoneItem file={file} progress={...} />}`. Renders nothing while empty.',
+      description:
+          'The accepted files (`<ul>`, named "Selected files"), one `DropzoneItem` each. A function child draws the rows: `{(file, index) => <DropzoneItem file={file} progress={...} />}`. Renders nothing while empty.',
     ),
     PartDoc(
       name: 'DropzoneItem',
-      description: 'One file: a polaroid thumbnail for images (a little crooked) or a file icon, name, size, an optional highlighter progress line and status, and a remove button. The ruled pencil line under the row is the drawing; an error makes it red and wavy.',
+      description:
+          'One file: a polaroid thumbnail for images (a little crooked) or a file icon, name, size, an optional highlighter progress line and status, and a remove button. The ruled pencil line under the row is the drawing; an error makes it red and wavy.',
       props: [
         PropDoc(
           name: 'file',
@@ -105,7 +121,8 @@ const dropzoneDoc = ComponentDoc(
         PropDoc(
           name: 'progress / status',
           type: 'number 0-100  /  "idle" | "uploading" | "done" | "error"',
-          description: 'Yours to drive from your upload. Uploading with a progress shows a `progressbar`.',
+          description:
+              'Yours to drive from your upload. Uploading with a progress shows a `progressbar`.',
         ),
         PropDoc(
           name: 'error',
@@ -127,7 +144,8 @@ const dropzoneDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'useDropzone',
-      description: 'The state for your own parts: `files`, `rejections`, `isDragOver`, `add(files)`, `remove(file)`, `clear()`, `open()`. Also exported: `formatBytes` and `matchesAccept`.',
+      description:
+          'The state for your own parts: `files`, `rejections`, `isDragOver`, `add(files)`, `remove(file)`, `clear()`, `open()`. Also exported: `formatBytes` and `matchesAccept`.',
     ),
   ],
   a11y: [

@@ -5,28 +5,33 @@ const letteringDoc = ComponentDoc(
   slug: 'lettering',
   title: 'Lettering',
   category: ComponentCategory.typography,
-  description: 'Display titles in the script font with a riso print look: ink with a second color printed a hair off register. Pure CSS text-shadow, so the words are real text at any size. No gradients, no filters.',
+  description:
+      'Display titles in the script font with a riso print look: ink with a second color printed a hair off register. Pure CSS text-shadow, so the words are real text at any size. No gradients, no filters.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Lettering',
-      description: 'A heading (any element with `as`) in the script role, bold, with `ll-riso`. The offset color is a token (`--ll-riso`) set by `tone`; `calm` density and the misregistration knob bring it to zero.',
+      description:
+          'A heading (any element with `as`) in the script role, bold, with `ll-riso`. The offset color is a token (`--ll-riso`) set by `tone`; `calm` density and the misregistration knob bring it to zero.',
       props: [
         PropDoc(
           name: 'as',
           type: 'React.ElementType',
           defaultValue: '"h2"',
-          description: 'The element: a heading level, or p / span for lettering that is not a heading.',
+          description:
+              'The element: a heading level, or p / span for lettering that is not a heading.',
         ),
         PropDoc(
           name: 'size',
           type: '"sm" | "md" | "lg" | "xl" | "hero"',
           defaultValue: '"lg"',
-          description: '30, 48, 60, 72 to 96 (responsive), and 72 to 128 px (responsive).',
+          description:
+              '30, 48, 60, 72 to 96 (responsive), and 72 to 128 px (responsive).',
         ),
         PropDoc(
           name: 'tone',
-          type: '"marker" | "tomato" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "grape" | "bubblegum"',
+          type:
+              '"marker" | "tomato" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "grape" | "bubblegum"',
           defaultValue: '"marker"',
           description: 'The second color of the print.',
         ),
@@ -40,7 +45,8 @@ const letteringDoc = ComponentDoc(
           name: 'wobble',
           type: 'number',
           defaultValue: '0',
-          description: 'Per-word baseline jitter, 0 (typeset) to 2 (hurried). Words stay real, selectable text.',
+          description:
+              'Per-word baseline jitter, 0 (typeset) to 2 (hurried). Words stay real, selectable text.',
         ),
         PropDoc(
           name: 'seed',

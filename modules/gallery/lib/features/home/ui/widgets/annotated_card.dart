@@ -66,7 +66,8 @@ class AnnotatedCard extends StatelessWidget {
               style: body,
               children: [
                 const TextSpan(
-                  text: "Looseleaf keeps shadcn's API and swaps the skin. Every line is ",
+                  text:
+                      "Looseleaf keeps shadcn's API and swaps the skin. Every line is ",
                 ),
                 const WidgetSpan(
                   alignment: PlaceholderAlignment.baseline,

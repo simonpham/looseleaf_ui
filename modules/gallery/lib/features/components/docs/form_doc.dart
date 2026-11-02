@@ -5,29 +5,35 @@ const formDoc = ComponentDoc(
   slug: 'form',
   title: 'Form',
   category: ComponentCategory.forms,
-  description: 'react-hook-form wired to the drawn controls, exactly like shadcn\'s Form. FormControl gives the control its id, aria-describedby and aria-invalid, so an Input, Select, Checkbox or Switch turns red pencil when the field has an error, its label follows, and FormMessage writes the message under it with a wavy red underline.',
+  description:
+      'react-hook-form wired to the drawn controls, exactly like shadcn\'s Form. FormControl gives the control its id, aria-describedby and aria-invalid, so an Input, Select, Checkbox or Switch turns red pencil when the field has an error, its label follows, and FormMessage writes the message under it with a wavy red underline.',
   status: ComponentStatus.stable,
   upstream: 'form',
   parts: [
     PartDoc(
       name: 'Form',
-      description: 'react-hook-form\'s FormProvider: spread the result of `useForm()` on it.',
+      description:
+          'react-hook-form\'s FormProvider: spread the result of `useForm()` on it.',
     ),
     PartDoc(
       name: 'FormField',
-      description: 'A react-hook-form Controller that also tells its children which field they belong to. Same props as Controller (`control`, `name`, `render`).',
+      description:
+          'A react-hook-form Controller that also tells its children which field they belong to. Same props as Controller (`control`, `name`, `render`).',
     ),
     PartDoc(
       name: 'FormItem',
-      description: 'A grid with a gap and a fresh id for the label, control, description and message of one field.',
+      description:
+          'A grid with a gap and a fresh id for the label, control, description and message of one field.',
     ),
     PartDoc(
       name: 'FormLabel',
-      description: 'A Label whose `for` is the control\'s id; it is red pencil while the field has an error.',
+      description:
+          'A Label whose `for` is the control\'s id; it is red pencil while the field has an error.',
     ),
     PartDoc(
       name: 'FormControl',
-      description: 'Wrap the control (a Slot): it receives `id`, `aria-describedby` (the description, plus the message while there is an error) and `aria-invalid`.',
+      description:
+          'Wrap the control (a Slot): it receives `id`, `aria-describedby` (the description, plus the message while there is an error) and `aria-invalid`.',
     ),
     PartDoc(
       name: 'FormDescription',
@@ -35,7 +41,8 @@ const formDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FormMessage',
-      description: 'The field\'s error (or your own children), drawn with a wavy red pencil underline. Renders nothing when there is nothing to say.',
+      description:
+          'The field\'s error (or your own children), drawn with a wavy red pencil underline. Renders nothing when there is nothing to say.',
       props: [
         PropDoc(
           name: 'seed',
@@ -46,7 +53,8 @@ const formDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'useFormField',
-      description: 'Hook for your own parts inside a FormItem: `{ id, name, formItemId, formDescriptionId, formMessageId, error, invalid, isDirty, isTouched }`.',
+      description:
+          'Hook for your own parts inside a FormItem: `{ id, name, formItemId, formDescriptionId, formMessageId, error, invalid, isDirty, isTouched }`.',
     ),
   ],
   a11y: [

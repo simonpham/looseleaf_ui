@@ -19,8 +19,9 @@ void main() {
       final bytes = await tester.runAsync(
         () => image.toByteData(format: ui.ImageByteFormat.png),
       );
-      File('$out/${frame.name}.png')
-          .writeAsBytesSync(bytes?.buffer.asUint8List() ?? []);
+      File(
+        '$out/${frame.name}.png',
+      ).writeAsBytesSync(bytes?.buffer.asUint8List() ?? []);
     }
   }, skip: out == null);
 }

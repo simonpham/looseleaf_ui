@@ -4,11 +4,12 @@ import 'package:looseleaf_ui/src/components/dropzone/dropzone_item.dart';
 import 'package:looseleaf_ui/src/components/dropzone/dropzone_scope.dart';
 
 /// Builds the row of a kept file.
-typedef DropzoneItemBuilder = Widget Function(
-  BuildContext context,
-  DropzoneFile file,
-  int index,
-);
+typedef DropzoneItemBuilder =
+    Widget Function(
+      BuildContext context,
+      DropzoneFile file,
+      int index,
+    );
 
 /// The kept files, a [DropzoneItem] each (or [itemBuilder]'s rows);
 /// nothing while there are none.

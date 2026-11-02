@@ -5,25 +5,29 @@ const cardDoc = ComponentDoc(
   slug: 'card',
   title: 'Card',
   category: ComponentCategory.layout,
-  description: 'A card is a sheet of paper: header, title, description, action, content and footer with shadcn\'s spacing, on any stock and edge. Dividers are drawn pencil rules, and a card can be taped, pinned or clipped to the desk.',
+  description:
+      'A card is a sheet of paper: header, title, description, action, content and footer with shadcn\'s spacing, on any stock and edge. Dividers are drawn pencil rules, and a card can be taped, pinned or clipped to the desk.',
   status: ComponentStatus.stable,
   upstream: 'card',
   parts: [
     PartDoc(
       name: 'Card',
-      description: 'A Paper with shadcn\'s card layout (a flex column, gap 6, py 6). It takes every Paper prop; its default stock is `card` (paper color, a small shadow).',
+      description:
+          'A Paper with shadcn\'s card layout (a flex column, gap 6, py 6). It takes every Paper prop; its default stock is `card` (paper color, a small shadow).',
       props: [
         PropDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"card"',
-          description: 'Paper, slip, index-card, graph, dot-grid, check, ledger, pad, kraft, napkin, sticky-*, photo, parchment, receipt.',
+          description:
+              'Paper, slip, index-card, graph, dot-grid, check, ledger, pad, kraft, napkin, sticky-*, photo, parchment, receipt.',
         ),
         PropDoc(
           name: 'edge',
           type: 'EdgeSpec',
           defaultValue: '"cut"',
-          description: 'Cut (pure CSS), torn, deckle, crimp, zig, perf, scallop, or one kind per side.',
+          description:
+              'Cut (pure CSS), torn, deckle, crimp, zig, perf, scallop, or one kind per side.',
         ),
         PropDoc(
           name: 'tilt',
@@ -35,7 +39,8 @@ const cardDoc = ComponentDoc(
           name: 'rules',
           type: 'RuleName',
           defaultValue: '"none"',
-          description: 'Printed rules: ruled, index, graph, dots, ledger, pad. Off by default (unlike Paper, which prints its stock\'s own rules) because arbitrary content does not sit on ruled lines.',
+          description:
+              'Printed rules: ruled, index, graph, dots, ledger, pad. Off by default (unlike Paper, which prints its stock\'s own rules) because arbitrary content does not sit on ruled lines.',
         ),
         PropDoc(
           name: 'tape',
@@ -56,13 +61,15 @@ const cardDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CardHeader',
-      description: 'A container query grid (`@container/card-header`): title and description on the left, an optional CardAction on the right. `border-b` asks for a drawn divider and adds the usual bottom padding.',
+      description:
+          'A container query grid (`@container/card-header`): title and description on the left, an optional CardAction on the right. `border-b` asks for a drawn divider and adds the usual bottom padding.',
       props: [
         PropDoc(
           name: 'rule',
           type: '"pencil" | "dashed" | "wavy"',
           defaultValue: '"pencil"',
-          description: 'How the divider under a header with `border-b` is drawn: a pencil line that rises to the right, dashes like a ledger, or a wavy underline.',
+          description:
+              'How the divider under a header with `border-b` is drawn: a pencil line that rises to the right, dashes like a ledger, or a wavy underline.',
         ),
       ],
     ),
@@ -85,7 +92,8 @@ const cardDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CardFooter',
-      description: 'A flex row. `border-t` draws a divider above it and adds the top padding.',
+      description:
+          'A flex row. `border-t` draws a divider above it and adds the top padding.',
       props: [
         PropDoc(
           name: 'rule',

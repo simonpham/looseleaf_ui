@@ -5,13 +5,15 @@ const alertDialogDoc = ComponentDoc(
   slug: 'alert-dialog',
   title: 'Alert Dialog',
   category: ComponentCategory.overlays,
-  description: 'A dialog that asks one question and will not go away until it is answered: no close button, no dismissing by clicking outside, focus starts on the safe answer. For risky questions it can be taped with hazard strips and given a red patch behind its icon.',
+  description:
+      'A dialog that asks one question and will not go away until it is answered: no close button, no dismissing by clicking outside, focus starts on the safe answer. For risky questions it can be taped with hazard strips and given a red patch behind its icon.',
   status: ComponentStatus.stable,
   upstream: 'alert-dialog',
   parts: [
     PartDoc(
       name: 'AlertDialog',
-      description: 'The root (Radix AlertDialog): `open`, `defaultOpen`, `onOpenChange`.',
+      description:
+          'The root (Radix AlertDialog): `open`, `defaultOpen`, `onOpenChange`.',
     ),
     PartDoc(
       name: 'AlertDialogTrigger',
@@ -23,23 +25,27 @@ const alertDialogDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AlertDialogOverlay',
-      description: 'The lamp-lit dim. It scrolls the dialog if the screen is too short, so the sheet\'s shadow and tape are never clipped.',
+      description:
+          'The lamp-lit dim. It scrolls the dialog if the screen is too short, so the sheet\'s shadow and tape are never clipped.',
     ),
     PartDoc(
       name: 'AlertDialogContent',
-      description: 'The sheet: a Paper that is also the alertdialog. It takes every Radix Content prop and these.',
+      description:
+          'The sheet: a Paper that is also the alertdialog. It takes every Radix Content prop and these.',
       props: [
         PropDoc(
           name: 'size',
           type: '"default" | "sm"',
           defaultValue: '"default"',
-          description: '`sm` is a narrow, centered sheet with the buttons in two equal columns.',
+          description:
+              '`sm` is a narrow, centered sheet with the buttons in two equal columns.',
         ),
         PropDoc(
           name: 'tone',
           type: '"default" | "danger"',
           defaultValue: '"default"',
-          description: '`danger` tapes red-and-white hazard strips across the top corners.',
+          description:
+              '`danger` tapes red-and-white hazard strips across the top corners.',
         ),
         PropDoc(
           name: 'stock',
@@ -57,7 +63,8 @@ const alertDialogDoc = ComponentDoc(
           name: 'tilt',
           type: 'boolean | number',
           defaultValue: 'true',
-          description: 'Small seeded tilt of the sheet; text stays upright; phones lay it flat.',
+          description:
+              'Small seeded tilt of the sheet; text stays upright; phones lay it flat.',
         ),
         PropDoc(
           name: 'seed',
@@ -68,7 +75,8 @@ const alertDialogDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AlertDialogHeader',
-      description: 'Title and description; with a media it becomes two columns on larger screens.',
+      description:
+          'Title and description; with a media it becomes two columns on larger screens.',
     ),
     PartDoc(
       name: 'AlertDialogTitle',
@@ -80,7 +88,8 @@ const alertDialogDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AlertDialogMedia',
-      description: 'The picture beside the question: put an Icon or a Sticker in it. It sits on a hand-drawn round patch.',
+      description:
+          'The picture beside the question: put an Icon or a Sticker in it. It sits on a hand-drawn round patch.',
       props: [
         PropDoc(
           name: 'tone',
@@ -101,7 +110,8 @@ const alertDialogDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AlertDialogAction',
-      description: 'The confirming answer. A Button (asChild over Radix Action) that closes the dialog after its onClick.',
+      description:
+          'The confirming answer. A Button (asChild over Radix Action) that closes the dialog after its onClick.',
       props: [
         PropDoc(
           name: 'variant',
@@ -120,7 +130,8 @@ const alertDialogDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AlertDialogCancel',
-      description: 'The safe answer. A Button that closes the dialog; focus starts here.',
+      description:
+          'The safe answer. A Button that closes the dialog; focus starts here.',
       props: [
         PropDoc(
           name: 'variant',

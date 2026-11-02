@@ -10,7 +10,12 @@ class StickerDefaultExample extends StatelessWidget {
     runSpacing: Spacing.d24,
     crossAxisAlignment: WrapCrossAlignment.center,
     children: [
-      for (final name in const ['done', 'sale', 'cursor-click', 'hand-point-right'])
+      for (final name in const [
+        'done',
+        'sale',
+        'cursor-click',
+        'hand-point-right',
+      ])
         Sticker(name),
     ],
   );

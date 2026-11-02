@@ -3,12 +3,13 @@ import 'package:looseleaf_ink/src/core/core.dart';
 import 'package:looseleaf_ink/src/recipes/framework/framework.dart';
 
 /// Draws a recipe: `(ink, box, params, ctx)`.
-typedef RecipeDraw<P> = void Function(
-  Ink ink,
-  Box box,
-  P params,
-  RecipeContext ctx,
-);
+typedef RecipeDraw<P> =
+    void Function(
+      Ink ink,
+      Box box,
+      P params,
+      RecipeContext ctx,
+    );
 
 /// Computes a recipe's padding from its box and params.
 typedef RecipePad<P> = double Function(Box box, P params, RecipeContext ctx);

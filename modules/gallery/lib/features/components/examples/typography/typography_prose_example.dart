@@ -25,7 +25,8 @@ class TypographyProseExample extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.w700),
                 ),
                 const TextSpan(
-                  text: ', and to write down where you stopped believing the author. Start with the ',
+                  text:
+                      ', and to write down where you stopped believing the author. Start with the ',
                 ),
                 TextSpan(
                   text: 'field guide to margins',

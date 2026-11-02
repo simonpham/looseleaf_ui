@@ -5,7 +5,8 @@ import 'package:gallery/features/components/models/models.dart';
 const corkboardExamples = <GalleryExample>[
   GalleryExample(
     title: 'Default',
-    description: 'Pick a note up and move it. Or focus one, then use the arrow keys, R to turn it, Enter to bring it to the front.',
+    description:
+        'Pick a note up and move it. Or focus one, then use the arrow keys, R to turn it, Enter to bring it to the front.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     height: 380,
@@ -14,7 +15,8 @@ const corkboardExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Any paper',
-    description: 'A note is a Paper: sticky notes, an index card with a list, a kraft tag, a photo. With bare, any paper object of the library can be the note. Same drag, same keys.',
+    description:
+        'A note is a Paper: sticky notes, an index card with a list, a kraft tag, a photo. With bare, any paper object of the library can be the note. Same drag, same keys.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     height: 420,
@@ -23,7 +25,8 @@ const corkboardExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Saved layout',
-    description: 'Controlled positions: the board is a plain value, so a layout can be saved, shared and restored. Move things, then reset.',
+    description:
+        'Controlled positions: the board is a plain value, so a layout can be saved, shared and restored. Move things, then reset.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     height: 470,

@@ -5,30 +5,35 @@ const stickerDoc = ComponentDoc(
   slug: 'sticker',
   title: 'Sticker',
   category: ComponentCategory.stickersDoodles,
-  description: 'Die-cut vinyl stickers: the art with a white border, a cut line, a soft shadow and, if you like, a peeled corner. Status badges (done, sale) are generated; the rest are drawn by hand.',
+  description:
+      'Die-cut vinyl stickers: the art with a white border, a cut line, a soft shadow and, if you like, a peeled corner. Status badges (done, sale) are generated; the rest are drawn by hand.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Sticker',
-      description: 'An intrinsic ink svg. The border is a fat round-join stroke of the silhouette, defined once and reused; the shadow is a CSS filter.',
+      description:
+          'An intrinsic ink svg. The border is a fat round-join stroke of the silhouette, defined once and reused; the shadow is a CSS filter.',
       props: [
         PropDoc(
           name: 'name',
           type: 'StickerName | string',
-          description: 'A sticker id (`done`, `sale`, `cursor-click`, `hand-point-right`...). Stamp ids render as flat stamps.',
+          description:
+              'A sticker id (`done`, `sale`, `cursor-click`, `hand-point-right`...). Stamp ids render as flat stamps.',
           required: true,
         ),
         PropDoc(
           name: 'size',
           type: 'number',
           defaultValue: '96',
-          description: 'Pixels of the art; the border is added around it. Below 80 the 64 px redraw, from 128 the extras.',
+          description:
+              'Pixels of the art; the border is added around it. Below 80 the 64 px redraw, from 128 the extras.',
         ),
         PropDoc(
           name: 'peel',
           type: 'boolean | number',
           defaultValue: 'false',
-          description: 'Fold the lower-right corner over. `true` picks a size from the sticker; a number is the fold in px. Works for any silhouette.',
+          description:
+              'Fold the lower-right corner over. `true` picks a size from the sticker; a number is the fold in px. Works for any silhouette.',
         ),
         PropDoc(
           name: 'rotate',

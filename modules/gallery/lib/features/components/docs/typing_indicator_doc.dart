@@ -5,12 +5,14 @@ const typingIndicatorDoc = ComponentDoc(
   slug: 'typing-indicator',
   title: 'Typing indicator',
   category: ComponentCategory.chat,
-  description: '"Somebody is writing": a small pencil that draws three dots one after another, or scrawls a line of cursive. A polite live region with a screen-reader label, at home inside a bubble.',
+  description:
+      '"Somebody is writing": a small pencil that draws three dots one after another, or scrawls a line of cursive. A polite live region with a screen-reader label, at home inside a bubble.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'TypingIndicator',
-      description: 'A `role="status"` region 56 x 24 px (80 x 24 for the scrawl) holding the drawing and a visually hidden label. Every CSS animation ends on the fully drawn frame, so reduced motion shows the dots, the line and the pencil at rest.',
+      description:
+          'A `role="status"` region 56 x 24 px (80 x 24 for the scrawl) holding the drawing and a visually hidden label. Every CSS animation ends on the fully drawn frame, so reduced motion shows the dots, the line and the pencil at rest.',
       props: [
         PropDoc(
           name: 'variant',
@@ -34,7 +36,8 @@ const typingIndicatorDoc = ComponentDoc(
           name: 'active',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'False leaves an empty live region mounted, so a screen reader announces the label when it turns on.',
+          description:
+              'False leaves an empty live region mounted, so a screen reader announces the label when it turns on.',
         ),
         PropDoc(
           name: 'label',

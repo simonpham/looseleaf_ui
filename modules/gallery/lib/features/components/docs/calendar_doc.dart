@@ -5,43 +5,50 @@ const calendarDoc = ComponentDoc(
   slug: 'calendar',
   title: 'Calendar',
   category: ComponentCategory.forms,
-  description: 'A month on planner paper. The grid is ruled by hand, the day you chose is circled in marker, today is underlined in felt, a range is one highlighter swipe per week, and a day you may not pick is hatched out in pencil. react-day-picker v10 underneath: single, multiple and range selection, locales, right-to-left, week numbers, dropdown captions, several months.',
+  description:
+      'A month on planner paper. The grid is ruled by hand, the day you chose is circled in marker, today is underlined in felt, a range is one highlighter swipe per week, and a day you may not pick is hatched out in pencil. react-day-picker v10 underneath: single, multiple and range selection, locales, right-to-left, week numbers, dropdown captions, several months.',
   status: ComponentStatus.stable,
   upstream: 'calendar',
   parts: [
     PartDoc(
       name: 'Calendar',
-      description: 'A react-day-picker `DayPicker`, so every prop of DayPicker works (`mode`, `selected`, `onSelect`, `required`, `disabled`, `hidden`, `modifiers`, `locale`, `dir`, `numberOfMonths`, `startMonth` / `endMonth`, `showWeekNumber`, `weekStartsOn`, `footer`, `timeZone`, ...). The root is transparent so it sits on the paper it is placed on (Card, Popover, Page); `sheet` gives it a sheet of its own.',
+      description:
+          'A react-day-picker `DayPicker`, so every prop of DayPicker works (`mode`, `selected`, `onSelect`, `required`, `disabled`, `hidden`, `modifiers`, `locale`, `dir`, `numberOfMonths`, `startMonth` / `endMonth`, `showWeekNumber`, `weekStartsOn`, `footer`, `timeZone`, ...). The root is transparent so it sits on the paper it is placed on (Card, Popover, Page); `sheet` gives it a sheet of its own.',
       props: [
         PropDoc(
           name: 'captionLayout',
           type: '"label" | "dropdown" | "dropdown-months" | "dropdown-years"',
           defaultValue: '"label"',
-          description: 'The month name in script, or native month / year selects drawn in pencil boxes. Dropdowns default to a hundred years back (set `startMonth` / `endMonth`).',
+          description:
+              'The month name in script, or native month / year selects drawn in pencil boxes. Dropdowns default to a hundred years back (set `startMonth` / `endMonth`).',
         ),
         PropDoc(
           name: 'showOutsideDays',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Days of the neighboring months in the first and last week, in graphite.',
+          description:
+              'Days of the neighboring months in the first and last week, in graphite.',
         ),
         PropDoc(
           name: 'buttonVariant',
           type: 'ButtonProps[\'variant\']',
           defaultValue: '"ghost"',
-          description: 'Variant of the previous / next month Buttons (real Buttons: hover swipe, press and drawn focus ring).',
+          description:
+              'Variant of the previous / next month Buttons (real Buttons: hover swipe, press and drawn focus ring).',
         ),
         PropDoc(
           name: 'ruled',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Hand-rule the grid (weekday rule, week rules, day rules, a red margin rule beside the week numbers). `false` leaves the page plain.',
+          description:
+              'Hand-rule the grid (weekday rule, week rules, day rules, a red margin rule beside the week numbers). `false` leaves the page plain.',
         ),
         PropDoc(
           name: 'sheet',
           type: 'boolean | PaperProps',
           defaultValue: 'false',
-          description: 'Put the calendar on a sheet of paper. `true` is a card; an object passes `stock`, `edge`, `tilt`, `tape`, `tapeKind`, `fastener`, `fastenerTone`, `fastenerClassName`, `shadow` and `seed` to Paper. A paper clip is set between the next-month arrow and the caption (not on the arrow); `fastenerClassName` moves it.',
+          description:
+              'Put the calendar on a sheet of paper. `true` is a card; an object passes `stock`, `edge`, `tilt`, `tape`, `tapeKind`, `fastener`, `fastenerTone`, `fastenerClassName`, `shadow` and `seed` to Paper. A paper clip is set between the next-month arrow and the caption (not on the arrow); `fastenerClassName` moves it.',
         ),
         PropDoc(
           name: 'seed',
@@ -57,13 +64,15 @@ const calendarDoc = ComponentDoc(
         PropDoc(
           name: 'classNames',
           type: 'Partial<ClassNames>',
-          description: 'Same keys as upstream shadcn (`root`, `months`, `month`, `nav`, `month_caption`, `weekday`, `day`, `today`, `range_start`, ...); merged over the defaults.',
+          description:
+              'Same keys as upstream shadcn (`root`, `months`, `month`, `nav`, `month_caption`, `weekday`, `day`, `today`, `range_start`, ...); merged over the defaults.',
         ),
       ],
     ),
     PartDoc(
       name: 'CalendarDayButton',
-      description: 'The button of one day, exported as upstream does so you can wrap it in `components.DayButton`. A plain `<button>` with no ink of its own: its marks are CSS masks keyed on `data-selected-single`, `data-range-start|end|middle` and `data-v` (the hand that draws them, from the date). Adds `aria-current="date"` on today.',
+      description:
+          'The button of one day, exported as upstream does so you can wrap it in `components.DayButton`. A plain `<button>` with no ink of its own: its marks are CSS masks keyed on `data-selected-single`, `data-range-start|end|middle` and `data-v` (the hand that draws them, from the date). Adds `aria-current="date"` on today.',
     ),
   ],
   a11y: [

@@ -5,18 +5,21 @@ const stampButtonDoc = ComponentDoc(
   slug: 'stamp-button',
   title: 'Stamp button',
   category: ComponentCategory.actions,
-  description: 'A button that is a rubber stamp: a wooden knob on an inked die, in the color of the impression it will leave. Press it and APPROVED, PAID or VOID lands on the page with a thump. The stamps on a page are JSON, so they can be state.',
+  description:
+      'A button that is a rubber stamp: a wooden knob on an inked die, in the color of the impression it will leave. Press it and APPROVED, PAID or VOID lands on the page with a thump. The stamps on a page are JSON, so they can be state.',
   status: ComponentStatus.isNew,
   upstream: 'button',
   parts: [
     PartDoc(
       name: 'StampSurface',
-      description: 'The page that takes stamps: a positioned box holding your document and any number of StampButtons (a footer, a toolbar, anywhere inside). It shows the impressions above its content, gives 2 px under each stamp and announces it politely.',
+      description:
+          'The page that takes stamps: a positioned box holding your document and any number of StampButtons (a footer, a toolbar, anywhere inside). It shows the impressions above its content, gives 2 px under each stamp and announces it politely.',
       props: [
         PropDoc(
           name: 'value / defaultValue',
           type: 'StampImpression[]',
-          description: 'The impressions on the page: { id, press, x, y (fractions of the surface), name or text, shape, ink, turn, seed, … }. Plain JSON; clear it with [] or restore a saved one.',
+          description:
+              'The impressions on the page: { id, press, x, y (fractions of the surface), name or text, shape, ink, turn, seed, … }. Plain JSON; clear it with [] or restore a saved one.',
         ),
         PropDoc(
           name: 'onValueChange',
@@ -32,29 +35,34 @@ const stampButtonDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'StampButton',
-      description: 'The tool: pad ink from the preset (or `ink`), a label on the die, a handle on top. Hover lifts the die on a drop-line, press sinks it and inks it heavier. Striking a stamp again replaces its own impression with a new one (own wear, own turn, one in five a double strike).',
+      description:
+          'The tool: pad ink from the preset (or `ink`), a label on the die, a handle on top. Hover lifts the die on a drop-line, press sinks it and inks it heavier. Striking a stamp again replaces its own impression with a new one (own wear, own turn, one in five a double strike).',
       props: [
         PropDoc(
           name: 'stamp',
           type: 'string',
-          description: 'A preset from the sticker sheet: stamp-approved, stamp-paid, stamp-void, stamp-urgent, stamp-received, stamp-draft, stamp-new, stamp-member. Other props override it.',
+          description:
+              'A preset from the sticker sheet: stamp-approved, stamp-paid, stamp-void, stamp-urgent, stamp-received, stamp-draft, stamp-new, stamp-member. Other props override it.',
         ),
         PropDoc(
           name:
               'text / shape / ink / sub / ring / w / h / size / ghost / dashed',
           type: 'as on Stamp',
-          description: 'The impression, when there is no preset or to change one. `ink` is red, ink-you, green or ink.',
+          description:
+              'The impression, when there is no preset or to change one. `ink` is red, ink-you, green or ink.',
         ),
         PropDoc(
           name: 'impressionId',
           type: 'string',
-          description: 'Names the stamp on the page. The same id replaces its impression instead of adding one. Default the preset or the text.',
+          description:
+              'Names the stamp on the page. The same id replaces its impression instead of adding one. Default the preset or the text.',
         ),
         PropDoc(
           name: 'place',
           type: '{ x: number; y: number }',
           defaultValue: '{ x: .72, y: .6 }',
-          description: 'Where to aim, as fractions of the surface. Every strike wanders up to 3 percent from it.',
+          description:
+              'Where to aim, as fractions of the surface. Every strike wanders up to 3 percent from it.',
         ),
         PropDoc(
           name: 'onStamp',

@@ -5,24 +5,29 @@ const ribbonDoc = ComponentDoc(
   slug: 'ribbon',
   title: 'Ribbon',
   category: ComponentCategory.marks,
-  description: 'A ribbon label: a band of colored paper with words on it, folded ends and all. For a section heading, a New flag on a card, a price label or a call to action.',
+  description:
+      'A ribbon label: a band of colored paper with words on it, folded ends and all. For a section heading, a New flag on a card, a price label or a call to action.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Ribbon',
-      description: 'A span (or your own link or button, with asChild) with the ribbon drawn behind its words. The band is a marker fill that misses its felt-tip outline; a banner\'s tails are one shade darker and tucked under the band with a small fold. The host is as wide as its words need.',
+      description:
+          'A span (or your own link or button, with asChild) with the ribbon drawn behind its words. The band is a marker fill that misses its felt-tip outline; a banner\'s tails are one shade darker and tucked under the band with a small fold. The host is as wide as its words need.',
       props: [
         PropDoc(
           name: 'variant',
           type: '"banner" | "swallow" | "flag"',
           defaultValue: '"banner"',
-          description: 'Folded swallow-tailed ends; a V notch at both ends; square at the start and notched at the end.',
+          description:
+              'Folded swallow-tailed ends; a V notch at both ends; square at the start and notched at the end.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"marker" | "hi" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "bubblegum" | "paper"',
+          type:
+              '"marker" | "hi" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "bubblegum" | "paper"',
           defaultValue: '"marker"',
-          description: 'The paper. Tomato and grape are left out: ink on them is 3.95:1, large text only.',
+          description:
+              'The paper. Tomato and grape are left out: ink on them is 3.95:1, large text only.',
         ),
         PropDoc(
           name: 'size',
@@ -38,7 +43,8 @@ const ribbonDoc = ComponentDoc(
         PropDoc(
           name: 'children',
           type: 'ReactNode',
-          description: 'A few words on one line: the ribbon grows with them and never wraps, so keep it short on a narrow screen. A ribbon with onClick but no asChild is only a span: give a clickable one a link or a button.',
+          description:
+              'A few words on one line: the ribbon grows with them and never wraps, so keep it short on a narrow screen. A ribbon with onClick but no asChild is only a span: give a clickable one a link or a button.',
         ),
       ],
     ),

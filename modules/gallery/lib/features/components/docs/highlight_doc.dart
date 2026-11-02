@@ -5,18 +5,22 @@ const highlightDoc = ComponentDoc(
   slug: 'highlight',
   title: 'Highlight',
   category: ComponentCategory.marks,
-  description: 'A highlighter swipe behind real words. The phrase stays text you can select and copy; the swipe follows it line by line when it wraps, in yellow or any stationery color, and can draw itself on as it scrolls into view.',
+  description:
+      'A highlighter swipe behind real words. The phrase stays text you can select and copy; the swipe follows it line by line when it wraps, in yellow or any stationery color, and can draw itself on as it scrolls into view.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Highlight',
-      description: 'A <mark> (or your own element with asChild) that hosts the drawing. One aria-hidden swipe per line of the phrase, measured from the browser\'s own line boxes, so it starts and ends where the words do.',
+      description:
+          'A <mark> (or your own element with asChild) that hosts the drawing. One aria-hidden swipe per line of the phrase, measured from the browser\'s own line boxes, so it starts and ends where the words do.',
       props: [
         PropDoc(
           name: 'tone',
-          type: '"yellow" | "pink" | "green" | "blue" | "orange" | "lilac" | "teal"',
+          type:
+              '"yellow" | "pink" | "green" | "blue" | "orange" | "lilac" | "teal"',
           defaultValue: '"yellow"',
-          description: 'The marker. Yellow is the highlighter; the rest are the stationery accents as translucent markers.',
+          description:
+              'The marker. Yellow is the highlighter; the rest are the stationery accents as translucent markers.',
         ),
         PropDoc(
           name: 'weight',
@@ -28,29 +32,34 @@ const highlightDoc = ComponentDoc(
           name: 'cover',
           type: '"full" | "under"',
           defaultValue: '"full"',
-          description: 'full covers the letters; under runs along the lower half of the line so the words stay clear above it.',
+          description:
+              'full covers the letters; under runs along the lower half of the line so the words stay clear above it.',
         ),
         PropDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Hold the swipe back and draw it on, left to right, the first time the phrase scrolls into view. Reduced motion just shows it.',
+          description:
+              'Hold the swipe back and draw it on, left to right, the first time the phrase scrolls into view. Reduced motion just shows it.',
         ),
         PropDoc(
           name: 'show',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Show or hide the swipe. With animate, turning it on plays the draw-on.',
+          description:
+              'Show or hide the swipe. With animate, turning it on plays the draw-on.',
         ),
         PropDoc(
           name: 'delay',
           type: 'number',
-          description: 'Milliseconds to wait before the first line draws on; each further line follows a beat later.',
+          description:
+              'Milliseconds to wait before the first line draws on; each further line follows a beat later.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand. Default: derived from useId(), so server and client draw the same swipe.',
+          description:
+              'Pins the hand. Default: derived from useId(), so server and client draw the same swipe.',
         ),
       ],
     ),

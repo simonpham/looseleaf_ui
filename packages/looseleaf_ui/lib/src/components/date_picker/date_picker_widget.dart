@@ -8,12 +8,13 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 
 /// Builds the month grid in a [DatePicker]'s popup: show [selected], call
 /// [onSelect] with the day picked (null to clear), honour [isDisabled].
-typedef DatePickerCalendarBuilder = Widget Function(
-  BuildContext context,
-  DateTime? selected,
-  ValueChanged<DateTime?> onSelect,
-  bool Function(DateTime day) isDisabled,
-);
+typedef DatePickerCalendarBuilder =
+    Widget Function(
+      BuildContext context,
+      DateTime? selected,
+      ValueChanged<DateTime?> onSelect,
+      bool Function(DateTime day) isDisabled,
+    );
 
 /// A day you type ("Sep 17, 2026", "9/17/26", "tomorrow") or pick from a
 /// calendar under the field, with optional [presets] beside it.

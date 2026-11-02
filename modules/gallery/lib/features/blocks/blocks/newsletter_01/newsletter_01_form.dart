@@ -96,7 +96,8 @@ class _Newsletter01FormState extends State<Newsletter01Form> {
                       ),
                     ),
                     const TextSpan(
-                      text: '. Click the link inside to confirm, and the first letter lands on Sunday.',
+                      text:
+                          '. Click the link inside to confirm, and the first letter lands on Sunday.',
                     ),
                   ],
                 ),

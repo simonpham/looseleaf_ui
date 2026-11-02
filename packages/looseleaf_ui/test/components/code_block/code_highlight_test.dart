@@ -11,9 +11,11 @@ List<CodeToken> _tokens(Object? json) => [
 ];
 
 void main() {
-  final fixture = jsonDecode(
-    File('test/fixtures/code_highlight.json').readAsStringSync(),
-  ) as Map<String, Object?>;
+  final fixture =
+      jsonDecode(
+            File('test/fixtures/code_highlight.json').readAsStringSync(),
+          )
+          as Map<String, Object?>;
 
   group('tokens match upstream', () {
     for (final entry in fixture['tokens'] as List<Object?>) {

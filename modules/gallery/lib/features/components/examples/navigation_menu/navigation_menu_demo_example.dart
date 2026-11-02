@@ -149,7 +149,8 @@ class NavigationMenuDemoExample extends StatelessWidget {
                             ),
                             _ListItem(
                               title: 'Typography',
-                              text: 'Styles for headings, paragraphs, lists...etc',
+                              text:
+                                  'Styles for headings, paragraphs, lists...etc',
                             ),
                           ],
                         ),

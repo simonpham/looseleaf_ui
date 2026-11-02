@@ -5,29 +5,34 @@ const clipboardDoc = ComponentDoc(
   slug: 'clipboard',
   title: 'Clipboard',
   category: ComponentCategory.paper,
-  description: 'A board with a spring clip holding a sheet of paper. The board is one drawn sheet (hardboard with the grain of its fiber, or colored plastic; a bevel lit from the upper left) that turns and casts its own shadow; the chrome clip is drawn over the paper it holds. The sheet is real DOM: put a form, a checklist or notes on it.',
+  description:
+      'A board with a spring clip holding a sheet of paper. The board is one drawn sheet (hardboard with the grain of its fiber, or colored plastic; a bevel lit from the upper left) that turns and casts its own shadow; the chrome clip is drawn over the paper it holds. The sheet is real DOM: put a form, a checklist or notes on it.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Clipboard',
-      description: 'A flex column at most 28 rem wide. It leaves 3.5 rem at the top for the clip and a 1.5 rem rim round the paper. Until it is measured (or given `size`) it wears a plain board.',
+      description:
+          'A flex column at most 28 rem wide. It leaves 3.5 rem at the top for the clip and a 1.5 rem rim round the paper. Until it is measured (or given `size`) it wears a plain board.',
       props: [
         PropDoc(
           name: 'tone',
           type: '"hardboard" | Accent',
           defaultValue: '"hardboard"',
-          description: 'Hardboard, or a plastic board in tomato, tangerine, lemon, grass, teal, sky, grape or bubblegum.',
+          description:
+              'Hardboard, or a plastic board in tomato, tangerine, lemon, grass, teal, sky, grape or bubblegum.',
         ),
         PropDoc(
           name: 'tilt / seed / size',
           type: 'boolean | number / string | number / [w, h]',
-          description: 'A seeded turn under 1.2 degrees (or degrees, or false); pins the hand; the box in px for server-rendered drawings.',
+          description:
+              'A seeded turn under 1.2 degrees (or degrees, or false); pins the hand; the box in px for server-rendered drawings.',
         ),
       ],
     ),
     PartDoc(
       name: 'ClipboardPaper',
-      description: 'The sheet on the board: a Paper with ruled lines and a red margin by default, tucked 1.5 rem under the clip. Text starts 3.5 rem in, past the margin.',
+      description:
+          'The sheet on the board: a Paper with ruled lines and a red margin by default, tucked 1.5 rem under the clip. Text starts 3.5 rem in, past the margin.',
       props: [
         PropDoc(
           name: 'as',

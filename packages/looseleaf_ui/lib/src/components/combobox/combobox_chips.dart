@@ -12,11 +12,12 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds a custom chip for [value] with its [label].
-typedef ComboboxChipBuilder = Widget Function(
-  BuildContext context,
-  String value,
-  String label,
-);
+typedef ComboboxChipBuilder =
+    Widget Function(
+      BuildContext context,
+      String value,
+      String label,
+    );
 
 /// The field of a [Combobox.multiple]: a pencil box holding a hang-tag per
 /// chosen value and, after them, the [ComboboxChipsInput]. It grows to

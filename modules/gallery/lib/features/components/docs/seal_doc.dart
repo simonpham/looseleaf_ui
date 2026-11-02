@@ -5,39 +5,47 @@ const sealDoc = ComponentDoc(
   slug: 'seal',
   title: 'Seal',
   category: ComponentCategory.stickersDoodles,
-  description: 'Rosettes, scalloped seals, medals, ringed seals with rim lettering and wax seals, drawn like the stickers without the white edge. Use one as a verified mark beside a name, an award on a card, or the stamp of approval on a certificate.',
+  description:
+      'Rosettes, scalloped seals, medals, ringed seals with rim lettering and wax seals, drawn like the stickers without the white edge. Use one as a verified mark beside a name, an award on a card, or the stamp of approval on a certificate.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Seal',
-      description: 'Intrinsic art: an svg whose size is its `size`, complete in server markup, named by its words. Made by the badge generator plus a ringed seal and wax; the pens, the solid fills and the grain are the sticker library\'s.',
+      description:
+          'Intrinsic art: an svg whose size is its `size`, complete in server markup, named by its words. Made by the badge generator plus a ringed seal and wax; the pens, the solid fills and the grain are the sticker library\'s.',
       props: [
         PropDoc(
           name: 'variant',
-          type: '"scallop" | "starburst" | "rosette" | "medal" | "shield" | "plate" | "ticket" | "tag" | "ring" | "wax"',
+          type:
+              '"scallop" | "starburst" | "rosette" | "medal" | "shield" | "plate" | "ticket" | "tag" | "ring" | "wax"',
           defaultValue: '"scallop"',
-          description: 'The shape. Rosette and medal hang a ribbon; ring letters its rim; wax is a blob of sealing wax with an impression.',
+          description:
+              'The shape. Rosette and medal hang a ribbon; ring letters its rim; wax is a blob of sealing wax with an impression.',
         ),
         PropDoc(
           name: 'text',
           type: 'string',
-          description: 'The words in the middle: about 6 letters at 64 px, 10 at 96 (one or two initials on wax). Capitals are set for you.',
+          description:
+              'The words in the middle: about 6 letters at 64 px, 10 at 96 (one or two initials on wax). Capitals are set for you.',
         ),
         PropDoc(
           name: 'sub',
           type: 'string',
-          description: 'A smaller second line (from 96 px up; dropped in the small redraw). Leave it off a rosette or a medal: their ribbons hang across that line. A ticket is one line (it has no room for a second and ignores `sub`).',
+          description:
+              'A smaller second line (from 96 px up; dropped in the small redraw). Leave it off a rosette or a medal: their ribbons hang across that line. A ticket is one line (it has no room for a second and ignores `sub`).',
         ),
         PropDoc(
           name: 'mark',
           type: '"check" | "star"',
-          description: 'A hand-drawn glyph instead of the words. It holds at 16 px where letters do not, so it is what a verified badge should use.',
+          description:
+              'A hand-drawn glyph instead of the words. It holds at 16 px where letters do not, so it is what a verified badge should use.',
         ),
         PropDoc(
           name: 'tone',
           type: 'PaintKey',
           defaultValue: '"bubblegum" (wax: "red")',
-          description: 'The color: a stationery accent, or red, ink-you, green for wax. Ink on tomato and grape reaches 3.95:1: large text only.',
+          description:
+              'The color: a stationery accent, or red, ink-you, green for wax. Ink on tomato and grape reaches 3.95:1: large text only.',
         ),
         PropDoc(
           name: 'ribbon',
@@ -48,7 +56,8 @@ const sealDoc = ComponentDoc(
         PropDoc(
           name: 'ring',
           type: 'string',
-          description: 'Lettering all the way round the rim of a ring seal, repeated to close the circle (from 72 px up).',
+          description:
+              'Lettering all the way round the rim of a ring seal, repeated to close the circle (from 72 px up).',
         ),
         PropDoc(
           name: 'deco',
@@ -70,7 +79,8 @@ const sealDoc = ComponentDoc(
         PropDoc(
           name: 'tier',
           type: '"lo" | "hi"',
-          description: 'Drawing quality: the provider\'s (lo) by default; hi for hero art costs about three times the markup.',
+          description:
+              'Drawing quality: the provider\'s (lo) by default; hi for hero art costs about three times the markup.',
         ),
         PropDoc(
           name: 'shadow',
@@ -81,7 +91,8 @@ const sealDoc = ComponentDoc(
         PropDoc(
           name: 'label / decorative',
           type: 'string / boolean',
-          description: 'Accessible name (default: the words, "Verified" for a check, "Award" for a star), or hide it when the text beside it says the same.',
+          description:
+              'Accessible name (default: the words, "Verified" for a check, "Award" for a star), or hide it when the text beside it says the same.',
         ),
         PropDoc(
           name: 'seed',

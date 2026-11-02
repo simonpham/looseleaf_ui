@@ -5,18 +5,21 @@ const skeletonDoc = ComponentDoc(
   slug: 'skeleton',
   title: 'Skeleton',
   category: ComponentCategory.feedback,
-  description: 'A placeholder someone sketched in pencil: a pale hatch inside a rough ruled outline that boils gently between three redrawn frames. It costs no ink per instance, so a page of hundreds is as cheap as one.',
+  description:
+      'A placeholder someone sketched in pencil: a pale hatch inside a rough ruled outline that boils gently between three redrawn frames. It costs no ink per instance, so a page of hundreds is as cheap as one.',
   status: ComponentStatus.stable,
   upstream: 'skeleton',
   parts: [
     PartDoc(
       name: 'Skeleton',
-      description: 'An empty div. Shape it with classes exactly as with shadcn\'s (h-4 w-[250px], size-12 rounded-full). The pencil is CSS: the hatch and the outline are masks made from a few tiny drawn tiles, defined once per page in one hoisted stylesheet; three redrawn frames of each are stepped through slowly. A rounded-full box gets a drawn circle.',
+      description:
+          'An empty div. Shape it with classes exactly as with shadcn\'s (h-4 w-[250px], size-12 rounded-full). The pencil is CSS: the hatch and the outline are masks made from a few tiny drawn tiles, defined once per page in one hoisted stylesheet; three redrawn frames of each are stepped through slowly. A rounded-full box gets a drawn circle.',
       props: [
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Picks the phase of the boil this skeleton starts on, so a page of them does not flicker in unison. Default: derived from useId().',
+          description:
+              'Picks the phase of the boil this skeleton starts on, so a page of them does not flicker in unison. Default: derived from useId().',
         ),
       ],
     ),

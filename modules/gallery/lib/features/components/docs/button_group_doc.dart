@@ -5,30 +5,35 @@ const buttonGroupDoc = ComponentDoc(
   slug: 'button-group',
   title: 'Button Group',
   category: ComponentCategory.actions,
-  description: 'Buttons, fields and printed cells joined into one row (or column) that share their seams: the edge two neighbors have in common is drawn once, by the one before, or by a pencil separator you put between them.',
+  description:
+      'Buttons, fields and printed cells joined into one row (or column) that share their seams: the edge two neighbors have in common is drawn once, by the one before, or by a pencil separator you put between them.',
   status: ComponentStatus.stable,
   upstream: 'button-group',
   parts: [
     PartDoc(
       name: 'ButtonGroup',
-      description: 'A role=group flex row. It does not draw anything itself: every child (Button, Input, a Select trigger, ButtonGroupText) is its own hand-drawn host, and the group trims the drawing where they meet: a child that is not first loses its start edge, and one that sits before a ButtonGroupSeparator loses its end edge, so a seam is one stroke, not two. A focused child is never trimmed, so its ring stays whole.',
+      description:
+          'A role=group flex row. It does not draw anything itself: every child (Button, Input, a Select trigger, ButtonGroupText) is its own hand-drawn host, and the group trims the drawing where they meet: a child that is not first loses its start edge, and one that sits before a ButtonGroupSeparator loses its end edge, so a seam is one stroke, not two. A focused child is never trimmed, so its ring stays whole.',
       props: [
         PropDoc(
           name: 'orientation',
           type: '"horizontal" | "vertical"',
           defaultValue: '"horizontal"',
-          description: 'Vertical stacks the children and trims their top edges instead. Right-to-left layouts trim the other side.',
+          description:
+              'Vertical stacks the children and trims their top edges instead. Right-to-left layouts trim the other side.',
         ),
         PropDoc(
           name: 'aria-label',
           type: 'string',
-          description: 'Name the group when the buttons do not explain themselves ("Range", "Text style").',
+          description:
+              'Name the group when the buttons do not explain themselves ("Range", "Text style").',
         ),
       ],
     ),
     PartDoc(
       name: 'ButtonGroupText',
-      description: 'A printed cell in the row ("https://", "@", "kg"): a paper-shade body under an ink box, real text in the hand font. Not a control: it has no hover or focus.',
+      description:
+          'A printed cell in the row ("https://", "@", "kg"): a paper-shade body under an ink box, real text in the hand font. Not a control: it has no hover or focus.',
       props: [
         PropDoc(
           name: 'seed',
@@ -39,7 +44,8 @@ const buttonGroupDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ButtonGroupSeparator',
-      description: 'A Separator (pencil, vertical by default) that stretches to the group\'s height and takes the place of the two edges around it. Takes every Separator prop: variant, orientation, decorative.',
+      description:
+          'A Separator (pencil, vertical by default) that stretches to the group\'s height and takes the place of the two edges around it. Takes every Separator prop: variant, orientation, decorative.',
       props: [
         PropDoc(
           name: 'orientation',
@@ -51,7 +57,8 @@ const buttonGroupDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'buttonGroupVariants',
-      description: 'The cva function behind ButtonGroup, for laying out another container the same way.',
+      description:
+          'The cva function behind ButtonGroup, for laying out another container the same way.',
       props: [
         PropDoc(
           name: 'orientation',

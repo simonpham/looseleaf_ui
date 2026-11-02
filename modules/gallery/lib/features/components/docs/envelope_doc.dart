@@ -5,31 +5,36 @@ const envelopeDoc = ComponentDoc(
   slug: 'envelope',
   title: 'Envelope',
   category: ComponentCategory.paper,
-  description: 'An envelope on the desk with a stamp, a postmark and address lines. It opens: the flap, which belongs to the back panel, stands up behind, and a letter slides out from between the panels, the front panel hiding its foot. Built on Collapsible, so it has a real trigger, `aria-expanded`, and content that is not in the page until it is out.',
+  description:
+      'An envelope on the desk with a stamp, a postmark and address lines. It opens: the flap, which belongs to the back panel, stands up behind, and a letter slides out from between the panels, the front panel hiding its foot. Built on Collapsible, so it has a real trigger, `aria-expanded`, and content that is not in the page until it is out.',
   status: ComponentStatus.isNew,
   upstream: 'collapsible',
   parts: [
     PartDoc(
       name: 'Envelope',
-      description: 'The outer element (`w-full max-w-sm`, a container for its own measurements) around the body (`aspect-[8/5]`), whose drawing is the back panel: a sheet with the flap that lifts a sliver on hover and stands up when open. When open the envelope makes room above itself for the flap and the letter.',
+      description:
+          'The outer element (`w-full max-w-sm`, a container for its own measurements) around the body (`aspect-[8/5]`), whose drawing is the back panel: a sheet with the flap that lifts a sliver on hover and stands up when open. When open the envelope makes room above itself for the flap and the letter.',
       props: [
         PropDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"kraft"',
-          description: 'What it is made of: kraft (manila), paper, index-card, a sticky stock ...',
+          description:
+              'What it is made of: kraft (manila), paper, index-card, a sticky stock ...',
         ),
         PropDoc(
           name: 'stamp',
           type: 'Accent | false',
           defaultValue: '"tomato"',
-          description: 'The postage stamp in the top corner (perforated, with a little picture), in a stationery color, or none. It sits at the end corner and mirrors in RTL.',
+          description:
+              'The postage stamp in the top corner (perforated, with a little picture), in a stationery color, or none. It sits at the end corner and mirrors in RTL.',
         ),
         PropDoc(
           name: 'postmark',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Two rings and wavy cancellation lines over the stamp (only with a stamp).',
+          description:
+              'Two rings and wavy cancellation lines over the stamp (only with a stamp).',
         ),
         PropDoc(
           name: 'airmail',
@@ -46,24 +51,28 @@ const envelopeDoc = ComponentDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Sealed: the trigger is disabled (as Collapsible\'s `disabled`) and hovering opens nothing.',
+          description:
+              'Sealed: the trigger is disabled (as Collapsible\'s `disabled`) and hovering opens nothing.',
         ),
         PropDoc(
           name: 'openOnHover',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Also open while a mouse is over it and close when it leaves (unless it was opened by a click). Touch never opens it on hover.',
+          description:
+              'Also open while a mouse is over it and close when it leaves (unless it was opened by a click). Touch never opens it on hover.',
         ),
         PropDoc(
           name: 'tilt / seed / size',
           type: 'boolean | number / string | number / [w, h]',
-          description: 'A seeded turn under 1.1 degrees (front and back turn together); pins the hand; the box in px for server-rendered drawings.',
+          description:
+              'A seeded turn under 1.1 degrees (front and back turn together); pins the hand; the box in px for server-rendered drawings.',
         ),
       ],
     ),
     PartDoc(
       name: 'EnvelopeLetter',
-      description: 'The letter: a Paper (paper stock by default) absolutely placed between the panels. It is not in the page while the envelope is closed; when it opens it slides up (and fades in), rising about a third of the envelope\'s height above its top edge. Only that upper part shows; the front panel hides the rest.',
+      description:
+          'The letter: a Paper (paper stock by default) absolutely placed between the panels. It is not in the page while the envelope is closed; when it opens it slides up (and fades in), rising about a third of the envelope\'s height above its top edge. Only that upper part shows; the front panel hides the rest.',
       props: [
         PropDoc(
           name: 'stock',
@@ -75,15 +84,18 @@ const envelopeDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'EnvelopeFront',
-      description: 'The front panel, in front of the letter: the paper, the seams of the bottom flap, the stamp and postmark. Put `EnvelopeAddress`, `EnvelopeSender` and `EnvelopeTrigger` in it, and put it BEFORE `EnvelopeLetter` in the source: z-index (front 20, letter 10) decides what is on top, source order decides the tab order. Nothing inside the front can be clicked or selected, because the trigger covers it.',
+      description:
+          'The front panel, in front of the letter: the paper, the seams of the bottom flap, the stamp and postmark. Put `EnvelopeAddress`, `EnvelopeSender` and `EnvelopeTrigger` in it, and put it BEFORE `EnvelopeLetter` in the source: z-index (front 20, letter 10) decides what is on top, source order decides the tab order. Nothing inside the front can be clicked or selected, because the trigger covers it.',
     ),
     PartDoc(
       name: 'EnvelopeTrigger',
-      description: 'A button over the whole front (Collapsible.Trigger): `aria-expanded`, `aria-controls`, Space and Enter. Its content is its accessible name (default "Open the letter").',
+      description:
+          'A button over the whole front (Collapsible.Trigger): `aria-expanded`, `aria-controls`, Space and Enter. Its content is its accessible name (default "Open the letter").',
     ),
     PartDoc(
       name: 'EnvelopeAddress',
-      description: 'The address block in the script font, 28 px rows on pencil rules, at most 62% of the width, sitting in the lower part of the front.',
+      description:
+          'The address block in the script font, 28 px rows on pencil rules, at most 62% of the width, sitting in the lower part of the front.',
     ),
     PartDoc(
       name: 'EnvelopeSender',

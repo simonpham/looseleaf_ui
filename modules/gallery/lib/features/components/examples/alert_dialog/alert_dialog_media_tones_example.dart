@@ -10,7 +10,8 @@ class AlertDialogMediaTonesExample extends StatelessWidget {
       trigger: 'Publish',
       icon: 'circle-check',
       title: 'Publish now?',
-      body: 'Everyone with the link will be able to read it. You can unpublish later.',
+      body:
+          'Everyone with the link will be able to read it. You can unpublish later.',
       ok: 'Publish',
     ),
     (

@@ -5,30 +5,35 @@ const labelTagDoc = ComponentDoc(
   slug: 'label-tag',
   title: 'Label tag',
   category: ComponentCategory.paper,
-  description: 'A hang tag: cut card with clipped corners (or an arched top, or a luggage tag\'s clipped end), a hole with a reinforcing patch and a brass eyelet, and a loop of twine. The whole silhouette is one drawn sheet, so the string and the eyelet turn and cast their shadow with the card. As a link or a button it swings on its eyelet.',
+  description:
+      'A hang tag: cut card with clipped corners (or an arched top, or a luggage tag\'s clipped end), a hole with a reinforcing patch and a brass eyelet, and a loop of twine. The whole silhouette is one drawn sheet, so the string and the eyelet turn and cast their shadow with the card. As a link or a button it swings on its eyelet.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'LabelTag',
-      description: 'A `div` (or your own element with `asChild`) whose content sits on the card below the eyelet. Until it is measured (or given `size`) it wears a plain card; the drawing then replaces it.',
+      description:
+          'A `div` (or your own element with `asChild`) whose content sits on the card below the eyelet. Until it is measured (or given `size`) it wears a plain card; the drawing then replaces it.',
       props: [
         PropDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"kraft"',
-          description: 'What it is cut from: kraft, paper, index-card, sticky-yellow, sticky-pink ...',
+          description:
+              'What it is cut from: kraft, paper, index-card, sticky-yellow, sticky-pink ...',
         ),
         PropDoc(
           name: 'shape',
           type: '"price" | "round" | "luggage"',
           defaultValue: '"price"',
-          description: 'Clipped top corners; an arched top; or a horizontal luggage tag hung from the start (mirrors in RTL).',
+          description:
+              'Clipped top corners; an arched top; or a horizontal luggage tag hung from the start (mirrors in RTL).',
         ),
         PropDoc(
           name: 'string',
           type: 'number',
           defaultValue: '36',
-          description: 'How far the loop of twine hangs out, px. The tag gets that much margin on its hanging side (`mt-(--tag-string)`); override it with a margin class.',
+          description:
+              'How far the loop of twine hangs out, px. The tag gets that much margin on its hanging side (`mt-(--tag-string)`); override it with a margin class.',
         ),
         PropDoc(
           name: 'twine',
@@ -45,7 +50,8 @@ const labelTagDoc = ComponentDoc(
         PropDoc(
           name: 'tilt / seed / size',
           type: 'boolean | number / string | number / [w, h]',
-          description: 'A seeded turn under 2 degrees (or degrees, or false); pins the hand; the box in px for server-rendered drawings.',
+          description:
+              'A seeded turn under 2 degrees (or degrees, or false); pins the hand; the box in px for server-rendered drawings.',
         ),
       ],
     ),

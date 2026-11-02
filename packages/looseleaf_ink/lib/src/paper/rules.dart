@@ -255,7 +255,8 @@ RulesLayer? rulesLayer(RuleName kind, {bool calm = false, double? first}) {
         style: {
           'inset': '10px 10px 26%',
           'backgroundColor': _soft('paper-shade', 55),
-          'boxShadow': 'inset 0 2px 4px rgb(var(--ll-shade) / calc(0.26 * var(--ll-shadow-k))), inset 0 0 0 1px rgb(var(--ll-shade) / calc(0.1 * var(--ll-shadow-k)))',
+          'boxShadow':
+              'inset 0 2px 4px rgb(var(--ll-shade) / calc(0.26 * var(--ll-shadow-k))), inset 0 0 0 1px rgb(var(--ll-shade) / calc(0.1 * var(--ll-shadow-k)))',
         },
       );
     case RuleName.ruled || RuleName.pad || RuleName.indexCard:

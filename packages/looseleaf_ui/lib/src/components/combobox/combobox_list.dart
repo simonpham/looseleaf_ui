@@ -6,10 +6,11 @@ import 'package:looseleaf_ui/src/components/combobox/combobox_scope.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds the row of one item.
-typedef ComboboxItemBuilder = Widget Function(
-  BuildContext context,
-  ComboboxItemData item,
-);
+typedef ComboboxItemBuilder =
+    Widget Function(
+      BuildContext context,
+      ComboboxItemData item,
+    );
 
 /// The scrolling list of a [ComboboxContent]: at most 320 px tall, 4 px
 /// inside. It shows [children], then a row per root item when built with

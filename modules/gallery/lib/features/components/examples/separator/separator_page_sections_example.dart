@@ -16,7 +16,8 @@ class SeparatorPageSectionsExample extends StatelessWidget {
         children: [
           const _Section(
             title: 'Saturday market',
-            body: 'Tomatoes that were still warm, a bag of plums, and a man selling only string.',
+            body:
+                'Tomatoes that were still warm, a bag of plums, and a man selling only string.',
           ),
           Semantics(
             label: 'End of the market notes',
@@ -27,7 +28,8 @@ class SeparatorPageSectionsExample extends StatelessWidget {
           ),
           const _Section(
             title: 'Sunday, indoors',
-            body: 'Rain all morning. Mended the blue coat with orange thread and no regrets.',
+            body:
+                'Rain all morning. Mended the blue coat with orange thread and no regrets.',
           ),
           const Separator(variant: SeparatorVariant.stitched),
           const _Section(title: 'Monday', body: 'Back to the desk. Fold here.'),

@@ -6,7 +6,8 @@ const List<FoundationTopic> foundationTopics = [
   FoundationTopic(
     slug: 'principles',
     title: 'Principles',
-    summary: 'The ten laws of the hand, what each pen means and a checklist for shipping: the why behind every other page.',
+    summary:
+        'The ten laws of the hand, what each pen means and a checklist for shipping: the why behind every other page.',
     facts: [
       'A notebook on a tidy desk: cream paper, a dark felt-tip for the words, blue felt for you and anything you can act on, graphite for the small print. Every color is a tool with one job.',
       'Ten laws decide whether a component looks drawn by a person: lines are ribbons with pressure, straight lines are ruled, no two things are identical, fills are a separate layer, paper has tooth, shadows are warm and short, paper tilts and text never does, text sits on real baselines, color is ink and marker, and the charm is a dial you can turn down.',
@@ -18,7 +19,8 @@ const List<FoundationTopic> foundationTopics = [
   FoundationTopic(
     slug: 'color',
     title: 'Color',
-    summary: 'Ink, pencil, marker and highlighter on cream paper. Loud colors stay in the decoration layer.',
+    summary:
+        'Ink, pencil, marker and highlighter on cream paper. Loud colors stay in the decoration layer.',
     facts: [
       'Real UI is calm: cream paper, dark brown-black felt-tip, blue felt for you and anything interactive, graphite pencil for meta text.',
       'Red pencil means correction or danger, green pencil means ok, terracotta marker is the primary action, yellow highlighter is emphasis and selection.',
@@ -54,7 +56,8 @@ const List<FoundationTopic> foundationTopics = [
   FoundationTopic(
     slug: 'typography',
     title: 'Typography',
-    summary: 'Four handwriting-and-typewriter faces, real DOM text on real baselines.',
+    summary:
+        'Four handwriting-and-typewriter faces, real DOM text on real baselines.',
     facts: [
       'Kevin Sans is the one hand, tuned for three roles: font-hand is the UI text, font-script is for titles, notes and numbers, font-type is for stamps, kickers and receipts. IBM Plex Mono (font-mono) is code.',
       'Handwriting fonts run about 1.25 times wider than a neutral face at the same visual size, so labels start at 14 px and touch inputs at 16 px.',
@@ -79,7 +82,8 @@ const List<FoundationTopic> foundationTopics = [
   FoundationTopic(
     slug: 'pens',
     title: 'Pens',
-    summary: 'Every line is a ribbon with pressure: felt-tip, pencil, marker and highlighter each have their own grain.',
+    summary:
+        'Every line is a ribbon with pressure: felt-tip, pencil, marker and highlighter each have their own grain.',
     facts: [
       'A stroke is a filled variable-width polygon, not a uniform SVG stroke: it swells on the down-stroke, skips where the pen runs dry and wanders like a hand.',
       'Two weight classes give drawings hierarchy: fine-liner for detail, brush for the main shapes.',
@@ -149,7 +153,8 @@ const List<FoundationTopic> foundationTopics = [
   FoundationTopic(
     slug: 'accessibility',
     title: 'Accessibility',
-    summary: 'Radix behavior underneath, ink on top: the drawing never gets in the way.',
+    summary:
+        'Radix behavior underneath, ink on top: the drawing never gets in the way.',
     facts: [
       'Keyboard and ARIA come from Radix (or native elements) exactly as in shadcn/ui. Ink layers are aria-hidden, pointer-events none and never affect layout.',
       'Text is at least AA against its paper. Focus is a drawn ring that keeps 3:1 against paper.',
@@ -160,7 +165,8 @@ const List<FoundationTopic> foundationTopics = [
   FoundationTopic(
     slug: 'theming',
     title: 'Theming',
-    summary: 'One default theme, Notebook. A second one is a block of CSS variables.',
+    summary:
+        'One default theme, Notebook. A second one is a block of CSS variables.',
     facts: [
       'Tokens come in four tiers: palette (T0), shadcn roles (T1), recipe knobs like wobble, misregistration and tilt (T2), and geometry and motion (T3).',
       'A theme is a [data-theme="name"] block that overrides the palette, plus an optional small recipe object for pen weights.',

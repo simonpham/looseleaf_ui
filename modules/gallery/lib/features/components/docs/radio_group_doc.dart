@@ -5,13 +5,15 @@ const radioGroupDoc = ComponentDoc(
   slug: 'radio-group',
   title: 'Radio Group',
   category: ComponentCategory.forms,
-  description: 'Pick exactly one. Each choice is a hand-circled ring; picking it colors the dot in with a terracotta blot and writes a felt spiral into it. Radix Radio Group underneath: roving focus, arrow keys, form value, orientation and direction.',
+  description:
+      'Pick exactly one. Each choice is a hand-circled ring; picking it colors the dot in with a terracotta blot and writes a felt spiral into it. Radix Radio Group underneath: roving focus, arrow keys, form value, orientation and direction.',
   status: ComponentStatus.stable,
   upstream: 'radio-group',
   parts: [
     PartDoc(
       name: 'RadioGroup',
-      description: 'The root (Radix RadioGroup, role=radiogroup): a grid with a gap; `orientation="horizontal"` lays it out as a wrapping row.',
+      description:
+          'The root (Radix RadioGroup, role=radiogroup): a grid with a gap; `orientation="horizontal"` lays it out as a wrapping row.',
       props: [
         PropDoc(
           name: 'value / defaultValue / onValueChange',
@@ -21,17 +23,20 @@ const radioGroupDoc = ComponentDoc(
         PropDoc(
           name: 'name / required / disabled / form',
           type: 'string | boolean',
-          description: 'Forwarded to Radix\'s hidden native radios, so the value is in FormData and `required` blocks the submit. A form reset puts the group back to its `defaultValue`. `disabled` on the group draws every radio disabled.',
+          description:
+              'Forwarded to Radix\'s hidden native radios, so the value is in FormData and `required` blocks the submit. A form reset puts the group back to its `defaultValue`. `disabled` on the group draws every radio disabled.',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'On the group (where FormControl puts it) every radio is drawn in red pencil; a radio can still set its own aria-invalid.',
+          description:
+              'On the group (where FormControl puts it) every radio is drawn in red pencil; a radio can still set its own aria-invalid.',
         ),
         PropDoc(
           name: 'orientation',
           type: '"horizontal" | "vertical"',
-          description: 'Arrow-key axis (and, here, the layout). Radix arrows work on both axes either way.',
+          description:
+              'Arrow-key axis (and, here, the layout). Radix arrows work on both axes either way.',
         ),
         PropDoc(
           name: 'dir',
@@ -48,7 +53,8 @@ const radioGroupDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'RadioGroupItem',
-      description: 'Radix RadioGroup.Item (a <button role="radio">, plus a hidden input inside a form) with the ring drawn behind it. Size it with size-*: 16, 20 and 28 px are drawn and tested. The spiral is written with ll-draw when the state turns checked after a touch (instantly with reduced motion; never at load).',
+      description:
+          'Radix RadioGroup.Item (a <button role="radio">, plus a hidden input inside a form) with the ring drawn behind it. Size it with size-*: 16, 20 and 28 px are drawn and tested. The spiral is written with ll-draw when the state turns checked after a touch (instantly with reduced motion; never at load).',
       props: [
         PropDoc(
           name: 'value',
@@ -60,17 +66,20 @@ const radioGroupDoc = ComponentDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Dashed pencil ring on a graphite wash, graphite dot when chosen. Not focusable.',
+          description:
+              'Dashed pencil ring on a graphite wash, graphite dot when chosen. Not focusable.',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'true draws the ring in red pencil, and keeps it red over the dot.',
+          description:
+              'true draws the ring in red pencil, and keeps it red over the dot.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same ring and dot. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same ring and dot. Default: derived from useId().',
         ),
       ],
     ),

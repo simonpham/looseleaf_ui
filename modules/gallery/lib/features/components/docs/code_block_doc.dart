@@ -5,22 +5,27 @@ const codeBlockDoc = ComponentDoc(
   slug: 'code-block',
   title: 'Code block',
   category: ComponentCategory.chat,
-  description: 'A typed slip taped to the page: the file name in a typewriter face, the code on a two-color ribbon (red keywords and numbers, black for the rest), line numbers in the margin and a diff mode where removed lines are struck through in red pencil and added ones ticked in green. Ships its own small lexer for tsx, ts, jsx, js, css, json, bash, dart and yaml.',
+  description:
+      'A typed slip taped to the page: the file name in a typewriter face, the code on a two-color ribbon (red keywords and numbers, black for the rest), line numbers in the margin and a diff mode where removed lines are struck through in red pencil and added ones ticked in green. Ships its own small lexer for tsx, ts, jsx, js, css, json, bash, dart and yaml.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'CodeBlock',
-      description: 'A `figure` on a slip of paper, taped at the top. With `code` and no children it assembles a header (file name, `+/-` counts, copy button) and the content itself; with children you compose the parts.',
+      description:
+          'A `figure` on a slip of paper, taped at the top. With `code` and no children it assembles a header (file name, `+/-` counts, copy button) and the content itself; with children you compose the parts.',
       props: [
         PropDoc(
           name: 'code',
           type: 'string',
-          description: 'The source. For a diff: unified diff lines (`+added`, `-removed`, ` context`).',
+          description:
+              'The source. For a diff: unified diff lines (`+added`, `-removed`, ` context`).',
         ),
         PropDoc(
           name: 'language',
-          type: '"tsx" | "ts" | "jsx" | "js" | "css" | "json" | "bash" | "diff" | "text"',
-          description: 'Default: from the file name, else plain text. Aliases (`typescript`, `sh`, `javascript`...) work.',
+          type:
+              '"tsx" | "ts" | "jsx" | "js" | "css" | "json" | "bash" | "diff" | "text"',
+          description:
+              'Default: from the file name, else plain text. Aliases (`typescript`, `sh`, `javascript`...) work.',
         ),
         PropDoc(
           name: 'filename',
@@ -31,12 +36,14 @@ const codeBlockDoc = ComponentDoc(
           name: 'lineNumbers',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Number the lines in the margin (generated content: never selected, never copied).',
+          description:
+              'Number the lines in the margin (generated content: never selected, never copied).',
         ),
         PropDoc(
           name: 'diff',
           type: 'boolean',
-          description: 'Read the code as a diff. `language="diff"` turns it on too; give the code\'s own language with `filename`.',
+          description:
+              'Read the code as a diff. `language="diff"` turns it on too; give the code\'s own language with `filename`.',
         ),
         PropDoc(
           name: 'wrap',
@@ -59,13 +66,15 @@ const codeBlockDoc = ComponentDoc(
         PropDoc(
           name: 'stock / tape / edge / tilt / fastener / seed',
           type: 'PaperProps',
-          description: 'It is a Paper: default `slip` stock with `tape="top"`. Any Paper prop works (a torn `receipt`, a kraft `stock`).',
+          description:
+              'It is a Paper: default `slip` stock with `tape="top"`. Any Paper prop works (a torn `receipt`, a kraft `stock`).',
         ),
       ],
     ),
     PartDoc(
       name: 'CodeBlockHeader',
-      description: 'The typed line at the top, ruled off with a dashed pencil line (a drawn rule).',
+      description:
+          'The typed line at the top, ruled off with a dashed pencil line (a drawn rule).',
     ),
     PartDoc(
       name: 'CodeBlockTitle',
@@ -74,7 +83,8 @@ const codeBlockDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CodeBlockStats',
-      description: '`+14 -3` for a diff (green and red, with visually hidden \'Added\' and \'Removed\'); nothing for plain code.',
+      description:
+          '`+14 -3` for a diff (green and red, with visually hidden \'Added\' and \'Removed\'); nothing for plain code.',
     ),
     PartDoc(
       name: 'CodeBlockActions',
@@ -82,11 +92,13 @@ const codeBlockDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CodeBlockCopy',
-      description: 'Copies the code (a diff copies the result: context and added lines) with the Clipboard API, or a hidden textarea where it is missing. The icon turns into a tick and a polite status says \'Copied\'. When nothing can copy it selects the code and asks for Ctrl+C.',
+      description:
+          'Copies the code (a diff copies the result: context and added lines) with the Clipboard API, or a hidden textarea where it is missing. The icon turns into a tick and a polite status says \'Copied\'. When nothing can copy it selects the code and asks for Ctrl+C.',
     ),
     PartDoc(
       name: 'CodeBlockContent',
-      description: 'The lines, in a scrolling `pre` (focusable, so the keyboard can scroll it) inside a host that draws the focus ring. Takes its own `code` and `language` to override the block\'s.',
+      description:
+          'The lines, in a scrolling `pre` (focusable, so the keyboard can scroll it) inside a host that draws the focus ring. Takes its own `code` and `language` to override the block\'s.',
       props: [
         PropDoc(
           name: 'code',

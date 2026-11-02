@@ -135,7 +135,8 @@ void main() {
         id: 'x',
         draw: (_) => const InkMarkup(
           parts: {
-            'rest': '<path d="M0"/><g data-part="seam"><g><path/></g></g><path d="M1"/>',
+            'rest':
+                '<path d="M0"/><g data-part="seam"><g><path/></g></g><path d="M1"/>',
           },
           pad: 0,
         ),

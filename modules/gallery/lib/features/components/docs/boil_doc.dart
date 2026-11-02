@@ -5,12 +5,14 @@ const boilDoc = ComponentDoc(
   slug: 'boil',
   title: 'Boil',
   category: ComponentCategory.interactive,
-  description: 'Makes drawn things shiver the way hand-animated line drawings do. About six times a second it moves to the next of a few frames: doodles are redrawn by a new hand, and buttons, cards and fields inside wobble a little differently. It stands still when motion is reduced, off screen and in a hidden tab.',
+  description:
+      'Makes drawn things shiver the way hand-animated line drawings do. About six times a second it moves to the next of a few frames: doodles are redrawn by a new hand, and buttons, cards and fields inside wobble a little differently. It stands still when motion is reduced, off screen and in a hidden tab.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Boil',
-      description: 'A wrapper (an inline-block span). Direct children that take a `seed` (Doodle, Sticker, Mascot, Icon, Tape, Button…) get a new seed each frame; every drawn thing anywhere inside feels the frame through the ink context (wobble, fill offset, bleed and pen width move a few percent). Frames repeat, so after one turn every drawing comes from the cache: the cost is DOM updates, not drawing.',
+      description:
+          'A wrapper (an inline-block span). Direct children that take a `seed` (Doodle, Sticker, Mascot, Icon, Tape, Button…) get a new seed each frame; every drawn thing anywhere inside feels the frame through the ink context (wobble, fill offset, bleed and pen width move a few percent). Frames repeat, so after one turn every drawing comes from the cache: the cost is DOM updates, not drawing.',
       props: [
         PropDoc(
           name: 'fps',
@@ -28,7 +30,8 @@ const boilDoc = ComponentDoc(
           name: 'strength',
           type: 'number',
           defaultValue: '1',
-          description: 'How far each frame is from the resting drawing: 0 none, 2 restless.',
+          description:
+              'How far each frame is from the resting drawing: 0 none, 2 restless.',
         ),
         PropDoc(
           name: 'active',
@@ -41,12 +44,14 @@ const boilDoc = ComponentDoc(
           name: 'reseed',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Give direct children a new seed each frame. Off: only the knobs move.',
+          description:
+              'Give direct children a new seed each frame. Off: only the knobs move.',
         ),
         PropDoc(
           name: 'children',
           type: 'ReactNode | ({ frame, seed }) => ReactNode',
-          description: 'A render prop gets the frame (0 to frames − 1) and `seed(base)`, for anything of your own that draws.',
+          description:
+              'A render prop gets the frame (0 to frames − 1) and `seed(base)`, for anything of your own that draws.',
         ),
       ],
     ),

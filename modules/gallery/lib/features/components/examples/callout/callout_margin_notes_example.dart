@@ -16,7 +16,8 @@ class CalloutMarginNotesExample extends StatelessWidget {
       const TextSpan(
         children: [
           TextSpan(
-            text: 'Most of what I remember from a book is in the margins: an arrow, a question mark, a small argument with a dead author. The good bits get ',
+            text:
+                'Most of what I remember from a book is in the margins: an arrow, a question mark, a small argument with a dead author. The good bits get ',
           ),
           WidgetSpan(
             alignment: PlaceholderAlignment.baseline,
@@ -24,7 +25,8 @@ class CalloutMarginNotesExample extends StatelessWidget {
             child: Highlight(child: Text('a swipe of yellow')),
           ),
           TextSpan(
-            text: ' so I can find them on the next read, and the parts I do not believe get a red pencil. I go back for them in winter, when a page is the only company.',
+            text:
+                ' so I can find them on the next read, and the parts I do not believe get a red pencil. I go back for them in winter, when a page is the only company.',
           ),
         ],
       ),

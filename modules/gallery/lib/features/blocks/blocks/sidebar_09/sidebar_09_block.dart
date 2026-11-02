@@ -81,7 +81,8 @@ class _Sidebar09BlockState extends State<Sidebar09Block> {
                     SidebarPageNote(
                       title: 'No letter open',
                       pose: 'idle',
-                      description: 'Pick a message from the list on the pad and it opens here, ready to read.',
+                      description:
+                          'Pick a message from the list on the pad and it opens here, ready to read.',
                     ),
                   ],
                 ),

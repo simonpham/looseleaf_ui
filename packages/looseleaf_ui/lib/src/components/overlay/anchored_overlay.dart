@@ -5,10 +5,11 @@ import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 
 /// Builds a popup that knows where it landed; [position] updates after each
 /// layout (the side after a flip, the anchor's centre for an arrow).
-typedef AnchoredOverlayBuilder = Widget Function(
-  BuildContext context,
-  ValueListenable<OverlayPosition?> position,
-);
+typedef AnchoredOverlayBuilder =
+    Widget Function(
+      BuildContext context,
+      ValueListenable<OverlayPosition?> position,
+    );
 
 /// Shows a popup in the nearest [Overlay], anchored to [child] (the trigger)
 /// while [controller] says so: on [side] of it, aligned by [align],
@@ -161,8 +162,9 @@ class _AnchorDelegate extends SingleChildLayoutDelegate {
 
   @override
   BoxConstraints getConstraintsForChild(BoxConstraints constraints) =>
-      BoxConstraints.loose(constraints.biggest)
-          .deflate(EdgeInsets.all(padding));
+      BoxConstraints.loose(
+        constraints.biggest,
+      ).deflate(EdgeInsets.all(padding));
 
   @override
   Offset getPositionForChild(Size size, Size childSize) {

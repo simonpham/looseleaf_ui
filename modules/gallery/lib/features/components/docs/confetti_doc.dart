@@ -5,16 +5,19 @@ const confettiDoc = ComponentDoc(
   slug: 'confetti',
   title: 'Confetti',
   category: ComponentCategory.interactive,
-  description: 'Paper confetti for the small victories. Strips, punched dots, stars, triangles, streamers and torn scraps, each a tiny drawing from the ink engine, thrown from a click, a state change or a function call. Nothing moves with reduced motion.',
+  description:
+      'Paper confetti for the small victories. Strips, punched dots, stars, triangles, streamers and torn scraps, each a tiny drawing from the ink engine, thrown from a click, a state change or a function call. Nothing moves with reduced motion.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'ConfettiTrigger',
-      description: 'A button (or, with asChild, any element) that throws confetti from itself when clicked. It renders no layer of its own: the pieces fly in a click-through layer on the page.',
+      description:
+          'A button (or, with asChild, any element) that throws confetti from itself when clicked. It renders no layer of its own: the pieces fly in a click-through layer on the page.',
       props: [
         PropDoc(
           name: '…ConfettiOptions',
-          type: 'count, spread, angle, velocity, gravity, drift, duration, colors, shapes, scalar, seed, origin, onDone',
+          type:
+              'count, spread, angle, velocity, gravity, drift, duration, colors, shapes, scalar, seed, origin, onDone',
           description:
               'See the options below. The origin defaults to the trigger.',
         ),
@@ -22,7 +25,8 @@ const confettiDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'Confetti',
-      description: 'A decorative layer that fills its positioned parent and throws inside it: when `active` turns true, whenever `burstKey` changes, or from `apiRef.burst()`. Use it to keep a burst inside a card or a dialog.',
+      description:
+          'A decorative layer that fills its positioned parent and throws inside it: when `active` turns true, whenever `burstKey` changes, or from `apiRef.burst()`. Use it to keep a burst inside a card or a dialog.',
       props: [
         PropDoc(
           name: 'active',
@@ -50,13 +54,15 @@ const confettiDoc = ComponentDoc(
           name: 'spread / angle',
           type: 'number',
           defaultValue: '70 / 90',
-          description: 'The cone in degrees and its direction (90 up, 0 right, spread 360 for a ring).',
+          description:
+              'The cone in degrees and its direction (90 up, 0 right, spread 360 for a ring).',
         ),
         PropDoc(
           name: 'velocity / gravity / drift',
           type: 'number',
           defaultValue: '1100 / 520 / 0',
-          description: 'Launch speed of the fastest piece (px/s), fall (px/s²) and wind (px/s²).',
+          description:
+              'Launch speed of the fastest piece (px/s), fall (px/s²) and wind (px/s²).',
         ),
         PropDoc(
           name: 'duration',
@@ -67,7 +73,8 @@ const confettiDoc = ComponentDoc(
         PropDoc(
           name: 'colors / shapes',
           type: 'ConfettiColor[] / ConfettiKind[]',
-          description: 'Stationery accents (tomato … bubblegum) and shapes (strip, dot, star, triangle, curl, scrap).',
+          description:
+              'Stationery accents (tomato … bubblegum) and shapes (strip, dot, star, triangle, curl, scrap).',
         ),
         PropDoc(
           name: 'scalar',
@@ -78,12 +85,14 @@ const confettiDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'number',
-          description: 'Same seed, same burst. Default: a counter, so every burst is different.',
+          description:
+              'Same seed, same burst. Default: a counter, so every burst is different.',
         ),
         PropDoc(
           name: 'onDone',
           type: '() => void',
-          description: 'Called once when the last piece has landed, or when the burst was cleared. A Confetti layer forgets a burst the moment it is over.',
+          description:
+              'Called once when the last piece has landed, or when the burst was cleared. A Confetti layer forgets a burst the moment it is over.',
         ),
       ],
     ),

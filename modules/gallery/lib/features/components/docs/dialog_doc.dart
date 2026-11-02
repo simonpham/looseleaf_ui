@@ -5,29 +5,35 @@ const dialogDoc = ComponentDoc(
   slug: 'dialog',
   title: 'Dialog',
   category: ComponentCategory.overlays,
-  description: 'A modal window that is a sheet of paper dropped on the desk: it lands with a small tilt that settles, the page behind goes dim under a lamp, and the close button is a doodled x. Tape it, pin it, tear its edge; on a phone it becomes a sheet at the bottom of the screen.',
+  description:
+      'A modal window that is a sheet of paper dropped on the desk: it lands with a small tilt that settles, the page behind goes dim under a lamp, and the close button is a doodled x. Tape it, pin it, tear its edge; on a phone it becomes a sheet at the bottom of the screen.',
   status: ComponentStatus.stable,
   upstream: 'dialog',
   parts: [
     PartDoc(
       name: 'Dialog',
-      description: 'The root (Radix Dialog): `open`, `defaultOpen`, `onOpenChange`, `modal`.',
+      description:
+          'The root (Radix Dialog): `open`, `defaultOpen`, `onOpenChange`, `modal`.',
     ),
     PartDoc(
       name: 'DialogTrigger',
-      description: 'The button that opens it. Use `asChild` to make your own Button the trigger.',
+      description:
+          'The button that opens it. Use `asChild` to make your own Button the trigger.',
     ),
     PartDoc(
       name: 'DialogPortal',
-      description: 'Where the overlay and content are mounted (the body). Used by `DialogContent`.',
+      description:
+          'Where the overlay and content are mounted (the body). Used by `DialogContent`.',
     ),
     PartDoc(
       name: 'DialogOverlay',
-      description: 'The dim: a lamp-lit umber gradient, lighter in the middle. It is also the scroll container of the dialog, so a tall dialog scrolls under the lamp and the sheet\'s shadow and tape are never clipped.',
+      description:
+          'The dim: a lamp-lit umber gradient, lighter in the middle. It is also the scroll container of the dialog, so a tall dialog scrolls under the lamp and the sheet\'s shadow and tape are never clipped.',
     ),
     PartDoc(
       name: 'DialogContent',
-      description: 'The sheet itself: a Paper that is also the Radix dialog (role=dialog, focus trap, scroll lock, Escape, focus return). It takes every Radix Content prop and these Paper props.',
+      description:
+          'The sheet itself: a Paper that is also the Radix dialog (role=dialog, focus trap, scroll lock, Escape, focus return). It takes every Radix Content prop and these Paper props.',
       props: [
         PropDoc(
           name: 'showCloseButton',
@@ -39,19 +45,22 @@ const dialogDoc = ComponentDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"paper"',
-          description: 'What the sheet is made of: paper, card, slip, index-card, graph, kraft, sticky-* ...',
+          description:
+              'What the sheet is made of: paper, card, slip, index-card, graph, kraft, sticky-* ...',
         ),
         PropDoc(
           name: 'edge',
           type: 'EdgeSpec',
           defaultValue: '"cut"',
-          description: 'Cut (pure CSS, no svg), torn, deckle, crimp, zig, perf, scallop, or one per side.',
+          description:
+              'Cut (pure CSS, no svg), torn, deckle, crimp, zig, perf, scallop, or one per side.',
         ),
         PropDoc(
           name: 'tilt',
           type: 'boolean | number',
           defaultValue: 'true',
-          description: 'The sheet turns by a small seeded angle; the text never does. Phones lay it flat.',
+          description:
+              'The sheet turns by a small seeded angle; the text never does. Phones lay it flat.',
         ),
         PropDoc(
           name: 'tape',
@@ -63,7 +72,8 @@ const dialogDoc = ComponentDoc(
           name: 'tapeKind',
           type: 'TapeKind',
           defaultValue: '"masking"',
-          description: 'masking, washi-dots, washi-stripes, washi-zigzag, washi-gingham, kraft, clear.',
+          description:
+              'masking, washi-dots, washi-stripes, washi-zigzag, washi-gingham, kraft, clear.',
         ),
         PropDoc(
           name: 'fastener',
@@ -75,7 +85,8 @@ const dialogDoc = ComponentDoc(
           name: 'rules',
           type: 'RuleName',
           defaultValue: '"none"',
-          description: 'Printed rules (ruled, graph, dots ...). Off by default: arbitrary content does not sit on ruled lines.',
+          description:
+              'Printed rules (ruled, graph, dots ...). Off by default: arbitrary content does not sit on ruled lines.',
         ),
         PropDoc(
           name: 'shadow',
@@ -86,7 +97,8 @@ const dialogDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed cuts, tilts and draws the same way.',
+          description:
+              'Pins the hand: the same seed cuts, tilts and draws the same way.',
         ),
       ],
     ),
@@ -97,7 +109,8 @@ const dialogDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DialogTitle',
-      description: 'The name of the dialog (script font, 27 px). Required by screen readers.',
+      description:
+          'The name of the dialog (script font, 27 px). Required by screen readers.',
     ),
     PartDoc(
       name: 'DialogDescription',
@@ -105,7 +118,8 @@ const dialogDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DialogBody',
-      description: 'Looseleaf addition: the scrolling middle for long content (`max-h` 60dvh, `overflow-y-auto`). The sheet itself never scrolls. It is a tab stop with a drawn focus ring (`tabIndex={0}`, override it if the body holds focusable controls), because a scroll area with nothing focusable in it cannot be scrolled by keyboard.',
+      description:
+          'Looseleaf addition: the scrolling middle for long content (`max-h` 60dvh, `overflow-y-auto`). The sheet itself never scrolls. It is a tab stop with a drawn focus ring (`tabIndex={0}`, override it if the body holds focusable controls), because a scroll area with nothing focusable in it cannot be scrolled by keyboard.',
     ),
     PartDoc(
       name: 'DialogFooter',

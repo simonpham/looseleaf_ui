@@ -5,17 +5,20 @@ const selectDoc = ComponentDoc(
   slug: 'select',
   title: 'Select',
   category: ComponentCategory.forms,
-  description: 'A drop-down field. The trigger is a pencil box with a tick before its chevron; the list is a slip of paper set down over or under it, where the row you are on gets the highlighter and the chosen row is bold with a blue tick. Radix Select underneath: typeahead, keyboard, form value, item-aligned or popper placement.',
+  description:
+      'A drop-down field. The trigger is a pencil box with a tick before its chevron; the list is a slip of paper set down over or under it, where the row you are on gets the highlighter and the chosen row is bold with a blue tick. Radix Select underneath: typeahead, keyboard, form value, item-aligned or popper placement.',
   status: ComponentStatus.stable,
   upstream: 'select',
   parts: [
     PartDoc(
       name: 'Select',
-      description: 'The root (Radix Select): `value`, `defaultValue`, `onValueChange`, `open`, `onOpenChange`, `name`, `required`, `disabled`, `dir`.',
+      description:
+          'The root (Radix Select): `value`, `defaultValue`, `onValueChange`, `open`, `onOpenChange`, `name`, `required`, `disabled`, `dir`.',
     ),
     PartDoc(
       name: 'SelectTrigger',
-      description: 'The field you press: a `<button role="combobox">` with the Input\'s pencil box drawn behind it.',
+      description:
+          'The field you press: a `<button role="combobox">` with the Input\'s pencil box drawn behind it.',
       props: [
         PropDoc(
           name: 'size',
@@ -26,7 +29,8 @@ const selectDoc = ComponentDoc(
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'true draws the red pencil box with a wavy underline and a bang before the chevron.',
+          description:
+              'true draws the red pencil box with a wavy underline and a bang before the chevron.',
         ),
         PropDoc(
           name: 'disabled',
@@ -36,23 +40,27 @@ const selectDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same box. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'SelectValue',
-      description: 'Shows the chosen item\'s text, or the `placeholder` (graphite) until there is a choice. The chosen value is blue felt, like typed text.',
+      description:
+          'Shows the chosen item\'s text, or the `placeholder` (graphite) until there is a choice. The chosen value is blue felt, like typed text.',
     ),
     PartDoc(
       name: 'SelectContent',
-      description: 'The list: a Paper slip that is also the Radix listbox. A CSS sheet, no SVG. The viewport scrolls, not the paper, so the shadow and any tape stay whole. Every Radix Content prop passes through.',
+      description:
+          'The list: a Paper slip that is also the Radix listbox. A CSS sheet, no SVG. The viewport scrolls, not the paper, so the shadow and any tape stay whole. Every Radix Content prop passes through.',
       props: [
         PropDoc(
           name: 'position',
           type: '"item-aligned" | "popper"',
           defaultValue: '"item-aligned"',
-          description: '`item-aligned` lays the chosen row over the value in the field (Radix\'s default); `popper` opens under (or over) it and matches its width.',
+          description:
+              '`item-aligned` lays the chosen row over the value in the field (Radix\'s default); `popper` opens under (or over) it and matches its width.',
         ),
         PropDoc(
           name: 'align',
@@ -71,7 +79,8 @@ const selectDoc = ComponentDoc(
           name: 'edge',
           type: 'EdgeSpec',
           defaultValue: '"cut"',
-          description: 'Cut (pure CSS), torn, deckle ... A drawn edge is measured when the list opens.',
+          description:
+              'Cut (pure CSS), torn, deckle ... A drawn edge is measured when the list opens.',
         ),
         PropDoc(
           name: 'tilt',
@@ -97,7 +106,8 @@ const selectDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SelectItem',
-      description: 'One choice: `value`, `disabled`, `textValue`. Highlighted = highlighter swipe; chosen = bold with a blue tick that is written on as the list opens.',
+      description:
+          'One choice: `value`, `disabled`, `textValue`. Highlighted = highlighter swipe; chosen = bold with a blue tick that is written on as the list opens.',
     ),
     PartDoc(
       name: 'SelectSeparator',
@@ -105,7 +115,8 @@ const selectDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SelectScrollUpButton',
-      description: 'Chevron shown at the top edge of a scrolling list; hovering it scrolls.',
+      description:
+          'Chevron shown at the top edge of a scrolling list; hovering it scrolls.',
     ),
     PartDoc(
       name: 'SelectScrollDownButton',

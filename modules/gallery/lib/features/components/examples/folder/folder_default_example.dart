@@ -23,7 +23,8 @@ class FolderDefaultExample extends StatelessWidget {
           seed: 'in',
           child: _Panel(
             title: 'Inbox',
-            text: 'Three letters are waiting: one from Ada, and a parcel notice that has been waiting longer.',
+            text:
+                'Three letters are waiting: one from Ada, and a parcel notice that has been waiting longer.',
           ),
         ),
         FolderContent(

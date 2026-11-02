@@ -28,7 +28,8 @@ class Sidebar16Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Header on top, pad below',
                   pose: 'wave',
-                  description: 'The strip across the top belongs to the whole window, so the search box is always in reach, wherever you have scrolled to.',
+                  description:
+                      'The strip across the top belongs to the whole window, so the search box is always in reach, wherever you have scrolled to.',
                 ),
               ],
             ),

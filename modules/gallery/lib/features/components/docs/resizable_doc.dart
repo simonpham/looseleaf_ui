@@ -5,24 +5,28 @@ const resizableDoc = ComponentDoc(
   slug: 'resizable',
   title: 'Resizable',
   category: ComponentCategory.layout,
-  description: 'Panels you can drag apart. The seam between two panels is stitched by hand, gets a paper tab with a grip if you ask, darkens under the pointer and is pulled tight into one blue line while you drag. Built on react-resizable-panels 4: keyboard resizing, collapsible panels and persisted layouts included.',
+  description:
+      'Panels you can drag apart. The seam between two panels is stitched by hand, gets a paper tab with a grip if you ask, darkens under the pointer and is pulled tight into one blue line while you drag. Built on react-resizable-panels 4: keyboard resizing, collapsible panels and persisted layouts included.',
   status: ComponentStatus.stable,
   upstream: 'resizable',
   parts: [
     PartDoc(
       name: 'ResizablePanelGroup',
-      description: 'react-resizable-panels\' `Group`. Sizes are percentages (or px, rem, vh: `"30%"`, `240`, `"20rem"`). The group clips (`overflow: hidden`, which the library does not let you override except through `style.overflow`): pass `style={{ overflow: "visible" }}` if a panel draws beyond its edge. Coming from react-resizable-panels 2 (older shadcn code): `direction` is now `orientation`, `autoSaveId` is `useDefaultLayout`, and a number size is pixels, so `defaultSize={30}` becomes `defaultSize="30%"`.',
+      description:
+          'react-resizable-panels\' `Group`. Sizes are percentages (or px, rem, vh: `"30%"`, `240`, `"20rem"`). The group clips (`overflow: hidden`, which the library does not let you override except through `style.overflow`): pass `style={{ overflow: "visible" }}` if a panel draws beyond its edge. Coming from react-resizable-panels 2 (older shadcn code): `direction` is now `orientation`, `autoSaveId` is `useDefaultLayout`, and a number size is pixels, so `defaultSize={30}` becomes `defaultSize="30%"`.',
       props: [
         PropDoc(
           name: 'orientation',
           type: '"horizontal" | "vertical"',
           defaultValue: '"horizontal"',
-          description: 'Panels side by side (seams are vertical) or stacked (seams are horizontal).',
+          description:
+              'Panels side by side (seams are vertical) or stacked (seams are horizontal).',
         ),
         PropDoc(
           name: 'defaultLayout / onLayoutChanged',
           type: 'Layout / (layout, meta) => void',
-          description: 'Remember a layout: keys are panel ids, values percentages. `useDefaultLayout({ id, storage })` returns both props for any storage with getItem / setItem.',
+          description:
+              'Remember a layout: keys are panel ids, values percentages. `useDefaultLayout({ id, storage })` returns both props for any storage with getItem / setItem.',
         ),
         PropDoc(
           name: 'groupRef',
@@ -34,23 +38,27 @@ const resizableDoc = ComponentDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'No panel can be resized. Its handles stay focusable (as in the library) and are drawn as the faint disabled thread.',
+          description:
+              'No panel can be resized. Its handles stay focusable (as in the library) and are drawn as the faint disabled thread.',
         ),
       ],
     ),
     PartDoc(
       name: 'ResizablePanel',
-      description: 'A panel. `className` goes to the panel\'s inner element (the library keeps its own flex style on the outer one).',
+      description:
+          'A panel. `className` goes to the panel\'s inner element (the library keeps its own flex style on the outer one).',
       props: [
         PropDoc(
           name: 'id',
           type: 'string',
-          description: 'Identifies the panel in layouts; give one to every panel of a persisted group.',
+          description:
+              'Identifies the panel in layouts; give one to every panel of a persisted group.',
         ),
         PropDoc(
           name: 'defaultSize / minSize / maxSize',
           type: 'number | string',
-          description: 'Numbers are pixels; strings are percentages ("30", "30%") or units ("20rem").',
+          description:
+              'Numbers are pixels; strings are percentages ("30", "30%") or units ("20rem").',
         ),
         PropDoc(
           name: 'collapsible / collapsedSize / collapsedThreshold',
@@ -61,13 +69,15 @@ const resizableDoc = ComponentDoc(
         PropDoc(
           name: 'panelRef / onResize',
           type: 'Ref<PanelImperativeHandle> / (size) => void',
-          description: '`collapse()`, `expand()`, `resize(size)`, `getSize()`, `isCollapsed()`; `usePanelRef()` makes one.',
+          description:
+              '`collapse()`, `expand()`, `resize(size)`, `getSize()`, `isCollapsed()`; `usePanelRef()` makes one.',
         ),
       ],
     ),
     PartDoc(
       name: 'ResizableHandle',
-      description: 'The separator (`role="separator"`, focusable). A row of 8 px: stitches, with a slip of paper carrying a grip glyph when `withHandle` is set. Its drawn layers follow the library\'s `data-separator` (`hover`, `active`) so the wider hit region works.',
+      description:
+          'The separator (`role="separator"`, focusable). A row of 8 px: stitches, with a slip of paper carrying a grip glyph when `withHandle` is set. Its drawn layers follow the library\'s `data-separator` (`hover`, `active`) so the wider hit region works.',
       props: [
         PropDoc(
           name: 'withHandle',

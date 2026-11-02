@@ -5,13 +5,15 @@ const popoverDoc = ComponentDoc(
   slug: 'popover',
   title: 'Popover',
   category: ComponentCategory.overlays,
-  description: 'A slip of paper set down next to its trigger. It can be held with a push-pin or a strip of tape, given a hand-drawn arrow to point at what it is about, and cut from any stock. Focus moves into it, Escape puts it away.',
+  description:
+      'A slip of paper set down next to its trigger. It can be held with a push-pin or a strip of tape, given a hand-drawn arrow to point at what it is about, and cut from any stock. Focus moves into it, Escape puts it away.',
   status: ComponentStatus.stable,
   upstream: 'popover',
   parts: [
     PartDoc(
       name: 'Popover',
-      description: 'The root (Radix Popover): `open`, `defaultOpen`, `onOpenChange`, `modal`.',
+      description:
+          'The root (Radix Popover): `open`, `defaultOpen`, `onOpenChange`, `modal`.',
     ),
     PartDoc(
       name: 'PopoverTrigger',
@@ -24,31 +26,36 @@ const popoverDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PopoverContent',
-      description: 'The slip: a Paper that is also the Radix popover content (role=dialog, so give it a name with a title or `aria-label`). A CSS sheet, no SVG, unless a torn edge or the arrow is asked for. It takes every Radix Content prop (`side`, `align`, `sideOffset`, ...) and these.',
+      description:
+          'The slip: a Paper that is also the Radix popover content (role=dialog, so give it a name with a title or `aria-label`). A CSS sheet, no SVG, unless a torn edge or the arrow is asked for. It takes every Radix Content prop (`side`, `align`, `sideOffset`, ...) and these.',
       props: [
         PropDoc(
           name: 'sideOffset',
           type: 'number',
           defaultValue: '8',
-          description: 'Gap between the trigger and the slip (upstream\'s default is 4: a slip needs room for its shadow and pin). The slip is also capped to the viewport width.',
+          description:
+              'Gap between the trigger and the slip (upstream\'s default is 4: a slip needs room for its shadow and pin). The slip is also capped to the viewport width.',
         ),
         PropDoc(
           name: 'collisionPadding',
           type: 'number | Partial<Record<Side, number>>',
           defaultValue: '8',
-          description: 'Room kept between the slip and the viewport edge when it has to shift to fit (upstream\'s default is 0: a wide slip touched the window).',
+          description:
+              'Room kept between the slip and the viewport edge when it has to shift to fit (upstream\'s default is 0: a wide slip touched the window).',
         ),
         PropDoc(
           name: 'pin',
           type: 'boolean | Accent',
           defaultValue: 'false',
-          description: 'A push-pin through the top edge: `true` for tomato, or a stationery color (sky, lemon, grass ...).',
+          description:
+              'A push-pin through the top edge: `true` for tomato, or a stationery color (sky, lemon, grass ...).',
         ),
         PropDoc(
           name: 'arrow',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A felt-tip arrow between the slip and the trigger. Radix turns it to whichever side the popover opened on and adds its height to `sideOffset`.',
+          description:
+              'A felt-tip arrow between the slip and the trigger. Radix turns it to whichever side the popover opened on and adds its height to `sideOffset`.',
         ),
         PropDoc(
           name: 'tape',
@@ -60,7 +67,8 @@ const popoverDoc = ComponentDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"slip"',
-          description: 'What it is made of: slip, paper, kraft, sticky-*, index-card ...',
+          description:
+              'What it is made of: slip, paper, kraft, sticky-*, index-card ...',
         ),
         PropDoc(
           name: 'edge',
@@ -83,7 +91,8 @@ const popoverDoc = ComponentDoc(
           name: 'data-slot',
           type: 'string',
           defaultValue: '"popover-content"',
-          description: 'For a component built on the popover to rename the slip (a combobox list is `combobox-content` in shadcn). The Command and Calendar that lie on a popover\'s paper look for `popover-content`, so keep it unless yours brings its own rules.',
+          description:
+              'For a component built on the popover to rename the slip (a combobox list is `combobox-content` in shadcn). The Command and Calendar that lie on a popover\'s paper look for `popover-content`, so keep it unless yours brings its own rules.',
         ),
       ],
     ),

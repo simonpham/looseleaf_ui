@@ -14,7 +14,8 @@ const _json = '''{
   "keywords": ["paper", null]
 }''';
 
-const _bash = r'''$ npx shadcn add https://kevintngo.github.io/looseleaf/r/bubble.json https://kevintngo.github.io/looseleaf/r/message.json --overwrite
+const _bash =
+    r'''$ npx shadcn add https://kevintngo.github.io/looseleaf/r/bubble.json https://kevintngo.github.io/looseleaf/r/message.json --overwrite
 # then draw something
 export FOO=$BAR && echo "${FOO}" | grep -i tags''';
 

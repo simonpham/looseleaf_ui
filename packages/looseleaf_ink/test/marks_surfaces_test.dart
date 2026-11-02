@@ -159,9 +159,11 @@ final Map<String, _Entry<Object?>> _entries = {
 };
 
 void main() {
-  final fixture = jsonDecode(
-    File('test/fixtures/marks_surfaces.json').readAsStringSync(),
-  ) as _Json;
+  final fixture =
+      jsonDecode(
+            File('test/fixtures/marks_surfaces.json').readAsStringSync(),
+          )
+          as _Json;
   for (final c in (fixture['frames'] as List).cast<_Json>()) {
     test(c['name'], () {
       final entry = _entries[c['recipe']];

@@ -5,24 +5,28 @@ const notebookDoc = ComponentDoc(
   slug: 'notebook',
   title: 'Notebook',
   category: ComponentCategory.paper,
-  description: 'An open notebook on the desk: ruled paper with a red margin, bound with a wire spiral, binder rings or a stab-stitched spine, its holes punched, more pages peeking out underneath. Text sits on the lines, and with a dog-ear it turns pages. Its closed sibling, `NotebookCover`, is a cloth-bound cover with a stitched spine and an elastic band.',
+  description:
+      'An open notebook on the desk: ruled paper with a red margin, bound with a wire spiral, binder rings or a stab-stitched spine, its holes punched, more pages peeking out underneath. Text sits on the lines, and with a dog-ear it turns pages. Its closed sibling, `NotebookCover`, is a cloth-bound cover with a stitched spine and an elastic band.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Notebook',
-      description: 'A Paper (ruled by default) with the binding drawn over its start edge. Content sits on a 28 px rhythm (`leading-7`; 24 px in calm density; 30 px bound on top): the first line box ends where the first rule\'s line does, and the rules are printed `--ll-rule-offset` above the foot of each line box, so words stand 2 to 3 px above their rule. Room for the binding and the margin on the start side. It takes every Paper prop.',
+      description:
+          'A Paper (ruled by default) with the binding drawn over its start edge. Content sits on a 28 px rhythm (`leading-7`; 24 px in calm density; 30 px bound on top): the first line box ends where the first rule\'s line does, and the rules are printed `--ll-rule-offset` above the foot of each line box, so words stand 2 to 3 px above their rule. Room for the binding and the margin on the start side. It takes every Paper prop.',
       props: [
         PropDoc(
           name: 'binding',
           type: '"spiral" | "rings" | "stitched" | "none"',
           defaultValue: '"spiral"',
-          description: 'A wire spiral (a coil per 24 px, each through its own hole), three binder rings on a steel strip, a stab binding with a running thread, or nothing.',
+          description:
+              'A wire spiral (a coil per 24 px, each through its own hole), three binder rings on a steel strip, a stab binding with a running thread, or nothing.',
         ),
         PropDoc(
           name: 'side',
           type: '"start" | "top"',
           defaultValue: '"start"',
-          description: 'Which edge is bound. `start` is the left in LTR and mirrors in RTL; `top` is a reporter\'s pad (30 px pad rules, no margin).',
+          description:
+              'Which edge is bound. `start` is the left in LTR and mirrors in RTL; `top` is a reporter\'s pad (30 px pad rules, no margin).',
         ),
         PropDoc(
           name: 'pages',
@@ -35,24 +39,28 @@ const notebookDoc = ComponentDoc(
           name: 'tone',
           type: '"steel" | Accent',
           defaultValue: '"steel"',
-          description: 'Color of the wire (or of the thread for a stitched binding; steel then uses blue thread).',
+          description:
+              'Color of the wire (or of the thread for a stitched binding; steel then uses blue thread).',
         ),
         PropDoc(
           name: 'rules',
           type: 'RuleName',
           defaultValue: '"ruled" ("pad" when bound on top)',
-          description: 'Printed rules: ruled, graph, dots, pad, none ... The margin and the rules mirror in RTL.',
+          description:
+              'Printed rules: ruled, graph, dots, pad, none ... The margin and the rules mirror in RTL.',
         ),
         PropDoc(
           name: 'curl',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Fold the bottom-right corner (a dog-ear). Pair it with `NotebookTurn`.',
+          description:
+              'Fold the bottom-right corner (a dog-ear). Pair it with `NotebookTurn`.',
         ),
         PropDoc(
           name: 'value / defaultValue / onValueChange',
           type: 'string',
-          description: 'Which `NotebookPage` is shown, when the notebook has several. Controlled or not.',
+          description:
+              'Which `NotebookPage` is shown, when the notebook has several. Controlled or not.',
         ),
         PropDoc(
           name: 'stock / edge / tape / fastener / tilt / seed',
@@ -63,7 +71,8 @@ const notebookDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'NotebookPage',
-      description: 'One page of writing (a `section`). With a `value`, only the current page is shown (the others are `hidden`), and a page that is turned to unfolds from the dog-ear in the bottom-right corner (a clip-path wipe, no 3D; not for the page that is there at load; none with reduced motion).',
+      description:
+          'One page of writing (a `section`). With a `value`, only the current page is shown (the others are `hidden`), and a page that is turned to unfolds from the dog-ear in the bottom-right corner (a clip-path wipe, no 3D; not for the page that is there at load; none with reduced motion).',
       props: [
         PropDoc(
           name: 'value',
@@ -75,11 +84,13 @@ const notebookDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'NotebookTitle',
-      description: 'An `h2` in the script font, one ruled line high. The script role sits lower in its line box than the body font, so the heading is lifted by the rule offset less about 3 px and stands on its rule.',
+      description:
+          'An `h2` in the script font, one ruled line high. The script role sits lower in its line box than the body font, so the heading is lifted by the rule offset less about 3 px and stands on its rule.',
     ),
     PartDoc(
       name: 'NotebookTurn',
-      description: 'A button over the folded corner (34 px, always bottom right, as the fold is; it sits above the page content, so keep buttons and links out of that corner). Its content is its accessible name; the default is "Turn the page".',
+      description:
+          'A button over the folded corner (34 px, always bottom right, as the fold is; it sits above the page content, so keep buttons and links out of that corner). Its content is its accessible name; the default is "Turn the page".',
       props: [
         PropDoc(
           name: 'to',
@@ -90,7 +101,8 @@ const notebookDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'NotebookCover',
-      description: 'The cover of a closed notebook, for a shelf or a library: cloth over board with a darker stitched spine on the start edge and an elastic band round the end. One drawn sheet, tilted and shadowed as one; 11 x 15 rem by default. The label goes in as children and sits in a body laid over the cover (its padding is a share of the COVER\'s width, whatever holds the shelf). Until it is measured it wears a plain card.',
+      description:
+          'The cover of a closed notebook, for a shelf or a library: cloth over board with a darker stitched spine on the start edge and an elastic band round the end. One drawn sheet, tilted and shadowed as one; 11 x 15 rem by default. The label goes in as children and sits in a body laid over the cover (its padding is a share of the COVER\'s width, whatever holds the shelf). Until it is measured it wears a plain card.',
       props: [
         PropDoc(
           name: 'tone',
@@ -107,13 +119,15 @@ const notebookDoc = ComponentDoc(
         PropDoc(
           name: 'tilt / seed / size',
           type: 'boolean | number / string | number / [w, h]',
-          description: 'A seeded turn under 1.4 degrees; pins the hand; the box in px for server-rendered drawings.',
+          description:
+              'A seeded turn under 1.4 degrees; pins the hand; the box in px for server-rendered drawings.',
         ),
       ],
     ),
     PartDoc(
       name: 'NotebookCoverLabel',
-      description: 'The label on the cover: a card of paper (index-card stock, turned a little) holding the notebook\'s name in the script font. It keeps clear of the spine and the band.',
+      description:
+          'The label on the cover: a card of paper (index-card stock, turned a little) holding the notebook\'s name in the script font. It keeps clear of the spine and the band.',
     ),
   ],
   a11y: [

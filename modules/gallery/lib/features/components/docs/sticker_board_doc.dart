@@ -5,33 +5,39 @@ const stickerBoardDoc = ComponentDoc(
   slug: 'sticker-board',
   title: 'Sticker board',
   category: ComponentCategory.interactive,
-  description: 'A page you can stick stickers on: drag them anywhere, turn them, size them, stack them, with the pointer or the keyboard. The value is plain JSON ({ id, name, x, y, rot, scale, z }) and it exports to one standalone SVG.',
+  description:
+      'A page you can stick stickers on: drag them anywhere, turn them, size them, stack them, with the pointer or the keyboard. The value is plain JSON ({ id, name, x, y, rot, scale, z }) and it exports to one standalone SVG.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'StickerBoard',
-      description: 'The state and the layout: a column holding the canvas and the toolbar (pass children to arrange them yourself). Owns the stickers, the picked one, the live region and the export.',
+      description:
+          'The state and the layout: a column holding the canvas and the toolbar (pass children to arrange them yourself). Owns the stickers, the picked one, the live region and the export.',
       props: [
         PropDoc(
           name: 'value / defaultValue',
           type: 'StickerBoardItem[]',
-          description: 'The stickers. x and y are the center of the visible sticker in px from the canvas\'s top-left; rot is degrees clockwise (-180 to 180); scale 1 is the drawn size; a higher z lies on top. Ids must be unique. JSON that lacks a rot, scale or z (written by hand, or by an older version) is completed on the way in (0, 1, its position in the list), and what comes out through onValueChange is always whole. Built for tens of stickers: each is about 35 KB of markup at 96 px.',
+          description:
+              'The stickers. x and y are the center of the visible sticker in px from the canvas\'s top-left; rot is degrees clockwise (-180 to 180); scale 1 is the drawn size; a higher z lies on top. Ids must be unique. JSON that lacks a rot, scale or z (written by hand, or by an older version) is completed on the way in (0, 1, its position in the list), and what comes out through onValueChange is always whole. Built for tens of stickers: each is about 35 KB of markup at 96 px.',
         ),
         PropDoc(
           name: 'onValueChange',
           type: '(value: StickerBoardItem[]) => void',
-          description: 'Called once when a drag ends, and on every key press, toolbar action or removal. The pointer writes styles while it drags and does not render per move.',
+          description:
+              'Called once when a drag ends, and on every key press, toolbar action or removal. The pointer writes styles while it drags and does not render per move.',
         ),
         PropDoc(
           name: 'selectedId / defaultSelectedId / onSelectedIdChange',
           type: 'string | null',
-          description: 'The picked sticker. Focusing or pressing a sticker picks it; pressing the bare page or Escape lets go.',
+          description:
+              'The picked sticker. Focusing or pressing a sticker picks it; pressing the bare page or Escape lets go.',
         ),
         PropDoc(
           name: 'size',
           type: 'number',
           defaultValue: '96',
-          description: 'Drawn size of a sticker at scale 1, px. Below 80 the 64 px redraw is used.',
+          description:
+              'Drawn size of a sticker at scale 1, px. Below 80 the 64 px redraw is used.',
         ),
         PropDoc(
           name: 'minScale / maxScale',
@@ -43,13 +49,15 @@ const stickerBoardDoc = ComponentDoc(
           name: 'bounds',
           type: '"center" | "inside" | "none"',
           defaultValue: '"center"',
-          description: 'Where a sticker may go: its center stays on the canvas, all of it stays on the canvas, or anywhere (the canvas clips).',
+          description:
+              'Where a sticker may go: its center stays on the canvas, all of it stays on the canvas, or anywhere (the canvas clips).',
         ),
         PropDoc(
           name: 'readOnly / disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Look but do not touch: no tab stops, no handles, toolbar actions off (Export still works when read-only).',
+          description:
+              'Look but do not touch: no tab stops, no handles, toolbar actions off (Export still works when read-only).',
         ),
         PropDoc(
           name: 'label',
@@ -60,13 +68,15 @@ const stickerBoardDoc = ComponentDoc(
         PropDoc(
           name: 'onExport',
           type: '(data: StickerBoardExport) => void',
-          description: 'Receives { items, json, svg, width, height, png() } when Export is pressed. Without it, Export downloads stickers.svg.',
+          description:
+              'Receives { items, json, svg, width, height, png() } when Export is pressed. Without it, Export downloads stickers.svg.',
         ),
       ],
     ),
     PartDoc(
       name: 'StickerBoardCanvas',
-      description: 'The page the stickers lie on: a Paper (dot grid by default; any stock and edge work) whose stickers are clipped to it while its shadow and tape are not. Shows a hint while the board is empty.',
+      description:
+          'The page the stickers lie on: a Paper (dot grid by default; any stock and edge work) whose stickers are clipped to it while its shadow and tape are not. Shows a hint while the board is empty.',
       props: [
         PropDoc(
           name: 'empty',
@@ -83,30 +93,36 @@ const stickerBoardDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'StickerBoardToolbar',
-      description: 'Buttons for what the keyboard does, acting on the picked sticker: turn left and right, smaller and larger, send to back, backward, forward and to front, duplicate, delete and export. One row; every enabled button is a tab stop and left and right arrows also move along it.',
+      description:
+          'Buttons for what the keyboard does, acting on the picked sticker: turn left and right, smaller and larger, send to back, backward, forward and to front, duplicate, delete and export. One row; every enabled button is a tab stop and left and right arrows also move along it.',
       props: [
         PropDoc(
           name: 'actions',
-          type: '("turn" | "size" | "layer" | "duplicate" | "delete" | "export")[]',
+          type:
+              '("turn" | "size" | "layer" | "duplicate" | "delete" | "export")[]',
           description: 'Which groups to show, in order. Default all.',
         ),
       ],
     ),
     PartDoc(
       name: 'useStickerBoard',
-      description: 'The board\'s context for your own controls: items, selectedId, select, patch, remove, duplicate, reorder, turn, resize, exportBoard.',
+      description:
+          'The board\'s context for your own controls: items, selectedId, select, patch, remove, duplicate, reorder, turn, resize, exportBoard.',
     ),
     PartDoc(
       name: 'addSticker',
-      description: 'addSticker(items, name, { x, y, rot, scale, id, canvas }) returns the array with a new sticker on top: a fresh id (rocket-1, rocket-2), a small turn seeded from the id, a position that fans out.',
+      description:
+          'addSticker(items, name, { x, y, rot, scale, id, canvas }) returns the array with a new sticker on top: a fresh id (rocket-1, rocket-2), a small turn seeded from the id, a position that fans out.',
     ),
     PartDoc(
       name: 'reorderSticker',
-      description: 'reorderSticker(items, id, "front" | "back" | "forward" | "backward") returns the array with z re-ranked 0..n-1, or the same array when nothing moves.',
+      description:
+          'reorderSticker(items, id, "front" | "back" | "forward" | "backward") returns the array with z re-ranked 0..n-1, or the same array when nothing moves.',
     ),
     PartDoc(
       name: 'boardPoint',
-      description: 'boardPoint(root, clientX, clientY) returns { x, y, inside }: where a pointer is on the canvas, and whether that is on the page at all. Use it to drop a sticker that came from a sheet or a drag (ignore the drop when inside is false); null when root holds no canvas.',
+      description:
+          'boardPoint(root, clientX, clientY) returns { x, y, inside }: where a pointer is on the canvas, and whether that is on the page at all. Use it to drop a sticker that came from a sheet or a drag (ignore the drop when inside is false); null when root holds no canvas.',
     ),
   ],
   a11y: [

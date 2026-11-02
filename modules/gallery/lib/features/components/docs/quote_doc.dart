@@ -5,7 +5,8 @@ const quoteDoc = ComponentDoc(
   slug: 'quote',
   title: 'Quote',
   category: ComponentCategory.marks,
-  description: 'A pull quote with big hand-drawn quotation marks and an attribution. A real figure, blockquote and figcaption, with marker or felt marks drawn in the gutters: an opening pair at the top, a closing pair at the bottom.',
+  description:
+      'A pull quote with big hand-drawn quotation marks and an attribution. A real figure, blockquote and figcaption, with marker or felt marks drawn in the gutters: an opening pair at the top, a closing pair at the bottom.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
@@ -14,17 +15,20 @@ const quoteDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'QuoteText',
-      description: 'The <blockquote> (accepts `cite`) and the ink host: the marks are drawn in its inline padding, which grows with `size`. The browser\'s own opening quotation mark stands in until the drawing exists.',
+      description:
+          'The <blockquote> (accepts `cite`) and the ink host: the marks are drawn in its inline padding, which grows with `size`. The browser\'s own opening quotation mark stands in until the drawing exists.',
       props: [
         PropDoc(
           name: 'size',
           type: '"sm" | "md" | "lg"',
           defaultValue: '"md"',
-          description: 'The size of the quotation marks (24, 32 or 46 px) and the room they get.',
+          description:
+              'The size of the quotation marks (24, 32 or 46 px) and the room they get.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"marker" | "ink" | "blue" | "red" | "green" | "pencil" | "orange"',
+          type:
+              '"marker" | "ink" | "blue" | "red" | "green" | "pencil" | "orange"',
           defaultValue: '"marker"',
           description: 'The pen of the marks. Marker is the terracotta felt.',
         ),
@@ -38,13 +42,15 @@ const quoteDoc = ComponentDoc(
           name: 'rule',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A quiet pencil rule down the start edge between the pairs of marks.',
+          description:
+              'A quiet pencil rule down the start edge between the pairs of marks.',
         ),
         PropDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Draw the marks on the first time the quotation scrolls into view.',
+          description:
+              'Draw the marks on the first time the quotation scrolls into view.',
         ),
         PropDoc(
           name: 'show',
@@ -66,7 +72,8 @@ const quoteDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'QuoteAttribution',
-      description: 'The <figcaption>: who said it. An em dash is added before it by CSS.',
+      description:
+          'The <figcaption>: who said it. An em dash is added before it by CSS.',
     ),
   ],
   a11y: [

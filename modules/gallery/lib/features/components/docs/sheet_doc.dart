@@ -5,13 +5,15 @@ const sheetDoc = ComponentDoc(
   slug: 'sheet',
   title: 'Sheet',
   category: ComponentCategory.overlays,
-  description: 'A notebook page that slides in from the edge of the screen. It is bound along the edge that faces the middle: spiral wire through punched holes, three binder holes, a perforated tear line, or torn out of a pad. Good for settings, filters, carts and mobile navigation.',
+  description:
+      'A notebook page that slides in from the edge of the screen. It is bound along the edge that faces the middle: spiral wire through punched holes, three binder holes, a perforated tear line, or torn out of a pad. Good for settings, filters, carts and mobile navigation.',
   status: ComponentStatus.stable,
   upstream: 'sheet',
   parts: [
     PartDoc(
       name: 'Sheet',
-      description: 'The root (Radix Dialog): `open`, `defaultOpen`, `onOpenChange`, `modal`.',
+      description:
+          'The root (Radix Dialog): `open`, `defaultOpen`, `onOpenChange`, `modal`.',
     ),
     PartDoc(
       name: 'SheetTrigger',
@@ -23,7 +25,8 @@ const sheetDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SheetContent',
-      description: 'The page: a Paper that is also the Radix dialog. Flush to its edge, never tilted, with its shadow cast toward the page underneath. It does not scroll itself (the shadow and coils would be clipped): put long content in a child with `overflow-y-auto`.',
+      description:
+          'The page: a Paper that is also the Radix dialog. Flush to its edge, never tilted, with its shadow cast toward the page underneath. It does not scroll itself (the shadow and coils would be clipped): put long content in a child with `overflow-y-auto`.',
       props: [
         PropDoc(
           name: 'side',
@@ -35,13 +38,15 @@ const sheetDoc = ComponentDoc(
           name: 'binding',
           type: '"spiral" | "holes" | "perf" | "torn" | "none"',
           defaultValue: '"spiral"',
-          description: 'How the inner edge is finished. `spiral`: wire coils through punched holes, crossing onto the dimmed page. `holes`: three binder holes with reinforcement rings. `perf`: a perforated tear line. `torn`: torn out of a pad. `none`: a plain cut edge.',
+          description:
+              'How the inner edge is finished. `spiral`: wire coils through punched holes, crossing onto the dimmed page. `holes`: three binder holes with reinforcement rings. `perf`: a perforated tear line. `torn`: torn out of a pad. `none`: a plain cut edge.',
         ),
         PropDoc(
           name: 'showCloseButton',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'The doodled x. It moves clear of the coils when they run along its corner.',
+          description:
+              'The doodled x. It moves clear of the coils when they run along its corner.',
         ),
         PropDoc(
           name: 'stock',

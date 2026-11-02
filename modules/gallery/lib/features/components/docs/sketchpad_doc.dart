@@ -5,17 +5,20 @@ const sketchpadDoc = ComponentDoc(
   slug: 'sketchpad',
   title: 'Sketchpad',
   category: ComponentCategory.interactive,
-  description: 'A real drawing surface. Pointer, touch, pen pressure or the keyboard put strokes on paper, and every stroke is rendered by the interface\'s own pen (variable-width ribbons, pooled ends, felt / graphite / marker grain), so what people draw looks like the rest of the page. Undo, redo, export as svg, replay.',
+  description:
+      'A real drawing surface. Pointer, touch, pen pressure or the keyboard put strokes on paper, and every stroke is rendered by the interface\'s own pen (variable-width ribbons, pooled ends, felt / graphite / marker grain), so what people draw looks like the rest of the page. Undo, redo, export as svg, replay.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Sketchpad',
-      description: 'The root: it owns the strokes, the pen in hand, the history and the export handle, and lays out a toolbar and a canvas when you give it no children. Strokes are plain JSON, stored in canvas units, so a saved drawing looks identical everywhere.',
+      description:
+          'The root: it owns the strokes, the pen in hand, the history and the export handle, and lays out a toolbar and a canvas when you give it no children. Strokes are plain JSON, stored in canvas units, so a saved drawing looks identical everywhere.',
       props: [
         PropDoc(
           name: 'value / defaultValue',
           type: 'SketchStroke[]',
-          description: 'The drawing: { id, tool, color, size, pts: [x, y, pressure?][] }. Controlled or uncontrolled. Strokes without an id are given one.',
+          description:
+              'The drawing: { id, tool, color, size, pts: [x, y, pressure?][] }. Controlled or uncontrolled. Strokes without an id are given one.',
         ),
         PropDoc(
           name: 'onValueChange',
@@ -25,7 +28,8 @@ const sketchpadDoc = ComponentDoc(
         ),
         PropDoc(
           name: 'tool / defaultTool / onToolChange',
-          type: '"felt" | "brush" | "pencil" | "marker" | "highlighter" | "eraser"',
+          type:
+              '"felt" | "brush" | "pencil" | "marker" | "highlighter" | "eraser"',
           defaultValue: '"felt"',
           description:
               'The pen in hand. The eraser removes whole strokes it touches.',
@@ -40,25 +44,29 @@ const sketchpadDoc = ComponentDoc(
           name: 'color / defaultColor / onColorChange',
           type: 'SketchColor',
           defaultValue: '"ink"',
-          description: 'One of the theme\'s pens and accents: ink, ink-you, red, green, marker, tangerine, hi, teal, grape, bubblegum. Choosing the highlighter over a dark ink switches to yellow.',
+          description:
+              'One of the theme\'s pens and accents: ink, ink-you, red, green, marker, tangerine, hi, teal, grape, bubblegum. Choosing the highlighter over a dark ink switches to yellow.',
         ),
         PropDoc(
           name: 'size / defaultSize / onSizeChange',
           type: 'number',
           defaultValue: '1',
-          description: 'Width multiplier of the tool\'s own nominal line. Presets: 0.6 fine, 1 medium, 1.9 bold.',
+          description:
+              'Width multiplier of the tool\'s own nominal line. Presets: 0.6 fine, 1 medium, 1.9 bold.',
         ),
         PropDoc(
           name: 'width / height',
           type: 'number',
           defaultValue: '640 / 400',
-          description: 'The canvas\'s logical size. Strokes live in these units and the canvas scales to its container.',
+          description:
+              'The canvas\'s logical size. Strokes live in these units and the canvas scales to its container.',
         ),
         PropDoc(
           name: 'readOnly',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Look, do not draw. The default toolbar is left out and the canvas becomes a labeled image.',
+          description:
+              'Look, do not draw. The default toolbar is left out and the canvas becomes a labeled image.',
         ),
         PropDoc(
           name: 'disabled',
@@ -70,23 +78,27 @@ const sketchpadDoc = ComponentDoc(
           name: 'replay / replaySpeed',
           type: 'boolean / number',
           defaultValue: 'false / 1',
-          description: 'Draw the strokes on again, in order, each one uncovered along its own center line. Reduced motion shows the finished picture.',
+          description:
+              'Draw the strokes on again, in order, each one uncovered along its own center line. Reduced motion shows the finished picture.',
         ),
         PropDoc(
           name: 'apiRef',
           type: 'Ref<SketchpadHandle>',
-          description: 'undo(), redo(), clear(), replay(), strokes(), toSVG(), toDataURL() (svg, no canvas needed), toPNG() (async, null where there is no canvas).',
+          description:
+              'undo(), redo(), clear(), replay(), strokes(), toSVG(), toDataURL() (svg, no canvas needed), toPNG() (async, null where there is no canvas).',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Salts every stroke\'s hand. Leave it out and the same JSON draws the same picture in every browser.',
+          description:
+              'Salts every stroke\'s hand. Leave it out and the same JSON draws the same picture in every browser.',
         ),
       ],
     ),
     PartDoc(
       name: 'SketchpadCanvas',
-      description: 'The sheet the strokes land on. Pointer events with coalesced samples and pen pressure (palm rejection while a pen is in range), touch-action none, and keyboard drawing: arrows move a cursor, Space puts the pen down and lifts it. Children are guides printed under the strokes.',
+      description:
+          'The sheet the strokes land on. Pointer events with coalesced samples and pen pressure (palm rejection while a pen is in range), touch-action none, and keyboard drawing: arrows move a cursor, Space puts the pen down and lifts it. Children are guides printed under the strokes.',
       props: [
         PropDoc(
           name: 'paper',
@@ -114,11 +126,13 @@ const sketchpadDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SketchpadToolbar',
-      description: 'A slip of paper that holds the controls. Any layout works; the parts only need to be inside the root.',
+      description:
+          'A slip of paper that holds the controls. Any layout works; the parts only need to be inside the root.',
     ),
     PartDoc(
       name: 'SketchpadTools',
-      description: 'A radio group of tool buttons. Each shows a sample of what its pen writes, in the current color; the selected one is boxed and highlighted. Roving focus: arrow keys move and select.',
+      description:
+          'A radio group of tool buttons. Each shows a sample of what its pen writes, in the current color; the selected one is boxed and highlighted. Roving focus: arrow keys move and select.',
       props: [
         PropDoc(
           name: 'tools',
@@ -185,7 +199,8 @@ const sketchpadDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'SketchpadUndo',
-      description: 'A ghost Button; disabled while there is nothing to undo. History keeps the last 100 steps, and clearing is one step.',
+      description:
+          'A ghost Button; disabled while there is nothing to undo. History keeps the last 100 steps, and clearing is one step.',
     ),
     PartDoc(
       name: 'SketchpadRedo',

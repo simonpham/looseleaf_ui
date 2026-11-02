@@ -60,8 +60,9 @@ void main() {
     final context = tester.element(find.byType(LooseleafTheme).first);
     expect(context.read<SettingsViewModel>().density, LooseleafDensity.calm);
     expect(
-      LooseleafTheme.of(tester.element(find.text('Getting started').last))
-          .density,
+      LooseleafTheme.of(
+        tester.element(find.text('Getting started').last),
+      ).density,
       LooseleafDensity.calm,
     );
   });

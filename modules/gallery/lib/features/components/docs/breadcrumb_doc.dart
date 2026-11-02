@@ -5,7 +5,8 @@ const breadcrumbDoc = ComponentDoc(
   slug: 'breadcrumb',
   title: 'Breadcrumb',
   category: ComponentCategory.navigation,
-  description: 'The path to the page you are on, written in a notebook: names between pencil slashes, links that wear the highlighter when pointed at, and the current page underlined twice in blue felt. Swap the slash for a chevron or any node, and fold the middle of a long path into a dropdown.',
+  description:
+      'The path to the page you are on, written in a notebook: names between pencil slashes, links that wear the highlighter when pointed at, and the current page underlined twice in blue felt. Swap the slash for a chevron or any node, and fold the middle of a long path into a dropdown.',
   status: ComponentStatus.stable,
   upstream: 'breadcrumb',
   parts: [
@@ -15,7 +16,8 @@ const breadcrumbDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'BreadcrumbList',
-      description: 'The ordered list (`ol`). It wraps onto several lines when the path is long.',
+      description:
+          'The ordered list (`ol`). It wraps onto several lines when the path is long.',
     ),
     PartDoc(
       name: 'BreadcrumbItem',
@@ -23,11 +25,13 @@ const breadcrumbDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'BreadcrumbLink',
-      description: 'A link on the path (an `a`, or your router link with `asChild`). Pointed at or keyboard-focused it wears the highlighter.',
+      description:
+          'A link on the path (an `a`, or your router link with `asChild`). Pointed at or keyboard-focused it wears the highlighter.',
     ),
     PartDoc(
       name: 'BreadcrumbPage',
-      description: 'The page you are on: bold, `aria-current="page"`, underlined twice in blue felt (one pencil line in calm density). The underline is the only drawing in a breadcrumb; it becomes an ink host once it is measured.',
+      description:
+          'The page you are on: bold, `aria-current="page"`, underlined twice in blue felt (one pencil line in calm density). The underline is the only drawing in a breadcrumb; it becomes an ink host once it is measured.',
       props: [
         PropDoc(
           name: 'seed',
@@ -38,11 +42,13 @@ const breadcrumbDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'BreadcrumbSeparator',
-      description: 'The mark between two crumbs (`li`, hidden from assistive technology). A hand-drawn slash by default; pass any node (an Icon chevron, a dot) as children.',
+      description:
+          'The mark between two crumbs (`li`, hidden from assistive technology). A hand-drawn slash by default; pass any node (an Icon chevron, a dot) as children.',
     ),
     PartDoc(
       name: 'BreadcrumbEllipsis',
-      description: 'Three pencil dots for the crumbs left out, with a screen-reader label. Put it in a DropdownMenuTrigger to open the hidden ones: give the trigger an `aria-label` (the ellipsis itself is aria-hidden) and keep the box at `size-6` (24 px) or more so it is easy to hit.',
+      description:
+          'Three pencil dots for the crumbs left out, with a screen-reader label. Put it in a DropdownMenuTrigger to open the hidden ones: give the trigger an `aria-label` (the ellipsis itself is aria-hidden) and keep the box at `size-6` (24 px) or more so it is easy to hit.',
     ),
   ],
   a11y: [

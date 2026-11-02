@@ -5,13 +5,15 @@ const avatarDoc = ComponentDoc(
   slug: 'avatar',
   title: 'Avatar',
   category: ComponentCategory.dataDisplay,
-  description: 'A face, circled in felt tip. The picture is circled by a hand-drawn loop; without one the initials sit on a disc of marker in a stationery color chosen from the name. A status dot goes on the corner, and a group overlaps its faces and ends in a sketched "+3".',
+  description:
+      'A face, circled in felt tip. The picture is circled by a hand-drawn loop; without one the initials sit on a disc of marker in a stationery color chosen from the name. A status dot goes on the corner, and a group overlaps its faces and ends in a sketched "+3".',
   status: ComponentStatus.stable,
   upstream: 'avatar',
   parts: [
     PartDoc(
       name: 'Avatar',
-      description: 'The Radix Avatar root, a round `span`. It does not clip (the picture and the disc round themselves, always as circles: the hand-drawn loop is a circle too, so a `rounded-lg` on the root, as some sidebar templates use, does not square the face) so the loop can bleed past its box. `data-size` is read by its parts.',
+      description:
+          'The Radix Avatar root, a round `span`. It does not clip (the picture and the disc round themselves, always as circles: the hand-drawn loop is a circle too, so a `rounded-lg` on the root, as some sidebar templates use, does not square the face) so the loop can bleed past its box. `data-size` is read by its parts.',
       props: [
         PropDoc(
           name: 'size',
@@ -24,7 +26,8 @@ const avatarDoc = ComponentDoc(
           name: 'ring',
           type: '"ink" | "you" | "marker" | "none"',
           defaultValue: '"ink"',
-          description: 'The pen of the loop round the face: ink fine-liner, blue felt, a marker halo ("this one is current"), or none, which draws nothing (long lists).',
+          description:
+              'The pen of the loop round the face: ink fine-liner, blue felt, a marker halo ("this one is current"), or none, which draws nothing (long lists).',
         ),
         PropDoc(
           name: 'seed',
@@ -36,7 +39,8 @@ const avatarDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'AvatarImage',
-      description: 'The picture (`<img>`, round, `object-cover`). Radix shows it once it has loaded and the fallback until then, or when it fails.',
+      description:
+          'The picture (`<img>`, round, `object-cover`). Radix shows it once it has loaded and the fallback until then, or when it fails.',
     ),
     PartDoc(
       name: 'AvatarFallback',
@@ -45,39 +49,46 @@ const avatarDoc = ComponentDoc(
         PropDoc(
           name: 'name',
           type: 'string',
-          description: 'The person\'s name: picks the color, makes the initials when there are no children, and is read out by screen readers in place of the letters.',
+          description:
+              'The person\'s name: picks the color, makes the initials when there are no children, and is read out by screen readers in place of the letters.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"tomato" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "grape" | "bubblegum"',
+          type:
+              '"tomato" | "tangerine" | "lemon" | "grass" | "teal" | "sky" | "grape" | "bubblegum"',
           description: 'A color of your own instead of the one the name picks.',
         ),
         PropDoc(
           name: 'delayMs',
           type: 'number',
-          description: 'Radix: wait this long before showing the fallback, to avoid a flash while the picture loads.',
+          description:
+              'Radix: wait this long before showing the fallback, to avoid a flash while the picture loads.',
         ),
       ],
     ),
     PartDoc(
       name: 'AvatarBadge',
-      description: 'A dot on the corner of the face. Its size follows the avatar\'s; an icon child shows from `default` up.',
+      description:
+          'A dot on the corner of the face. Its size follows the avatar\'s; an icon child shows from `default` up.',
       props: [
         PropDoc(
           name: 'status',
           type: '"online" | "away" | "busy" | "offline" | "marker"',
           defaultValue: '"marker"',
-          description: 'grass, tangerine, tomato, pencil gray, or the marker of the theme. Give it text for screen readers (`<span className="sr-only">online</span>`).',
+          description:
+              'grass, tangerine, tomato, pencil gray, or the marker of the theme. Give it text for screen readers (`<span className="sr-only">online</span>`).',
         ),
       ],
     ),
     PartDoc(
       name: 'AvatarGroup',
-      description: 'Overlaps its avatars by about a quarter of a face (a logical negative margin that follows `size`) and cuts each face out of the one under it with a 2 px ring in the card color. When the group sits on the page or another surface, name that color: `className="[--ll-avatar-group-ring:var(--background)]"`.',
+      description:
+          'Overlaps its avatars by about a quarter of a face (a logical negative margin that follows `size`) and cuts each face out of the one under it with a 2 px ring in the card color. When the group sits on the page or another surface, name that color: `className="[--ll-avatar-group-ring:var(--background)]"`.',
     ),
     PartDoc(
       name: 'AvatarGroupCount',
-      description: 'A sketched dashed disc for "the rest": text (`+3`) or an icon. It matches the size of the group\'s avatars.',
+      description:
+          'A sketched dashed disc for "the rest": text (`+3`) or an icon. It matches the size of the group\'s avatars.',
     ),
   ],
   a11y: [

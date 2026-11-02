@@ -5,12 +5,14 @@ const polaroidDoc = ComponentDoc(
   slug: 'polaroid',
   title: 'Polaroid',
   category: ComponentCategory.paper,
-  description: 'An instant photograph: a white frame with the thick foot, a recessed square window and a caption in script. Put a real image in the window, or let it draw a little scene in marker and felt tip. Tape it, pin it, clip it, pile it up.',
+  description:
+      'An instant photograph: a white frame with the thick foot, a recessed square window and a caption in script. Put a real image in the window, or let it draw a little scene in marker and felt tip. Tape it, pin it, clip it, pile it up.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Polaroid',
-      description: 'A `figure` and a Paper (`photo` stock, no printed rules): 16 rem wide, padded 14 px on the sides and top with a taller foot. Photographs are turned more than paper, up to 1.5 degrees. It takes every Paper prop except `stock`, `rules` and `as`.',
+      description:
+          'A `figure` and a Paper (`photo` stock, no printed rules): 16 rem wide, padded 14 px on the sides and top with a taller foot. Photographs are turned more than paper, up to 1.5 degrees. It takes every Paper prop except `stock`, `rules` and `as`.',
       props: [
         PropDoc(
           name: 'as',
@@ -23,12 +25,14 @@ const polaroidDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PolaroidImage',
-      description: 'The photo window: square, recessed with an inner shadow, clipping its content. An `img` inside fills it (`object-cover`).',
+      description:
+          'The photo window: square, recessed with an inner shadow, clipping its content. An `img` inside fills it (`object-cover`).',
       props: [
         PropDoc(
           name: 'scene',
           type: '"hills" | "sea" | "house" | "night"',
-          description: 'Draw a scene in the window in marker and felt tip (14 KB or so each in the lo tier; use it for placeholders and empty states, not for a hundred thumbnails).',
+          description:
+              'Draw a scene in the window in marker and felt tip (14 KB or so each in the lo tier; use it for placeholders and empty states, not for a hundred thumbnails).',
         ),
         PropDoc(
           name: 'date',
@@ -40,12 +44,14 @@ const polaroidDoc = ComponentDoc(
           name: 'develop',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'The picture is milky when it appears and clears over half a second. Once per mount; instant with reduced motion.',
+          description:
+              'The picture is milky when it appears and clears over half a second. Once per mount; instant with reduced motion.',
         ),
         PropDoc(
           name: 'label',
           type: 'string',
-          description: 'Names a drawn scene (`role="img"`). Without it the scene is decoration.',
+          description:
+              'Names a drawn scene (`role="img"`). Without it the scene is decoration.',
         ),
         PropDoc(
           name: 'seed',
@@ -56,7 +62,8 @@ const polaroidDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'PolaroidCaption',
-      description: 'A `figcaption` in the foot: script font at 26 px, centered, balanced, at least 3 rem high.',
+      description:
+          'A `figcaption` in the foot: script font at 26 px, centered, balanced, at least 3 rem high.',
     ),
   ],
   a11y: [

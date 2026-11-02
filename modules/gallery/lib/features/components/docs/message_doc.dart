@@ -5,7 +5,8 @@ const messageDoc = ComponentDoc(
   slug: 'message',
   title: 'Message',
   category: ComponentCategory.chat,
-  description: 'The row of a chat message: an avatar, a column with a header, the bubbles and a footer, aligned to the start or the end. Also MessageText, which sets a reply word by word so streaming text soaks in like wet ink.',
+  description:
+      'The row of a chat message: an avatar, a column with a header, the bubbles and a footer, aligned to the start or the end. Also MessageText, which sets a reply word by word so streaming text soaks in like wet ink.',
   status: ComponentStatus.isNew,
   upstream: 'message',
   parts: [
@@ -15,7 +16,8 @@ const messageDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'Message',
-      description: 'One message row. `align="end"` reverses it and tells the bubbles inside to put their tail on that side.',
+      description:
+          'One message row. `align="end"` reverses it and tells the bubbles inside to put their tail on that side.',
       props: [
         PropDoc(
           name: 'align',
@@ -27,11 +29,13 @@ const messageDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MessageAvatar',
-      description: 'Sits at the bottom of the row, beside the last bubble. Put an avatar, a mascot or a doodle in it.',
+      description:
+          'Sits at the bottom of the row, beside the last bubble. Put an avatar, a mascot or a doodle in it.',
     ),
     PartDoc(
       name: 'MessageContent',
-      description: 'The column: header, bubbles, footer. Everything with a data-slot inside it follows the alignment.',
+      description:
+          'The column: header, bubbles, footer. Everything with a data-slot inside it follows the alignment.',
     ),
     PartDoc(
       name: 'MessageHeader',
@@ -43,7 +47,8 @@ const messageDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MessageText',
-      description: 'The words of a message as real text, set like a person wrote them: each word sits a hair off the baseline, some a shade lighter. While `streaming`, every word that arrives after the first render soaks in (dark and blurred, then dry in half a second) and a felt-tip caret rides after the last word.',
+      description:
+          'The words of a message as real text, set like a person wrote them: each word sits a hair off the baseline, some a shade lighter. While `streaming`, every word that arrives after the first render soaks in (dark and blurred, then dry in half a second) and a felt-tip caret rides after the last word.',
       props: [
         PropDoc(
           name: 'children',
@@ -60,7 +65,8 @@ const messageDoc = ComponentDoc(
           name: 'jitter',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'The per-word wobble (zero in calm density and with reduced motion).',
+          description:
+              'The per-word wobble (zero in calm density and with reduced motion).',
         ),
         PropDoc(
           name: 'seed',

@@ -78,7 +78,8 @@ void main() {
                 seed: 'delete',
                 icon: 'trash',
                 title: 'Delete this notebook?',
-                body: 'This will permanently delete “Field notes” and its 48 pages. You cannot undo this.',
+                body:
+                    'This will permanently delete “Field notes” and its 48 pages. You cannot undo this.',
                 ok: 'Delete notebook',
                 media: AlertMediaTone.danger,
                 tone: AlertDialogTone.danger,
@@ -118,7 +119,8 @@ void main() {
                   seed: 'publish',
                   icon: 'circle-check',
                   title: 'Publish now?',
-                  body: 'Everyone with the link will be able to read it. You can unpublish later.',
+                  body:
+                      'Everyone with the link will be able to read it. You can unpublish later.',
                   ok: 'Publish',
                 ),
               ),

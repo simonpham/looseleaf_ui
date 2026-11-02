@@ -5,16 +5,19 @@ const scribbleDoc = ComponentDoc(
   slug: 'scribble',
   title: 'Scribble',
   category: ComponentCategory.marks,
-  description: 'Words scribbled out with tight back-and-forth strokes, like a note someone changed their mind about. A look, not a redaction: the text underneath stays in the DOM.',
+  description:
+      'Words scribbled out with tight back-and-forth strokes, like a note someone changed their mind about. A look, not a redaction: the text underneath stays in the DOM.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Scribble',
-      description: 'A <span> (or your own element with asChild) that hosts a scribble per line, in front of the words.',
+      description:
+          'A <span> (or your own element with asChild) that hosts a scribble per line, in front of the words.',
       props: [
         PropDoc(
           name: 'tone',
-          type: '"ink" | "red" | "blue" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"ink" | "red" | "blue" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"ink"',
           description: 'The pen.',
         ),
@@ -22,7 +25,8 @@ const scribbleDoc = ComponentDoc(
           name: 'weight',
           type: '"fine" | "regular" | "brush"',
           defaultValue: '"regular"',
-          description: 'Fine scribbles are light and leave the words legible; regular and brush are dense.',
+          description:
+              'Fine scribbles are light and leave the words legible; regular and brush are dense.',
         ),
         PropDoc(
           name: 'animate',

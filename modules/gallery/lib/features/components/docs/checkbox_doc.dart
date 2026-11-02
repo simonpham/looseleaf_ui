@@ -5,18 +5,21 @@ const checkboxDoc = ComponentDoc(
   slug: 'checkbox',
   title: 'Checkbox',
   category: ComponentCategory.forms,
-  description: 'A hand-drawn box you tick. Checking fills it with solid marker and writes a heavy felt tick over it, stroke by stroke; a dash means partly checked. Radix behavior, keyboard and form support are untouched.',
+  description:
+      'A hand-drawn box you tick. Checking fills it with solid marker and writes a heavy felt tick over it, stroke by stroke; a dash means partly checked. Radix behavior, keyboard and form support are untouched.',
   status: ComponentStatus.stable,
   upstream: 'checkbox',
   parts: [
     PartDoc(
       name: 'Checkbox',
-      description: 'Radix Checkbox.Root (a <button role="checkbox">, plus Radix\'s hidden native input inside a form) with the drawing behind it. Size it with size-*: 16, 20 and 28 px are drawn and tested. The tick is written with ll-draw when the state turns checked or indeterminate (instantly with reduced motion).',
+      description:
+          'Radix Checkbox.Root (a <button role="checkbox">, plus Radix\'s hidden native input inside a form) with the drawing behind it. Size it with size-*: 16, 20 and 28 px are drawn and tested. The tick is written with ll-draw when the state turns checked or indeterminate (instantly with reduced motion).',
       props: [
         PropDoc(
           name: 'checked',
           type: 'boolean | "indeterminate"',
-          description: 'Controlled state. "indeterminate" draws the dash and reports aria-checked="mixed".',
+          description:
+              'Controlled state. "indeterminate" draws the dash and reports aria-checked="mixed".',
         ),
         PropDoc(
           name: 'defaultChecked',
@@ -32,7 +35,8 @@ const checkboxDoc = ComponentDoc(
           name: 'disabled',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Dashed pencil box on a pale wash, graphite tick when on. Not focusable, no hover.',
+          description:
+              'Dashed pencil box on a pale wash, graphite tick when on. Not focusable, no hover.',
         ),
         PropDoc(
           name: 'aria-invalid',
@@ -42,12 +46,14 @@ const checkboxDoc = ComponentDoc(
         PropDoc(
           name: 'name / value / required / form',
           type: 'string | boolean',
-          description: 'Forwarded to Radix\'s hidden input, so the value is in FormData ("on" unless you give value) and forms validate and reset.',
+          description:
+              'Forwarded to Radix\'s hidden input, so the value is in FormData ("on" unless you give value) and forms validate and reset.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same box and tick. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same box and tick. Default: derived from useId().',
         ),
       ],
     ),

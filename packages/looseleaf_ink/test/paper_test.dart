@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:test/test.dart';
 
-final Map<String, dynamic> _fx = jsonDecode(
-  File('test/fixtures/paper.json').readAsStringSync(),
-) as Map<String, dynamic>;
+final Map<String, dynamic> _fx =
+    jsonDecode(
+          File('test/fixtures/paper.json').readAsStringSync(),
+        )
+        as Map<String, dynamic>;
 
 List<Map<String, dynamic>> _list(String key) =>
     (_fx[key] as List).cast<Map<String, dynamic>>();

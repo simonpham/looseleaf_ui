@@ -51,8 +51,9 @@ void main() {
           true => '_phone',
           false => '',
         };
-        File('$out/$name$suffix.png')
-            .writeAsBytesSync(bytes.buffer.asUint8List());
+        File(
+          '$out/$name$suffix.png',
+        ).writeAsBytesSync(bytes.buffer.asUint8List());
       }
     });
   }

@@ -5,25 +5,29 @@ const messageScrollerDoc = ComponentDoc(
   slug: 'message-scroller',
   title: 'Message scroller',
   category: ComponentCategory.chat,
-  description: 'The scrolling transcript of a chat: it opens on the newest message, sticks to the bottom while a reply streams and lets go the moment you scroll up, pins your new message to the top so the reply grows beneath it, holds your place when older messages are added above, and wakes a "jump to latest" button when there is more below. Same parts and hooks as shadcn\'s message scroller, with the behavior written in, so no extra package.',
+  description:
+      'The scrolling transcript of a chat: it opens on the newest message, sticks to the bottom while a reply streams and lets go the moment you scroll up, pins your new message to the top so the reply grows beneath it, holds your place when older messages are added above, and wakes a "jump to latest" button when there is more below. Same parts and hooks as shadcn\'s message scroller, with the behavior written in, so no extra package.',
   status: ComponentStatus.isNew,
   upstream: 'message-scroller',
   parts: [
     PartDoc(
       name: 'MessageScrollerProvider',
-      description: 'Holds the scroll state. Everything else, and the hooks, live inside it. It renders no element.',
+      description:
+          'Holds the scroll state. Everything else, and the hooks, live inside it. It renders no element.',
       props: [
         PropDoc(
           name: 'autoScroll',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Follow the bottom while content grows (a streaming reply), until the person scrolls up; it follows again when they come back to the bottom. It may change while mounted (`autoScroll={status === "streaming"}`): switched on at the bottom it starts following at once, switched off it stops.',
+          description:
+              'Follow the bottom while content grows (a streaming reply), until the person scrolls up; it follows again when they come back to the bottom. It may change while mounted (`autoScroll={status === "streaming"}`): switched on at the bottom it starts following at once, switched off it stops.',
         ),
         PropDoc(
           name: 'defaultScrollPosition',
           type: '"start" | "end" | "last-anchor"',
           defaultValue: '"end"',
-          description: 'Where a conversation opens. `last-anchor` puts the last `scrollAnchor` message at the top of the view when the exchange after it is taller than the page.',
+          description:
+              'Where a conversation opens. `last-anchor` puts the last `scrollAnchor` message at the top of the view when the exchange after it is taller than the page.',
         ),
         PropDoc(
           name: 'scrollEdgeThreshold',
@@ -35,7 +39,8 @@ const messageScrollerDoc = ComponentDoc(
           name: 'scrollPreviousItemPeek',
           type: 'number',
           defaultValue: '64',
-          description: 'How much of the message before an anchor stays in sight above it, px.',
+          description:
+              'How much of the message before an anchor stays in sight above it, px.',
         ),
         PropDoc(
           name: 'scrollMargin',
@@ -47,23 +52,27 @@ const messageScrollerDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MessageScroller',
-      description: 'The root: `relative`, `flex-col`, and `data-scrollable="start end"` while there is more to scroll in either direction (CSS reads it to fade the page edge).',
+      description:
+          'The root: `relative`, `flex-col`, and `data-scrollable="start end"` while there is more to scroll in either direction (CSS reads it to fade the page edge).',
     ),
     PartDoc(
       name: 'MessageScrollerViewport',
-      description: 'The scrolling element: `role="region"` labeled "Messages" and focusable, so the keyboard can scroll it. Wheel, touch and scroll keys toward the start are read as the person taking over.',
+      description:
+          'The scrolling element: `role="region"` labeled "Messages" and focusable, so the keyboard can scroll it. Wheel, touch and scroll keys toward the start are read as the person taking over.',
       props: [
         PropDoc(
           name: 'preserveScrollOnPrepend',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Hold the message you are reading still when older messages are added above it.',
+          description:
+              'Hold the message you are reading still when older messages are added above it.',
         ),
       ],
     ),
     PartDoc(
       name: 'MessageScrollerContent',
-      description: 'The transcript: `role="log"` (polite, additions) with a hidden spacer at the end that makes room for a pinned message on an empty page.',
+      description:
+          'The transcript: `role="log"` (polite, additions) with a hidden spacer at the end that makes room for a pinned message on an empty page.',
       props: [
         PropDoc(
           name: 'spacerClassName',
@@ -74,24 +83,28 @@ const messageScrollerDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MessageScrollerItem',
-      description: 'One message. Give it a `messageId` so it can be scrolled to and reported as visible. Unlike upstream it is not `content-visibility: auto`: that paint containment would cut off the tails and reaction chips that hang past a bubble. For thousands of messages render a window of them, or add `[content-visibility:auto] p-3` yourself.',
+      description:
+          'One message. Give it a `messageId` so it can be scrolled to and reported as visible. Unlike upstream it is not `content-visibility: auto`: that paint containment would cut off the tails and reaction chips that hang past a bubble. For thousands of messages render a window of them, or add `[content-visibility:auto] p-3` yourself.',
       props: [
         PropDoc(
           name: 'messageId',
           type: 'string',
-          description: 'Stable id for `scrollToMessage` and `useMessageScrollerVisibility`.',
+          description:
+              'Stable id for `scrollToMessage` and `useMessageScrollerVisibility`.',
         ),
         PropDoc(
           name: 'scrollAnchor',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A message that goes to the top of the view when it arrives (your own, so the reply grows below it).',
+          description:
+              'A message that goes to the top of the view when it arrives (your own, so the reply grows below it).',
         ),
       ],
     ),
     PartDoc(
       name: 'MessageScrollerButton',
-      description: 'The jump button: awake (`data-active="true"`) when there is more to scroll in its direction, inert and hidden otherwise. It is a secondary icon Button by default; pass `render` for your own element.',
+      description:
+          'The jump button: awake (`data-active="true"`) when there is more to scroll in its direction, inert and hidden otherwise. It is a secondary icon Button by default; pass `render` for your own element.',
       props: [
         PropDoc(
           name: 'direction',
@@ -121,15 +134,18 @@ const messageScrollerDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'useMessageScroller',
-      description: '`{ scrollToEnd, scrollToStart, scrollToMessage(id, { align, behavior, scrollMargin }) }`. Each returns whether it could. A message asked for before it exists is scrolled to when it arrives.',
+      description:
+          '`{ scrollToEnd, scrollToStart, scrollToMessage(id, { align, behavior, scrollMargin }) }`. Each returns whether it could. A message asked for before it exists is scrolled to when it arrives.',
     ),
     PartDoc(
       name: 'useMessageScrollerScrollable',
-      description: '`{ start, end }`: is there more to scroll toward each edge? (`end` is false while the transcript is following the bottom.)',
+      description:
+          '`{ start, end }`: is there more to scroll toward each edge? (`end` is false while the transcript is following the bottom.)',
     ),
     PartDoc(
       name: 'useMessageScrollerVisibility',
-      description: '`{ currentAnchorId, visibleMessageIds }`: the messages in view (the peek above does not count) and the last anchor scrolled past.',
+      description:
+          '`{ currentAnchorId, visibleMessageIds }`: the messages in view (the peek above does not count) and the last anchor scrolled past.',
     ),
   ],
   a11y: [

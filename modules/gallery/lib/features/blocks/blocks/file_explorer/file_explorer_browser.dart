@@ -256,7 +256,8 @@ class FileExplorerBrowser extends StatelessWidget {
                       ),
                       EmptyDescription(
                         child: Text(switch (empty) {
-                          true => 'Nothing filed here yet. Make a new folder to begin.',
+                          true =>
+                            'Nothing filed here yet. Make a new folder to begin.',
                           false => 'Try another word.',
                         }),
                       ),

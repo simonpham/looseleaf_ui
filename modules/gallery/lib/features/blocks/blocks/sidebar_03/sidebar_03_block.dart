@@ -27,7 +27,8 @@ class Sidebar03Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Nothing here yet',
                   pose: 'peek',
-                  description: 'This page is still blank. The pad has every page, indented the way an outline is.',
+                  description:
+                      'This page is still blank. The pad has every page, indented the way an outline is.',
                 ),
               ],
             ),

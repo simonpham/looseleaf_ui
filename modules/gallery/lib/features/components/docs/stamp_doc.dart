@@ -5,17 +5,20 @@ const stampDoc = ComponentDoc(
   slug: 'stamp',
   title: 'Stamp',
   category: ComponentCategory.stickersDoodles,
-  description: 'A rubber stamp: solid ink pressed through a worn pad, double-rule border, typewriter capitals, a slight tilt and sometimes the ghost of a first impression. For APPROVED, PAID, DRAFT and friends.',
+  description:
+      'A rubber stamp: solid ink pressed through a worn pad, double-rule border, typewriter capitals, a slight tilt and sometimes the ghost of a first impression. For APPROVED, PAID, DRAFT and friends.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Stamp',
-      description: 'An intrinsic ink svg in one color of pad ink, drawn through the baked `stamp` wear mask.',
+      description:
+          'An intrinsic ink svg in one color of pad ink, drawn through the baked `stamp` wear mask.',
       props: [
         PropDoc(
           name: 'name',
           type: 'string',
-          description: 'A preset from the sticker sheet: `stamp-approved`, `stamp-draft`, `stamp-paid`, `stamp-urgent`, `stamp-received`, `stamp-void`, `stamp-new`, `stamp-member`. Other props override it.',
+          description:
+              'A preset from the sticker sheet: `stamp-approved`, `stamp-draft`, `stamp-paid`, `stamp-urgent`, `stamp-received`, `stamp-void`, `stamp-new`, `stamp-member`. Other props override it.',
         ),
         PropDoc(
           name: 'text',
@@ -26,7 +29,8 @@ const stampDoc = ComponentDoc(
           name: 'shape',
           type: '"rect" | "round" | "burst" | "void"',
           defaultValue: '"rect"',
-          description: 'Double-rule box, double ring with rim text, twelve-point seal, or big diagonal letters struck through.',
+          description:
+              'Double-rule box, double ring with rim text, twelve-point seal, or big diagonal letters struck through.',
         ),
         PropDoc(
           name: 'ink',

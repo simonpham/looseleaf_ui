@@ -161,9 +161,11 @@ final Map<String, _Check<Object?>> _checks = {
 };
 
 void main() {
-  final fixture = jsonDecode(
-    File('test/fixtures/controls_fields.json').readAsStringSync(),
-  ) as _Json;
+  final fixture =
+      jsonDecode(
+            File('test/fixtures/controls_fields.json').readAsStringSync(),
+          )
+          as _Json;
   for (final c in (fixture['frames'] as List).cast<_Json>()) {
     test(c['name'], () {
       final check = _checks[c['recipe']];
@@ -172,9 +174,11 @@ void main() {
     });
   }
 
-  final tiles = jsonDecode(
-    File('test/fixtures/controls_fields_tiles.json').readAsStringSync(),
-  ) as _Json;
+  final tiles =
+      jsonDecode(
+            File('test/fixtures/controls_fields_tiles.json').readAsStringSync(),
+          )
+          as _Json;
   for (final c in (tiles['otpCaret'] as List).cast<_Json>()) {
     test('otpCaretTile ${c['seed']}', () {
       expect(otpCaretTile(c['seed'] as String), c['out']);

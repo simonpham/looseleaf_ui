@@ -52,7 +52,8 @@ class _Sidebar13BlockState extends State<Sidebar13Block> {
                   SidebarPageNote(
                     title: 'Settings live in a drawer of their own',
                     pose: 'point',
-                    description: 'Open them from the pad or from the button in the corner. Everything you change is kept while you write.',
+                    description:
+                        'Open them from the pad or from the button in the corner. Everything you change is kept while you write.',
                   ),
                 ],
               ),

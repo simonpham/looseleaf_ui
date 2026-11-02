@@ -5,33 +5,39 @@ const hoverCardDoc = ComponentDoc(
   slug: 'hover-card',
   title: 'Hover Card',
   category: ComponentCategory.overlays,
-  description: 'A small polaroid that appears when you rest the pointer on a link or move keyboard focus to it: photo stock with a thick lower margin for handwriting, a degree or two of tilt, and tape if you like. A preview for sighted pointer users, never the only home of anything.',
+  description:
+      'A small polaroid that appears when you rest the pointer on a link or move keyboard focus to it: photo stock with a thick lower margin for handwriting, a degree or two of tilt, and tape if you like. A preview for sighted pointer users, never the only home of anything.',
   status: ComponentStatus.stable,
   upstream: 'hover-card',
   parts: [
     PartDoc(
       name: 'HoverCard',
-      description: 'The root (Radix HoverCard): `openDelay` (700 ms), `closeDelay` (300 ms), `open`, `defaultOpen`, `onOpenChange`.',
+      description:
+          'The root (Radix HoverCard): `openDelay` (700 ms), `closeDelay` (300 ms), `open`, `defaultOpen`, `onOpenChange`.',
     ),
     PartDoc(
       name: 'HoverCardTrigger',
-      description: 'The link or element that shows it on hover and on keyboard focus. Use `asChild` on an `<a>`.',
+      description:
+          'The link or element that shows it on hover and on keyboard focus. Use `asChild` on an `<a>`.',
     ),
     PartDoc(
       name: 'HoverCardContent',
-      description: 'The polaroid: a Paper on photo stock that is also the Radix hover card content (a CSS sheet, no SVG). It takes every Radix Content prop and these.',
+      description:
+          'The polaroid: a Paper on photo stock that is also the Radix hover card content (a CSS sheet, no SVG). It takes every Radix Content prop and these.',
       props: [
         PropDoc(
           name: 'sideOffset',
           type: 'number',
           defaultValue: '8',
-          description: 'Gap between the trigger and the card (upstream\'s default is 4: a polaroid needs room for its shadow and tape). The card is also capped to the viewport width.',
+          description:
+              'Gap between the trigger and the card (upstream\'s default is 4: a polaroid needs room for its shadow and tape). The card is also capped to the viewport width.',
         ),
         PropDoc(
           name: 'collisionPadding',
           type: 'number | Partial<Record<Side, number>>',
           defaultValue: '8',
-          description: 'Room kept between the card and the viewport edge when it has to shift to fit (upstream\'s default is 0).',
+          description:
+              'Room kept between the card and the viewport edge when it has to shift to fit (upstream\'s default is 0).',
         ),
         PropDoc(
           name: 'stock',
@@ -55,7 +61,8 @@ const hoverCardDoc = ComponentDoc(
           name: 'tilt',
           type: 'boolean | number',
           defaultValue: 'true',
-          description: 'Seeded tilt of the sheet (photo stock turns up to 1.5 degrees); text stays upright.',
+          description:
+              'Seeded tilt of the sheet (photo stock turns up to 1.5 degrees); text stays upright.',
         ),
         PropDoc(
           name: 'seed',
@@ -66,11 +73,13 @@ const hoverCardDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'HoverCardMedia',
-      description: 'Looseleaf addition: the picture window, a recess with a pencil frame shaded along its top and left. Put an image, a Doodle or a Sticker in it.',
+      description:
+          'Looseleaf addition: the picture window, a recess with a pencil frame shaded along its top and left. Put an image, a Doodle or a Sticker in it.',
     ),
     PartDoc(
       name: 'HoverCardCaption',
-      description: 'Looseleaf addition: handwriting on the wide lower margin (script font).',
+      description:
+          'Looseleaf addition: handwriting on the wide lower margin (script font).',
     ),
   ],
   a11y: [

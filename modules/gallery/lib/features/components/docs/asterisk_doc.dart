@@ -5,12 +5,14 @@ const asteriskDoc = ComponentDoc(
   slug: 'asterisk',
   title: 'Asterisk',
   category: ComponentCategory.marks,
-  description: 'Hand-drawn footnote marks: an asterisk, a star, a dagger or a double dagger, in red pencil, sized like a superscript after the word they belong to. Give it a label and an href and it links to the footnote.',
+  description:
+      'Hand-drawn footnote marks: an asterisk, a star, a dagger or a double dagger, in red pencil, sized like a superscript after the word they belong to. Give it a label and an href and it links to the footnote.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Asterisk',
-      description: 'A <span> holding the drawn mark. Children come first and the mark follows them: <Asterisk>fine print</Asterisk>. The glyph is intrinsic art (kept in Windows high contrast) drawn once per seed.',
+      description:
+          'A <span> holding the drawn mark. Children come first and the mark follows them: <Asterisk>fine print</Asterisk>. The glyph is intrinsic art (kept in Windows high contrast) drawn once per seed.',
       props: [
         PropDoc(
           name: 'mark',
@@ -27,12 +29,14 @@ const asteriskDoc = ComponentDoc(
         PropDoc(
           name: 'label',
           type: 'string',
-          description: 'The accessible name ("footnote 1"). Without it the mark is decoration and hidden from assistive technology.',
+          description:
+              'The accessible name ("footnote 1"). Without it the mark is decoration and hidden from assistive technology.',
         ),
         PropDoc(
           name: 'href',
           type: 'string',
-          description: 'Turns the mark into a link to the footnote. Its accessible name is `label`, or "footnote".',
+          description:
+              'Turns the mark into a link to the footnote. Its accessible name is `label`, or "footnote".',
         ),
         PropDoc(
           name: 'seed',

@@ -92,7 +92,8 @@ class _InputOtpVerifyYourEmailExampleState
                     child: Text(
                       switch (_check) {
                         _Check.done => 'Verified. Welcome to the notebook.',
-                        _Check.wrong => 'That is not the code. Check the email and try again.',
+                        _Check.wrong =>
+                          'That is not the code. Check the email and try again.',
                         _Check.idle => 'It expires in ten minutes.',
                       },
                       textAlign: TextAlign.center,

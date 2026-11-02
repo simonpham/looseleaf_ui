@@ -5,30 +5,35 @@ const chartDoc = ComponentDoc(
   slug: 'chart',
   title: 'Chart',
   category: ComponentCategory.charts,
-  description: 'Charts drawn by hand: bars colored in with a marker, felt lines, pencil-shaded areas, pies, radars, dials, sparklines, tally marks and calendar heat maps. Real text on a real DOM, a keyboard cursor, a tooltip on a slip of paper, a legend that switches series off, a table for screen readers, and a pencil pattern on every series so color is never the only channel.',
+  description:
+      'Charts drawn by hand: bars colored in with a marker, felt lines, pencil-shaded areas, pies, radars, dials, sparklines, tally marks and calendar heat maps. Real text on a real DOM, a keyboard cursor, a tooltip on a slip of paper, a legend that switches series off, a table for screen readers, and a pencil pattern on every series so color is never the only channel.',
   status: ComponentStatus.isNew,
   upstream: 'chart',
   parts: [
     PartDoc(
       name: 'ChartContainer',
-      description: 'The frame around a chart and its legend and tooltip. Same job as shadcn\'s: it owns the config and puts the series colors on the frame as `--color-<key>` (a `theme` gives a light and a dark value). It also owns which series are switched off. The drawing is not recharts: every chart component in this file draws itself with the ink engine.',
+      description:
+          'The frame around a chart and its legend and tooltip. Same job as shadcn\'s: it owns the config and puts the series colors on the frame as `--color-<key>` (a `theme` gives a light and a dark value). It also owns which series are switched off. The drawing is not recharts: every chart component in this file draws itself with the ink engine.',
       props: [
         PropDoc(
           name: 'config',
           type: 'ChartConfig',
-          description: '`{ desktop: { label: \'Desktop\', color: \'var(--chart-1)\' } }`. A key\'s position is its palette slot (`--chart-1` is the marker orange, then blue felt, green pencil, deep highlighter, grape). Add `pattern`, `marker` and `dash` to override the look a series gets.',
+          description:
+              '`{ desktop: { label: \'Desktop\', color: \'var(--chart-1)\' } }`. A key\'s position is its palette slot (`--chart-1` is the marker orange, then blue felt, green pencil, deep highlighter, grape). Add `pattern`, `marker` and `dash` to override the look a series gets.',
           required: true,
         ),
         PropDoc(
           name: 'patterns',
           type: 'boolean | "auto"',
           defaultValue: 'solid, patterns in forced colors',
-          description: 'Solid color by default. `"auto"` adds pencil patterns on filled marks and dashes on lines when there is more than one series, `true` always does. With no value, patterns switch on by themselves when the system forces its own colors.',
+          description:
+              'Solid color by default. `"auto"` adds pencil patterns on filled marks and dashes on lines when there is more than one series, `true` always does. With no value, patterns switch on by themselves when the system forces its own colors.',
         ),
         PropDoc(
           name: 'hiddenSeries',
           type: 'string[]',
-          description: 'Series (or slices) switched off, controlled. The legend buttons toggle them.',
+          description:
+              'Series (or slices) switched off, controlled. The legend buttons toggle them.',
         ),
         PropDoc(
           name: 'defaultHiddenSeries',
@@ -43,13 +48,15 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'initialDimension',
           type: '{ width: number; height: number }',
-          description: 'Draw at this size on the server and before the first measure, so the chart is part of the server HTML.',
+          description:
+              'Draw at this size on the server and before the first measure, so the chart is part of the server HTML.',
         ),
       ],
     ),
     PartDoc(
       name: 'ChartStyle',
-      description: 'The `<style>` that carries `--color-<key>` for each config entry (light and `.dark`). ChartContainer renders it for you.',
+      description:
+          'The `<style>` that carries `--color-<key>` for each config entry (light and `.dark`). ChartContainer renders it for you.',
       props: [
         PropDoc(
           name: 'id',
@@ -67,13 +74,15 @@ const chartDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ChartTooltip',
-      description: 'Switches the tooltip on. It renders nothing itself: the chart draws the tooltip inside its own box, where the point is, and keeps it in view. Hover, touch and the arrow keys all move it.',
+      description:
+          'Switches the tooltip on. It renders nothing itself: the chart draws the tooltip inside its own box, where the point is, and keeps it in view. Hover, touch and the arrow keys all move it.',
       props: [
         PropDoc(
           name: 'content',
           type: 'ReactElement',
           defaultValue: '<ChartTooltipContent />',
-          description: 'Cloned with `active`, `payload` and `label`. Any component that takes those works.',
+          description:
+              'Cloned with `active`, `payload` and `label`. Any component that takes those works.',
         ),
         PropDoc(
           name: 'defaultIndex',
@@ -85,19 +94,22 @@ const chartDoc = ComponentDoc(
           name: 'cursor',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Kept for shadcn parity. The highlighter behind a column and the ring on a point are part of the drawing.',
+          description:
+              'Kept for shadcn parity. The highlighter behind a column and the ring on a point are part of the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'ChartTooltipContent',
-      description: 'The slip of paper: a label in the script font and one row per series with a swatch that matches the drawing (color, pattern, marker). Same props as shadcn\'s; the payload is recharts-shaped so an existing `formatter` keeps working.',
+      description:
+          'The slip of paper: a label in the script font and one row per series with a swatch that matches the drawing (color, pattern, marker). Same props as shadcn\'s; the payload is recharts-shaped so an existing `formatter` keeps working.',
       props: [
         PropDoc(
           name: 'indicator',
           type: '"dot" | "line" | "dashed"',
           defaultValue: '"dot"',
-          description: 'The swatch: a chip (a line swatch for line series), a narrow bar, or a dashed rule.',
+          description:
+              'The swatch: a chip (a line swatch for line series), a narrow bar, or a dashed rule.',
         ),
         PropDoc(
           name: 'hideLabel',
@@ -141,7 +153,8 @@ const chartDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ChartLegend',
-      description: 'The key of the chart in this container. Place it before (`verticalAlign="top"`) or after the chart. It shows the series the chart registered, with the very swatches the drawing uses.',
+      description:
+          'The key of the chart in this container. Place it before (`verticalAlign="top"`) or after the chart. It shows the series the chart registered, with the very swatches the drawing uses.',
       props: [
         PropDoc(
           name: 'content',
@@ -164,13 +177,15 @@ const chartDoc = ComponentDoc(
           name: 'toggle',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Entries are buttons (aria-pressed) that switch a series off and on. `false` makes a plain key.',
+          description:
+              'Entries are buttons (aria-pressed) that switch a series off and on. `false` makes a plain key.',
         ),
       ],
     ),
     PartDoc(
       name: 'ChartLegendContent',
-      description: 'The default legend body; same props as ChartLegend without `content`. `hideIcon` drops the config icon or swatch.',
+      description:
+          'The default legend body; same props as ChartLegend without `content`. `hideIcon` drops the config icon or swatch.',
       props: [
         PropDoc(
           name: 'hideIcon',
@@ -182,7 +197,8 @@ const chartDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ChartSwatch',
-      description: 'The little chip of a legend or tooltip row: the series\' marker fill, its pencil pattern, in a tiny felt box (`line` draws a line sample with its marker and dash).',
+      description:
+          'The little chip of a legend or tooltip row: the series\' marker fill, its pencil pattern, in a tiny felt box (`line` draws a line sample with its marker and dash).',
       props: [
         PropDoc(
           name: 'palette',
@@ -210,7 +226,8 @@ const chartDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ChartCenterLabel',
-      description: 'The words in the hole of a donut or radial chart: a big number in the script font and a small caption. `centerLabel` takes one, a node, or a function of the total and the slice under the cursor.',
+      description:
+          'The words in the hole of a donut or radial chart: a big number in the script font and a small caption. `centerLabel` takes one, a node, or a function of the total and the slice under the cursor.',
       props: [
         PropDoc(
           name: 'value',
@@ -227,34 +244,40 @@ const chartDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'BarChart',
-      description: 'Bars: single, grouped, stacked or sideways, with negative values hanging below the line. Bars are filled edge to edge in solid color, with a steady felt outline rounded at the far end. The highest bar can be circled by hand.',
+      description:
+          'Bars: single, grouped, stacked or sideways, with negative values hanging below the line. Bars are filled edge to edge in solid color, with a steady felt outline rounded at the far end. The highest bar can be circled by hand.',
       props: [
         PropDoc(
           name: 'horizontal',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Bars run sideways, categories down the left (ignored when a series is not a bar).',
+          description:
+              'Bars run sideways, categories down the left (ignored when a series is not a bar).',
         ),
         PropDoc(
           name: 'layout',
           type: '"horizontal" | "vertical"',
-          description: 'recharts\' name for the same thing: "vertical" runs the bars sideways.',
+          description:
+              'recharts\' name for the same thing: "vertical" runs the bars sideways.',
         ),
         PropDoc(
           name: 'data',
           type: 'Record<string, unknown>[]',
-          description: 'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
+          description:
+              'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
           required: true,
         ),
         PropDoc(
           name: 'xKey',
           type: 'string',
-          description: 'The category key (a scatter\'s x number). Default: the first key whose value is text.',
+          description:
+              'The category key (a scatter\'s x number). Default: the first key whose value is text.',
         ),
         PropDoc(
           name: 'series',
           type: 'string[]',
-          description: 'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
+          description:
+              'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
         ),
         PropDoc(
           name: 'kinds',
@@ -265,28 +288,33 @@ const chartDoc = ComponentDoc(
           name: 'stacked',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
+          description:
+              'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
         ),
         PropDoc(
           name: 'curve',
           type: '"smooth" | "linear" | "step"',
           defaultValue: '"smooth"',
-          description: 'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
+          description:
+              'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
         ),
         PropDoc(
           name: 'yDomain',
           type: '[number | "auto", number | "auto"]',
-          description: 'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
+          description:
+              'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
         ),
         PropDoc(
           name: 'zero',
           type: 'boolean',
-          description: 'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
+          description:
+              'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
         ),
         PropDoc(
           name: 'xFormatter',
           type: '(value: unknown, index: number) => string',
-          description: 'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
+          description:
+              'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
         ),
         PropDoc(
           name: 'yFormatter',
@@ -297,19 +325,22 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'valueFormatter',
           type: '(value: number) => string',
-          description: 'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
+          description:
+              'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
         ),
         PropDoc(
           name: 'dots',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
+          description:
+              'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
         ),
         PropDoc(
           name: 'showValues',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
+          description:
+              'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
         ),
         PropDoc(
           name: 'showGrid',
@@ -326,17 +357,20 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'annotations',
           type: 'ChartAnnotation[]',
-          description: 'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
+          description:
+              'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
         ),
         PropDoc(
           name: 'references',
           type: 'ChartReference[]',
-          description: 'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
+          description:
+              'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
         ),
         PropDoc(
           name: 'highlights',
           type: 'ChartHighlight[]',
-          description: 'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
+          description:
+              'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
         ),
         PropDoc(
           name: 'label',
@@ -369,7 +403,8 @@ const chartDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
+          description:
+              'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
         ),
         PropDoc(
           name: 'seed',
@@ -379,7 +414,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'accessibilityLayer',
           type: 'boolean',
-          description: 'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
+          description:
+              'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
         ),
         PropDoc(
           name: 'onActiveChange',
@@ -397,29 +433,34 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'LineChart',
-      description: 'A felt line per series, with a marker shape and a dash pattern each so lines survive grayscale. Gaps in the data break the line. Long series keep their peaks and dips.',
+      description:
+          'A felt line per series, with a marker shape and a dash pattern each so lines survive grayscale. Gaps in the data break the line. Long series keep their peaks and dips.',
       props: [
         PropDoc(
           name: 'data',
           type: 'Record<string, unknown>[]',
-          description: 'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
+          description:
+              'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
           required: true,
         ),
         PropDoc(
           name: 'xKey',
           type: 'string',
-          description: 'The category key (a scatter\'s x number). Default: the first key whose value is text.',
+          description:
+              'The category key (a scatter\'s x number). Default: the first key whose value is text.',
         ),
         PropDoc(
           name: 'series',
           type: 'string[]',
-          description: 'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
+          description:
+              'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
         ),
         PropDoc(
           name: 'kinds',
@@ -430,28 +471,33 @@ const chartDoc = ComponentDoc(
           name: 'stacked',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
+          description:
+              'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
         ),
         PropDoc(
           name: 'curve',
           type: '"smooth" | "linear" | "step"',
           defaultValue: '"smooth"',
-          description: 'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
+          description:
+              'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
         ),
         PropDoc(
           name: 'yDomain',
           type: '[number | "auto", number | "auto"]',
-          description: 'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
+          description:
+              'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
         ),
         PropDoc(
           name: 'zero',
           type: 'boolean',
-          description: 'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
+          description:
+              'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
         ),
         PropDoc(
           name: 'xFormatter',
           type: '(value: unknown, index: number) => string',
-          description: 'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
+          description:
+              'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
         ),
         PropDoc(
           name: 'yFormatter',
@@ -462,19 +508,22 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'valueFormatter',
           type: '(value: number) => string',
-          description: 'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
+          description:
+              'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
         ),
         PropDoc(
           name: 'dots',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
+          description:
+              'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
         ),
         PropDoc(
           name: 'showValues',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
+          description:
+              'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
         ),
         PropDoc(
           name: 'showGrid',
@@ -491,17 +540,20 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'annotations',
           type: 'ChartAnnotation[]',
-          description: 'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
+          description:
+              'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
         ),
         PropDoc(
           name: 'references',
           type: 'ChartReference[]',
-          description: 'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
+          description:
+              'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
         ),
         PropDoc(
           name: 'highlights',
           type: 'ChartHighlight[]',
-          description: 'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
+          description:
+              'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
         ),
         PropDoc(
           name: 'label',
@@ -534,7 +586,8 @@ const chartDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
+          description:
+              'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
         ),
         PropDoc(
           name: 'seed',
@@ -544,7 +597,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'accessibilityLayer',
           type: 'boolean',
-          description: 'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
+          description:
+              'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
         ),
         PropDoc(
           name: 'onActiveChange',
@@ -562,29 +616,34 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'AreaChart',
-      description: 'Lines with the space under them washed in the series color and shaded in pencil. Stack them with `stacked`.',
+      description:
+          'Lines with the space under them washed in the series color and shaded in pencil. Stack them with `stacked`.',
       props: [
         PropDoc(
           name: 'data',
           type: 'Record<string, unknown>[]',
-          description: 'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
+          description:
+              'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
           required: true,
         ),
         PropDoc(
           name: 'xKey',
           type: 'string',
-          description: 'The category key (a scatter\'s x number). Default: the first key whose value is text.',
+          description:
+              'The category key (a scatter\'s x number). Default: the first key whose value is text.',
         ),
         PropDoc(
           name: 'series',
           type: 'string[]',
-          description: 'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
+          description:
+              'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
         ),
         PropDoc(
           name: 'kinds',
@@ -595,28 +654,33 @@ const chartDoc = ComponentDoc(
           name: 'stacked',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
+          description:
+              'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
         ),
         PropDoc(
           name: 'curve',
           type: '"smooth" | "linear" | "step"',
           defaultValue: '"smooth"',
-          description: 'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
+          description:
+              'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
         ),
         PropDoc(
           name: 'yDomain',
           type: '[number | "auto", number | "auto"]',
-          description: 'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
+          description:
+              'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
         ),
         PropDoc(
           name: 'zero',
           type: 'boolean',
-          description: 'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
+          description:
+              'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
         ),
         PropDoc(
           name: 'xFormatter',
           type: '(value: unknown, index: number) => string',
-          description: 'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
+          description:
+              'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
         ),
         PropDoc(
           name: 'yFormatter',
@@ -627,19 +691,22 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'valueFormatter',
           type: '(value: number) => string',
-          description: 'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
+          description:
+              'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
         ),
         PropDoc(
           name: 'dots',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
+          description:
+              'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
         ),
         PropDoc(
           name: 'showValues',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
+          description:
+              'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
         ),
         PropDoc(
           name: 'showGrid',
@@ -656,17 +723,20 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'annotations',
           type: 'ChartAnnotation[]',
-          description: 'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
+          description:
+              'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
         ),
         PropDoc(
           name: 'references',
           type: 'ChartReference[]',
-          description: 'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
+          description:
+              'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
         ),
         PropDoc(
           name: 'highlights',
           type: 'ChartHighlight[]',
-          description: 'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
+          description:
+              'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
         ),
         PropDoc(
           name: 'label',
@@ -699,7 +769,8 @@ const chartDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
+          description:
+              'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
         ),
         PropDoc(
           name: 'seed',
@@ -709,7 +780,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'accessibilityLayer',
           type: 'boolean',
-          description: 'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
+          description:
+              'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
         ),
         PropDoc(
           name: 'onActiveChange',
@@ -727,13 +799,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'ScatterChart',
-      description: 'Points on two number lines, one marker shape per series; a `sizeKey` turns them into bubbles. Up to 600 points are drawn; the tooltip finds the nearest point.',
+      description:
+          'Points on two number lines, one marker shape per series; a `sizeKey` turns them into bubbles. Up to 600 points are drawn; the tooltip finds the nearest point.',
       props: [
         PropDoc(
           name: 'sizeKey',
@@ -743,18 +817,21 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'data',
           type: 'Record<string, unknown>[]',
-          description: 'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
+          description:
+              'One row per category (per point for a scatter). Very long data is thinned (bars are averaged into at most 240 bins, fewer with several series so a chart never draws more than 480 bars; lines keep 1,500 points chosen to keep their shape) and the summary says so.',
           required: true,
         ),
         PropDoc(
           name: 'xKey',
           type: 'string',
-          description: 'The category key (a scatter\'s x number). Default: the first key whose value is text.',
+          description:
+              'The category key (a scatter\'s x number). Default: the first key whose value is text.',
         ),
         PropDoc(
           name: 'series',
           type: 'string[]',
-          description: 'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
+          description:
+              'Keys to draw, in stacking order. Default: the numeric keys named in the container\'s config, else the numeric keys of the data.',
         ),
         PropDoc(
           name: 'kinds',
@@ -765,28 +842,33 @@ const chartDoc = ComponentDoc(
           name: 'stacked',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
+          description:
+              'Stack bars (or areas). Positive values stack up from zero, negative ones down.',
         ),
         PropDoc(
           name: 'curve',
           type: '"smooth" | "linear" | "step"',
           defaultValue: '"smooth"',
-          description: 'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
+          description:
+              'How lines and areas join their points. Smooth is monotone: it never overshoots a peak.',
         ),
         PropDoc(
           name: 'yDomain',
           type: '[number | "auto", number | "auto"]',
-          description: 'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
+          description:
+              'Pin the value axis. `auto` picks a tidy end (0, 50, 100...). Bars and areas always include zero unless `zero` is false.',
         ),
         PropDoc(
           name: 'zero',
           type: 'boolean',
-          description: 'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
+          description:
+              'Whether the value axis includes zero. Default: yes for bars and areas, no for lines.',
         ),
         PropDoc(
           name: 'xFormatter',
           type: '(value: unknown, index: number) => string',
-          description: 'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
+          description:
+              'Text of a category on the axis ("January" to "Jan"). The tooltip and the table keep the full value.',
         ),
         PropDoc(
           name: 'yFormatter',
@@ -797,19 +879,22 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'valueFormatter',
           type: '(value: number) => string',
-          description: 'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
+          description:
+              'Text of the numbers on bars, in the tooltip, the summary and the table. Default: 1,234.',
         ),
         PropDoc(
           name: 'dots',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
+          description:
+              'Point markers on lines: drawn when there are few points and room for them. Each series has its own marker shape.',
         ),
         PropDoc(
           name: 'showValues',
           type: 'boolean | "auto"',
           defaultValue: '"auto"',
-          description: 'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
+          description:
+              'Numbers on top of bars: drawn when they fit (wide enough, not stacked).',
         ),
         PropDoc(
           name: 'showGrid',
@@ -826,17 +911,20 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'annotations',
           type: 'ChartAnnotation[]',
-          description: 'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
+          description:
+              'Hand-circled call-outs: `{ at, series?, text, pen?, shape?, dx?, dy? }`. `at` is max, min, first, last, a category label or an index. `pen`: red, blue, ink, green. `shape`: loop, underline, none.',
         ),
         PropDoc(
           name: 'references',
           type: 'ChartReference[]',
-          description: 'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
+          description:
+              'Dashed goal lines: `{ y, label?, pen? }` (a scatter also takes `{ x }`).',
         ),
         PropDoc(
           name: 'highlights',
           type: 'ChartHighlight[]',
-          description: 'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
+          description:
+              'A stretch of categories marked with a highlighter: `{ from, to, text? }` (labels or indices). It is part of the spoken summary.',
         ),
         PropDoc(
           name: 'label',
@@ -869,7 +957,8 @@ const chartDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
+          description:
+              'Wipe the chart on once when it first appears. Reduced motion skips it; a redraw with new data never replays it.',
         ),
         PropDoc(
           name: 'seed',
@@ -879,7 +968,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'accessibilityLayer',
           type: 'boolean',
-          description: 'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
+          description:
+              'Accepted so shadcn\'s markup keeps working; the keyboard cursor, live region and data table are always on.',
         ),
         PropDoc(
           name: 'onActiveChange',
@@ -897,13 +987,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'PieChart',
-      description: 'Slices colored in with a marker, outlined in felt, each with its own pencil pattern and a percentage round the outside. Arrow keys walk the slices; the legend switches them off.',
+      description:
+          'Slices colored in with a marker, outlined in felt, each with its own pencil pattern and a percentage round the outside. Arrow keys walk the slices; the legend switches them off.',
       props: [
         PropDoc(
           name: 'data',
@@ -914,7 +1006,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'nameKey',
           type: 'string',
-          description: 'The key that names a slice and finds its config entry. Default: the first key with text.',
+          description:
+              'The key that names a slice and finds its config entry. Default: the first key with text.',
         ),
         PropDoc(
           name: 'valueKey',
@@ -942,7 +1035,8 @@ const chartDoc = ComponentDoc(
         ),
         PropDoc(
           name: 'centerLabel',
-          type: 'ReactNode | { value, label } | (info: { total, active }) => ReactNode',
+          type:
+              'ReactNode | { value, label } | (info: { total, active }) => ReactNode',
           description: 'Text in the hole.',
         ),
         PropDoc(
@@ -997,13 +1091,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'DonutChart',
-      description: 'A PieChart with a hole (`innerRadius` 0.58) for a number in the middle.',
+      description:
+          'A PieChart with a hole (`innerRadius` 0.58) for a number in the middle.',
       props: [
         PropDoc(
           name: 'innerRadius',
@@ -1063,13 +1159,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'RadarChart',
-      description: 'A pencil web with a washed and shaded shape per series. The spokes are the keyboard stops.',
+      description:
+          'A pencil web with a washed and shaded shape per series. The spokes are the keyboard stops.',
       props: [
         PropDoc(
           name: 'data',
@@ -1090,7 +1188,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'max',
           type: 'number',
-          description: 'The value at the rim. Default: a tidy number above the largest value.',
+          description:
+              'The value at the rim. Default: a tidy number above the largest value.',
         ),
         PropDoc(
           name: 'levels',
@@ -1157,13 +1256,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'RadialChart',
-      description: 'Concentric arcs in pale tracks: one ring per row, filled to its value. Ring names sit in the open quadrant.',
+      description:
+          'Concentric arcs in pale tracks: one ring per row, filled to its value. Ring names sit in the open quadrant.',
       props: [
         PropDoc(
           name: 'data',
@@ -1240,13 +1341,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'Gauge',
-      description: 'A dial: marker zones (each with a pencil pattern) and a red felt needle, or a single colored arc. `role="meter"` with a value, a minimum, a maximum and a text, so assistive tech reads it. The children are the text under the pivot.',
+      description:
+          'A dial: marker zones (each with a pencil pattern) and a red felt needle, or a single colored arc. `role="meter"` with a value, a minimum, a maximum and a text, so assistive tech reads it. The children are the text under the pivot.',
       props: [
         PropDoc(
           name: 'value',
@@ -1262,7 +1365,8 @@ const chartDoc = ComponentDoc(
         ),
         PropDoc(
           name: 'zones',
-          type: '{ to: number; tone?: \'good\' | \'warn\' | \'bad\' | \'info\' | \'brand\' | number }[]',
+          type:
+              '{ to: number; tone?: \'good\' | \'warn\' | \'bad\' | \'info\' | \'brand\' | number }[]',
           description: 'Colored stretches from the minimum up.',
         ),
         PropDoc(
@@ -1296,13 +1400,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'Sparkline',
-      description: 'One felt pull and a red dot at the end, a shaded area, or a row of marker bars, at 112 x 40 px unless you size it. A picture with a spoken summary; `interactive` makes it a chart with a cursor and a tooltip.',
+      description:
+          'One felt pull and a red dot at the end, a shaded area, or a row of marker bars, at 112 x 40 px unless you size it. A picture with a spoken summary; `interactive` makes it a chart with a cursor and a tooltip.',
       props: [
         PropDoc(
           name: 'data',
@@ -1353,13 +1459,15 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'TallyChart',
-      description: 'Counts as hand-tallied marks: four uprights and a slash across for every five, in the color of the row. When a row is too long for the width each mark stands for more, and the chart says so.',
+      description:
+          'Counts as hand-tallied marks: four uprights and a slash across for every five, in the color of the row. When a row is too long for the width each mark stands for more, and the chart says so.',
       props: [
         PropDoc(
           name: 'data',
@@ -1425,18 +1533,21 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),
     PartDoc(
       name: 'Heatmap',
-      description: 'Squares colored in shades of one marker: a calendar (weeks across, weekdays down, month names on top) or a grid of your own rows and columns. Arrow keys move over the cells: left and right by week, up and down by day.',
+      description:
+          'Squares colored in shades of one marker: a calendar (weeks across, weekdays down, month names on top) or a grid of your own rows and columns. Arrow keys move over the cells: left and right by week, up and down by day.',
       props: [
         PropDoc(
           name: 'data',
           type: 'Record<string, unknown>[]',
-          description: 'Calendar: rows with a date and a value. Grid: rows with a row name, a column name and a value.',
+          description:
+              'Calendar: rows with a date and a value. Grid: rows with a row name, a column name and a value.',
           required: true,
         ),
         PropDoc(
@@ -1455,7 +1566,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'weeks / end / weekStart',
           type: 'number / string | Date / 0 | 1',
-          description: 'Weeks shown, the last day, and whether weeks start on Sunday (0) or Monday (1).',
+          description:
+              'Weeks shown, the last day, and whether weeks start on Sunday (0) or Monday (1).',
         ),
         PropDoc(
           name: 'rowKey / colKey / rows / cols',
@@ -1471,7 +1583,8 @@ const chartDoc = ComponentDoc(
         PropDoc(
           name: 'slot / series',
           type: 'number / string',
-          description: 'Palette slot, or the config key whose color to use. Default the green pencil.',
+          description:
+              'Palette slot, or the config key whose color to use. Default the green pencil.',
         ),
         PropDoc(
           name: 'unit',
@@ -1531,7 +1644,8 @@ const chartDoc = ComponentDoc(
           name: 'config / tooltip / legend / className',
           type:
               'ChartConfig / boolean / boolean | \'top\' | \'bottom\' / string',
-          description: 'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
+          description:
+              'Only when used on its own, without a ChartContainer: it wraps itself in one. Inside a container, className sizes the drawing.',
         ),
       ],
     ),

@@ -79,7 +79,8 @@ const profilePageProfile = ProfilePageProfile(
   place: 'Lisbon',
   joined: 'March 2024',
   website: 'jo.looseleaf.example',
-  bio: 'I write in the margins. Letterpress on weekends, tea all week, and a running argument with a dead author about semicolons.',
+  bio:
+      'I write in the margins. Letterpress on weekends, tea all week, and a running argument with a dead author about semicolons.',
   followers: 312,
   following: 148,
   topics: ['Letterpress', 'Recipes', 'Margins', 'Tea'],

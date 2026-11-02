@@ -5,11 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/menu/menu.dart';
 
 /// Builds a row from whether it is highlighted and shows the focus bar.
-typedef InkMenuRowBuilder = Widget Function(
-  BuildContext context,
-  bool highlighted,
-  bool focusVisible,
-);
+typedef InkMenuRowBuilder =
+    Widget Function(
+      BuildContext context,
+      bool highlighted,
+      bool focusVisible,
+    );
 
 /// The behaviour every menu row shares, like Radix's `MenuItemImpl`: it
 /// joins its slip's [InkMenuLevel] (for the arrows and typeahead), is

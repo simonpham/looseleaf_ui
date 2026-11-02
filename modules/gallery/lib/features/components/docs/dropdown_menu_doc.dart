@@ -5,13 +5,15 @@ const dropdownMenuDoc = ComponentDoc(
   slug: 'dropdown-menu',
   title: 'Dropdown Menu',
   category: ComponentCategory.overlays,
-  description: 'A menu written on a slip of paper that drops from a button. The row under the pointer or the keyboard wears the highlighter, a ticked row is a pencil box with a felt-tip tick over it, shortcuts are drawn keycaps, and a destructive row hatches in red pencil instead. Sub-menus, typeahead and focus handling are Radix\'s.',
+  description:
+      'A menu written on a slip of paper that drops from a button. The row under the pointer or the keyboard wears the highlighter, a ticked row is a pencil box with a felt-tip tick over it, shortcuts are drawn keycaps, and a destructive row hatches in red pencil instead. Sub-menus, typeahead and focus handling are Radix\'s.',
   status: ComponentStatus.stable,
   upstream: 'dropdown-menu',
   parts: [
     PartDoc(
       name: 'DropdownMenu',
-      description: 'The Radix root: `open`, `defaultOpen`, `onOpenChange`, `modal`, `dir`.',
+      description:
+          'The Radix root: `open`, `defaultOpen`, `onOpenChange`, `modal`, `dir`.',
     ),
     PartDoc(
       name: 'DropdownMenuTrigger',
@@ -23,7 +25,8 @@ const dropdownMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DropdownMenuContent',
-      description: 'The slip: a Paper that is also the Radix content (role=menu). A CSS sheet with no SVG unless a torn edge is asked for. Rows scroll in a viewport inside it, never the slip, so its shadow and tape are not cut. `max-h-*`, `overflow-*` and `overscroll-*` in `className` are applied to that viewport (shadcn code writes them on the content), the rest stays on the slip. Every Radix Content prop passes through (`side`, `align`, `sideOffset`, `collisionPadding`...).',
+      description:
+          'The slip: a Paper that is also the Radix content (role=menu). A CSS sheet with no SVG unless a torn edge is asked for. Rows scroll in a viewport inside it, never the slip, so its shadow and tape are not cut. `max-h-*`, `overflow-*` and `overscroll-*` in `className` are applied to that viewport (shadcn code writes them on the content), the rest stays on the slip. Every Radix Content prop passes through (`side`, `align`, `sideOffset`, `collisionPadding`...).',
       props: [
         PropDoc(
           name: 'sideOffset',
@@ -36,7 +39,8 @@ const dropdownMenuDoc = ComponentDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"slip"',
-          description: 'What it is made of: slip, paper, kraft, sticky-*, index-card ...',
+          description:
+              'What it is made of: slip, paper, kraft, sticky-*, index-card ...',
         ),
         PropDoc(
           name: 'edge',
@@ -82,7 +86,8 @@ const dropdownMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DropdownMenuItem',
-      description: 'A row. It is not an ink host: the highlighter is a CSS background, so a plain row costs one element. (A ticked row carries two small icons, about 4 KB of markup: for a list of hundreds to choose from, reach for Command or Combobox.)',
+      description:
+          'A row. It is not an ink host: the highlighter is a CSS background, so a plain row costs one element. (A ticked row carries two small icons, about 4 KB of markup: for a list of hundreds to choose from, reach for Command or Combobox.)',
       props: [
         PropDoc(
           name: 'inset',
@@ -95,12 +100,14 @@ const dropdownMenuDoc = ComponentDoc(
           name: 'variant',
           type: '"default" | "destructive"',
           defaultValue: '"default"',
-          description: 'Destructive is red, and its highlight is a red pencil hatch (a pattern, not only a hue).',
+          description:
+              'Destructive is red, and its highlight is a red pencil hatch (a pattern, not only a hue).',
         ),
         PropDoc(
           name: 'onSelect',
           type: '(event: Event) => void',
-          description: 'Runs when it is chosen; call `event.preventDefault()` to keep the menu open.',
+          description:
+              'Runs when it is chosen; call `event.preventDefault()` to keep the menu open.',
         ),
         PropDoc(
           name: 'disabled',
@@ -113,7 +120,8 @@ const dropdownMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DropdownMenuCheckboxItem',
-      description: 'A toggle row: a pencil box at the start, ticked in blue felt (written on) when `checked`.',
+      description:
+          'A toggle row: a pencil box at the start, ticked in blue felt (written on) when `checked`.',
       props: [
         PropDoc(
           name: 'checked',
@@ -147,11 +155,13 @@ const dropdownMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DropdownMenuSeparator',
-      description: 'A pencil rule between groups (the Separator component, so it is hand-drawn).',
+      description:
+          'A pencil rule between groups (the Separator component, so it is hand-drawn).',
     ),
     PartDoc(
       name: 'DropdownMenuShortcut',
-      description: 'Keys at the end of a row. A string is drawn as keycaps: `⌘S` is two keys, `⇧⌘P` three (`⌘` is the drawn command glyph), `Ctrl+K` two, `F2` one. Anything that is not a string is put in as it is.',
+      description:
+          'Keys at the end of a row. A string is drawn as keycaps: `⌘S` is two keys, `⇧⌘P` three (`⌘` is the drawn command glyph), `Ctrl+K` two, `F2` one. Anything that is not a string is put in as it is.',
     ),
     PartDoc(
       name: 'DropdownMenuSub',
@@ -160,7 +170,8 @@ const dropdownMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DropdownMenuSubTrigger',
-      description: 'The row that opens it, with a hand-drawn chevron. It keeps the highlighter while its sub-menu is open.',
+      description:
+          'The row that opens it, with a hand-drawn chevron. It keeps the highlighter while its sub-menu is open.',
       props: [
         PropDoc(
           name: 'inset',
@@ -173,7 +184,8 @@ const dropdownMenuDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DropdownMenuSubContent',
-      description: 'The sub-menu\'s own slip, set down beside its row with its first row level with the one that opened it (`alignOffset` -4, the slip\'s padding). Takes the same paper props as the content.',
+      description:
+          'The sub-menu\'s own slip, set down beside its row with its first row level with the one that opened it (`alignOffset` -4, the slip\'s padding). Takes the same paper props as the content.',
     ),
   ],
   a11y: [

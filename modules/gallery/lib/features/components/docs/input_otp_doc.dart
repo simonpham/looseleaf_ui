@@ -5,13 +5,15 @@ const inputOtpDoc = ComponentDoc(
   slug: 'input-otp',
   title: 'Input OTP',
   category: ComponentCategory.forms,
-  description: 'A one-time code as a row of separate hand-drawn boxes. The box that takes the next character wears the blue ring and a blinking pencil stroke; typed characters are written in script; a wrong code turns the boxes red. Underneath is one real input (the input-otp package), so paste, SMS autofill, password managers and the mobile keyboard just work.',
+  description:
+      'A one-time code as a row of separate hand-drawn boxes. The box that takes the next character wears the blue ring and a blinking pencil stroke; typed characters are written in script; a wrong code turns the boxes red. Underneath is one real input (the input-otp package), so paste, SMS autofill, password managers and the mobile keyboard just work.',
   status: ComponentStatus.stable,
   upstream: 'input-otp',
   parts: [
     PartDoc(
       name: 'InputOTP',
-      description: 'The code input: `OTPInput` from the input-otp package. All its props work (`maxLength`, `value` / `onChange`, `onComplete`, `pattern`, `pasteTransformer`, `inputMode`, `autoComplete`, `disabled`, `name`, `required`...). It is a text input with `autocomplete="one-time-code"` and a numeric keyboard by default. The boxes are its children.',
+      description:
+          'The code input: `OTPInput` from the input-otp package. All its props work (`maxLength`, `value` / `onChange`, `onComplete`, `pattern`, `pasteTransformer`, `inputMode`, `autoComplete`, `disabled`, `name`, `required`...). It is a text input with `autocomplete="one-time-code"` and a numeric keyboard by default. The boxes are its children.',
       props: [
         PropDoc(
           name: 'maxLength',
@@ -22,33 +24,39 @@ const inputOtpDoc = ComponentDoc(
         PropDoc(
           name: 'invalid',
           type: 'boolean',
-          description: 'Red pencil boxes (also set by `aria-invalid`, which is put on the input too).',
+          description:
+              'Red pencil boxes (also set by `aria-invalid`, which is put on the input too).',
         ),
         PropDoc(
           name: 'pasteTransformer',
           type: '(pasted: string) => string',
           defaultValue: 'drops spaces and hyphens',
-          description: 'Cleans what is pasted before `pattern` looks at it, so "123 456" or "123-456" from an email fills the row (the package would refuse the whole paste). Pass `(t) => t` to switch it off.',
+          description:
+              'Cleans what is pasted before `pattern` looks at it, so "123 456" or "123-456" from an email fills the row (the package would refuse the whole paste). Pass `(t) => t` to switch it off.',
         ),
         PropDoc(
           name: 'pattern',
           type: 'string',
-          description: 'A regular expression the code must match: `REGEXP_ONLY_DIGITS`, `REGEXP_ONLY_CHARS` and `REGEXP_ONLY_DIGITS_AND_CHARS` are re-exported from this file.',
+          description:
+              'A regular expression the code must match: `REGEXP_ONLY_DIGITS`, `REGEXP_ONLY_CHARS` and `REGEXP_ONLY_DIGITS_AND_CHARS` are re-exported from this file.',
         ),
         PropDoc(
           name: 'containerClassName',
           type: 'string',
-          description: 'Classes for the row around the boxes (default: `flex flex-nowrap gap-3`, at most as wide as its parent). Add `w-full justify-center` to center it, `flex-wrap` if you would rather it broke into rows.',
+          description:
+              'Classes for the row around the boxes (default: `flex flex-nowrap gap-3`, at most as wide as its parent). Add `w-full justify-center` to center it, `flex-wrap` if you would rather it broke into rows.',
         ),
       ],
     ),
     PartDoc(
       name: 'InputOTPGroup',
-      description: 'A run of slots: separate boxes with a small gap (upstream\'s are joined into one bar). On a narrow screen the groups shrink (`min-w-0`) and the boxes narrow to as little as 24 px, so six boxes and a dash stay on one row from 390 px down to about 220 px.',
+      description:
+          'A run of slots: separate boxes with a small gap (upstream\'s are joined into one bar). On a narrow screen the groups shrink (`min-w-0`) and the boxes narrow to as little as 24 px, so six boxes and a dash stay on one row from 390 px down to about 220 px.',
     ),
     PartDoc(
       name: 'InputOTPSlot',
-      description: 'One box of the code, `index` says which character it shows. A small ink host with its own hand: pencil when empty, fine-liner once it holds a character; the slot with the caret gets the blue ring (drawn for that one slot only) and a blinking pencil I-beam (a CSS mask, not ink); each typed character pops in, after the first keystroke, never at load.',
+      description:
+          'One box of the code, `index` says which character it shows. A small ink host with its own hand: pencil when empty, fine-liner once it holds a character; the slot with the caret gets the blue ring (drawn for that one slot only) and a blinking pencil I-beam (a CSS mask, not ink); each typed character pops in, after the first keystroke, never at load.',
       props: [
         PropDoc(
           name: 'index',
@@ -66,7 +74,8 @@ const inputOtpDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'InputOTPSeparator',
-      description: 'The dash between two groups: a short hand-drawn minus, `role="separator"`.',
+      description:
+          'The dash between two groups: a short hand-drawn minus, `role="separator"`.',
     ),
   ],
   a11y: [

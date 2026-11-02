@@ -5,29 +5,34 @@ const annotateDoc = ComponentDoc(
   slug: 'annotate',
   title: 'Annotate',
   category: ComponentCategory.marks,
-  description: 'One component for every mark, in the spirit of RoughNotation: put a highlight, an underline, a circle, a box, brackets, a strike, a cross-out or a scribble on real words, and draw it on when it scrolls into view.',
+  description:
+      'One component for every mark, in the spirit of RoughNotation: put a highlight, an underline, a circle, a box, brackets, a strike, a cross-out or a scribble on real words, and draw it on when it scrolls into view.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Annotate',
-      description: 'Renders the matching mark (Highlight, Underline, Circled, Strike or Scribble) for `type`, so every behavior of those applies: the words stay text, the drawing is aria-hidden and follows line breaks, and `animate` writes it on the first time it scrolls into view.',
+      description:
+          'Renders the matching mark (Highlight, Underline, Circled, Strike or Scribble) for `type`, so every behavior of those applies: the words stay text, the drawing is aria-hidden and follows line breaks, and `animate` writes it on the first time it scrolls into view.',
       props: [
         PropDoc(
           name: 'type',
-          type: '"highlight" | "underline" | "circle" | "box" | "brackets" | "strike-through" | "crossed-off" | "scribble"',
+          type:
+              '"highlight" | "underline" | "circle" | "box" | "brackets" | "strike-through" | "crossed-off" | "scribble"',
           description: 'Which mark to put on the words.',
           required: true,
         ),
         PropDoc(
           name: 'color',
           type: 'HighlightTone | MarkPen',
-          description: 'For highlight: yellow, pink, green, blue, orange, lilac or teal. For everything else: ink, blue, red, green, pencil, marker or orange.',
+          description:
+              'For highlight: yellow, pink, green, blue, orange, lilac or teal. For everything else: ink, blue, red, green, pencil, marker or orange.',
         ),
         PropDoc(
           name: 'weight',
           type: '"fine" | "regular" | "brush"',
           defaultValue: '"regular"',
-          description: 'Fine-liner, felt tip or brush pen (a highlighter is held light, regular or heavy).',
+          description:
+              'Fine-liner, felt tip or brush pen (a highlighter is held light, regular or heavy).',
         ),
         PropDoc(
           name: 'kind',
@@ -39,13 +44,15 @@ const annotateDoc = ComponentDoc(
           name: 'show',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Show or hide the mark. With animate, turning it on plays the draw-on again.',
+          description:
+              'Show or hide the mark. With animate, turning it on plays the draw-on again.',
         ),
         PropDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Hold the mark back and draw it on the first time the words scroll into view. Reduced motion just shows it.',
+          description:
+              'Hold the mark back and draw it on the first time the words scroll into view. Reduced motion just shows it.',
         ),
         PropDoc(
           name: 'delay',
@@ -55,7 +62,8 @@ const annotateDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand. Default: derived from useId(), so server and client draw the same marks.',
+          description:
+              'Pins the hand. Default: derived from useId(), so server and client draw the same marks.',
         ),
       ],
     ),

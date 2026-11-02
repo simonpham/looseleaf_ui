@@ -65,7 +65,8 @@ class Save extends StatelessWidget {
         const HowStep(
           number: 2,
           title: 'Wrap your app in LooseleafTheme',
-          text: 'It hands every widget below it the colors, the fonts and the density.',
+          text:
+              'It hands every widget below it the colors, the fonts and the density.',
         ),
         const HowStep(
           number: 3,
@@ -109,7 +110,8 @@ class Save extends StatelessWidget {
     );
     return DeskSection(
       title: 'How it works',
-      lede: 'One package, one theme, and the widgets you already know from shadcn/ui.',
+      lede:
+          'One package, one theme, and the widgets you already know from shadcn/ui.',
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth < sideBySideFrom) {

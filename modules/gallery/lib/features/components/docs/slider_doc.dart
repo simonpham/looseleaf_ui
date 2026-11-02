@@ -5,18 +5,21 @@ const sliderDoc = ComponentDoc(
   slug: 'slider',
   title: 'Slider',
   category: ComponentCategory.forms,
-  description: 'Pick a number, or two, by dragging a paper knob along a hand-ruled groove. The range is one marker pass drawn full length and revealed by a CSS clip, so nothing is redrawn while you drag. Ticks, a highlighter or blue-felt range, vertical, and range sliders. Radix Slider underneath.',
+  description:
+      'Pick a number, or two, by dragging a paper knob along a hand-ruled groove. The range is one marker pass drawn full length and revealed by a CSS clip, so nothing is redrawn while you drag. Ticks, a highlighter or blue-felt range, vertical, and range sliders. Radix Slider underneath.',
   status: ComponentStatus.stable,
   upstream: 'slider',
   parts: [
     PartDoc(
       name: 'Slider',
-      description: 'Radix Slider.Root with the track, range and one thumb per value already inside. Give it one value for a plain slider, two or more for a range slider. The three drawings are separate hosts, and the range host is clipped to the values (the drawing never sees them).',
+      description:
+          'Radix Slider.Root with the track, range and one thumb per value already inside. Give it one value for a plain slider, two or more for a range slider. The three drawings are separate hosts, and the range host is clipped to the values (the drawing never sees them).',
       props: [
         PropDoc(
           name: 'value / defaultValue / onValueChange / onValueCommit',
           type: 'number[]',
-          description: 'Controlled or uncontrolled values. The number of values is the number of thumbs. Without either, one thumb at `min`.',
+          description:
+              'Controlled or uncontrolled values. The number of values is the number of thumbs. Without either, one thumb at `min`.',
         ),
         PropDoc(
           name: 'min / max / step',
@@ -40,48 +43,57 @@ const sliderDoc = ComponentDoc(
         PropDoc(
           name: 'ticks',
           type: 'boolean | number',
-          description: 'Pencil tick marks hanging under the groove: `true` marks every step when there are 20 or fewer, else ten intervals; a number is that many intervals. The end marks are longer.',
+          description:
+              'Pencil tick marks hanging under the groove: `true` marks every step when there are 20 or fewer, else ten intervals; a number is that many intervals. The end marks are longer.',
         ),
         PropDoc(
           name: 'getValueText',
           type: '(value: number, index: number) => string',
-          description: 'aria-valuetext of each thumb: what a screen reader says instead of the bare number ("12 px", "72 %", "Soft"). Use it whenever you show the value with a unit next to the slider.',
+          description:
+              'aria-valuetext of each thumb: what a screen reader says instead of the bare number ("12 px", "72 %", "Soft"). Use it whenever you show the value with a unit next to the slider.',
         ),
         PropDoc(
           name: 'tone',
           type: '"marker" | "hi" | "blue"',
           defaultValue: '"marker"',
-          description: 'What colors the range: terracotta marker, highlighter or blue felt.',
+          description:
+              'What colors the range: terracotta marker, highlighter or blue felt.',
         ),
         PropDoc(
           name: 'inverted / dir',
           type: 'boolean / "ltr" | "rtl"',
-          description: 'Reverse the direction the values grow in; right-to-left starts at the right.',
+          description:
+              'Reverse the direction the values grow in; right-to-left starts at the right.',
         ),
         PropDoc(
           name: 'disabled',
           type: 'boolean',
-          description: 'Dashed pencil groove, graphite range and a dashed knob. Not focusable.',
+          description:
+              'Dashed pencil groove, graphite range and a dashed knob. Not focusable.',
         ),
         PropDoc(
           name: 'name / form',
           type: 'string',
-          description: 'Names the hidden inputs Radix adds inside a form (one per thumb, `name[]` for a range).',
+          description:
+              'Names the hidden inputs Radix adds inside a form (one per thumb, `name[]` for a range).',
         ),
         PropDoc(
           name: 'aria-label / aria-labelledby / aria-describedby',
           type: 'string',
-          description: 'Names and describes the slider: on the thumb for one value, on a role=group Root for several (thumbs keep Radix\'s Minimum / Maximum).',
+          description:
+              'Names and describes the slider: on the thumb for one value, on a role=group Root for several (thumbs keep Radix\'s Minimum / Maximum).',
         ),
         PropDoc(
           name: 'aria-invalid',
           type: 'boolean | "true" | "false"',
-          description: 'On every thumb (that is where the role=slider is), and the groove\'s two pulls and the knob\'s loop are drawn in red pencil. FormControl sets it for you.',
+          description:
+              'On every thumb (that is where the role=slider is), and the groove\'s two pulls and the knob\'s loop are drawn in red pencil. FormControl sets it for you.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same slider. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same slider. Default: derived from useId().',
         ),
       ],
     ),

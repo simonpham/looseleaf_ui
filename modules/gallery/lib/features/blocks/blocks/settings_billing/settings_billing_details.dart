@@ -57,7 +57,8 @@ class _SettingsBillingDetailsState extends State<SettingsBillingDetails> {
       } on Object catch (error) {
         setState(
           () => _failure = switch ('$error') {
-            '' => 'The details were not saved. Nothing was lost, so try again in a moment.',
+            '' =>
+              'The details were not saved. Nothing was lost, so try again in a moment.',
             final message => message,
           },
         );

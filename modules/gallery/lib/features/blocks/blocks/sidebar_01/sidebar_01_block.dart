@@ -28,7 +28,8 @@ class Sidebar01Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'The margin is empty',
                   pose: 'write',
-                  description: 'Nothing scribbled here yet. Pick another page from the pad, or grab a pencil and start one.',
+                  description:
+                      'Nothing scribbled here yet. Pick another page from the pad, or grab a pencil and start one.',
                 ),
               ],
             ),

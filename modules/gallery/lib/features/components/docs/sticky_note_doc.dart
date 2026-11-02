@@ -5,12 +5,14 @@ const stickyNoteDoc = ComponentDoc(
   slug: 'sticky-note',
   title: 'Sticky note',
   category: ComponentCategory.paper,
-  description: 'A square of colored paper with a gum band, turned a little more than a page. Five pads, any size, written in marker. It can curl a corner, hang from a pin or a strip of tape, and grow a tick box that is ticked with a felt pen.',
+  description:
+      'A square of colored paper with a gum band, turned a little more than a page. Five pads, any size, written in marker. It can curl a corner, hang from a pin or a strip of tape, and grow a tick box that is ticked with a felt pen.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'StickyNote',
-      description: 'A Paper on a sticky stock: 11 rem wide and at least 10 rem tall by default, padded under the gum band, set in the script font. Its sheet is CSS, so it resizes freely and a wall of them draws no SVG.',
+      description:
+          'A Paper on a sticky stock: 11 rem wide and at least 10 rem tall by default, padded under the gum band, set in the script font. Its sheet is CSS, so it resizes freely and a wall of them draws no SVG.',
       props: [
         PropDoc(
           name: 'color',
@@ -21,24 +23,28 @@ const stickyNoteDoc = ComponentDoc(
         PropDoc(
           name: 'done',
           type: 'boolean',
-          description: 'Passing it adds a pencil tick box in the top corner (mirrored in RTL). `true` writes the tick with a felt pen and strikes the content; a note that loads done does not replay the tick. Leave it out for a plain note.',
+          description:
+              'Passing it adds a pencil tick box in the top corner (mirrored in RTL). `true` writes the tick with a felt pen and strikes the content; a note that loads done does not replay the tick. Leave it out for a plain note.',
         ),
         PropDoc(
           name: 'onDoneChange',
           type: '(done: boolean) => void',
-          description: 'Makes the tick box a real control: a `role="checkbox"` button (32 px, over the drawn box) that asks for the opposite of `done` on click or Space. `done` stays yours (controlled). Without it the box only shows the state.',
+          description:
+              'Makes the tick box a real control: a `role="checkbox"` button (32 px, over the drawn box) that asks for the opposite of `done` on click or Space. `done` stays yours (controlled). Without it the box only shows the state.',
         ),
         PropDoc(
           name: 'doneLabel',
           type: 'string',
           defaultValue: '"Done"',
-          description: 'What a screen reader says for a done note (visually hidden text before the content), and the name of the tick box when it is a control: make it say which note (`Design: done`) when a board has several.',
+          description:
+              'What a screen reader says for a done note (visually hidden text before the content), and the name of the tick box when it is a control: make it say which note (`Design: done`) when a board has several.',
         ),
         PropDoc(
           name: 'curl',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Lift the bottom-right corner (draws the sheet as SVG: use it for a few, not a hundred).',
+          description:
+              'Lift the bottom-right corner (draws the sheet as SVG: use it for a few, not a hundred).',
         ),
         PropDoc(
           name: 'fastener / tape / tapeKind',
@@ -49,13 +55,15 @@ const stickyNoteDoc = ComponentDoc(
         PropDoc(
           name: 'tilt / seed / shadow / edge',
           type: 'Paper props',
-          description: 'Stickies turn up to 1.6 degrees; seed pins the hand. A torn or deckled edge works too.',
+          description:
+              'Stickies turn up to 1.6 degrees; seed pins the hand. A torn or deckled edge works too.',
         ),
       ],
     ),
     PartDoc(
       name: 'StickyNoteTitle',
-      description: 'The first word says what the note is: 27 px bold script, leading none.',
+      description:
+          'The first word says what the note is: 27 px bold script, leading none.',
     ),
     PartDoc(
       name: 'StickyNoteContent',

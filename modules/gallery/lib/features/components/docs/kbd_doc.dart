@@ -5,29 +5,34 @@ const kbdDoc = ComponentDoc(
   slug: 'kbd',
   title: 'Kbd',
   category: ComponentCategory.typography,
-  description: 'A keyboard key, drawn in pencil as a little keycap with a shaded thickness that presses flat under your finger. Used inline, in groups, in tooltips and in menus.',
+  description:
+      'A keyboard key, drawn in pencil as a little keycap with a shaded thickness that presses flat under your finger. Used inline, in groups, in tooltips and in menus.',
   status: ComponentStatus.stable,
   upstream: 'kbd',
   parts: [
     PartDoc(
       name: 'Kbd',
-      description: 'A <kbd> element with a pencil keycap behind its label. (Unlike shadcn\'s it is not pointer-events-none, so that pressing it can sink the cap.) The label is real text in the hand font; the drawing is measured from the element and uses the text color, so it is graphite on paper and takes its color from whatever it sits in. While the pointer is down on it, or while you set data-pressed, the thickness disappears and the cap sinks onto its base.',
+      description:
+          'A <kbd> element with a pencil keycap behind its label. (Unlike shadcn\'s it is not pointer-events-none, so that pressing it can sink the cap.) The label is real text in the hand font; the drawing is measured from the element and uses the text color, so it is graphite on paper and takes its color from whatever it sits in. While the pointer is down on it, or while you set data-pressed, the thickness disappears and the cap sinks onto its base.',
       props: [
         PropDoc(
           name: 'data-pressed',
           type: 'boolean',
-          description: 'Draw the key as held down. Set it from your own key handlers to show what the user is pressing.',
+          description:
+              'Draw the key as held down. Set it from your own key handlers to show what the user is pressing.',
         ),
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same keycap, also across remounts. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same keycap, also across remounts. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'KbdGroup',
-      description: 'An inline group of keys with a small gap, for a shortcut such as Ctrl + K. Like upstream it is a <kbd> containing <kbd>s, which is how HTML says "this key combination".',
+      description:
+          'An inline group of keys with a small gap, for a shortcut such as Ctrl + K. Like upstream it is a <kbd> containing <kbd>s, which is how HTML says "this key combination".',
     ),
   ],
   a11y: [

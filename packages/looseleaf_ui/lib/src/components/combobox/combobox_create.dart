@@ -6,10 +6,11 @@ import 'package:looseleaf_ui/src/components/icon/icon.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds the create row's text from the typed [text].
-typedef ComboboxCreateBuilder = Widget Function(
-  BuildContext context,
-  String text,
-);
+typedef ComboboxCreateBuilder =
+    Widget Function(
+      BuildContext context,
+      String text,
+    );
 
 /// A blue "Create “…”" row shown when the typed text matches no item;
 /// choosing it calls [onCreate] and takes the text as the value.

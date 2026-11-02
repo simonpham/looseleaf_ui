@@ -27,7 +27,8 @@ class Sidebar06Block extends StatelessWidget {
                 SidebarPageNote(
                   title: 'Pick a section',
                   pose: 'point',
-                  description: 'Each heading on the pad opens a small menu of its pages. Choose one and it lands here.',
+                  description:
+                      'Each heading on the pad opens a small menu of its pages. Choose one and it lands here.',
                 ),
               ],
             ),

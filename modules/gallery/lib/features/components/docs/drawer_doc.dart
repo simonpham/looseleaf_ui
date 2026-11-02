@@ -5,13 +5,15 @@ const drawerDoc = ComponentDoc(
   slug: 'drawer',
   title: 'Drawer',
   category: ComponentCategory.overlays,
-  description: 'A slip of paper you pull up from the bottom of the screen (or in from any edge), built on vaul. From the bottom it is torn off a pad along its top edge with a strip of tape as the grab tab; drag it, flick it away, or give it snap points.',
+  description:
+      'A slip of paper you pull up from the bottom of the screen (or in from any edge), built on vaul. From the bottom it is torn off a pad along its top edge with a strip of tape as the grab tab; drag it, flick it away, or give it snap points.',
   status: ComponentStatus.stable,
   upstream: 'drawer',
   parts: [
     PartDoc(
       name: 'Drawer',
-      description: 'The root (vaul): `open`, `onOpenChange`, `direction`, `snapPoints`, `activeSnapPoint`, `setActiveSnapPoint`, `dismissible`, `shouldScaleBackground`, `autoFocus`, `modal`.',
+      description:
+          'The root (vaul): `open`, `onOpenChange`, `direction`, `snapPoints`, `activeSnapPoint`, `setActiveSnapPoint`, `dismissible`, `shouldScaleBackground`, `autoFocus`, `modal`.',
     ),
     PartDoc(
       name: 'DrawerTrigger',
@@ -28,13 +30,15 @@ const drawerDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'DrawerContent',
-      description: 'The slip: a Paper that is also the vaul drawer. The drag transform vaul writes lands on the sheet, its shadow and the tape together.',
+      description:
+          'The slip: a Paper that is also the vaul drawer. The drag transform vaul writes lands on the sheet, its shadow and the tape together.',
       props: [
         PropDoc(
           name: 'tapeKind',
           type: 'TapeKind',
           defaultValue: '"kraft"',
-          description: 'The grab tab\'s tape (bottom drawers only): kraft, masking, clear or a washi pattern.',
+          description:
+              'The grab tab\'s tape (bottom drawers only): kraft, masking, clear or a washi pattern.',
         ),
         PropDoc(
           name: 'tapeColor',

@@ -5,18 +5,21 @@ const comboboxDoc = ComponentDoc(
   slug: 'combobox',
   title: 'Combobox',
   category: ComponentCategory.forms,
-  description: 'A field you can search. Press it and a command list opens on a slip; type to narrow it, arrow keys and Enter to choose. It can be the single-select of the shadcn docs, an editable field, or a multi-select whose choices are hand-drawn hang-tags you can take back; it can offer to create what you typed and wait for results from a server.',
+  description:
+      'A field you can search. Press it and a command list opens on a slip; type to narrow it, arrow keys and Enter to choose. It can be the single-select of the shadcn docs, an editable field, or a multi-select whose choices are hand-drawn hang-tags you can take back; it can offer to create what you typed and wait for results from a server.',
   status: ComponentStatus.stable,
   upstream: 'combobox',
   parts: [
     PartDoc(
       name: 'Combobox',
-      description: 'The root. Holds the value, the open state and the search text, and wraps its children in a cmdk `Command` with no box of its own, so the search input can live in the list or in the field. **Deviation from upstream:** shadcn\'s new Combobox is built on base-ui; this one is Popover + Command (cmdk) + a field, the recipe shadcn documented before base-ui. The part names are the same where they make sense. Values are strings (the item\'s `value`), not objects; the label of an item is its text (or `label`, or the `items` you give the root); the search field is a child of `ComboboxContent`, not of the trigger; `ComboboxCollection` takes plain `items` (no `Group items`); `ComboboxChips` draws one tag per chosen value itself, so upstream\'s `<ComboboxValue>{(values) => values.map(...)}</ComboboxValue>` becomes `renderChip` (or nothing).',
+      description:
+          'The root. Holds the value, the open state and the search text, and wraps its children in a cmdk `Command` with no box of its own, so the search input can live in the list or in the field. **Deviation from upstream:** shadcn\'s new Combobox is built on base-ui; this one is Popover + Command (cmdk) + a field, the recipe shadcn documented before base-ui. The part names are the same where they make sense. Values are strings (the item\'s `value`), not objects; the label of an item is its text (or `label`, or the `items` you give the root); the search field is a child of `ComboboxContent`, not of the trigger; `ComboboxCollection` takes plain `items` (no `Group items`); `ComboboxChips` draws one tag per chosen value itself, so upstream\'s `<ComboboxValue>{(values) => values.map(...)}</ComboboxValue>` becomes `renderChip` (or nothing).',
       props: [
         PropDoc(
           name: 'value / defaultValue / onValueChange',
           type: 'string | null  |  string[] (multiple)',
-          description: 'One value, or an array with `multiple`. `value={null}` is a controlled, empty single-select.',
+          description:
+              'One value, or an array with `multiple`. `value={null}` is a controlled, empty single-select.',
         ),
         PropDoc(
           name: 'multiple',
@@ -28,7 +31,8 @@ const comboboxDoc = ComponentDoc(
         PropDoc(
           name: 'items',
           type: '(string | { value, label?, disabled?, keywords? })[]',
-          description: 'Optional. Gives every value its label while the list is closed (a trigger or tag can show it before any row was mounted) and feeds a render-function `ComboboxList`.',
+          description:
+              'Optional. Gives every value its label while the list is closed (a trigger or tag can show it before any row was mounted) and feeds a render-function `ComboboxList`.',
         ),
         PropDoc(
           name: 'open / defaultOpen / onOpenChange',
@@ -43,18 +47,21 @@ const comboboxDoc = ComponentDoc(
         PropDoc(
           name: 'shouldFilter / filter / loop',
           type: '',
-          description: 'cmdk\'s: `shouldFilter={false}` to filter yourself (a server search), `filter` for your own scoring, `loop` to wrap the arrow keys.',
+          description:
+              'cmdk\'s: `shouldFilter={false}` to filter yourself (a server search), `filter` for your own scoring, `loop` to wrap the arrow keys.',
         ),
         PropDoc(
           name: 'loading',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Results are on their way: `ComboboxEmpty` waits so a search in flight is not answered with \'no results\'.',
+          description:
+              'Results are on their way: `ComboboxEmpty` waits so a search in flight is not answered with \'no results\'.',
         ),
         PropDoc(
           name: 'name',
           type: 'string',
-          description: 'Hidden inputs, one per chosen value, for forms (one empty one when nothing is chosen). A form reset puts an uncontrolled combobox back to its `defaultValue`, like a native input (a controlled one is yours to reset).',
+          description:
+              'Hidden inputs, one per chosen value, for forms (one empty one when nothing is chosen). A form reset puts an uncontrolled combobox back to its `defaultValue`, like a native input (a controlled one is yours to reset).',
         ),
         PropDoc(
           name: 'disabled / invalid',
@@ -65,29 +72,34 @@ const comboboxDoc = ComponentDoc(
           name: 'readOnly',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'The value is shown (and submitted) but the list will not open and nothing can be chosen, removed or cleared. `aria-readonly` on the trigger, `readonly` on the input, disabled remove buttons on the tags.',
+          description:
+              'The value is shown (and submitted) but the list will not open and nothing can be chosen, removed or cleared. `aria-readonly` on the trigger, `readonly` on the input, disabled remove buttons on the tags.',
         ),
         PropDoc(
           name: 'required',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'A form will not submit while nothing is chosen. (A hidden input is exempt from form validation, so an invisible empty field does the failing; it sends the focus to the combobox. `aria-required` is set on the trigger or the input.)',
+          description:
+              'A form will not submit while nothing is chosen. (A hidden input is exempt from form validation, so an invisible empty field does the failing; it sends the focus to the combobox. `aria-required` is set on the trigger or the input.)',
         ),
         PropDoc(
           name: 'label',
           type: 'string',
-          description: 'Accessible name of the list and of the dialog it sits in. Give it: without it a chips field or an editable input has no name.',
+          description:
+              'Accessible name of the list and of the dialog it sits in. Give it: without it a chips field or an editable input has no name.',
         ),
         PropDoc(
           name: 'announce',
           type: 'false | ({ added, removed }) => string',
-          description: '`multiple` only: what the polite status says when values are added or removed ("Astro selected", "Astro removed"). Translate it, or `false` for none.',
+          description:
+              '`multiple` only: what the polite status says when values are added or removed ("Astro selected", "Astro removed"). Translate it, or `false` for none.',
         ),
       ],
     ),
     PartDoc(
       name: 'ComboboxTrigger',
-      description: 'The field you press: a `<button role="combobox">` in the select trigger\'s pencil box with `chevrons-up-down` at its end. ArrowDown / ArrowUp / Enter / Space open the list. Put a ComboboxValue in it (that is the default child).',
+      description:
+          'The field you press: a `<button role="combobox">` in the select trigger\'s pencil box with `chevrons-up-down` at its end. ArrowDown / ArrowUp / Enter / Space open the list. Put a ComboboxValue in it (that is the default child).',
       props: [
         PropDoc(
           name: 'seed',
@@ -99,7 +111,8 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxValue',
-      description: 'What is chosen, as text: the label(s), comma separated, in blue felt, or the `placeholder` in graphite. A function child gets `(value, labelFor)` to draw it yourself (`n selected`).',
+      description:
+          'What is chosen, as text: the label(s), comma separated, in blue felt, or the `placeholder` in graphite. A function child gets `(value, labelFor)` to draw it yourself (`n selected`).',
       props: [
         PropDoc(
           name: 'placeholder',
@@ -110,18 +123,21 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxContent',
-      description: 'The slip the list sits on: a Popover as wide as the field (the paper carries `data-slot="popover-content"`, with `data-slot="combobox-content"` on the box inside). It takes the PopoverContent props (`side`, `align`, `sideOffset`, `pin`, `tape`, `stock`...). When the field is its own search box the focus stays in the field.',
+      description:
+          'The slip the list sits on: a Popover as wide as the field (the paper carries `data-slot="popover-content"`, with `data-slot="combobox-content"` on the box inside). It takes the PopoverContent props (`side`, `align`, `sideOffset`, `pin`, `tape`, `stock`...). When the field is its own search box the focus stays in the field.',
       props: [
         PropDoc(
           name: 'anchor',
           type: 'RefObject<Element>',
-          description: 'Line the list up with another element (from `useComboboxAnchor`).',
+          description:
+              'Line the list up with another element (from `useComboboxAnchor`).',
         ),
       ],
     ),
     PartDoc(
       name: 'ComboboxInput',
-      description: 'Two things, by where it is. Inside `ComboboxContent`: the search box of the list (magnifier, blue felt text, a rule drawn under it). On its own, under `Combobox`: the field itself, an editable single-select that shows the chosen label until you type, opens as you type and puts the label back if you close without choosing.',
+      description:
+          'Two things, by where it is. Inside `ComboboxContent`: the search box of the list (magnifier, blue felt text, a rule drawn under it). On its own, under `Combobox`: the field itself, an editable single-select that shows the chosen label until you type, opens as you type and puts the label back if you close without choosing.',
       props: [
         PropDoc(
           name: 'showTrigger',
@@ -133,17 +149,20 @@ const comboboxDoc = ComponentDoc(
           name: 'showClear',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Field mode: a small x that empties the field once something is chosen.',
+          description:
+              'Field mode: a small x that empties the field once something is chosen.',
         ),
       ],
     ),
     PartDoc(
       name: 'ComboboxList',
-      description: 'The scrolling list (`role=listbox`, named by the root\'s `label`). A function child draws one row per item of the root\'s `items`.',
+      description:
+          'The scrolling list (`role=listbox`, named by the root\'s `label`). A function child draws one row per item of the root\'s `items`.',
     ),
     PartDoc(
       name: 'ComboboxCollection',
-      description: 'As upstream: one child per item, from its own `items` or the root\'s (`{(item) => <ComboboxItem value={item.value}>{item.label}</ComboboxItem>}`). It renders no element (cmdk sorts rows inside their group, and a wrapper would be in the way).',
+      description:
+          'As upstream: one child per item, from its own `items` or the root\'s (`{(item) => <ComboboxItem value={item.value}>{item.label}</ComboboxItem>}`). It renders no element (cmdk sorts rows inside their group, and a wrapper would be in the way).',
       props: [
         PropDoc(
           name: 'items',
@@ -154,7 +173,8 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxItem',
-      description: 'One choice. `value` is what the combobox stores; the label is the text inside (or `label`); both are searched (plus `keywords`). The chosen row ends in a blue tick and says \'selected\' to screen readers. Choosing in a single combobox closes the list.',
+      description:
+          'One choice. `value` is what the combobox stores; the label is the text inside (or `label`); both are searched (plus `keywords`). The chosen row ends in a blue tick and says \'selected\' to screen readers. Choosing in a single combobox closes the list.',
       props: [
         PropDoc(
           name: 'value',
@@ -165,7 +185,8 @@ const comboboxDoc = ComponentDoc(
         PropDoc(
           name: 'label',
           type: 'string',
-          description: 'The text of the row for filtering and for the trigger, when the children are not a plain string.',
+          description:
+              'The text of the row for filtering and for the trigger, when the children are not a plain string.',
         ),
         PropDoc(
           name: 'keywords',
@@ -176,7 +197,8 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxGroup',
-      description: 'cmdk Group: `heading` names the group for screen readers; a group with no match hides itself.',
+      description:
+          'cmdk Group: `heading` names the group for screen readers; a group with no match hides itself.',
     ),
     PartDoc(
       name: 'ComboboxLabel',
@@ -188,7 +210,8 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxEmpty',
-      description: 'What shows when nothing matches: Stubby with his magnifier and your words. Hidden while `loading`.',
+      description:
+          'What shows when nothing matches: Stubby with his magnifier and your words. Hidden while `loading`.',
       props: [
         PropDoc(
           name: 'mascot',
@@ -200,11 +223,13 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxLoading',
-      description: 'Cursive loops and your words, for results on their way (render it while `loading`).',
+      description:
+          'Cursive loops and your words, for results on their way (render it while `loading`).',
     ),
     PartDoc(
       name: 'ComboboxCreate',
-      description: 'The last row when what is typed is not one of the items: \'Create "text"\'. Choosing it calls `onCreate(text)` (add it to your list there) and then chooses the text.',
+      description:
+          'The last row when what is typed is not one of the items: \'Create "text"\'. Choosing it calls `onCreate(text)` (add it to your list there) and then chooses the text.',
       props: [
         PropDoc(
           name: 'onCreate',
@@ -221,13 +246,15 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxChips',
-      description: 'The field of a `multiple` combobox: a pencil box that holds one removable tag per chosen value and the input. Click anywhere in it to type; Backspace in the empty input takes the last tag back. It is the anchor of the list.',
+      description:
+          'The field of a `multiple` combobox: a pencil box that holds one removable tag per chosen value and the input. Click anywhere in it to type; Backspace in the empty input takes the last tag back. It is the anchor of the list.',
       props: [
         PropDoc(
           name: 'tone',
           type: '"hi" | "sky" | "grass" | "bubblegum" | "auto"',
           defaultValue: '"hi"',
-          description: 'Color of the tags; `auto` gives each value its own, from its text.',
+          description:
+              'Color of the tags; `auto` gives each value its own, from its text.',
         ),
         PropDoc(
           name: 'renderChip',
@@ -238,12 +265,14 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxChip',
-      description: 'One removable tag: a hang-tag drawn with its pointed end, a punched hole and a solid highlighter (or stationery-color) body, each a little different. The x is a real button named \'Remove <label>\' that wears the highlighter on hover.',
+      description:
+          'One removable tag: a hang-tag drawn with its pointed end, a punched hole and a solid highlighter (or stationery-color) body, each a little different. The x is a real button named \'Remove <label>\' that wears the highlighter on hover.',
       props: [
         PropDoc(
           name: 'value',
           type: 'string',
-          description: 'The value the x removes. Optional, as upstream: a text child is the value when this is not given.',
+          description:
+              'The value the x removes. Optional, as upstream: a text child is the value when this is not given.',
         ),
         PropDoc(
           name: 'tone',
@@ -265,11 +294,13 @@ const comboboxDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'ComboboxClear',
-      description: 'The x that empties the field (used by `ComboboxInput showClear`); place it yourself in a custom field.',
+      description:
+          'The x that empties the field (used by `ComboboxInput showClear`); place it yourself in a custom field.',
     ),
     PartDoc(
       name: 'useComboboxAnchor',
-      description: 'A ref for `ComboboxContent anchor`, as upstream. `ComboboxChips` and the field input register their own anchor.',
+      description:
+          'A ref for `ComboboxContent anchor`, as upstream. `ComboboxChips` and the field input register their own anchor.',
     ),
   ],
   a11y: [

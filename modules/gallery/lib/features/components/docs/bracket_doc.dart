@@ -5,12 +5,14 @@ const bracketDoc = ComponentDoc(
   slug: 'bracket',
   title: 'Bracket',
   category: ComponentCategory.marks,
-  description: 'A hand bracket down one side of a block: these paragraphs, this list, these three rows belong together. Square, curly or round, on either side, and it flips with the page direction.',
+  description:
+      'A hand bracket down one side of a block: these paragraphs, this list, these three rows belong together. Square, curly or round, on either side, and it flips with the page direction.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Bracket',
-      description: 'A <div> that wraps the block and draws the bracket in its own inline padding (`ps-7` / `pe-7`) as an aria-hidden svg. The content is untouched.',
+      description:
+          'A <div> that wraps the block and draws the bracket in its own inline padding (`ps-7` / `pe-7`) as an aria-hidden svg. The content is untouched.',
       props: [
         PropDoc(
           name: 'kind',
@@ -23,11 +25,13 @@ const bracketDoc = ComponentDoc(
           name: 'side',
           type: '"start" | "end"',
           defaultValue: '"start"',
-          description: 'Which side of the block. Logical: start is the right side in a right-to-left page.',
+          description:
+              'Which side of the block. Logical: start is the right side in a right-to-left page.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"ink"',
           description: 'The pen.',
         ),
@@ -48,7 +52,8 @@ const bracketDoc = ComponentDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Draw the bracket on, top to bottom, the first time the block scrolls into view.',
+          description:
+              'Draw the bracket on, top to bottom, the first time the block scrolls into view.',
         ),
         PropDoc(
           name: 'show',

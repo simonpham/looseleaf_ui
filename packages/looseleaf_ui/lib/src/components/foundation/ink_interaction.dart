@@ -5,10 +5,11 @@ import 'package:looseleaf_ui/src/components/foundation/ink_hit_area.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 
 /// Builds a component from its current [InkState]s.
-typedef InkStatesBuilder = Widget Function(
-  BuildContext context,
-  Set<InkState> states,
-);
+typedef InkStatesBuilder =
+    Widget Function(
+      BuildContext context,
+      Set<InkState> states,
+    );
 
 /// Turns pointer, keyboard and focus input into the [InkState]s an
 /// [InkSurface] shows, the way upstream's CSS selectors read the DOM:

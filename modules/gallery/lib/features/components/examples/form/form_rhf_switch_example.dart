@@ -54,7 +54,8 @@ class _FormRhfSwitchExampleState extends State<FormRhfSwitchExample> {
                     name: 'twoFactor',
                     validator: (value) => switch (value) {
                       true => null,
-                      _ => 'It is highly recommended to enable two-factor authentication.',
+                      _ =>
+                        'It is highly recommended to enable two-factor authentication.',
                     },
                     builder: (context, field) {
                       final enabled = field.value ?? false;

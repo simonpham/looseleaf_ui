@@ -5,13 +5,15 @@ const fieldDoc = ComponentDoc(
   slug: 'field',
   title: 'Field',
   category: ComponentCategory.forms,
-  description: 'The words around a control: a label, help text and an error, stacked or in a row, grouped in sets with a legend. It is layout, so the only drawings are the wavy red pencil underline of an error and the hand-drawn card around a choice (a label that wraps a radio or checkbox with its own title and help).',
+  description:
+      'The words around a control: a label, help text and an error, stacked or in a row, grouped in sets with a legend. It is layout, so the only drawings are the wavy red pencil underline of an error and the hand-drawn card around a choice (a label that wraps a radio or checkbox with its own title and help).',
   status: ComponentStatus.stable,
   upstream: 'field',
   parts: [
     PartDoc(
       name: 'FieldSet',
-      description: 'A `<fieldset>` with a gap; tighter around radio and checkbox groups.',
+      description:
+          'A `<fieldset>` with a gap; tighter around radio and checkbox groups.',
     ),
     PartDoc(
       name: 'FieldLegend',
@@ -28,17 +30,20 @@ const fieldDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FieldGroup',
-      description: 'Stacks Fields with a gap and is the container that `responsive` Fields measure (`@container/field-group`).',
+      description:
+          'Stacks Fields with a gap and is the container that `responsive` Fields measure (`@container/field-group`).',
     ),
     PartDoc(
       name: 'Field',
-      description: 'One labeled thing: a role=group with the control, label, help and error in it. `data-invalid="true"` turns its words red; `data-disabled="true"` dims the label.',
+      description:
+          'One labeled thing: a role=group with the control, label, help and error in it. `data-invalid="true"` turns its words red; `data-disabled="true"` dims the label.',
       props: [
         PropDoc(
           name: 'orientation',
           type: '"vertical" | "horizontal" | "responsive"',
           defaultValue: '"vertical"',
-          description: 'Label above, label beside, or vertical until the FieldGroup is md wide (a container query).',
+          description:
+              'Label above, label beside, or vertical until the FieldGroup is md wide (a container query).',
         ),
       ],
     ),
@@ -49,12 +54,14 @@ const fieldDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FieldLabel',
-      description: 'A Label. When a direct child is a whole `Field` it turns into a choice card: a hand-drawn box that gets a highlighter wash and a felt outline when a control inside it is checked.',
+      description:
+          'A Label. When a direct child is a whole `Field` it turns into a choice card: a hand-drawn box that gets a highlighter wash and a felt outline when a control inside it is checked.',
       props: [
         PropDoc(
           name: 'card',
           type: 'boolean',
-          description: 'Force the choice-card drawing on or off (default: on when a direct child is a Field). Use it when the Field is wrapped in your own component.',
+          description:
+              'Force the choice-card drawing on or off (default: on when a direct child is a Field). Use it when the Field is wrapped in your own component.',
         ),
         PropDoc(
           name: 'seed',
@@ -65,7 +72,8 @@ const fieldDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FieldTitle',
-      description: 'A title that is not a label (`data-slot="field-label"`, as upstream) for the words inside a choice card.',
+      description:
+          'A title that is not a label (`data-slot="field-label"`, as upstream) for the words inside a choice card.',
     ),
     PartDoc(
       name: 'FieldDescription',
@@ -73,16 +81,19 @@ const fieldDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FieldSeparator',
-      description: 'A rule between fields; with children a labeled divider ("or"). Uses the pencil Separator.',
+      description:
+          'A rule between fields; with children a labeled divider ("or"). Uses the pencil Separator.',
     ),
     PartDoc(
       name: 'FieldError',
-      description: 'The message under a field, announced as an alert and underlined with a wavy red pencil line. Renders nothing when there is nothing to say.',
+      description:
+          'The message under a field, announced as an alert and underlined with a wavy red pencil line. Renders nothing when there is nothing to say.',
       props: [
         PropDoc(
           name: 'errors',
           type: 'Array<{ message?: string } | undefined>',
-          description: 'react-hook-form / zod style errors: one message is text, several a bullet list, duplicates once.',
+          description:
+              'react-hook-form / zod style errors: one message is text, several a bullet list, duplicates once.',
         ),
         PropDoc(
           name: 'children',

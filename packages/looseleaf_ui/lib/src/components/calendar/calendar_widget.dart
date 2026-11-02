@@ -19,11 +19,12 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds the content of [day]'s button in a [Calendar] around its
 /// [number], the date in script.
-typedef CalendarDayContentBuilder = Widget Function(
-  BuildContext context,
-  DateTime day,
-  Widget number,
-);
+typedef CalendarDayContentBuilder =
+    Widget Function(
+      BuildContext context,
+      DateTime day,
+      Widget number,
+    );
 
 /// A month on planner paper: the grid ruled by hand, the chosen day
 /// circled in marker, today underlined in felt, a range one highlighter

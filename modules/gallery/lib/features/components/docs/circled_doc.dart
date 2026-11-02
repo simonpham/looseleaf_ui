@@ -5,22 +5,26 @@ const circledDoc = ComponentDoc(
   slug: 'circled',
   title: 'Circled',
   category: ComponentCategory.marks,
-  description: 'A hand loop around a word or phrase: a circle that overshoots where it started, a box, or a pair of square brackets. It can be written on as it scrolls into view.',
+  description:
+      'A hand loop around a word or phrase: a circle that overshoots where it started, a box, or a pair of square brackets. It can be written on as it scrolls into view.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Circled',
-      description: 'A <span> (or your own element with asChild) that hosts ONE drawing for the whole phrase, in front of the words. For a phrase that wraps, prefer the box or the brackets.',
+      description:
+          'A <span> (or your own element with asChild) that hosts ONE drawing for the whole phrase, in front of the words. For a phrase that wraps, prefer the box or the brackets.',
       props: [
         PropDoc(
           name: 'shape',
           type: '"circle" | "box" | "brackets"',
           defaultValue: '"circle"',
-          description: 'A loop that overshoots, a hand box, or square brackets on both sides.',
+          description:
+              'A loop that overshoots, a hand box, or square brackets on both sides.',
         ),
         PropDoc(
           name: 'tone',
-          type: '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
+          type:
+              '"ink" | "blue" | "red" | "green" | "pencil" | "marker" | "orange"',
           defaultValue: '"ink"',
           description: 'The pen. Red felt is the teacher\'s circle.',
         ),
@@ -34,19 +38,22 @@ const circledDoc = ComponentDoc(
           name: 'bleed',
           type: 'number',
           defaultValue: '2',
-          description: 'How many px the mark stands off the writing, on every side (0 to 16). A loop already hugs one line of text, close enough to leave the words either side alone; raise it for a roomier ring, or for a mark that shares a line with a bigger neighbor.',
+          description:
+              'How many px the mark stands off the writing, on every side (0 to 16). A loop already hugs one line of text, close enough to leave the words either side alone; raise it for a roomier ring, or for a mark that shares a line with a bigger neighbor.',
         ),
         PropDoc(
           name: 'animate',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'Write the loop on, following the stroke, the first time it scrolls into view.',
+          description:
+              'Write the loop on, following the stroke, the first time it scrolls into view.',
         ),
         PropDoc(
           name: 'show',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Show or hide the mark. With animate, turning it on plays the draw-on.',
+          description:
+              'Show or hide the mark. With animate, turning it on plays the draw-on.',
         ),
         PropDoc(
           name: 'delay',

@@ -62,7 +62,8 @@ class _FormRhfSelectExampleState extends State<FormRhfSelectExample> {
                     name: 'language',
                     validator: (value) => switch (value) {
                       null || '' => 'Please select your spoken language.',
-                      'auto' => 'Auto-detection is not allowed. Please select a specific language.',
+                      'auto' =>
+                        'Auto-detection is not allowed. Please select a specific language.',
                       _ => null,
                     },
                     builder: (context, field) => Field(

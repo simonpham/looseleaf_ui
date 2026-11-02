@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:test/test.dart';
 
-final Map<String, dynamic> _fx = jsonDecode(
-  File('test/fixtures/paper_textures.json').readAsStringSync(),
-) as Map<String, dynamic>;
+final Map<String, dynamic> _fx =
+    jsonDecode(
+          File('test/fixtures/paper_textures.json').readAsStringSync(),
+        )
+        as Map<String, dynamic>;
 
 String _uri(String name) => '{tile:$name}';
 

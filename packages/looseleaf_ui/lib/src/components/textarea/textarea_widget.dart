@@ -12,11 +12,12 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Builds a [Textarea]'s counter from the text's [length] and the
 /// [maxLength], if any.
-typedef TextareaCountBuilder = Widget Function(
-  BuildContext context,
-  int length,
-  int? maxLength,
-);
+typedef TextareaCountBuilder =
+    Widget Function(
+      BuildContext context,
+      int length,
+      int? maxLength,
+    );
 
 /// A multiline text field: a pencil box that grows with what you write,
 /// optionally ruled like notebook paper, with a drawn resize grip and an

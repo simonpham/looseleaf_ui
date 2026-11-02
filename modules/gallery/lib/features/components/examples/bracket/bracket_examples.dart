@@ -12,14 +12,16 @@ const bracketExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Kinds and sides',
-    description: 'Square, curly and round; on the start side and the end side; in ink, blue and red.',
+    description:
+        'Square, curly and round; on the start side and the end side; in ink, blue and red.',
     layout: ExampleLayout.stack,
     source: 'bracket/bracket_kinds_and_sides_example.dart',
     builder: BracketKindsAndSidesExample.new,
   ),
   GalleryExample(
     title: 'Grouping list items',
-    description: 'A curly brace across three items with a note on the other side: the list is still a list.',
+    description:
+        'A curly brace across three items with a note on the other side: the list is still a list.',
     source: 'bracket/bracket_list_group_example.dart',
     builder: BracketListGroupExample.new,
   ),

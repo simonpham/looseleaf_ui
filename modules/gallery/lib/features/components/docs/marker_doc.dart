@@ -5,13 +5,15 @@ const markerDoc = ComponentDoc(
   slug: 'marker',
   title: 'Marker',
   category: ComponentCategory.chat,
-  description: 'The pencil line between two days of a conversation, the red one where you stopped reading, and the quiet note that someone joined. A separator, a border or a plain line of small print.',
+  description:
+      'The pencil line between two days of a conversation, the red one where you stopped reading, and the quiet note that someone joined. A separator, a border or a plain line of small print.',
   status: ComponentStatus.isNew,
   upstream: 'marker',
   parts: [
     PartDoc(
       name: 'Marker',
-      description: 'A flex row. `separator` pulls a pencil line on each side of the words; `border` pulls one under them; `default` is small print. The lines are aria-hidden drawings, so they never affect layout or the reading order.',
+      description:
+          'A flex row. `separator` pulls a pencil line on each side of the words; `border` pulls one under them; `default` is small print. The lines are aria-hidden drawings, so they never affect layout or the reading order.',
       props: [
         PropDoc(
           name: 'variant',
@@ -23,7 +25,8 @@ const markerDoc = ComponentDoc(
           name: 'tone',
           type: '"default" | "new"',
           defaultValue: '"default"',
-          description: '`new` pulls the lines in red pencil, sets the words bold on a highlighter swipe and reddens a MarkerIcon: the unread marker.',
+          description:
+              '`new` pulls the lines in red pencil, sets the words bold on a highlighter swipe and reddens a MarkerIcon: the unread marker.',
         ),
         PropDoc(
           name: 'rule',
@@ -40,11 +43,13 @@ const markerDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'MarkerIcon',
-      description: 'A 16 px slot for an Icon (aria-hidden). Red inside a `tone="new"` marker.',
+      description:
+          'A 16 px slot for an Icon (aria-hidden). Red inside a `tone="new"` marker.',
     ),
     PartDoc(
       name: 'MarkerContent',
-      description: 'The words. In a separator they are set in the script font at 20 px, like a date written in the margin.',
+      description:
+          'The words. In a separator they are set in the script font at 20 px, like a date written in the margin.',
     ),
   ],
   a11y: [

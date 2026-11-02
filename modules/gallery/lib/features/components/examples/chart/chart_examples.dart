@@ -5,7 +5,8 @@ import 'package:gallery/features/components/models/models.dart';
 const chartExamples = <GalleryExample>[
   GalleryExample(
     title: 'Bar chart',
-    description: 'Bars colored in with a marker that misses the outline a little, numbers on top, and the best day circled by hand. Hover or press the arrow keys: a highlighter lights the column and a slip of paper names it.',
+    description:
+        'Bars colored in with a marker that misses the outline a little, numbers on top, and the best day circled by hand. Hover or press the arrow keys: a highlighter lights the column and a slip of paper names it.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_chart_example.dart',
@@ -13,21 +14,24 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Grouped, stacked, sideways',
-    description: 'One dataset, four ways to lay it out. Each series keeps its color and its pencil pattern (hatching, dots, cross-hatching), so the bars stay apart in grayscale. Negative values hang below the line.',
+    description:
+        'One dataset, four ways to lay it out. Each series keeps its color and its pencil pattern (hatching, dots, cross-hatching), so the bars stay apart in grayscale. Negative values hang below the line.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_grouped_stacked_horizontal_example.dart',
     builder: ChartGroupedStackedHorizontalExample.new,
   ),
   GalleryExample(
     title: 'Line chart',
-    description: 'A felt line per series, with a marker shape and a dash pattern for each so lines survive black-and-white print. The legend switches series off; the tooltip follows the pointer and the arrow keys.',
+    description:
+        'A felt line per series, with a marker shape and a dash pattern for each so lines survive black-and-white print. The legend switches series off; the tooltip follows the pointer and the arrow keys.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_line_chart_example.dart',
     builder: ChartLineChartExample.new,
   ),
   GalleryExample(
     title: 'Area chart',
-    description: 'The space under the line is washed with the series color and shaded in pencil: hatching, dots, cross-hatching. Stacked areas add up; the tooltip lists every layer.',
+    description:
+        'The space under the line is washed with the series color and shaded in pencil: hatching, dots, cross-hatching. Stacked areas add up; the tooltip lists every layer.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_chart_example.dart',
@@ -35,28 +39,32 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Pie and donut',
-    description: "Slices colored in with a marker, separated by felt lines, each with its own pencil pattern. The donut's hole is real text: it shows the total, and the slice under the pointer or the arrow keys.",
+    description:
+        "Slices colored in with a marker, separated by felt lines, each with its own pencil pattern. The donut's hole is real text: it shows the total, and the slice under the pointer or the arrow keys.",
     layout: ExampleLayout.stack,
     source: 'chart/chart_pie_and_donut_example.dart',
     builder: ChartPieAndDonutExample.new,
   ),
   GalleryExample(
     title: 'Radar chart',
-    description: 'A pencil web with a washed and shaded shape per series. The spokes are the keyboard stops: arrow keys walk from axis to axis and the tooltip reads every series on that spoke.',
+    description:
+        'A pencil web with a washed and shaded shape per series. The spokes are the keyboard stops: arrow keys walk from axis to axis and the tooltip reads every series on that spoke.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_radar_chart_example.dart',
     builder: ChartRadarChartExample.new,
   ),
   GalleryExample(
     title: 'Radial bars and gauge',
-    description: 'Concentric arcs in pale tracks, one ring per row, and a dial with marker zones and a red felt needle. The gauge is a meter: assistive tech reads its value, minimum and maximum.',
+    description:
+        'Concentric arcs in pale tracks, one ring per row, and a dial with marker zones and a red felt needle. The gauge is a meter: assistive tech reads its value, minimum and maximum.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_radial_and_gauge_example.dart',
     builder: ChartRadialAndGaugeExample.new,
   ),
   GalleryExample(
     title: 'Sparklines',
-    description: 'One felt pull and a red dot at the end, a shaded area, or a row of marker bars. A sparkline is a picture with a spoken summary; set interactive to make it a chart you can hover.',
+    description:
+        'One felt pull and a red dot at the end, a shaded area, or a row of marker bars. A sparkline is a picture with a spoken summary; set interactive to make it a chart you can hover.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_sparklines_example.dart',
@@ -64,42 +72,48 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Heat map',
-    description: 'A half year of days, each square colored in a shade of one marker; or any grid of your own. Arrow keys walk it in two dimensions: left and right by week, up and down by day.',
+    description:
+        'A half year of days, each square colored in a shade of one marker; or any grid of your own. Arrow keys walk it in two dimensions: left and right by week, up and down by day.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_heatmap_example.dart',
     builder: ChartHeatmapExample.new,
   ),
   GalleryExample(
     title: 'Tally chart',
-    description: 'Counts as hand-tallied marks: four uprights and a slash across for every five, in the color of the row. When a row is too long for the width, each mark starts to stand for more and says so.',
+    description:
+        'Counts as hand-tallied marks: four uprights and a slash across for every five, in the color of the row. When a row is too long for the width, each mark starts to stand for more and says so.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_tally_chart_example.dart',
     builder: ChartTallyChartExample.new,
   ),
   GalleryExample(
     title: 'Scatter and bubbles',
-    description: 'Points on two number lines, each series with its own marker shape (circle, square, triangle). Give a size key and the points grow into bubbles. Long point clouds are thinned so the drawing stays light.',
+    description:
+        'Points on two number lines, each series with its own marker shape (circle, square, triangle). Give a size key and the points grow into bubbles. Long point clouds are thinned so the drawing stays light.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_scatter_chart_example.dart',
     builder: ChartScatterChartExample.new,
   ),
   GalleryExample(
     title: 'Annotations and goal lines',
-    description: 'A note is a hand-drawn loop, an arrow and a line of script; a highlight marks a stretch of days with a highlighter, written after the chart appears. Point it at max, min, first, last, a category or an index; underline instead of circling; add a dashed goal line. Text is real text and the note is part of the chart\'s spoken summary.',
+    description:
+        'A note is a hand-drawn loop, an arrow and a line of script; a highlight marks a stretch of days with a highlighter, written after the chart appears. Point it at max, min, first, last, a category or an index; underline instead of circling; add a dashed goal line. Text is real text and the note is part of the chart\'s spoken summary.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_annotations_example.dart',
     builder: ChartAnnotationsExample.new,
   ),
   GalleryExample(
     title: 'Legend and hidden series',
-    description: 'Every legend entry is a toggle button: switch a series off (struck through) and on again. A series keeps its color, marker and dash while it is away. Control it from outside with hiddenSeries.',
+    description:
+        'Every legend entry is a toggle button: switch a series off (struck through) and on again. A series keeps its color, marker and dash while it is away. Control it from outside with hiddenSeries.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_legend_toggle_example.dart',
     builder: ChartLegendToggleExample.new,
   ),
   GalleryExample(
     title: 'Dashboard',
-    description: 'A page of cards: stat tiles with sparklines, an area chart, a bar chart and a donut, drawn by hand. Press "calm" for the dense-screen version: hairline rules, no fill offset, no jitter, a busy page that stays quiet.',
+    description:
+        'A page of cards: stat tiles with sparklines, an area chart, a bar chart and a donut, drawn by hand. Press "calm" for the dense-screen version: hairline rules, no fill offset, no jitter, a busy page that stays quiet.',
     layout: ExampleLayout.full,
     stage: ExampleStage.desk,
     height: 640,
@@ -108,35 +122,40 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Streaming data',
-    description: 'New points arrive every second and the chart is drawn again, not reflowed: the hand stays the same, so the line seems to move by itself. The wipe-on animation plays once; a redraw is silent. Pause to read the tooltip.',
+    description:
+        'New points arrive every second and the chart is drawn again, not reflowed: the hand stays the same, so the line seems to move by itself. The wipe-on animation plays once; a redraw is silent. Pause to read the tooltip.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_streaming_example.dart',
     builder: ChartStreamingExample.new,
   ),
   GalleryExample(
     title: 'Empty and loading',
-    description: 'A chart with nothing to draw sketches its axes and a wandering pencil line and says so; a loading chart pulses dashed ghost bars and is announced as busy. Neither is interactive, and both keep their name and a spoken summary.',
+    description:
+        'A chart with nothing to draw sketches its axes and a wandering pencil line and says so; a loading chart pulses dashed ghost bars and is announced as busy. Neither is interactive, and both keep their name and a spoken summary.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_empty_and_loading_example.dart',
     builder: ChartEmptyAndLoadingExample.new,
   ),
   GalleryExample(
     title: 'Tooltip content',
-    description: 'ChartTooltipContent keeps shadcn\'s props: indicator (dot, line, dashed), hideLabel, hideIndicator, labelFormatter and formatter. Or pass any widget as content: it reads the active point, payload and label. defaultIndex opens a tooltip on load.',
+    description:
+        'ChartTooltipContent keeps shadcn\'s props: indicator (dot, line, dashed), hideLabel, hideIndicator, labelFormatter and formatter. Or pass any widget as content: it reads the active point, payload and label. defaultIndex opens a tooltip on load.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_tooltip_variants_example.dart',
     builder: ChartTooltipVariantsExample.new,
   ),
   GalleryExample(
     title: 'Color is not the only channel',
-    description: 'Every series carries a pencil pattern (hatching, dots, cross-hatching, rules, scribble) on its marks, and a marker shape and a dash pattern on its lines. Switch to grayscale to see the chart still reads; switch the patterns off (`patterns: ChartPatterns.off`) to see what plain color would have left you.',
+    description:
+        'Every series carries a pencil pattern (hatching, dots, cross-hatching, rules, scribble) on its marks, and a marker shape and a dash pattern on its lines. Switch to grayscale to see the chart still reads; switch the patterns off (`patterns: ChartPatterns.off`) to see what plain color would have left you.',
     layout: ExampleLayout.stack,
     source: 'chart/chart_colour_is_not_the_only_channel_example.dart',
     builder: ChartColourIsNotTheOnlyChannelExample.new,
   ),
   GalleryExample(
     title: 'Area: default',
-    description: 'One series washed in marker and shaded in pencil, a felt line along the top. Hover or use the arrow keys: the tooltip\'s `indicator: ChartTooltipIndicator.line` gives it a bar instead of a chip, and a hand-drawn note points at the peak. The axis says Jan; `labelFormatter` reads the whole month from the row for the slip.',
+    description:
+        'One series washed in marker and shaded in pencil, a felt line along the top. Hover or use the arrow keys: the tooltip\'s `indicator: ChartTooltipIndicator.line` gives it a bar instead of a chip, and a hand-drawn note points at the peak. The axis says Jan; `labelFormatter` reads the whole month from the row for the slip.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_default_example.dart',
@@ -144,7 +163,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: linear',
-    description: '`curve: CurveKind.linear` joins the points with straight pencil strokes instead of the default smooth curve. The tooltip drops its label with `hideLabel`.',
+    description:
+        '`curve: CurveKind.linear` joins the points with straight pencil strokes instead of the default smooth curve. The tooltip drops its label with `hideLabel`.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_linear_example.dart',
@@ -152,7 +172,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: step',
-    description: '`curve: CurveKind.step` holds each value until the next category, like a ledger. A config `icon` replaces the swatch in the tooltip and the legend.',
+    description:
+        '`curve: CurveKind.step` holds each value until the next category, like a ledger. A config `icon` replaces the swatch in the tooltip and the legend.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_step_example.dart',
@@ -160,7 +181,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: stacked to 100%',
-    description: 'Each month scaled to its own total, so the layers show shares. The rows are turned into percentages first (`visitorsShare` in the sample data), then stacked with `yDomain: (0, 100)`; the axis gets its % from `yFormatter`.',
+    description:
+        'Each month scaled to its own total, so the layers show shares. The rows are turned into percentages first (`visitorsShare` in the sample data), then stacked with `yDomain: (0, 100)`; the axis gets its % from `yFormatter`.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_stacked_expand_example.dart',
@@ -168,7 +190,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: stacked',
-    description: '`stacked` piles the series on top of each other; `series` sets the order from the bottom up. Each keeps its own wash and pencil pattern, so the layers stay apart in grayscale.',
+    description:
+        '`stacked` piles the series on top of each other; `series` sets the order from the bottom up. Each keeps its own wash and pencil pattern, so the layers stay apart in grayscale.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_stacked_example.dart',
@@ -176,7 +199,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: legend',
-    description: '`ChartLegend()` lists the series with the very swatches the drawing uses. Every entry is a button: switch a series off and it is struck through and leaves the chart.',
+    description:
+        '`ChartLegend()` lists the series with the very swatches the drawing uses. Every entry is a button: switch a series off and it is struck through and leaves the chart.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_legend_example.dart',
@@ -184,7 +208,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: overlapping',
-    description: 'Without `stacked` the series are drawn over each other from zero, each with its own wash, so a smaller series shows through the bigger one. The tooltip lists both.',
+    description:
+        'Without `stacked` the series are drawn over each other from zero, each with its own wash, so a smaller series shows through the bigger one. The tooltip lists both.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_overlap_example.dart',
@@ -192,7 +217,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: axes',
-    description: 'Both axes drawn: the category names along the bottom, a few tidy ticks up the side, and broken pencil rules across. `showXAxis` and `showYAxis` switch either off.',
+    description:
+        'Both axes drawn: the category names along the bottom, a few tidy ticks up the side, and broken pencil rules across. `showXAxis` and `showYAxis` switch either off.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_axes_example.dart',
@@ -200,7 +226,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: icons',
-    description: 'A config `icon` stands in for the swatch in the legend and the tooltip. Here they are the two hand-drawn trend arrows.',
+    description:
+        'A config `icon` stands in for the swatch in the legend and the tooltip. Here they are the two hand-drawn trend arrows.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_icons_example.dart',
@@ -208,7 +235,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Area: interactive',
-    description: 'A Select in the card header picks how much of the ninety-one days to draw. The chart redraws with its new data and stays quiet: the wipe-on plays once. Dates are cut from the row\'s own text, so nothing depends on a locale or a time zone.',
+    description:
+        'A Select in the card header picks how much of the ninety-one days to draw. The chart redraws with its new data and stays quiet: the wipe-on plays once. Dates are cut from the row\'s own text, so nothing depends on a locale or a time zone.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_area_interactive_example.dart',
@@ -216,7 +244,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: default',
-    description: 'Bars colored in with a marker that misses the outline a little, the number on top of each, and the best month circled by hand. `tape` holds the card to the desk.',
+    description:
+        'Bars colored in with a marker that misses the outline a little, the number on top of each, and the best month circled by hand. `tape` holds the card to the desk.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_default_example.dart',
@@ -224,7 +253,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: horizontal',
-    description: '`horizontal` turns the bars sideways: categories down the left, the value along the bottom. The arrow keys walk the rows with up and down.',
+    description:
+        '`horizontal` turns the bars sideways: categories down the left, the value along the bottom. The arrow keys walk the rows with up and down.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_horizontal_example.dart',
@@ -232,7 +262,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: mixed',
-    description: 'A color and a pencil pattern for every bar. One column per browser (`browserColumns` in the sample data), stacked, gives each category its own series, so the tooltip and the table name it too.',
+    description:
+        'A color and a pencil pattern for every bar. One column per browser (`browserColumns` in the sample data), stacked, gives each category its own series, so the tooltip and the table name it too.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_mixed_example.dart',
@@ -240,7 +271,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: multiple',
-    description: 'Several series side by side in each category. Color is never the only channel: the second series is shaded with a different pencil pattern. The tooltip\'s `indicator: ChartTooltipIndicator.dashed` marks its rows with a dashed rule.',
+    description:
+        'Several series side by side in each category. Color is never the only channel: the second series is shaded with a different pencil pattern. The tooltip\'s `indicator: ChartTooltipIndicator.dashed` marks its rows with a dashed rule.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_multiple_example.dart',
@@ -248,7 +280,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: stacked + legend',
-    description: '`stacked` piles the bars up; the legend under the chart switches a series off and the rest close ranks.',
+    description:
+        '`stacked` piles the bars up; the legend under the chart switches a series off and the rest close ranks.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_stacked_example.dart',
@@ -256,7 +289,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: active',
-    description: 'One bar picked out: a highlighter swipe behind Firefox (`highlights`), and `defaultIndex` opens its tooltip before anyone touches the chart.',
+    description:
+        'One bar picked out: a highlighter swipe behind Firefox (`highlights`), and `defaultIndex` opens its tooltip before anyone touches the chart.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_active_example.dart',
@@ -264,7 +298,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: label',
-    description: '`showValues` writes the number on top of every bar, in the script hand. Left null (the default) they appear only when they fit.',
+    description:
+        '`showValues` writes the number on top of every bar, in the script hand. Left null (the default) they appear only when they fit.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_label_example.dart',
@@ -272,7 +307,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: negative',
-    description: 'Values below zero hang from the baseline. To color the gains and the losses apart the rows are split into two columns (`swingColumns` in the sample data) and stacked, so each sign gets its own color and pencil pattern.',
+    description:
+        'Values below zero hang from the baseline. To color the gains and the losses apart the rows are split into two columns (`swingColumns` in the sample data) and stacked, so each sign gets its own color and pencil pattern.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_negative_example.dart',
@@ -280,7 +316,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Bar: interactive',
-    description: 'Two big buttons total the columns and choose which one the chart draws. They are ordinary toggle buttons; the chart takes the chosen key as its only series.',
+    description:
+        'Two big buttons total the columns and choose which one the chart draws. They are ordinary toggle buttons; the chart takes the chosen key as its only series.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_bar_interactive_example.dart',
@@ -288,7 +325,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Line: default',
-    description: 'One felt-tip pull through the points, smoothed so it never overshoots a peak. `dots: false` leaves the markers out; the hand-written note circles the dip. A paper clip holds the card.',
+    description:
+        'One felt-tip pull through the points, smoothed so it never overshoots a peak. `dots: false` leaves the markers out; the hand-written note circles the dip. A paper clip holds the card.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_line_default_example.dart',
@@ -296,7 +334,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Line: linear',
-    description: '`curve: CurveKind.linear` draws straight segments between the points, like a ruler and a felt tip.',
+    description:
+        '`curve: CurveKind.linear` draws straight segments between the points, like a ruler and a felt tip.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_line_linear_example.dart',
@@ -304,7 +343,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Line: step',
-    description: '`curve: CurveKind.step` holds each value until the next category, then jumps.',
+    description:
+        '`curve: CurveKind.step` holds each value until the next category, then jumps.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_line_step_example.dart',
@@ -312,7 +352,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Line: multiple',
-    description: 'Two lines, told apart by more than color: each series gets its own dash pattern (solid, dashed, dotted). Try the grayscale example if you doubt it.',
+    description:
+        'Two lines, told apart by more than color: each series gets its own dash pattern (solid, dashed, dotted). Try the grayscale example if you doubt it.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_line_multiple_example.dart',
@@ -320,7 +361,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Line: custom dots',
-    description: 'The marker shape is a config choice per series: circle, square, triangle, diamond, cross or plus. Here desktop is drawn with diamonds and mobile with squares, and the legend shows the same little line sample.',
+    description:
+        'The marker shape is a config choice per series: circle, square, triangle, diamond, cross or plus. Here desktop is drawn with diamonds and mobile with squares, and the legend shows the same little line sample.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_line_dots_custom_example.dart',
@@ -328,7 +370,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Line: dots',
-    description: '`dots` puts a hand-drawn marker on every point. Left null (the default) they appear when there are few points and room for them.',
+    description:
+        '`dots` puts a hand-drawn marker on every point. Left null (the default) they appear when there are few points and room for them.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_line_dots_example.dart',
@@ -336,7 +379,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Line: interactive',
-    description: 'The same two-button header as the bar version; the chart draws the chosen key as a single line. Dates on the axis are cut from the row\'s text, with no locale or time zone involved.',
+    description:
+        'The same two-button header as the bar version; the chart draws the chosen key as a single line. Dates on the axis are cut from the row\'s text, with no locale or time zone involved.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_line_interactive_example.dart',
@@ -344,7 +388,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Pie: simple',
-    description: 'Slices colored in with a marker, outlined in felt, each shaded with its own pencil pattern. Arrow keys walk the slices. `showLabels: false` leaves the percentages off.',
+    description:
+        'Slices colored in with a marker, outlined in felt, each shaded with its own pencil pattern. Arrow keys walk the slices. `showLabels: false` leaves the percentages off.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_pie_simple_example.dart',
@@ -352,7 +397,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Pie: label',
-    description: 'The default: every slice is labeled with its share, written round the outside in the script hand.',
+    description:
+        'The default: every slice is labeled with its share, written round the outside in the script hand.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_pie_label_example.dart',
@@ -360,7 +406,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Pie: legend',
-    description: '`ChartLegend()` names the slices with the swatches the drawing uses, and each entry switches its slice off; the pie redraws from the rest.',
+    description:
+        '`ChartLegend()` names the slices with the swatches the drawing uses, and each entry switches its slice off; the pie redraws from the rest.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_pie_legend_example.dart',
@@ -368,7 +415,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Pie: donut, active slice',
-    description: '`defaultIndex` lights the first slice before anyone hovers, and the hole tells its story. Move over another slice, or use the arrow keys, and the light and the text follow.',
+    description:
+        '`defaultIndex` lights the first slice before anyone hovers, and the hole tells its story. Move over another slice, or use the arrow keys, and the light and the text follow.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_pie_donut_active_example.dart',
@@ -376,7 +424,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Pie: donut, text',
-    description: 'The hole is real text: a number in the script hand and a caption. Here it is the total; a builder reading `info.total` and `info.active` can show the slice under the pointer instead.',
+    description:
+        'The hole is real text: a number in the script hand and a caption. Here it is the total; a builder reading `info.total` and `info.active` can show the slice under the pointer instead.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_pie_donut_text_example.dart',
@@ -393,7 +442,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Pie: interactive',
-    description: 'A Select in the header chooses the month whose slice is lit (`defaultIndex`); the number in the hole follows. `defaultIndex` is read when the chart mounts, so the chart is keyed on the month and draws itself again. Hovering any slice still takes over.',
+    description:
+        'A Select in the header chooses the month whose slice is lit (`defaultIndex`); the number in the hole follows. `defaultIndex` is read when the chart mounts, so the chart is keyed on the month and draws itself again. Hovering any slice still takes over.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_pie_interactive_example.dart',
@@ -401,7 +451,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radar: default',
-    description: 'A pencil web with one shaded shape. The spokes are the keyboard stops: left and right walk the axes. A staple holds the card.',
+    description:
+        'A pencil web with one shaded shape. The spokes are the keyboard stops: left and right walk the axes. A staple holds the card.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radar_default_example.dart',
@@ -409,7 +460,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radar: dots',
-    description: '`dots` marks every vertex with a hand-drawn marker (the default is on).',
+    description:
+        '`dots` marks every vertex with a hand-drawn marker (the default is on).',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radar_dots_example.dart',
@@ -417,7 +469,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radar: lines only',
-    description: '`fill: false` draws the outlines and nothing else, which keeps two close series readable.',
+    description:
+        '`fill: false` draws the outlines and nothing else, which keeps two close series readable.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radar_lines_only_example.dart',
@@ -425,7 +478,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radar: multiple',
-    description: 'Two shapes on one web, each washed in its color and shaded with its own pencil pattern.',
+    description:
+        'Two shapes on one web, each washed in its color and shaded with its own pencil pattern.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radar_multiple_example.dart',
@@ -433,7 +487,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radar: icons',
-    description: 'A config `icon` stands in for the swatch in the legend and the tooltip.',
+    description:
+        'A config `icon` stands in for the swatch in the legend and the tooltip.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radar_icons_example.dart',
@@ -441,7 +496,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radar: legend',
-    description: 'The legend switches a shape off and the web redraws with the other one.',
+    description:
+        'The legend switches a shape off and the web redraws with the other one.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radar_legend_example.dart',
@@ -449,7 +505,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radar: radius axis',
-    description: 'The rings carry their values (`levels` sets how many, `max` where the rim is), written in the gap between the first two spokes in the script hand, so the web reads like a radius axis.',
+    description:
+        'The rings carry their values (`levels` sets how many, `max` where the rim is), written in the gap between the first two spokes in the script hand, so the web reads like a radius axis.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radar_radius_example.dart',
@@ -457,7 +514,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radial: grid',
-    description: '`startAngle` and `endAngle` set the sweep: here a full circle, so every ring sits in its pale track like a polar grid.',
+    description:
+        '`startAngle` and `endAngle` set the sweep: here a full circle, so every ring sits in its pale track like a polar grid.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radial_grid_example.dart',
@@ -465,7 +523,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radial: simple',
-    description: 'One ring per row, filled to its value against `max`. On the default three-quarter dial the ring names sit in the open quadrant, in the script hand.',
+    description:
+        'One ring per row, filled to its value against `max`. On the default three-quarter dial the ring names sit in the open quadrant, in the script hand.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radial_simple_example.dart',
@@ -473,7 +532,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radial: shape',
-    description: 'One ring on a three-quarter dial with its number in the middle: 1,260 visitors against a goal of 1,500. The hole is real text, so it can hold anything.',
+    description:
+        'One ring on a three-quarter dial with its number in the middle: 1,260 visitors against a goal of 1,500. The hole is real text, so it can hold anything.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radial_shape_example.dart',
@@ -481,7 +541,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radial: text',
-    description: 'A full circle filled to 80%: 200 of 250. Text in the hole, and the tooltip says how much of the goal is done.',
+    description:
+        'A full circle filled to 80%: 200 of 250. Text in the hole, and the tooltip says how much of the goal is done.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_radial_text_example.dart',
@@ -489,7 +550,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: default',
-    description: 'The default `ChartTooltipContent`: a label in the script hand, then a row per series with a swatch identical to the drawing. `defaultIndex` opens it on the second bar before anything is hovered.',
+    description:
+        'The default `ChartTooltipContent`: a label in the script hand, then a row per series with a swatch identical to the drawing. `defaultIndex` opens it on the second bar before anything is hovered.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_default_example.dart',
@@ -497,7 +559,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: dashed indicator',
-    description: '`indicator: ChartTooltipIndicator.dashed` marks each row with a dashed pencil rule instead of a swatch.',
+    description:
+        '`indicator: ChartTooltipIndicator.dashed` marks each row with a dashed pencil rule instead of a swatch.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_indicator_dashed_example.dart',
@@ -505,7 +568,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: line indicator',
-    description: '`indicator: ChartTooltipIndicator.line` gives each row a narrow bar in the series color and pencil pattern.',
+    description:
+        '`indicator: ChartTooltipIndicator.line` gives each row a narrow bar in the series color and pencil pattern.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_indicator_line_example.dart',
@@ -513,7 +577,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: no indicator',
-    description: '`hideIndicator` leaves the swatches out; the rows keep the series names.',
+    description:
+        '`hideIndicator` leaves the swatches out; the rows keep the series names.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_indicator_none_example.dart',
@@ -521,7 +586,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: label from the config',
-    description: '`labelKey` looks the label up in the chart config instead of using the category: here the config\'s `activities` entry titles the slip.',
+    description:
+        '`labelKey` looks the label up in the chart config instead of using the category: here the config\'s `activities` entry titles the slip.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_label_custom_example.dart',
@@ -529,7 +595,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: label formatter',
-    description: '`labelFormatter` turns the label into something to read: 2024-07-16 becomes July 16, 2024. It receives the label and the tooltip rows, and each row carries its data, so the whole date can be read from there.',
+    description:
+        '`labelFormatter` turns the label into something to read: 2024-07-16 becomes July 16, 2024. It receives the label and the tooltip rows, and each row carries its data, so the whole date can be read from there.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_label_formatter_example.dart',
@@ -537,7 +604,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: no label',
-    description: '`hideLabel` drops the category name, and `hideIndicator` the swatches: a bare list of values.',
+    description:
+        '`hideLabel` drops the category name, and `hideIndicator` the swatches: a bare list of values.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_label_none_example.dart',
@@ -545,7 +613,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: formatter',
-    description: '`formatter` replaces a whole row. It gets the value, the series name, the item and the row of data, and returns any widget, here a unit after the number.',
+    description:
+        '`formatter` replaces a whole row. It gets the value, the series name, the item and the row of data, and returns any widget, here a unit after the number.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_formatter_example.dart',
@@ -553,7 +622,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: icons',
-    description: 'A config `icon` takes the place of the swatch in the tooltip (and in a legend, if there is one).',
+    description:
+        'A config `icon` takes the place of the swatch in the tooltip (and in a legend, if there is one).',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_icons_example.dart',
@@ -561,7 +631,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Tooltip: advanced',
-    description: 'A custom formatter that draws the swatch itself with `ChartSwatch` (the same chip the drawing uses) and adds a total row under the last series.',
+    description:
+        'A custom formatter that draws the swatch itself with `ChartSwatch` (the same chip the drawing uses) and adds a total row under the last series.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_tooltip_advanced_example.dart',
@@ -569,7 +640,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Legend: some of the series',
-    description: '`keys` lists only these entries, in this order: the chart draws three series, the key names two of them, mobile first.',
+    description:
+        '`keys` lists only these entries, in this order: the chart draws three series, the key names two of them, mobile first.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_legend_keys_example.dart',
@@ -577,7 +649,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Legend: a plain key',
-    description: '`toggle: false` makes the legend a plain key: swatches and words, no buttons. Use it where the chart should not change.',
+    description:
+        '`toggle: false` makes the legend a plain key: swatches and words, no buttons. Use it where the chart should not change.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_legend_static_example.dart',
@@ -585,7 +658,8 @@ const chartExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Legend: on top',
-    description: 'Put `ChartLegend(verticalAlign: ChartLegendAlign.top)` before the chart and it sits above it, with its padding on the side that faces the drawing.',
+    description:
+        'Put `ChartLegend(verticalAlign: ChartLegendAlign.top)` before the chart and it sits above it, with its padding on the side that faces the drawing.',
     layout: ExampleLayout.stack,
     stage: ExampleStage.desk,
     source: 'chart/chart_legend_top_example.dart',

@@ -5,13 +5,15 @@ const aspectRatioDoc = ComponentDoc(
   slug: 'aspect-ratio',
   title: 'Aspect Ratio',
   category: ComponentCategory.layout,
-  description: 'A box that keeps its width-to-height ratio while its width changes. Exactly shadcn\'s; the hand-made part is what surrounds it: a photograph on a Polaroid, a print taped at its corners, a map pinned to the desk.',
+  description:
+      'A box that keeps its width-to-height ratio while its width changes. Exactly shadcn\'s; the hand-made part is what surrounds it: a photograph on a Polaroid, a print taped at its corners, a map pinned to the desk.',
   status: ComponentStatus.stable,
   upstream: 'aspect-ratio',
   parts: [
     PartDoc(
       name: 'AspectRatio',
-      description: 'A Radix AspectRatio: a relatively positioned wrapper with padding-bottom set from the ratio, and an absolutely positioned inner div (which receives className, data-slot and your children). It draws nothing: put an img with h-full w-full object-cover in it, or any content, and frame it with Paper and Tape.',
+      description:
+          'A Radix AspectRatio: a relatively positioned wrapper with padding-bottom set from the ratio, and an absolutely positioned inner div (which receives className, data-slot and your children). It draws nothing: put an img with h-full w-full object-cover in it, or any content, and frame it with Paper and Tape.',
       props: [
         PropDoc(
           name: 'ratio',

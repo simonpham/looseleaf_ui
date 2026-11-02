@@ -5,29 +5,34 @@ const folderDoc = ComponentDoc(
   slug: 'folder',
   title: 'Folder',
   category: ComponentCategory.paper,
-  description: 'A manila file folder that is also a set of tabs: a row of paper tabs standing on a sheet of the same paper. The active tab is the folder\'s own color and runs down into the body, so tab and folder are one piece; the others stand a little lower and darker. It is Radix Tabs underneath.',
+  description:
+      'A manila file folder that is also a set of tabs: a row of paper tabs standing on a sheet of the same paper. The active tab is the folder\'s own color and runs down into the body, so tab and folder are one piece; the others stand a little lower and darker. It is Radix Tabs underneath.',
   status: ComponentStatus.isNew,
   upstream: 'tabs',
   parts: [
     PartDoc(
       name: 'Folder',
-      description: 'The Radix Tabs root, a flex column at most 42 rem wide. It takes the Tabs props (`value`, `defaultValue`, `onValueChange`, `dir`, `activationMode`) except `orientation`: a folder\'s tabs stand along its top edge, so it is always horizontal (Left / Right move between tabs; Up / Down do not).',
+      description:
+          'The Radix Tabs root, a flex column at most 42 rem wide. It takes the Tabs props (`value`, `defaultValue`, `onValueChange`, `dir`, `activationMode`) except `orientation`: a folder\'s tabs stand along its top edge, so it is always horizontal (Left / Right move between tabs; Up / Down do not).',
       props: [
         PropDoc(
           name: 'stock',
           type: 'StockName',
           defaultValue: '"kraft"',
-          description: 'What tabs and body are made of: kraft (manila), sticky-yellow, paper, index-card ...',
+          description:
+              'What tabs and body are made of: kraft (manila), sticky-yellow, paper, index-card ...',
         ),
       ],
     ),
     PartDoc(
       name: 'FolderTabs',
-      description: 'The tab strip (`role="tablist"`), standing on the body, above it in stacking. Give it an `aria-label`.',
+      description:
+          'The tab strip (`role="tablist"`), standing on the body, above it in stacking. Give it an `aria-label`.',
     ),
     PartDoc(
       name: 'FolderTab',
-      description: 'One tab (`role="tab"`), 2.25 rem high (2 rem compact, 1.75 rem calm), its paper drawn behind the label. The active tab is the front one; a disabled tab is only a dashed pencil outline. Arrow keys, Home and End move between tabs; the label is real text.',
+      description:
+          'One tab (`role="tab"`), 2.25 rem high (2 rem compact, 1.75 rem calm), its paper drawn behind the label. The active tab is the front one; a disabled tab is only a dashed pencil outline. Arrow keys, Home and End move between tabs; the label is real text.',
       props: [
         PropDoc(
           name: 'value',
@@ -44,7 +49,8 @@ const folderDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'FolderContent',
-      description: 'The panel a tab opens onto (`role="tabpanel"`), a Paper in the folder\'s stock, square to the desk. Only the active panel is in the page.',
+      description:
+          'The panel a tab opens onto (`role="tabpanel"`), a Paper in the folder\'s stock, square to the desk. Only the active panel is in the page.',
       props: [
         PropDoc(
           name: 'value',
@@ -61,7 +67,8 @@ const folderDoc = ComponentDoc(
         PropDoc(
           name: 'tape / fastener / edge / shadow / seed / tilt',
           type: 'Paper props',
-          description: 'As on any sheet (tilt defaults to none, so the tabs stay square to the body).',
+          description:
+              'As on any sheet (tilt defaults to none, so the tabs stay square to the body).',
         ),
       ],
     ),

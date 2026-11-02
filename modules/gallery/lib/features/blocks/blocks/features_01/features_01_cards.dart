@@ -17,21 +17,24 @@ class Features01Cards extends StatelessWidget {
       id: 'write',
       title: 'Write together',
       doodle: 'pencil',
-      body: 'Everyone edits the same page at once, with little name flags for cursors. No more “which version is final?”',
+      body:
+          'Everyone edits the same page at once, with little name flags for cursors. No more “which version is final?”',
       link: 'How writing works',
     ),
     (
       id: 'keep',
       title: 'Never lose a page',
       doodle: 'book',
-      body: 'Every change is kept for a year. Wind a page back to last Tuesday, or lift a single paragraph out of it.',
+      body:
+          'Every change is kept for a year. Wind a page back to last Tuesday, or lift a single paragraph out of it.',
       link: 'About history',
     ),
     (
       id: 'share',
       title: 'Share the good bits',
       doodle: 'paper-plane',
-      body: 'Send one page, a whole notebook, or a single line. People without an account can read along.',
+      body:
+          'Send one page, a whole notebook, or a single line. People without an account can read along.',
       link: 'About sharing',
     ),
   ];

@@ -5,44 +5,52 @@ const stickerSheetDoc = ComponentDoc(
   slug: 'sticker-sheet',
   title: 'Sticker sheet',
   category: ComponentCategory.stickersDoodles,
-  description: 'A sheet of die-cut stickers on backing paper, each in its own kiss-cut outline. Press one and it peels away, drag one and it comes off under the mouse; the outline stays behind and can take it back. For reward charts, sticker packs and anything you collect.',
+  description:
+      'A sheet of die-cut stickers on backing paper, each in its own kiss-cut outline. Press one and it peels away, drag one and it comes off under the mouse; the outline stays behind and can take it back. For reward charts, sticker packs and anything you collect.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'StickerSheet',
-      description: 'The backing paper (a Paper) with its printing: a dashed cut margin, crop marks, an optional typed title with how many stickers are left, and the sheen of release paper. Lays its children out on a grid.',
+      description:
+          'The backing paper (a Paper) with its printing: a dashed cut margin, crop marks, an optional typed title with how many stickers are left, and the sheen of release paper. Lays its children out on a grid.',
       props: [
         PropDoc(
           name: 'stickers',
           type: 'string[]',
-          description: 'Ids from the art library: one item each, when you need no labels or ids of your own.',
+          description:
+              'Ids from the art library: one item each, when you need no labels or ids of your own.',
         ),
         PropDoc(
           name: 'columns / size',
           type: 'number',
           defaultValue: '4 / 72',
-          description: 'Stickers per row, and the drawn size of each in px (below 80 the 64 px redraw is used). The grid keeps its column count and each cell is size + 22 px wide, so choose them for your narrowest screen (3 columns of 56 px fit a 320 px phone).',
+          description:
+              'Stickers per row, and the drawn size of each in px (below 80 the 64 px redraw is used). The grid keeps its column count and each cell is size + 22 px wide, so choose them for your narrowest screen (3 columns of 56 px fit a 320 px phone).',
         ),
         PropDoc(
           name: 'title',
           type: 'string',
-          description: 'Typed at the top of the sheet, with "n left" on the right. Also the group\'s accessible name.',
+          description:
+              'Typed at the top of the sheet, with "n left" on the right. Also the group\'s accessible name.',
         ),
         PropDoc(
           name: 'backing',
           type: '"glassine" | "kraft" | "paper"',
           defaultValue: '"glassine"',
-          description: 'Pale blue-gray release paper with a sheen, kraft, or plain paper.',
+          description:
+              'Pale blue-gray release paper with a sheen, kraft, or plain paper.',
         ),
         PropDoc(
           name: 'peeled / defaultPeeled / onPeeledChange',
           type: 'string[]',
-          description: 'Ids of the stickers that are off the sheet. Controlled: the parent decides what is peeled.',
+          description:
+              'Ids of the stickers that are off the sheet. Controlled: the parent decides what is peeled.',
         ),
         PropDoc(
           name: 'onPeel',
           type: '(item) => void',
-          description: '{ id, name, label, dragged, x, y }. For a drag, x and y are the pointer\'s client position at release: drop the sticker there (boardPoint from sticker-board turns them into canvas coordinates, and says whether the point is on the board at all). A controlled sheet that does not add the id to `peeled` declines the drag: the sticker springs back. A click or a key has no position: put it wherever you like.',
+          description:
+              '{ id, name, label, dragged, x, y }. For a drag, x and y are the pointer\'s client position at release: drop the sticker there (boardPoint from sticker-board turns them into canvas coordinates, and says whether the point is on the board at all). A controlled sheet that does not add the id to `peeled` declines the drag: the sticker springs back. A click or a key has no position: put it wherever you like.',
         ),
         PropDoc(
           name: 'onStick',
@@ -53,12 +61,14 @@ const stickerSheetDoc = ComponentDoc(
           name: 'restorable',
           type: 'boolean',
           defaultValue: 'true',
-          description: 'Whether pressing an empty outline puts the sticker back. When off, a spent outline is dimmed (aria-disabled) rather than disabled, so the key that just peeled it keeps its focus.',
+          description:
+              'Whether pressing an empty outline puts the sticker back. When off, a spent outline is dimmed (aria-disabled) rather than disabled, so the key that just peeled it keeps its focus.',
         ),
         PropDoc(
           name: 'disabled / label',
           type: 'boolean / string',
-          description: 'Freeze the sheet; the name when there is no title (default "Sticker sheet").',
+          description:
+              'Freeze the sheet; the name when there is no title (default "Sticker sheet").',
         ),
         PropDoc(
           name: 'stock-like props',
@@ -70,7 +80,8 @@ const stickerSheetDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'StickerSheetItem',
-      description: 'One sticker in its outline. A button whose name says what it does now: "Peel Rocket sticker", then "Put Rocket sticker back". It lifts and turns a little on hover, curls its corner, and flies off up and to the right when peeled.',
+      description:
+          'One sticker in its outline. A button whose name says what it does now: "Peel Rocket sticker", then "Put Rocket sticker back". It lifts and turns a little on hover, curls its corner, and flies off up and to the right when peeled.',
       props: [
         PropDoc(
           name: 'name',
@@ -81,7 +92,8 @@ const stickerSheetDoc = ComponentDoc(
         PropDoc(
           name: 'id',
           type: 'string',
-          description: 'Its key in the peeled list. Default the name; give each a different id if a name appears twice.',
+          description:
+              'Its key in the peeled list. Default the name; give each a different id if a name appears twice.',
         ),
         PropDoc(
           name: 'label',
@@ -98,7 +110,8 @@ const stickerSheetDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'useStickerSheet',
-      description: 'The sheet\'s context (peeled, size, peel, stick) for building your own items.',
+      description:
+          'The sheet\'s context (peeled, size, peel, stick) for building your own items.',
     ),
   ],
   a11y: [

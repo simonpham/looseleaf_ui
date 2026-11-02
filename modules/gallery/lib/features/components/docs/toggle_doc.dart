@@ -5,31 +5,36 @@ const toggleDoc = ComponentDoc(
   slug: 'toggle',
   title: 'Toggle',
   category: ComponentCategory.actions,
-  description: 'A two-state button that stays down: a whisper of pencil box at rest, and a highlighter body that snaps into register when it is on. Same Radix behavior and variants as shadcn.',
+  description:
+      'A two-state button that stays down: a whisper of pencil box at rest, and a highlighter body that snaps into register when it is on. Same Radix behavior and variants as shadcn.',
   status: ComponentStatus.stable,
   upstream: 'toggle',
   parts: [
     PartDoc(
       name: 'Toggle',
-      description: 'A Radix Toggle (a real <button aria-pressed>) with a hand-drawn layer behind its content. Pressed state is data-state=on in CSS, so pressing never redraws anything: the highlighter body fades in, settles from a slight turn and snaps into register while the pointer is down.',
+      description:
+          'A Radix Toggle (a real <button aria-pressed>) with a hand-drawn layer behind its content. Pressed state is data-state=on in CSS, so pressing never redraws anything: the highlighter body fades in, settles from a slight turn and snaps into register while the pointer is down.',
       props: [
         PropDoc(
           name: 'variant',
           type: '"default" | "outline"',
           defaultValue: '"default"',
-          description: 'default = a whisper of pencil box that turns into a fine-liner box with a highlighter body when on; outline = an inked box at rest that gets the body inside it.',
+          description:
+              'default = a whisper of pencil box that turns into a fine-liner box with a highlighter body when on; outline = an inked box at rest that gets the body inside it.',
         ),
         PropDoc(
           name: 'size',
           type: '"default" | "sm" | "lg"',
           defaultValue: '"default"',
-          description: '36, 32 and 40 px high, with the same minimum widths (icon squares). Compact density is one step tighter, calm two.',
+          description:
+              '36, 32 and 40 px high, with the same minimum widths (icon squares). Compact density is one step tighter, calm two.',
         ),
         PropDoc(
           name: 'tone',
           type: '"hi" | "marker"',
           defaultValue: '"hi"',
-          description: 'The color of the body when on: yellow highlighter, or terracotta marker for a louder switch.',
+          description:
+              'The color of the body when on: yellow highlighter, or terracotta marker for a louder switch.',
         ),
         PropDoc(
           name: 'pressed / defaultPressed / onPressedChange',
@@ -40,13 +45,15 @@ const toggleDoc = ComponentDoc(
         PropDoc(
           name: 'seed',
           type: 'string | number',
-          description: 'Pins the hand: the same seed always draws the same toggle, also across remounts. Default: derived from useId().',
+          description:
+              'Pins the hand: the same seed always draws the same toggle, also across remounts. Default: derived from useId().',
         ),
       ],
     ),
     PartDoc(
       name: 'toggleVariants',
-      description: 'The cva function behind Toggle (also used by ToggleGroupItem). Layout and typography classes only: the drawing comes from the component.',
+      description:
+          'The cva function behind Toggle (also used by ToggleGroupItem). Layout and typography classes only: the drawing comes from the component.',
       props: [
         PropDoc(
           name: 'variant',

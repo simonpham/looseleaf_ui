@@ -126,7 +126,8 @@ class _SettingsBillingBlockState extends State<SettingsBillingBlock> {
             children: [
               SettingsBillingSection(
                 title: 'Your plan',
-                description: 'Change it whenever you like. We only charge the difference.',
+                description:
+                    'Change it whenever you like. We only charge the difference.',
                 children: [
                   SettingsBillingPlan(
                     current: _plan,
@@ -138,7 +139,8 @@ class _SettingsBillingBlockState extends State<SettingsBillingBlock> {
               const Separator(variant: SeparatorVariant.dashed),
               SettingsBillingSection(
                 title: 'Usage',
-                description: 'Counted on your current plan. Bars turn to marker when you get close.',
+                description:
+                    'Counted on your current plan. Bars turn to marker when you get close.',
                 children: [
                   Semantics(
                     container: true,
@@ -238,7 +240,8 @@ class _SettingsBillingBlockState extends State<SettingsBillingBlock> {
               const Separator(variant: SeparatorVariant.dashed),
               SettingsBillingSection(
                 title: 'Invoice details',
-                description: 'Printed on every receipt. Change it and old receipts keep what they said.',
+                description:
+                    'Printed on every receipt. Change it and old receipts keep what they said.',
                 children: [
                   SettingsBillingDetails(onSave: widget.onSaveDetails),
                 ],

@@ -5,17 +5,20 @@ const corkboardDoc = ComponentDoc(
   slug: 'corkboard',
   title: 'Corkboard',
   category: ComponentCategory.interactive,
-  description: 'A wooden-framed corkboard with notes you can pick up. Drag them with a pointer, or focus one and use the arrow keys to move it and R to turn it. Positions are plain JSON you can store and restore.',
+  description:
+      'A wooden-framed corkboard with notes you can pick up. Drag them with a pointer, or focus one and use the arrow keys to move it and R to turn it. Positions are plain JSON you can store and restore.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Corkboard',
-      description: 'The board: a frame of marker and felt round a cork made from one seeded speckle tile (an SVG pattern, so a big board costs no more cork than a small one). It is a positioned box; give it a height and put notes in it.',
+      description:
+          'The board: a frame of marker and felt round a cork made from one seeded speckle tile (an SVG pattern, so a big board costs no more cork than a small one). It is a positioned box; give it a height and put notes in it.',
       props: [
         PropDoc(
           name: 'value / defaultValue',
           type: 'Record<string, { x?, y?, r?, z? }>',
-          description: 'Positions by note id: x and y in px from the top-left of the cork, r the turn in degrees, z the stacking order. Only notes that were moved, turned or raised are in it.',
+          description:
+              'Positions by note id: x and y in px from the top-left of the cork, r the turn in degrees, z the stacking order. Only notes that were moved, turned or raised are in it.',
         ),
         PropDoc(
           name: 'onValueChange',
@@ -45,7 +48,8 @@ const corkboardDoc = ComponentDoc(
     ),
     PartDoc(
       name: 'CorkboardNote',
-      description: 'A piece of paper on the board (a Paper: sticky note by default, any stock works) held by a push-pin or a strip of tape. Lifting it (dragging) raises the pin and lengthens the shadow; dropping it pops the pin back in.',
+      description:
+          'A piece of paper on the board (a Paper: sticky note by default, any stock works) held by a push-pin or a strip of tape. Lifting it (dragging) raises the pin and lengthens the shadow; dropping it pops the pin back in.',
       props: [
         PropDoc(
           name: 'id',
@@ -62,7 +66,8 @@ const corkboardDoc = ComponentDoc(
         PropDoc(
           name: 'rotate',
           type: 'number',
-          description: 'How it starts turned, degrees. Default a small seeded angle (flat in calm density).',
+          description:
+              'How it starts turned, degrees. Default a small seeded angle (flat in calm density).',
         ),
         PropDoc(
           name: 'stock',
@@ -75,7 +80,8 @@ const corkboardDoc = ComponentDoc(
           name: 'pinned / pinColor',
           type: 'boolean / PaintKey',
           defaultValue: 'true',
-          description: 'A pin, or a strip of tape when false. The pin color is seeded from the id unless given.',
+          description:
+              'A pin, or a strip of tape when false. The pin color is seeded from the id unless given.',
         ),
         PropDoc(
           name: 'label',
@@ -92,7 +98,8 @@ const corkboardDoc = ComponentDoc(
           name: 'bare',
           type: 'boolean',
           defaultValue: 'false',
-          description: 'No sheet of its own: the children are the paper (a StickyNote, a Polaroid, a Ticket). The note still moves, turns, raises and is pinned.',
+          description:
+              'No sheet of its own: the children are the paper (a StickyNote, a Polaroid, a Ticket). The note still moves, turns, raises and is pinned.',
         ),
       ],
     ),

@@ -5,12 +5,14 @@ const napkinDoc = ComponentDoc(
   slug: 'napkin',
   title: 'Napkin',
   category: ComponentCategory.paper,
-  description: 'A paper napkin to write on: tissue with a pinked edge and a pressed border, folded so it has creases (a valley with a shade on one side and a pale line on the other), optionally ringed by a coffee cup. Notes on it are set in the script font, as if in marker.',
+  description:
+      'A paper napkin to write on: tissue with a pinked edge and a pressed border, folded so it has creases (a valley with a shade on one side and a pale line on the other), optionally ringed by a coffee cup. Notes on it are set in the script font, as if in marker.',
   status: ComponentStatus.isNew,
   parts: [
     PartDoc(
       name: 'Napkin',
-      description: 'A Paper on the `napkin` stock (crimped edge, embossed border, both drawn once it is measured) with the creases as a second layer of ink. 18 rem wide, at least 14 rem tall, padded 36 px so text sits inside the pressed border.',
+      description:
+          'A Paper on the `napkin` stock (crimped edge, embossed border, both drawn once it is measured) with the creases as a second layer of ink. 18 rem wide, at least 14 rem tall, padded 36 px so text sits inside the pressed border.',
       props: [
         PropDoc(
           name: 'fold',
