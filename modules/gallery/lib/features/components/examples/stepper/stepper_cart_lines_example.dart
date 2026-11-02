@@ -112,11 +112,13 @@ class _StepperCartLinesExampleState extends State<StepperCartLinesExample> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               spacing: Spacing.d12,
               children: [
-                Semantics(
-                  liveRegion: true,
-                  child: Text(
-                    'Total \$${total.toStringAsFixed(2)}',
-                    style: theme.typography.title(cssSize: 24),
+                Expanded(
+                  child: Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      'Total \$${total.toStringAsFixed(2)}',
+                      style: theme.typography.title(cssSize: 24),
+                    ),
                   ),
                 ),
                 Button(

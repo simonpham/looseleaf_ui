@@ -139,18 +139,21 @@ class _DropzoneAttachWithProgressExampleState
           CardFooter(
             divider: true,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            spacing: Spacing.d12,
             children: [
-              Semantics(
-                liveRegion: true,
-                child: Text(
-                  switch ((_files.isEmpty, _busy)) {
-                    (true, _) => 'Nothing attached.',
-                    (false, true) => 'Sending...',
-                    (false, false) => '${_files.length} attached.',
-                  },
-                  style: theme.typography.interface(
-                    cssSize: 14,
-                    color: theme.colors.inkMuted,
+              Expanded(
+                child: Semantics(
+                  liveRegion: true,
+                  child: Text(
+                    switch ((_files.isEmpty, _busy)) {
+                      (true, _) => 'Nothing attached.',
+                      (false, true) => 'Sending...',
+                      (false, false) => '${_files.length} attached.',
+                    },
+                    style: theme.typography.interface(
+                      cssSize: 14,
+                      color: theme.colors.inkMuted,
+                    ),
                   ),
                 ),
               ),

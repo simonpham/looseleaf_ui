@@ -22,6 +22,7 @@ class _CalendarBookACallExampleState extends State<CalendarBookACallExample> {
     '16:00',
   ];
   static const _slotsWidth = 144.0;
+  static const _md = 768.0;
 
   DateTime? _date = DateTime(2026, 9, 17);
   String? _slot = '10:30';
@@ -31,9 +32,43 @@ class _CalendarBookACallExampleState extends State<CalendarBookACallExample> {
       day.weekday == DateTime.sunday ||
       day.isBefore(DateTime(2026, 9, 15));
 
+  Widget _slotGrid() => Semantics(
+    container: true,
+    label: 'Available times',
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: Spacing.d8,
+      children: [
+        for (var row = 0; row < _slots.length; row += 2)
+          Row(
+            spacing: Spacing.d8,
+            children: [
+              for (final time in _slots.skip(row).take(2))
+                Expanded(
+                  child: Semantics(
+                    toggled: _slot == time,
+                    child: Button(
+                      size: ButtonSize.sm,
+                      variant: switch (_slot == time) {
+                        true => ButtonVariant.primary,
+                        false => ButtonVariant.outline,
+                      },
+                      disabled: _date == null,
+                      onPressed: () => setState(() => _slot = time),
+                      child: Text(time),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
+    final wide = (MediaQuery.maybeSizeOf(context)?.width ?? 0) >= _md;
     return IntrinsicWidth(
       child: Card(
         seed: 'book',
@@ -48,52 +83,35 @@ class _CalendarBookACallExampleState extends State<CalendarBookACallExample> {
             ],
           ),
           CardContent(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Flex(
+              direction: switch (wide) {
+                true => Axis.horizontal,
+                false => Axis.vertical,
+              },
+              crossAxisAlignment: switch (wide) {
+                true => CrossAxisAlignment.start,
+                false => CrossAxisAlignment.stretch,
+              },
               spacing: Spacing.d16,
               children: [
-                Calendar(
-                  selected: _date,
-                  onSelect: (date) => setState(() {
-                    _date = date;
-                    _slot = null;
-                  }),
-                  defaultMonth: DateTime(2026, 9),
-                  today: DateTime(2026, 9, 15),
-                  isDateDisabled: _closed,
-                  padding: EdgeInsets.zero,
-                  seed: 'book',
-                ),
-                Semantics(
-                  container: true,
-                  label: 'Available times',
-                  child: SizedBox(
-                    width: _slotsWidth,
-                    child: Wrap(
-                      spacing: Spacing.d8,
-                      runSpacing: Spacing.d8,
-                      children: [
-                        for (final time in _slots)
-                          SizedBox(
-                            width: (_slotsWidth - Spacing.d8) / 2,
-                            child: Semantics(
-                              toggled: _slot == time,
-                              child: Button(
-                                size: ButtonSize.sm,
-                                variant: switch (_slot == time) {
-                                  true => ButtonVariant.primary,
-                                  false => ButtonVariant.outline,
-                                },
-                                disabled: _date == null,
-                                onPressed: () => setState(() => _slot = time),
-                                child: Text(time),
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
+                Center(
+                  child: Calendar(
+                    selected: _date,
+                    onSelect: (date) => setState(() {
+                      _date = date;
+                      _slot = null;
+                    }),
+                    defaultMonth: DateTime(2026, 9),
+                    today: DateTime(2026, 9, 15),
+                    isDateDisabled: _closed,
+                    padding: EdgeInsets.zero,
+                    seed: 'book',
                   ),
                 ),
+                switch (wide) {
+                  true => SizedBox(width: _slotsWidth, child: _slotGrid()),
+                  false => _slotGrid(),
+                },
               ],
             ),
           ),

@@ -114,14 +114,20 @@ class _InputOtpVerifyYourEmailExampleState
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             spacing: Spacing.d12,
             children: [
-              Button(
-                variant: ButtonVariant.link,
-                size: ButtonSize.sm,
-                onPressed: _startOver,
-                child: Text(switch (_check) {
-                  _Check.wrong => 'Start over',
-                  _ => 'Send it again',
-                }),
+              Flexible(
+                child: Button(
+                  variant: ButtonVariant.link,
+                  size: ButtonSize.sm,
+                  onPressed: _startOver,
+                  child: Text(
+                    switch (_check) {
+                      _Check.wrong => 'Start over',
+                      _ => 'Send it again',
+                    },
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ),
               Button(
                 disabled: _code.text.length < 6 || _check == _Check.done,
