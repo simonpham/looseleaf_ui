@@ -34,7 +34,8 @@ class CarouselPhotosExample extends StatelessWidget {
               for (final (index, photo) in _photos.indexed)
                 CarouselItem(
                   semanticLabel: '${index + 1} of ${_photos.length}',
-                  child: Center(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
                     child: Polaroid(
                       seed: 'p$index',
                       tiltDegrees: switch (index.isOdd) {
