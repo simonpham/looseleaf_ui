@@ -6,6 +6,7 @@ export 'package:looseleaf_ui/src/components/overlay/overlay_position.dart';
 export 'package:looseleaf_ui/src/components/overlay/overlay_scrim.dart';
 export 'package:looseleaf_ui/src/components/overlay/overlay_side.dart';
 export 'package:looseleaf_ui/src/components/overlay/paper_popup.dart';
+export 'package:looseleaf_ui/src/components/overlay/popup_fit.dart';
 export 'package:looseleaf_ui/src/components/overlay/popup_motion.dart';
 export 'package:looseleaf_ui/src/components/overlay/popup_placement.dart';
 export 'package:looseleaf_ui/src/components/overlay/popup_pointer.dart';

@@ -117,35 +117,37 @@ class _TooltipContentState extends State<TooltipContent> with InkSeed {
         .dependOnInheritedWidgetOfExactType<TooltipContentScope>()
         ?.position;
     final window = MediaQuery.maybeSizeOf(context)?.width ?? double.infinity;
-    return PaperPopup(
-      seed: inkSeed(widget.seed),
-      stock: widget.stock,
-      tilt: widget.tilt,
-      tiltDegrees: widget.tiltDegrees,
-      shadow: PaperShadow.stock,
-      padding: const EdgeInsets.symmetric(
-        horizontal: Spacing.d10,
-        vertical: Spacing.d6,
-      ),
-      maxWidth: switch (window - Spacing.d16 < widget.maxWidth) {
-        true => window - Spacing.d16,
-        false => widget.maxWidth,
-      },
-      position: position,
-      side: widget.side,
-      pointer: switch (widget.arrow) {
-        true => PopupPointer.tooltipSize,
-        false => null,
-      },
-      child: DefaultTextStyle.merge(
-        style: theme.typography.face(
-          KevinSansFace.hand,
-          cssSize: 14,
-          cssLineHeight: 1.375,
-          color: theme.colors.ink,
+    return PopupFit(
+      child: PaperPopup(
+        seed: inkSeed(widget.seed),
+        stock: widget.stock,
+        tilt: widget.tilt,
+        tiltDegrees: widget.tiltDegrees,
+        shadow: PaperShadow.stock,
+        padding: const EdgeInsets.symmetric(
+          horizontal: Spacing.d10,
+          vertical: Spacing.d6,
         ),
-        textWidthBasis: TextWidthBasis.longestLine,
-        child: widget.child,
+        maxWidth: switch (window - Spacing.d16 < widget.maxWidth) {
+          true => window - Spacing.d16,
+          false => widget.maxWidth,
+        },
+        position: position,
+        side: widget.side,
+        pointer: switch (widget.arrow) {
+          true => PopupPointer.tooltipSize,
+          false => null,
+        },
+        child: DefaultTextStyle.merge(
+          style: theme.typography.face(
+            KevinSansFace.hand,
+            cssSize: 14,
+            cssLineHeight: 1.375,
+            color: theme.colors.ink,
+          ),
+          textWidthBasis: TextWidthBasis.longestLine,
+          child: widget.child,
+        ),
       ),
     );
   }

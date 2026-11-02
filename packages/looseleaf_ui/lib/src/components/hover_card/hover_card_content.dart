@@ -122,23 +122,25 @@ class _HoverCardContentState extends State<HoverCardContent> with InkSeed {
         .dependOnInheritedWidgetOfExactType<HoverCardContentScope>()
         ?.position;
     final window = MediaQuery.maybeSizeOf(context)?.width ?? double.infinity;
-    return Semantics(
-      container: true,
-      explicitChildNodes: true,
-      label: widget.semanticLabel,
-      child: PaperPopup(
-        seed: inkSeed(widget.seed),
-        stock: widget.stock,
-        edge: widget.edge,
-        tilt: widget.tilt,
-        tiltDegrees: widget.tiltDegrees,
-        tape: widget.tape,
-        padding: widget.padding ?? _padding.of(context),
-        width: widget.width,
-        maxWidth: window - Spacing.d16,
-        position: position,
-        side: widget.side,
-        child: widget.child,
+    return PopupFit(
+      child: Semantics(
+        container: true,
+        explicitChildNodes: true,
+        label: widget.semanticLabel,
+        child: PaperPopup(
+          seed: inkSeed(widget.seed),
+          stock: widget.stock,
+          edge: widget.edge,
+          tilt: widget.tilt,
+          tiltDegrees: widget.tiltDegrees,
+          tape: widget.tape,
+          padding: widget.padding ?? _padding.of(context),
+          width: widget.width,
+          maxWidth: window - Spacing.d16,
+          position: position,
+          side: widget.side,
+          child: widget.child,
+        ),
       ),
     );
   }

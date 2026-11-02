@@ -135,34 +135,36 @@ class _PopoverContentState extends State<PopoverContent> with InkSeed {
         .dependOnInheritedWidgetOfExactType<PopoverContentScope>()
         ?.position;
     final window = MediaQuery.maybeSizeOf(context)?.width ?? double.infinity;
-    return Semantics(
-      container: true,
-      explicitChildNodes: true,
-      scopesRoute: true,
-      namesRoute: widget.semanticLabel != null,
-      label: widget.semanticLabel,
-      child: PaperPopup(
-        seed: inkSeed(widget.seed),
-        stock: widget.stock,
-        edge: widget.edge,
-        tilt: widget.tilt,
-        tiltDegrees: widget.tiltDegrees,
-        tape: widget.tape,
-        fastener: switch (widget.pin) {
-          true => FastenerKind.pin,
-          false => null,
-        },
-        fastenerTone: widget.pinTone,
-        padding: widget.padding ?? EdgeInsets.all(_padding.of(context)),
-        width: widget.width,
-        maxWidth: window - Spacing.d16,
-        position: position,
-        side: widget.side,
-        pointer: switch (widget.arrow) {
-          true => PopupPointer.popoverSize,
-          false => null,
-        },
-        child: widget.child,
+    return PopupFit(
+      child: Semantics(
+        container: true,
+        explicitChildNodes: true,
+        scopesRoute: true,
+        namesRoute: widget.semanticLabel != null,
+        label: widget.semanticLabel,
+        child: PaperPopup(
+          seed: inkSeed(widget.seed),
+          stock: widget.stock,
+          edge: widget.edge,
+          tilt: widget.tilt,
+          tiltDegrees: widget.tiltDegrees,
+          tape: widget.tape,
+          fastener: switch (widget.pin) {
+            true => FastenerKind.pin,
+            false => null,
+          },
+          fastenerTone: widget.pinTone,
+          padding: widget.padding ?? EdgeInsets.all(_padding.of(context)),
+          width: widget.width,
+          maxWidth: window - Spacing.d16,
+          position: position,
+          side: widget.side,
+          pointer: switch (widget.arrow) {
+            true => PopupPointer.popoverSize,
+            false => null,
+          },
+          child: widget.child,
+        ),
       ),
     );
   }
