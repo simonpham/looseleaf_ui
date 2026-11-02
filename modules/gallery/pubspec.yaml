@@ -40,6 +40,11 @@ flutter:
     - lib/features/blocks/blocks/settings_appearance/
     - lib/features/blocks/blocks/settings_billing/
     - lib/features/blocks/blocks/sidebar_01/
+    - lib/features/blocks/blocks/sidebar_02/
+    - lib/features/blocks/blocks/sidebar_03/
+    - lib/features/blocks/blocks/sidebar_04/
+    - lib/features/blocks/blocks/sidebar_05/
+    - lib/features/blocks/blocks/sidebar_06/
     - lib/features/blocks/blocks/signup_01/
     - lib/features/blocks/blocks/signup_02/
     - lib/features/blocks/blocks/signup_03/
