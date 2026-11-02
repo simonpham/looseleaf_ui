@@ -21,6 +21,8 @@ void main() {
     const ComponentsRoute('no-such-thing'),
   ];
 
+  setUpAll(loadKevinSans);
+
   for (final route in routes) {
     testWidgets('${route.path} builds', (tester) async {
       await pumpGallery(tester, route);
