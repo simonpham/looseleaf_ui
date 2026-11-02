@@ -43,6 +43,7 @@ flutter:
     - lib/features/components/examples/button/
     - lib/features/components/examples/button_group/
     - lib/features/components/examples/calendar/
+    - lib/features/components/examples/callout/
     - lib/features/components/examples/card/
     - lib/features/components/examples/carousel/
     - lib/features/components/examples/chart/
@@ -133,6 +134,7 @@ flutter:
     - lib/features/components/examples/switch/
     - lib/features/components/examples/table/
     - lib/features/components/examples/tabs/
+    - lib/features/components/examples/tape/
     - lib/features/components/examples/tear_off/
     - lib/features/components/examples/textarea/
     - lib/features/components/examples/ticket/
