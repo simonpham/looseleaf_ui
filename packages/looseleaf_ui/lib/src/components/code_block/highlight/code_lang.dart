@@ -1,6 +1,7 @@
 /// A language the code block's lexer knows.
 ///
-/// Mirrors `Lang` in upstream `src/lib/code-highlight.ts`.
+/// Mirrors `Lang` in upstream `src/lib/code-highlight.ts`, plus [dart] and
+/// [yaml].
 enum CodeLang {
   tsx,
   ts,
@@ -9,6 +10,8 @@ enum CodeLang {
   css,
   bash,
   json,
+  dart,
+  yaml,
   diff,
   text;
 
@@ -25,6 +28,9 @@ enum CodeLang {
     'scss': css,
     'json': json,
     'jsonc': json,
+    'dart': dart,
+    'yaml': yaml,
+    'yml': yaml,
     'bash': bash,
     'sh': bash,
     'shell': bash,

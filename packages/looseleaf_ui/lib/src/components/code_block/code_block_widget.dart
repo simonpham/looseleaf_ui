@@ -6,9 +6,9 @@ import 'package:looseleaf_ui/src/components/paper/paper.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// A typed slip taped to the page: the file name in a typewriter face, the
-/// code coloured by a small lexer (tsx, ts, jsx, js, css, json, bash), line
-/// numbers in the margin, and a diff mode where removed lines are struck
-/// through in red pencil and added ones ticked in green.
+/// code coloured by a small lexer (tsx, ts, jsx, js, css, json, bash, dart,
+/// yaml), line numbers in the margin, and a diff mode where removed lines
+/// are struck through in red pencil and added ones ticked in green.
 ///
 /// With [code] and no [child] it lays out a header (the title, the `+/-`
 /// counts, the copy button) over [CodeBlockContent]; with a [child] you

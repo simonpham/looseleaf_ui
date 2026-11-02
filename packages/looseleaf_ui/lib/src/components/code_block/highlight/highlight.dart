@@ -5,5 +5,7 @@ export 'package:looseleaf_ui/src/components/code_block/highlight/code_scan.dart'
 export 'package:looseleaf_ui/src/components/code_block/highlight/code_token.dart';
 export 'package:looseleaf_ui/src/components/code_block/highlight/code_tokenizer.dart';
 export 'package:looseleaf_ui/src/components/code_block/highlight/css_tokenizer.dart';
+export 'package:looseleaf_ui/src/components/code_block/highlight/dart_tokenizer.dart';
 export 'package:looseleaf_ui/src/components/code_block/highlight/js_tokenizer.dart';
 export 'package:looseleaf_ui/src/components/code_block/highlight/json_tokenizer.dart';
+export 'package:looseleaf_ui/src/components/code_block/highlight/yaml_tokenizer.dart';

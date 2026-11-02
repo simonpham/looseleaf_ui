@@ -2,10 +2,13 @@ import 'package:looseleaf_ui/src/components/code_block/highlight/bash_tokenizer.
 import 'package:looseleaf_ui/src/components/code_block/highlight/code_lang.dart';
 import 'package:looseleaf_ui/src/components/code_block/highlight/code_token.dart';
 import 'package:looseleaf_ui/src/components/code_block/highlight/css_tokenizer.dart';
+import 'package:looseleaf_ui/src/components/code_block/highlight/dart_tokenizer.dart';
 import 'package:looseleaf_ui/src/components/code_block/highlight/js_tokenizer.dart';
 import 'package:looseleaf_ui/src/components/code_block/highlight/json_tokenizer.dart';
+import 'package:looseleaf_ui/src/components/code_block/highlight/yaml_tokenizer.dart';
 
-/// The code block's small lexer: tsx, ts, jsx, js, css, json and bash;
+/// The code block's small lexer: tsx, ts, jsx, js, css, json, bash, dart
+/// and yaml;
 /// anything else is plain text.
 ///
 /// Mirrors `tokenize` and `tokenizeLines` in upstream
@@ -18,6 +21,8 @@ abstract final class CodeTokenizer {
     CodeLang.css => CssTokenizer(code).run(),
     CodeLang.json => tokenizeJson(code),
     CodeLang.bash => BashTokenizer(code).run(),
+    CodeLang.dart => DartTokenizer(code).run(),
+    CodeLang.yaml => YamlTokenizer(code).run(),
     CodeLang.diff || CodeLang.text => [
       if (code.isNotEmpty) CodeToken(CodeTokenType.plain, code),
     ],
