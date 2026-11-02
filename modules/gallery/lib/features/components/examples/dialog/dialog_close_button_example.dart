@@ -35,6 +35,7 @@ class _DialogCloseButtonExampleState extends State<DialogCloseButtonExample> {
         ),
         Input(controller: _link, readOnly: true, semanticLabel: 'Link'),
         DialogFooter(
+          alignment: MainAxisAlignment.start,
           children: [
             DialogClose(
               builder: (context, close) => Button(

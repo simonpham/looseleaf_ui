@@ -15,6 +15,7 @@ class DialogFooter extends StatelessWidget {
     this.children = const [],
     this.showCloseButton = false,
     this.closeLabel = 'Close',
+    this.alignment = MainAxisAlignment.end,
   });
 
   /// The buttons, in reading order.
@@ -25,6 +26,11 @@ class DialogFooter extends StatelessWidget {
 
   /// The close button's text.
   final String closeLabel;
+
+  /// Where the row sits from 640 px: at the end (upstream `sm:justify-end`)
+  /// unless changed, like the close-button example's `sm:justify-start`.
+  /// Phones always stack the buttons full width.
+  final MainAxisAlignment alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +58,7 @@ class DialogFooter extends StatelessWidget {
       );
     }
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: alignment,
       spacing: Spacing.d8,
       children: buttons,
     );

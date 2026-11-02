@@ -239,6 +239,40 @@ void main() {
     handle.dispose();
   });
 
+  Future<double> footerLeft(
+    WidgetTester tester,
+    MainAxisAlignment alignment,
+  ) async {
+    await tester.pumpWidget(
+      overlayHost(
+        Align(
+          alignment: Alignment.topLeft,
+          child: SizedBox(
+            width: 400,
+            child: DialogFooter(
+              key: ValueKey(alignment),
+              alignment: alignment,
+              children: const [
+                SizedBox(key: ValueKey('button'), width: 80, height: 36),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    return tester.getTopLeft(find.byKey(const ValueKey('button'))).dx;
+  }
+
+  testWidgets('the footer row sits at the end', (tester) async {
+    expect(await footerLeft(tester, MainAxisAlignment.end), 320);
+  });
+
+  testWidgets('alignment moves the footer row, sm:justify-start', (
+    tester,
+  ) async {
+    expect(await footerLeft(tester, MainAxisAlignment.start), 0);
+  });
+
   testWidgets('the body scrolls with the arrow keys', (tester) async {
     final scroll = ScrollController();
     addTearDown(scroll.dispose);
