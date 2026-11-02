@@ -17,6 +17,7 @@ cd apps/gallery && flutter run -d macos    # the gallery
 
 cd packages/looseleaf_ink && flutter test test/pen_test.dart   # one file
 flutter analyze apps modules packages
+tools/sdk/check_min_sdk.sh                 # analyze with the oldest supported Flutter (3.32.8, via fvm)
 
 # Regenerate parity fixtures from the original (see tools/parity/README.md)
 tools/parity/export.sh <path to a looseleaf checkout>
