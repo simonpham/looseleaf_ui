@@ -33,6 +33,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'doodle': doodleExamples,
   'drawer': drawerExamples,
   'dropdown-menu': dropdownMenuExamples,
+  'dropzone': dropzoneExamples,
   'empty': emptyExamples,
   'envelope': envelopeExamples,
   'field': fieldExamples,

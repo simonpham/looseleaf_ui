@@ -27,6 +27,7 @@ export 'package:gallery/features/components/examples/dialog/dialog.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
 export 'package:gallery/features/components/examples/drawer/drawer.dart';
 export 'package:gallery/features/components/examples/dropdown_menu/dropdown_menu.dart';
+export 'package:gallery/features/components/examples/dropzone/dropzone.dart';
 export 'package:gallery/features/components/examples/empty/empty.dart';
 export 'package:gallery/features/components/examples/envelope/envelope.dart';
 export 'package:gallery/features/components/examples/field/field.dart';
