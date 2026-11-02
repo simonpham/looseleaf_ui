@@ -29,6 +29,7 @@ flutter:
     - lib/features/blocks/blocks/chat_app/
     - lib/features/blocks/blocks/checkout_01/
     - lib/features/blocks/blocks/cta_01/
+    - lib/features/blocks/blocks/dashboard_01/
     - lib/features/blocks/blocks/dashboard_analytics/
     - lib/features/blocks/blocks/dashboard_finance/
     - lib/features/blocks/blocks/empty_inbox/

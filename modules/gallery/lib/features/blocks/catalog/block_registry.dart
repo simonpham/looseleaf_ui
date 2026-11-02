@@ -28,6 +28,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: Cta01Block.new,
     objects: [DeskObject.clips],
   ),
+  'dashboard-01': GalleryBlock(
+    source: 'blocks/dashboard_01/dashboard_01_block.dart',
+    builder: Dashboard01Block.new,
+  ),
   'dashboard-analytics': GalleryBlock(
     source: 'blocks/dashboard_analytics/dashboard_analytics_block.dart',
     builder: DashboardAnalyticsBlock.new,
