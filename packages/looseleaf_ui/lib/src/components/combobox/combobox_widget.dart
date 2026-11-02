@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/combobox/combobox_controller.dart';
@@ -42,6 +44,7 @@ class Combobox extends StatefulWidget {
     required this.child,
     String? value,
     ValueChanged<String?>? onChanged,
+    String? defaultValue,
     this.items = const [],
     this.open,
     this.onOpenChange,
@@ -56,7 +59,11 @@ class Combobox extends StatefulWidget {
   }) : multiple = false,
        _value = value,
        _onChanged = onChanged,
-       values = const [],
+       _defaultValue = defaultValue,
+       _defaultValues = const [],
+       _uncontrolled =
+           defaultValue != null || (value == null && onChanged == null),
+       values = null,
        onValuesChanged = null,
        announce = null;
 
@@ -64,8 +71,9 @@ class Combobox extends StatefulWidget {
   const Combobox.multiple({
     super.key,
     required this.child,
-    required this.values,
+    this.values,
     this.onValuesChanged,
+    List<String> defaultValues = const [],
     this.items = const [],
     this.open,
     this.onOpenChange,
@@ -80,7 +88,10 @@ class Combobox extends StatefulWidget {
     this.announce,
   }) : multiple = true,
        _value = null,
-       _onChanged = null;
+       _onChanged = null,
+       _defaultValue = null,
+       _defaultValues = defaultValues,
+       _uncontrolled = values == null;
 
   /// The parts: a trigger or field and a [ComboboxContent].
   final Widget child;
@@ -91,8 +102,18 @@ class Combobox extends StatefulWidget {
   final String? _value;
   final ValueChanged<String?>? _onChanged;
 
-  /// The chosen values of a [Combobox.multiple].
-  final List<String> values;
+  /// What an uncontrolled combobox starts with (upstream `defaultValue`).
+  final String? _defaultValue;
+  final List<String> _defaultValues;
+
+  /// Whether the combobox keeps its own value: a single one given a
+  /// `defaultValue` (or neither a value nor `onChanged`), a multiple one
+  /// given no [values].
+  final bool _uncontrolled;
+
+  /// The chosen values of a [Combobox.multiple]; null keeps its own,
+  /// starting at `defaultValues`.
+  final List<String>? values;
 
   /// Called with the next values of a [Combobox.multiple].
   final ValueChanged<List<String>>? onValuesChanged;
@@ -148,10 +169,15 @@ class _ComboboxState extends State<Combobox> {
     onOpenChanged: (open) => widget.onOpenChange?.call(open),
   );
   int _revision = 0;
+  late List<String> _own = switch (widget.multiple) {
+    true => widget._defaultValues,
+    false => [?widget._defaultValue],
+  };
 
-  List<String> get _value => switch (widget.multiple) {
-    true => widget.values,
-    false => [?widget._value],
+  List<String> get _value => switch ((widget._uncontrolled, widget.multiple)) {
+    (true, _) => _own,
+    (false, true) => widget.values ?? const [],
+    (false, false) => [?widget._value],
   };
 
   @override
@@ -196,11 +222,27 @@ class _ComboboxState extends State<Combobox> {
   }
 
   void _onValueChanged(List<String> next) {
+    if (widget._uncontrolled) _keep(next);
     if (widget.multiple) {
       widget.onValuesChanged?.call(next);
       return;
     }
     widget._onChanged?.call(next.firstOrNull);
+  }
+
+  void _keep(List<String> next) {
+    final before = _controller.value;
+    if (_same(before, next)) return;
+    _controller.value = next;
+    setState(() {
+      _own = next;
+      _revision++;
+    });
+    scheduleMicrotask(() {
+      if (!mounted) return;
+      _controller.valueChanged();
+      _announce(before, next);
+    });
   }
 
   void _announce(List<String> before, List<String> after) {

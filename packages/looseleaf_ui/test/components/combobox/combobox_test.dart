@@ -309,6 +309,94 @@ void main() {
     expect(values(), ['Garden']);
   });
 
+  testWidgets('defaultValue starts an uncontrolled combobox', (tester) async {
+    final changes = <String?>[];
+    await tester.pumpWidget(
+      overlayHost(
+        SizedBox(
+          width: 256,
+          child: Combobox(
+            items: _frameworks,
+            defaultValue: 'nuxt',
+            onChanged: changes.add,
+            child: const ComboboxInput(semanticLabel: 'Framework'),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    expect(
+      tester.widget<EditableText>(find.byType(EditableText)).controller.text,
+      'Nuxt.js',
+    );
+  });
+
+  testWidgets('an uncontrolled combobox keeps what is chosen', (tester) async {
+    final changes = <String?>[];
+    await tester.pumpWidget(
+      overlayHost(
+        SizedBox(
+          width: 256,
+          child: Combobox(
+            items: _frameworks,
+            defaultValue: 'next',
+            onChanged: changes.add,
+            child: const Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ComboboxTrigger(
+                  semanticLabel: 'Framework',
+                  child: ComboboxValue(placeholder: 'Select framework...'),
+                ),
+                ComboboxContent(children: [ComboboxList.items()]),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(find.text('Next.js'), findsOneWidget);
+    await tester.tap(find.byType(ComboboxTrigger));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Astro'));
+    await tester.pumpAndSettle();
+    expect(changes, ['astro']);
+    expect(find.text('Astro'), findsOneWidget);
+    expect(find.text('Next.js'), findsNothing);
+  });
+
+  testWidgets('chips without values keep their own from defaultValues', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      overlayHost(
+        const SizedBox(
+          width: 320,
+          child: Combobox.multiple(
+            items: [
+              ComboboxItemData.of('Design'),
+              ComboboxItemData.of('Garden'),
+            ],
+            defaultValues: ['Design'],
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ComboboxChips(
+                  child: ComboboxChipsInput(semanticLabel: 'Labels'),
+                ),
+                ComboboxContent(children: [ComboboxList.items()]),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(find.byType(ComboboxChip), findsOneWidget);
+    await tester.tap(find.bySemanticsLabel('Remove Design'));
+    await tester.pumpAndSettle();
+    expect(find.byType(ComboboxChip), findsNothing);
+  });
+
   test('toneOf matches upstream', () {
     expect(ComboboxChips.toneOf('Design'), isA<ChipTone>());
     expect(ComboboxChips.toneOf(''), ChipTone.hi);

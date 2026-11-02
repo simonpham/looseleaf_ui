@@ -52,8 +52,8 @@ class _ComboboxCountryFieldExampleState
                 const Label(child: Text('Country')),
                 Combobox(
                   items: _countries,
-                  value: _country,
-                  onChanged: (country) => setState(() => _country = country),
+                  defaultValue: 'nz',
+                  onChanged: (country) => _country = country,
                   label: 'Country',
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
