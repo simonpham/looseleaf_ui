@@ -76,6 +76,7 @@ flutter:
     - lib/features/components/examples/label/
     - lib/features/components/examples/label_tag/
     - lib/features/components/examples/lettering/
+    - lib/features/components/examples/marker/
     - lib/features/components/examples/marquee/
     - lib/features/components/examples/mascot/
     - lib/features/components/examples/menubar/

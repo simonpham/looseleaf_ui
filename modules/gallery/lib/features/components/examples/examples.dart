@@ -48,6 +48,7 @@ export 'package:gallery/features/components/examples/kbd/kbd.dart';
 export 'package:gallery/features/components/examples/label/label.dart';
 export 'package:gallery/features/components/examples/label_tag/label_tag.dart';
 export 'package:gallery/features/components/examples/lettering/lettering.dart';
+export 'package:gallery/features/components/examples/marker/marker.dart';
 export 'package:gallery/features/components/examples/marquee/marquee.dart';
 export 'package:gallery/features/components/examples/mascot/mascot.dart';
 export 'package:gallery/features/components/examples/menubar/menubar.dart';

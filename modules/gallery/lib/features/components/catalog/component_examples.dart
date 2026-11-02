@@ -54,6 +54,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'label': labelExamples,
   'label-tag': labelTagExamples,
   'lettering': letteringExamples,
+  'marker': markerExamples,
   'marquee': marqueeExamples,
   'mascot': mascotExamples,
   'menubar': menubarExamples,
