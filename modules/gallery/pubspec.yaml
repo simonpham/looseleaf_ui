@@ -54,6 +54,7 @@ flutter:
     - lib/features/components/examples/collapsible/
     - lib/features/components/examples/combobox/
     - lib/features/components/examples/command/
+    - lib/features/components/examples/confetti/
     - lib/features/components/examples/context_menu/
     - lib/features/components/examples/corkboard/
     - lib/features/components/examples/date_picker/
@@ -70,6 +71,7 @@ flutter:
     - lib/features/components/examples/flip_card/
     - lib/features/components/examples/folder/
     - lib/features/components/examples/form/
+    - lib/features/components/examples/handwritten/
     - lib/features/components/examples/highlight/
     - lib/features/components/examples/hover_card/
     - lib/features/components/examples/icon/
@@ -134,6 +136,7 @@ flutter:
     - lib/features/components/examples/switch/
     - lib/features/components/examples/table/
     - lib/features/components/examples/tabs/
+    - lib/features/components/examples/tally/
     - lib/features/components/examples/tape/
     - lib/features/components/examples/tear_off/
     - lib/features/components/examples/textarea/
