@@ -32,6 +32,7 @@ class _FieldTextareaExampleState extends State<FieldTextareaExample> {
                 Textarea(
                   focusNode: _feedback,
                   placeholder: 'Your feedback helps us improve...',
+                  rows: 4,
                 ),
                 const FieldDescription(
                   Text('Share your thoughts about our service.'),

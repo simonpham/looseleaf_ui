@@ -50,6 +50,8 @@ class Textarea extends StatefulWidget {
     this.showCount = false,
     this.countBuilder,
     this.maxLength,
+    this.rows,
+    this.minHeight,
     this.autofocus = false,
     this.keyboardType,
     this.textCapitalization = TextCapitalization.sentences,
@@ -97,6 +99,14 @@ class Textarea extends StatefulWidget {
 
   /// The most characters the field takes.
   final int? maxLength;
+
+  /// The visible lines the field starts with (upstream `rows`): its
+  /// smallest height fits this many lines of text plus its padding.
+  final int? rows;
+
+  /// The smallest height, replacing the 64 px default (96 ruled), like
+  /// upstream's `min-h-*` classes.
+  final double? minHeight;
 
   final bool autofocus;
   final TextInputType? keyboardType;
@@ -154,10 +164,21 @@ class _TextareaState extends State<Textarea> with InkSeed {
     super.dispose();
   }
 
-  double get _minHeight => switch (widget.ruled) {
-    true => TextareaMetrics.ruledMinHeight,
-    false => TextareaMetrics.minHeight,
-  };
+  double get _minHeight {
+    final base =
+        widget.minHeight ??
+        switch (widget.ruled) {
+          true => TextareaMetrics.ruledMinHeight,
+          false => TextareaMetrics.minHeight,
+        };
+    final rows = widget.rows;
+    if (rows == null) return base;
+    final line = switch (widget.ruled) {
+      true => TextareaMetrics.ruledLineHeight,
+      false => TextareaMetrics.lineHeight,
+    };
+    return math.max(base, rows * line + _padding.vertical);
+  }
 
   void _onResize(DragUpdateDetails details) {
     final current = _height ?? context.size?.height ?? _minHeight;

@@ -33,6 +33,31 @@ void main() {
     expect(tester.getSize(find.byType(Textarea)).height, Spacing.d64);
   });
 
+  testWidgets('rows set the starting lines', (tester) async {
+    await tester.pumpWidget(_host(const Textarea(rows: 4)));
+    expect(
+      tester.getSize(find.byType(Textarea)).height,
+      Spacing.d8 * 2 + TextareaMetrics.lineHeight * 4,
+    );
+  });
+
+  testWidgets('a single row keeps min-h-16', (tester) async {
+    await tester.pumpWidget(_host(const Textarea(rows: 1)));
+    expect(tester.getSize(find.byType(Textarea)).height, Spacing.d64);
+  });
+
+  testWidgets('minHeight replaces min-h-16', (tester) async {
+    await tester.pumpWidget(_host(const Textarea(minHeight: Spacing.d96)));
+    expect(tester.getSize(find.byType(Textarea)).height, Spacing.d96);
+  });
+
+  testWidgets('a fixed field takes minHeight as its height', (tester) async {
+    await tester.pumpWidget(
+      _host(const Textarea(minHeight: Spacing.d96, autoGrow: false)),
+    );
+    expect(tester.getSize(find.byType(Textarea)).height, Spacing.d96);
+  });
+
   testWidgets('focus draws the focus ring', (tester) async {
     await tester.pumpWidget(_host(const Textarea()));
     await tester.tap(find.byType(Textarea));

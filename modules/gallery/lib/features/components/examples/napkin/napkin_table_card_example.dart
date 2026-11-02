@@ -45,6 +45,7 @@ class _NapkinTableCardExampleState extends State<NapkinTableCardExample> {
                 controller: _note,
                 semanticLabel: 'Your note',
                 placeholder: 'allergies, birthdays, the very small pie...',
+                minHeight: Spacing.d96,
               ),
             ),
             NapkinFooter(
