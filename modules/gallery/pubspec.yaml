@@ -92,6 +92,7 @@ flutter:
     - lib/features/components/examples/scribble/
     - lib/features/components/examples/scroll_area/
     - lib/features/components/examples/seal/
+    - lib/features/components/examples/select/
     - lib/features/components/examples/separator/
     - lib/features/components/examples/sheet/
     - lib/features/components/examples/sidebar/

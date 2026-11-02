@@ -70,6 +70,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'scribble': scribbleExamples,
   'scroll-area': scrollAreaExamples,
   'seal': sealExamples,
+  'select': selectExamples,
   'separator': separatorExamples,
   'sheet': sheetExamples,
   'sidebar': sidebarExamples,
