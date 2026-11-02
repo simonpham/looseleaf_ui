@@ -41,6 +41,26 @@ bool _open(WidgetTester tester) =>
 Finder get _trigger => find.byType(InkInteraction);
 
 void main() {
+  testWidgets('height sets the page, and with it the corner, h-52', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 320,
+          child: PeelCorner(
+            children: [
+              PeelCornerPage(height: 208, child: Text('Spring sale')),
+              PeelCornerUnder(child: Text('SAVE10')),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(PeelCornerPage)).height, 208);
+    expect(tester.getSize(find.byType(PeelCorner)).height, 208);
+  });
+
   testWidgets('rests slightly curled; a tap opens and closes it', (
     tester,
   ) async {

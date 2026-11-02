@@ -18,6 +18,7 @@ class PeelCornerPage extends StatelessWidget {
     this.stock = StockName.paper,
     this.tilt = false,
     this.padding = const EdgeInsets.all(Spacing.d20),
+    this.height,
     this.seed,
   });
 
@@ -32,13 +33,17 @@ class PeelCornerPage extends StatelessWidget {
   /// `p-5`.
   final EdgeInsetsGeometry padding;
 
+  /// The sheet's height (upstream's `h-*` class, `h-52` in the docs);
+  /// null lets the content size it.
+  final double? height;
+
   /// Pins the sheet's tooth.
   final String? seed;
 
   @override
   Widget build(BuildContext context) {
     final scope = PeelCornerScope.of(context);
-    return ClipPath(
+    final page = ClipPath(
       clipper: PeelCornerClipper(peel: scope.peel, corner: scope.corner),
       child: Paper(
         stock: stock,
@@ -48,6 +53,10 @@ class PeelCornerPage extends StatelessWidget {
         child: child,
       ),
     );
+    return switch (height) {
+      final fixed? => SizedBox(height: fixed, child: page),
+      null => page,
+    };
   }
 }
 

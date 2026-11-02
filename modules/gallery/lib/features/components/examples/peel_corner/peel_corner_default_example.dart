@@ -18,10 +18,10 @@ class PeelCornerDefaultExample extends StatelessWidget {
     final small = theme.typography.interface(cssSize: 14);
     return SizedBox(
       width: _width,
-      height: _height,
       child: PeelCorner(
         children: [
           PeelCornerPage(
+            height: _height,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

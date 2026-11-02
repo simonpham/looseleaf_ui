@@ -34,13 +34,13 @@ class _PeelCornerVoucherExampleState extends State<PeelCornerVoucherExample> {
       children: [
         SizedBox(
           width: _width,
-          height: _height,
           child: PeelCorner(
             peeled: _open,
             onPeeledChange: (open) => setState(() => _open = open),
             label: 'Reveal the voucher code',
             children: [
               PeelCornerPage(
+                height: _height,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: Spacing.d8,

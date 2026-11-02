@@ -13,13 +13,13 @@ class PeelCornerLeftCornerExample extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     return SizedBox(
       width: _width,
-      height: _height,
       child: PeelCorner(
         corner: PeelCornerSide.bottomLeft,
         back: PaintKey.kraft,
         size: _peel,
         children: [
           PeelCornerPage(
+            height: _height,
             stock: StockName.kraft,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
