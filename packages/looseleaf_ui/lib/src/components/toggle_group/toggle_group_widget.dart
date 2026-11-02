@@ -14,6 +14,10 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 /// one Tab stop; the arrow keys move between items and Space or Enter
 /// presses.
 ///
+/// A row wider than its parent scrolls sideways. Wrap items in [Expanded]
+/// (upstream `flex-1` on the items) to share the row's whole width
+/// instead.
+///
 /// ```dart
 /// ToggleGroup<String>(
 ///   value: {align},
@@ -95,53 +99,64 @@ class _ToggleGroupState<T> extends State<ToggleGroup<T>> with InkSeed {
       disabled: group.disabled,
       invalid: invalid,
     );
+    final stretches =
+        !vertical && group.children.any((child) => child is Flexible);
+    Widget scoped(int index, Widget child) => ToggleGroupScope<T>(
+      value: group.value,
+      onChanged: group.onChanged,
+      type: group.type,
+      variant: group.variant,
+      size: group.size,
+      spacing: group.spacing,
+      tone: group.tone,
+      vertical: vertical,
+      disabled: group.disabled,
+      invalid: invalid,
+      first: index == 0,
+      child: child,
+    );
     final items = [
       for (final (index, child) in group.children.indexed)
-        ToggleGroupScope<T>(
-          value: group.value,
-          onChanged: group.onChanged,
-          type: group.type,
-          variant: group.variant,
-          size: group.size,
-          spacing: group.spacing,
-          tone: group.tone,
-          vertical: vertical,
-          disabled: group.disabled,
-          invalid: invalid,
-          first: index == 0,
-          child: child,
-        ),
+        switch ((child, vertical)) {
+          (Flexible(:final flex, :final fit, child: final item), false) =>
+            Flexible(flex: flex, fit: fit, child: scoped(index, item)),
+          (Flexible(child: final item), true) => scoped(index, item),
+          _ => scoped(index, child),
+        },
     ];
+    final surface = InkSurface(
+      source: RecipeInkSource(toggleGroupRecipe, params, json: params.toJson()),
+      seed: inkSeed(group.seed),
+      states: {if (group.disabled) InkState.disabled},
+      child: switch (vertical) {
+        true => IntrinsicWidth(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: group.spacing,
+            children: items,
+          ),
+        ),
+        false => Row(
+          mainAxisSize: switch (stretches) {
+            true => MainAxisSize.max,
+            false => MainAxisSize.min,
+          },
+          spacing: group.spacing,
+          children: items,
+        ),
+      },
+    );
     return Semantics(
       container: true,
       explicitChildNodes: true,
       label: group.semanticLabel,
       child: InkRovingFocus(
         axis: group.direction,
-        child: InkSurface(
-          source: RecipeInkSource(
-            toggleGroupRecipe,
-            params,
-            json: params.toJson(),
-          ),
-          seed: inkSeed(group.seed),
-          states: {if (group.disabled) InkState.disabled},
-          child: switch (vertical) {
-            true => IntrinsicWidth(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: group.spacing,
-                children: items,
-              ),
-            ),
-            false => Row(
-              mainAxisSize: MainAxisSize.min,
-              spacing: group.spacing,
-              children: items,
-            ),
-          },
-        ),
+        child: switch (vertical || stretches) {
+          true => surface,
+          false => InkOverflowScroll(child: surface),
+        },
       ),
     );
   }
