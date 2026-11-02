@@ -236,6 +236,7 @@ class _NotesAppNoteListState extends State<NotesAppNoteList> {
                     },
                     value: widget.notebook,
                     onValueChange: widget.onNotebookChange,
+                    spacing: Spacing.d8,
                     children: [
                       Semantics(
                         container: true,

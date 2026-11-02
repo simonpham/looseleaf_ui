@@ -129,6 +129,7 @@ class _LandingHero02WindowState extends State<LandingHero02Window> {
                   ),
                   Tabs(
                     defaultValue: 'today',
+                    spacing: Spacing.d16,
                     children: [
                       const TabsList(
                         variant: TabsVariant.line,

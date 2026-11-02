@@ -303,12 +303,12 @@ class _Dashboard01DataTableState extends State<Dashboard01DataTable> {
           child: Tabs(
             value: _view,
             onValueChange: (value) => setState(() => _view = value),
+            spacing: Spacing.d24,
             children: [
               Padding(
                 padding: pad,
                 child: _toolbar(width >= _tabsFrom, wide),
               ),
-              const SizedBox(height: Spacing.d12),
               for (final view in _views)
                 TabsContent(
                   value: view.value,

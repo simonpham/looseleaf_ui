@@ -76,6 +76,7 @@ class _ProfilePageBlockState extends State<ProfilePageBlock> {
                     ),
                     Tabs(
                       defaultValue: 'activity',
+                      spacing: Spacing.d24,
                       children: [
                         const SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
@@ -99,33 +100,24 @@ class _ProfilePageBlockState extends State<ProfilePageBlock> {
                         ),
                         TabsContent(
                           value: 'activity',
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: Spacing.d12),
-                            child: ProfilePageActivity(
-                              weeks: person.weeks,
-                              feed: person.feed,
-                              width: width,
-                            ),
+                          child: ProfilePageActivity(
+                            weeks: person.weeks,
+                            feed: person.feed,
+                            width: width,
                           ),
                         ),
                         TabsContent(
                           value: 'notebooks',
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: Spacing.d12),
-                            child: ProfilePageNotebooks(
-                              shelf: person.shelf,
-                              width: width,
-                            ),
+                          child: ProfilePageNotebooks(
+                            shelf: person.shelf,
+                            width: width,
                           ),
                         ),
                         TabsContent(
                           value: 'stickers',
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: Spacing.d12),
-                            child: ProfilePageStickers(
-                              badges: person.badges,
-                              width: width,
-                            ),
+                          child: ProfilePageStickers(
+                            badges: person.badges,
+                            width: width,
                           ),
                         ),
                       ],

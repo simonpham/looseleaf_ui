@@ -23,7 +23,11 @@ class StickerGalleryExample extends StatelessWidget {
         child: TabsList(
           children: [
             for (final (key, label) in _shelves)
-              TabsTrigger(value: key, child: Text(label)),
+              TabsTrigger(
+                value: key,
+                horizontalPadding: Spacing.d8,
+                child: Text(label),
+              ),
           ],
         ),
       ),

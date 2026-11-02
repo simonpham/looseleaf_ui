@@ -65,6 +65,7 @@ class _EmptyInboxBlockState extends State<EmptyInboxBlock> {
               CardContent(
                 child: Tabs(
                   defaultValue: 'all',
+                  spacing: Spacing.d8,
                   children: [
                     const TabsList(
                       variant: TabsVariant.line,

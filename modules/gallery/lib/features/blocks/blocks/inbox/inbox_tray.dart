@@ -38,6 +38,9 @@ class InboxTray extends StatelessWidget {
   /// The tray width from which the folder tabs have room for their icons.
   static const double _iconsFrom = 420;
 
+  /// Upstream's `max-[26rem]:px-2.5` on the folder tabs.
+  static const double _narrowTabsBelow = 416;
+
   /// Shares the row out by how much each tab has to say, so a narrow
   /// tray squeezes the long labels first.
   int _tabFlex(InboxFolder each) =>
@@ -108,10 +111,13 @@ class InboxTray extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final withIcons = constraints.maxWidth >= _iconsFrom;
+          final narrow =
+              (MediaQuery.maybeSizeOf(context)?.width ?? 0) < _narrowTabsBelow;
           return Tabs(
             value: folder.name,
             onValueChange: (value) =>
                 onFolder(InboxFolder.values.byName(value)),
+            spacing: 0,
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(
@@ -134,6 +140,10 @@ class InboxTray extends StatelessWidget {
                               flex: _tabFlex(each),
                               child: TabsTrigger(
                                 value: each.name,
+                                horizontalPadding: switch (narrow) {
+                                  true => Spacing.d10,
+                                  false => Spacing.d16,
+                                },
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   spacing: Spacing.d6,
