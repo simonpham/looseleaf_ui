@@ -38,6 +38,7 @@ export 'package:gallery/features/components/examples/icon/icon.dart';
 export 'package:gallery/features/components/examples/index_card/index_card.dart';
 export 'package:gallery/features/components/examples/input/input.dart';
 export 'package:gallery/features/components/examples/input_otp/input_otp.dart';
+export 'package:gallery/features/components/examples/item/item.dart';
 export 'package:gallery/features/components/examples/kbd/kbd.dart';
 export 'package:gallery/features/components/examples/label/label.dart';
 export 'package:gallery/features/components/examples/label_tag/label_tag.dart';

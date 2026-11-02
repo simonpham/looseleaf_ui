@@ -66,6 +66,7 @@ flutter:
     - lib/features/components/examples/index_card/
     - lib/features/components/examples/input/
     - lib/features/components/examples/input_otp/
+    - lib/features/components/examples/item/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
     - lib/features/components/examples/label_tag/
