@@ -89,6 +89,7 @@ flutter:
     - lib/features/components/examples/page/
     - lib/features/components/examples/pagination/
     - lib/features/components/examples/paper/
+    - lib/features/components/examples/peel_corner/
     - lib/features/components/examples/polaroid/
     - lib/features/components/examples/popover/
     - lib/features/components/examples/progress/
@@ -126,6 +127,7 @@ flutter:
     - lib/features/components/examples/switch/
     - lib/features/components/examples/table/
     - lib/features/components/examples/tabs/
+    - lib/features/components/examples/tear_off/
     - lib/features/components/examples/textarea/
     - lib/features/components/examples/ticket/
     - lib/features/components/examples/toggle/
