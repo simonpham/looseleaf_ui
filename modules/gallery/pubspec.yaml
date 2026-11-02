@@ -39,7 +39,10 @@ flutter:
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
     - lib/features/components/examples/label_tag/
+    - lib/features/components/examples/lettering/
     - lib/features/components/examples/mascot/
+    - lib/features/components/examples/reveal/
+    - lib/features/components/examples/scribble/
     - lib/features/components/examples/seal/
     - lib/features/components/examples/separator/
     - lib/features/components/examples/sidebar/
