@@ -38,6 +38,7 @@ export 'package:gallery/features/components/examples/sticker/sticker.dart';
 export 'package:gallery/features/components/examples/sticker_sheet/sticker_sheet.dart';
 export 'package:gallery/features/components/examples/strike/strike.dart';
 export 'package:gallery/features/components/examples/switch/switch.dart';
+export 'package:gallery/features/components/examples/tabs/tabs.dart';
 export 'package:gallery/features/components/examples/toggle/toggle.dart';
 export 'package:gallery/features/components/examples/typewriter/typewriter.dart';
 export 'package:gallery/features/components/examples/typing_indicator/typing_indicator.dart';

@@ -66,6 +66,7 @@ flutter:
     - lib/features/components/examples/sticker_sheet/
     - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
+    - lib/features/components/examples/tabs/
     - lib/features/components/examples/toggle/
     - lib/features/components/examples/typewriter/
     - lib/features/components/examples/typing_indicator/

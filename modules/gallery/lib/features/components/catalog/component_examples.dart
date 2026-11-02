@@ -44,6 +44,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'sticker-sheet': stickerSheetExamples,
   'strike': strikeExamples,
   'switch': switchExamples,
+  'tabs': tabsExamples,
   'toggle': toggleExamples,
   'typewriter': typewriterExamples,
   'typing-indicator': typingIndicatorExamples,
