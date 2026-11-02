@@ -13,30 +13,34 @@ class ChartTrendFooter extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     return CardFooter(
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: Spacing.d8,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              spacing: Spacing.d8,
-              children: [
-                Text(
-                  'Trending up by 5.2% this month',
-                  style: theme.typography
-                      .interface(cssSize: 14, color: theme.colors.ink)
-                      .copyWith(height: 1, fontWeight: FontWeight.w500),
-                ),
-                const InkIcon('trending-up', size: Spacing.d16),
-              ],
-            ),
-            Text(
-              caption,
-              style: theme.typography
-                  .interface(cssSize: 14, color: theme.colors.inkMuted)
-                  .copyWith(height: 1),
-            ),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: Spacing.d8,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                spacing: Spacing.d8,
+                children: [
+                  Flexible(
+                    child: Text(
+                      'Trending up by 5.2% this month',
+                      style: theme.typography
+                          .interface(cssSize: 14, color: theme.colors.ink)
+                          .copyWith(height: 1, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  const InkIcon('trending-up', size: Spacing.d16),
+                ],
+              ),
+              Text(
+                caption,
+                style: theme.typography
+                    .interface(cssSize: 14, color: theme.colors.inkMuted)
+                    .copyWith(height: 1),
+              ),
+            ],
+          ),
         ),
       ],
     );
