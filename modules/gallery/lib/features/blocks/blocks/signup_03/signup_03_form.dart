@@ -256,6 +256,7 @@ class _Signup03FormState extends State<Signup03Form> {
           seed: 'signup-03',
           children: [
             CardHeader(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CardTitle(
                   DefaultTextStyle.merge(
@@ -265,35 +266,29 @@ class _Signup03FormState extends State<Signup03Form> {
                       cssSize: 32,
                       cssLineHeight: 1,
                     ),
-                    child: const SizedBox(
-                      width: double.infinity,
-                      child: Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(text: 'Create your '),
-                            WidgetSpan(
-                              alignment: PlaceholderAlignment.baseline,
-                              baseline: TextBaseline.alphabetic,
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.only(
-                                  start: Spacing.d4,
-                                ),
-                                child: Highlight(child: Text('account')),
+                    child: const Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(text: 'Create your '),
+                          WidgetSpan(
+                            alignment: PlaceholderAlignment.baseline,
+                            baseline: TextBaseline.alphabetic,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.only(
+                                start: Spacing.d4,
                               ),
+                              child: Highlight(child: Text('account')),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: double.infinity,
-                  child: CardDescription(
-                    Text(
-                      'Four lines and you are in.',
-                      textAlign: TextAlign.center,
-                    ),
+                const CardDescription(
+                  Text(
+                    'Four lines and you are in.',
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ],

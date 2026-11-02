@@ -113,30 +113,25 @@ class _ForgotPassword01FormState extends State<ForgotPassword01Form> {
       seed: 'forgot-password-01',
       children: [
         CardHeader(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Center(child: Mascot(pose: 'search', size: 80)),
-            SizedBox(
-              width: double.infinity,
-              child: CardTitle(
-                Text(
-                  'Forgot your password?',
-                  textAlign: TextAlign.center,
-                  style: theme.typography.face(
-                    KevinSansFace.script,
-                    cssSize: 32,
-                    cssLineHeight: 1,
-                    fontWeight: FontWeight.w600,
-                  ),
+            const Mascot(pose: 'search', size: 80),
+            CardTitle(
+              Text(
+                'Forgot your password?',
+                textAlign: TextAlign.center,
+                style: theme.typography.face(
+                  KevinSansFace.script,
+                  cssSize: 32,
+                  cssLineHeight: 1,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            const SizedBox(
-              width: double.infinity,
-              child: CardDescription(
-                Text(
-                  'No harm done. Tell us your email and we will send a link to choose a new one.',
-                  textAlign: TextAlign.center,
-                ),
+            const CardDescription(
+              Text(
+                'No harm done. Tell us your email and we will send a link to choose a new one.',
+                textAlign: TextAlign.center,
               ),
             ),
           ],

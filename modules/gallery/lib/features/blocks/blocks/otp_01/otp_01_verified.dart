@@ -27,42 +27,35 @@ class Otp01Verified extends StatelessWidget {
       seed: 'otp-01-done',
       children: [
         CardHeader(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Center(
-              child: Seal(
-                variant: SealVariant.rosette,
-                mark: SealMark.check,
-                tone: PaintKey.grass,
-                size: 104,
-                semanticLabel: 'Verified',
-                tilt: -4,
-              ),
+            const Seal(
+              variant: SealVariant.rosette,
+              mark: SealMark.check,
+              tone: PaintKey.grass,
+              size: 104,
+              semanticLabel: 'Verified',
+              tilt: -4,
             ),
-            SizedBox(
-              width: double.infinity,
-              child: Focus(
-                focusNode: titleFocus,
-                child: CardTitle(
-                  Text(
-                    'You are verified',
-                    textAlign: TextAlign.center,
-                    style: theme.typography.face(
-                      KevinSansFace.script,
-                      cssSize: 32,
-                      cssLineHeight: 1,
-                      fontWeight: FontWeight.w600,
-                    ),
+            Focus(
+              focusNode: titleFocus,
+              child: CardTitle(
+                Text(
+                  'You are verified',
+                  textAlign: TextAlign.center,
+                  style: theme.typography.face(
+                    KevinSansFace.script,
+                    cssSize: 32,
+                    cssLineHeight: 1,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CardDescription(
-                Text(
-                  '$email is confirmed. Welcome to the desk.',
-                  textAlign: TextAlign.center,
-                ),
+            CardDescription(
+              Text(
+                '$email is confirmed. Welcome to the desk.',
+                textAlign: TextAlign.center,
               ),
             ),
           ],

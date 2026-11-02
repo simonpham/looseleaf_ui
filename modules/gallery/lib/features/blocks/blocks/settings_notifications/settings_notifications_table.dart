@@ -13,8 +13,10 @@ class SettingsNotificationsTable extends StatelessWidget {
   });
 
   static const double _wideFrom = 576;
-  static const double _narrowColumn = 72;
-  static const double _wideColumn = 96;
+  static const double _narrowColumn = Spacing.d56;
+  static const double _wideColumn = Spacing.d96;
+  static const double _narrowPad = Spacing.d4;
+  static const double _widePad = Spacing.d12;
   static const double _faded = 0.6;
 
   final NotifyPrefs prefs;
@@ -34,9 +36,14 @@ class SettingsNotificationsTable extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     return LayoutBuilder(
       builder: (context, constraints) {
-        final column = switch (constraints.maxWidth >= _wideFrom) {
+        final wide = constraints.maxWidth >= _wideFrom;
+        final column = switch (wide) {
           true => _wideColumn,
           false => _narrowColumn,
+        };
+        final pad = switch (wide) {
+          true => _widePad,
+          false => _narrowPad,
         };
         return Semantics(
           container: true,
@@ -53,6 +60,7 @@ class SettingsNotificationsTable extends StatelessWidget {
                     const TableHead(child: Text('News')),
                     for (final channel in NotifyChannel.values)
                       TableHead(
+                        padding: EdgeInsets.symmetric(horizontal: pad),
                         child: Text(
                           channel.label,
                           textAlign: TextAlign.center,
@@ -66,7 +74,7 @@ class SettingsNotificationsTable extends StatelessWidget {
             body: TableBody(
               rows: [
                 for (final event in NotifyEvent.values)
-                  _row(event, event.enabledIn(prefs.mode), theme),
+                  _row(event, event.enabledIn(prefs.mode), pad, theme),
               ],
             ),
           ),
@@ -75,7 +83,12 @@ class SettingsNotificationsTable extends StatelessWidget {
     );
   }
 
-  InkTableRow _row(NotifyEvent event, bool live, LooseleafThemeData theme) {
+  InkTableRow _row(
+    NotifyEvent event,
+    bool live,
+    double pad,
+    LooseleafThemeData theme,
+  ) {
     final opacity = switch (live) {
       true => 1.0,
       false => _faded,
@@ -106,6 +119,10 @@ class SettingsNotificationsTable extends StatelessWidget {
         ),
         for (final channel in NotifyChannel.values)
           InkTableCell(
+            padding: EdgeInsets.symmetric(
+              horizontal: pad,
+              vertical: Spacing.d8,
+            ),
             child: Opacity(
               opacity: opacity,
               child: Center(

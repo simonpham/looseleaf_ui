@@ -23,45 +23,38 @@ class ResetPassword01Done extends StatelessWidget {
       seed: 'reset-password-01-done',
       children: [
         CardHeader(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Center(
-              child: Seal(
-                variant: SealVariant.rosette,
-                mark: SealMark.check,
-                tone: PaintKey.grass,
-                size: 104,
-                semanticLabel: 'Done',
-                tilt: -4,
-              ),
+            const Seal(
+              variant: SealVariant.rosette,
+              mark: SealMark.check,
+              tone: PaintKey.grass,
+              size: 104,
+              semanticLabel: 'Done',
+              tilt: -4,
             ),
-            SizedBox(
-              width: double.infinity,
-              child: Focus(
-                focusNode: titleFocus,
-                child: CardTitle(
-                  Text(
-                    'Password changed',
-                    textAlign: TextAlign.center,
-                    style: theme.typography.face(
-                      KevinSansFace.script,
-                      cssSize: 32,
-                      cssLineHeight: 1,
-                      fontWeight: FontWeight.w600,
-                    ),
+            Focus(
+              focusNode: titleFocus,
+              child: CardTitle(
+                Text(
+                  'Password changed',
+                  textAlign: TextAlign.center,
+                  style: theme.typography.face(
+                    KevinSansFace.script,
+                    cssSize: 32,
+                    cssLineHeight: 1,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CardDescription(
-                Text(
-                  'You can sign in with it now.${switch (demo) {
-                    true => ' (This is a demo: nothing was saved.)',
-                    false => '',
-                  }}',
-                  textAlign: TextAlign.center,
-                ),
+            CardDescription(
+              Text(
+                'You can sign in with it now.${switch (demo) {
+                  true => ' (This is a demo: nothing was saved.)',
+                  false => '',
+                }}',
+                textAlign: TextAlign.center,
               ),
             ),
           ],

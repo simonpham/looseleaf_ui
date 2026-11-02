@@ -81,7 +81,8 @@ class _ResetPassword01FormState extends State<ResetPassword01Form> {
       final message = '$error';
       setState(
         () => _formError = switch (message.isEmpty) {
-          true => 'We could not save the new password. Ask for a fresh link and try again.',
+          true =>
+            'We could not save the new password. Ask for a fresh link and try again.',
           false => message,
         },
       );
@@ -104,30 +105,25 @@ class _ResetPassword01FormState extends State<ResetPassword01Form> {
       seed: 'reset-password-01',
       children: [
         CardHeader(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Center(child: Mascot(pose: 'write', size: 80)),
-            SizedBox(
-              width: double.infinity,
-              child: CardTitle(
-                Text(
-                  'Choose a new password',
-                  textAlign: TextAlign.center,
-                  style: theme.typography.face(
-                    KevinSansFace.script,
-                    cssSize: 32,
-                    cssLineHeight: 1,
-                    fontWeight: FontWeight.w600,
-                  ),
+            const Mascot(pose: 'write', size: 80),
+            CardTitle(
+              Text(
+                'Choose a new password',
+                textAlign: TextAlign.center,
+                style: theme.typography.face(
+                  KevinSansFace.script,
+                  cssSize: 32,
+                  cssLineHeight: 1,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            const SizedBox(
-              width: double.infinity,
-              child: CardDescription(
-                Text(
-                  'Make it one you will remember. Nobody is watching the pen.',
-                  textAlign: TextAlign.center,
-                ),
+            const CardDescription(
+              Text(
+                'Make it one you will remember. Nobody is watching the pen.',
+                textAlign: TextAlign.center,
               ),
             ),
           ],

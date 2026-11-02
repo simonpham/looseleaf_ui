@@ -90,45 +90,40 @@ class _Login03FormState extends State<Login03Form> {
           seed: 'login-03',
           children: [
             CardHeader(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: double.infinity,
-                  child: CardTitle(
-                    DefaultTextStyle.merge(
-                      style: theme.typography.face(
-                        KevinSansFace.script,
-                        cssSize: 32,
-                        cssLineHeight: 1,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      child: const Text.rich(
-                        textAlign: TextAlign.center,
-                        TextSpan(
-                          children: [
-                            TextSpan(text: 'Welcome '),
-                            WidgetSpan(
-                              alignment: PlaceholderAlignment.baseline,
-                              baseline: TextBaseline.alphabetic,
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.only(
-                                  start: Spacing.d4,
-                                ),
-                                child: Highlight(child: Text('back')),
+                CardTitle(
+                  DefaultTextStyle.merge(
+                    style: theme.typography.face(
+                      KevinSansFace.script,
+                      cssSize: 32,
+                      cssLineHeight: 1,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    child: const Text.rich(
+                      textAlign: TextAlign.center,
+                      TextSpan(
+                        children: [
+                          TextSpan(text: 'Welcome '),
+                          WidgetSpan(
+                            alignment: PlaceholderAlignment.baseline,
+                            baseline: TextBaseline.alphabetic,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.only(
+                                start: Spacing.d4,
                               ),
+                              child: Highlight(child: Text('back')),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: double.infinity,
-                  child: CardDescription(
-                    Text(
-                      'Sign in with Apple or Google, or with your email.',
-                      textAlign: TextAlign.center,
-                    ),
+                const CardDescription(
+                  Text(
+                    'Sign in with Apple or Google, or with your email.',
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ],

@@ -45,52 +45,45 @@ class ForgotPassword01Sent extends StatelessWidget {
       seed: 'forgot-password-01-sent',
       children: [
         CardHeader(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Center(
-              child: Sticker('envelope-heart', size: 96, rotate: -6),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Focus(
-                focusNode: titleFocus,
-                child: CardTitle(
-                  Text(
-                    'Check your email',
-                    textAlign: TextAlign.center,
-                    style: theme.typography.face(
-                      KevinSansFace.script,
-                      cssSize: 32,
-                      cssLineHeight: 1,
-                      fontWeight: FontWeight.w600,
-                    ),
+            const Sticker('envelope-heart', size: 96, rotate: -6),
+            Focus(
+              focusNode: titleFocus,
+              child: CardTitle(
+                Text(
+                  'Check your email',
+                  textAlign: TextAlign.center,
+                  style: theme.typography.face(
+                    KevinSansFace.script,
+                    cssSize: 32,
+                    cssLineHeight: 1,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CardDescription(
-                Text.rich(
-                  textAlign: TextAlign.center,
-                  TextSpan(
-                    children: [
-                      const TextSpan(text: 'If '),
-                      TextSpan(
-                        text: sentTo,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: theme.colors.ink,
-                        ),
+            CardDescription(
+              Text.rich(
+                textAlign: TextAlign.center,
+                TextSpan(
+                  children: [
+                    const TextSpan(text: 'If '),
+                    TextSpan(
+                      text: sentTo,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: theme.colors.ink,
                       ),
-                      TextSpan(
-                        text:
-                            ' has an account, a link to choose a new password is on its way. It works for one hour.${switch (demo) {
-                              true => ' (This is a demo: nothing was sent.)',
-                              false => '',
-                            }}',
-                      ),
-                    ],
-                  ),
+                    ),
+                    TextSpan(
+                      text:
+                          ' has an account, a link to choose a new password is on its way. It works for one hour.${switch (demo) {
+                            true => ' (This is a demo: nothing was sent.)',
+                            false => '',
+                          }}',
+                    ),
+                  ],
                 ),
               ),
             ),

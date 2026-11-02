@@ -92,22 +92,20 @@ class _SettingsAppearanceBlockState extends State<SettingsAppearanceBlock> {
         Field(
           children: [
             const FieldLabel(child: Text('Paper for the preview')),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: ToggleGroup<AppearancePaper>(
-                variant: ToggleVariant.outline,
-                value: {appearance.paper},
-                semanticLabel: 'Paper for the preview',
-                onChanged: (value) {
-                  if (value.firstOrNull case final paper?) {
-                    _set(appearance.copyWith(paper: paper));
-                  }
-                },
-                children: [
-                  for (final paper in AppearancePaper.values)
-                    ToggleGroupItem(value: paper, child: Text(paper.label)),
-                ],
-              ),
+            ToggleGroup<AppearancePaper>(
+              variant: ToggleVariant.outline,
+              wrap: true,
+              value: {appearance.paper},
+              semanticLabel: 'Paper for the preview',
+              onChanged: (value) {
+                if (value.firstOrNull case final paper?) {
+                  _set(appearance.copyWith(paper: paper));
+                }
+              },
+              children: [
+                for (final paper in AppearancePaper.values)
+                  ToggleGroupItem(value: paper, child: Text(paper.label)),
+              ],
             ),
           ],
         ),

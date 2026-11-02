@@ -150,50 +150,43 @@ class _Otp01FormState extends State<Otp01Form> {
       seed: 'otp-01',
       children: [
         CardHeader(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center(
-              child: Mascot(
-                pose: switch (_status) {
-                  _Status.wrong => 'oops',
-                  _Status.verifying => 'search',
-                  _ => 'think',
-                },
-                size: 80,
-              ),
+            Mascot(
+              pose: switch (_status) {
+                _Status.wrong => 'oops',
+                _Status.verifying => 'search',
+                _ => 'think',
+              },
+              size: 80,
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CardTitle(
-                Text(
-                  'Check your email',
-                  textAlign: TextAlign.center,
-                  style: theme.typography.face(
-                    KevinSansFace.script,
-                    cssSize: 32,
-                    cssLineHeight: 1,
-                    fontWeight: FontWeight.w600,
-                  ),
+            CardTitle(
+              Text(
+                'Check your email',
+                textAlign: TextAlign.center,
+                style: theme.typography.face(
+                  KevinSansFace.script,
+                  cssSize: 32,
+                  cssLineHeight: 1,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CardDescription(
-                Text.rich(
-                  textAlign: TextAlign.center,
-                  TextSpan(
-                    children: [
-                      const TextSpan(text: 'We sent a six-digit code to '),
-                      TextSpan(
-                        text: widget.email,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: theme.colors.ink,
-                        ),
+            CardDescription(
+              Text.rich(
+                textAlign: TextAlign.center,
+                TextSpan(
+                  children: [
+                    const TextSpan(text: 'We sent a six-digit code to '),
+                    TextSpan(
+                      text: widget.email,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: theme.colors.ink,
                       ),
-                      const TextSpan(text: '. It works for ten minutes.'),
-                    ],
-                  ),
+                    ),
+                    const TextSpan(text: '. It works for ten minutes.'),
+                  ],
                 ),
               ),
             ),
