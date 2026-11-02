@@ -49,7 +49,7 @@ class _CommandGroupState extends State<CommandGroup> {
                       child: Semantics(header: true, child: heading),
                     ),
                   ),
-                ...widget.children,
+                ...CommandRank.order(controller, widget.children),
               ],
             ),
           ),

@@ -257,4 +257,83 @@ void main() {
     expect(open, isFalse);
     expect(opener.hasFocus, isTrue);
   });
+
+  testWidgets('CommandDialog sits 12 % down, 8 px on phones', (tester) async {
+    tester.view.physicalSize = const Size(800, 600);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    Widget palette() => overlayHost(
+      const CommandDialog(
+        defaultOpen: true,
+        children: [
+          CommandInput(placeholder: 'Search'),
+          CommandList(children: [CommandItem(child: Text('Calendar'))]),
+        ],
+      ),
+    );
+    await tester.pumpWidget(palette());
+    await tester.pumpAndSettle();
+    final sheet = tester.getRect(find.byType(DialogContent));
+    expect(sheet.top, Spacing.d16 + 600 * 0.12);
+    expect(sheet.center.dx, 400);
+
+    tester.view.physicalSize = const Size(400, 800);
+    await tester.pumpAndSettle();
+    final phone = tester.getRect(find.byType(DialogContent));
+    expect(phone.top, Spacing.d8);
+    expect(phone.width, 400);
+  });
+
+  testWidgets('a new search highlights its best row at once', (
+    tester,
+  ) async {
+    await tester.pumpWidget(overlayHost(_palette()));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(EditableText), 'bi');
+    await tester.pump();
+    expect(_controller(tester).highlighted, 'Billing');
+    await tester.enterText(find.byType(EditableText), 'emoji');
+    await tester.pump();
+    expect(_controller(tester).highlighted, 'Search Emoji');
+  });
+
+  testWidgets('a better match moves above an earlier row', (tester) async {
+    await tester.pumpWidget(
+      overlayHost(
+        const SizedBox(
+          width: 352,
+          child: Command(
+            children: [
+              CommandInput(),
+              CommandList(
+                children: [
+                  CommandItem(child: Text('Escape')),
+                  CommandItem(child: Text('Calendar')),
+                  CommandGroup(
+                    heading: Text('Later'),
+                    children: [
+                      CommandItem(child: Text('Scan')),
+                      CommandItem(child: Text('Cards')),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(EditableText), 'ca');
+    await tester.pumpAndSettle();
+    double top(String text) => tester.getRect(find.text(text)).top;
+    expect(top('Calendar'), lessThan(top('Escape')));
+    expect(top('Escape'), lessThan(top('Later')));
+    expect(top('Cards'), lessThan(top('Scan')));
+    expect(_controller(tester).highlighted, 'Calendar');
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
+    expect(_controller(tester).highlighted, 'Escape');
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
+    expect(_controller(tester).highlighted, 'Cards');
+  });
 }

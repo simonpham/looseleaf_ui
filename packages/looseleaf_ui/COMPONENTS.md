@@ -49,8 +49,8 @@ Faces in recipe markup (`<!--ll-face:…-->`) need nothing special: `InkSurface`
 
 `InkPopup` is the whole popup: give it `open`, `onOpenChange`, a `popupBuilder(context, position)` and the trigger as `child`.
 
-- Placement: `side`, `align`, `sideOffset`, `alignOffset`, `collisionPadding`, `avoidCollisions`, `anchor` (a rect in the trigger's coordinates, for a context menu), or `centered: true` for dialogs. `position` gives the side after a flip and `anchorCenter` for an arrow.
-- Motion: `PopupMotionStyle.pop` (popovers, menus, tooltips), `.sheetDrop` (dialogs), `.fade`, `.none`. It stays mounted through the exit.
+- Placement: `side`, `align`, `sideOffset`, `alignOffset`, `collisionPadding`, `avoidCollisions`, `anchor` (a rect in the trigger's coordinates, for a context menu), or `centered: true` for dialogs, with a `placement` (`center`, `top` for a palette, and the flush `phoneBottom` / `phoneTop`; `DialogMetrics.placement` picks the phone one). `position` gives the side after a flip and `anchorCenter` for an arrow.
+- Motion: `PopupMotionStyle.pop` (popovers, menus, tooltips), `.sheetDrop` (dialogs), `.rise` (dialogs on phones), `.fade`, `.none`. It stays mounted through the exit.
 - Dismissal: Escape (topmost layer first), outside taps (share `groupId` with a `TapRegion` around the trigger), `dismissOnFocusOutside`; `onDismiss` hears the `OverlayDismissReason`.
 - Focus: `autofocus`, `modal` (traps Tab, blocks the app), `restoreFocus` (skipped after an outside tap).
 - Barrier: `modal` (clear) or `scrim` (Looseleaf's warm vignette, `OverlayScrim`).

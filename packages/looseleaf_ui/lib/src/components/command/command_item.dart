@@ -45,6 +45,13 @@ class CommandItem extends StatefulWidget {
   /// Something at the end, usually a [CommandShortcut].
   final Widget? trailing;
 
+  /// What the search matches: [value], else the text of a [Text] [child].
+  String? get searchValue => switch ((value, child)) {
+    (final value?, _) => value,
+    (null, Text(:final data?)) => data,
+    _ => null,
+  };
+
   @override
   State<CommandItem> createState() => _CommandItemState();
 }
@@ -54,11 +61,7 @@ class _CommandItemState extends State<CommandItem> {
   CommandEntry? _entry;
   late final String _fallback = 'command-item-${identityHashCode(this)}';
 
-  String get _value => switch ((widget.value, widget.child)) {
-    (final value?, _) => value,
-    (null, Text(:final data?)) => data,
-    _ => _fallback,
-  };
+  String get _value => widget.searchValue ?? _fallback;
 
   void _sync(CommandController controller, Object? group) {
     final entry = _entry;

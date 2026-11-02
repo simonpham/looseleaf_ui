@@ -3,6 +3,7 @@ import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/command/command.dart';
 import 'package:looseleaf_ui/src/components/dialog/dialog.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
+import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 import 'package:looseleaf_ui/src/components/paper/paper.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
@@ -96,6 +97,7 @@ class CommandDialog extends StatelessWidget {
     open: open,
     defaultOpen: defaultOpen,
     onOpenChange: onOpenChange,
+    placement: PopupPlacement.top,
     content: Builder(
       builder: (context) => DialogContent(
         showCloseButton: showCloseButton,

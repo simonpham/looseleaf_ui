@@ -22,10 +22,10 @@ class CommandList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final rows = [
+    final rows = CommandRank.order(CommandScope.of(context), [
       for (final child in children)
         if (child is! CommandEmpty && child is! CommandLoading) child,
-    ];
+    ]);
     final status = [
       for (final child in children)
         if (child is CommandEmpty || child is CommandLoading) child,

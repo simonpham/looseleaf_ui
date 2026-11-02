@@ -1,6 +1,9 @@
+import 'dart:math' as math;
+
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/command/command_score.dart';
 
 /// Scores [value] (and its [keywords]) against [search]; above zero shows
 /// the row. Upstream cmdk's `filter` prop.
@@ -54,31 +57,6 @@ class CommandController extends ChangeNotifier {
     text.addListener(_onText);
   }
 
-  /// cmdk's default: every letter of the search, in order, case-insensitive.
-  static double subsequence(
-    String value,
-    String search,
-    List<String> keywords,
-  ) {
-    bool matches(String haystack) {
-      final lower = haystack.toLowerCase();
-      var at = 0;
-      for (final char in search.toLowerCase().split('')) {
-        if (char.trim().isEmpty) continue;
-        at = lower.indexOf(char, at);
-        if (at < 0) return false;
-        at++;
-      }
-      return true;
-    }
-
-    if (matches(value)) return 1;
-    return switch (keywords.any(matches)) {
-      true => 0.5,
-      false => 0,
-    };
-  }
-
   /// The search box's text.
   final TextEditingController text = TextEditingController();
 
@@ -88,7 +66,7 @@ class CommandController extends ChangeNotifier {
   /// False keeps every row; the app filters (cmdk `shouldFilter`).
   bool shouldFilter;
 
-  /// Scores rows against the search; [subsequence] when null.
+  /// Scores rows against the search; cmdk's [commandScore] when null.
   CommandFilter? filter;
 
   /// The arrows wrap at the ends.
@@ -101,6 +79,8 @@ class CommandController extends ChangeNotifier {
   ValueChanged<String?>? onValueChange;
 
   final List<CommandEntry> _entries = [];
+  final Map<String, double> _scores = {};
+  CommandFilter? _scoredWith;
   String? _highlighted;
   String _search = '';
   bool _notifyScheduled = false;
@@ -111,16 +91,27 @@ class CommandController extends ChangeNotifier {
   /// The highlighted value.
   String? get highlighted => _highlighted;
 
-  /// Whether [entry] matches the search.
-  bool matches(CommandEntry entry) {
-    if (!shouldFilter || _search.trim().isEmpty) return true;
-    final score = (filter ?? subsequence)(
-      entry.value,
-      _search,
-      entry.keywords,
+  /// Whether rows are filtered and ranked: a search is typed and
+  /// [shouldFilter] is on.
+  bool get ranking => shouldFilter && _search.trim().isNotEmpty;
+
+  /// How well a row of [value] and [keywords] matches the search: 1 when
+  /// not [ranking], else the [filter]'s score; above zero shows it.
+  double scoreOf(String value, List<String> keywords) {
+    if (!ranking) return 1;
+    final scorer = filter ?? commandScore;
+    if (!identical(scorer, _scoredWith)) {
+      _scores.clear();
+      _scoredWith = scorer;
+    }
+    return _scores.putIfAbsent(
+      '$value\u0000${keywords.join('\u0001')}',
+      () => scorer(value, _search, keywords),
     );
-    return score > 0;
   }
+
+  /// Whether [entry] matches the search.
+  bool matches(CommandEntry entry) => scoreOf(entry.value, entry.keywords) > 0;
 
   /// Whether the row of [value] is shown.
   bool visible(String value) =>
@@ -160,6 +151,7 @@ class CommandController extends ChangeNotifier {
   void _onText() {
     if (text.text == _search) return;
     _search = text.text;
+    _scores.clear();
     _setHighlight(_ordered.firstOrNull?.value);
     notifyListeners();
     _later();
@@ -195,7 +187,18 @@ class CommandController extends ChangeNotifier {
     entry?.onSelect?.call(value);
   }
 
-  /// The shown, enabled rows in screen order.
+  /// The best score among the rows of [group] (cmdk ranks groups by it).
+  double groupScore(Object group) => _entries
+      .where((entry) => entry.group == group)
+      .fold(
+        0,
+        (best, entry) => math.max(best, scoreOf(entry.value, entry.keywords)),
+      );
+
+  /// The shown, enabled rows in screen order: by position, or while
+  /// [ranking] the order the list is about to show (loose rows by score,
+  /// then the groups by their best score, each group's rows by score), so
+  /// a new search highlights its best match at once.
   List<CommandEntry> get _ordered {
     final placed = <(CommandEntry, double)>[];
     for (final (index, entry) in _entries.indexed) {
@@ -209,7 +212,32 @@ class CommandController extends ChangeNotifier {
       };
       placed.add((entry, top));
     }
-    placed.sort((a, b) => a.$2.compareTo(b.$2));
+    if (!ranking) {
+      placed.sort((a, b) => a.$2.compareTo(b.$2));
+      return [for (final (entry, _) in placed) entry];
+    }
+    final groupTops = <Object, double>{};
+    for (final (entry, top) in placed) {
+      if (entry.group case final group?) {
+        groupTops[group] = math.min(groupTops[group] ?? top, top);
+      }
+    }
+    (double, double) groupKey(CommandEntry entry) => switch (entry.group) {
+      null => (double.infinity, double.negativeInfinity),
+      final group => (groupScore(group), groupTops[group] ?? 0),
+    };
+    int compare((CommandEntry, double) a, (CommandEntry, double) b) {
+      final (groupA, topA) = groupKey(a.$1);
+      final (groupB, topB) = groupKey(b.$1);
+      if (groupA != groupB) return groupB.compareTo(groupA);
+      if (topA != topB) return topA.compareTo(topB);
+      final scoreA = scoreOf(a.$1.value, a.$1.keywords);
+      final scoreB = scoreOf(b.$1.value, b.$1.keywords);
+      if (scoreA != scoreB) return scoreB.compareTo(scoreA);
+      return a.$2.compareTo(b.$2);
+    }
+
+    placed.sort(compare);
     return [for (final (entry, _) in placed) entry];
   }
 
