@@ -5,3 +5,4 @@ export 'package:gallery/features/components/examples/carousel/carousel_photos_ex
 export 'package:gallery/features/components/examples/carousel/carousel_sizes_example.dart';
 export 'package:gallery/features/components/examples/carousel/carousel_spacing_example.dart';
 export 'package:gallery/features/components/examples/carousel/carousel_tally_example.dart';
+export 'package:gallery/features/components/examples/carousel/carousel_vertical_example.dart';

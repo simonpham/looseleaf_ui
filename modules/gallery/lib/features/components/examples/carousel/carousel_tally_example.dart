@@ -21,73 +21,91 @@ const _notes = [
   'Stamp pad',
 ];
 
-class CarouselTallyExample extends StatelessWidget {
+class CarouselTallyExample extends StatefulWidget {
   const CarouselTallyExample({super.key});
 
-  static const _maxWidth = 448 + 2 * Carousel.arrowRoom;
+  @override
+  State<CarouselTallyExample> createState() => _CarouselTallyExampleState();
+}
+
+class _CarouselTallyExampleState extends State<CarouselTallyExample> {
+  static const _maxWidth = Spacing.d448 + 2 * Carousel.arrowRoom;
+
+  final _carousel = CarouselController();
+
+  @override
+  void dispose() {
+    _carousel.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: _maxWidth),
-      child: Carousel(
-        semanticLabel: 'Shopping notes',
-        seed: 'tally',
-        itemFraction: 1 / 2,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        spacing: Spacing.d12,
         children: [
-          CarouselContent(
+          Carousel(
+            controller: _carousel,
+            align: CarouselAlign.start,
+            semanticLabel: 'Shopping notes',
+            seed: 'tally',
+            itemFraction: 1 / 2,
             children: [
-              for (final (index, note) in _notes.indexed)
-                CarouselItem(
-                  semanticLabel: '${index + 1} of ${_notes.length}',
-                  child: Card(
-                    seed: 'n$index',
-                    padding: EdgeInsets.zero,
-                    stock: _stocks[index % _stocks.length],
-                    children: [
-                      AspectRatio(
-                        aspectRatio: 4 / 3,
-                        child: Center(
-                          child: Text(
-                            note,
-                            textAlign: TextAlign.center,
-                            style: theme.typography.face(
-                              KevinSansFace.script,
-                              cssSize: 24,
-                              cssLineHeight: 1.25,
-                              fontWeight: FontWeight.w600,
+              CarouselContent(
+                children: [
+                  for (final (index, note) in _notes.indexed)
+                    CarouselItem(
+                      semanticLabel: '${index + 1} of ${_notes.length}',
+                      child: Card(
+                        seed: 'n$index',
+                        padding: EdgeInsets.zero,
+                        stock: _stocks[index % _stocks.length],
+                        children: [
+                          AspectRatio(
+                            aspectRatio: 4 / 3,
+                            child: Center(
+                              child: Text(
+                                note,
+                                textAlign: TextAlign.center,
+                                style: theme.typography.face(
+                                  KevinSansFace.script,
+                                  cssSize: 24,
+                                  cssLineHeight: 1.25,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                ],
+              ),
+              const CarouselPrevious(),
+              const CarouselNext(),
+              const CarouselDots(),
             ],
           ),
-          const CarouselPrevious(),
-          const CarouselNext(),
-          const CarouselDots(),
-          Builder(
-            builder: (context) {
-              final carousel = Carousel.maybeOf(context);
-              final current = (carousel?.selectedIndex ?? 0) + 1;
-              final count = carousel?.snapCount ?? _notes.length;
-              return Padding(
-                padding: const EdgeInsets.only(top: Spacing.d12),
-                child: ExcludeSemantics(
-                  child: Text(
-                    'Slide $current of $count',
-                    textAlign: TextAlign.center,
-                    style: theme.typography.interface(
-                      cssSize: 14,
-                      color: theme.colors.inkMuted,
-                    ),
-                  ),
+          ValueListenableBuilder(
+            valueListenable: _carousel,
+            builder: (context, current, _) => ExcludeSemantics(
+              child: Text(
+                'Slide ${current + 1} of ${switch (_carousel.snapCount) {
+                  0 => _notes.length,
+                  final count => count,
+                }}',
+                textAlign: TextAlign.center,
+                style: theme.typography.interface(
+                  cssSize: 14,
+                  color: theme.colors.inkMuted,
                 ),
-              );
-            },
+              ),
+            ),
           ),
         ],
       ),

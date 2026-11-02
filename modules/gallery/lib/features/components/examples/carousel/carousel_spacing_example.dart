@@ -12,11 +12,13 @@ class CarouselSpacingExample extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: _maxWidth),
       child: Carousel(
+        align: CarouselAlign.start,
         semanticLabel: 'Numbered cards, tightly spaced',
         itemFraction: 1 / 3,
-        seed: 'sizes',
+        seed: 'spacing',
         children: [
           CarouselContent(
+            gap: Spacing.d4,
             children: [
               for (var i = 0; i < 5; i++)
                 CarouselItem(

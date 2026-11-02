@@ -12,6 +12,7 @@ class CarouselSizesExample extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: _maxWidth),
       child: Carousel(
+        align: CarouselAlign.start,
         semanticLabel: 'Numbered cards, several at a time',
         itemFraction: 1 / 3,
         seed: 'sizes',
