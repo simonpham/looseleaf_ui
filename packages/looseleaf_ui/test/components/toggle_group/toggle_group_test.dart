@@ -147,4 +147,36 @@ void main() {
       {'rest': '<path d="M0"/><g/><path d="M1"/>'},
     );
   });
+
+  testWidgets('wrap breaks the row onto more lines instead of scrolling', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 200,
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: ToggleGroup<String>(
+              value: const {'a'},
+              wrap: true,
+              spacing: Spacing.d4,
+              children: const [
+                ToggleGroupItem(value: 'a', child: Text('Alpha')),
+                ToggleGroupItem(value: 'b', child: Text('Bravo')),
+                ToggleGroupItem(value: 'c', child: Text('Charlie')),
+                ToggleGroupItem(value: 'd', child: Text('Delta')),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(find.byType(Wrap), findsOneWidget);
+    expect(find.byType(Scrollable), findsNothing);
+    final first = tester.getTopLeft(find.text('Alpha'));
+    final last = tester.getTopLeft(find.text('Delta'));
+    expect(last.dy, greaterThan(first.dy));
+  });
 }

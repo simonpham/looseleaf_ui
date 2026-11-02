@@ -16,7 +16,8 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 ///
 /// A row wider than its parent scrolls sideways. Wrap items in [Expanded]
 /// (upstream `flex-1` on the items) to share the row's whole width
-/// instead.
+/// instead, or set [wrap] (upstream `flex-wrap`) to break it onto more
+/// lines.
 ///
 /// ```dart
 /// ToggleGroup<String>(
@@ -42,6 +43,7 @@ class ToggleGroup<T> extends StatefulWidget {
     this.spacing = 0,
     this.tone,
     this.direction = Axis.horizontal,
+    this.wrap = false,
     this.disabled = false,
     this.invalid = false,
     this.seed,
@@ -69,6 +71,10 @@ class ToggleGroup<T> extends StatefulWidget {
 
   /// A row, or a column of full-width items (`orientation`).
   final Axis direction;
+
+  /// Breaks a horizontal row onto as many lines as it needs, [spacing]
+  /// apart both ways, instead of scrolling (upstream `flex-wrap`).
+  final bool wrap;
 
   /// Disables every item.
   final bool disabled;
@@ -99,8 +105,9 @@ class _ToggleGroupState<T> extends State<ToggleGroup<T>> with InkSeed {
       disabled: group.disabled,
       invalid: invalid,
     );
+    final wraps = group.wrap && !vertical;
     final stretches =
-        !vertical && group.children.any((child) => child is Flexible);
+        !vertical && !wraps && group.children.any((child) => child is Flexible);
     Widget scoped(int index, Widget child) => ToggleGroupScope<T>(
       value: group.value,
       onChanged: group.onChanged,
@@ -118,9 +125,10 @@ class _ToggleGroupState<T> extends State<ToggleGroup<T>> with InkSeed {
     final items = [
       for (final (index, child) in group.children.indexed)
         switch ((child, vertical)) {
-          (Flexible(:final flex, :final fit, child: final item), false) =>
+          (Flexible(:final flex, :final fit, child: final item), false)
+              when !wraps =>
             Flexible(flex: flex, fit: fit, child: scoped(index, item)),
-          (Flexible(child: final item), true) => scoped(index, item),
+          (Flexible(child: final item), _) => scoped(index, item),
           _ => scoped(index, child),
         },
     ];
@@ -128,8 +136,14 @@ class _ToggleGroupState<T> extends State<ToggleGroup<T>> with InkSeed {
       source: RecipeInkSource(toggleGroupRecipe, params, json: params.toJson()),
       seed: inkSeed(group.seed),
       states: {if (group.disabled) InkState.disabled},
-      child: switch (vertical) {
-        true => IntrinsicWidth(
+      child: switch ((vertical, wraps)) {
+        (false, true) => Wrap(
+          spacing: group.spacing,
+          runSpacing: group.spacing,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: items,
+        ),
+        (true, _) => IntrinsicWidth(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -137,7 +151,7 @@ class _ToggleGroupState<T> extends State<ToggleGroup<T>> with InkSeed {
             children: items,
           ),
         ),
-        false => Row(
+        (false, false) => Row(
           mainAxisSize: switch (stretches) {
             true => MainAxisSize.max,
             false => MainAxisSize.min,
@@ -153,7 +167,7 @@ class _ToggleGroupState<T> extends State<ToggleGroup<T>> with InkSeed {
       label: group.semanticLabel,
       child: InkRovingFocus(
         axis: group.direction,
-        child: switch (vertical || stretches) {
+        child: switch (vertical || stretches || wraps) {
           true => surface,
           false => InkOverflowScroll(child: surface),
         },

@@ -92,7 +92,7 @@ void main() {
   });
 
   testWidgets('toggle-group-stretch in the light theme', (tester) async {
-    tester.view.physicalSize = const Size(900, 500);
+    tester.view.physicalSize = const Size(900, 640);
     tester.view.devicePixelRatio = 2;
     addTearDown(tester.view.reset);
     await tester.pumpWidget(
@@ -135,6 +135,28 @@ void main() {
                       ToggleGroupItem(
                         value: item,
                         seed: 'scroll-$item',
+                        child: Text(item),
+                      ),
+                  ],
+                ),
+                ToggleGroup<String>(
+                  value: const {'Fri'},
+                  variant: ToggleVariant.outline,
+                  size: ToggleSize.sm,
+                  spacing: Spacing.d4,
+                  wrap: true,
+                  seed: 'wrap',
+                  children: [
+                    for (final item in [
+                      'Monday',
+                      'Tuesday',
+                      'Wednesday',
+                      'Thursday',
+                      'Friday',
+                    ])
+                      ToggleGroupItem(
+                        value: item.substring(0, 3),
+                        seed: 'wrap-$item',
                         child: Text(item),
                       ),
                   ],
