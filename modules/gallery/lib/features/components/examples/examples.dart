@@ -1,5 +1,6 @@
 export 'package:gallery/features/components/examples/accordion/accordion.dart';
 export 'package:gallery/features/components/examples/alert/alert.dart';
+export 'package:gallery/features/components/examples/alert_dialog/alert_dialog.dart';
 export 'package:gallery/features/components/examples/arrow/arrow.dart';
 export 'package:gallery/features/components/examples/asterisk/asterisk.dart';
 export 'package:gallery/features/components/examples/avatar/avatar.dart';

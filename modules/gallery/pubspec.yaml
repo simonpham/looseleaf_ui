@@ -28,6 +28,7 @@ flutter:
     - lib/features/blocks/blocks/empty_inbox/
     - lib/features/components/examples/accordion/
     - lib/features/components/examples/alert/
+    - lib/features/components/examples/alert_dialog/
     - lib/features/components/examples/arrow/
     - lib/features/components/examples/asterisk/
     - lib/features/components/examples/avatar/
