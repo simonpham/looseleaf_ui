@@ -82,8 +82,9 @@ const _months = [
 ];
 
 /// "Friday, 25 September".
-String formatDay(DateTime date) =>
+String formatPlannerDay(DateTime date) =>
     '${_weekdays[date.weekday - 1]}, ${date.day} ${_months[date.month - 1]}';
 
 /// "September 2026".
-String formatMonth(DateTime date) => '${_months[date.month - 1]} ${date.year}';
+String formatPlannerMonth(DateTime date) =>
+    '${_months[date.month - 1]} ${date.year}';

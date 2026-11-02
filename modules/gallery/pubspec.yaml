@@ -59,6 +59,9 @@ flutter:
     - lib/features/blocks/blocks/sidebar_07/
     - lib/features/blocks/blocks/sidebar_08/
     - lib/features/blocks/blocks/sidebar_09/
+    - lib/features/blocks/blocks/sidebar_10/
+    - lib/features/blocks/blocks/sidebar_11/
+    - lib/features/blocks/blocks/sidebar_12/
     - lib/features/blocks/blocks/signup_01/
     - lib/features/blocks/blocks/signup_02/
     - lib/features/blocks/blocks/signup_03/

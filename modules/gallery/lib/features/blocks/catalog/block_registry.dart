@@ -155,6 +155,18 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/sidebar_09/sidebar_09_block.dart',
     builder: Sidebar09Block.new,
   ),
+  'sidebar-10': GalleryBlock(
+    source: 'blocks/sidebar_10/sidebar_10_block.dart',
+    builder: Sidebar10Block.new,
+  ),
+  'sidebar-11': GalleryBlock(
+    source: 'blocks/sidebar_11/sidebar_11_block.dart',
+    builder: Sidebar11Block.new,
+  ),
+  'sidebar-12': GalleryBlock(
+    source: 'blocks/sidebar_12/sidebar_12_block.dart',
+    builder: Sidebar12Block.new,
+  ),
   'signup-01': GalleryBlock(
     source: 'blocks/signup_01/signup_01_block.dart',
     builder: Signup01Block.new,
