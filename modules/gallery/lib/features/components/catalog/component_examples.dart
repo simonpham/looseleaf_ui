@@ -21,6 +21,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'button-group': buttonGroupExamples,
   'calendar': calendarExamples,
   'card': cardExamples,
+  'carousel': carouselExamples,
   'chart': chartExamples,
   'checkbox': checkboxExamples,
   'circled': circledExamples,

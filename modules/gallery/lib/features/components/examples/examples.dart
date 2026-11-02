@@ -15,6 +15,7 @@ export 'package:gallery/features/components/examples/button/button.dart';
 export 'package:gallery/features/components/examples/button_group/button_group.dart';
 export 'package:gallery/features/components/examples/calendar/calendar.dart';
 export 'package:gallery/features/components/examples/card/card.dart';
+export 'package:gallery/features/components/examples/carousel/carousel.dart';
 export 'package:gallery/features/components/examples/chart/chart.dart';
 export 'package:gallery/features/components/examples/checkbox/checkbox.dart';
 export 'package:gallery/features/components/examples/circled/circled.dart';
