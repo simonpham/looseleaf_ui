@@ -1,3 +1,4 @@
+export 'package:gallery/features/components/examples/alert/alert.dart';
 export 'package:gallery/features/components/examples/asterisk/asterisk.dart';
 export 'package:gallery/features/components/examples/avatar/avatar.dart';
 export 'package:gallery/features/components/examples/badge/badge.dart';
@@ -18,6 +19,7 @@ export 'package:gallery/features/components/examples/scribble/scribble.dart';
 export 'package:gallery/features/components/examples/seal/seal.dart';
 export 'package:gallery/features/components/examples/separator/separator.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar.dart';
+export 'package:gallery/features/components/examples/skeleton/skeleton.dart';
 export 'package:gallery/features/components/examples/slider/slider.dart';
 export 'package:gallery/features/components/examples/squiggle/squiggle.dart';
 export 'package:gallery/features/components/examples/stamp/stamp.dart';

@@ -26,6 +26,7 @@ flutter:
   assets:
     - lib/features/blocks/blocks/cta_01/
     - lib/features/blocks/blocks/empty_inbox/
+    - lib/features/components/examples/alert/
     - lib/features/components/examples/asterisk/
     - lib/features/components/examples/avatar/
     - lib/features/components/examples/badge/
@@ -46,6 +47,7 @@ flutter:
     - lib/features/components/examples/seal/
     - lib/features/components/examples/separator/
     - lib/features/components/examples/sidebar/
+    - lib/features/components/examples/skeleton/
     - lib/features/components/examples/slider/
     - lib/features/components/examples/squiggle/
     - lib/features/components/examples/stamp/
