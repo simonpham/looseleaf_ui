@@ -10,7 +10,7 @@ class MarkerColumn extends StatelessWidget {
     required this.children,
   });
 
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   final double gap;
   final List<Widget> children;

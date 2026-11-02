@@ -22,7 +22,7 @@ class _RadioGroupPlansExampleState extends State<RadioGroupPlansExample> {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 448),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: Spacing.d24,

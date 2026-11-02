@@ -9,7 +9,7 @@ class FieldSliderExample extends StatefulWidget {
 }
 
 class _FieldSliderExampleState extends State<FieldSliderExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _amount = TextStyle(
     fontWeight: FontWeight.w500,
     fontFeatures: [FontFeature.tabularFigures()],

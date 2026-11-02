@@ -10,7 +10,7 @@ const _shortcuts = [
 ];
 
 /// `max-w-md`.
-const _maxWidth = 448.0;
+const _maxWidth = Spacing.d448;
 
 class KbdShortcutSheetExample extends StatelessWidget {
   const KbdShortcutSheetExample({super.key});

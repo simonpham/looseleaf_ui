@@ -26,7 +26,7 @@ class _ProgressStepsExampleState extends State<ProgressStepsExample> {
     final theme = LooseleafTheme.of(context);
     final stepText = 'Step $_step of ${_steps.length}';
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d96 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d16,

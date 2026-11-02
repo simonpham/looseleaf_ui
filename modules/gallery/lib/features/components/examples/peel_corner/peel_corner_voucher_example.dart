@@ -13,7 +13,7 @@ class PeelCornerVoucherExample extends StatefulWidget {
 }
 
 class _PeelCornerVoucherExampleState extends State<PeelCornerVoucherExample> {
-  static const _width = 320.0;
+  static const _width = Spacing.d320;
   static const _height = 208.0;
 
   bool _open = false;

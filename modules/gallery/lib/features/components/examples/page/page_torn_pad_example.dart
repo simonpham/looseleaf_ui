@@ -8,7 +8,7 @@ class PageTornPadExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => PageTwoUp(
     first: ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: 320),
+      constraints: const BoxConstraints(minHeight: Spacing.d320),
       child: const PaperPage(
         torn: PageTorn.top,
         stock: StockName.slip,
@@ -33,7 +33,7 @@ class PageTornPadExample extends StatelessWidget {
       ),
     ),
     second: ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: 320),
+      constraints: const BoxConstraints(minHeight: Spacing.d320),
       child: const PaperPage(
         torn: PageTorn.both,
         width: PageWidth.sm,

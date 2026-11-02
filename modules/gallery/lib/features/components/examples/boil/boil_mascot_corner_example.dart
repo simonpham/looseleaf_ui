@@ -8,7 +8,7 @@ class BoilMascotCornerExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return SizedBox(
-      width: 320,
+      width: Spacing.d320,
       child: Stack(
         clipBehavior: Clip.none,
         children: [

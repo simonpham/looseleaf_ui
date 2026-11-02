@@ -14,7 +14,7 @@ class StampButtonDefaultExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 448),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: StampSurface(
         child: Paper(
           stock: StockName.slip,

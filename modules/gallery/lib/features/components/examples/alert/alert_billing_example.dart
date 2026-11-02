@@ -15,7 +15,7 @@ class _AlertBillingExampleState extends State<AlertBillingExample> {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 448),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Card(
         seed: 'billing',
         children: [

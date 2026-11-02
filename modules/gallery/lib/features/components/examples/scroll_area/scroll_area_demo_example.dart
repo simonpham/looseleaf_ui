@@ -11,13 +11,13 @@ class ScrollAreaDemoExample extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     final small = theme.typography.interface(cssSize: 14);
     return SizedBox(
-      width: Spacing.d96 * 2,
+      width: Spacing.d192,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           const Separator(variant: SeparatorVariant.dashed, seed: 'top'),
           SizedBox(
-            height: Spacing.d256 + Spacing.d32,
+            height: Spacing.d288,
             child: ScrollArea(
               child: Padding(
                 padding: const EdgeInsets.all(Spacing.d16),

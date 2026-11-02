@@ -10,7 +10,7 @@ class DoodleGalleryExample extends StatelessWidget {
     return GridView.extent(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      maxCrossAxisExtent: Spacing.d128 + Spacing.d32,
+      maxCrossAxisExtent: Spacing.d160,
       mainAxisSpacing: Spacing.d16,
       crossAxisSpacing: Spacing.d16,
       children: [

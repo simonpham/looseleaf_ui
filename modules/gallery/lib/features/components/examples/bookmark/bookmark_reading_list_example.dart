@@ -11,7 +11,7 @@ class BookmarkReadingListExample extends StatefulWidget {
 
 class _BookmarkReadingListExampleState
     extends State<BookmarkReadingListExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _articles = [
     (
       id: 'margin',

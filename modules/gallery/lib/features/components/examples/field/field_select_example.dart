@@ -9,7 +9,7 @@ class FieldSelectExample extends StatefulWidget {
 }
 
 class _FieldSelectExampleState extends State<FieldSelectExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _departments = {
     'engineering': 'Engineering',
     'design': 'Design',

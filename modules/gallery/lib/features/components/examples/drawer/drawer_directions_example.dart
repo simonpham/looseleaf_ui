@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-xs`.
-const _footerMaxWidth = 320.0;
+const _footerMaxWidth = Spacing.d320;
 
 const _directions = [
   OverlaySide.bottom,

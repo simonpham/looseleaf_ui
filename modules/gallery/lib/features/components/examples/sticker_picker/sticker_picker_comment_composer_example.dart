@@ -13,7 +13,7 @@ class StickerPickerCommentComposerExample extends StatefulWidget {
 
 class _StickerPickerCommentComposerExampleState
     extends State<StickerPickerCommentComposerExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   final TextEditingController _text = TextEditingController();
   String? _sticker;

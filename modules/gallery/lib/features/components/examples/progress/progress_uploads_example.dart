@@ -64,7 +64,7 @@ class _ProgressUploadsExampleState extends State<ProgressUploadsExample> {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d20,

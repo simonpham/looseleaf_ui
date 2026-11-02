@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-md`.
-const _maxWidth = 448.0;
+const _maxWidth = Spacing.d448;
 
 /// `min-h-[22rem]`.
 const _minHeight = 352.0;

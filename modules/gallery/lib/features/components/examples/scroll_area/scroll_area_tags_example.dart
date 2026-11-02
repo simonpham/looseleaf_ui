@@ -13,13 +13,13 @@ class ScrollAreaTagsExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return SizedBox(
-      width: Spacing.d112 * 2,
+      width: Spacing.d224,
       child: Paper(
         stock: StockName.slip,
         tilt: false,
         seed: 'tags',
         child: SizedBox(
-          height: Spacing.d256 + Spacing.d32,
+          height: Spacing.d288,
           child: ScrollArea(
             child: Padding(
               padding: const EdgeInsets.all(Spacing.d16),

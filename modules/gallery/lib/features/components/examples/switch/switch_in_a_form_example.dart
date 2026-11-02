@@ -9,7 +9,7 @@ class SwitchInAFormExample extends StatefulWidget {
 }
 
 class _SwitchInAFormExampleState extends State<SwitchInAFormExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   bool _digest = true;
   bool _marketing = false;

@@ -12,7 +12,7 @@ class AccordionSettingsExample extends StatefulWidget {
 }
 
 class _AccordionSettingsExampleState extends State<AccordionSettingsExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _steps = ['profile', 'notifications', 'security'];
 
   final _name = TextEditingController(text: 'Ada Lovelace');

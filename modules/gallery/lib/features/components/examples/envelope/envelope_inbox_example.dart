@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-xs`.
-const _maxWidth = 320.0;
+const _maxWidth = Spacing.d320;
 
 /// `text-[1.1rem]`.
 const _addressSize = 17.6;

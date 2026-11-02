@@ -11,7 +11,7 @@ class ToggleGroupSingleChoiceExample extends StatefulWidget {
 
 class _ToggleGroupSingleChoiceExampleState
     extends State<ToggleGroupSingleChoiceExample> {
-  static const _sampleWidth = 288.0;
+  static const _sampleWidth = Spacing.d288;
 
   var _align = 'center';
 

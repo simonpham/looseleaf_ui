@@ -60,7 +60,7 @@ class _ChartEmptyAndLoadingExampleState
             Expanded(
               child: ChartContainer(
                 config: _config,
-                height: Spacing.d96 * 2,
+                height: Spacing.d192,
                 children: [
                   BarChart(
                     data: data,
@@ -76,7 +76,7 @@ class _ChartEmptyAndLoadingExampleState
             Expanded(
               child: ChartContainer(
                 config: _config,
-                height: Spacing.d96 * 2,
+                height: Spacing.d192,
                 children: [
                   LineChart(
                     data: data,
@@ -92,7 +92,7 @@ class _ChartEmptyAndLoadingExampleState
             Expanded(
               child: ChartContainer(
                 config: const {},
-                height: Spacing.d96 * 2,
+                height: Spacing.d192,
                 children: [
                   DonutChart(
                     data: data,

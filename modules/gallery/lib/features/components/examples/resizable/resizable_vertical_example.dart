@@ -4,8 +4,8 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class ResizableVerticalExample extends StatelessWidget {
   const ResizableVerticalExample({super.key});
 
-  static const _maxWidth = 384.0;
-  static const _height = 288.0;
+  static const _maxWidth = Spacing.d384;
+  static const _height = Spacing.d288;
 
   @override
   Widget build(BuildContext context) {

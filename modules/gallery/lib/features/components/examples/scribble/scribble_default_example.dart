@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class ScribbleDefaultExample extends StatelessWidget {
   const ScribbleDefaultExample({super.key});
 
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   @override
   Widget build(BuildContext context) {

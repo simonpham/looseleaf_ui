@@ -6,7 +6,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class PolaroidScenesExample extends StatelessWidget {
   const PolaroidScenesExample({super.key});
 
-  static const double _maxPhotoWidth = Spacing.d112 * 2;
+  static const double _maxPhotoWidth = Spacing.d224;
   static const double _fourColumnsFrom = Spacing.d256 * 3;
 
   @override

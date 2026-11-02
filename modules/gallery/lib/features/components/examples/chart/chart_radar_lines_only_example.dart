@@ -13,7 +13,7 @@ class ChartRadarLinesOnlyExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: const Card(
         children: [
           CardHeader(
@@ -27,7 +27,7 @@ class ChartRadarLinesOnlyExample extends StatelessWidget {
           CardContent(
             child: ChartContainer(
               config: _config,
-              height: Spacing.d256 + Spacing.d32,
+              height: Spacing.d288,
               children: [
                 RadarChart(
                   data: radarClose,

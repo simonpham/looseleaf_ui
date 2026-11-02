@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class AccordionFaqExample extends StatelessWidget {
   const AccordionFaqExample({super.key});
 
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(

@@ -44,7 +44,7 @@ class _PaginationTableFooterExampleState
     final from = (_page - 1) * _size;
     final rows = _rows.skip(from).take(_size).toList();
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d16,

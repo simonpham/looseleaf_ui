@@ -11,7 +11,7 @@ class SliderBrushSettingsExample extends StatefulWidget {
 
 class _SliderBrushSettingsExampleState
     extends State<SliderBrushSettingsExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _initial = {'size': 12.0, 'opacity': 85.0, 'hardness': 40.0};
   static const _rows = [
     (key: 'size', label: 'Size', unit: 'px', min: 1.0, max: 48.0),

@@ -18,7 +18,7 @@ class ContextMenuFileListExample extends StatefulWidget {
 
 class _ContextMenuFileListExampleState
     extends State<ContextMenuFileListExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   String _picked = 'Right-click a row.';
 

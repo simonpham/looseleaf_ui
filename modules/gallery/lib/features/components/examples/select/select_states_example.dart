@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class SelectStatesExample extends StatelessWidget {
   const SelectStatesExample({super.key});
 
-  static const double _twoColumnsFrom = Spacing.d160 * 2;
+  static const double _twoColumnsFrom = Spacing.d320;
 
   @override
   Widget build(BuildContext context) {

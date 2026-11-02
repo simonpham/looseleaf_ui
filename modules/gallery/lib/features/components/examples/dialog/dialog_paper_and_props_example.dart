@@ -76,7 +76,7 @@ class _Note extends StatelessWidget {
       fastener: fastener,
       tiltDegrees: tiltDegrees,
       seed: seed,
-      maxWidth: 384,
+      maxWidth: Spacing.d384,
       children: [
         DialogHeader(
           children: [DialogTitle(Text(title)), DialogDescription(Text(body))],

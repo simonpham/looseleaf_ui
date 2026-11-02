@@ -12,7 +12,7 @@ class FormRhfComplexExample extends StatefulWidget {
 }
 
 class _FormRhfComplexExampleState extends State<FormRhfComplexExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _plans = [
     (
       id: 'basic',

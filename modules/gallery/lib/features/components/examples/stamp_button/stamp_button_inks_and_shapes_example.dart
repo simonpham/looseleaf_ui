@@ -18,7 +18,7 @@ class StampButtonInksAndShapesExample extends StatelessWidget {
             spacing: Spacing.d24,
             children: [
               ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 384),
+                constraints: const BoxConstraints(maxWidth: Spacing.d384),
                 child: Text(
                   'Received from the post office on the 14th, signed for and put on the shelf by the window. Stamp it however you like.',
                   style: TextStyle(color: theme.colors.ink),

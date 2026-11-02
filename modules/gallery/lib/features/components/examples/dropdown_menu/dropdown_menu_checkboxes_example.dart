@@ -11,7 +11,7 @@ class DropdownMenuCheckboxesExample extends StatefulWidget {
 
 class _DropdownMenuCheckboxesExampleState
     extends State<DropdownMenuCheckboxesExample> {
-  static const _width = 224.0;
+  static const _width = Spacing.d224;
 
   bool _showStatusBar = true;
   bool _showActivityBar = false;

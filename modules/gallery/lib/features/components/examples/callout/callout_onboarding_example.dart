@@ -10,7 +10,7 @@ class CalloutOnboardingExample extends StatefulWidget {
 }
 
 class _CalloutOnboardingExampleState extends State<CalloutOnboardingExample> {
-  static const _maxWidth = 320.0;
+  static const _maxWidth = Spacing.d320;
 
   final _email = FocusNode();
   bool _hint = true;

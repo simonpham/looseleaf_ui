@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class TapeOnACardExample extends StatelessWidget {
   const TapeOnACardExample({super.key});
 
-  static const _width = 288.0;
+  static const _width = Spacing.d288;
   static const _minHeight = 120.0;
   static const _pitch = 30.0;
 

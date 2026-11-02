@@ -10,7 +10,7 @@ class InputTypesExample extends StatefulWidget {
 }
 
 class _InputTypesExampleState extends State<InputTypesExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _dateWidth = 176.0;
 
   final _password = TextEditingController(text: 'hunter2hunter2');

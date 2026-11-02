@@ -8,9 +8,9 @@ class EmptyBackgroundExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final shade = LooseleafTheme.of(context).colors.paperShade;
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 512),
+      constraints: const BoxConstraints(maxWidth: Spacing.d512),
       child: SizedBox(
-        height: 320,
+        height: Spacing.d320,
         child: DecoratedBox(
           decoration: BoxDecoration(
             gradient: LinearGradient(

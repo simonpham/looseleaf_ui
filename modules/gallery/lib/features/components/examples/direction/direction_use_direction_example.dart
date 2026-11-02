@@ -7,7 +7,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class DirectionUseDirectionExample extends StatelessWidget {
   const DirectionUseDirectionExample({super.key});
 
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class DirectionUseDirectionExample extends StatelessWidget {
                               const _Pager(pages: 3, label: 'Quote pages'),
                               Popover(
                                 content: const PopoverContent(
-                                  width: 240,
+                                  width: Spacing.d240,
                                   seed: 'direction-island-popover',
                                   semanticLabel: 'About this quote',
                                   child: Column(

@@ -6,10 +6,10 @@ class DeskMorningDeskExample extends StatelessWidget {
 
   static const _minHeight = 544.0;
   static const _maxWidth = 896.0;
-  static const _pageWidth = 288.0;
-  static const _pageMaxWidth = 512.0;
+  static const _pageWidth = Spacing.d288;
+  static const _pageMaxWidth = Spacing.d512;
   static const _pageMinHeight = 352.0;
-  static const _sideWidth = 256.0;
+  static const _sideWidth = Spacing.d256;
   static const _noteSide = 112.0;
 
   @override

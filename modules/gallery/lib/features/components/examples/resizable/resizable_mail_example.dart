@@ -10,7 +10,7 @@ class ResizableMailExample extends StatefulWidget {
 
 class _ResizableMailExampleState extends State<ResizableMailExample> {
   static const _maxWidth = 768.0;
-  static const _height = 320.0;
+  static const _height = Spacing.d320;
   static const _mails = [
     (from: 'Ada', subject: 'Tabs landed'),
     (from: 'Jo', subject: 'Table rules, by hand'),

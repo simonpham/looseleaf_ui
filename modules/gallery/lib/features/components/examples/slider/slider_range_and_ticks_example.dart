@@ -11,7 +11,7 @@ class SliderRangeAndTicksExample extends StatefulWidget {
 
 class _SliderRangeAndTicksExampleState
     extends State<SliderRangeAndTicksExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   List<double> _price = [200, 650];
   List<double> _highlighter = [3];

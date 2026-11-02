@@ -17,7 +17,7 @@ class _SketchpadPostcardExampleState extends State<SketchpadPostcardExample> {
   static const _maxWidth = 768.0;
   static const _previewWidth = 176.0;
   static const _width = 480.0;
-  static const _height = 320.0;
+  static const _height = Spacing.d320;
   static const _tau = math.pi * 2;
 
   late final _sketch = SketchpadController(strokes: _start());

@@ -104,7 +104,7 @@ class _ChartAnnotationsExampleState extends State<ChartAnnotationsExample> {
       ),
       const ChartContainer(
         config: _config,
-        height: Spacing.d96 * 2,
+        height: Spacing.d192,
         children: [
           LineChart(
             data: _week,

@@ -15,7 +15,7 @@ class _StrikeTodoExampleState extends State<StrikeTodoExample> {
     'Reply to Sam',
     'Water the ferns',
   ];
-  static const _maxWidth = 320.0;
+  static const _maxWidth = Spacing.d320;
 
   final _done = <String>{'Buy oat milk'};
 

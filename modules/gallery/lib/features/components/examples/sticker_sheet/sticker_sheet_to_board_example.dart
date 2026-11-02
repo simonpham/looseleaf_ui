@@ -68,7 +68,7 @@ class _StickerSheetToBoardExampleState
           children: [for (final name in _names) StickerSheetItem(name: name)],
         ),
         SizedBox(
-          width: 512,
+          width: Spacing.d512,
           child: StickerBoard(
             key: _board,
             value: _items,

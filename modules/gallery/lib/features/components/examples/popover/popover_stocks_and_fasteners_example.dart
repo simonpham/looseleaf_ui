@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class PopoverStocksAndFastenersExample extends StatelessWidget {
   const PopoverStocksAndFastenersExample({super.key});
 
-  static const _width = 240.0;
+  static const _width = Spacing.d240;
 
   @override
   Widget build(BuildContext context) {

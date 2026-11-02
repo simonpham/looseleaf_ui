@@ -14,7 +14,7 @@ class ChartTallyChartExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d128 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d512),
       child: const ChartContainer(
         config: {},
         aspectRatio: 16 / 8,

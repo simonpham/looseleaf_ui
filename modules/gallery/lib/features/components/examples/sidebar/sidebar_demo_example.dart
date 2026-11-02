@@ -14,7 +14,7 @@ class SidebarDemoExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-    height: 320,
+    height: Spacing.d320,
     child: SidebarProvider(
       children: [
         Sidebar(

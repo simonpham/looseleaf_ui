@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-lg`.
-const _maxWidth = 512.0;
+const _maxWidth = Spacing.d512;
 
 const _reply =
     'Tags now sit under each note as small chips. Pick one or two and the '

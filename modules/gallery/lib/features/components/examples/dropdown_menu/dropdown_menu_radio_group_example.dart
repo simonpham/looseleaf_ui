@@ -11,7 +11,7 @@ class DropdownMenuRadioGroupExample extends StatefulWidget {
 
 class _DropdownMenuRadioGroupExampleState
     extends State<DropdownMenuRadioGroupExample> {
-  static const _width = 224.0;
+  static const _width = Spacing.d224;
 
   String _position = 'bottom';
 

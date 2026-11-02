@@ -19,7 +19,7 @@ class BreadcrumbEllipsisMenuExample extends StatelessWidget {
             DropdownMenu(
               content: const DropdownMenuContent(
                 align: OverlayAlign.start,
-                width: Spacing.d96 * 2,
+                width: Spacing.d192,
                 children: [
                   DropdownMenuItem(child: Text('Documentation')),
                   DropdownMenuItem(child: Text('Themes')),

@@ -6,7 +6,7 @@ class TextareaWithButtonExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: Spacing.d96 * 4),
+    constraints: const BoxConstraints(maxWidth: Spacing.d384),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: Spacing.d12,

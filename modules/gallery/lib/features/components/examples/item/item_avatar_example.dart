@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class ItemAvatarExample extends StatelessWidget {
   const ItemAvatarExample({super.key});
 
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(

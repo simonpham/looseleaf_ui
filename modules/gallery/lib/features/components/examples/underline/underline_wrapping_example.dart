@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-sm`.
-const _maxWidth = 384.0;
+const _maxWidth = Spacing.d384;
 
 class UnderlineWrappingExample extends StatefulWidget {
   const UnderlineWrappingExample({super.key});

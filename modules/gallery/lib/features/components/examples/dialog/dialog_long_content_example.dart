@@ -21,7 +21,7 @@ class DialogLongContentExample extends StatelessWidget {
   Widget build(BuildContext context) => Dialog(
     content: DialogContent(
       seed: 'terms',
-      maxWidth: 448,
+      maxWidth: Spacing.d448,
       children: [
         const DialogHeader(
           children: [
@@ -32,7 +32,7 @@ class DialogLongContentExample extends StatelessWidget {
           ],
         ),
         ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 224),
+          constraints: const BoxConstraints(maxHeight: Spacing.d224),
           child: DialogBody(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

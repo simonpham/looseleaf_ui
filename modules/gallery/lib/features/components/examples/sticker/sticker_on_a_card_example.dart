@@ -4,8 +4,8 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class StickerOnACardExample extends StatelessWidget {
   const StickerOnACardExample({super.key});
 
-  static const _maxWidth = 384.0;
-  static const _textMaxWidth = 256.0;
+  static const _maxWidth = Spacing.d384;
+  static const _textMaxWidth = Spacing.d256;
 
   @override
   Widget build(BuildContext context) => Stack(

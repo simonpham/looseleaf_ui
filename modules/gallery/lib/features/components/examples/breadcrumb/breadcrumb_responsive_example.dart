@@ -84,7 +84,7 @@ class _FoldMenu extends StatelessWidget {
   Widget build(BuildContext context) => DropdownMenu(
     content: DropdownMenuContent(
       align: OverlayAlign.start,
-      width: Spacing.d112 * 2,
+      width: Spacing.d224,
       children: [
         for (final label in labels) DropdownMenuItem(child: Text(label)),
       ],

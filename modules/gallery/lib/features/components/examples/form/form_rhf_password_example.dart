@@ -14,7 +14,7 @@ class FormRhfPasswordExample extends StatefulWidget {
 }
 
 class _FormRhfPasswordExampleState extends State<FormRhfPasswordExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static final _requirements = <_Requirement>[
     (label: 'At least 8 characters', pattern: RegExp(r'^.{8,}$')),
     (label: 'One lowercase letter', pattern: RegExp('[a-z]')),

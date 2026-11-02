@@ -9,7 +9,7 @@ class FieldCheckboxExample extends StatefulWidget {
 }
 
 class _FieldCheckboxExampleState extends State<FieldCheckboxExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _items = [
     'Hard disks',
     'External disks',

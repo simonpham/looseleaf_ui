@@ -45,7 +45,7 @@ class HoverCardDelaysAndSidesExample extends StatelessWidget {
               side: card.side,
               align: OverlayAlign.start,
               seed: card.label,
-              width: Spacing.d112 * 2,
+              width: Spacing.d224,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

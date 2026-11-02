@@ -26,7 +26,7 @@ class _ChartAreaInteractiveExampleState
     final days = _ranges[_range] ?? daily.length;
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+        constraints: const BoxConstraints(maxWidth: Spacing.d448),
         child: Card(
           fastener: FastenerKind.pin,
           children: [

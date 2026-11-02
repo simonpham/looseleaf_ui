@@ -14,7 +14,7 @@ class ScrollAreaHorizontalDemoExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return SizedBox(
-      width: Spacing.d96 * 4,
+      width: Spacing.d384,
       child: ScrollArea(
         orientation: ScrollAreaOrientation.horizontal,
         bleed: true,

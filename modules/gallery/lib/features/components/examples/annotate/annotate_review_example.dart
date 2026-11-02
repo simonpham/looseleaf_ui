@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-lg`.
-const _maxWidth = 512.0;
+const _maxWidth = Spacing.d512;
 
 WidgetSpan _inline(Widget child) => WidgetSpan(
   alignment: PlaceholderAlignment.baseline,

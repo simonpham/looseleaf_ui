@@ -33,7 +33,7 @@ class _DatePickerReserveATableExampleState
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 384),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Card(
         seed: 'reserve',
         tape: PaperTape.corner,

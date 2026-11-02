@@ -18,7 +18,7 @@ class BubbleVariantsExample extends StatelessWidget {
       'That would delete every tag. Are you sure?',
     ),
   ];
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   @override
   Widget build(BuildContext context) => Center(

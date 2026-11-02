@@ -14,7 +14,7 @@ class _NativeSelectDemoExampleState extends State<NativeSelectDemoExample> {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: Spacing.d160 * 2),
+    constraints: const BoxConstraints(maxWidth: Spacing.d320),
     child: NativeSelect<String>(
       value: _value,
       onChanged: (value) => setState(() => _value = value),

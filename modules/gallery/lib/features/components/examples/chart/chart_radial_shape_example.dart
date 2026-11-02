@@ -10,7 +10,7 @@ class ChartRadialShapeExample extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+        constraints: const BoxConstraints(maxWidth: Spacing.d448),
         child: Card(
           children: [
             const CardHeader(

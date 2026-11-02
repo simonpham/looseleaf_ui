@@ -23,7 +23,7 @@ class DropzoneAttachWithProgressExample extends StatefulWidget {
 
 class _DropzoneAttachWithProgressExampleState
     extends State<DropzoneAttachWithProgressExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   int _next = 0;
   List<DropzoneFile> _files = const [];

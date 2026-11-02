@@ -10,8 +10,8 @@ class FieldOrientationsExample extends StatefulWidget {
 }
 
 class _FieldOrientationsExampleState extends State<FieldOrientationsExample> {
-  static const _maxWidth = 512.0;
-  static const _inputMaxWidth = 224.0;
+  static const _maxWidth = Spacing.d512;
+  static const _inputMaxWidth = Spacing.d224;
 
   var _sync = true;
   var _terms = true;

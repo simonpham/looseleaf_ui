@@ -9,7 +9,7 @@ class FieldErrorsExample extends StatefulWidget {
 }
 
 class _FieldErrorsExampleState extends State<FieldErrorsExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static final _emailPattern = RegExp(r'^\S+@\S+\.\S+$');
   static final _digit = RegExp(r'\d');
 

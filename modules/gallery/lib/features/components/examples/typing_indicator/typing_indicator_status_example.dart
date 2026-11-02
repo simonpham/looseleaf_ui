@@ -7,7 +7,7 @@ class TypingIndicatorStatusExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 384),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: const Padding(
         padding: EdgeInsets.fromLTRB(Spacing.d16, 0, Spacing.d16, Spacing.d16),
         child: Column(

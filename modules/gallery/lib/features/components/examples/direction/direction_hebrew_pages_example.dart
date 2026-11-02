@@ -6,7 +6,7 @@ const _slides = ['הדף הראשון', 'רשימת קניות', 'מכתב לס�
 class DirectionHebrewPagesExample extends StatelessWidget {
   const DirectionHebrewPagesExample({super.key});
 
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _slideHeight = 128.0;
 
   @override

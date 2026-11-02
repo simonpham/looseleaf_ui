@@ -15,7 +15,7 @@ class ScrollAreaBothExample extends StatelessWidget {
       width: Spacing.d1,
     );
     return SizedBox(
-      width: Spacing.d160 * 2,
+      width: Spacing.d320,
       height: Spacing.d256,
       child: Paper(
         seed: 'grid',

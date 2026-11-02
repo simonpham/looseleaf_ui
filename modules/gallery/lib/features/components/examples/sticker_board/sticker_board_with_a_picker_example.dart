@@ -11,7 +11,7 @@ class StickerBoardWithAPickerExample extends StatefulWidget {
 
 class _StickerBoardWithAPickerExampleState
     extends State<StickerBoardWithAPickerExample> {
-  static const double _canvasHeight = Spacing.d96 * 4 + Spacing.d56;
+  static const double _canvasHeight = Spacing.d384 + Spacing.d56;
 
   List<StickerBoardItem> _items = const [];
   String? _selected;

@@ -9,7 +9,7 @@ class InputSignupFormExample extends StatefulWidget {
 }
 
 class _InputSignupFormExampleState extends State<InputSignupFormExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static final _emailPattern = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
 
   final _nameFocus = FocusNode();

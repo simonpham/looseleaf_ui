@@ -14,7 +14,7 @@ class _SonnerUndoExampleState extends State<SonnerUndoExample> {
   final _toasts = ToastController();
   late final _toast = Sonner(_toasts);
   final _portal = OverlayPortalController();
-  static const _maxWidth = 320.0;
+  static const _maxWidth = Spacing.d320;
 
   var _notes = ['Rain from six.', 'Tea, two cups.', 'Long letter to Ada.'];
 

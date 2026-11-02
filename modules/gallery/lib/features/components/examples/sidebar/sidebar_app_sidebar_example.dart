@@ -38,7 +38,7 @@ class SidebarAppSidebarExample extends StatelessWidget {
                       SidebarMenuItem(
                         child: DropdownMenu(
                           content: const DropdownMenuContent(
-                            width: 224,
+                            width: Spacing.d224,
                             align: OverlayAlign.start,
                             children: [
                               DropdownMenuLabel(child: Text('Notebooks')),
@@ -155,7 +155,7 @@ class SidebarAppSidebarExample extends StatelessWidget {
                       SidebarMenuItem(
                         child: DropdownMenu(
                           content: const DropdownMenuContent(
-                            width: 224,
+                            width: Spacing.d224,
                             side: OverlaySide.right,
                             align: OverlayAlign.end,
                             children: [
@@ -217,7 +217,7 @@ class SidebarAppSidebarExample extends StatelessWidget {
                   ),
                   const SizedBox(height: Spacing.d12),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 448),
+                    constraints: const BoxConstraints(maxWidth: Spacing.d448),
                     child: Text(
                       'The page beside the pad. Collapse it with the button, '
                       'with Ctrl/Cmd+B, or by clicking the strip on its edge.',
@@ -332,7 +332,7 @@ class _ProjectActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) => DropdownMenu(
     content: const DropdownMenuContent(
-      width: 192,
+      width: Spacing.d192,
       side: OverlaySide.right,
       align: OverlayAlign.start,
       children: [

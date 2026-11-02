@@ -12,7 +12,7 @@ class FormRhfCheckboxExample extends StatefulWidget {
 }
 
 class _FormRhfCheckboxExampleState extends State<FormRhfCheckboxExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _normal = TextStyle(fontWeight: FontWeight.w400);
   static const _tasks = {
     'push': 'Push notifications',

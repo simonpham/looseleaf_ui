@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class BubbleConversationExample extends StatelessWidget {
   const BubbleConversationExample({super.key});
 
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   @override
   Widget build(BuildContext context) => Center(

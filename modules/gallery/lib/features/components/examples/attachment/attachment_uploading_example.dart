@@ -14,7 +14,7 @@ class AttachmentUploadingExample extends StatefulWidget {
 
 class _AttachmentUploadingExampleState
     extends State<AttachmentUploadingExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _tick = Duration(milliseconds: 220);
 
   var _value = 0;

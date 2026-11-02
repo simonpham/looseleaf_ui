@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class StrikePriceExample extends StatelessWidget {
   const StrikePriceExample({super.key});
 
-  static const _maxWidth = 320.0;
+  static const _maxWidth = Spacing.d320;
 
   @override
   Widget build(BuildContext context) {

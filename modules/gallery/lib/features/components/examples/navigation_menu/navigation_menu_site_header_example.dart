@@ -5,7 +5,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 const _maxWidth = 768.0;
 
 /// `w-60`.
-const _panelWidth = 240.0;
+const _panelWidth = Spacing.d240;
 
 const _products = [
   ('Notebooks', 'Write things down.'),

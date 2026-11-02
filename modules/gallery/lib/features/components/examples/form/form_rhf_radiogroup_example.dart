@@ -13,7 +13,7 @@ class FormRhfRadiogroupExample extends StatefulWidget {
 }
 
 class _FormRhfRadiogroupExampleState extends State<FormRhfRadiogroupExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _plans = [
     (
       id: 'starter',

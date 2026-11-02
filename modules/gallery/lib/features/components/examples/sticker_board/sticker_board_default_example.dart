@@ -56,7 +56,7 @@ class StickerBoardDefaultExample extends StatelessWidget {
   Widget build(BuildContext context) => const StickerBoard(
     defaultValue: _start,
     children: [
-      StickerBoardCanvas(height: Spacing.d96 * 4 + Spacing.d32),
+      StickerBoardCanvas(height: Spacing.d384 + Spacing.d32),
       StickerBoardToolbar(),
     ],
   );

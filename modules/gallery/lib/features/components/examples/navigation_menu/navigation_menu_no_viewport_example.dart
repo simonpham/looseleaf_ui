@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `w-48`.
-const _panelWidth = 192.0;
+const _panelWidth = Spacing.d192;
 
 const _items = [
   ('Product', ['Notebooks', 'Stickers', 'Templates']),

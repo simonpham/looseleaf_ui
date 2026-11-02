@@ -9,7 +9,7 @@ class FieldInputExample extends StatefulWidget {
 }
 
 class _FieldInputExampleState extends State<FieldInputExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   final _username = FocusNode();
   final _password = FocusNode();

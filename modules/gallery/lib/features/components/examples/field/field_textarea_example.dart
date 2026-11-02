@@ -9,7 +9,7 @@ class FieldTextareaExample extends StatefulWidget {
 }
 
 class _FieldTextareaExampleState extends State<FieldTextareaExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   final _feedback = FocusNode();
 

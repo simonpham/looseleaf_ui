@@ -16,7 +16,7 @@ class ChartAreaIconsExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: const Card(
         children: [
           CardHeader(

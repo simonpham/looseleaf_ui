@@ -62,7 +62,7 @@ class _MessageScrollerStreamingExampleState
     final replying = streaming || _shown > 0;
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 448),
+        constraints: const BoxConstraints(maxWidth: Spacing.d448),
         child: SizedBox(
           height: 420,
           child: Column(

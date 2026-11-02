@@ -17,7 +17,7 @@ class _ToggleGroupViewSwitcherExampleState
     'The corner of the desk',
     'Rain at 7 a.m.',
   ];
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _numberWidth = 20.0;
 
   var _view = 'list';

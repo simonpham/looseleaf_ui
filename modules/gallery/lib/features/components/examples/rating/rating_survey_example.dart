@@ -22,7 +22,7 @@ class _RatingSurveyExampleState extends State<RatingSurveyExample> {
     final theme = LooseleafTheme.of(context);
     final total = _values.values.fold<double>(0, (sum, value) => sum + value);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d96 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d12,

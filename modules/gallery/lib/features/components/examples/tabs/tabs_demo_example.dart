@@ -9,7 +9,7 @@ class TabsDemoExample extends StatefulWidget {
 }
 
 class _TabsDemoExampleState extends State<TabsDemoExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   final _name = TextEditingController(text: 'Pedro Duarte');
   final _username = TextEditingController(text: '@peduarte');

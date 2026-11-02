@@ -6,7 +6,7 @@ class SpinnerItemExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: 448),
+    constraints: const BoxConstraints(maxWidth: Spacing.d448),
     child: LayoutBuilder(
       builder: (context, constraints) => InkItem(
         variant: ItemVariant.outline,

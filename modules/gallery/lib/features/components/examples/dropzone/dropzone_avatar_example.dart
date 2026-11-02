@@ -15,8 +15,8 @@ const _pick = DropzoneFile(
 class DropzoneAvatarExample extends StatelessWidget {
   const DropzoneAvatarExample({super.key});
 
-  static const _width = 288.0;
-  static const _minHeight = 224.0;
+  static const _width = Spacing.d288;
+  static const _minHeight = Spacing.d224;
 
   @override
   Widget build(BuildContext context) => SizedBox(

@@ -37,7 +37,7 @@ class _DatePickerTypedDateExampleState
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return SizedBox(
-      width: 288,
+      width: Spacing.d288,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d8,

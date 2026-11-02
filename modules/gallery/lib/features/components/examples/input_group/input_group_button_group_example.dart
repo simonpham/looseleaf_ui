@@ -21,7 +21,7 @@ class _InputGroupButtonGroupExampleState
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: 384),
+    constraints: const BoxConstraints(maxWidth: Spacing.d384),
     child: ButtonGroup(
       children: [
         ButtonGroupText(

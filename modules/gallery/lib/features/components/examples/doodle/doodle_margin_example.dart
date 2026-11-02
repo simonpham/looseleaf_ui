@@ -8,7 +8,7 @@ class DoodleMarginExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 384),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Stack(
         clipBehavior: Clip.none,
         children: [

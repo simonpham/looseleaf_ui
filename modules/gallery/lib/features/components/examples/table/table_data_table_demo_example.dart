@@ -73,7 +73,7 @@ class TableDataTableDemoExample extends StatefulWidget {
 }
 
 class _TableDataTableDemoExampleState extends State<TableDataTableDemoExample> {
-  static const _filterWidth = 384.0;
+  static const _filterWidth = Spacing.d384;
 
   final _filter = TextEditingController();
   bool? _ascending;

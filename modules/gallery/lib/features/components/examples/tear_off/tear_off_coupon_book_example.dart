@@ -10,7 +10,7 @@ class TearOffCouponBookExample extends StatefulWidget {
 }
 
 class _TearOffCouponBookExampleState extends State<TearOffCouponBookExample> {
-  static const _bodyWidth = 288.0;
+  static const _bodyWidth = Spacing.d288;
   static const _stubWidth = 112.0;
 
   bool _torn = false;

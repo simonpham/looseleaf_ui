@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-xs`.
-const _ruleMaxWidth = 320.0;
+const _ruleMaxWidth = Spacing.d320;
 
 /// Below this width the grid is one column (`sm:grid-cols-2`).
 const _twoColumns = 400.0;

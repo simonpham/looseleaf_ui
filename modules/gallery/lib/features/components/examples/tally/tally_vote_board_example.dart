@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class TallyVoteBoardExample extends StatelessWidget {
   const TallyVoteBoardExample({super.key});
 
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _nameWidth = 128.0;
   static const _votes = [
     ('Tea', 12),

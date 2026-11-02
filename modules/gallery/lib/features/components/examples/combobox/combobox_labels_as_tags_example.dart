@@ -26,7 +26,7 @@ class _ComboboxLabelsAsTagsExampleState
 
   @override
   Widget build(BuildContext context) => SizedBox(
-    width: Spacing.d96 * 4,
+    width: Spacing.d384,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: Spacing.d8,

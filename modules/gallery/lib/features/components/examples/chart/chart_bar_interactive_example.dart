@@ -30,7 +30,7 @@ class _ChartBarInteractiveExampleState
     final label = _config[_active]?.label ?? _active;
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+        constraints: const BoxConstraints(maxWidth: Spacing.d448),
         child: Card(
           tape: PaperTape.top,
           children: [

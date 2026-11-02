@@ -8,7 +8,7 @@ class SquiggleSectionDividerExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d96 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Card(
         children: [
           CardHeader(

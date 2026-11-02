@@ -22,7 +22,7 @@ class _InputGroupLabelExampleState extends State<InputGroupLabelExample> {
   @override
   Widget build(BuildContext context) => TooltipProvider(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 384),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d16,

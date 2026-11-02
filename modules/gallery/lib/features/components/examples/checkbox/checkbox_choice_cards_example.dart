@@ -11,7 +11,7 @@ class CheckboxChoiceCardsExample extends StatefulWidget {
 
 class _CheckboxChoiceCardsExampleState
     extends State<CheckboxChoiceCardsExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   bool _notify = true;
   bool _digest = false;

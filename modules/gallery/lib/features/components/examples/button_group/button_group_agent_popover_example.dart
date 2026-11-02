@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class ButtonGroupAgentPopoverExample extends StatelessWidget {
   const ButtonGroupAgentPopoverExample({super.key});
 
-  static const _width = 320.0;
+  static const _width = Spacing.d320;
 
   @override
   Widget build(BuildContext context) {

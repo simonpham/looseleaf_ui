@@ -11,7 +11,7 @@ class CheckboxSettingsFormExample extends StatefulWidget {
 
 class _CheckboxSettingsFormExampleState
     extends State<CheckboxSettingsFormExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _topics = [
     ('comments', 'Comments'),
     ('replies', 'Replies'),

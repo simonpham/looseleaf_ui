@@ -11,8 +11,8 @@ class DropdownMenuRowActionsExample extends StatefulWidget {
 
 class _DropdownMenuRowActionsExampleState
     extends State<DropdownMenuRowActionsExample> {
-  static const _maxWidth = 384.0;
-  static const _menuWidth = 192.0;
+  static const _maxWidth = Spacing.d384;
+  static const _menuWidth = Spacing.d192;
 
   var _names = ['Field notes', 'Garden log', 'Recipes', 'Trip to Lisbon'];
   String _last = '';

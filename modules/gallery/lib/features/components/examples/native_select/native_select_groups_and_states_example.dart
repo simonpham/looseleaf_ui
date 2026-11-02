@@ -11,7 +11,7 @@ class NativeSelectGroupsAndStatesExample extends StatefulWidget {
 
 class _NativeSelectGroupsAndStatesExampleState
     extends State<NativeSelectGroupsAndStatesExample> {
-  static const double _twoColumnsFrom = Spacing.d160 * 2;
+  static const double _twoColumnsFrom = Spacing.d320;
 
   String _pen = 'felt';
   String _paper = 'a';
@@ -83,7 +83,7 @@ class _NativeSelectGroupsAndStatesExampleState
       ),
     ];
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth < _twoColumnsFrom) {

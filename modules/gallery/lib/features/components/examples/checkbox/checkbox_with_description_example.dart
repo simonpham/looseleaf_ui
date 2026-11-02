@@ -11,7 +11,7 @@ class CheckboxWithDescriptionExample extends StatefulWidget {
 
 class _CheckboxWithDescriptionExampleState
     extends State<CheckboxWithDescriptionExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   bool _terms = true;
   bool _policy = false;

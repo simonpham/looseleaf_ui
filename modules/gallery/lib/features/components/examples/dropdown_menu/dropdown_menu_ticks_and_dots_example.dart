@@ -11,7 +11,7 @@ class DropdownMenuTicksAndDotsExample extends StatefulWidget {
 
 class _DropdownMenuTicksAndDotsExampleState
     extends State<DropdownMenuTicksAndDotsExample> {
-  static const _width = 224.0;
+  static const _width = Spacing.d224;
 
   bool _status = true;
   bool _activity = false;

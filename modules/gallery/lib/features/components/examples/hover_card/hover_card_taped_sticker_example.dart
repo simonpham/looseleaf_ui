@@ -17,7 +17,7 @@ class HoverCardTapedStickerExample extends StatelessWidget {
             tape: PaperTape.top,
             tiltDegrees: -1.2,
             seed: 'release',
-            width: Spacing.d256 + Spacing.d32,
+            width: Spacing.d288,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

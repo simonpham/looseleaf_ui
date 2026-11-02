@@ -44,7 +44,7 @@ class ChartHeatmapExample extends StatelessWidget {
         ],
       ),
       ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+        constraints: const BoxConstraints(maxWidth: Spacing.d448),
         child: ChartContainer(
           config: const {},
           aspectRatio: 16 / 10,

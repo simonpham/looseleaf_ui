@@ -43,7 +43,7 @@ class SelectGroupsExample extends StatelessWidget {
   Widget build(BuildContext context) => Select(
     defaultValue: 'Central European (CET)',
     content: SelectContent(
-      maxHeight: Spacing.d256 + Spacing.d32,
+      maxHeight: Spacing.d288,
       children: [
         for (final (index, (region, zones)) in _zones.indexed)
           SelectGroup(

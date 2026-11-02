@@ -8,7 +8,7 @@ class TicketAdmitOneExample extends StatelessWidget {
   Widget build(BuildContext context) => const Ticket(
     seed: 'admit',
     semanticLabel: 'Ticket number 0042',
-    maxWidth: 448,
+    maxWidth: Spacing.d448,
     children: [
       TicketBody(
         children: [

@@ -11,7 +11,7 @@ class FormDefaultExample extends StatefulWidget {
 }
 
 class _FormDefaultExampleState extends State<FormDefaultExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static final _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
 
   final _form = FormController(initialValues: {'username': '', 'email': ''});

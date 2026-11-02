@@ -21,7 +21,7 @@ class _StickerBoardControlledExampleState
   ];
   static const double _canvasHeight = Spacing.d176 * 2;
   static const double _valueWidth = Spacing.d256;
-  static const double _twoColumnsFrom = Spacing.d256 * 2;
+  static const double _twoColumnsFrom = Spacing.d512;
 
   final _firstAdd = FocusNode();
   List<StickerBoardItem> _items = StickerBoardOps.add(

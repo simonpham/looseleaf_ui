@@ -9,7 +9,7 @@ class FieldRadioExample extends StatefulWidget {
 }
 
 class _FieldRadioExampleState extends State<FieldRadioExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _plans = [
     ('monthly', r'Monthly ($9.99/month)'),
     ('yearly', r'Yearly ($99.99/year)'),

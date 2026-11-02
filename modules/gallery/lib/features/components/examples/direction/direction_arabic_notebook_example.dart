@@ -49,7 +49,7 @@ class _DirectionArabicNotebookExampleState
                   children: [
                     DropdownMenu(
                       content: DropdownMenuContent(
-                        width: 224,
+                        width: Spacing.d224,
                         align: OverlayAlign.start,
                         seed: 'direction-arabic-menu',
                         children: [

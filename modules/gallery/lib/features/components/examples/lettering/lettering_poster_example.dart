@@ -5,7 +5,7 @@ class LetteringPosterExample extends StatelessWidget {
   const LetteringPosterExample({super.key});
 
   static const _maxWidth = 576.0;
-  static const _leadMaxWidth = 384.0;
+  static const _leadMaxWidth = Spacing.d384;
 
   @override
   Widget build(BuildContext context) {

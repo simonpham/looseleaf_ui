@@ -25,8 +25,8 @@ class _NapkinTableCardExampleState extends State<NapkinTableCardExample> {
       label: 'Note for the kitchen',
       child: Napkin(
         seed: 'table',
-        width: 320,
-        minHeight: 288,
+        width: Spacing.d320,
+        minHeight: Spacing.d288,
         children: switch (_sent) {
           true => [
             const NapkinTitle(Text('Sent!')),

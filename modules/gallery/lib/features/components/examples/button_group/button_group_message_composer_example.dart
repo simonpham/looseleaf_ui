@@ -11,7 +11,7 @@ class ButtonGroupMessageComposerExample extends StatefulWidget {
 
 class _ButtonGroupMessageComposerExampleState
     extends State<ButtonGroupMessageComposerExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   var _voice = false;
 

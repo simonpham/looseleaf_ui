@@ -35,7 +35,7 @@ class _DatePickerDateRangeExampleState
 
   @override
   Widget build(BuildContext context) => SizedBox(
-    width: 320,
+    width: Spacing.d320,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: Spacing.d8,

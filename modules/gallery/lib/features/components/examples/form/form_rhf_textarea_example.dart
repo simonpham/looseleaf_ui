@@ -12,7 +12,7 @@ class FormRhfTextareaExample extends StatefulWidget {
 }
 
 class _FormRhfTextareaExampleState extends State<FormRhfTextareaExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   final _form = FormController(initialValues: {'about': ''});
   final _about = TextEditingController();

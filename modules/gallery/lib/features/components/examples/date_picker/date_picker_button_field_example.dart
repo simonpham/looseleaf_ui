@@ -17,7 +17,7 @@ class _DatePickerButtonFieldExampleState
   @override
   Widget build(BuildContext context) => Center(
     child: SizedBox(
-      width: 288,
+      width: Spacing.d288,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d16,

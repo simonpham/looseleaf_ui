@@ -13,8 +13,8 @@ class NapkinScribblesExample extends StatelessWidget {
         stain: true,
         seed: 'idea',
         tiltDegrees: -1.5,
-        width: 320,
-        minHeight: 256,
+        width: Spacing.d320,
+        minHeight: Spacing.d256,
         children: [
           NapkinTitle(Text('The idea')),
           NapkinContent(

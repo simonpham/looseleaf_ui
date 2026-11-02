@@ -28,7 +28,7 @@ class _ContextMenuCanvasToolsExampleState
     final theme = LooseleafTheme.of(context);
     return ContextMenu(
       content: ContextMenuContent(
-        width: 224,
+        width: Spacing.d224,
         stock: StockName.stickyBlue,
         tape: PaperTape.corner,
         seed: 'pen-menu',
@@ -67,7 +67,7 @@ class _ContextMenuCanvasToolsExampleState
           child: Semantics(
             label: 'Sticky note. Press the menu key for pens.',
             child: SizedBox(
-              width: 256,
+              width: Spacing.d256,
               child: Paper(
                 stock: StockName.stickyYellow,
                 seed: 'pen-note',

@@ -12,7 +12,7 @@ class FormServerErrorsExample extends StatefulWidget {
 }
 
 class _FormServerErrorsExampleState extends State<FormServerErrorsExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _taken = ['ada', 'grace', 'notes'];
   static final _handlePattern = RegExp(r'^[a-z0-9_]+$');
 

@@ -10,7 +10,7 @@ class ResizablePersistedExample extends StatefulWidget {
 }
 
 class _ResizablePersistedExampleState extends State<ResizablePersistedExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _height = 160.0;
   static const _defaultLayout = [35.0, 65.0];
 

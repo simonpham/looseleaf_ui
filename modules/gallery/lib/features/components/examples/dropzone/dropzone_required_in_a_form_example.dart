@@ -18,7 +18,7 @@ class DropzoneRequiredInAFormExample extends StatefulWidget {
 
 class _DropzoneRequiredInAFormExampleState
     extends State<DropzoneRequiredInAFormExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   final _who = TextEditingController();
   final _whoFocus = FocusNode();

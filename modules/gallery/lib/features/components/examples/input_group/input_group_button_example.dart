@@ -41,7 +41,7 @@ class _InputGroupButtonExampleState extends State<InputGroupButtonExample> {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 384),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d24,

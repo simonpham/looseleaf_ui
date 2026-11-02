@@ -9,7 +9,7 @@ class FlipCardCustomTriggerExample extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     return FlipCard(
       trigger: false,
-      width: 288,
+      width: Spacing.d288,
       height: 208,
       children: [
         FlipCardFront(

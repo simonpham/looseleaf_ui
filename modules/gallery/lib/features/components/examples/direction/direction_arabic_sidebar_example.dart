@@ -12,7 +12,7 @@ class DirectionArabicSidebarExample extends StatelessWidget {
   const DirectionArabicSidebarExample({super.key});
 
   static const _height = 520.0;
-  static const _textWidth = 448.0;
+  static const _textWidth = Spacing.d448;
 
   @override
   Widget build(BuildContext context) {

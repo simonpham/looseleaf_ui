@@ -90,7 +90,7 @@ class _SidebarVariantsExampleState extends State<SidebarVariantsExample> {
                     ],
                   ),
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 384),
+                    constraints: const BoxConstraints(maxWidth: Spacing.d384),
                     child: Text(
                       switch (_variant) {
                         SidebarVariant.inset =>

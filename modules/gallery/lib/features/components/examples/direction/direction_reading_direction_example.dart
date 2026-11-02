@@ -11,7 +11,7 @@ class DirectionReadingDirectionExample extends StatefulWidget {
 
 class _DirectionReadingDirectionExampleState
     extends State<DirectionReadingDirectionExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   TextDirection _direction = TextDirection.rtl;
   var _size = [35.0];

@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class ItemVariantExample extends StatelessWidget {
   const ItemVariantExample({super.key});
 
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _variants = [
     (
       variant: ItemVariant.regular,

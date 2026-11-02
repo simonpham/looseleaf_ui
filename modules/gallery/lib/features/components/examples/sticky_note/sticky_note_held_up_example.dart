@@ -25,7 +25,7 @@ class StickyNoteHeldUpExample extends StatelessWidget {
           color: StickyColor.blue,
           tape: PaperTape.top,
           seed: 'b',
-          width: Spacing.d176 + Spacing.d48,
+          width: Spacing.d224,
           children: [
             StickyNoteTitle(Text('taped')),
             StickyNoteContent(Text('a strip of masking tape across the top')),
@@ -43,7 +43,7 @@ class StickyNoteHeldUpExample extends StatelessWidget {
         StickyNote(
           color: StickyColor.pink,
           seed: 'd',
-          width: Spacing.d256 + Spacing.d32,
+          width: Spacing.d288,
           minHeight: Spacing.d112,
           children: [
             StickyNoteContent(

@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class PopoverArrowSidesExample extends StatelessWidget {
   const PopoverArrowSidesExample({super.key});
 
-  static const _width = 224.0;
+  static const _width = Spacing.d224;
 
   @override
   Widget build(BuildContext context) {

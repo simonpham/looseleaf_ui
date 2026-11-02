@@ -11,7 +11,7 @@ class ButtonGroupFollowMenuExample extends StatefulWidget {
 
 class _ButtonGroupFollowMenuExampleState
     extends State<ButtonGroupFollowMenuExample> {
-  static const _menuWidth = 224.0;
+  static const _menuWidth = Spacing.d224;
   static const _actions = [
     ('volume-off', 'Mute conversation'),
     ('check', 'Mark as read'),

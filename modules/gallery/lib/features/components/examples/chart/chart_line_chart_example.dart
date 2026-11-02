@@ -22,7 +22,7 @@ class ChartLineChartExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const ChartContainer(
     config: _config,
-    height: Spacing.d256 + Spacing.d32,
+    height: Spacing.d288,
     children: [
       LineChart(
         data: _visitors,

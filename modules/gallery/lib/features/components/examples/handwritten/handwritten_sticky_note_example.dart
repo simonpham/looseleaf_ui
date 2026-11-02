@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class HandwrittenStickyNoteExample extends StatelessWidget {
   const HandwrittenStickyNoteExample({super.key});
 
-  static const _width = 224.0;
+  static const _width = Spacing.d224;
 
   @override
   Widget build(BuildContext context) => SizedBox(

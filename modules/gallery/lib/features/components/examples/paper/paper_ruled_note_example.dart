@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class PaperRuledNoteExample extends StatelessWidget {
   const PaperRuledNoteExample({super.key});
 
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _minHeight = 236.0;
   static const _pitch = 28.0;
 

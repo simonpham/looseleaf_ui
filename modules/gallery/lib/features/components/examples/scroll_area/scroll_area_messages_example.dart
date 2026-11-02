@@ -53,7 +53,7 @@ class _ScrollAreaMessagesExampleState extends State<ScrollAreaMessagesExample> {
     final theme = LooseleafTheme.of(context);
     final small = theme.typography.interface(cssSize: 14);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d96 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Card(
         seed: 'messages',
         gap: Spacing.d16,
@@ -63,7 +63,7 @@ class _ScrollAreaMessagesExampleState extends State<ScrollAreaMessagesExample> {
             child: Semantics(
               label: 'Messages',
               child: SizedBox(
-                height: Spacing.d112 * 2,
+                height: Spacing.d224,
                 child: ScrollArea(
                   controller: _log,
                   bleed: true,

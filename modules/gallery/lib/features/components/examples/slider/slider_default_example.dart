@@ -9,7 +9,7 @@ class SliderDefaultExample extends StatefulWidget {
 }
 
 class _SliderDefaultExampleState extends State<SliderDefaultExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   List<double> _volume = [60];
 

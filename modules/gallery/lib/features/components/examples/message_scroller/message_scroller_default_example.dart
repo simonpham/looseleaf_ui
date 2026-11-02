@@ -22,7 +22,7 @@ class MessageScrollerDefaultExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 448),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: SizedBox(
         height: 380,
         child: MessageScrollerProvider(

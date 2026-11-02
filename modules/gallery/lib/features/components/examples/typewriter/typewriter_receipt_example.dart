@@ -10,7 +10,7 @@ class TypewriterReceiptExample extends StatefulWidget {
 }
 
 class _TypewriterReceiptExampleState extends State<TypewriterReceiptExample> {
-  static const _width = 288.0;
+  static const _width = Spacing.d288;
 
   int _run = 0;
   bool _done = false;

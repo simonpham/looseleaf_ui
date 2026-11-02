@@ -13,7 +13,7 @@ class TicketClippedExample extends StatelessWidget {
         tiltDegrees: -2,
         seed: 'taped',
         semanticLabel: 'Ticket 0099',
-        maxWidth: 448,
+        maxWidth: Spacing.d448,
         children: [
           TicketBody(
             children: [

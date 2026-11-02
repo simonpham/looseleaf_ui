@@ -12,7 +12,7 @@ class FormRhfSelectExample extends StatefulWidget {
 }
 
 class _FormRhfSelectExampleState extends State<FormRhfSelectExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
   static const _triggerMinWidth = 120.0;
   static const _spokenLanguages = {
     'en': 'English',

@@ -12,7 +12,7 @@ class FormRhfDemoExample extends StatefulWidget {
 }
 
 class _FormRhfDemoExampleState extends State<FormRhfDemoExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   final _form = FormController(
     initialValues: {'title': '', 'description': ''},

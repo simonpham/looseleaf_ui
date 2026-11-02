@@ -97,7 +97,7 @@ class _ChartStreamingExampleState extends State<ChartStreamingExample> {
               color: theme.colors.inkYou,
             ),
           },
-          height: Spacing.d112 * 2,
+          height: Spacing.d224,
           children: [
             AreaChart(
               data: data,

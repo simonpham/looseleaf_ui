@@ -13,7 +13,7 @@ class PopoverShareLinkExample extends StatefulWidget {
 }
 
 class _PopoverShareLinkExampleState extends State<PopoverShareLinkExample> {
-  static const _width = 320.0;
+  static const _width = Spacing.d320;
 
   static const _link = 'https://kevintngo.github.io/looseleaf/n/field-notes';
 

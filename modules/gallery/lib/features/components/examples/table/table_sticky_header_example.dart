@@ -14,8 +14,8 @@ final _rows = [
 class TableStickyHeaderExample extends StatelessWidget {
   const TableStickyHeaderExample({super.key});
 
-  static const _maxWidth = 512.0;
-  static const _maxHeight = 288.0;
+  static const _maxWidth = Spacing.d512;
+  static const _maxHeight = Spacing.d288;
 
   @override
   Widget build(BuildContext context) {

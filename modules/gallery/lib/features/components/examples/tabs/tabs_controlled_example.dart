@@ -9,7 +9,7 @@ class TabsControlledExample extends StatefulWidget {
 }
 
 class _TabsControlledExampleState extends State<TabsControlledExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _days = ['Mon', 'Tue', 'Wed', 'Thu'];
 
   String _day = 'Tue';

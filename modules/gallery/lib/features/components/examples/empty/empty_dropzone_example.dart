@@ -15,7 +15,7 @@ class _EmptyDropzoneExampleState extends State<EmptyDropzoneExample> {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: 512),
+    constraints: const BoxConstraints(maxWidth: Spacing.d512),
     child: Paper(
       tape: PaperTape.top,
       tapeKind: TapeKind.washiDots,

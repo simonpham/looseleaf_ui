@@ -28,7 +28,7 @@ class ChartTooltipVariantsExample extends StatelessWidget {
         Expanded(
           child: ChartContainer(
             config: _config,
-            height: Spacing.d112 * 2,
+            height: Spacing.d224,
             children: [
               const BarChart(
                 data: _rows,
@@ -49,7 +49,7 @@ class ChartTooltipVariantsExample extends StatelessWidget {
         Expanded(
           child: ChartContainer(
             config: _config,
-            height: Spacing.d112 * 2,
+            height: Spacing.d224,
             children: [
               const BarChart(
                 data: _rows,

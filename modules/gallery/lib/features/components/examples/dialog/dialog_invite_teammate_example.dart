@@ -47,7 +47,7 @@ class _DialogInviteTeammateExampleState
             tape: PaperTape.top,
             tapeKind: TapeKind.kraft,
             seed: 'invite',
-            maxWidth: 384,
+            maxWidth: Spacing.d384,
             children: [
               const DialogHeader(
                 children: [

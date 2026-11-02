@@ -99,7 +99,7 @@ class _Section extends StatelessWidget {
   const _Section();
 
   /// `max-w-xs`.
-  static const _textMaxWidth = 320.0;
+  static const _textMaxWidth = Spacing.d320;
 
   @override
   Widget build(BuildContext context) => Column(

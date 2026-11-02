@@ -22,7 +22,7 @@ class IndexCardFlashcardsExample extends StatefulWidget {
 
 class _IndexCardFlashcardsExampleState
     extends State<IndexCardFlashcardsExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   int _index = 0;
   bool _shown = false;

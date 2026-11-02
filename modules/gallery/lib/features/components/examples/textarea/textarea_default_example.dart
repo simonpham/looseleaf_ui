@@ -19,7 +19,7 @@ class _TextareaDefaultExampleState extends State<TextareaDefaultExample> {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+    constraints: const BoxConstraints(maxWidth: Spacing.d448),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: Spacing.d8,

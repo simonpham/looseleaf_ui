@@ -12,7 +12,7 @@ class FormEveryControlExample extends StatefulWidget {
 }
 
 class _FormEveryControlExampleState extends State<FormEveryControlExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
   static const _plans = {'starter': 'Starter', 'studio': 'Studio'};
 
   final _form = FormController(

@@ -11,7 +11,7 @@ const _team = [
 class AvatarTeamExample extends StatelessWidget {
   const AvatarTeamExample({super.key});
 
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ class SwitchSettingsListExample extends StatefulWidget {
 }
 
 class _SwitchSettingsListExampleState extends State<SwitchSettingsListExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   static const _settings = [
     (

@@ -12,7 +12,7 @@ class ButtonGroupOrderCardExample extends StatefulWidget {
 class _ButtonGroupOrderCardExampleState
     extends State<ButtonGroupOrderCardExample> {
   static const _sizes = ['Small', 'Loaf', 'Big'];
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   var _qty = 2;
   var _size = 'Loaf';

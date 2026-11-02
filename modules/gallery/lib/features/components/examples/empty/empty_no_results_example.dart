@@ -41,7 +41,7 @@ class _EmptyNoResultsExampleState extends State<EmptyNoResultsExample> {
         if (person.toLowerCase().contains(needle)) person,
     ];
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 448),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Card(
         seed: 'contacts',
         children: [

@@ -8,7 +8,7 @@ class CircledDefaultExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Text.rich(
         style: theme.typography.interface(cssSize: 17).copyWith(height: 1.55),
         const TextSpan(

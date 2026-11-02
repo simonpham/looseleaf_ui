@@ -9,7 +9,7 @@ class FieldDefaultExample extends StatefulWidget {
 }
 
 class _FieldDefaultExampleState extends State<FieldDefaultExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   final _name = FocusNode();
   final _about = FocusNode();

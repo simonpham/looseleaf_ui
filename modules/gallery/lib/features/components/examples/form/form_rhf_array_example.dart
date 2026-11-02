@@ -12,7 +12,7 @@ class FormRhfArrayExample extends StatefulWidget {
 }
 
 class _FormRhfArrayExampleState extends State<FormRhfArrayExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _maxEmails = 5;
   static final _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
 

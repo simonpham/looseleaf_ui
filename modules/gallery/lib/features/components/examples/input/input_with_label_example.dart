@@ -9,7 +9,7 @@ class InputWithLabelExample extends StatefulWidget {
 }
 
 class _InputWithLabelExampleState extends State<InputWithLabelExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   final _email = FocusNode();
 

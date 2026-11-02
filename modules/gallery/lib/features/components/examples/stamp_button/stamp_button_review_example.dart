@@ -34,7 +34,7 @@ class _StampButtonReviewExampleState extends State<StampButtonReviewExample> {
       _ => 'Rejected',
     };
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 512),
+      constraints: const BoxConstraints(maxWidth: Spacing.d512),
       child: StampSurface(
         value: _marks,
         onValueChanged: (marks) => setState(() => _marks = marks),

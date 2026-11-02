@@ -11,7 +11,7 @@ class SketchpadReplayExample extends StatefulWidget {
 }
 
 class _SketchpadReplayExampleState extends State<SketchpadReplayExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   late final _sketch = SketchpadController(strokes: _heart());
 
@@ -88,7 +88,7 @@ class _SketchpadReplayExampleState extends State<SketchpadReplayExample> {
           readOnly: true,
           replay: true,
           width: 440,
-          height: 320,
+          height: Spacing.d320,
         ),
         Button(
           variant: ButtonVariant.outline,

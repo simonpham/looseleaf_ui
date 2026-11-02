@@ -9,7 +9,7 @@ class AsteriskPriceFootnoteExample extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     final muted = theme.colors.inkMuted;
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d160 * 2),
+      constraints: const BoxConstraints(maxWidth: Spacing.d320),
       child: Card(
         stock: StockName.indexCard,
         children: [

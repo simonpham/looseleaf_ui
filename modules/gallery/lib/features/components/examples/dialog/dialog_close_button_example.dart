@@ -23,7 +23,7 @@ class _DialogCloseButtonExampleState extends State<DialogCloseButtonExample> {
   @override
   Widget build(BuildContext context) => Dialog(
     content: DialogContent(
-      maxWidth: 448,
+      maxWidth: Spacing.d448,
       children: [
         const DialogHeader(
           children: [

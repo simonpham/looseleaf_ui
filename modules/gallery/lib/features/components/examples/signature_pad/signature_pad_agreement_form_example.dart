@@ -11,7 +11,7 @@ class SignaturePadAgreementFormExample extends StatefulWidget {
 
 class _SignaturePadAgreementFormExampleState
     extends State<SignaturePadAgreementFormExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
   static final _thousands = RegExp(r'\B(?=(\d{3})+(?!\d))');
 
   final GlobalKey<FormState> _form = GlobalKey();

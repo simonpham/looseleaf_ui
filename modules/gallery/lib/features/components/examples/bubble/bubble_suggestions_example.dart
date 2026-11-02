@@ -15,7 +15,7 @@ class _BubbleSuggestionsExampleState extends State<BubbleSuggestionsExample> {
     'Run the tests',
     'Not now, thanks',
   ];
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   String? _picked;
 

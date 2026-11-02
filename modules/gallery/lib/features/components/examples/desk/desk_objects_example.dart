@@ -5,7 +5,7 @@ class DeskObjectsExample extends StatelessWidget {
   const DeskObjectsExample({super.key});
 
   static const _minHeight = 416.0;
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   @override
   Widget build(BuildContext context) {

@@ -53,7 +53,7 @@ class _SkeletonLoadingToLoadedExampleState
     final theme = LooseleafTheme.of(context);
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 384),
+        constraints: const BoxConstraints(maxWidth: Spacing.d384),
         child: Card(
           seed: 'loaded',
           children: [

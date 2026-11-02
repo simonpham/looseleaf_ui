@@ -30,7 +30,7 @@ class _DatePickerPresetsExampleState extends State<DatePickerPresetsExample> {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-    width: 288,
+    width: Spacing.d288,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: Spacing.d8,

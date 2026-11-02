@@ -10,7 +10,7 @@ class FieldChoiceCardsExample extends StatefulWidget {
 }
 
 class _FieldChoiceCardsExampleState extends State<FieldChoiceCardsExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _plans = [
     ('starter', 'Starter', 'One notebook, one pen, no rush.'),
     ('studio', 'Studio', 'Ten notebooks and the good highlighters.'),

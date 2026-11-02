@@ -9,7 +9,7 @@ class InputWithTextExample extends StatefulWidget {
 }
 
 class _InputWithTextExampleState extends State<InputWithTextExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   final _email = FocusNode();
 

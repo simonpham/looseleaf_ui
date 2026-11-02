@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class ResizableHandleExample extends StatelessWidget {
   const ResizableHandleExample({super.key});
 
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _height = 200.0;
 
   @override

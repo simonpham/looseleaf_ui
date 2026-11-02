@@ -45,7 +45,7 @@ class _BreadcrumbFilePathExampleState extends State<BreadcrumbFilePathExample> {
     };
     final children = _tree[_path.last] ?? const <String>[];
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Paper(
         seed: 'path',
         padding: const EdgeInsets.all(Spacing.d20),

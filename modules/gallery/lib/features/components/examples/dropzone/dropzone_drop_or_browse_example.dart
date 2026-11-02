@@ -22,7 +22,7 @@ class DropzoneDropOrBrowseExample extends StatefulWidget {
 
 class _DropzoneDropOrBrowseExampleState
     extends State<DropzoneDropOrBrowseExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   int _next = 0;
 

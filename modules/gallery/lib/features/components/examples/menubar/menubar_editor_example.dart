@@ -11,7 +11,7 @@ class MenubarEditorExample extends StatefulWidget {
 }
 
 class _MenubarEditorExampleState extends State<MenubarEditorExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _minPageHeight = 160.0;
 
   bool _bold = false;

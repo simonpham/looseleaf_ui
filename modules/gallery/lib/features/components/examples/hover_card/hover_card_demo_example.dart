@@ -11,7 +11,7 @@ class HoverCardDemoExample extends StatelessWidget {
     final muted = theme.colors.inkMuted;
     return HoverCard(
       content: HoverCardContent(
-        width: Spacing.d160 * 2,
+        width: Spacing.d320,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: Spacing.d16,

@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class PolaroidPhotoWallExample extends StatelessWidget {
   const PolaroidPhotoWallExample({super.key});
 
-  static const double _photoWidth = Spacing.d112 * 2;
+  static const double _photoWidth = Spacing.d224;
 
   @override
   Widget build(BuildContext context) => Padding(

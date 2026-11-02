@@ -10,7 +10,7 @@ const _lines = [
 class StampOnADocumentExample extends StatelessWidget {
   const StampOnADocumentExample({super.key});
 
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
 
   @override
   Widget build(BuildContext context) {

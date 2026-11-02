@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class TooltipShortcutHintExample extends StatelessWidget {
   const TooltipShortcutHintExample({super.key});
 
-  static const _patientWidth = 224.0;
+  static const _patientWidth = Spacing.d224;
 
   @override
   Widget build(BuildContext context) {

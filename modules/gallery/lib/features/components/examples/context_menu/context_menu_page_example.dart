@@ -18,7 +18,7 @@ class _ContextMenuPageExampleState extends State<ContextMenuPageExample> {
     final theme = LooseleafTheme.of(context);
     return ContextMenu(
       content: ContextMenuContent(
-        width: 288,
+        width: Spacing.d288,
         seed: 'ctx',
         children: [
           ContextMenuItem(
@@ -104,7 +104,7 @@ class _ContextMenuPageExampleState extends State<ContextMenuPageExample> {
           child: Semantics(
             label: 'Right click, or press the menu key',
             child: SizedBox(
-              width: 320,
+              width: Spacing.d320,
               height: 176,
               child: Paper(
                 stock: StockName.graph,

@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class PeelCornerDefaultExample extends StatelessWidget {
   const PeelCornerDefaultExample({super.key});
 
-  static const _width = 320.0;
+  static const _width = Spacing.d320;
   static const _height = 208.0;
 
   @override

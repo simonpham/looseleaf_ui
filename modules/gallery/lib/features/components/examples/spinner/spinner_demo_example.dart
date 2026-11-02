@@ -8,7 +8,7 @@ class SpinnerDemoExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 320),
+      constraints: const BoxConstraints(maxWidth: Spacing.d320),
       child: InkItem(
         variant: ItemVariant.muted,
         children: [

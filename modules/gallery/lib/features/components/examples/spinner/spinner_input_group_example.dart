@@ -6,7 +6,7 @@ class SpinnerInputGroupExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: 448),
+    constraints: const BoxConstraints(maxWidth: Spacing.d448),
     child: const Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: Spacing.d16,

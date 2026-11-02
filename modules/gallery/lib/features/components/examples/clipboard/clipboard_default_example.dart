@@ -34,7 +34,7 @@ class _ClipboardDefaultExampleState extends State<ClipboardDefaultExample> {
     return InkClipboard(
       seed: 'pack',
       tiltDegrees: -1.1,
-      maxWidth: Spacing.d96 * 4,
+      maxWidth: Spacing.d384,
       children: [
         ClipboardPaper(
           seed: 'pack-p',

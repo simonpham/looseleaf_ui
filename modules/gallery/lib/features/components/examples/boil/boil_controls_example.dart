@@ -44,7 +44,7 @@ class _BoilControlsExampleState extends State<BoilControlsExample> {
                 child: const Text('Join the club'),
               ),
               SizedBox(
-                width: 192,
+                width: Spacing.d192,
                 child: Input(
                   semanticLabel: 'Email',
                   placeholder: 'you@example.com',

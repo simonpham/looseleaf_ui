@@ -5,8 +5,8 @@ class DeskDefaultExample extends StatelessWidget {
   const DeskDefaultExample({super.key});
 
   static const _wide = 640.0;
-  static const _minHeight = 288.0;
-  static const _cardWidth = 320.0;
+  static const _minHeight = Spacing.d288;
+  static const _cardWidth = Spacing.d320;
   static const _noteSide = 160.0;
 
   @override

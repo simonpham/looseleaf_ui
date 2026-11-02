@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// `max-w-lg`.
-const _maxWidth = 512.0;
+const _maxWidth = Spacing.d512;
 
 /// Below this width the tallies hide (`hidden sm:inline-block`).
 const _tallyWidth = 440.0;

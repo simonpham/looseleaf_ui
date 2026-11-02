@@ -33,7 +33,7 @@ class MessageScrollerDemoCard extends StatelessWidget {
     final action = this.action;
     final footer = this.footer;
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 384),
+      constraints: const BoxConstraints(maxWidth: Spacing.d384),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,

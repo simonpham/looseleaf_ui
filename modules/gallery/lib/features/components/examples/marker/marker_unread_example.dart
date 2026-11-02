@@ -9,7 +9,7 @@ class MarkerUnreadExample extends StatefulWidget {
 }
 
 class _MarkerUnreadExampleState extends State<MarkerUnreadExample> {
-  static const _maxWidth = 512.0;
+  static const _maxWidth = Spacing.d512;
 
   var _read = false;
 

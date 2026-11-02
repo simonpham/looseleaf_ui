@@ -4,7 +4,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class CollapsibleBracketExample extends StatelessWidget {
   const CollapsibleBracketExample({super.key});
 
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   @override
   Widget build(BuildContext context) {

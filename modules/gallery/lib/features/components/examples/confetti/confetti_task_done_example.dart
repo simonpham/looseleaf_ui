@@ -10,7 +10,7 @@ class ConfettiTaskDoneExample extends StatefulWidget {
 }
 
 class _ConfettiTaskDoneExampleState extends State<ConfettiTaskDoneExample> {
-  static const _width = 288.0;
+  static const _width = Spacing.d288;
   static const _tasks = ['Write the docs', 'Draw the icons', 'Tell someone'];
 
   final _done = [true, true, false];

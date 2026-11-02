@@ -9,7 +9,7 @@ class FieldGroupExample extends StatefulWidget {
 }
 
 class _FieldGroupExampleState extends State<FieldGroupExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _normal = TextStyle(fontWeight: FontWeight.w400);
 
   var _pushTasks = false;

@@ -11,7 +11,7 @@ class ClipboardTapedGraphExample extends StatelessWidget {
       tone: Accent.sky,
       seed: 'graph',
       tiltDegrees: 0.8,
-      maxWidth: Spacing.d96 * 4,
+      maxWidth: Spacing.d384,
       children: [
         ClipboardPaper(
           stock: StockName.graph,

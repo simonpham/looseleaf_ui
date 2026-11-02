@@ -9,7 +9,7 @@ class FieldChoiceCardExample extends StatefulWidget {
 }
 
 class _FieldChoiceCardExampleState extends State<FieldChoiceCardExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _environments = [
     (
       'kubernetes',

@@ -9,7 +9,7 @@ class InputStatesExample extends StatefulWidget {
 }
 
 class _InputStatesExampleState extends State<InputStatesExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   final _filled = TextEditingController(text: 'ada@analytical.engine');
   final _invalid = TextEditingController(text: 'not-an-email');

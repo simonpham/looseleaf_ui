@@ -9,7 +9,7 @@ class SliderVerticalExample extends StatefulWidget {
 }
 
 class _SliderVerticalExampleState extends State<SliderVerticalExample> {
-  static const _height = 224.0;
+  static const _height = Spacing.d224;
   static const _bands = ['60', '230', '910', '3k', '14k'];
 
   final _levels = <double>[40, 65, 50, 80, 30];

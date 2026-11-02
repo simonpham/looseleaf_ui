@@ -8,7 +8,7 @@ class CircledTitleAndBleedExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d128 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d512),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: Spacing.d8),
         child: Column(

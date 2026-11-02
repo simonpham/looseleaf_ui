@@ -12,7 +12,7 @@ class FormRhfInputExample extends StatefulWidget {
 }
 
 class _FormRhfInputExampleState extends State<FormRhfInputExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static final _usernamePattern = RegExp(r'^[a-zA-Z0-9_]+$');
 
   final _form = FormController(initialValues: {'username': ''});

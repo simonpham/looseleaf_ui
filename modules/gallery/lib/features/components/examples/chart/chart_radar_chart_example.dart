@@ -21,10 +21,10 @@ class ChartRadarChartExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: const ChartContainer(
         config: _config,
-        height: Spacing.d160 * 2,
+        height: Spacing.d320,
         children: [
           RadarChart(
             data: _skills,

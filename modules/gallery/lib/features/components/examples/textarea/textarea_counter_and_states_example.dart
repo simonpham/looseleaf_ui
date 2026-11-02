@@ -28,7 +28,7 @@ class _TextareaCounterAndStatesExampleState
   Widget build(BuildContext context) {
     final short = _bioLength > 0 && _bioLength < 20;
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d20,

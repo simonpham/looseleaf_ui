@@ -17,7 +17,7 @@ class _NativeSelectShippingFormExampleState
     'pt': ['Lisbon', 'Porto', 'Faro'],
     'ca': ['Ontario', 'Quebec', 'Alberta'],
   };
-  static const double _twoColumnsFrom = Spacing.d160 * 2;
+  static const double _twoColumnsFrom = Spacing.d320;
 
   final _nameFocus = FocusNode();
   String? _country;
@@ -81,7 +81,7 @@ class _NativeSelectShippingFormExampleState
       ],
     );
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d112 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: Spacing.d16,

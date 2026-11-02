@@ -28,7 +28,7 @@ class _ComboboxMenuWithLabelsExampleState
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: Spacing.d128 * 4),
+      constraints: const BoxConstraints(maxWidth: Spacing.d512),
       child: Paper(
         seed: 'task-row',
         padding: const EdgeInsets.symmetric(
@@ -57,7 +57,7 @@ class _ComboboxMenuWithLabelsExampleState
               onOpenChange: (open) => setState(() => _open = open),
               content: DropdownMenuContent(
                 align: OverlayAlign.end,
-                width: Spacing.d112 * 2,
+                width: Spacing.d224,
                 seed: 'task-actions',
                 children: [
                   const DropdownMenuLabel(child: Text('Actions')),

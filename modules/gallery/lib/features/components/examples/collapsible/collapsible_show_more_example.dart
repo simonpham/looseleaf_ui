@@ -21,7 +21,7 @@ class CollapsibleShowMoreExample extends StatefulWidget {
 
 class _CollapsibleShowMoreExampleState
     extends State<CollapsibleShowMoreExample> {
-  static const _maxWidth = 384.0;
+  static const _maxWidth = Spacing.d384;
 
   bool _open = false;
 

@@ -22,7 +22,7 @@ class ClipboardTonesExample extends StatelessWidget {
         children: [
           for (final (index, (name, tone, list)) in _boards.indexed)
             SizedBox(
-              width: Spacing.d96 * 2,
+              width: Spacing.d192,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 spacing: Spacing.d12,
@@ -34,7 +34,7 @@ class ClipboardTonesExample extends StatelessWidget {
                       true => 1,
                       false => -1,
                     },
-                    minHeight: Spacing.d256 + Spacing.d32,
+                    minHeight: Spacing.d288,
                     children: [
                       ClipboardPaper(
                         seed: '$name-p',

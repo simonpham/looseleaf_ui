@@ -10,7 +10,7 @@ class FieldPaymentFormExample extends StatefulWidget {
 }
 
 class _FieldPaymentFormExampleState extends State<FieldPaymentFormExample> {
-  static const _maxWidth = 448.0;
+  static const _maxWidth = Spacing.d448;
   static const _months = [
     '01', '02', '03', '04', '05', '06', //
     '07', '08', '09', '10', '11', '12',

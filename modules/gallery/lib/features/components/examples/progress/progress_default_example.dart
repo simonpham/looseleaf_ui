@@ -33,7 +33,7 @@ class _ProgressDefaultExampleState extends State<ProgressDefaultExample> {
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) => SizedBox(
-      width: math.max(constraints.maxWidth * 0.6, Spacing.d96 * 2),
+      width: math.max(constraints.maxWidth * 0.6, Spacing.d192),
       child: Progress(value: _value, semanticLabel: 'Chapter progress'),
     ),
   );

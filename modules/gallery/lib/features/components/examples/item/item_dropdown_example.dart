@@ -4,8 +4,8 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 class ItemDropdownExample extends StatelessWidget {
   const ItemDropdownExample({super.key});
 
-  static const _maxWidth = 448.0;
-  static const _menuWidth = 288.0;
+  static const _maxWidth = Spacing.d448;
+  static const _menuWidth = Spacing.d288;
   static const _people = [
     (username: 'shadcn', email: 'shadcn@looseleaf.example'),
     (username: 'maxleiter', email: 'maxleiter@looseleaf.example'),

@@ -3,7 +3,7 @@ import 'package:gallery/features/components/examples/popover/popover.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class PopoverDimensionsExample extends StatelessWidget {
-  static const _width = 320.0;
+  static const _width = Spacing.d320;
 
   const PopoverDimensionsExample({super.key});
 

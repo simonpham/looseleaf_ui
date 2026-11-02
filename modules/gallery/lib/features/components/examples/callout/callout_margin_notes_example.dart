@@ -6,7 +6,7 @@ class CalloutMarginNotesExample extends StatelessWidget {
 
   static const _maxWidth = 768.0;
   static const _wide = 720.0;
-  static const _noteWidth = 192.0;
+  static const _noteWidth = Spacing.d192;
   static const _pitch = 28.0;
 
   @override

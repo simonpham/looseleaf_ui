@@ -54,7 +54,7 @@ class _ChartGroupedStackedHorizontalExampleState
       ),
       ChartContainer(
         config: _config,
-        height: Spacing.d256 + Spacing.d32,
+        height: Spacing.d288,
         children: [
           BarChart(
             data: _rows,

@@ -20,7 +20,7 @@ class ScrollAreaHorizontalExample extends StatelessWidget {
     final theme = LooseleafTheme.of(context);
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: Spacing.d128 * 4),
+        constraints: const BoxConstraints(maxWidth: Spacing.d512),
         child: ScrollArea(
           orientation: ScrollAreaOrientation.horizontal,
           bleed: true,
