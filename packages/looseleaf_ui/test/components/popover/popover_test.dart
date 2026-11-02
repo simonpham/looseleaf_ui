@@ -111,10 +111,16 @@ void main() {
   ) async {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(overlayHost(_popover()));
-    Matcher expanded(bool open) => containsSemantics(
+    Matcher expanded(bool open) => matchesSemantics(
+      label: 'Open',
       isButton: true,
       hasExpandedState: true,
       isExpanded: open,
+      hasEnabledState: true,
+      isEnabled: true,
+      isFocusable: true,
+      hasTapAction: true,
+      hasFocusAction: true,
     );
     expect(tester.getSemantics(find.byType(Button)), expanded(false));
     await tester.tap(find.text('Open'));
