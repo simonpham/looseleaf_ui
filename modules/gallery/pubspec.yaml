@@ -48,6 +48,7 @@ flutter:
     - lib/features/components/examples/context_menu/
     - lib/features/components/examples/corkboard/
     - lib/features/components/examples/doodle/
+    - lib/features/components/examples/envelope/
     - lib/features/components/examples/folder/
     - lib/features/components/examples/highlight/
     - lib/features/components/examples/hover_card/
@@ -84,6 +85,7 @@ flutter:
     - lib/features/components/examples/squiggle/
     - lib/features/components/examples/stamp/
     - lib/features/components/examples/stamp_button/
+    - lib/features/components/examples/stepper/
     - lib/features/components/examples/sticker/
     - lib/features/components/examples/sticker_board/
     - lib/features/components/examples/sticker_sheet/
