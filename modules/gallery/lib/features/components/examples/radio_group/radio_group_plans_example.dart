@@ -20,7 +20,6 @@ class _RadioGroupPlansExampleState extends State<RadioGroupPlansExample> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = LooseleafTheme.of(context);
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: Spacing.d448),
       child: Column(
@@ -36,20 +35,8 @@ class _RadioGroupPlansExampleState extends State<RadioGroupPlansExample> {
                 InkRadioGroupItem(
                   value: value,
                   size: Spacing.d20,
-                  label: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: Spacing.d4,
-                    children: [
-                      Text(title),
-                      Text(
-                        help,
-                        style: theme.typography.interface(
-                          cssSize: 14,
-                          color: theme.colors.inkMuted,
-                        ),
-                      ),
-                    ],
-                  ),
+                  label: Text(title),
+                  description: Text(help),
                 ),
             ],
           ),
