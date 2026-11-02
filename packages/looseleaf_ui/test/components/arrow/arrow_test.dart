@@ -47,6 +47,37 @@ void main() {
     );
   });
 
+  testWidgets('width and height size the box, h-12 w-40', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Arrow(
+          width: Spacing.d160,
+          height: Spacing.d48,
+          label: Text('here'),
+        ),
+      ),
+    );
+    final arrow = tester.getRect(find.byType(InkSurface));
+    expect(arrow.size, const Size(Spacing.d160, Spacing.d48));
+    expect(tester.getRect(find.text('here')).right, arrow.left - 8);
+  });
+
+  testWidgets('a label under an up arrow clears a taller box', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Arrow(
+          direction: ArrowDirection.up,
+          height: Spacing.d80,
+          label: Text('up'),
+        ),
+      ),
+    );
+    expect(
+      tester.getRect(find.text('up')).top,
+      tester.getRect(find.byType(InkSurface)).bottom + 4,
+    );
+  });
+
   testWidgets('aims at a target, stopping short by the gap', (tester) async {
     final target = GlobalKey();
     await tester.pumpWidget(

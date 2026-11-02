@@ -47,15 +47,13 @@ class ArrowLabelledExample extends StatelessWidget {
           const PositionedDirectional(
             end: Spacing.d80,
             bottom: Spacing.d32,
-            child: SizedBox(
+            child: Arrow(
+              direction: ArrowDirection.downLeft,
+              curve: ArrowCurve.curved,
+              tone: MarkPen.blue,
               width: Spacing.d96,
               height: Spacing.d80,
-              child: Arrow(
-                direction: ArrowDirection.downLeft,
-                curve: ArrowCurve.curved,
-                tone: MarkPen.blue,
-                label: Text('your name'),
-              ),
+              label: Text('your name'),
             ),
           ),
         ],

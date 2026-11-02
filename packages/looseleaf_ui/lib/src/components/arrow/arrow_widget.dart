@@ -40,6 +40,8 @@ class Arrow extends StatefulWidget {
     this.animate = false,
     this.show = true,
     this.delay = Duration.zero,
+    this.width,
+    this.height,
     this.seed,
   });
 
@@ -73,6 +75,14 @@ class Arrow extends StatefulWidget {
   /// The wait before the arrow draws on.
   final Duration delay;
 
+  /// The box's width, replacing 80 (24 when aimed), like upstream's
+  /// `w-*` classes; the arrow is drawn to fill it.
+  final double? width;
+
+  /// The box's height, replacing 40 (24 when aimed), like upstream's
+  /// `h-*` classes.
+  final double? height;
+
   /// Pins the hand.
   final String? seed;
 
@@ -82,6 +92,22 @@ class Arrow extends StatefulWidget {
 
 class _ArrowState extends State<Arrow> with InkSeed {
   Offset? _vector;
+
+  bool get _aimed => widget.pointAt != null;
+
+  double get _width =>
+      widget.width ??
+      switch (_aimed) {
+        true => Spacing.d24,
+        false => Spacing.d80,
+      };
+
+  double get _height =>
+      widget.height ??
+      switch (_aimed) {
+        true => Spacing.d24,
+        false => Spacing.d40,
+      };
 
   void _aim() {
     final target = widget.pointAt?.currentContext?.findRenderObject();
@@ -124,10 +150,7 @@ class _ArrowState extends State<Arrow> with InkSeed {
       },
       animate: widget.animate,
     );
-    final room = switch (aimed) {
-      true => const SizedBox.square(dimension: Spacing.d24),
-      false => const SizedBox(width: Spacing.d80, height: Spacing.d40),
-    };
+    final room = SizedBox(width: _width, height: _height);
     final ready = widget.show && !(aimed && vector == null);
     final label = widget.label;
     return Stack(
@@ -168,11 +191,12 @@ class _ArrowState extends State<Arrow> with InkSeed {
       softWrap: false,
       child: label,
     );
-    const beside = Spacing.d80 + Spacing.d8;
+    final beside = _width + Spacing.d8;
+    final below = _height + Spacing.d4;
     const wide = Spacing.d80 * 4;
     if (aimed) {
       return PositionedDirectional(
-        start: Spacing.d24 + Spacing.d8,
+        start: _width + Spacing.d8,
         top: 0,
         bottom: 0,
         child: Center(child: text),
@@ -192,13 +216,13 @@ class _ArrowState extends State<Arrow> with InkSeed {
         child: Center(child: text),
       ),
       ArrowDirection.up => Positioned(
-        top: Spacing.d40 + Spacing.d4,
+        top: below,
         left: -wide,
         right: -wide,
         child: Align(alignment: Alignment.topCenter, child: text),
       ),
       ArrowDirection.down => Positioned(
-        bottom: Spacing.d40 + Spacing.d4,
+        bottom: below,
         left: -wide,
         right: -wide,
         child: Align(alignment: Alignment.bottomCenter, child: text),
