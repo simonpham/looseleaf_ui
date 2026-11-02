@@ -79,14 +79,12 @@ class _ChartStreamingExampleState extends State<ChartStreamingExample> {
                   .face(KevinSansFace.script, cssSize: 24)
                   .copyWith(fontFeatures: const [FontFeature.tabularFigures()]),
             ),
-            SizedBox(
+            Sparkline(
               width: Spacing.d96,
               height: Spacing.d32,
-              child: Sparkline(
-                data: data,
-                dataKey: 'rps',
-                label: 'Requests per second, last 30 seconds',
-              ),
+              data: data,
+              dataKey: 'rps',
+              label: 'Requests per second, last 30 seconds',
             ),
           ],
         ),

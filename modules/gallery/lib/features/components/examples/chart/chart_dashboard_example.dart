@@ -230,15 +230,12 @@ class _StatCard extends StatelessWidget {
               Text(stat.value, style: theme.typography.title(cssSize: 30)),
             ),
             CardAction(
-              child: SizedBox(
+              child: Sparkline(
                 width: Spacing.d80,
-                height: Spacing.d40,
-                child: Sparkline(
-                  data: stat.data,
-                  variant: SparkVariant.area,
-                  label: '${stat.label}, last six months',
-                  slot: index,
-                ),
+                data: stat.data,
+                variant: SparkVariant.area,
+                label: '${stat.label}, last six months',
+                slot: index,
               ),
             ),
           ],

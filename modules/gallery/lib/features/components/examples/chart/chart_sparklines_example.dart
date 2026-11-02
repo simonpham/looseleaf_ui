@@ -61,17 +61,15 @@ class ChartSparklinesExample extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     spacing: Spacing.d12,
                     children: [
-                      SizedBox(
-                        height: Spacing.d40,
-                        child: Sparkline(
-                          data: tile.data,
-                          variant: tile.variant,
-                          label: '${tile.title}, last twelve days',
-                          slot: switch (index) {
-                            2 => 1,
-                            _ => 0,
-                          },
-                        ),
+                      Sparkline(
+                        width: double.infinity,
+                        data: tile.data,
+                        variant: tile.variant,
+                        label: '${tile.title}, last twelve days',
+                        slot: switch (index) {
+                          2 => 1,
+                          _ => 0,
+                        },
                       ),
                       Row(
                         spacing: Spacing.d4,
