@@ -61,14 +61,22 @@ extension StickerBoardItemCopy on StickerBoardItem {
     z: z ?? this.z,
   );
 
-  /// The item as upstream's JSON object.
+  /// The item as upstream's JSON object, with numbers written the way
+  /// `JSON.stringify` writes them (`120`, not `120.0`).
   Map<String, Object?> toJson() => {
     'id': id,
     'name': name,
-    'x': x,
-    'y': y,
-    'rot': rot,
-    'scale': scale,
-    'z': z,
+    'x': _jsNumber(x),
+    'y': _jsNumber(y),
+    'rot': _jsNumber(rot),
+    'scale': _jsNumber(scale),
+    'z': _jsNumber(z),
   };
+
+  static num _jsNumber(double value) {
+    if (value.isFinite && value == value.truncateToDouble()) {
+      return value.toInt();
+    }
+    return value;
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -134,6 +136,44 @@ void main() {
         const Offset(20, 80),
       );
     });
+  });
+
+  test('toJson writes whole numbers like JSON.stringify', () {
+    final json = jsonEncode(
+      const StickerBoardItem(
+        id: 'a',
+        name: 'rocket',
+        x: 120,
+        y: 80.5,
+        rot: -6,
+        scale: 0.9,
+        z: 0,
+      ).toJson(),
+    );
+    expect(
+      json,
+      '{"id":"a","name":"rocket","x":120,"y":80.5,"rot":-6,"scale":0.9,"z":0}',
+    );
+  });
+
+  testWidgets('a bounded board fills its height with the canvas', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 480,
+          height: 300,
+          child: StickerBoard(defaultValue: _start),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(tester.getSize(find.byType(StickerBoard)).height, 300);
+    expect(
+      tester.getBottomLeft(find.byType(StickerBoardToolbar)).dy,
+      tester.getBottomLeft(find.byType(StickerBoard)).dy,
+    );
   });
 
   testWidgets('a press selects a sticker and bare paper lets go', (

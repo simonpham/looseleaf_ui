@@ -16,7 +16,9 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// The selection is yours with [selection] (a record, so `(id: null)`
 /// means nothing selected) and [onSelectedIdChange], or the board's own
 /// starting at [defaultSelectedId]. [children] lays out the parts (a
-/// [StickerBoardCanvas] above a [StickerBoardToolbar] when null).
+/// [StickerBoardCanvas] above a [StickerBoardToolbar] when null); given a
+/// tight height (a [SizedBox] or [Expanded]) the canvas takes what the
+/// other parts leave (upstream's `h-*` board with a `flex-1` canvas).
 ///
 /// Keys on a focused sticker: arrows move it (Shift 32 px, Alt 1 px),
 /// `[` and `]` (or R and Shift R) turn it (Shift for 15°), `+` and `-` size
@@ -345,13 +347,27 @@ class StickerBoardState extends State<StickerBoard> {
   @override
   Widget build(BuildContext context) {
     _latest = _items;
-    final board = Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      spacing: Spacing.d12,
-      children:
-          widget.children ??
-          const [StickerBoardCanvas(), StickerBoardToolbar()],
+    final parts =
+        widget.children ?? const [StickerBoardCanvas(), StickerBoardToolbar()];
+    final board = LayoutBuilder(
+      builder: (context, constraints) {
+        final fill = constraints.hasTightHeight;
+        return Column(
+          mainAxisSize: switch (fill) {
+            true => MainAxisSize.max,
+            false => MainAxisSize.min,
+          },
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          spacing: Spacing.d12,
+          children: [
+            for (final part in parts)
+              switch ((fill, part)) {
+                (true, StickerBoardCanvas()) => Expanded(child: part),
+                _ => part,
+              },
+          ],
+        );
+      },
     );
     return StickerBoardScope(
       board: this,

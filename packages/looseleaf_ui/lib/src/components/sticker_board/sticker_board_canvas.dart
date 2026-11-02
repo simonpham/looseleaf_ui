@@ -7,8 +7,9 @@ import 'package:looseleaf_ui/src/components/sticker_board/sticker_board.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// The sheet a [StickerBoard]'s stickers sit on: dot-grid paper (any
-/// [stock]) filling the width, [height] tall, clipping stickers at its
-/// edges. A press on bare paper lets go of the selection. With no stickers
+/// [stock]) filling the width, [height] tall (or the height a tight parent
+/// such as [Expanded] gives it, upstream's `flex-1`), clipping stickers at
+/// its edges. A press on bare paper lets go of the selection. With no stickers
 /// it shows [empty] (“Nothing stuck down yet.”).
 ///
 /// Mirrors `StickerBoardCanvas` in upstream
@@ -31,7 +32,8 @@ class StickerBoardCanvas extends StatelessWidget {
   /// The seeded resting tilt of the paper.
   final bool tilt;
 
-  /// The canvas height, at least [minHeight].
+  /// The canvas height, at least [minHeight]; a parent with a tight height
+  /// sets it instead.
   final double height;
 
   /// Shown when no sticker is on the board.
@@ -40,7 +42,6 @@ class StickerBoardCanvas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scope = StickerBoardScope.of(context);
-    final board = scope.board;
     final theme = LooseleafTheme.of(context);
     final stacked = [...scope.items.indexed]
       ..sort((a, b) {
@@ -52,6 +53,28 @@ class StickerBoardCanvas extends StatelessWidget {
         if (byZ != 0) return byZ;
         return a.$1.compareTo(b.$1);
       });
+    return LayoutBuilder(
+      builder: (context, outer) => _sheet(
+        context,
+        scope,
+        theme,
+        stacked,
+        fillHeight: switch (outer.hasTightHeight) {
+          true => outer.maxHeight,
+          false => null,
+        },
+      ),
+    );
+  }
+
+  Widget _sheet(
+    BuildContext context,
+    StickerBoardScope scope,
+    LooseleafThemeData theme,
+    List<(int, StickerBoardItem)> stacked, {
+    required double? fillHeight,
+  }) {
+    final board = scope.board;
     return Semantics(
       container: true,
       explicitChildNodes: true,
@@ -70,7 +93,7 @@ class StickerBoardCanvas extends StatelessWidget {
                 true => constraints.maxWidth,
                 false => 640,
               },
-              math.max(minHeight, height),
+              fillHeight ?? math.max(minHeight, height),
             );
             board.canvasSize = size;
             return ClipRect(
