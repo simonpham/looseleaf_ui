@@ -1,5 +1,8 @@
+import 'dart:math' as math;
+
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/handwritten/handwritten.dart';
+import 'package:looseleaf_ui/src/components/lettering/lettering_fit.dart';
 import 'package:looseleaf_ui/src/components/lettering/lettering_size.dart';
 import 'package:looseleaf_ui/src/components/lettering/lettering_tone.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
@@ -11,6 +14,9 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// ```dart
 /// Lettering('Field notes', size: .xl, tone: .teal)
 /// ```
+///
+/// When a word is wider than the space, the whole lettering is set smaller
+/// until it fits, never broken mid-word.
 ///
 /// Mirrors upstream `src/components/ui/lettering.tsx`.
 class Lettering extends StatelessWidget {
@@ -53,17 +59,15 @@ class Lettering extends StatelessWidget {
   /// `tracking-tight`, in em.
   static const double _tracking = -0.025;
 
-  @override
-  Widget build(BuildContext context) {
-    final theme = LooseleafTheme.of(context);
-    final width = MediaQuery.maybeSizeOf(context)?.width ?? 0;
-    final em = size.at(width);
+  static final RegExp _words = RegExp(r'\S+');
+
+  TextStyle _style(LooseleafThemeData theme, double em) {
     final misregister = switch (theme.density) {
       LooseleafDensity.calm => 0.0,
       _ => 1.0,
     };
     final second = duotone;
-    final style = theme.typography
+    return theme.typography
         .face(
           KevinSansFace.script,
           cssSize: em,
@@ -86,16 +90,44 @@ class Lettering extends StatelessWidget {
               ),
           ],
         );
-    final Widget body = switch (wobble > 0) {
-      true => Handwritten(
-        text,
-        style: style,
-        strength: wobble,
-        seed: seed,
-        textAlign: textAlign,
+  }
+
+  double _widest(BuildContext context, TextStyle style) {
+    final painter = TextPainter(
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    );
+    var widest = 0.0;
+    for (final word in _words.allMatches(text)) {
+      painter
+        ..text = TextSpan(text: word.group(0), style: style)
+        ..layout();
+      widest = math.max(widest, painter.width);
+    }
+    painter.dispose();
+    return widest;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = LooseleafTheme.of(context);
+    final width = MediaQuery.maybeSizeOf(context)?.width ?? 0;
+    final style = _style(theme, size.at(width));
+    return Semantics(
+      header: header,
+      child: LetteringFit(
+        widest: _widest(context, style),
+        child: switch (wobble > 0) {
+          true => Handwritten(
+            text,
+            style: style,
+            strength: wobble,
+            seed: seed,
+            textAlign: textAlign,
+          ),
+          false => Text(text, style: style, textAlign: textAlign),
+        },
       ),
-      false => Text(text, style: style, textAlign: textAlign),
-    };
-    return Semantics(header: header, child: body);
+    );
   }
 }

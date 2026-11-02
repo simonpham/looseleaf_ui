@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
@@ -58,5 +59,31 @@ void main() {
     expect(LetteringSize.hero.at(400), 72);
     expect(LetteringSize.hero.at(800), 128);
     expect(LetteringSize.lg.at(800), 60);
+  });
+
+  testWidgets('a word wider than the space is set smaller, not broken', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Center(
+          child: SizedBox(
+            width: 120,
+            child: Lettering('Something broke', size: LetteringSize.xl),
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final fit = tester.renderObject<RenderLetteringFit>(
+      find.byType(LetteringFit),
+    );
+    expect(fit.size.width, lessThanOrEqualTo(120));
+    final boxes = tester
+        .renderObject<RenderParagraph>(find.byType(RichText))
+        .getBoxesForSelection(
+          const TextSelection(baseOffset: 0, extentOffset: 9),
+        );
+    expect({for (final box in boxes) box.top}, hasLength(1));
   });
 }
