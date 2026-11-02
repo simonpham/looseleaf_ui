@@ -248,6 +248,7 @@ final class XYSpec extends ChartSpec {
     this.valueLabels,
     this.stateText,
     this.total,
+    this.catEm,
   });
 
   /// Category labels (empty for scatter).
@@ -331,6 +332,43 @@ final class XYSpec extends ChartSpec {
   /// The row count before thinning, when rows were thinned.
   final int? total;
 
+  /// The widest category label measured in the real face, in ems. A
+  /// sideways chart gives its category axis this much room instead of the
+  /// [textWidth] estimate; null keeps the estimate, like upstream.
+  final double? catEm;
+
+  /// This spec with [catEm] measured.
+  XYSpec withCatEm(double? catEm) => XYSpec(
+    cats: cats,
+    series: series,
+    stacked: stacked,
+    horizontal: horizontal,
+    curve: curve,
+    yMin: yMin,
+    yMax: yMax,
+    yTicks: yTicks,
+    grid: grid,
+    showX: showX,
+    showY: showY,
+    zero: zero,
+    notes: notes,
+    refs: refs,
+    bands: bands,
+    patterns: patterns,
+    state: state,
+    yTicksAlt: yTicksAlt,
+    xMin: xMin,
+    xMax: xMax,
+    xTicks: xTicks,
+    xTicksAlt: xTicksAlt,
+    dots: dots,
+    values: values,
+    valueLabels: valueLabels,
+    stateText: stateText,
+    total: total,
+    catEm: catEm,
+  );
+
   @override
   XYLayout layout(Box box, [bool calm = false]) => layoutXY(this, box, calm);
 
@@ -364,5 +402,6 @@ final class XYSpec extends ChartSpec {
     'state': state.name,
     'stateText': stateText,
     'total': total,
+    'catEm': ?catEm,
   };
 }

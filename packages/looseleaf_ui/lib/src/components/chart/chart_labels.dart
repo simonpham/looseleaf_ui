@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
@@ -15,6 +17,31 @@ class ChartLabels extends StatelessWidget {
   /// `--ll-ink-room`: the 0.2 em a clipped label may run past its room
   /// so the last stroke is not cut.
   static const double _inkRoom = 0.2;
+
+  /// The widest of [texts] set as labels in [theme]'s face, in ems: what
+  /// [XYSpec.catEm] wants, since the engine's estimate runs narrow for
+  /// Kevin Sans and would cut a sideways chart's categories.
+  static double widestEm(LooseleafThemeData theme, Iterable<String> texts) {
+    const size = 100.0;
+    final style = theme.typography.face(_face(theme), cssSize: size);
+    var widest = 0.0;
+    for (final text in texts) {
+      final painter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        textDirection: TextDirection.ltr,
+        maxLines: 1,
+      )..layout();
+      widest = math.max(widest, painter.width);
+      painter.dispose();
+    }
+    return widest / size;
+  }
+
+  static KevinSansFace _face(LooseleafThemeData theme) =>
+      switch (theme.density == LooseleafDensity.calm) {
+        true => KevinSansFace.hand,
+        false => KevinSansFace.script,
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +80,6 @@ class ChartLabels extends StatelessWidget {
 
   Widget _text(LooseleafThemeData theme, ChartLabel label) {
     final colors = theme.colors;
-    final calm = theme.density == LooseleafDensity.calm;
     final size = label.size ?? 12;
     final halo = switch (label.role) {
       LabelRole.note => [
@@ -68,10 +94,7 @@ class ChartLabels extends StatelessWidget {
     };
     final style = theme.typography
         .face(
-          switch (calm) {
-            true => KevinSansFace.hand,
-            false => KevinSansFace.script,
-          },
+          _face(theme),
           cssSize: size,
           cssLineHeight: 1,
           fontWeight: switch (label.role) {

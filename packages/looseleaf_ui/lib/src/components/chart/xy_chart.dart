@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/chart/chart.dart';
+import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// What bar, line, area and scatter charts share: rows, the category key,
 /// the series and how they are drawn, axes, gridlines, annotations,
@@ -225,7 +226,12 @@ abstract class XYChart extends ChartWidget {
         sizeKey: sizeKey,
       ),
     );
-    final spec = built.spec;
+    final spec = switch (built.spec.horizontal && built.spec.showY) {
+      true => built.spec.withCatEm(
+        ChartLabels.widestEm(LooseleafTheme.of(context), built.spec.cats),
+      ),
+      false => built.spec,
+    };
     final rows = built.rows;
     final format = valueFormatter ?? formatNumber;
     final noun = switch (spec.series.any((s) => s.kind != kind)) {

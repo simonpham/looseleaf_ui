@@ -313,6 +313,24 @@ void main() {
     }
   });
 
+  test('catEm gives a sideways chart its measured category room', () {
+    final spec = buildXY(
+      XYBuildInput(
+        rows: _rows('gaps'),
+        xKey: 'month',
+        kind: XYKind.bar,
+        horizontal: true,
+        series: const [SeriesInput('a')],
+      ),
+    );
+    const box = Box(400, 260);
+    final estimated = spec.layout(box);
+    final measured = spec.withCatEm(3).layout(box);
+    expect(measured.plot.x0, greaterThan(estimated.plot.x0));
+    expect(spec.toJson().containsKey('catEm'), isFalse);
+    expect(spec.withCatEm(3).toJson()['catEm'], 3);
+  });
+
   test('pickTicks', () {
     List<AxisTick> ticks(Object? v) => [
       for (final t in _list(v)) AxisTick(_n(t['v']), t['label'] as String),

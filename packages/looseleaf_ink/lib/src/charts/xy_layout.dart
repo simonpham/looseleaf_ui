@@ -104,7 +104,10 @@ XYLayout layoutXY(XYSpec spec, Box box, [bool calm = false]) {
     (spec.yMin, spec.yMax),
   );
   final yLabelW = switch (horizontal) {
-    true => math.min(_widest(spec.cats, m), w * 0.36),
+    true => math.min(switch (spec.catEm) {
+      final em? => em * m.tick,
+      null => _widest(spec.cats, m),
+    }, w * 0.36),
     false => _widest(yTicks.map((t) => t.label), m),
   };
   final left = switch (spec.showY) {

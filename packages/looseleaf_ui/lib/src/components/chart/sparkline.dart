@@ -6,8 +6,9 @@ import 'package:looseleaf_ui/src/components/chart/chart.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// One felt pull with a red dot at the end, a shaded area, or a row of
-/// marker bars, 112 × 40 px on its own. A picture with a spoken summary;
-/// [interactive] gives it a cursor and a tooltip.
+/// marker bars, [width] × [height] (112 × 40 px) on its own; pass
+/// `double.infinity` to fill the parent (upstream `w-full`). A picture with
+/// a spoken summary; [interactive] gives it a cursor and a tooltip.
 ///
 /// [data] holds numbers (or nulls), or rows read through [dataKey].
 ///
@@ -25,6 +26,8 @@ class Sparkline extends ChartWidget {
     this.extremes = false,
     this.valueFormatter,
     this.interactive = false,
+    this.width = Spacing.d112,
+    this.height = Spacing.d40,
     super.config,
     super.tooltip,
     super.label,
@@ -63,6 +66,14 @@ class Sparkline extends ChartWidget {
   /// Hover and arrow keys show a tooltip.
   final bool interactive;
 
+  /// The width on its own (upstream `w-28`); `double.infinity` fills the
+  /// parent's width.
+  final double width;
+
+  /// The height on its own (upstream `h-10`); `double.infinity` fills the
+  /// parent's height.
+  final double height;
+
   static const int _maxPoints = 600;
 
   @override
@@ -79,8 +90,8 @@ class Sparkline extends ChartWidget {
 
   @override
   Widget buildStandalone(BuildContext context) => SizedBox(
-    width: Spacing.d112,
-    height: Spacing.d40,
+    width: width,
+    height: height,
     child: ChartContainer(
       config: config ?? const {},
       aspectRatio: null,

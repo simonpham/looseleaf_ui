@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
+import '../../support/kevin_sans.dart';
 import 'chart_samples.dart';
 
 Widget _sized(Widget child) =>
@@ -232,6 +233,66 @@ void main() {
     expect(find.byType(ChartLegend), findsOneWidget);
     expect(find.text('desktop'), findsOneWidget);
     expect(tester.getSize(find.byType(ChartContainer)).height, 270);
+  });
+
+  testWidgets('a sparkline is 112 by 40, or fills its parent', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Align(
+          alignment: Alignment.topLeft,
+          child: Sparkline(data: [1, 3, 2, 5]),
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(ChartContainer)), const Size(112, 40));
+
+    await tester.pumpWidget(
+      componentHost(
+        const Align(
+          alignment: Alignment.topLeft,
+          child: SizedBox(
+            width: 300,
+            child: Sparkline(data: [1, 3, 2, 5], width: double.infinity),
+          ),
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(ChartContainer)), const Size(300, 40));
+  });
+
+  testWidgets('a sideways chart has room for its category names', (
+    tester,
+  ) async {
+    await tester.runAsync(loadKevinSans);
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 400,
+          height: 260,
+          child: ChartContainer(
+            config: {},
+            aspectRatio: null,
+            children: [
+              BarChart(
+                data: ChartSamples.browsers,
+                xKey: 'browser',
+                horizontal: true,
+                animate: false,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    for (final name in ['chrome', 'firefox']) {
+      final paragraph = tester.renderObject<RenderParagraph>(find.text(name));
+      expect(
+        paragraph.size.width,
+        greaterThanOrEqualTo(paragraph.getMaxIntrinsicWidth(0)),
+      );
+    }
   });
 
   testWidgets('loading and empty charts are pictures, not stops', (
