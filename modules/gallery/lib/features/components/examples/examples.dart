@@ -16,6 +16,7 @@ export 'package:gallery/features/components/examples/circled/circled.dart';
 export 'package:gallery/features/components/examples/clipboard/clipboard.dart';
 export 'package:gallery/features/components/examples/code_block/code_block.dart';
 export 'package:gallery/features/components/examples/collapsible/collapsible.dart';
+export 'package:gallery/features/components/examples/command/command.dart';
 export 'package:gallery/features/components/examples/context_menu/context_menu.dart';
 export 'package:gallery/features/components/examples/corkboard/corkboard.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
