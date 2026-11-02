@@ -1,7 +1,8 @@
 /// Spacing tokens for widget dimensions: padding, gaps, icon sizes, radii.
 ///
 /// The steps follow Looseleaf's `--ll-space-*` scale (2 to 34 px) plus the
-/// round sizes widgets need beyond it. `hit` is the default touch target.
+/// round sizes widgets need beyond it, up to Tailwind's `w-48` … `max-w-lg`
+/// widths (192 to 512 px). `hit` is the default touch target.
 abstract final class Spacing {
   static const double d1 = 1;
   static const double d2 = 2;
@@ -34,11 +35,19 @@ abstract final class Spacing {
   static const double d76 = 76;
   static const double d80 = 80;
   static const double d96 = 96;
-  static const double d176 = 176;
-  static const double d256 = 256;
   static const double d112 = 112;
   static const double d128 = 128;
   static const double d160 = 160;
+  static const double d176 = 176;
+  static const double d192 = 192;
+  static const double d224 = 224;
+  static const double d240 = 240;
+  static const double d256 = 256;
+  static const double d288 = 288;
+  static const double d320 = 320;
+  static const double d384 = 384;
+  static const double d448 = 448;
+  static const double d512 = 512;
 
   /// `--ll-hit`: the comfortable touch target.
   static const double hit = 40;
