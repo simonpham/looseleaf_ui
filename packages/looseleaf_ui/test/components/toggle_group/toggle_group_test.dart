@@ -153,15 +153,15 @@ void main() {
   ) async {
     await tester.pumpWidget(
       componentHost(
-        SizedBox(
+        const SizedBox(
           width: 200,
           child: Align(
             alignment: Alignment.topLeft,
             child: ToggleGroup<String>(
-              value: const {'a'},
+              value: {'a'},
               wrap: true,
               spacing: Spacing.d4,
-              children: const [
+              children: [
                 ToggleGroupItem(value: 'a', child: Text('Alpha')),
                 ToggleGroupItem(value: 'b', child: Text('Bravo')),
                 ToggleGroupItem(value: 'c', child: Text('Charlie')),
