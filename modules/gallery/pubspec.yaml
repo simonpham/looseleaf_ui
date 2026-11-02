@@ -26,6 +26,7 @@ flutter:
   assets:
     - lib/features/blocks/blocks/cta_01/
     - lib/features/blocks/blocks/empty_inbox/
+    - lib/features/blocks/blocks/login_01/
     - lib/features/components/examples/accordion/
     - lib/features/components/examples/alert/
     - lib/features/components/examples/alert_dialog/
