@@ -36,6 +36,7 @@ abstract final class InkText {
             TextStyle(
               color: color.withValues(alpha: color.a * opacity),
               fontFamily: textStyle.fontFamily,
+              fontFamilyFallback: textStyle.fontFamilyFallback,
               fontSize: textStyle.fontSize,
               fontWeight: textStyle.fontWeight,
             ),

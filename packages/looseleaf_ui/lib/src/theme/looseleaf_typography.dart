@@ -41,6 +41,15 @@ class LooseleafTypography {
   /// by this package.
   static const String monoFamily = 'IBMPlexMono';
 
+  /// The bundled IBM Plex Mono as a fallback family name, prefixed with
+  /// this package like Flutter's asset fonts.
+  static const String bundledMonoFamily = 'packages/looseleaf_ui/$monoFamily';
+
+  /// Families tried after Kevin Sans for glyphs it lacks (`€`, `£`, `°`,
+  /// `±`, …): the bundled IBM Plex Mono. Glyphs neither has (`⌘`, `⇧`,
+  /// `⌥`) fall through to the platform's fonts, as in a browser.
+  static const List<String> fallbackFamilies = [bundledMonoFamily];
+
   /// The bundled family name.
   final String fontFamily;
 
@@ -62,14 +71,22 @@ class LooseleafTypography {
     FontWeight fontWeight = FontWeight.w400,
     Color? color,
   }) => TextStyle(
-    fontFamily: fontFamily,
-    package: package,
+    fontFamily: _family,
+    fontFamilyFallback: fallbackFamilies,
     fontSize: (cssSize ?? bodySize) * face.sizeAdjust,
     fontWeight: fontWeight,
     height: (cssLineHeight ?? lineHeight) / face.sizeAdjust,
     leadingDistribution: TextLeadingDistribution.even,
     color: color,
   );
+
+  /// [fontFamily] as Flutter names a package's asset font. Prefixed here
+  /// rather than through `TextStyle.package`, which would prefix the
+  /// fallbacks too.
+  String get _family => switch (package) {
+    final bundle? => 'packages/$bundle/$fontFamily',
+    null => fontFamily,
+  };
 
   /// Interface text: labels, buttons, body copy (`--font-hand`).
   TextStyle interface({double? cssSize, Color? color}) =>
@@ -105,8 +122,7 @@ class LooseleafTypography {
     FontWeight fontWeight = FontWeight.w400,
     Color? color,
   }) => TextStyle(
-    fontFamily: monoFamily,
-    package: 'looseleaf_ui',
+    fontFamily: bundledMonoFamily,
     fontFamilyFallback: const ['SF Mono', 'Menlo', 'monospace'],
     fontSize: cssSize ?? bodySize,
     fontWeight: fontWeight,
