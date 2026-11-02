@@ -76,8 +76,8 @@ class _Note extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return SizedBox(
-      height: Spacing.d128 - Spacing.d40,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: Spacing.d128 - Spacing.d40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: gap,

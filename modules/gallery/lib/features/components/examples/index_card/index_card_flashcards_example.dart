@@ -80,9 +80,10 @@ class _IndexCardFlashcardsExampleState
                 ],
               ),
             ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
+            Wrap(
+              alignment: WrapAlignment.center,
               spacing: Spacing.d12,
+              runSpacing: Spacing.d12,
               children: [
                 Button(
                   variant: ButtonVariant.secondary,
