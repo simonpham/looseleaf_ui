@@ -9,9 +9,16 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 ///
 /// Mirrors `AccordionContent` in upstream `src/components/ui/accordion.tsx`.
 class AccordionContent extends StatelessWidget {
-  const AccordionContent({super.key, required this.child});
+  const AccordionContent({
+    super.key,
+    required this.child,
+    this.padding = const EdgeInsets.only(bottom: Spacing.d16),
+  });
 
   final Widget child;
+
+  /// The room round the words (upstream `pb-4`).
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class AccordionContent extends StatelessWidget {
       child: CollapsibleFold(
         open: open,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: Spacing.d16),
+          padding: padding,
           child: DefaultTextStyle.merge(
             style: theme.typography.face(
               KevinSansFace.hand,

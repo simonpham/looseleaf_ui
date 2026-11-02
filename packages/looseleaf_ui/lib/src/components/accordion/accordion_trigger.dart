@@ -24,9 +24,25 @@ class AccordionTrigger extends StatefulWidget {
     this.focusNode,
     this.autofocus = false,
     this.forcedStates = const {},
+    this.padding,
+    this.minHeight,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
   });
 
   final Widget child;
+
+  /// The room round the row; `py-3.5` (`compact:py-2.5`, `calm:py-2`) when
+  /// null.
+  final EdgeInsetsGeometry? padding;
+
+  /// The row's least height (upstream `min-h-*`).
+  final double? minHeight;
+
+  /// Where the label and chevron sit in a row taller than they are:
+  /// [CrossAxisAlignment.start] (upstream's default), or
+  /// [CrossAxisAlignment.end] to sit them on the bottom line of ruled
+  /// paper (`items-end`).
+  final CrossAxisAlignment crossAxisAlignment;
 
   /// Pins the hand: the same seed always draws the same swipe and ring.
   final String? seed;
@@ -133,7 +149,13 @@ class _AccordionTriggerState extends State<AccordionTrigger> with InkSeed {
   }) {
     final theme = LooseleafTheme.of(context);
     final calm = theme.density == LooseleafDensity.calm;
-    final padding = _padding.of(context);
+    final vertical = _padding.of(context);
+    final padding = widget.padding ?? EdgeInsets.symmetric(vertical: vertical);
+    final chevronRoom = switch (widget.crossAxisAlignment) {
+      CrossAxisAlignment.start => const EdgeInsets.only(top: Spacing.d4),
+      CrossAxisAlignment.end => const EdgeInsets.only(bottom: Spacing.d6),
+      _ => EdgeInsets.zero,
+    };
     return InkContent(
       style: theme.typography.face(
         KevinSansFace.hand,
@@ -168,18 +190,21 @@ class _AccordionTriggerState extends State<AccordionTrigger> with InkSeed {
               swipeOnHover: true,
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: padding),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: Spacing.d16,
-              children: [
-                Expanded(child: widget.child),
-                Padding(
-                  padding: const EdgeInsets.only(top: Spacing.d4),
-                  child: CollapsibleIndicator(open: open),
-                ),
-              ],
+          ConstrainedBox(
+            constraints: BoxConstraints(minHeight: widget.minHeight ?? 0),
+            child: Padding(
+              padding: padding,
+              child: Row(
+                crossAxisAlignment: widget.crossAxisAlignment,
+                spacing: Spacing.d16,
+                children: [
+                  Expanded(child: widget.child),
+                  Padding(
+                    padding: chevronRoom,
+                    child: CollapsibleIndicator(open: open),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

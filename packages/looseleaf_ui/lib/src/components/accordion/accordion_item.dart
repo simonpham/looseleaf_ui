@@ -7,7 +7,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// One row of an [Accordion]: an [AccordionTrigger] and an
 /// [AccordionContent] in [child], with a pencil rule under it (except
-/// under the last row).
+/// under the last row, or when [showRule] is false), [padding] above the
+/// rule.
 ///
 /// Mirrors `AccordionItem` in upstream `src/components/ui/accordion.tsx`.
 class AccordionItem extends StatelessWidget {
@@ -16,6 +17,8 @@ class AccordionItem extends StatelessWidget {
     required this.value,
     required this.child,
     this.disabled = false,
+    this.showRule = true,
+    this.padding = const EdgeInsets.only(bottom: Spacing.d8),
   });
 
   /// Identifies the item in the accordion's value.
@@ -23,6 +26,14 @@ class AccordionItem extends StatelessWidget {
 
   final Widget child;
   final bool disabled;
+
+  /// Draws the pencil rule under the row; false hides it, like upstream's
+  /// `[&>[data-slot=accordion-rule]]:hidden` on ruled paper.
+  final bool showRule;
+
+  /// The room round the row, the rule sitting in its bottom (upstream
+  /// `pb-2`; `pb-0` drops it).
+  final EdgeInsetsGeometry padding;
 
   static final _rule = RecipeInkSource(
     accordionRuleRecipe,
@@ -40,11 +51,8 @@ class AccordionItem extends StatelessWidget {
       disabled: disabled || (accordion?.disabled ?? false),
       child: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: Spacing.d8),
-            child: child,
-          ),
-          if (!last)
+          Padding(padding: padding, child: child),
+          if (!last && showRule)
             Positioned(
               left: 0,
               right: 0,

@@ -183,4 +183,55 @@ void main() {
     );
     await tester.pumpAndSettle();
   });
+
+  testWidgets('an item can hide its rule; a trigger takes its own room', (
+    tester,
+  ) async {
+    Widget item(String name, {bool showRule = true}) => AccordionItem(
+      value: name,
+      showRule: showRule,
+      padding: EdgeInsets.zero,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          AccordionTrigger(
+            minHeight: Spacing.d56,
+            padding: const EdgeInsets.only(top: Spacing.d28),
+            crossAxisAlignment: CrossAxisAlignment.end,
+            child: Text('Trigger $name'),
+          ),
+          AccordionContent(
+            padding: EdgeInsets.zero,
+            child: Text('Content $name'),
+          ),
+        ],
+      ),
+    );
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 400,
+          child: Accordion(
+            children: [item('a', showRule: false), item('b')],
+          ),
+        ),
+      ),
+    );
+    final rules = find.byWidgetPredicate(
+      (widget) => widget.runtimeType.toString() == '_Rule',
+    );
+    expect(rules, findsNothing);
+    final trigger = tester.getRect(find.byType(AccordionTrigger).first);
+    expect(trigger.height, Spacing.d56);
+    expect(trigger.bottom, tester.getRect(find.text('Trigger a')).bottom);
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 400,
+          child: Accordion(children: [item('a'), item('b')]),
+        ),
+      ),
+    );
+    expect(rules, findsOneWidget);
+  });
 }
