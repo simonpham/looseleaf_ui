@@ -19,29 +19,16 @@ class ToastSlipCard extends StatefulWidget {
 class _ToastSlipCardState extends State<ToastSlipCard> {
   final ToastController _toasts = ToastController();
   late final Sonner _toast = Sonner(_toasts);
-  OverlayEntry? _toaster;
+  final OverlayPortalController _portal = OverlayPortalController();
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (_toaster != null) return;
-    final overlay = Overlay.maybeOf(context, rootOverlay: true);
-    if (overlay == null) return;
-    final entry = OverlayEntry(
-      builder: (context) => Toaster(
-        controller: _toasts,
-        closeButton: true,
-        child: const SizedBox.expand(),
-      ),
-    );
-    _toaster = entry;
-    overlay.insert(entry);
+  void initState() {
+    super.initState();
+    _portal.show();
   }
 
   @override
   void dispose() {
-    _toaster?.remove();
-    _toaster?.dispose();
     _toasts.dispose();
     super.dispose();
   }
@@ -49,79 +36,88 @@ class _ToastSlipCardState extends State<ToastSlipCard> {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: ToastSlipCard.maxWidth),
-      child: Paper(
-        stock: StockName.slip,
-        tape: PaperTape.top,
-        seed: 'home-toast',
-        padding: const EdgeInsets.fromLTRB(
-          Spacing.d20,
-          Spacing.d28,
-          Spacing.d20,
-          Spacing.d20,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Toss a toast',
-              style: theme.typography.face(
-                KevinSansFace.script,
-                cssSize: 30,
-                cssLineHeight: 1,
-                fontWeight: FontWeight.w700,
-                color: theme.colors.ink,
-              ),
-            ),
-            const SizedBox(height: Spacing.d4),
-            Text(
-              'Each kind is its own paper, so the meaning is not only a color.',
-              style: theme.typography.interface(
-                cssSize: 14,
-                color: theme.colors.inkMuted,
-              ),
-            ),
-            const SizedBox(height: Spacing.d16),
-            Wrap(
-              spacing: Spacing.d8,
-              runSpacing: Spacing.d8,
-              children: [
-                Button(
-                  size: ButtonSize.sm,
-                  seed: 'home-toast-saved',
-                  onPressed: () => _toast.success(
-                    'Notebook saved',
-                    description: 'All 48 pages are safe.',
-                  ),
-                  child: const Text('Saved'),
+    return OverlayPortal(
+      controller: _portal,
+      overlayLocation: OverlayChildLocation.rootOverlay,
+      overlayChildBuilder: (context) => Toaster(
+        controller: _toasts,
+        closeButton: true,
+        child: const SizedBox.expand(),
+      ),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: ToastSlipCard.maxWidth),
+        child: Paper(
+          stock: StockName.slip,
+          tape: PaperTape.top,
+          seed: 'home-toast',
+          padding: const EdgeInsets.fromLTRB(
+            Spacing.d20,
+            Spacing.d28,
+            Spacing.d20,
+            Spacing.d20,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Toss a toast',
+                style: theme.typography.face(
+                  KevinSansFace.script,
+                  cssSize: 30,
+                  cssLineHeight: 1,
+                  fontWeight: FontWeight.w700,
+                  color: theme.colors.ink,
                 ),
-                Button(
-                  size: ButtonSize.sm,
-                  variant: ButtonVariant.outline,
-                  seed: 'home-toast-oops',
-                  onPressed: () => _toast.error(
-                    'Could not sync',
-                    description: 'You are offline. We will try again.',
-                  ),
-                  child: const Text('Oops'),
+              ),
+              const SizedBox(height: Spacing.d4),
+              Text(
+                'Each kind is its own paper, so the meaning is not only a color.',
+                style: theme.typography.interface(
+                  cssSize: 14,
+                  color: theme.colors.inkMuted,
                 ),
-                Button(
-                  size: ButtonSize.sm,
-                  variant: ButtonVariant.outline,
-                  seed: 'home-toast-delete',
-                  onPressed: () => _toast(
-                    'Page deleted',
-                    action: ToastButton(
-                      label: 'Undo',
-                      onPressed: () => _toast.info('The page is back'),
+              ),
+              const SizedBox(height: Spacing.d16),
+              Wrap(
+                spacing: Spacing.d8,
+                runSpacing: Spacing.d8,
+                children: [
+                  Button(
+                    size: ButtonSize.sm,
+                    seed: 'home-toast-saved',
+                    onPressed: () => _toast.success(
+                      'Notebook saved',
+                      description: 'All 48 pages are safe.',
                     ),
+                    child: const Text('Saved'),
                   ),
-                  child: const Text('Delete'),
-                ),
-              ],
-            ),
-          ],
+                  Button(
+                    size: ButtonSize.sm,
+                    variant: ButtonVariant.outline,
+                    seed: 'home-toast-oops',
+                    onPressed: () => _toast.error(
+                      'Could not sync',
+                      description: 'You are offline. We will try again.',
+                    ),
+                    child: const Text('Oops'),
+                  ),
+                  Button(
+                    size: ButtonSize.sm,
+                    variant: ButtonVariant.outline,
+                    seed: 'home-toast-delete',
+                    onPressed: () => _toast(
+                      'Page deleted',
+                      action: ToastButton(
+                        label: 'Undo',
+                        onPressed: () => _toast.info('The page is back'),
+                      ),
+                    ),
+                    child: const Text('Delete'),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
