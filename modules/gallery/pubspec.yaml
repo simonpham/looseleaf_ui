@@ -51,6 +51,7 @@ flutter:
     - lib/features/blocks/blocks/signup_02/
     - lib/features/blocks/blocks/signup_03/
     - lib/features/blocks/blocks/signup_04/
+    - lib/features/blocks/blocks/signup_05/
     - lib/features/blocks/blocks/testimonials_01/
     - lib/features/components/examples/accordion/
     - lib/features/components/examples/alert/
