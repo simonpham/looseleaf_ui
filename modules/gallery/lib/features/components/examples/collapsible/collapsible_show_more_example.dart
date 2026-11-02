@@ -74,11 +74,11 @@ class _CollapsibleShowMoreExampleState
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: Spacing.d12),
-                    child: Builder(
-                      builder: (context) => Button(
+                    child: CollapsibleTrigger.builder(
+                      builder: (context, collapsible) => Button(
                         variant: ButtonVariant.link,
                         size: ButtonSize.sm,
-                        onPressed: Collapsible.of(context).toggle,
+                        onPressed: collapsible.toggle,
                         trailing: const CollapsibleIndicator(),
                         child: Text(switch (_open) {
                           true => 'Show fewer',

@@ -42,12 +42,12 @@ class _CollapsibleRepositoriesExampleState
                       ),
                     ),
                   ),
-                  Builder(
-                    builder: (context) => Button(
+                  CollapsibleTrigger.builder(
+                    builder: (context, collapsible) => Button(
                       variant: ButtonVariant.ghost,
                       size: ButtonSize.iconSm,
                       semanticLabel: 'Toggle',
-                      onPressed: Collapsible.of(context).toggle,
+                      onPressed: collapsible.toggle,
                       child: const InkIcon('chevrons-up-down'),
                     ),
                   ),

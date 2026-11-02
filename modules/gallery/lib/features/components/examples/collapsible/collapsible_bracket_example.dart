@@ -20,10 +20,10 @@ class CollapsibleBracketExample extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Builder(
-              builder: (context) => Button(
+            CollapsibleTrigger.builder(
+              builder: (context, collapsible) => Button(
                 variant: ButtonVariant.link,
-                onPressed: Collapsible.of(context).toggle,
+                onPressed: collapsible.toggle,
                 trailing: const CollapsibleIndicator(),
                 child: const Text('What is in the box?'),
               ),
