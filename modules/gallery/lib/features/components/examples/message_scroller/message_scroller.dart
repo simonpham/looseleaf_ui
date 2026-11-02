@@ -1,3 +1,4 @@
+export 'package:gallery/features/components/examples/message_scroller/message_scroller_anchoring_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_chat_app_data.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_chat_app_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_chat_app_turn.dart';
@@ -7,7 +8,9 @@ export 'package:gallery/features/components/examples/message_scroller/message_sc
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_demo_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_earlier_messages_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_examples.dart';
+export 'package:gallery/features/components/examples/message_scroller/message_scroller_group_chat_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_opening_position_example.dart';
+export 'package:gallery/features/components/examples/message_scroller/message_scroller_previous_context_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_queued_composer.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_scrollable_example.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller_streaming_example.dart';
