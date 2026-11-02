@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart' as ink;
 import 'package:looseleaf_ui/src/components/art/art.dart';
@@ -136,23 +137,22 @@ class _AsteriskState extends State<Asterisk> with InkSeed {
     );
   }
 
-  Widget _link(VoidCallback onPressed, Widget glyph) => Semantics(
-    container: true,
-    link: true,
-    label: widget.label ?? 'footnote',
-    child: InkInteraction(
-      onActivate: onPressed,
-      focusNode: widget.focusNode,
-      autofocus: widget.autofocus,
-      hitSlop: Asterisk.hitSlop,
-      builder: (context, states) => AnimatedScale(
-        scale: switch (states.contains(InkState.hovered)) {
-          true => Asterisk.hoverScale,
-          false => 1,
-        },
-        duration: InkMotion.of(context, InkMotion.hover),
-        child: glyph,
-      ),
+  Widget _link(VoidCallback onPressed, Widget glyph) => InkInteraction(
+    semantics: SemanticsProperties(
+      link: true,
+      label: widget.label ?? 'footnote',
+    ),
+    onActivate: onPressed,
+    focusNode: widget.focusNode,
+    autofocus: widget.autofocus,
+    hitSlop: Asterisk.hitSlop,
+    builder: (context, states) => AnimatedScale(
+      scale: switch (states.contains(InkState.hovered)) {
+        true => Asterisk.hoverScale,
+        false => 1,
+      },
+      duration: InkMotion.of(context, InkMotion.hover),
+      child: glyph,
     ),
   );
 }

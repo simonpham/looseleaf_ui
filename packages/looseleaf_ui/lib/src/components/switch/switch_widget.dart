@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
@@ -81,30 +82,29 @@ class _SwitchState extends State<Switch> with InkSeed {
       disabled: config.disabled,
       invalid: config.invalid,
     );
-    return Semantics(
-      container: true,
-      toggled: config.value,
-      enabled: !config.disabled,
-      label: config.semanticLabel,
-      child: InkInteraction(
+    return InkInteraction(
+      semantics: SemanticsProperties(
+        toggled: config.value,
         enabled: !config.disabled,
-        onActivate: () => config.onChanged?.call(!config.value),
-        activation: InkActivation.toggle,
-        states: {
-          ...config.forcedStates,
-          if (config.value) InkState.checked,
-          if (config.invalid) InkState.invalid,
-        },
-        focusNode: config.focusNode,
-        autofocus: config.autofocus,
-        mouseCursor: MouseCursor.defer,
-        disabledMouseCursor: SystemMouseCursors.forbidden,
-        hitSlop: const EdgeInsets.all(Spacing.d4),
-        builder: (context, states) => _body(
-          context,
-          RecipeInkSource(switchRecipe, params, json: params.toJson()),
-          states,
-        ),
+        label: config.semanticLabel,
+      ),
+      enabled: !config.disabled,
+      onActivate: () => config.onChanged?.call(!config.value),
+      activation: InkActivation.toggle,
+      states: {
+        ...config.forcedStates,
+        if (config.value) InkState.checked,
+        if (config.invalid) InkState.invalid,
+      },
+      focusNode: config.focusNode,
+      autofocus: config.autofocus,
+      mouseCursor: MouseCursor.defer,
+      disabledMouseCursor: SystemMouseCursors.forbidden,
+      hitSlop: const EdgeInsets.all(Spacing.d4),
+      builder: (context, states) => _body(
+        context,
+        RecipeInkSource(switchRecipe, params, json: params.toJson()),
+        states,
       ),
     );
   }

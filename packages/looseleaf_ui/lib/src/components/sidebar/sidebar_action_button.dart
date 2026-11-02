@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/sidebar/sidebar.dart';
@@ -34,29 +35,28 @@ class SidebarActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return Semantics(
-      container: true,
-      button: true,
-      label: semanticLabel,
-      child: InkInteraction(
-        onActivate: onPressed,
-        states: forcedStates,
-        focusNode: focusNode,
-        hitSlop: const EdgeInsets.all(Spacing.d8),
-        builder: (context, states) => SidebarSwipe(
-          on:
-              states.contains(InkState.hovered) ||
-              states.contains(InkState.focused),
-          child: InkContent(
-            style: theme.typography.face(
-              KevinSansFace.hand,
-              color: theme.colors.ink,
-            ),
-            iconSize: Spacing.d16,
-            child: SizedBox.square(
-              dimension: SidebarMetrics.action,
-              child: Center(child: child),
-            ),
+    return InkInteraction(
+      semantics: SemanticsProperties(
+        button: true,
+        label: semanticLabel,
+      ),
+      onActivate: onPressed,
+      states: forcedStates,
+      focusNode: focusNode,
+      hitSlop: const EdgeInsets.all(Spacing.d8),
+      builder: (context, states) => SidebarSwipe(
+        on:
+            states.contains(InkState.hovered) ||
+            states.contains(InkState.focused),
+        child: InkContent(
+          style: theme.typography.face(
+            KevinSansFace.hand,
+            color: theme.colors.ink,
+          ),
+          iconSize: Spacing.d16,
+          child: SizedBox.square(
+            dimension: SidebarMetrics.action,
+            child: Center(child: child),
           ),
         ),
       ),

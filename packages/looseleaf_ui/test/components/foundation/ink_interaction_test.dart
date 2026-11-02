@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -17,7 +18,9 @@ Widget _target(
   InkActivation activation = InkActivation.button,
   FocusNode? focusNode,
   EdgeInsets hitSlop = EdgeInsets.zero,
+  SemanticsProperties? semantics,
 }) => InkInteraction(
+  semantics: semantics,
   enabled: enabled,
   activation: activation,
   focusNode: focusNode,
@@ -136,6 +139,36 @@ void main() {
     expect(probe.activations, 1);
     await tester.tapAt(box.topLeft - const Offset(Spacing.d8, Spacing.d8));
     expect(probe.activations, 1);
+  });
+
+  testWidgets('the hit slop reaches past its own semantics node', (
+    tester,
+  ) async {
+    final handle = tester.ensureSemantics();
+    final probe = _Probe();
+    await tester.pumpWidget(
+      componentHost(
+        _target(
+          probe,
+          hitSlop: const EdgeInsets.all(Spacing.d6),
+          semantics: const SemanticsProperties(button: true, label: 'Probe'),
+        ),
+      ),
+    );
+    final box = tester.getRect(find.byType(SizedBox).last);
+    await tester.tapAt(box.bottomRight + const Offset(Spacing.d4, Spacing.d4));
+    expect(probe.activations, 1);
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Probe')),
+      matchesSemantics(
+        label: 'Probe',
+        isButton: true,
+        isFocusable: true,
+        hasTapAction: true,
+        hasFocusAction: true,
+      ),
+    );
+    handle.dispose();
   });
 
   test('ByDensity resolves each density', () {

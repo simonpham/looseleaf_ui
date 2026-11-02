@@ -39,6 +39,16 @@ void main() {
     expect(values, [true, true, true]);
   });
 
+  testWidgets('a tap in the hit slop toggles it', (tester) async {
+    final values = <bool>[];
+    await tester.pumpWidget(
+      componentHost(Bookmark(value: false, onChanged: values.add, seed: 'b')),
+    );
+    final box = tester.getRect(find.byType(Bookmark));
+    await tester.tapAt(box.bottomRight + const Offset(Spacing.d4, Spacing.d4));
+    expect(values, [true]);
+  });
+
   testWidgets('pressed shows the checked ribbon and casts a shadow', (
     tester,
   ) async {
@@ -90,7 +100,7 @@ void main() {
       ),
     );
     expect(
-      tester.getSemantics(find.byType(Bookmark)),
+      tester.getSemantics(find.bySemanticsLabel('Save this article')),
       matchesSemantics(
         label: 'Save this article',
         isButton: true,

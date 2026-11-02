@@ -81,11 +81,11 @@ class _RatingItemState extends State<RatingItem> {
       true => [index - 0.5, index.toDouble()],
       false => [index.toDouble()],
     };
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: InkHitArea(
-        slop: _slop,
+    return InkHitArea(
+      slop: _slop,
+      child: MouseRegion(
+        onEnter: (_) => setState(() => _hovered = true),
+        onExit: (_) => setState(() => _hovered = false),
         child: Stack(
           children: [
             scaled,

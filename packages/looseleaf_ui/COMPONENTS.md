@@ -22,12 +22,12 @@ lib/src/components/
 
 | Piece | What it does |
 |-------|--------------|
-| `InkInteraction` | Turns input into `InkState`s: `hovered`, `pressed`, `focused` (keyboard only, like `:focus-visible`), `disabled`, plus the component's own `states` (`checked`, `invalid`, `open`, …). Calls `onActivate` on tap and on its keys. Owns focus, cursor and hit slop. |
+| `InkInteraction` | Turns input into `InkState`s: `hovered`, `pressed`, `focused` (keyboard only, like `:focus-visible`), `disabled`, plus the component's own `states` (`checked`, `invalid`, `open`, …). Calls `onActivate` on tap and on its keys. Owns focus, cursor, hit slop and the component's `semantics` node (never wrap it in a `Semantics`: the outer box would swallow taps in the slop). |
 | `InkActivation` | Which keys activate: `button` (Enter, Space) or `toggle` (Space only, Radix toggles). |
 | `InkSeed` | State mixin: `inkSeed(widget.seed)` returns the `seed` prop or a per-State id, like upstream `useInkSeed`. |
 | `ByDensity<T>` | A value per density: upstream's `h-9 compact:h-8 calm:h-7`. |
 | `InkContent` | Styles a content slot: text style plus `IconTheme` size and color (upstream `IconSizeContext`, `[&_svg]:size-4`). |
-| `InkHitArea` | Grows the hit area without moving layout (upstream `after:-inset-*`). |
+| `InkHitArea` | Grows the hit area without moving layout (upstream `after:-inset-*`). Keep it outermost: any box around it (`Semantics`, `MouseRegion`) rejects taps outside its own size first. |
 
 Theme pieces you will use: `LooseleafTheme.of(context)` (colors, typography, density), `theme.typography.face(KevinSansFace.hand, cssSize:, cssLineHeight:, fontWeight:)`, `theme.typography.label()`, `Spacing`, `InkMotion` (durations, curves, `InkMotion.of(context, duration)` for reduced motion).
 
@@ -67,20 +67,19 @@ class _ThingState extends State<Thing> with InkSeed {
   Widget build(BuildContext context) {
     final params = ThingParams(disabled: widget.disabled);
     final source = RecipeInkSource(thingRecipe, params, json: params.toJson());
-    return Semantics(
-      container: true,
-      button: true,                       // or checked/mixed, textField, …
-      enabled: !widget.disabled,
-      child: InkInteraction(
+    return InkInteraction(
+      semantics: SemanticsProperties(
+        button: true,                     // or checked/mixed, textField, …
         enabled: !widget.disabled,
-        onActivate: widget.onPressed,
-        states: {...widget.forcedStates, if (widget.on) InkState.checked},
-        builder: (context, states) => InkSurface(
-          source: source,
-          seed: inkSeed(widget.seed),
-          states: states,
-          child: ...,                     // the content, sized from the CSS
-        ),
+      ),
+      enabled: !widget.disabled,
+      onActivate: widget.onPressed,
+      states: {...widget.forcedStates, if (widget.on) InkState.checked},
+      builder: (context, states) => InkSurface(
+        source: source,
+        seed: inkSeed(widget.seed),
+        states: states,
+        child: ...,                       // the content, sized from the CSS
       ),
     );
   }

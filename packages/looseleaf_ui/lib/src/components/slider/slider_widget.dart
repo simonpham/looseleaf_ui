@@ -470,38 +470,38 @@ class _SliderState extends State<Slider> with InkSeed {
         true => center - half,
         false => (size.height - SliderGeometry.thumb) / 2,
       },
-      child: Semantics(
-        container: true,
-        slider: true,
-        enabled: enabled,
-        focusable: enabled,
-        focused: node.hasFocus,
-        label: switch (multi) {
-          true => null,
-          false => slider.semanticLabel,
-        },
-        value: _spoken(index),
-        increasedValue:
-            slider.valueText?.call(increased, index) ?? _number(increased),
-        decreasedValue:
-            slider.valueText?.call(decreased, index) ?? _number(decreased),
-        onIncrease: switch (enabled) {
-          true => () => _set(index, increased, end: true),
-          false => null,
-        },
-        onDecrease: switch (enabled) {
-          true => () => _set(index, decreased, end: true),
-          false => null,
-        },
-        child: Focus(
-          focusNode: node,
-          autofocus: slider.autofocus && index == 0,
-          onKeyEvent: (_, event) => _onKey(index, event),
-          child: MouseRegion(
-            onEnter: (_) => setState(() => _hovered.add(index)),
-            onExit: (_) => setState(() => _hovered.remove(index)),
-            child: InkHitArea(
-              slop: const EdgeInsets.all(Spacing.d6),
+      child: InkHitArea(
+        slop: const EdgeInsets.all(Spacing.d6),
+        child: Semantics(
+          container: true,
+          slider: true,
+          enabled: enabled,
+          focusable: enabled,
+          focused: node.hasFocus,
+          label: switch (multi) {
+            true => null,
+            false => slider.semanticLabel,
+          },
+          value: _spoken(index),
+          increasedValue:
+              slider.valueText?.call(increased, index) ?? _number(increased),
+          decreasedValue:
+              slider.valueText?.call(decreased, index) ?? _number(decreased),
+          onIncrease: switch (enabled) {
+            true => () => _set(index, increased, end: true),
+            false => null,
+          },
+          onDecrease: switch (enabled) {
+            true => () => _set(index, decreased, end: true),
+            false => null,
+          },
+          child: Focus(
+            focusNode: node,
+            autofocus: slider.autofocus && index == 0,
+            onKeyEvent: (_, event) => _onKey(index, event),
+            child: MouseRegion(
+              onEnter: (_) => setState(() => _hovered.add(index)),
+              onExit: (_) => setState(() => _hovered.remove(index)),
               child: SliderThumb(
                 seed: '$seed:thumb$index',
                 states: states,

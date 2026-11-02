@@ -102,7 +102,7 @@ void main() {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(componentHost(const _Harness(initial: 'a')));
     expect(
-      tester.getSemantics(find.widgetWithText(RadioGroupItem<String>, 'Alpha')),
+      tester.getSemantics(find.bySemanticsLabel('Alpha')),
       matchesSemantics(
         label: 'Alpha',
         hasCheckedState: true,

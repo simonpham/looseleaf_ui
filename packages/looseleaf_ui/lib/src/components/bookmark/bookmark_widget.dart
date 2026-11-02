@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/bookmark/bookmark.dart';
@@ -106,37 +107,36 @@ class _BookmarkState extends State<Bookmark> with InkSeed {
       params,
       json: params.toJson(),
     );
-    return Semantics(
-      container: true,
-      button: true,
-      toggled: widget.value,
-      enabled: !widget.disabled,
-      label: widget.semanticLabel,
-      child: InkInteraction(
+    return InkInteraction(
+      semantics: SemanticsProperties(
+        button: true,
+        toggled: widget.value,
         enabled: !widget.disabled,
-        onActivate: () => widget.onChanged?.call(!widget.value),
-        states: {...widget.forcedStates, if (widget.value) InkState.checked},
-        focusNode: widget.focusNode,
-        autofocus: widget.autofocus,
-        disabledMouseCursor: SystemMouseCursors.forbidden,
-        hitSlop: const EdgeInsets.all(Spacing.d6),
-        builder: (context, states) => SizedBox(
-          width: widget.width,
-          height: widget.height,
-          child: Stack(
-            clipBehavior: Clip.none,
-            fit: StackFit.expand,
-            children: [
-              Transform.rotate(
-                angle: PaperInk.tilt(context, degrees),
-                child: BookmarkShadow(
-                  cast: widget.value && !widget.disabled,
-                  child: InkSurface(source: source, seed: seed, states: states),
-                ),
+        label: widget.semanticLabel,
+      ),
+      enabled: !widget.disabled,
+      onActivate: () => widget.onChanged?.call(!widget.value),
+      states: {...widget.forcedStates, if (widget.value) InkState.checked},
+      focusNode: widget.focusNode,
+      autofocus: widget.autofocus,
+      disabledMouseCursor: SystemMouseCursors.forbidden,
+      hitSlop: const EdgeInsets.all(Spacing.d6),
+      builder: (context, states) => SizedBox(
+        width: widget.width,
+        height: widget.height,
+        child: Stack(
+          clipBehavior: Clip.none,
+          fit: StackFit.expand,
+          children: [
+            Transform.rotate(
+              angle: PaperInk.tilt(context, degrees),
+              child: BookmarkShadow(
+                cast: widget.value && !widget.disabled,
+                child: InkSurface(source: source, seed: seed, states: states),
               ),
-              if (states.contains(InkState.focused)) const _FocusRing(),
-            ],
-          ),
+            ),
+            if (states.contains(InkState.focused)) const _FocusRing(),
+          ],
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/foundation/ink_activation.dart';
 import 'package:looseleaf_ui/src/components/foundation/ink_hit_area.dart';
@@ -21,8 +22,9 @@ typedef InkStatesBuilder = Widget Function(
 /// * plus the component's own [states] (`checked`, `invalid`, `open`, …).
 ///
 /// Tapping it or pressing an [activation] key while it has focus calls
-/// [onActivate]. Semantics (role, label, checked) are left to the
-/// component.
+/// [onActivate]. The component describes itself through [semantics] (role,
+/// label, checked): a `Semantics` wrapped around this widget would sit
+/// outside the [hitSlop] and swallow the taps in it.
 class InkInteraction extends StatefulWidget {
   const InkInteraction({
     super.key,
@@ -36,6 +38,7 @@ class InkInteraction extends StatefulWidget {
     this.mouseCursor = SystemMouseCursors.click,
     this.disabledMouseCursor = SystemMouseCursors.basic,
     this.hitSlop = EdgeInsets.zero,
+    this.semantics,
   });
 
   final InkStatesBuilder builder;
@@ -64,6 +67,9 @@ class InkInteraction extends StatefulWidget {
 
   /// Extra hit area around the child; see [InkHitArea].
   final EdgeInsets hitSlop;
+
+  /// The component's semantics node (a container), inside the [hitSlop].
+  final SemanticsProperties? semantics;
 
   @override
   State<InkInteraction> createState() => _InkInteractionState();
@@ -118,45 +124,53 @@ class _InkInteractionState extends State<InkInteraction> {
   @override
   Widget build(BuildContext context) {
     final enabled = widget.enabled;
-    return InkHitArea(
-      slop: widget.hitSlop,
-      child: FocusableActionDetector(
-        enabled: enabled,
-        focusNode: widget.focusNode,
-        autofocus: widget.autofocus,
-        shortcuts: widget.activation.shortcuts,
-        actions: _actions,
-        onShowFocusHighlight: _onFocusHighlight,
-        child: MouseRegion(
-          cursor: switch (enabled) {
-            true => widget.mouseCursor,
-            false => widget.disabledMouseCursor,
+    final interactive = FocusableActionDetector(
+      enabled: enabled,
+      focusNode: widget.focusNode,
+      autofocus: widget.autofocus,
+      shortcuts: widget.activation.shortcuts,
+      actions: _actions,
+      onShowFocusHighlight: _onFocusHighlight,
+      child: MouseRegion(
+        cursor: switch (enabled) {
+          true => widget.mouseCursor,
+          false => widget.disabledMouseCursor,
+        },
+        onEnter: (_) => _onHover(true),
+        onExit: (_) => _onHover(false),
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          excludeFromSemantics: !enabled,
+          onTapDown: switch (enabled) {
+            true => (_) => _setPressed(true),
+            false => null,
           },
-          onEnter: (_) => _onHover(true),
-          onExit: (_) => _onHover(false),
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            excludeFromSemantics: !enabled,
-            onTapDown: switch (enabled) {
-              true => (_) => _setPressed(true),
-              false => null,
-            },
-            onTapUp: switch (enabled) {
-              true => (_) => _setPressed(false),
-              false => null,
-            },
-            onTapCancel: switch (enabled) {
-              true => () => _setPressed(false),
-              false => null,
-            },
-            onTap: switch (enabled) {
-              true => _onTap,
-              false => null,
-            },
-            child: widget.builder(context, _states),
-          ),
+          onTapUp: switch (enabled) {
+            true => (_) => _setPressed(false),
+            false => null,
+          },
+          onTapCancel: switch (enabled) {
+            true => () => _setPressed(false),
+            false => null,
+          },
+          onTap: switch (enabled) {
+            true => _onTap,
+            false => null,
+          },
+          child: widget.builder(context, _states),
         ),
       ),
+    );
+    return InkHitArea(
+      slop: widget.hitSlop,
+      child: switch (widget.semantics) {
+        final properties? => Semantics.fromProperties(
+          container: true,
+          properties: properties,
+          child: interactive,
+        ),
+        null => interactive,
+      },
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
@@ -97,29 +98,28 @@ class _CheckboxState extends State<Checkbox> with InkSeed {
       json: params.toJson(),
     );
     final value = widget.value;
-    return Semantics(
-      container: true,
-      checked: value ?? false,
-      mixed: value == null,
-      enabled: !widget.disabled,
-      label: widget.semanticLabel,
-      child: InkInteraction(
+    return InkInteraction(
+      semantics: SemanticsProperties(
+        checked: value ?? false,
+        mixed: value == null,
         enabled: !widget.disabled,
-        onActivate: _toggle,
-        activation: InkActivation.toggle,
-        states: {
-          ...widget.forcedStates,
-          if (value == true) InkState.checked,
-          if (value == null) InkState.indeterminate,
-          if (widget.invalid) InkState.invalid,
-        },
-        focusNode: widget.focusNode,
-        autofocus: widget.autofocus,
-        mouseCursor: MouseCursor.defer,
-        disabledMouseCursor: SystemMouseCursors.forbidden,
-        hitSlop: const EdgeInsets.all(Spacing.d6),
-        builder: (context, states) => _body(context, source, states),
+        label: widget.semanticLabel,
       ),
+      enabled: !widget.disabled,
+      onActivate: _toggle,
+      activation: InkActivation.toggle,
+      states: {
+        ...widget.forcedStates,
+        if (value == true) InkState.checked,
+        if (value == null) InkState.indeterminate,
+        if (widget.invalid) InkState.invalid,
+      },
+      focusNode: widget.focusNode,
+      autofocus: widget.autofocus,
+      mouseCursor: MouseCursor.defer,
+      disabledMouseCursor: SystemMouseCursors.forbidden,
+      hitSlop: const EdgeInsets.all(Spacing.d6),
+      builder: (context, states) => _body(context, source, states),
     );
   }
 

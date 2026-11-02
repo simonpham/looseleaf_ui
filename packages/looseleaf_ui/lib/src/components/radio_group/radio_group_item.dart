@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
@@ -118,29 +119,28 @@ class _RadioGroupItemState<T> extends State<RadioGroupItem<T>> with InkSeed {
     };
     final params = RadioParams(disabled: disabled, invalid: invalid);
     final source = RecipeInkSource(radioRecipe, params, json: params.toJson());
-    return Semantics(
-      container: true,
-      checked: checked,
-      inMutuallyExclusiveGroup: true,
-      enabled: !disabled,
-      label: widget.semanticLabel,
-      child: InkInteraction(
+    return InkInteraction(
+      semantics: SemanticsProperties(
+        checked: checked,
+        inMutuallyExclusiveGroup: true,
         enabled: !disabled,
-        onActivate: () => _check(group),
-        activation: InkActivation.toggle,
-        states: {
-          ...widget.forcedStates,
-          if (checked) InkState.checked,
-          if (invalid) InkState.invalid,
-        },
-        focusNode: _focusNode,
-        autofocus: widget.autofocus,
-        mouseCursor: MouseCursor.defer,
-        disabledMouseCursor: SystemMouseCursors.forbidden,
-        hitSlop: const EdgeInsets.all(Spacing.d8),
-        builder: (context, states) =>
-            _body(context, source, states, disabled: disabled),
+        label: widget.semanticLabel,
       ),
+      enabled: !disabled,
+      onActivate: () => _check(group),
+      activation: InkActivation.toggle,
+      states: {
+        ...widget.forcedStates,
+        if (checked) InkState.checked,
+        if (invalid) InkState.invalid,
+      },
+      focusNode: _focusNode,
+      autofocus: widget.autofocus,
+      mouseCursor: MouseCursor.defer,
+      disabledMouseCursor: SystemMouseCursors.forbidden,
+      hitSlop: const EdgeInsets.all(Spacing.d8),
+      builder: (context, states) =>
+          _body(context, source, states, disabled: disabled),
     );
   }
 

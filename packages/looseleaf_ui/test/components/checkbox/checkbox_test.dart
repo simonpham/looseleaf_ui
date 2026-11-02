@@ -42,6 +42,14 @@ void main() {
     expect(_states(tester), isNot(contains(InkState.checked)));
   });
 
+  testWidgets('a tap in the hit slop toggles it', (tester) async {
+    await tester.pumpWidget(componentHost(const _Harness()));
+    final box = tester.getRect(find.byType(InkSurface));
+    await tester.tapAt(box.topLeft - const Offset(Spacing.d4, Spacing.d4));
+    await tester.pump();
+    expect(_states(tester), contains(InkState.checked));
+  });
+
   testWidgets('indeterminate turns checked, then unchecked', (tester) async {
     await tester.pumpWidget(componentHost(const _Harness(initial: null)));
     expect(_states(tester), contains(InkState.indeterminate));
@@ -80,7 +88,7 @@ void main() {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(componentHost(const _Harness(initial: null)));
     expect(
-      tester.getSemantics(find.byType(Checkbox)),
+      tester.getSemantics(find.bySemanticsLabel('Accept the terms')),
       matchesSemantics(
         label: 'Accept the terms',
         hasCheckedState: true,

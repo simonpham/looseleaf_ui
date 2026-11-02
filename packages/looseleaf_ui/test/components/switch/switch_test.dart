@@ -87,7 +87,7 @@ void main() {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(componentHost(const _Harness()));
     expect(
-      tester.getSemantics(find.byType(Switch)),
+      tester.getSemantics(find.bySemanticsLabel('Airplane mode')),
       matchesSemantics(
         label: 'Airplane mode',
         hasToggledState: true,
