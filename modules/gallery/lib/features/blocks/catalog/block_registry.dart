@@ -30,6 +30,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/login_02/login_02_block.dart',
     builder: Login02Block.new,
   ),
+  'login-03': GalleryBlock(
+    source: 'blocks/login_03/login_03_block.dart',
+    builder: Login03Block.new,
+    objects: [DeskObject.pencil],
+  ),
   'profile-page': GalleryBlock(
     source: 'blocks/profile_page/profile_page_block.dart',
     builder: ProfilePageBlock.new,
