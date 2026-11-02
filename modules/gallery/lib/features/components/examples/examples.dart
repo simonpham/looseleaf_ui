@@ -52,6 +52,7 @@ export 'package:gallery/features/components/examples/marker/marker.dart';
 export 'package:gallery/features/components/examples/marquee/marquee.dart';
 export 'package:gallery/features/components/examples/mascot/mascot.dart';
 export 'package:gallery/features/components/examples/menubar/menubar.dart';
+export 'package:gallery/features/components/examples/message/message.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller.dart';
 export 'package:gallery/features/components/examples/napkin/napkin.dart';
 export 'package:gallery/features/components/examples/native_select/native_select.dart';
