@@ -128,4 +128,148 @@ void main() {
     expect(find.bySemanticsLabel('Go to slide 2'), findsOneWidget);
     handle.dispose();
   });
+
+  test('snaps follow Embla: trimmed, center by default', () {
+    expect(
+      carouselSnaps(
+        count: 5,
+        fraction: 1 / 2,
+        align: CarouselAlign.start,
+        loop: false,
+      ),
+      [0, 0.5, 1, 1.5],
+    );
+    expect(
+      carouselSnaps(
+        count: 5,
+        fraction: 1 / 2,
+        align: CarouselAlign.center,
+        loop: false,
+      ),
+      [0, 0.25, 0.75, 1.25, 1.5],
+    );
+    expect(
+      carouselSnaps(
+        count: 2,
+        fraction: 1,
+        align: CarouselAlign.center,
+        loop: true,
+      ),
+      [0, 1],
+    );
+  });
+
+  testWidgets('a vertical carousel in a column scrolls up and down', (
+    tester,
+  ) async {
+    final controller = CarouselController();
+    addTearDown(controller.dispose);
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 300,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Carousel(
+                axis: Axis.vertical,
+                align: CarouselAlign.start,
+                itemFraction: 1 / 2,
+                controller: controller,
+                children: [
+                  CarouselContent(
+                    extent: 200,
+                    gap: Spacing.d4,
+                    children: [
+                      for (var i = 0; i < 4; i++)
+                        CarouselItem(child: Center(child: Text('Slide $i'))),
+                    ],
+                  ),
+                  const CarouselPrevious(),
+                  const CarouselNext(),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    expect(tester.takeException(), isNull);
+    expect(controller.snapCount, 3);
+    final slide = tester.getSize(find.byType(CarouselItem).first);
+    expect(slide, const Size(300, (200 + Spacing.d4) / 2 - Spacing.d4));
+    final top = tester.getTopLeft(find.text('Slide 1')).dy;
+    controller.scrollNext();
+    await tester.pumpAndSettle();
+    expect(controller.value, 1);
+    expect(tester.getTopLeft(find.text('Slide 1')).dy, lessThan(top));
+  });
+
+  testWidgets('the controller drives it and hears every selection', (
+    tester,
+  ) async {
+    final controller = CarouselController();
+    addTearDown(controller.dispose);
+    final heard = <int>[];
+    controller.addListener(() => heard.add(controller.value));
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 300,
+          child: Carousel(
+            controller: controller,
+            children: [
+              CarouselContent(
+                children: [
+                  for (var i = 0; i < 5; i++)
+                    CarouselItem(child: Center(child: Text('Slide $i'))),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    expect(controller.snapCount, 5);
+    expect(controller.canScrollPrev, isFalse);
+    controller.scrollTo(3);
+    await tester.pumpAndSettle();
+    expect(controller.selectedIndex, 3);
+    controller.scrollPrev();
+    await tester.pumpAndSettle();
+    expect(controller.value, 2);
+    await tester.fling(find.text('Slide 2'), const Offset(-200, 0), 1000);
+    await tester.pumpAndSettle();
+    expect(controller.value, 3);
+    expect(heard, containsAllInOrder([3, 2, 3]));
+  });
+
+  testWidgets('gap sets the room between slides', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 300,
+          child: Carousel(
+            itemFraction: 1 / 2,
+            children: [
+              CarouselContent(
+                gap: Spacing.d4,
+                children: [
+                  for (var i = 0; i < 4; i++)
+                    CarouselItem(child: Text('Slide $i')),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    final first = tester.getRect(find.byType(CarouselItem).at(0));
+    final second = tester.getRect(find.byType(CarouselItem).at(1));
+    expect(second.left - first.right, Spacing.d4);
+    expect(first.left, tester.getTopLeft(find.byType(Carousel)).dx);
+  });
 }

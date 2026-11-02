@@ -88,4 +88,43 @@ void main() {
       matchesGoldenFile('../goldens/carousel-default.png'),
     );
   });
+
+  testWidgets('carousel-vertical in the light theme', (tester) async {
+    tester.view.physicalSize = const Size(800, 1000);
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      componentHost(
+        paperPanel(
+          SizedBox(
+            width: Spacing.d320,
+            child: Carousel(
+              seed: 'vertical',
+              axis: Axis.vertical,
+              align: CarouselAlign.start,
+              itemFraction: 1 / 2,
+              children: [
+                CarouselContent(
+                  extent: 200,
+                  gap: Spacing.d4,
+                  children: [
+                    for (var i = 0; i < 4; i++) CarouselItem(child: _card(i)),
+                  ],
+                ),
+                const CarouselPrevious(seed: 'prev'),
+                const CarouselNext(seed: 'next'),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(CarouselNext));
+    await tester.pumpAndSettle();
+    await expectLater(
+      find.byType(RepaintBoundary).first,
+      matchesGoldenFile('../goldens/carousel-vertical.png'),
+    );
+  });
 }
