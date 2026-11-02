@@ -51,6 +51,7 @@ flutter:
     - lib/features/blocks/blocks/settings_appearance/
     - lib/features/blocks/blocks/settings_billing/
     - lib/features/blocks/blocks/settings_notifications/
+    - lib/features/blocks/blocks/settings_profile/
     - lib/features/blocks/blocks/sidebar_01/
     - lib/features/blocks/blocks/sidebar_02/
     - lib/features/blocks/blocks/sidebar_03/
