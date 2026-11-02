@@ -49,6 +49,7 @@ flutter:
     - lib/features/blocks/blocks/notes_app/
     - lib/features/blocks/blocks/onboarding_01/
     - lib/features/blocks/blocks/profile_page/
+    - lib/features/blocks/blocks/reset_password_01/
     - lib/features/blocks/blocks/settings_appearance/
     - lib/features/blocks/blocks/settings_billing/
     - lib/features/blocks/blocks/settings_notifications/

@@ -116,6 +116,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: ProfilePageBlock.new,
     objects: [DeskObject.clips, DeskObject.pencil],
   ),
+  'reset-password-01': GalleryBlock(
+    source: 'blocks/reset_password_01/reset_password_01_block.dart',
+    builder: ResetPassword01Block.new,
+    objects: [DeskObject.pencil, DeskObject.pins],
+  ),
   'settings-appearance': GalleryBlock(
     source: 'blocks/settings_appearance/settings_appearance_block.dart',
     builder: SettingsAppearanceBlock.new,
