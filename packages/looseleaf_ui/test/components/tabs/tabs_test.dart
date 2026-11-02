@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
+import '../../support/semantics_matchers.dart';
 
 Widget _tabs({
   ValueChanged<String>? onValueChange,
@@ -124,7 +125,7 @@ void main() {
     await tester.pumpWidget(componentHost(_tabs()));
     expect(
       tester.getSemantics(find.byType(TabsTrigger).first),
-      isSemantics(label: 'Tab a', isSelected: true, isButton: false),
+      includesSemantics(label: 'Tab a', isSelected: true, isButton: false),
     );
     handle.dispose();
   });

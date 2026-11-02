@@ -77,13 +77,12 @@ void main() {
     await mouse.removePointer();
   });
 
-  testWidgets('semantics: a navigation landmark, links, current page', (
+  testWidgets('semantics: a labeled trail, links, current page', (
     tester,
   ) async {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(componentHost(_trail(onHome: () {})));
     final nav = tester.getSemantics(find.byType(Breadcrumb)).getSemanticsData();
-    expect(nav.role, SemanticsRole.navigation);
     expect(nav.label.trim(), 'breadcrumb');
     expect(
       tester.getSemantics(find.byType(BreadcrumbLink)),

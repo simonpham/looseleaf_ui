@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
+import '../../support/semantics_matchers.dart';
 
 Widget _folder({
   String? value,
@@ -187,20 +188,25 @@ void main() {
           ),
         ),
       ),
-      matchesSemantics(role: SemanticsRole.tabBar, label: 'Mail'),
+      allOf(
+        includesSemantics(role: SemanticsRole.tabBar),
+        matchesSemantics(label: 'Mail'),
+      ),
     );
     expect(
       tester.getSemantics(find.byType(FolderTab).first),
-      matchesSemantics(
-        role: SemanticsRole.tab,
-        label: 'Inbox',
-        isSelected: true,
-        hasSelectedState: true,
-        hasEnabledState: true,
-        isEnabled: true,
-        isFocusable: true,
-        hasTapAction: true,
-        hasFocusAction: true,
+      allOf(
+        includesSemantics(role: SemanticsRole.tab),
+        matchesSemantics(
+          label: 'Inbox',
+          isSelected: true,
+          hasSelectedState: true,
+          hasEnabledState: true,
+          isEnabled: true,
+          isFocusable: true,
+          hasTapAction: true,
+          hasFocusAction: true,
+        ),
       ),
     );
     expect(
@@ -210,11 +216,13 @@ void main() {
           matching: find.byType(FolderContent),
         ),
       ),
-      matchesSemantics(
-        role: SemanticsRole.tabPanel,
-        label: 'Three letters',
-        isFocusable: true,
-        hasFocusAction: true,
+      allOf(
+        includesSemantics(role: SemanticsRole.tabPanel),
+        matchesSemantics(
+          label: 'Three letters',
+          isFocusable: true,
+          hasFocusAction: true,
+        ),
       ),
     );
     handle.dispose();

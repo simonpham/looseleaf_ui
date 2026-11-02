@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 const _photo = DropzoneFile(name: 'garden.png', size: 2048, type: 'image/png');
 const _big = DropzoneFile(name: 'huge.png', size: 9000000, type: 'image/png');
@@ -183,7 +184,7 @@ void main() {
     await tester.pumpWidget(overlayHost(const _Harness()));
     expect(
       tester.getSemantics(find.byType(DropzoneArea)),
-      isSemantics(isButton: true, isFocusable: true, hasTapAction: true),
+      includesSemantics(isButton: true, isFocusable: true, hasTapAction: true),
     );
     await tester.tap(find.byType(DropzoneArea));
     await tester.pumpAndSettle();

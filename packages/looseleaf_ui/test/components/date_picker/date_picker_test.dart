@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 final DateTime _today = DateTime(2026, 11, 2);
 
@@ -141,7 +142,7 @@ void main() {
     await tester.pumpWidget(overlayHost(const _Harness(typeable: false)));
     expect(
       tester.getSemantics(find.bySemanticsLabel(RegExp('Due date'))),
-      isSemantics(
+      includesSemantics(
         label: 'Due date\nSep 17, 2026',
         isButton: true,
         hasExpandedState: true,

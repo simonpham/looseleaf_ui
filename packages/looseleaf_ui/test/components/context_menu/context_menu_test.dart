@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 bool _lit(WidgetTester tester, String label) => tester
     .widget<InkMenuRow>(
@@ -159,7 +160,7 @@ void main() {
     );
     expect(
       tester.getSemantics(find.text('Back')),
-      isSemantics(role: SemanticsRole.menuItem, isEnabled: true),
+      includesSemantics(role: SemanticsRole.menuItem, isEnabled: true),
     );
     handle.dispose();
   });

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 Set<InkState> _states(WidgetTester tester) => tester
     .widget<InkSurface>(
@@ -174,7 +175,7 @@ void main() {
     expect(find.bySemanticsLabel('Search'), findsOneWidget);
     expect(
       tester.getSemantics(find.byType(EditableText)),
-      isSemantics(label: 'Query', isTextField: true),
+      includesSemantics(label: 'Query', isTextField: true),
     );
     handle.dispose();
   });

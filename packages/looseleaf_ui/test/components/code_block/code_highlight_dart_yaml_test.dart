@@ -9,7 +9,8 @@ String _show(List<CodeToken> tokens) => [
 
 void main() {
   group('dart', () {
-    List<CodeToken> lex(String code) => CodeTokenizer.tokenize(code, .dart);
+    List<CodeToken> lex(String code) =>
+        CodeTokenizer.tokenize(code, CodeLang.dart);
 
     test('resolves from names and file names', () {
       expect(CodeLang.parse('Dart'), CodeLang.dart);
@@ -69,7 +70,8 @@ void main() {
   });
 
   group('yaml', () {
-    List<CodeToken> lex(String code) => CodeTokenizer.tokenize(code, .yaml);
+    List<CodeToken> lex(String code) =>
+        CodeTokenizer.tokenize(code, CodeLang.yaml);
 
     test('resolves from names and file names', () {
       expect(CodeLang.parse('yml'), CodeLang.yaml);
@@ -107,7 +109,7 @@ void main() {
     });
 
     test('lines never hold a newline', () {
-      final lines = CodeTokenizer.lines('a:\n  - b\n', .yaml);
+      final lines = CodeTokenizer.lines('a:\n  - b\n', CodeLang.yaml);
       expect(lines, hasLength(3));
       for (final line in lines) {
         for (final token in line) {

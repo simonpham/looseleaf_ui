@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 const _frameworks = [
   ComboboxItemData(value: 'next', label: 'Next.js'),
@@ -143,9 +144,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('SvelteKit'), findsOneWidget);
     expect(
-      Combobox.of(tester.element(find.byType(ComboboxTrigger)))
-          .inputFocus
-          .hasFocus,
+      Combobox.of(
+        tester.element(find.byType(ComboboxTrigger)),
+      ).inputFocus.hasFocus,
       isTrue,
     );
   });
@@ -223,7 +224,7 @@ void main() {
     await tester.pumpWidget(overlayHost(const _Picker(initial: 'next')));
     expect(
       tester.getSemantics(find.byType(ComboboxTrigger)),
-      isSemantics(
+      includesSemantics(
         label: 'Framework\nNext.js',
         isButton: true,
         hasExpandedState: true,
@@ -234,7 +235,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(
       tester.getSemantics(find.byType(ComboboxItem).first),
-      isSemantics(label: 'Next.js', isButton: true, isSelected: true),
+      includesSemantics(label: 'Next.js', isButton: true, isSelected: true),
     );
     handle.dispose();
   });

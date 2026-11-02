@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 const _options = <NativeSelectEntry<String>>[
   NativeSelectOption(value: 'is', label: 'Iceland'),
@@ -159,7 +160,7 @@ void main() {
     await tester.pumpWidget(overlayHost(const _Harness(initial: 'pt')));
     expect(
       tester.getSemantics(find.byType(NativeSelect<String>)),
-      isSemantics(
+      includesSemantics(
         label: 'Country',
         value: 'Portugal',
         isButton: true,

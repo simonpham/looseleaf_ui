@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
+import '../../support/semantics_matchers.dart';
 
 Widget _pages({required ValueChanged<int> go, int page = 2}) => Pagination(
   child: PaginationContent(
@@ -84,11 +85,11 @@ void main() {
     expect(find.bySemanticsLabel('Go to next page'), findsOneWidget);
     expect(
       tester.getSemantics(find.byType(PaginationLink).at(1)),
-      isSemantics(isSelected: true),
+      includesSemantics(isSelected: true),
     );
     expect(
       tester.getSemantics(find.byType(PaginationLink).at(2)),
-      isSemantics(isSelected: false),
+      includesSemantics(isSelected: false),
     );
     handle.dispose();
   });

@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 InkMenuRow _row(WidgetTester tester, String label) => tester.widget(
   find.ancestor(of: find.text(label), matching: find.byType(InkMenuRow)),
@@ -308,15 +309,15 @@ void main() {
     await _open(tester);
     expect(
       tester.getSemantics(find.text('Settings')),
-      isSemantics(role: SemanticsRole.menuItem, isEnabled: true),
+      includesSemantics(role: SemanticsRole.menuItem, isEnabled: true),
     );
     expect(
       tester.getSemantics(find.text('Billing')),
-      isSemantics(role: SemanticsRole.menuItem, isEnabled: false),
+      includesSemantics(role: SemanticsRole.menuItem, isEnabled: false),
     );
     expect(
       tester.getSemantics(find.text('Status bar')),
-      isSemantics(
+      includesSemantics(
         role: SemanticsRole.menuItemCheckbox,
         isChecked: false,
         hasCheckedState: true,
@@ -324,7 +325,7 @@ void main() {
     );
     expect(
       tester.getSemantics(find.text('Top')),
-      isSemantics(
+      includesSemantics(
         role: SemanticsRole.menuItemRadio,
         isChecked: true,
         hasCheckedState: true,

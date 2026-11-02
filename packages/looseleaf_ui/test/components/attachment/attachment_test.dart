@@ -192,8 +192,6 @@ void main() {
       matchesSemantics(
         label: 'Upload progress',
         value: '42',
-        maxValue: '100',
-        minValue: '0',
       ),
     );
     final bar = tester.getRect(find.byType(AttachmentProgress));

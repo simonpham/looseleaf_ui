@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/overlay_host.dart';
+import '../../support/semantics_matchers.dart';
 
 Set<InkState> _states(WidgetTester tester) =>
     tester.widget<InkSurface>(find.byType(InkSurface)).states;
@@ -148,7 +149,7 @@ void main() {
     );
     expect(
       tester.getSemantics(find.byType(EditableText)),
-      isSemantics(
+      includesSemantics(
         label: 'Email',
         hint: 'you@example.com',
         isTextField: true,

@@ -7,6 +7,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
 import '../../support/kevin_sans.dart';
+import '../../support/semantics_matchers.dart';
 import 'chart_samples.dart';
 
 Widget _sized(Widget child) =>
@@ -311,7 +312,7 @@ void main() {
     );
     final node = _chartNode(tester, 'Sales');
     expect(node.hint, 'Sales. Bar chart. Loading.');
-    expect(node.flagsCollection.isImage, isTrue);
+    expect(node, includesSemantics(isImage: true));
     expect(
       find.descendant(
         of: find.byType(ChartCanvas<XYSpec>),
