@@ -102,6 +102,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/settings_billing/settings_billing_block.dart',
     builder: SettingsBillingBlock.new,
   ),
+  'settings-notifications': GalleryBlock(
+    source: 'blocks/settings_notifications/settings_notifications_block.dart',
+    builder: SettingsNotificationsBlock.new,
+  ),
   'sidebar-01': GalleryBlock(
     source: 'blocks/sidebar_01/sidebar_01_block.dart',
     builder: Sidebar01Block.new,

@@ -20,6 +20,7 @@ export 'package:gallery/features/blocks/blocks/onboarding_01/onboarding_01.dart'
 export 'package:gallery/features/blocks/blocks/profile_page/profile_page.dart';
 export 'package:gallery/features/blocks/blocks/settings_appearance/settings_appearance.dart';
 export 'package:gallery/features/blocks/blocks/settings_billing/settings_billing.dart';
+export 'package:gallery/features/blocks/blocks/settings_notifications/settings_notifications.dart';
 export 'package:gallery/features/blocks/blocks/sidebar_01/sidebar_01.dart';
 export 'package:gallery/features/blocks/blocks/sidebar_02/sidebar_02.dart';
 export 'package:gallery/features/blocks/blocks/sidebar_03/sidebar_03.dart';
