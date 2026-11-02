@@ -41,9 +41,10 @@ class ComponentThumbnail extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: SizedBox(
           width: _stageWidth,
-          height: shown.height,
           child: ConstrainedBox(
-            constraints: const BoxConstraints(minHeight: _stageMinHeight),
+            constraints: BoxConstraints(
+              minHeight: shown.height ?? _stageMinHeight,
+            ),
             child: Padding(
               padding: const EdgeInsets.all(Spacing.d32),
               child: Center(child: shown.builder()),
