@@ -128,4 +128,47 @@ void main() {
     );
     handle.dispose();
   });
+
+  testWidgets('a list wider than its parent scrolls to the focused tab', (
+    tester,
+  ) async {
+    final names = [for (var i = 0; i < 12; i++) 'tab$i'];
+    final first = FocusNode();
+    addTearDown(first.dispose);
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 240,
+          child: Tabs(
+            defaultValue: names.first,
+            children: [
+              TabsList(
+                children: [
+                  for (final (index, name) in names.indexed)
+                    TabsTrigger(
+                      value: name,
+                      focusNode: switch (index) {
+                        0 => first,
+                        _ => null,
+                      },
+                      child: Text('Tab $name'),
+                    ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(tester.getSize(find.byType(TabsList)).width, 240);
+    first.requestFocus();
+    await tester.pump();
+    await tester.sendKeyEvent(LogicalKeyboardKey.end);
+    await tester.pumpAndSettle();
+    final list = tester.getRect(find.byType(TabsList));
+    final last = tester.getRect(find.text('Tab tab11'));
+    expect(last.right, lessThanOrEqualTo(list.right));
+    expect(last.left, greaterThanOrEqualTo(list.left));
+  });
 }

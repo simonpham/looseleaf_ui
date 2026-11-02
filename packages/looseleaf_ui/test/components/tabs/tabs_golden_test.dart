@@ -80,7 +80,7 @@ void main() {
     );
     await tester.pumpAndSettle();
     await expectLater(
-      find.byType(RepaintBoundary).last,
+      find.byType(RepaintBoundary).first,
       matchesGoldenFile('../goldens/tabs-variants.png'),
     );
   });
