@@ -65,6 +65,7 @@ class CorkboardStocksExample extends StatelessWidget {
               curl: true,
               tilt: false,
               width: Spacing.d160,
+              padding: const EdgeInsets.all(Spacing.d16),
               children: [
                 Text(
                   'pick me up: a real StickyNote',
