@@ -132,49 +132,45 @@ class _SignInCardState extends State<SignInCard> {
             ),
           ),
           CardFooter(
+            direction: Axis.vertical,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: Spacing.d12,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  spacing: Spacing.d12,
-                  children: [
-                    Button(
-                      size: ButtonSize.lg,
-                      onPressed: _submit,
-                      leading: switch (_signedIn) {
-                        true => const InkIcon('check'),
-                        false => null,
-                      },
-                      semanticLabel: switch (_signedIn) {
-                        true => 'Signed in as ada@looseleaf.dev (a demo: nothing was sent)',
-                        false => null,
-                      },
-                      child: Text(switch (_signedIn) {
-                        true => 'Signed in',
-                        false => 'Sign in',
-                      }),
+              Button(
+                size: ButtonSize.lg,
+                onPressed: _submit,
+                leading: switch (_signedIn) {
+                  true => const InkIcon('check'),
+                  false => null,
+                },
+                semanticLabel: switch (_signedIn) {
+                  true =>
+                    'Signed in as ada@looseleaf.dev (a demo: nothing was sent)',
+                  false => null,
+                },
+                child: Text(switch (_signedIn) {
+                  true => 'Signed in',
+                  false => 'Sign in',
+                }),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: Spacing.d4,
+                children: [
+                  Text(
+                    'New here?',
+                    style: theme.typography.interface(
+                      cssSize: 14,
+                      color: theme.colors.inkMuted,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: Spacing.d4,
-                      children: [
-                        Text(
-                          'New here?',
-                          style: theme.typography.interface(
-                            cssSize: 14,
-                            color: theme.colors.inkMuted,
-                          ),
-                        ),
-                        Button(
-                          variant: ButtonVariant.link,
-                          size: ButtonSize.sm,
-                          onPressed: () {},
-                          child: const Text('Make an account'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                  ),
+                  Button(
+                    variant: ButtonVariant.link,
+                    size: ButtonSize.sm,
+                    onPressed: () {},
+                    child: const Text('Make an account'),
+                  ),
+                ],
               ),
             ],
           ),

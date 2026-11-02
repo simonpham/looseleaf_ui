@@ -81,20 +81,15 @@ class CardLoginExample extends StatelessWidget {
                 ),
               ),
               CardFooter(
+                direction: Axis.vertical,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: Spacing.d12,
                 children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      spacing: Spacing.d12,
-                      children: [
-                        Button(onPressed: () {}, child: const Text('Login')),
-                        Button(
-                          variant: ButtonVariant.outline,
-                          onPressed: () {},
-                          child: const Text('Login with Google'),
-                        ),
-                      ],
-                    ),
+                  Button(onPressed: () {}, child: const Text('Login')),
+                  Button(
+                    variant: ButtonVariant.outline,
+                    onPressed: () {},
+                    child: const Text('Login with Google'),
                   ),
                 ],
               ),

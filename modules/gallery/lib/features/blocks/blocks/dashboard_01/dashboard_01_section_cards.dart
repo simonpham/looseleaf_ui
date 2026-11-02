@@ -100,36 +100,31 @@ class Dashboard01SectionCards extends StatelessWidget {
                         ],
                       ),
                       CardFooter(
+                        direction: Axis.vertical,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: Spacing.d4,
                         children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              spacing: Spacing.d4,
-                              children: [
-                                Row(
-                                  spacing: Spacing.d8,
-                                  children: [
-                                    Flexible(
-                                      child: Text(
-                                        card.line,
-                                        style: theme.typography
-                                            .interface(cssSize: 14)
-                                            .copyWith(
-                                              fontWeight: FontWeight.w700,
-                                            ),
+                          Row(
+                            spacing: Spacing.d8,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  card.line,
+                                  style: theme.typography
+                                      .interface(cssSize: 14)
+                                      .copyWith(
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                    ),
-                                    InkIcon(_trend(card.up), size: Spacing.d16),
-                                  ],
                                 ),
-                                Text(
-                                  card.note,
-                                  style: theme.typography.interface(
-                                    cssSize: 14,
-                                    color: theme.colors.inkSoft,
-                                  ),
-                                ),
-                              ],
+                              ),
+                              InkIcon(_trend(card.up), size: Spacing.d16),
+                            ],
+                          ),
+                          Text(
+                            card.note,
+                            style: theme.typography.interface(
+                              cssSize: 14,
+                              color: theme.colors.inkSoft,
                             ),
                           ),
                         ],

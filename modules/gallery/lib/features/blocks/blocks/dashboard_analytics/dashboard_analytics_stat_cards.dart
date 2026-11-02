@@ -130,30 +130,24 @@ class DashboardAnalyticsStatCards extends StatelessWidget {
                     ),
                   ],
                 ),
-                CardFooter(
-                  children: [
-                    Expanded(
-                      child: DefaultTextStyle.merge(
-                        style: muted,
-                        child: Wrap(
-                          spacing: Spacing.d6,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            DashboardAnalyticsTrend(
-                              text: analyticsSigned(stat.delta, stat.unit),
-                              up: stat.delta >= 0,
-                              good: good,
-                              spoken: switch (good) {
-                                true => ', better',
-                                false => ', worse',
-                              },
-                            ),
-                            Text('on the ${period.days} days before'),
-                          ],
-                        ),
+                DefaultTextStyle.merge(
+                  style: muted,
+                  child: CardFooter(
+                    wrap: true,
+                    spacing: Spacing.d6,
+                    children: [
+                      DashboardAnalyticsTrend(
+                        text: analyticsSigned(stat.delta, stat.unit),
+                        up: stat.delta >= 0,
+                        good: good,
+                        spoken: switch (good) {
+                          true => ', better',
+                          false => ', worse',
+                        },
                       ),
-                    ),
-                  ],
+                      Text('on the ${period.days} days before'),
+                    ],
+                  ),
                 ),
               ],
             );

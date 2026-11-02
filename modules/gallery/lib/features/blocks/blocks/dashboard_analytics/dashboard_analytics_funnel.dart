@@ -87,56 +87,51 @@ class DashboardAnalyticsFunnel extends StatelessWidget {
             ],
           ),
         ),
-        CardFooter(
-          children: [
-            Expanded(
-              child: DefaultTextStyle.merge(
-                style: theme.typography.interface(cssSize: 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  spacing: Spacing.d4,
+        DefaultTextStyle.merge(
+          style: theme.typography.interface(cssSize: 14),
+          child: CardFooter(
+            direction: Axis.vertical,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: Spacing.d4,
+            children: [
+              Text.rich(
+                TextSpan(
                   children: [
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          const TextSpan(
-                            text: 'Most people slip away between ',
+                    const TextSpan(
+                      text: 'Most people slip away between ',
+                    ),
+                    TextSpan(
+                      text: drop.from.toLowerCase(),
+                      style: bold,
+                    ),
+                    const TextSpan(text: ' and '),
+                    TextSpan(text: drop.to.toLowerCase(), style: bold),
+                    const TextSpan(text: ': only '),
+                    WidgetSpan(
+                      alignment: PlaceholderAlignment.baseline,
+                      baseline: TextBaseline.alphabetic,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Spacing.d6,
+                        ),
+                        child: Circled(
+                          tone: MarkPen.red,
+                          child: Text(
+                            '${analyticsRound(drop.kept * 100)}%',
                           ),
-                          TextSpan(
-                            text: drop.from.toLowerCase(),
-                            style: bold,
-                          ),
-                          const TextSpan(text: ' and '),
-                          TextSpan(text: drop.to.toLowerCase(), style: bold),
-                          const TextSpan(text: ': only '),
-                          WidgetSpan(
-                            alignment: PlaceholderAlignment.baseline,
-                            baseline: TextBaseline.alphabetic,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: Spacing.d6,
-                              ),
-                              child: Circled(
-                                tone: MarkPen.red,
-                                child: Text(
-                                  '${analyticsRound(drop.kept * 100)}%',
-                                ),
-                              ),
-                            ),
-                          ),
-                          const TextSpan(text: ' go on.'),
-                        ],
+                        ),
                       ),
                     ),
-                    Text(
-                      '${analyticsRound(last.share * 1000) / 10}% of visitors end up paying.',
-                      style: TextStyle(color: theme.colors.inkMuted),
-                    ),
+                    const TextSpan(text: ' go on.'),
                   ],
                 ),
               ),
-            ),
-          ],
+              Text(
+                '${analyticsRound(last.share * 1000) / 10}% of visitors end up paying.',
+                style: TextStyle(color: theme.colors.inkMuted),
+              ),
+            ],
+          ),
         ),
       ],
     );
