@@ -41,6 +41,7 @@ class Dialog extends StatefulWidget {
     this.onOpenChange,
     this.modal = true,
     this.dismissOnOutsideTap = true,
+    this.placement = PopupPlacement.center,
   });
 
   /// The sheet that drops in, usually a [DialogContent].
@@ -63,6 +64,11 @@ class Dialog extends StatefulWidget {
 
   /// Whether a tap outside (on the dim) closes it.
   final bool dismissOnOutsideTap;
+
+  /// Where the sheet sits: centred, or [PopupPlacement.top] for a palette.
+  /// Phone-sized windows dock it flush to the window instead, and it rises
+  /// in from the bottom.
+  final PopupPlacement placement;
 
   /// The nearest dialog's controller.
   static DialogController of(BuildContext context) => DialogScope.of(context);
@@ -96,7 +102,8 @@ class _DialogState extends State<Dialog> {
         open: _isOpen,
         onOpenChange: _setOpen,
         centered: true,
-        motion: PopupMotionStyle.sheetDrop,
+        placement: DialogMetrics.placement(context, widget.placement),
+        motion: DialogMetrics.motion(context),
         modal: widget.modal,
         scrim: widget.modal,
         dismissOnOutsideTap: widget.dismissOnOutsideTap,

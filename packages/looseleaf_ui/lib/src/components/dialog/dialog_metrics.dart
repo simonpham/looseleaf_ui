@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
+import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// The metrics of the dialog parts, from the classes of upstream
@@ -41,6 +42,24 @@ abstract final class DialogMetrics {
   static bool phone(BuildContext context) =>
       (MediaQuery.maybeSizeOf(context)?.width ?? phoneBreakpoint) <
       phoneBreakpoint;
+
+  /// Where a dialog asking for [placement] sits here: docked flush to the
+  /// window on a phone.
+  static PopupPlacement placement(
+    BuildContext context, [
+    PopupPlacement placement = PopupPlacement.center,
+  ]) => switch (phone(context)) {
+    true => placement.onPhone,
+    false => placement,
+  };
+
+  /// How a dialog comes and goes here: it drops onto the desk, or rises
+  /// from the bottom on a phone.
+  static PopupMotionStyle motion(BuildContext context) =>
+      switch (phone(context)) {
+        true => PopupMotionStyle.rise,
+        false => PopupMotionStyle.sheetDrop,
+      };
 
   /// The title: `font-script text-[1.7rem] leading-none font-semibold`.
   static TextStyle title(LooseleafThemeData theme) => theme.typography.face(

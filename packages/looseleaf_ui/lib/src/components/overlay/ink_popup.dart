@@ -18,8 +18,9 @@ typedef InkPopupBuilder = Widget Function(
 ///
 /// - **Placement**: [side], [align], [sideOffset], [alignOffset],
 ///   [collisionPadding], [avoidCollisions], [anchor] (see
-///   [AnchoredOverlay]); [centered] puts it in the middle of the overlay,
-///   16 px from the edges, scrolling when tall.
+///   [AnchoredOverlay]); [centered] puts it in the window where
+///   [placement] says (the middle, 16 px from the edges, by default),
+///   scrolling when tall.
 /// - **Motion**: [motion] in and out ([PopupMotion]); it stays shown until
 ///   its exit ends. Reduced motion skips it.
 /// - **Dismissal**: Escape ([dismissOnEscape]), a pointer down outside it
@@ -51,6 +52,7 @@ class InkPopup extends StatefulWidget {
     this.avoidCollisions = true,
     this.anchor,
     this.centered = false,
+    this.placement = PopupPlacement.center,
     this.motion = PopupMotionStyle.pop,
     this.modal = false,
     this.scrim = false,
@@ -101,6 +103,9 @@ class InkPopup extends StatefulWidget {
 
   /// Centred in the overlay instead of anchored.
   final bool centered;
+
+  /// Where a [centered] popup sits.
+  final PopupPlacement placement;
 
   /// How it comes and goes.
   final PopupMotionStyle motion;
@@ -259,6 +264,54 @@ class _InkPopupState extends State<InkPopup>
     );
   }
 
+  /// `mt-[12dvh]`.
+  static const double _topShare = 0.12;
+
+  Widget _placed(BuildContext context) {
+    final content = _content(context, null);
+    final height = MediaQuery.sizeOf(context).height;
+    return switch (widget.placement) {
+      PopupPlacement.center => SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(Spacing.d16),
+            child: content,
+          ),
+        ),
+      ),
+      PopupPlacement.top => SafeArea(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(
+              Spacing.d16,
+              Spacing.d16 + height * _topShare,
+              Spacing.d16,
+              Spacing.d16,
+            ),
+            child: content,
+          ),
+        ),
+      ),
+      PopupPlacement.phoneBottom => SafeArea(
+        bottom: false,
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: SingleChildScrollView(child: content),
+        ),
+      ),
+      PopupPlacement.phoneTop => SafeArea(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(top: Spacing.d8),
+            child: content,
+          ),
+        ),
+      ),
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     if (widget.centered) {
@@ -268,14 +321,7 @@ class _InkPopupState extends State<InkPopup>
           fit: StackFit.expand,
           children: [
             ?_barrierWidget(),
-            SafeArea(
-              child: Center(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(Spacing.d16),
-                  child: _content(context, null),
-                ),
-              ),
-            ),
+            _placed(context),
           ],
         ),
         child: widget.child,

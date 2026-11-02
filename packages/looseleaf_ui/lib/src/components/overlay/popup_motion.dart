@@ -19,6 +19,11 @@ enum PopupMotionStyle {
   /// Fades in and out (`fade-in-0`), over `--ll-dur-sheet`; scrims.
   fade,
 
+  /// Fades in rising 64 px; fades out sinking 32 px and shrinking to 95 %
+  /// (a dialog on a phone: `slide-in-from-bottom-16`,
+  /// `slide-out-to-bottom-8 zoom-out-95`), over `--ll-dur-fade`.
+  rise,
+
   /// Appears and goes at once.
   none;
 
@@ -26,13 +31,14 @@ enum PopupMotionStyle {
   Duration get enter => switch (this) {
     PopupMotionStyle.pop => InkMotion.pop,
     PopupMotionStyle.sheetDrop || PopupMotionStyle.fade => InkMotion.sheet,
+    PopupMotionStyle.rise => InkMotion.fade,
     PopupMotionStyle.none => Duration.zero,
   };
 
   /// How long the exit takes.
   Duration get exit => switch (this) {
     PopupMotionStyle.pop => InkMotion.pop,
-    PopupMotionStyle.sheetDrop => InkMotion.fade,
+    PopupMotionStyle.sheetDrop || PopupMotionStyle.rise => InkMotion.fade,
     PopupMotionStyle.fade => InkMotion.sheet,
     PopupMotionStyle.none => Duration.zero,
   };
@@ -63,6 +69,12 @@ class PopupMotion extends StatelessWidget {
 
   /// The slide of `slide-in-from-*-2`, in px.
   static const double slide = 8;
+
+  /// The rise of `slide-in-from-bottom-16`, in px.
+  static const double rise = 64;
+
+  /// The fall of `slide-out-to-bottom-8`, in px.
+  static const double fall = 32;
 
   /// 0 hidden, 1 shown.
   final Animation<double> animation;
@@ -113,6 +125,8 @@ class PopupMotion extends StatelessWidget {
         (PopupMotionStyle.none, _) => (1.0, Offset.zero, 0.0, 1.0),
         (PopupMotionStyle.fade, _) => (t, Offset.zero, 0.0, 1.0),
         (PopupMotionStyle.sheetDrop, false) => _drop(t),
+        (PopupMotionStyle.rise, false) => _rise(ease.transform(t), rise, 1),
+        (PopupMotionStyle.rise, true) => _rise(ease.transform(t), fall, 0.95),
         (PopupMotionStyle.pop, false) => _pop(ease.transform(t), true),
         _ => _pop(ease.transform(t), false),
       };
@@ -142,6 +156,9 @@ class PopupMotion extends StatelessWidget {
     0,
     0.95 + 0.05 * t,
   );
+
+  (double, Offset, double, double) _rise(double t, double from, double scale) =>
+      (t, Offset(0, from * (1 - t)), 0, scale + (1 - scale) * t);
 
   (double, Offset, double, double) _drop(double time) {
     if (time < 0.7) {

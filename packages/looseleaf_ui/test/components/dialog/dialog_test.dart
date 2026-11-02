@@ -153,11 +153,35 @@ void main() {
     addTearDown(tester.view.reset);
     await tester.pumpAndSettle();
     final phoneSheet = tester.getRect(find.byType(DialogContent));
-    expect(phoneSheet.width, 400 - Spacing.d32);
+    expect(phoneSheet.width, 400);
+    expect(phoneSheet.bottom, 800);
     expect(phoneSheet.right - header().right, Spacing.d24);
     final cancel = tester.getRect(find.text('Cancel'));
     final close = tester.getRect(find.text('Close'));
     expect(cancel.top, greaterThan(close.top));
+  });
+
+  testWidgets('on phones it rises from the bottom past the safe area', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 800);
+    tester.view.devicePixelRatio = 1;
+    tester.view.viewPadding = const FakeViewPadding(bottom: 40);
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(overlayHost(_dialog()));
+    await tester.tap(find.text('Open'));
+    await tester.pump();
+    await tester.pump();
+    final motion = tester.widget<PopupMotion>(find.byType(PopupMotion));
+    expect(motion.style, PopupMotionStyle.rise);
+    await tester.pump(const Duration(milliseconds: 50));
+    final rising = tester.getRect(find.byType(DialogContent));
+    await tester.pumpAndSettle();
+    final sheet = tester.getRect(find.byType(DialogContent));
+    expect(rising.top, greaterThan(sheet.top));
+    expect(sheet.bottom, 800);
+    final cancel = tester.getRect(find.text('Cancel'));
+    expect(sheet.bottom - cancel.bottom, greaterThanOrEqualTo(40));
   });
 
   testWidgets('the padding follows the density', (tester) async {

@@ -10,8 +10,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// padding (20 compact, 16 calm), its [children] stacked 16 px apart, and
 /// the doodled × ([DialogCloseMark]) in the top corner.
 ///
-/// Phone-sized windows (under 640 px) lay it flat, as wide as the window
-/// allows, without tape.
+/// Phone-sized windows (under 640 px) lay it flat, as wide as the window,
+/// without tape, its bottom padding clearing the safe area.
 ///
 /// Mirrors `DialogContent` in upstream `src/components/ui/dialog.tsx`.
 class DialogContent extends StatefulWidget {
@@ -97,6 +97,16 @@ class DialogContent extends StatefulWidget {
 }
 
 class _DialogContentState extends State<DialogContent> with InkSeed {
+  EdgeInsetsGeometry _padding(BuildContext context, {required bool phone}) {
+    final padding =
+        widget.padding ?? EdgeInsets.all(DialogMetrics.padding.of(context));
+    if (!phone) return padding;
+    final safeBottom = MediaQuery.viewPaddingOf(context).bottom;
+    final resolved = padding.resolve(Directionality.of(context));
+    if (safeBottom <= resolved.bottom) return padding;
+    return resolved.copyWith(bottom: safeBottom);
+  }
+
   @override
   Widget build(BuildContext context) {
     final seed = inkSeed(widget.seed);
@@ -119,8 +129,7 @@ class _DialogContentState extends State<DialogContent> with InkSeed {
       fastenerTone: widget.fastenerTone,
       shadow: widget.shadow,
       seed: seed,
-      padding:
-          widget.padding ?? EdgeInsets.all(DialogMetrics.padding.of(context)),
+      padding: _padding(context, phone: phone),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
