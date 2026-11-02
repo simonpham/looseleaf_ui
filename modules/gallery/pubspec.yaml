@@ -36,6 +36,7 @@ flutter:
     - lib/features/blocks/blocks/forgot_password_01/
     - lib/features/blocks/blocks/inbox/
     - lib/features/blocks/blocks/kanban_board/
+    - lib/features/blocks/blocks/landing_hero_01/
     - lib/features/blocks/blocks/landing_hero_02/
     - lib/features/blocks/blocks/login_01/
     - lib/features/blocks/blocks/login_02/
