@@ -56,4 +56,34 @@ const formExamples = <GalleryExample>[
     source: 'form/form_rhf_switch_example.dart',
     builder: FormRhfSwitchExample.new,
   ),
+  GalleryExample(
+    title: 'React Hook Form: textarea',
+    description: 'shadcn\'s `form-rhf-textarea`: a ruled textarea with a length rule on both ends. Too short and too long each get their own sentence.',
+    source: 'form/form_rhf_textarea_example.dart',
+    builder: FormRhfTextareaExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: radio group',
+    description: 'shadcn\'s `form-rhf-radiogroup`: choice cards (a FieldLabel around each Field) in a controlled RadioGroup. `invalid` on the group and on each Field paints the whole set red when nothing is chosen.',
+    source: 'form/form_rhf_radiogroup_example.dart',
+    builder: FormRhfRadiogroupExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: array',
+    description: 'shadcn\'s `form-rhf-array`: a growing list of emails, each an InputGroup with a remove button inside its box and a field of its own. Add up to five.',
+    source: 'form/form_rhf_array_example.dart',
+    builder: FormRhfArrayExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: every control',
+    description: 'shadcn\'s `form-rhf-complex`: a radio card set, a select, a checkbox group and a switch in one form, four kinds of state and four `InkFormField`s. The validators want a billing period and at least one add-on.',
+    source: 'form/form_rhf_complex_example.dart',
+    builder: FormRhfComplexExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: password',
+    description: 'shadcn\'s `form-rhf-password`: the field\'s value feeds a strength meter and a live checklist while the validator guards the submit. The bar is a marker pass that changes ink as the password improves; a met rule is a pencilled tick, an open one a cross, and each says so in words for a screen reader.',
+    source: 'form/form_rhf_password_example.dart',
+    builder: FormRhfPasswordExample.new,
+  ),
 ];

@@ -1,10 +1,15 @@
 export 'package:gallery/features/components/examples/form/form_default_example.dart';
 export 'package:gallery/features/components/examples/form/form_every_control_example.dart';
 export 'package:gallery/features/components/examples/form/form_examples.dart';
+export 'package:gallery/features/components/examples/form/form_rhf_array_example.dart';
 export 'package:gallery/features/components/examples/form/form_rhf_checkbox_example.dart';
+export 'package:gallery/features/components/examples/form/form_rhf_complex_example.dart';
 export 'package:gallery/features/components/examples/form/form_rhf_demo_example.dart';
 export 'package:gallery/features/components/examples/form/form_rhf_input_example.dart';
+export 'package:gallery/features/components/examples/form/form_rhf_password_example.dart';
+export 'package:gallery/features/components/examples/form/form_rhf_radiogroup_example.dart';
 export 'package:gallery/features/components/examples/form/form_rhf_select_example.dart';
 export 'package:gallery/features/components/examples/form/form_rhf_switch_example.dart';
+export 'package:gallery/features/components/examples/form/form_rhf_textarea_example.dart';
 export 'package:gallery/features/components/examples/form/form_server_errors_example.dart';
 export 'package:gallery/features/components/examples/form/form_values_toaster.dart';
