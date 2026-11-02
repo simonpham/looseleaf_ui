@@ -32,6 +32,7 @@ export 'package:gallery/features/components/examples/message_scroller/message_sc
 export 'package:gallery/features/components/examples/napkin/napkin.dart';
 export 'package:gallery/features/components/examples/page/page.dart';
 export 'package:gallery/features/components/examples/polaroid/polaroid.dart';
+export 'package:gallery/features/components/examples/popover/popover.dart';
 export 'package:gallery/features/components/examples/progress/progress.dart';
 export 'package:gallery/features/components/examples/quote/quote.dart';
 export 'package:gallery/features/components/examples/radio_group/radio_group.dart';
@@ -60,6 +61,7 @@ export 'package:gallery/features/components/examples/tabs/tabs.dart';
 export 'package:gallery/features/components/examples/textarea/textarea.dart';
 export 'package:gallery/features/components/examples/ticket/ticket.dart';
 export 'package:gallery/features/components/examples/toggle/toggle.dart';
+export 'package:gallery/features/components/examples/tooltip/tooltip.dart';
 export 'package:gallery/features/components/examples/typewriter/typewriter.dart';
 export 'package:gallery/features/components/examples/typing_indicator/typing_indicator.dart';
 export 'package:gallery/features/components/examples/typography/typography.dart';

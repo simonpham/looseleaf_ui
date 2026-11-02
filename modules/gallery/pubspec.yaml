@@ -60,6 +60,7 @@ flutter:
     - lib/features/components/examples/napkin/
     - lib/features/components/examples/page/
     - lib/features/components/examples/polaroid/
+    - lib/features/components/examples/popover/
     - lib/features/components/examples/progress/
     - lib/features/components/examples/quote/
     - lib/features/components/examples/radio_group/
@@ -88,6 +89,7 @@ flutter:
     - lib/features/components/examples/textarea/
     - lib/features/components/examples/ticket/
     - lib/features/components/examples/toggle/
+    - lib/features/components/examples/tooltip/
     - lib/features/components/examples/typewriter/
     - lib/features/components/examples/typing_indicator/
     - lib/features/components/examples/typography/
