@@ -27,15 +27,8 @@ class NotebookPage extends StatefulWidget {
 
 class _NotebookPageState extends State<NotebookPage>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _wipe = AnimationController(
-    vsync: this,
-    duration: NotebookPage.unfold,
-    value: 1,
-  );
-  late final CurvedAnimation _unfold = CurvedAnimation(
-    parent: _wipe,
-    curve: InkMotion.easeOut,
-  );
+  late final AnimationController _wipe;
+  late final CurvedAnimation _unfold;
   bool? _wasActive;
 
   bool _active(NotebookScope? scope) {
@@ -43,6 +36,17 @@ class _NotebookPageState extends State<NotebookPage>
     final current = scope?.value;
     if (value == null || current == null) return true;
     return current == value;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _wipe = AnimationController(
+      vsync: this,
+      duration: NotebookPage.unfold,
+      value: 1,
+    );
+    _unfold = CurvedAnimation(parent: _wipe, curve: InkMotion.easeOut);
   }
 
   @override

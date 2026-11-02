@@ -59,7 +59,7 @@ class Confetti extends StatefulWidget {
 
 class _ConfettiState extends State<Confetti>
     with SingleTickerProviderStateMixin {
-  late final Ticker _ticker = createTicker(_tick);
+  late final Ticker _ticker;
   final ValueNotifier<Duration> _clock = ValueNotifier(Duration.zero);
   final GlobalKey _layer = GlobalKey();
   List<ConfettiBurst> _bursts = const [];
@@ -67,6 +67,7 @@ class _ConfettiState extends State<Confetti>
   @override
   void initState() {
     super.initState();
+    _ticker = createTicker(_tick);
     widget.controller?.attach(_burst);
     if (widget.active) {
       SchedulerBinding.instance.addPostFrameCallback((_) {

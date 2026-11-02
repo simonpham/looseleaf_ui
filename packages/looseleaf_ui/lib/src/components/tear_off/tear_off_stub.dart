@@ -89,11 +89,8 @@ class TearOffStub extends StatefulWidget {
 
 class _TearOffStubState extends State<TearOffStub>
     with TickerProviderStateMixin, InkSeed {
-  late final AnimationController _settle = AnimationController(
-    vsync: this,
-    value: 1,
-  );
-  late final AnimationController _drop = AnimationController(vsync: this);
+  late final AnimationController _settle;
+  late final AnimationController _drop;
   TearOffPose _from = TearOffPose.rest;
   TearOffPose _to = TearOffPose.rest;
   ({int pointer, Offset start, double size, double progress, bool moved})?
@@ -107,6 +104,13 @@ class _TearOffStubState extends State<TearOffStub>
     _to,
     InkMotion.settle.transform(_settle.value),
   );
+
+  @override
+  void initState() {
+    super.initState();
+    _settle = AnimationController(vsync: this, value: 1);
+    _drop = AnimationController(vsync: this);
+  }
 
   @override
   void didChangeDependencies() {
