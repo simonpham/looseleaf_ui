@@ -9,7 +9,12 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 ///
 /// Mirrors `FieldSet` in upstream `src/components/ui/field.tsx`.
 class FieldSet extends StatelessWidget {
-  const FieldSet({super.key, required this.children, this.semanticLabel});
+  const FieldSet({
+    super.key,
+    required this.children,
+    this.semanticLabel,
+    this.gap,
+  });
 
   /// A legend, descriptions, groups and fields.
   final List<Widget> children;
@@ -17,15 +22,22 @@ class FieldSet extends StatelessWidget {
   /// The set's accessible name, when it has no legend.
   final String? semanticLabel;
 
+  /// The space between the set's parts, replacing 24 (16 calm, 12 around
+  /// a radio group), like upstream's `gap-*` classes. A legend keeps its
+  /// own space below it.
+  final double? gap;
+
   @override
   Widget build(BuildContext context) {
     final density = LooseleafTheme.of(context).density;
     final choices = children.any((child) => child is InkRadioGroup);
-    final gap = switch ((choices, density)) {
-      (true, _) => Spacing.d12,
-      (false, LooseleafDensity.calm) => Spacing.d16,
-      (false, _) => Spacing.d24,
-    };
+    final gap =
+        this.gap ??
+        switch ((choices, density)) {
+          (true, _) => Spacing.d12,
+          (false, LooseleafDensity.calm) => Spacing.d16,
+          (false, _) => Spacing.d24,
+        };
     return Semantics(
       container: true,
       explicitChildNodes: true,

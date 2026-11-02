@@ -20,6 +20,7 @@ class _CheckboxChoiceCardsExampleState
   Widget build(BuildContext context) => ConstrainedBox(
     constraints: const BoxConstraints(maxWidth: _maxWidth),
     child: FieldGroup(
+      gap: Spacing.d16,
       children: [
         FieldLabel(
           checked: _notify,

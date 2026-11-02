@@ -40,6 +40,7 @@ class _FieldCheckboxExampleState extends State<FieldCheckboxExample> {
               Text('Select the items you want to show on the desktop.'),
             ),
             FieldGroup(
+              gap: Spacing.d12,
               children: [
                 for (final item in _items)
                   Field(

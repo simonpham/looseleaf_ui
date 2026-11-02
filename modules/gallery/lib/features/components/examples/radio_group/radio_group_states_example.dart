@@ -34,6 +34,7 @@ class RadioGroupStatesExample extends StatelessWidget {
                 value: 'on',
                 onChanged: (_) {},
                 direction: Axis.horizontal,
+                columnGap: Spacing.d28,
                 semanticLabel: name,
                 children: [
                   InkRadioGroupItem(

@@ -32,6 +32,8 @@ class InkRadioGroup<T> extends StatelessWidget {
     this.disabled = false,
     this.invalid = false,
     this.semanticLabel,
+    this.gap = Spacing.d12,
+    this.columnGap = Spacing.d24,
   });
 
   /// The checked value, or null when none is.
@@ -55,6 +57,13 @@ class InkRadioGroup<T> extends StatelessWidget {
   /// The group's accessible name.
   final String? semanticLabel;
 
+  /// The space between stacked items, or between wrapped rows (upstream
+  /// `gap-3`, changed with a `gap-*` class).
+  final double gap;
+
+  /// The space between items in a horizontal row (upstream `gap-x-6`).
+  final double columnGap;
+
   @override
   Widget build(BuildContext context) => Semantics(
     container: true,
@@ -70,12 +79,12 @@ class InkRadioGroup<T> extends StatelessWidget {
           Axis.vertical => Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: Spacing.d12,
+            spacing: gap,
             children: children,
           ),
           Axis.horizontal => Wrap(
-            spacing: Spacing.d24,
-            runSpacing: Spacing.d12,
+            spacing: columnGap,
+            runSpacing: gap,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: children,
           ),

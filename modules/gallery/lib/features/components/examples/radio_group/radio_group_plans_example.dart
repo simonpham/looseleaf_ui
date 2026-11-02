@@ -30,6 +30,7 @@ class _RadioGroupPlansExampleState extends State<RadioGroupPlansExample> {
             value: _plan,
             onChanged: (value) => setState(() => _plan = value),
             semanticLabel: 'Plan',
+            gap: Spacing.d16,
             children: [
               for (final (value, title, help) in _plans)
                 InkRadioGroupItem(

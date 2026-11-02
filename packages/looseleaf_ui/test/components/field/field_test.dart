@@ -169,6 +169,32 @@ void main() {
     expect(_gap(tester, 'Saved as you write.', 'field'), 24);
   });
 
+  testWidgets('gap replaces the group and set spacing', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 300,
+          child: FieldGroup(
+            gap: Spacing.d16,
+            children: [
+              Text('one'),
+              FieldSet(
+                gap: Spacing.d12,
+                children: [
+                  FieldLegend(Text('Notebook')),
+                  Text('two'),
+                  Text('three'),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(_gap(tester, 'one', 'Notebook'), 16);
+    expect(_gap(tester, 'two', 'three'), 12);
+  });
+
   testWidgets('a label focuses its control and calls onPressed', (
     tester,
   ) async {

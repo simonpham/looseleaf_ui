@@ -93,6 +93,7 @@ class _FormRhfArrayExampleState extends State<FormRhfArrayExample> {
               child: InkForm(
                 controller: _form,
                 child: FieldSet(
+                  gap: Spacing.d16,
                   children: [
                     const FieldLegend(
                       Text('Email Addresses'),
@@ -104,6 +105,7 @@ class _FormRhfArrayExampleState extends State<FormRhfArrayExample> {
                       ),
                     ),
                     FieldGroup(
+                      gap: Spacing.d16,
                       children: [
                         for (final (index, id) in ids.indexed)
                           InkFormField<String>(

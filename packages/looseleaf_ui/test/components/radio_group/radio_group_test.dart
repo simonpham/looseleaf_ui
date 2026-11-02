@@ -98,6 +98,39 @@ void main() {
     expect(_checked(tester, 'Alpha'), isTrue);
   });
 
+  testWidgets('gap and columnGap space the items', (tester) async {
+    double gapBetween(String a, String b, {required bool vertical}) {
+      final first = tester.getRect(
+        find.byType(InkRadioGroupItem<String>).at(0),
+      );
+      final second = tester.getRect(
+        find.byType(InkRadioGroupItem<String>).at(1),
+      );
+      return switch (vertical) {
+        true => second.top - first.bottom,
+        false => second.left - first.right,
+      };
+    }
+
+    Widget group(Axis direction) => componentHost(
+      InkRadioGroup<String>(
+        value: 'a',
+        direction: direction,
+        gap: Spacing.d16,
+        columnGap: Spacing.d28,
+        children: const [
+          InkRadioGroupItem(value: 'a', label: Text('Alpha')),
+          InkRadioGroupItem(value: 'b', label: Text('Bravo')),
+        ],
+      ),
+    );
+
+    await tester.pumpWidget(group(Axis.vertical));
+    expect(gapBetween('Alpha', 'Bravo', vertical: true), Spacing.d16);
+    await tester.pumpWidget(group(Axis.horizontal));
+    expect(gapBetween('Alpha', 'Bravo', vertical: false), Spacing.d28);
+  });
+
   testWidgets('reads as a radio in a group', (tester) async {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(componentHost(const _Harness(initial: 'a')));

@@ -8,10 +8,14 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 ///
 /// Mirrors `FieldGroup` in upstream `src/components/ui/field.tsx`.
 class FieldGroup extends StatelessWidget {
-  const FieldGroup({super.key, required this.children});
+  const FieldGroup({super.key, required this.children, this.gap});
 
   /// The fields, sets and separators.
   final List<Widget> children;
+
+  /// The space between fields, replacing 28 (20 calm, 16 nested), like
+  /// upstream's `gap-*` classes; separators still pull in 8 on each side.
+  final double? gap;
 
   /// `@md`: 28rem.
   static const double wideWidth = 448;
@@ -23,11 +27,13 @@ class FieldGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     final density = LooseleafTheme.of(context).density;
     final nested = FieldGroupScope.maybeOf(context) != null;
-    final gap = switch ((nested, density)) {
-      (true, _) => Spacing.d16,
-      (false, LooseleafDensity.calm) => Spacing.d20,
-      (false, _) => Spacing.d28,
-    };
+    final gap =
+        this.gap ??
+        switch ((nested, density)) {
+          (true, _) => Spacing.d16,
+          (false, LooseleafDensity.calm) => Spacing.d20,
+          (false, _) => Spacing.d28,
+        };
     return LayoutBuilder(
       builder: (context, constraints) => FieldGroupScope(
         wide: constraints.maxWidth >= wideWidth,

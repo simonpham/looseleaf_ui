@@ -97,6 +97,7 @@ class _FormEveryControlExampleState extends State<FormEveryControlExample> {
                       value: field.value,
                       onChanged: field.onChanged,
                       invalid: field.invalid,
+                      gap: Spacing.d10,
                       semanticLabel: 'Plan',
                       children: [
                         for (final MapEntry(:key, :value) in _plans.entries)
