@@ -26,6 +26,8 @@ class LabelTagPriceTagsExample extends StatelessWidget {
     ),
   ];
 
+  static const _pairWidth = 2 * Spacing.d128 + Spacing.d64;
+
   @override
   Widget build(BuildContext context) => Center(
     child: ConstrainedBox(
@@ -39,39 +41,34 @@ class LabelTagPriceTagsExample extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: Spacing.d24),
               child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: Spacing.d48,
-                  children: [
-                    for (var row = 0; row < _goods.length; row += 2)
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: Spacing.d64,
-                        children: [
-                          for (final (i, good)
-                              in _goods.indexed.skip(row).take(2))
-                            LabelTag(
-                              twine: good.twine,
-                              seed: good.name,
-                              tiltDegrees: switch (i.isOdd) {
-                                true => 2,
-                                false => -2,
-                              },
-                              stock: switch (i.isOdd) {
-                                true => StockName.paper,
-                                false => StockName.indexCard,
-                              },
-                              semanticLabel: '${good.name}, ${good.price}',
-                              children: [
-                                LabelTagTitle(Text(good.name), cssSize: 22.4),
-                                LabelTagDescription(Text(good.note)),
-                                LabelTagPrice(Text(good.price)),
-                              ],
-                            ),
-                        ],
-                      ),
-                  ],
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: _pairWidth),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: Spacing.d64,
+                    runSpacing: Spacing.d48,
+                    children: [
+                      for (final (i, good) in _goods.indexed)
+                        LabelTag(
+                          twine: good.twine,
+                          seed: good.name,
+                          tiltDegrees: switch (i.isOdd) {
+                            true => 2,
+                            false => -2,
+                          },
+                          stock: switch (i.isOdd) {
+                            true => StockName.paper,
+                            false => StockName.indexCard,
+                          },
+                          semanticLabel: '${good.name}, ${good.price}',
+                          children: [
+                            LabelTagTitle(Text(good.name), cssSize: 22.4),
+                            LabelTagDescription(Text(good.note)),
+                            LabelTagPrice(Text(good.price)),
+                          ],
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ),

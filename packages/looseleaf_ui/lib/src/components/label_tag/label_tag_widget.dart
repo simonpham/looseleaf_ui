@@ -17,7 +17,9 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 ///
 /// [children] ([LabelTagTitle], [LabelTagDescription], [LabelTagPrice])
 /// stack under the eyelet on a 128 px wide, at least 160 px tall tag, or
-/// sit in a row on a 96 px tall, at least 176 px wide luggage tag.
+/// sit in a row on a 96 px tall, at least 176 px wide luggage tag; in a
+/// narrower parent the row's children shrink and wrap, as flex items do,
+/// and the luggage tag grows taller to hold them.
 ///
 /// With [onPressed] the tag is a button (upstream `asChild` with a link or
 /// a button): tap, Enter and Space press it, hovering swings it 2.6° on its
@@ -85,7 +87,7 @@ class LabelTag extends StatefulWidget {
   final double? width;
 
   /// The tag's height: the least height (160 by default) for the hanging
-  /// shapes, fixed (96) for a luggage tag.
+  /// shapes, fixed for a luggage tag (at least 96 when null).
   final double? height;
 
   /// False hangs it straight.
@@ -160,15 +162,24 @@ class _LabelTagState extends State<LabelTag> with InkSeed {
   Widget _content() {
     if (_horizontal) {
       return SizedBox(
-        height: widget.height ?? Spacing.d96,
+        height: widget.height,
         child: ConstrainedBox(
-          constraints: BoxConstraints(minWidth: widget.width ?? Spacing.d176),
+          constraints: BoxConstraints(
+            minWidth: widget.width ?? Spacing.d176,
+            minHeight: Spacing.d96,
+          ),
           child: IntrinsicWidth(
             child: Padding(
               padding: _padding,
               child: Row(
                 spacing: Spacing.d8,
-                children: widget.children,
+                children: [
+                  for (final child in widget.children)
+                    switch (child) {
+                      Flexible() => child,
+                      _ => Flexible(child: child),
+                    },
+                ],
               ),
             ),
           ),

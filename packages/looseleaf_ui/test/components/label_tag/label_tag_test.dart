@@ -175,4 +175,30 @@ void main() {
         .style;
     expect(style?.color, Color.lerp(colors.ink, colors.red, 0.6));
   });
+
+  testWidgets('a squeezed luggage tag wraps and grows taller', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 220,
+          child: Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: LabelTag(
+              shape: TagShape.luggage,
+              string: 60,
+              children: [
+                LabelTagDescription(
+                  Text('Gate 7 - seat 14A, window, over the wing'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final tag = tester.getRect(find.byType(LabelTag));
+    expect(tag.width, lessThanOrEqualTo(220));
+    expect(tag.height, greaterThan(96));
+  });
 }
