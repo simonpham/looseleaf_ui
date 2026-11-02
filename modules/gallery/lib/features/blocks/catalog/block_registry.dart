@@ -23,4 +23,8 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: ProfilePageBlock.new,
     objects: [DeskObject.clips, DeskObject.pencil],
   ),
+  'signup-01': GalleryBlock(
+    source: 'blocks/signup_01/signup_01_block.dart',
+    builder: Signup01Block.new,
+  ),
 };
