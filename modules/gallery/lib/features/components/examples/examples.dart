@@ -1,6 +1,7 @@
 export 'package:gallery/features/components/examples/accordion/accordion.dart';
 export 'package:gallery/features/components/examples/alert/alert.dart';
 export 'package:gallery/features/components/examples/alert_dialog/alert_dialog.dart';
+export 'package:gallery/features/components/examples/annotate/annotate.dart';
 export 'package:gallery/features/components/examples/arrow/arrow.dart';
 export 'package:gallery/features/components/examples/asterisk/asterisk.dart';
 export 'package:gallery/features/components/examples/attachment/attachment.dart';
@@ -44,6 +45,7 @@ export 'package:gallery/features/components/examples/menubar/menubar.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller.dart';
 export 'package:gallery/features/components/examples/napkin/napkin.dart';
 export 'package:gallery/features/components/examples/native_select/native_select.dart';
+export 'package:gallery/features/components/examples/notebook/notebook.dart';
 export 'package:gallery/features/components/examples/page/page.dart';
 export 'package:gallery/features/components/examples/pagination/pagination.dart';
 export 'package:gallery/features/components/examples/polaroid/polaroid.dart';

@@ -29,6 +29,7 @@ flutter:
     - lib/features/components/examples/accordion/
     - lib/features/components/examples/alert/
     - lib/features/components/examples/alert_dialog/
+    - lib/features/components/examples/annotate/
     - lib/features/components/examples/arrow/
     - lib/features/components/examples/asterisk/
     - lib/features/components/examples/attachment/
@@ -72,6 +73,7 @@ flutter:
     - lib/features/components/examples/message_scroller/
     - lib/features/components/examples/napkin/
     - lib/features/components/examples/native_select/
+    - lib/features/components/examples/notebook/
     - lib/features/components/examples/page/
     - lib/features/components/examples/pagination/
     - lib/features/components/examples/polaroid/
