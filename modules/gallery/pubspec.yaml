@@ -42,7 +42,9 @@ flutter:
     - lib/features/components/examples/checkbox/
     - lib/features/components/examples/circled/
     - lib/features/components/examples/clipboard/
+    - lib/features/components/examples/code_block/
     - lib/features/components/examples/collapsible/
+    - lib/features/components/examples/context_menu/
     - lib/features/components/examples/corkboard/
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/folder/
