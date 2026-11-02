@@ -5,6 +5,7 @@ import 'package:gallery/features/components/models/models.dart';
 /// gets a page in the gallery once it has an entry here.
 const Map<String, List<GalleryExample>> componentExamples = {
   'alert': alertExamples,
+  'arrow': arrowExamples,
   'asterisk': asteriskExamples,
   'avatar': avatarExamples,
   'badge': badgeExamples,
@@ -39,6 +40,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'slider': sliderExamples,
   'squiggle': squiggleExamples,
   'stamp': stampExamples,
+  'sticker': stickerExamples,
   'sticker-sheet': stickerSheetExamples,
   'strike': strikeExamples,
   'switch': switchExamples,

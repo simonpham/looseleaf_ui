@@ -1,4 +1,5 @@
 export 'package:gallery/features/components/examples/alert/alert.dart';
+export 'package:gallery/features/components/examples/arrow/arrow.dart';
 export 'package:gallery/features/components/examples/asterisk/asterisk.dart';
 export 'package:gallery/features/components/examples/avatar/avatar.dart';
 export 'package:gallery/features/components/examples/badge/badge.dart';
@@ -33,6 +34,7 @@ export 'package:gallery/features/components/examples/skeleton/skeleton.dart';
 export 'package:gallery/features/components/examples/slider/slider.dart';
 export 'package:gallery/features/components/examples/squiggle/squiggle.dart';
 export 'package:gallery/features/components/examples/stamp/stamp.dart';
+export 'package:gallery/features/components/examples/sticker/sticker.dart';
 export 'package:gallery/features/components/examples/sticker_sheet/sticker_sheet.dart';
 export 'package:gallery/features/components/examples/strike/strike.dart';
 export 'package:gallery/features/components/examples/switch/switch.dart';
