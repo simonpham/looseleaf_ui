@@ -8,7 +8,9 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// One labeled control: a [FieldLabel], the control, [FieldDescription]s
 /// and a [FieldError], 12 px apart. Vertical stacks them at full width;
 /// horizontal puts the label (or a [FieldContent]) beside a switch or
-/// checkbox; responsive switches with its [FieldGroup]'s width.
+/// checkbox; responsive switches with its [FieldGroup]'s width. A
+/// horizontal field of controls alone (a row of buttons) wraps onto more
+/// lines when it runs out of room.
 ///
 /// [invalid] turns the label and text red (mark the control `invalid`
 /// too); [disabled] turns the label graphite. Field is layout and words:
@@ -97,6 +99,17 @@ class Field extends StatelessWidget {
 
   Widget _row() {
     final withContent = children.any((child) => child is FieldContent);
+    final withText = children.any(
+      (child) => child is FieldLabel || child is FieldContent,
+    );
+    if (!withText) {
+      return Wrap(
+        spacing: Spacing.d12,
+        runSpacing: Spacing.d12,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: children,
+      );
+    }
     return Row(
       crossAxisAlignment: switch (withContent) {
         true => CrossAxisAlignment.start,

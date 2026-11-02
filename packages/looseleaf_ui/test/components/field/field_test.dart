@@ -302,6 +302,30 @@ void main() {
       control: '!p-2 [&:hover]:p-1',
     ));
   });
+
+  testWidgets('a horizontal field of buttons wraps when narrow', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 200,
+          child: Field(
+            orientation: FieldOrientation.horizontal,
+            children: [
+              Button(onPressed: () {}, child: const Text('Create account')),
+              Button(onPressed: () {}, child: const Text('Hide errors')),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(
+      tester.getTopLeft(find.text('Hide errors')).dy,
+      greaterThan(tester.getTopLeft(find.text('Create account')).dy),
+    );
+  });
 }
 
 bool _inField(Element element) {
