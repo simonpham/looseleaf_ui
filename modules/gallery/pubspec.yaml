@@ -50,8 +50,10 @@ flutter:
     - lib/features/components/examples/marquee/
     - lib/features/components/examples/mascot/
     - lib/features/components/examples/message_scroller/
+    - lib/features/components/examples/page/
     - lib/features/components/examples/polaroid/
     - lib/features/components/examples/quote/
+    - lib/features/components/examples/receipt/
     - lib/features/components/examples/reveal/
     - lib/features/components/examples/ribbon/
     - lib/features/components/examples/scribble/
@@ -63,6 +65,7 @@ flutter:
     - lib/features/components/examples/slider/
     - lib/features/components/examples/squiggle/
     - lib/features/components/examples/stamp/
+    - lib/features/components/examples/stamp_button/
     - lib/features/components/examples/sticker/
     - lib/features/components/examples/sticker_sheet/
     - lib/features/components/examples/sticky_note/
