@@ -99,4 +99,21 @@ void main() {
     expect(find.byType(InkSurface), findsNothing);
     handle.dispose();
   });
+
+  testWidgets('a padding replaces the default', (tester) async {
+    await _wide(tester, true);
+    await tester.pumpWidget(
+      componentHost(
+        const PaperPage(
+          seed: 'p',
+          padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
+          children: [SizedBox(key: _first, height: 20)],
+        ),
+      ),
+    );
+    final page = tester.getRect(find.byType(Paper));
+    final first = tester.getRect(find.byKey(_first));
+    expect(first.left - page.left, 12);
+    expect(first.top - page.top, 8);
+  });
 }

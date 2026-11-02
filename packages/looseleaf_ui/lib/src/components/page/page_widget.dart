@@ -12,7 +12,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// A page of writing: a [Paper] holding a centred column of [children]
 /// ([PageHeader], [PageContent], [PageFooter]) 24 px apart, at most
 /// [width] wide (as wide as it may up to that, and at least as tall as
-/// its parent asks), padded 24 × 32 px (40 px from the `sm` breakpoint).
+/// its parent asks), padded 24 × 32 px (40 px from the `sm` breakpoint,
+/// more on the punched edge); [padding] replaces that.
 ///
 /// [holes] punches three holes down the start edge or two across the top
 /// (the desk shows through), [reinforced] rings them, [stain] adds a coffee
@@ -51,6 +52,7 @@ class PaperPage extends StatefulWidget {
     this.fastenerTone,
     this.shadow = PaperShadow.stock,
     this.seed,
+    this.padding,
     required this.children,
   });
 
@@ -107,6 +109,10 @@ class PaperPage extends StatefulWidget {
 
   /// The parts.
   final List<Widget> children;
+
+  /// The space around the column; upstream's `px-6 py-8 sm:px-10 sm:py-10`
+  /// (plus room for the holes) when null.
+  final EdgeInsetsGeometry? padding;
 
   @override
   State<PaperPage> createState() => _PageState();
@@ -169,7 +175,7 @@ class _PageState extends State<PaperPage> with InkSeed {
       stain: widget.stain,
     );
     final content = Padding(
-      padding: _padding(wide),
+      padding: widget.padding ?? _padding(wide),
       child: DefaultTextStyle.merge(
         style: TextStyle(color: theme.colors.ink),
         child: Column(
