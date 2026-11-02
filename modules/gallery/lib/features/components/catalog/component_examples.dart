@@ -46,6 +46,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'icon': iconExamples,
   'index-card': indexCardExamples,
   'input': inputExamples,
+  'input-group': inputGroupExamples,
   'input-otp': inputOtpExamples,
   'item': itemExamples,
   'kbd': kbdExamples,

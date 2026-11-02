@@ -68,6 +68,7 @@ flutter:
     - lib/features/components/examples/icon/
     - lib/features/components/examples/index_card/
     - lib/features/components/examples/input/
+    - lib/features/components/examples/input_group/
     - lib/features/components/examples/input_otp/
     - lib/features/components/examples/item/
     - lib/features/components/examples/kbd/

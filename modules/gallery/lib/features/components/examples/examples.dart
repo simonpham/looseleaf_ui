@@ -40,6 +40,7 @@ export 'package:gallery/features/components/examples/hover_card/hover_card.dart'
 export 'package:gallery/features/components/examples/icon/icon.dart';
 export 'package:gallery/features/components/examples/index_card/index_card.dart';
 export 'package:gallery/features/components/examples/input/input.dart';
+export 'package:gallery/features/components/examples/input_group/input_group.dart';
 export 'package:gallery/features/components/examples/input_otp/input_otp.dart';
 export 'package:gallery/features/components/examples/item/item.dart';
 export 'package:gallery/features/components/examples/kbd/kbd.dart';
