@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
+import 'package:looseleaf_ui/src/components/kbd/kbd_glyph.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
@@ -24,7 +25,9 @@ class Kbd extends StatefulWidget {
     this.seed,
   });
 
-  /// The key's label, usually a [Text]; icons inside are 14 px.
+  /// The key's label, usually a [Text]; icons inside are 14 px. A [Text]
+  /// of just `⌘`, `⇧`, `⌥`, `⌃` or `↵` is drawn as a [KbdGlyph], since no
+  /// bundled font has them.
   final Widget child;
 
   /// Draws the key as held down (upstream `data-pressed`).
@@ -55,6 +58,13 @@ class _KbdState extends State<Kbd> with InkSeed {
   );
 
   bool _pointerDown = false;
+
+  Widget get _label => switch (widget.child) {
+    Text(data: final data?, :final style)
+        when KbdGlyph.symbols.containsKey(data.trim()) =>
+      KbdGlyph(data.trim(), color: style?.color),
+    final child => child,
+  };
 
   void _setPointerDown(bool down) {
     if (_pointerDown == down) return;
@@ -110,7 +120,7 @@ class _KbdState extends State<Kbd> with InkSeed {
                     right: Spacing.d4 + depth,
                     bottom: depth,
                   ),
-                  child: Center(widthFactor: 1, child: widget.child),
+                  child: Center(widthFactor: 1, child: _label),
                 ),
               ),
             ),

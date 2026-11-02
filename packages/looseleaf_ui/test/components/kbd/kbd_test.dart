@@ -80,4 +80,30 @@ void main() {
       4,
     );
   });
+
+  testWidgets('draws the modifier symbols no bundled font has', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    await tester.pumpWidget(
+      componentHost(
+        const KbdGroup(
+          children: [
+            Kbd(child: Text('⌘')),
+            Kbd(child: Text('⇧')),
+            Kbd(child: Text('⌥')),
+            Kbd(child: Text('⌃')),
+            Kbd(child: Text('K')),
+          ],
+        ),
+      ),
+    );
+    expect(find.byType(KbdGlyph), findsNWidgets(4));
+    expect(find.text('⌘'), findsNothing);
+    expect(find.text('K'), findsOneWidget);
+    for (final label in ['Command', 'Shift', 'Option', 'Control']) {
+      expect(find.bySemanticsLabel(label), findsOneWidget);
+    }
+    semantics.dispose();
+  });
 }

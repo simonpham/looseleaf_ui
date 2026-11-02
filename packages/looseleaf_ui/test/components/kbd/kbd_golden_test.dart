@@ -41,7 +41,16 @@ void main() {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: Spacing.d16,
-              children: [_keys('rest'), _keys('pressed', pressed: true)],
+              children: [
+                _keys('rest'),
+                _keys('pressed', pressed: true),
+                KbdGroup(
+                  children: [
+                    for (final symbol in ['⌘', '⇧', '⌥', '⌃'])
+                      Kbd(seed: 'mod-$symbol', child: Text(symbol)),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
