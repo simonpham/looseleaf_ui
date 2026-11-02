@@ -278,7 +278,7 @@ String weekday(Object? value, [int index = 0]) {
 }
 
 /// `12840` → `12,840`.
-String thousands(num n) => '$n'.replaceAllMapped(
+String thousands(num n) => jsString(n).replaceAllMapped(
   RegExp(r'\B(?=(\d{3})+(?!\d))'),
   (_) => ',',
 );

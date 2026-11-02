@@ -4,8 +4,6 @@ import 'dart:math' as math;
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
-const _config = {'rps': ChartSeriesConfig(label: 'Requests / s')};
-
 int _sample(int t) =>
     (120 + 50 * math.sin(t / 5) + 22 * math.sin(t / 1.7) + ((t * 37) % 9))
         .round();
@@ -93,7 +91,12 @@ class _ChartStreamingExampleState extends State<ChartStreamingExample> {
           ],
         ),
         ChartContainer(
-          config: _config,
+          config: {
+            'rps': ChartSeriesConfig(
+              label: 'Requests / s',
+              color: theme.colors.inkYou,
+            ),
+          },
           height: Spacing.d112 * 2,
           children: [
             AreaChart(
