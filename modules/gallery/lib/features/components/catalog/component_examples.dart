@@ -43,6 +43,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'lettering': letteringExamples,
   'marquee': marqueeExamples,
   'mascot': mascotExamples,
+  'menubar': menubarExamples,
   'message-scroller': messageScrollerExamples,
   'napkin': napkinExamples,
   'native-select': nativeSelectExamples,

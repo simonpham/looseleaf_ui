@@ -65,6 +65,7 @@ flutter:
     - lib/features/components/examples/lettering/
     - lib/features/components/examples/marquee/
     - lib/features/components/examples/mascot/
+    - lib/features/components/examples/menubar/
     - lib/features/components/examples/message_scroller/
     - lib/features/components/examples/napkin/
     - lib/features/components/examples/native_select/
