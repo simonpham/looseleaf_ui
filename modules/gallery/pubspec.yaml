@@ -47,6 +47,7 @@ flutter:
     - lib/features/components/examples/command/
     - lib/features/components/examples/context_menu/
     - lib/features/components/examples/corkboard/
+    - lib/features/components/examples/dialog/
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/envelope/
     - lib/features/components/examples/folder/
@@ -55,6 +56,7 @@ flutter:
     - lib/features/components/examples/icon/
     - lib/features/components/examples/index_card/
     - lib/features/components/examples/input/
+    - lib/features/components/examples/input_otp/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
     - lib/features/components/examples/label_tag/

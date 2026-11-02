@@ -19,6 +19,7 @@ export 'package:gallery/features/components/examples/collapsible/collapsible.dar
 export 'package:gallery/features/components/examples/command/command.dart';
 export 'package:gallery/features/components/examples/context_menu/context_menu.dart';
 export 'package:gallery/features/components/examples/corkboard/corkboard.dart';
+export 'package:gallery/features/components/examples/dialog/dialog.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
 export 'package:gallery/features/components/examples/envelope/envelope.dart';
 export 'package:gallery/features/components/examples/folder/folder.dart';
@@ -27,6 +28,7 @@ export 'package:gallery/features/components/examples/hover_card/hover_card.dart'
 export 'package:gallery/features/components/examples/icon/icon.dart';
 export 'package:gallery/features/components/examples/index_card/index_card.dart';
 export 'package:gallery/features/components/examples/input/input.dart';
+export 'package:gallery/features/components/examples/input_otp/input_otp.dart';
 export 'package:gallery/features/components/examples/kbd/kbd.dart';
 export 'package:gallery/features/components/examples/label/label.dart';
 export 'package:gallery/features/components/examples/label_tag/label_tag.dart';
