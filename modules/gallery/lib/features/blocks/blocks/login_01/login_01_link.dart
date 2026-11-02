@@ -3,7 +3,13 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// An underlined text link in the link ink, darker on hover.
 class Login01Link extends StatefulWidget {
-  const Login01Link(this.label, {super.key, this.onPressed, this.style});
+  const Login01Link(
+    this.label, {
+    super.key,
+    this.onPressed,
+    this.style,
+    this.textAlign,
+  });
 
   /// The link's text.
   final String label;
@@ -13,6 +19,9 @@ class Login01Link extends StatefulWidget {
 
   /// The text style over the ambient one.
   final TextStyle? style;
+
+  /// How the text aligns when it wraps.
+  final TextAlign? textAlign;
 
   @override
   State<Login01Link> createState() => _Login01LinkState();
@@ -38,6 +47,7 @@ class _Login01LinkState extends State<Login01Link> {
           link: true,
           child: Text(
             widget.label,
+            textAlign: widget.textAlign,
             style: (widget.style ?? const TextStyle()).copyWith(
               color: color,
               decoration: TextDecoration.underline,

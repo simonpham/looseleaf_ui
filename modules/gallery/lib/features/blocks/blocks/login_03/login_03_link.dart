@@ -8,6 +8,7 @@ class Login03Link extends StatefulWidget {
     super.key,
     this.onPressed,
     this.style,
+    this.textAlign,
     this.plain = false,
   });
 
@@ -19,6 +20,9 @@ class Login03Link extends StatefulWidget {
 
   /// The text style over the ambient one.
   final TextStyle? style;
+
+  /// How the text aligns when it wraps.
+  final TextAlign? textAlign;
 
   /// Keeps the ink color instead of the link color.
   final bool plain;
@@ -48,6 +52,7 @@ class _Login03LinkState extends State<Login03Link> {
           link: true,
           child: Text(
             widget.label,
+            textAlign: widget.textAlign,
             style: (widget.style ?? const TextStyle()).copyWith(
               color: color,
               decoration: TextDecoration.underline,

@@ -291,20 +291,21 @@ class _Login04FormState extends State<Login04Form> {
               Row(
                 spacing: Spacing.d12,
                 children: [
+                  FieldLabel(
+                    focusNode: _passwordFocus,
+                    child: const Text('Password'),
+                  ),
                   Expanded(
                     child: Align(
-                      alignment: AlignmentDirectional.centerStart,
-                      child: FieldLabel(
-                        focusNode: _passwordFocus,
-                        child: const Text('Password'),
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Login04Link(
+                        'Forgot your password?',
+                        textAlign: TextAlign.end,
+                        style: theme.typography.face(
+                          KevinSansFace.hand,
+                          cssSize: 14,
+                        ),
                       ),
-                    ),
-                  ),
-                  Login04Link(
-                    'Forgot your password?',
-                    style: theme.typography.face(
-                      KevinSansFace.hand,
-                      cssSize: 14,
                     ),
                   ),
                 ],
