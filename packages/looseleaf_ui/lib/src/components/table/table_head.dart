@@ -10,12 +10,26 @@ enum TableSort { ascending, descending }
 ///
 /// Mirrors `TableHead` in upstream `src/components/ui/table.tsx`.
 class TableHead extends StatelessWidget {
-  const TableHead({super.key, required this.child, this.sort});
+  const TableHead({
+    super.key,
+    required this.child,
+    this.sort,
+    this.padding = defaultPadding,
+  });
+
+  /// Upstream's `px-3`.
+  static const EdgeInsetsGeometry defaultPadding = EdgeInsets.symmetric(
+    horizontal: Spacing.d12,
+  );
 
   final Widget child;
 
   /// Marks the column sorted (upstream `aria-sort`).
   final TableSort? sort;
+
+  /// The room round the title, for a head that overrides upstream's
+  /// `px-3`.
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +58,7 @@ class TableHead extends StatelessWidget {
     return Semantics(
       header: true,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: Spacing.d12),
+        padding: padding,
         child: TableNoWrap(
           child: DefaultTextStyle.merge(
             style: style,

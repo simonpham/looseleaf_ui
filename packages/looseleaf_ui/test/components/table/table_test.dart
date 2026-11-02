@@ -371,4 +371,48 @@ void main() {
     );
     expect(slip.color, colors.card);
   });
+
+  testWidgets('a cell and a head take their own padding', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 360,
+          child: InkTable(
+            header: TableHeader(
+              rows: [
+                InkTableRow(
+                  cells: [
+                    TableHead(
+                      padding: EdgeInsets.symmetric(horizontal: Spacing.d4),
+                      child: Text('Mail'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            body: TableBody(
+              rows: [
+                InkTableRow(
+                  cells: [
+                    InkTableCell(
+                      padding: EdgeInsets.all(Spacing.d4),
+                      child: Text('On'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    Padding paddingOf(String text) => tester.widget<Padding>(
+      find.ancestor(of: find.text(text), matching: find.byType(Padding)).first,
+    );
+    expect(
+      paddingOf('Mail').padding,
+      const EdgeInsets.symmetric(horizontal: Spacing.d4),
+    );
+    expect(paddingOf('On').padding, const EdgeInsets.all(Spacing.d4));
+  });
 }
