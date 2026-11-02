@@ -109,6 +109,50 @@ void main() {
     handle.dispose();
   });
 
+  testWidgets('a Button built by the trigger reports expanded on its node', (
+    tester,
+  ) async {
+    final handle = tester.ensureSemantics();
+    await tester.pumpWidget(
+      componentHost(
+        Collapsible(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CollapsibleTrigger.builder(
+                builder: (context, collapsible) => Button(
+                  onPressed: collapsible.toggle,
+                  child: const Text('Toggle'),
+                ),
+              ),
+              const CollapsibleContent(child: Text('Hidden')),
+            ],
+          ),
+        ),
+      ),
+    );
+    Matcher button({required bool expanded}) => matchesSemantics(
+      label: 'Toggle',
+      isButton: true,
+      hasExpandedState: true,
+      isExpanded: expanded,
+      hasEnabledState: true,
+      isEnabled: true,
+      isFocusable: true,
+      hasTapAction: true,
+      hasFocusAction: true,
+    );
+    expect(
+      tester.getSemantics(find.byType(Button)),
+      button(expanded: false),
+    );
+    await tester.tap(find.byType(Button));
+    await tester.pumpAndSettle();
+    expect(find.text('Hidden'), findsOneWidget);
+    expect(tester.getSemantics(find.byType(Button)), button(expanded: true));
+    handle.dispose();
+  });
+
   testWidgets('a bracket draws on once the user opens it', (tester) async {
     await tester.pumpWidget(
       componentHost(

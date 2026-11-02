@@ -10,4 +10,5 @@ export 'package:looseleaf_ui/src/components/foundation/ink_mark_surface.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_mark_wipe.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_roving_focus.dart';
 export 'package:looseleaf_ui/src/components/foundation/ink_seed.dart';
+export 'package:looseleaf_ui/src/components/foundation/ink_trigger_semantics.dart';
 export 'package:looseleaf_ui/src/components/foundation/paper_ink.dart';

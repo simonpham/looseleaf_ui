@@ -102,6 +102,7 @@ class _ButtonState extends State<Button> with InkSeed {
     return Semantics(
       container: true,
       button: true,
+      expanded: InkTriggerSemantics.maybeOf(context)?.expanded,
       enabled: !widget.disabled,
       label: widget.semanticLabel,
       child: InkInteraction(
