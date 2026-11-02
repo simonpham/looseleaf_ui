@@ -6,7 +6,7 @@ const List<GuideStep> guideSteps = [
   GuideStep(
     title: 'Requirements',
     paragraphs: [
-      'Dart 3.13 or newer and Flutter 3.47 or newer. Nothing else: no Material, no Cupertino, no platform plugins.',
+      'Dart 3.8 or newer and Flutter 3.32 or newer. Nothing else: no Material, no Cupertino, no platform plugins.',
       'Every widget works on every platform Flutter draws on: iOS, Android, macOS, Windows, Linux and the web.',
     ],
   ),
