@@ -26,7 +26,10 @@ export 'package:gallery/features/components/examples/chart/chart_empty_and_loadi
 export 'package:gallery/features/components/examples/chart/chart_examples.dart';
 export 'package:gallery/features/components/examples/chart/chart_grouped_stacked_horizontal_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_heatmap_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_legend_keys_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_legend_static_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_legend_toggle_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_legend_top_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_line_chart_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_line_default_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_line_dots_custom_example.dart';
@@ -61,5 +64,15 @@ export 'package:gallery/features/components/examples/chart/chart_scatter_chart_e
 export 'package:gallery/features/components/examples/chart/chart_sparklines_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_streaming_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_tally_chart_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_advanced_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_default_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_formatter_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_icons_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_indicator_dashed_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_indicator_line_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_indicator_none_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_label_custom_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_label_formatter_example.dart';
+export 'package:gallery/features/components/examples/chart/chart_tooltip_label_none_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_tooltip_variants_example.dart';
 export 'package:gallery/features/components/examples/chart/chart_trend_footer.dart';

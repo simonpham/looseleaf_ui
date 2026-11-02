@@ -70,7 +70,7 @@ class ChartTooltipVariantsExample extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '$value visits',
+                        '${jsString(value)} visits',
                         style: theme.typography.face(
                           KevinSansFace.script,
                           cssSize: 18,
