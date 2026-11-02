@@ -33,6 +33,7 @@ export 'package:gallery/features/components/examples/empty/empty.dart';
 export 'package:gallery/features/components/examples/envelope/envelope.dart';
 export 'package:gallery/features/components/examples/field/field.dart';
 export 'package:gallery/features/components/examples/folder/folder.dart';
+export 'package:gallery/features/components/examples/form/form.dart';
 export 'package:gallery/features/components/examples/highlight/highlight.dart';
 export 'package:gallery/features/components/examples/hover_card/hover_card.dart';
 export 'package:gallery/features/components/examples/icon/icon.dart';
