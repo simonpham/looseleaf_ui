@@ -94,6 +94,7 @@ export 'package:gallery/features/components/examples/sticker_sheet/sticker_sheet
 export 'package:gallery/features/components/examples/sticky_note/sticky_note.dart';
 export 'package:gallery/features/components/examples/strike/strike.dart';
 export 'package:gallery/features/components/examples/switch/switch.dart';
+export 'package:gallery/features/components/examples/table/table.dart';
 export 'package:gallery/features/components/examples/tabs/tabs.dart';
 export 'package:gallery/features/components/examples/textarea/textarea.dart';
 export 'package:gallery/features/components/examples/ticket/ticket.dart';

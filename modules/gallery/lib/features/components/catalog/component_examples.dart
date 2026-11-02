@@ -100,6 +100,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'sticky-note': stickyNoteExamples,
   'strike': strikeExamples,
   'switch': switchExamples,
+  'table': tableExamples,
   'tabs': tabsExamples,
   'textarea': textareaExamples,
   'ticket': ticketExamples,
