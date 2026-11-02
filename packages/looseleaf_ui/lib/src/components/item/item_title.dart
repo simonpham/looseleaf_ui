@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// An [InkItem]'s title: bold, 16 px, set snug; [trailing] (a badge) sits
-/// 8 px after it.
+/// 8 px after it, or drops under it when the row is too narrow for both.
 ///
 /// Mirrors `ItemTitle` in upstream `src/components/ui/item.tsx`
 /// (`text-base leading-snug font-bold`).
@@ -25,14 +25,15 @@ class ItemTitle extends StatelessWidget {
         cssLineHeight: 1.375,
         fontWeight: FontWeight.w700,
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        spacing: Spacing.d8,
-        children: [
-          Flexible(child: child),
-          ?trailing,
-        ],
-      ),
+      child: switch (trailing) {
+        null => child,
+        final end => Wrap(
+          spacing: Spacing.d8,
+          runSpacing: Spacing.d4,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [child, end],
+        ),
+      },
     );
   }
 }

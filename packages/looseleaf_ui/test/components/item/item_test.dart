@@ -182,4 +182,32 @@ void main() {
     expect(ItemFrame.all, hasLength(3));
     expect(ItemFrame.of('a'), same(ItemFrame.of('a')));
   });
+
+  testWidgets('a title badge sits beside it, or under it when narrow', (
+    tester,
+  ) async {
+    Widget title(double width) => componentHost(
+      SizedBox(
+        width: width,
+        child: const ItemTitle(
+          Text('Proofs are back'),
+          trailing: Badge(size: BadgeSize.sm, child: Text('New')),
+        ),
+      ),
+    );
+    await tester.pumpWidget(title(400));
+    expect(
+      tester.getCenter(find.text('New')).dy,
+      moreOrLessEquals(
+        tester.getCenter(find.text('Proofs are back')).dy,
+        epsilon: 2,
+      ),
+    );
+    await tester.pumpWidget(title(120));
+    expect(tester.takeException(), isNull);
+    expect(
+      tester.getTopLeft(find.text('New')).dy,
+      greaterThan(tester.getBottomLeft(find.text('Proofs are back')).dy),
+    );
+  });
 }
