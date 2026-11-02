@@ -5,6 +5,7 @@ export 'package:gallery/features/blocks/blocks/kanban_board/kanban_board.dart';
 export 'package:gallery/features/blocks/blocks/login_01/login_01.dart';
 export 'package:gallery/features/blocks/blocks/login_02/login_02.dart';
 export 'package:gallery/features/blocks/blocks/login_03/login_03.dart';
+export 'package:gallery/features/blocks/blocks/logos_01/logos_01.dart';
 export 'package:gallery/features/blocks/blocks/profile_page/profile_page.dart';
 export 'package:gallery/features/blocks/blocks/settings_appearance/settings_appearance.dart';
 export 'package:gallery/features/blocks/blocks/signup_01/signup_01.dart';
