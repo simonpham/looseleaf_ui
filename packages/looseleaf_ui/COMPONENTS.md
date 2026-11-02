@@ -45,6 +45,7 @@ Check a new component with `tools/names/check_clashes.sh`: it lists every public
 | `ByDensity<T>` | A value per density: upstream's `h-9 compact:h-8 calm:h-7`. |
 | `InkContent` | Styles a content slot: text style plus `IconTheme` size and color (upstream `IconSizeContext`, `[&_svg]:size-4`). |
 | `InkHitArea` | Grows the hit area without moving layout (upstream `after:-inset-*`). Keep it outermost: any box around it (`Semantics`, `MouseRegion`) rejects taps outside its own size first. |
+| `InkOverflowScroll` | A row that scrolls sideways once it is wider than its parent (tabs, toggle groups), clipping only along the row so ink bleeds above and below, and keeping the focused item in view. |
 
 Theme pieces you will use: `LooseleafTheme.of(context)` (colors, typography, density), `theme.typography.face(KevinSansFace.hand, cssSize:, cssLineHeight:, fontWeight:)`, `theme.typography.label()`, `Spacing`, `InkMotion` (durations, curves, `InkMotion.of(context, duration)` for reduced motion).
 
