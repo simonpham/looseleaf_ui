@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 
-import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
@@ -138,11 +137,7 @@ class _StickerSheetState extends State<StickerSheet> with InkSeed {
     _say('${item.label} stuck back on.');
   }
 
-  void _say(String message) => SemanticsService.sendAnnouncement(
-    View.of(context),
-    message,
-    Directionality.of(context),
-  );
+  void _say(String message) => inkAnnounce(context, message);
 
   int get _left {
     final here = {

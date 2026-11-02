@@ -1,18 +1,19 @@
 import 'dart:async';
 
-import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/combobox/combobox_controller.dart';
 import 'package:looseleaf_ui/src/components/combobox/combobox_filter.dart';
 import 'package:looseleaf_ui/src/components/combobox/combobox_item_data.dart';
 import 'package:looseleaf_ui/src/components/combobox/combobox_scope.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 
 /// Builds the polite status a [Combobox.multiple] speaks when values are
 /// [added] or [removed] (labels).
-typedef ComboboxAnnounce = String Function(
-  List<String> added,
-  List<String> removed,
-);
+typedef ComboboxAnnounce =
+    String Function(
+      List<String> added,
+      List<String> removed,
+    );
 
 /// A searchable choice, shadcn's combobox: a [ComboboxTrigger] that opens a
 /// popup with a search box and a list, a typing field ([ComboboxInput] on
@@ -262,11 +263,7 @@ class _ComboboxState extends State<Combobox> {
           if (added.isNotEmpty) '${added.join(', ')} selected',
           if (removed.isNotEmpty) '${removed.join(', ')} removed',
         ].join('. ');
-    SemanticsService.sendAnnouncement(
-      View.of(context),
-      message,
-      Directionality.of(context),
-    );
+    inkAnnounce(context, message);
   }
 
   void _onChange() => setState(() => _revision++);

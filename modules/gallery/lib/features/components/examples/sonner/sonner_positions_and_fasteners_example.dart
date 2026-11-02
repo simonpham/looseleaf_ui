@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:gallery/features/kit/ui/widgets/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 const _positions = [
@@ -43,9 +44,8 @@ class _SonnerPositionsAndFastenersExampleState
   }
 
   @override
-  Widget build(BuildContext context) => OverlayPortal(
+  Widget build(BuildContext context) => RootOverlayPortal(
     controller: _portal,
-    overlayLocation: OverlayChildLocation.rootOverlay,
     overlayChildBuilder: (context) => Toaster(
       controller: _toasts,
       position: _position,

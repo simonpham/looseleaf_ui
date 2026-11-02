@@ -252,7 +252,7 @@ class _SignaturePadState extends State<SignaturePad> with InkSeed {
     required: widget.required,
     message: widget.message,
     disabled: widget.disabled,
-    onReset: _reset,
+    onFormReset: _reset,
     onInvalid: _focusEmptyField,
     builder: (field) => _scoped(field),
   );
@@ -329,7 +329,7 @@ class _SignatureField extends FormField<String> {
     required bool required,
     required String message,
     required bool disabled,
-    required VoidCallback super.onReset,
+    required this.onFormReset,
     required this.onInvalid,
     required super.builder,
   }) : super(
@@ -341,6 +341,7 @@ class _SignatureField extends FormField<String> {
        );
 
   final VoidCallback onInvalid;
+  final VoidCallback onFormReset;
 
   @override
   FormFieldState<String> createState() => _SignatureFieldState();
@@ -360,5 +361,11 @@ class _SignatureFieldState extends FormFieldState<String> {
     final valid = super.validate();
     if (!valid) _field.onInvalid();
     return valid;
+  }
+
+  @override
+  void reset() {
+    super.reset();
+    _field.onFormReset();
   }
 }

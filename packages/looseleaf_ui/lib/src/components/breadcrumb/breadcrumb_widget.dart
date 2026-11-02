@@ -1,5 +1,3 @@
-import 'dart:ui' show SemanticsRole;
-
 import 'package:flutter/widgets.dart';
 
 /// Where you are: a trail of links to the pages above this one. Put a
@@ -27,7 +25,6 @@ class Breadcrumb extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Semantics(
     container: true,
-    role: SemanticsRole.navigation,
     label: label,
     child: child,
   );

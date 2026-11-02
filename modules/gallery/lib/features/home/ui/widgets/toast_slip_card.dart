@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:gallery/features/kit/ui/widgets/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// A slip with three buttons that toss a success, an error and an undoable
@@ -36,9 +37,8 @@ class _ToastSlipCardState extends State<ToastSlipCard> {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return OverlayPortal(
+    return RootOverlayPortal(
       controller: _portal,
-      overlayLocation: OverlayChildLocation.rootOverlay,
       overlayChildBuilder: (context) => Toaster(
         controller: _toasts,
         closeButton: true,

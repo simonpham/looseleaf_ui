@@ -9,4 +9,5 @@ export 'package:gallery/features/kit/ui/widgets/doc_pager.dart';
 export 'package:gallery/features/kit/ui/widgets/doc_pressable.dart';
 export 'package:gallery/features/kit/ui/widgets/doc_section.dart';
 export 'package:gallery/features/kit/ui/widgets/doc_tile.dart';
+export 'package:gallery/features/kit/ui/widgets/root_overlay_portal.dart';
 export 'package:gallery/features/kit/ui/widgets/tile_grid.dart';

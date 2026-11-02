@@ -1,5 +1,3 @@
-import 'dart:ui' show SemanticsRole;
-
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/form/form.dart';
 
@@ -55,7 +53,6 @@ class InkForm extends StatelessWidget {
     controller: controller,
     child: Semantics(
       container: true,
-      role: SemanticsRole.form,
       label: semanticLabel,
       child: child,
     ),

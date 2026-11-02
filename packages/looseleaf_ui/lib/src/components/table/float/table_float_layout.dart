@@ -173,7 +173,7 @@ class RenderTableFloatLayout extends RenderBox
   void applyPaintTransform(RenderBox child, Matrix4 transform) {
     final data = child.parentData as TableFloatParentData;
     final at = data.offset + _shift(child);
-    transform.translateByDouble(at.dx, at.dy, 0, 1);
+    transform.multiply(Matrix4.translationValues(at.dx, at.dy, 0));
   }
 
   @override

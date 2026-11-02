@@ -43,9 +43,13 @@ abstract final class ComponentCatalog {
     return (previous, components.elementAtOrNull(index + 1));
   }
 
-  static List<ComponentDoc> _inCategory(ComponentCategory category) => [
-    for (final slug in componentExamples.keys)
-      if (allComponentDocs[slug] case final doc? when doc.category == category)
-        doc,
-  ]..sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+  static List<ComponentDoc> _inCategory(ComponentCategory category) =>
+      componentExamples.keys
+          .map((slug) => allComponentDocs[slug])
+          .nonNulls
+          .where((doc) => doc.category == category)
+          .toList()
+        ..sort(
+          (a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()),
+        );
 }

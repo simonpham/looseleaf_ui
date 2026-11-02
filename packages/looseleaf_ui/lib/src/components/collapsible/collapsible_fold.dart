@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 
@@ -52,9 +54,13 @@ class _CollapsibleFoldState extends State<CollapsibleFold>
   Widget build(BuildContext context) {
     if (_fold.isDismissed) return const SizedBox(width: double.infinity);
     return ClipRect(
-      child: SizeTransition(
-        sizeFactor: _curve,
-        alignment: Alignment.topCenter,
+      child: AnimatedBuilder(
+        animation: _curve,
+        builder: (context, child) => Align(
+          alignment: Alignment.topCenter,
+          heightFactor: math.max(_curve.value, 0),
+          child: child,
+        ),
         child: widget.child,
       ),
     );

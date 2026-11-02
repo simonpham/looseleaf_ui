@@ -168,8 +168,8 @@ class _FlipCardState extends State<FlipCard> with TickerProviderStateMixin {
     final scale = 1 + FlipCard.liftScale * lift;
     final matrix = Matrix4.identity()
       ..setEntry(3, 2, 1 / FlipCard.perspective)
-      ..translateByDouble(0, -FlipCard.liftHeight * lift, 0, 1)
-      ..scaleByDouble(scale, scale, 1, 1);
+      ..multiply(Matrix4.translationValues(0, -FlipCard.liftHeight * lift, 0))
+      ..multiply(Matrix4.diagonal3Values(scale, scale, 1));
     switch (widget.axis) {
       case FlipCardAxis.x:
         matrix.rotateX(angle);

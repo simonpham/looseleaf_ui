@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/input/input.dart';
 import 'package:looseleaf_ui/src/components/mascot/mascot.dart';
 import 'package:looseleaf_ui/src/components/overlay/overlay.dart';
@@ -228,13 +228,7 @@ class _StickerPickerContentState extends State<StickerPickerContent> {
     };
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
-      unawaited(
-        SemanticsService.sendAnnouncement(
-          View.of(context),
-          message,
-          Directionality.of(context),
-        ),
-      );
+      unawaited(inkAnnounce(context, message));
     });
   }
 

@@ -197,23 +197,22 @@ class _StickerSheetItemState extends State<StickerSheetItem> {
     final flight = switch ((peeled, _dropped)) {
       (true, false) =>
         Matrix4.identity()
-          ..translateByDouble(Spacing.d16, -Spacing.d24, 0, 1)
+          ..multiply(Matrix4.translationValues(Spacing.d16, -Spacing.d24, 0))
           ..rotateZ(-12 * math.pi / 180)
-          ..scaleByDouble(1.1, 1.1, 1, 1),
+          ..multiply(Matrix4.diagonal3Values(1.1, 1.1, 1)),
       _ => Matrix4.identity(),
     };
     final held = switch ((dragging, hovered)) {
       (true, _) =>
         Matrix4.identity()
-          ..translateByDouble(_carry.dx, _carry.dy, 0, 1)
+          ..multiply(Matrix4.translationValues(_carry.dx, _carry.dy, 0))
           ..rotateZ((_carry.dx * 0.06).clamp(-14, 14) * math.pi / 180)
-          ..scaleByDouble(1.1, 1.1, 1, 1),
+          ..multiply(Matrix4.diagonal3Values(1.1, 1.1, 1)),
       (false, true) =>
         Matrix4.identity()
           ..rotateZ(-2 * math.pi / 180)
-          ..scaleByDouble(1.04, 1.04, 1, 1),
-      (false, false) =>
-        Matrix4.identity()..translateByDouble(_carry.dx, _carry.dy, 0, 1),
+          ..multiply(Matrix4.diagonal3Values(1.04, 1.04, 1)),
+      (false, false) => Matrix4.translationValues(_carry.dx, _carry.dy, 0),
     };
     final faces = Stack(
       clipBehavior: Clip.none,

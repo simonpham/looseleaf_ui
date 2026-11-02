@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/sticker_board/sticker_board.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
@@ -192,13 +192,7 @@ class StickerBoardState extends State<StickerBoard> {
     _said?.cancel();
     _said = Timer(const Duration(milliseconds: 300), () {
       if (!mounted) return;
-      unawaited(
-        SemanticsService.sendAnnouncement(
-          View.of(context),
-          message,
-          Directionality.of(context),
-        ),
-      );
+      unawaited(inkAnnounce(context, message));
     });
   }
 

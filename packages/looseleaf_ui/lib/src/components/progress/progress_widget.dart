@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui' show SemanticsRole;
 
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
@@ -170,10 +169,7 @@ class _ProgressState extends State<Progress>
     }
     return Semantics(
       container: true,
-      role: SemanticsRole.progressBar,
       label: label,
-      minValue: '0',
-      maxValue: _format(_max),
       value: _format(clamped),
       child: child,
     );

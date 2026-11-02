@@ -103,7 +103,7 @@ class RenderSidebarDock extends RenderBox
 
   @override
   void applyPaintTransform(RenderBox child, Matrix4 transform) {
-    transform.translateByDouble(_offset, 0, 0, 1);
+    transform.multiply(Matrix4.translationValues(_offset, 0, 0));
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
+import 'package:gallery/features/kit/ui/widgets/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// Lays a toaster for [controller] over the whole window, like the
@@ -37,9 +38,8 @@ class _FormValuesToasterState extends State<FormValuesToaster> {
   }
 
   @override
-  Widget build(BuildContext context) => OverlayPortal(
+  Widget build(BuildContext context) => RootOverlayPortal(
     controller: _portal,
-    overlayLocation: OverlayChildLocation.rootOverlay,
     overlayChildBuilder: (context) => Toaster(
       controller: widget.controller,
       child: const SizedBox.expand(),

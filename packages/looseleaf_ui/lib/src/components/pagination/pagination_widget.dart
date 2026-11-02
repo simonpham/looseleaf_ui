@@ -1,5 +1,3 @@
-import 'dart:ui' show SemanticsRole;
-
 import 'package:flutter/widgets.dart';
 
 /// Page numbers to move through a long list: put a [PaginationContent] in
@@ -29,7 +27,6 @@ class Pagination extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Semantics(
     container: true,
-    role: SemanticsRole.navigation,
     label: label,
     child: Center(child: child),
   );

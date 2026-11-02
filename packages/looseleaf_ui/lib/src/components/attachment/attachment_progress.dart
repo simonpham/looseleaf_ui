@@ -1,5 +1,3 @@
-import 'dart:ui' show SemanticsRole;
-
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/attachment/attachment_metrics.dart';
@@ -118,10 +116,7 @@ class _AttachmentProgressState extends State<AttachmentProgress> with InkSeed {
     }
     return Semantics(
       container: true,
-      role: SemanticsRole.progressBar,
       label: widget.semanticLabel,
-      minValue: '0',
-      maxValue: '${widget.max.round()}',
       value: '${value.round()}',
       child: child,
     );

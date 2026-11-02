@@ -60,10 +60,11 @@ class AccordionTriggers {
 
   List<FocusNode> get _ordered {
     final indices = _nodes.keys.toList()..sort();
-    return [
-      for (final index in indices)
-        if (_nodes[index] case final node? when node.canRequestFocus) node,
-    ];
+    return indices
+        .map((index) => _nodes[index])
+        .nonNulls
+        .where((node) => node.canRequestFocus)
+        .toList();
   }
 
   /// Moves focus [by] triggers from [from]; loops at the ends.
