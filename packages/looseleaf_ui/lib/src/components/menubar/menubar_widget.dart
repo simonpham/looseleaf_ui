@@ -10,7 +10,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// An application's menu bar: a shaded strip in an inked box with a
 /// ruler's ticks along its bottom (a plain pencil box when calm), holding
-/// [MenubarMenu]s, 40 px tall (36 compact, 32 calm).
+/// [MenubarMenu]s, 40 px tall (36 compact, 32 calm). When the bar is
+/// narrower than its titles, they scroll sideways.
 ///
 /// The bar is one Tab stop; Left and Right (mirrored in right-to-left)
 /// move between titles; Enter, Space or Down open a menu with its first row
@@ -148,12 +149,15 @@ class MenubarState extends State<Menubar> with InkSeed {
             height: Menubar.height.of(context),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: Spacing.d8),
-              child: InkRovingFocus(
-                axis: Axis.horizontal,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: Spacing.d4,
-                  children: widget.children,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: InkRovingFocus(
+                  axis: Axis.horizontal,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    spacing: Spacing.d4,
+                    children: widget.children,
+                  ),
                 ),
               ),
             ),

@@ -189,4 +189,20 @@ void main() {
     );
     expect(tester.getSize(find.byType(Menubar)).height, Spacing.d32);
   });
+
+  testWidgets('titles scroll sideways in a narrow bar', (tester) async {
+    await tester.pumpWidget(
+      overlayHost(Center(child: SizedBox(width: 120, child: _bar()))),
+    );
+    expect(tester.takeException(), isNull);
+    expect(tester.getSize(find.byType(Menubar)).width, 120);
+    final scrollable = find.descendant(
+      of: find.byType(Menubar),
+      matching: find.byType(Scrollable),
+    );
+    expect(
+      tester.state<ScrollableState>(scrollable).position.maxScrollExtent,
+      greaterThan(0),
+    );
+  });
 }
