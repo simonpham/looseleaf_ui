@@ -66,72 +66,70 @@ class _StickerPickerCommentComposerExampleState
   }
 
   @override
-  Widget build(BuildContext context) => Center(
-    child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: _maxWidth),
-      child: Card(
-        gap: Spacing.d12,
-        padding: const EdgeInsets.all(Spacing.d16),
-        children: [
-          Semantics(
-            label: 'Comments',
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              spacing: Spacing.d12,
-              children: [for (final post in _posts) _Comment(post: post)],
-            ),
+  Widget build(BuildContext context) => ConstrainedBox(
+    constraints: const BoxConstraints(maxWidth: _maxWidth),
+    child: Card(
+      gap: Spacing.d12,
+      padding: const EdgeInsets.all(Spacing.d16),
+      children: [
+        Semantics(
+          label: 'Comments',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: Spacing.d12,
+            children: [for (final post in _posts) _Comment(post: post)],
           ),
-          Textarea(
-            controller: _text,
-            placeholder: 'Write a comment',
-            semanticLabel: 'Comment',
-          ),
-          Row(
-            spacing: Spacing.d8,
-            children: [
-              StickerPicker(
-                value: _sticker,
-                recent: _recent,
-                onSelect: (sticker) => _choose(sticker.name),
-                content: const StickerPickerContent(),
-                child: StickerPickerTrigger.builder(
-                  builder: (context, popover) => Button(
-                    variant: ButtonVariant.ghost,
-                    size: ButtonSize.icon,
-                    semanticLabel: 'Add a sticker',
-                    onPressed: popover.toggle,
-                    child: const InkIcon('sparkles'),
-                  ),
+        ),
+        Textarea(
+          controller: _text,
+          placeholder: 'Write a comment',
+          semanticLabel: 'Comment',
+        ),
+        Row(
+          spacing: Spacing.d8,
+          children: [
+            StickerPicker(
+              value: _sticker,
+              recent: _recent,
+              onSelect: (sticker) => _choose(sticker.name),
+              content: const StickerPickerContent(),
+              child: StickerPickerTrigger.builder(
+                builder: (context, popover) => Button(
+                  variant: ButtonVariant.ghost,
+                  size: ButtonSize.icon,
+                  semanticLabel: 'Add a sticker',
+                  onPressed: popover.toggle,
+                  child: const InkIcon('sparkles'),
                 ),
               ),
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: switch (_sticker) {
-                    final sticker? => Semantics(
-                      button: true,
-                      label: 'Remove the sticker',
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: GestureDetector(
-                          onTap: () => setState(() => _sticker = null),
-                          child: Sticker(sticker, size: Spacing.d40),
-                        ),
+            ),
+            Expanded(
+              child: Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: switch (_sticker) {
+                  final sticker? => Semantics(
+                    button: true,
+                    label: 'Remove the sticker',
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () => setState(() => _sticker = null),
+                        child: Sticker(sticker, size: Spacing.d40),
                       ),
                     ),
-                    null => const SizedBox.shrink(),
-                  },
-                ),
+                  ),
+                  null => const SizedBox.shrink(),
+                },
               ),
-              Button(
-                onPressed: _post,
-                disabled: !_canPost,
-                child: const Text('Post'),
-              ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            Button(
+              onPressed: _post,
+              disabled: !_canPost,
+              child: const Text('Post'),
+            ),
+          ],
+        ),
+      ],
     ),
   );
 }
