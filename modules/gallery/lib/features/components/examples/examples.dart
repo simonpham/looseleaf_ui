@@ -15,6 +15,7 @@ export 'package:gallery/features/components/examples/mascot/mascot.dart';
 export 'package:gallery/features/components/examples/seal/seal.dart';
 export 'package:gallery/features/components/examples/separator/separator.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar.dart';
+export 'package:gallery/features/components/examples/slider/slider.dart';
 export 'package:gallery/features/components/examples/squiggle/squiggle.dart';
 export 'package:gallery/features/components/examples/stamp/stamp.dart';
 export 'package:gallery/features/components/examples/sticker_sheet/sticker_sheet.dart';

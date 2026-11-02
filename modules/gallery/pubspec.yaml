@@ -43,6 +43,7 @@ flutter:
     - lib/features/components/examples/seal/
     - lib/features/components/examples/separator/
     - lib/features/components/examples/sidebar/
+    - lib/features/components/examples/slider/
     - lib/features/components/examples/squiggle/
     - lib/features/components/examples/stamp/
     - lib/features/components/examples/sticker_sheet/

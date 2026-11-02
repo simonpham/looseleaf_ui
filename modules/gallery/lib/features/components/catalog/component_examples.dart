@@ -21,6 +21,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'seal': sealExamples,
   'separator': separatorExamples,
   'sidebar': sidebarExamples,
+  'slider': sliderExamples,
   'squiggle': squiggleExamples,
   'stamp': stampExamples,
   'sticker-sheet': stickerSheetExamples,
