@@ -44,6 +44,7 @@ class _PopoverDimensionFieldState extends State<PopoverDimensionField> {
           controller: _controller,
           focusNode: _focusNode,
           semanticLabel: widget.label,
+          height: Spacing.d32,
         ),
       ),
     ],

@@ -46,18 +46,10 @@ class KbdShortcutSheetExample extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   spacing: Spacing.d16,
                   children: [
-                    const Stack(
-                      alignment: AlignmentDirectional.centerEnd,
-                      children: [
-                        Input(
-                          placeholder: 'Search shortcuts',
-                          semanticLabel: 'Search shortcuts',
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.only(end: Spacing.d12),
-                          child: IgnorePointer(child: Kbd(child: Text('/'))),
-                        ),
-                      ],
+                    const Input(
+                      placeholder: 'Search shortcuts',
+                      semanticLabel: 'Search shortcuts',
+                      suffix: Kbd(child: Text('/')),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,

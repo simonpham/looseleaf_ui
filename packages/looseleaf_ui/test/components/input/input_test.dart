@@ -82,6 +82,45 @@ void main() {
     );
   });
 
+  testWidgets('height replaces the density height', (tester) async {
+    await tester.pumpWidget(_host(const Input(height: Spacing.d32)));
+    expect(tester.getSize(find.byType(Input)).height, Spacing.d32);
+  });
+
+  testWidgets('a prefix sits at start-3 and the text starts at ps-9', (
+    tester,
+  ) async {
+    const icon = SizedBox.square(key: ValueKey('icon'), dimension: Spacing.d16);
+    await tester.pumpWidget(_host(const Input(prefix: icon)));
+    final box = tester.getTopLeft(find.byType(Input));
+    expect(
+      tester.getTopLeft(find.byKey(const ValueKey('icon'))).dx - box.dx,
+      12,
+    );
+    expect(
+      tester.getTopLeft(find.byType(EditableText)).dx - box.dx,
+      Spacing.d36,
+    );
+  });
+
+  testWidgets('a suffix sits at end-3 after the text', (tester) async {
+    const hint = SizedBox(
+      key: ValueKey('hint'),
+      width: Spacing.d24,
+      height: Spacing.d16,
+    );
+    await tester.pumpWidget(_host(const Input(suffix: hint)));
+    final box = tester.getTopRight(find.byType(Input));
+    expect(
+      box.dx - tester.getTopRight(find.byKey(const ValueKey('hint'))).dx,
+      12,
+    );
+    expect(
+      tester.getTopRight(find.byType(EditableText)).dx,
+      tester.getTopLeft(find.byKey(const ValueKey('hint'))).dx - Spacing.d8,
+    );
+  });
+
   testWidgets('height follows the density', (tester) async {
     for (final (density, height) in [
       (LooseleafDensity.comfortable, Spacing.d36),

@@ -40,6 +40,9 @@ class Input extends StatefulWidget {
     this.onChanged,
     this.onSubmitted,
     this.onEditingComplete,
+    this.height,
+    this.prefix,
+    this.suffix,
     this.seed,
     this.semanticLabel,
     this.forcedStates = const {},
@@ -77,6 +80,18 @@ class Input extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final VoidCallback? onEditingComplete;
+
+  /// The field's height, replacing `h-9 compact:h-8 calm:h-7`, like
+  /// upstream's `h-*` classes (`h-8` in the popover demo).
+  final double? height;
+
+  /// A muted icon inside the start of the box, before the text (upstream
+  /// puts an absolute icon at `start-3` and pads the text with `ps-9`).
+  final Widget? prefix;
+
+  /// A widget inside the end of the box, after the text, such as a
+  /// [Kbd] hint (upstream: an absolute `end-3` slot and `pe-*`).
+  final Widget? suffix;
 
   /// Pins the hand: the same seed always draws the same box.
   final String? seed;
@@ -138,6 +153,36 @@ class _InputState extends State<Input> with InkSeed {
       if (enabled && _hovered) InkState.hovered,
       if (enabled && _focusNode.hasFocus) InkState.focused,
     };
+    final control = InputControl(
+      controller: widget.controller,
+      focusNode: _focusNode,
+      placeholder: widget.placeholder,
+      disabled: widget.disabled,
+      readOnly: widget.readOnly,
+      obscureText: widget.obscureText,
+      autofocus: widget.autofocus,
+      keyboardType: widget.keyboardType,
+      textInputAction: widget.textInputAction,
+      textCapitalization: widget.textCapitalization,
+      textAlign: widget.textAlign,
+      inputFormatters: widget.inputFormatters,
+      autofillHints: widget.autofillHints,
+      onChanged: widget.onChanged,
+      onSubmitted: widget.onSubmitted,
+      onEditingComplete: widget.onEditingComplete,
+      semanticLabel: widget.semanticLabel,
+      padding: InputMetrics.padding.copyWith(
+        start: switch (widget.prefix) {
+          null => InputMetrics.padding.start,
+          _ => Spacing.d8,
+        },
+        end: switch ((widget.suffix, widget.invalid)) {
+          (null, true) => InputMetrics.invalidEnd,
+          (null, false) => InputMetrics.padding.end,
+          _ => Spacing.d8,
+        },
+      ),
+    );
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
@@ -149,35 +194,53 @@ class _InputState extends State<Input> with InkSeed {
           states: states,
           still: true,
           child: SizedBox(
-            height: InputMetrics.height.resolve(theme.density),
-            child: InputControl(
-              controller: widget.controller,
-              focusNode: _focusNode,
-              placeholder: widget.placeholder,
-              disabled: widget.disabled,
-              readOnly: widget.readOnly,
-              obscureText: widget.obscureText,
-              autofocus: widget.autofocus,
-              keyboardType: widget.keyboardType,
-              textInputAction: widget.textInputAction,
-              textCapitalization: widget.textCapitalization,
-              textAlign: widget.textAlign,
-              inputFormatters: widget.inputFormatters,
-              autofillHints: widget.autofillHints,
-              onChanged: widget.onChanged,
-              onSubmitted: widget.onSubmitted,
-              onEditingComplete: widget.onEditingComplete,
-              semanticLabel: widget.semanticLabel,
-              padding: InputMetrics.padding.copyWith(
-                end: switch (widget.invalid) {
-                  true => InputMetrics.invalidEnd,
-                  false => InputMetrics.padding.end,
-                },
-              ),
-            ),
+            height: widget.height ?? InputMetrics.height.resolve(theme.density),
+            child: _slots(theme, control),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _slots(LooseleafThemeData theme, Widget control) {
+    final prefix = widget.prefix;
+    final suffix = widget.suffix;
+    if (prefix == null && suffix == null) return control;
+    final muted = InputMetrics.text(theme, disabled: widget.disabled).copyWith(
+      color: switch (widget.disabled) {
+        true => theme.colors.pencilText,
+        false => theme.colors.inkMuted,
+      },
+    );
+    return Row(
+      children: [
+        if (prefix != null)
+          Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: InputMetrics.slotInset,
+            ),
+            child: InkContent(
+              style: muted,
+              iconSize: Spacing.d16,
+              child: ExcludeSemantics(child: prefix),
+            ),
+          ),
+        Expanded(child: control),
+        if (suffix != null)
+          Padding(
+            padding: EdgeInsetsDirectional.only(
+              end: switch (widget.invalid) {
+                true => InputMetrics.invalidEnd,
+                false => InputMetrics.slotInset,
+              },
+            ),
+            child: InkContent(
+              style: muted,
+              iconSize: Spacing.d16,
+              child: suffix,
+            ),
+          ),
+      ],
     );
   }
 }

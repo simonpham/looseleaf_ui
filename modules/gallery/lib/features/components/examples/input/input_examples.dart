@@ -26,7 +26,7 @@ const inputExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'With an icon',
-    description: 'The pencilled magnifier sits in an InputGroup addon, so the text starts after it.',
+    description: 'The pencilled magnifier is the input\'s `prefix`: it sits at the start of the box and the text starts after it, like the original\'s `ps-9`.',
     layout: ExampleLayout.stack,
     source: 'input/input_search_with_icon_example.dart',
     builder: InputSearchWithIconExample.new,
@@ -64,7 +64,8 @@ const inputExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'With help text',
-    description: 'shadcn\'s input-with-text: a line of muted help under the field.',
+    description:
+        'shadcn\'s input-with-text: a line of muted help under the field.',
     source: 'input/input_with_text_example.dart',
     builder: InputWithTextExample.new,
   ),

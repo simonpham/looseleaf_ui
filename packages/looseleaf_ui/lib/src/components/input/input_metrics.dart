@@ -21,6 +21,9 @@ abstract final class InputMetrics {
   /// `aria-invalid:pe-9`: room for the drawn `!` at the end of the line.
   static const double invalidEnd = Spacing.d36;
 
+  /// `start-3` / `end-3`: where a prefix or suffix sits inside the box.
+  static const double slotInset = Spacing.d12;
+
   /// The field text: `font-hand text-base calm:text-[15px]` in
   /// `--ll-input-ink`, graphite when disabled.
   static TextStyle text(LooseleafThemeData theme, {bool disabled = false}) =>

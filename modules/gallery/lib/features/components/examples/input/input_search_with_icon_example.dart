@@ -9,14 +9,10 @@ class InputSearchWithIconExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ConstrainedBox(
     constraints: const BoxConstraints(maxWidth: _maxWidth),
-    child: const InputGroup(
-      children: [
-        InputGroupAddon(child: InkIcon('search')),
-        InputGroupInput(
-          placeholder: 'Search the notebook',
-          semanticLabel: 'Search the notebook',
-        ),
-      ],
+    child: const Input(
+      prefix: InkIcon('search'),
+      placeholder: 'Search the notebook',
+      semanticLabel: 'Search the notebook',
     ),
   );
 }
