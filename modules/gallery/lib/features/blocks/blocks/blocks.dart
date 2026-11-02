@@ -3,6 +3,7 @@ export 'package:gallery/features/blocks/blocks/chat_app/chat_app.dart';
 export 'package:gallery/features/blocks/blocks/checkout_01/checkout_01.dart';
 export 'package:gallery/features/blocks/blocks/cta_01/cta_01.dart';
 export 'package:gallery/features/blocks/blocks/dashboard_analytics/dashboard_analytics.dart';
+export 'package:gallery/features/blocks/blocks/dashboard_finance/dashboard_finance.dart';
 export 'package:gallery/features/blocks/blocks/empty_inbox/empty_inbox.dart';
 export 'package:gallery/features/blocks/blocks/empty_search/empty_search.dart';
 export 'package:gallery/features/blocks/blocks/error_404/error_404.dart';

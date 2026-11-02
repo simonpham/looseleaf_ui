@@ -28,6 +28,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/dashboard_analytics/dashboard_analytics_block.dart',
     builder: DashboardAnalyticsBlock.new,
   ),
+  'dashboard-finance': GalleryBlock(
+    source: 'blocks/dashboard_finance/dashboard_finance_block.dart',
+    builder: DashboardFinanceBlock.new,
+  ),
   'empty-inbox': GalleryBlock(
     source: 'blocks/empty_inbox/empty_inbox_block.dart',
     builder: EmptyInboxBlock.new,
