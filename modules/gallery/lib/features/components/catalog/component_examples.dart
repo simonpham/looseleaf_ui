@@ -14,6 +14,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'avatar': avatarExamples,
   'badge': badgeExamples,
   'boil': boilExamples,
+  'bookmark': bookmarkExamples,
   'bracket': bracketExamples,
   'breadcrumb': breadcrumbExamples,
   'bubble': bubbleExamples,
