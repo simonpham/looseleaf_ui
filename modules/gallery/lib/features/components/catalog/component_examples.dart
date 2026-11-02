@@ -57,6 +57,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'polaroid': polaroidExamples,
   'popover': popoverExamples,
   'progress': progressExamples,
+  'prompt-input': promptInputExamples,
   'quote': quoteExamples,
   'radio-group': radioGroupExamples,
   'rating': ratingExamples,

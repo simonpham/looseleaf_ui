@@ -79,6 +79,7 @@ flutter:
     - lib/features/components/examples/polaroid/
     - lib/features/components/examples/popover/
     - lib/features/components/examples/progress/
+    - lib/features/components/examples/prompt_input/
     - lib/features/components/examples/quote/
     - lib/features/components/examples/radio_group/
     - lib/features/components/examples/rating/

@@ -51,6 +51,7 @@ export 'package:gallery/features/components/examples/pagination/pagination.dart'
 export 'package:gallery/features/components/examples/polaroid/polaroid.dart';
 export 'package:gallery/features/components/examples/popover/popover.dart';
 export 'package:gallery/features/components/examples/progress/progress.dart';
+export 'package:gallery/features/components/examples/prompt_input/prompt_input.dart';
 export 'package:gallery/features/components/examples/quote/quote.dart';
 export 'package:gallery/features/components/examples/radio_group/radio_group.dart';
 export 'package:gallery/features/components/examples/rating/rating.dart';
