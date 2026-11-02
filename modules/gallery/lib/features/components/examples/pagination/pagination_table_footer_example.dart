@@ -92,29 +92,32 @@ class _PaginationTableFooterExampleState
                   ),
                 ),
               ),
-              Pagination(
-                child: PaginationContent(
-                  children: [
-                    PaginationLink(
-                      semanticLabel: 'Go to previous page',
-                      disabled: _page == 1,
-                      onPressed: () => _go(_page - 1),
-                      child: const InkIcon('chevron-left'),
-                    ),
-                    for (var number = 1; number <= _pages; number++)
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Pagination(
+                  child: PaginationContent(
+                    children: [
                       PaginationLink(
-                        isActive: number == _page,
-                        semanticLabel: 'Page $number',
-                        onPressed: () => _go(number),
-                        child: Text('$number'),
+                        semanticLabel: 'Go to previous page',
+                        disabled: _page == 1,
+                        onPressed: () => _go(_page - 1),
+                        child: const InkIcon('chevron-left'),
                       ),
-                    PaginationLink(
-                      semanticLabel: 'Go to next page',
-                      disabled: _page == _pages,
-                      onPressed: () => _go(_page + 1),
-                      child: const InkIcon('chevron-right'),
-                    ),
-                  ],
+                      for (var number = 1; number <= _pages; number++)
+                        PaginationLink(
+                          isActive: number == _page,
+                          semanticLabel: 'Page $number',
+                          onPressed: () => _go(number),
+                          child: Text('$number'),
+                        ),
+                      PaginationLink(
+                        semanticLabel: 'Go to next page',
+                        disabled: _page == _pages,
+                        onPressed: () => _go(_page + 1),
+                        child: const InkIcon('chevron-right'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

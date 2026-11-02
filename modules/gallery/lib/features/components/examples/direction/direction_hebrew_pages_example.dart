@@ -88,32 +88,35 @@ class DirectionHebrewPagesExample extends StatelessWidget {
                 const CarouselNext(),
               ],
             ),
-            Pagination(
-              label: 'עימוד',
-              child: PaginationContent(
-                children: [
-                  PaginationLink(
-                    size: ButtonSize.regular,
-                    semanticLabel: 'לעמוד הקודם',
-                    leading: const InkIcon('chevron-left'),
-                    onPressed: () {},
-                    child: const Text('הקודם'),
-                  ),
-                  PaginationLink(onPressed: () {}, child: const Text('1')),
-                  PaginationLink(
-                    isActive: true,
-                    onPressed: () {},
-                    child: const Text('2'),
-                  ),
-                  PaginationLink(onPressed: () {}, child: const Text('3')),
-                  PaginationLink(
-                    size: ButtonSize.regular,
-                    semanticLabel: 'לעמוד הבא',
-                    trailing: const InkIcon('chevron-right'),
-                    onPressed: () {},
-                    child: const Text('הבא'),
-                  ),
-                ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Pagination(
+                label: 'עימוד',
+                child: PaginationContent(
+                  children: [
+                    PaginationLink(
+                      size: ButtonSize.regular,
+                      semanticLabel: 'לעמוד הקודם',
+                      leading: const InkIcon('chevron-left'),
+                      onPressed: () {},
+                      child: const Text('הקודם'),
+                    ),
+                    PaginationLink(onPressed: () {}, child: const Text('1')),
+                    PaginationLink(
+                      isActive: true,
+                      onPressed: () {},
+                      child: const Text('2'),
+                    ),
+                    PaginationLink(onPressed: () {}, child: const Text('3')),
+                    PaginationLink(
+                      size: ButtonSize.regular,
+                      semanticLabel: 'לעמוד הבא',
+                      trailing: const InkIcon('chevron-right'),
+                      onPressed: () {},
+                      child: const Text('הבא'),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

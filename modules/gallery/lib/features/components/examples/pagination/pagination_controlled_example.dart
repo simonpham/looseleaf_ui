@@ -38,28 +38,31 @@ class _PaginationControlledExampleState
       mainAxisSize: MainAxisSize.min,
       spacing: Spacing.d16,
       children: [
-        Pagination(
-          child: PaginationContent(
-            children: [
-              PaginationPrevious(
-                disabled: _page == 1,
-                onPressed: () => _go(_page - 1),
-              ),
-              for (final page in _windowed)
-                switch (page) {
-                  null => const PaginationEllipsis(),
-                  final number => PaginationLink(
-                    isActive: number == _page,
-                    semanticLabel: 'Page $number',
-                    onPressed: () => _go(number),
-                    child: Text('$number'),
-                  ),
-                },
-              PaginationNext(
-                disabled: _page == _last,
-                onPressed: () => _go(_page + 1),
-              ),
-            ],
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Pagination(
+            child: PaginationContent(
+              children: [
+                PaginationPrevious(
+                  disabled: _page == 1,
+                  onPressed: () => _go(_page - 1),
+                ),
+                for (final page in _windowed)
+                  switch (page) {
+                    null => const PaginationEllipsis(),
+                    final number => PaginationLink(
+                      isActive: number == _page,
+                      semanticLabel: 'Page $number',
+                      onPressed: () => _go(number),
+                      child: Text('$number'),
+                    ),
+                  },
+                PaginationNext(
+                  disabled: _page == _last,
+                  onPressed: () => _go(_page + 1),
+                ),
+              ],
+            ),
           ),
         ),
         Semantics(
