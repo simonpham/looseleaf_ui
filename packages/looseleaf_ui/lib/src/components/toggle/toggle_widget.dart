@@ -9,7 +9,8 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 /// [ToggleVariant.outline]) that a highlighter fills when pressed on.
 ///
 /// Tapping it, Enter or Space call [onChanged] with the opposite of
-/// [value]. Its content is an icon, a word, or a [leading] icon and a
+/// [value]; without a [value] it keeps its own, starting at
+/// [defaultValue]. Its content is an icon, a word, or a [leading] icon and a
 /// word.
 ///
 /// ```dart
@@ -25,8 +26,9 @@ import 'package:looseleaf_ui/src/surface/surface.dart';
 class Toggle extends StatefulWidget {
   const Toggle({
     super.key,
-    required this.value,
     required this.child,
+    this.value,
+    this.defaultValue = false,
     this.leading,
     this.onChanged,
     this.variant = ToggleVariant.primary,
@@ -41,8 +43,13 @@ class Toggle extends StatefulWidget {
     this.forcedStates = const {},
   });
 
-  /// Pressed on (upstream `pressed`, `data-state=on`).
-  final bool value;
+  /// Pressed on (upstream `pressed`, `data-state=on`). Null leaves the
+  /// toggle to keep its own state, starting at [defaultValue].
+  final bool? value;
+
+  /// The state a toggle without [value] starts in (upstream
+  /// `defaultPressed`).
+  final bool defaultValue;
 
   /// Called with the next value on tap, Enter and Space. A null callback
   /// does not disable the toggle; [disabled] does.
@@ -84,21 +91,32 @@ class Toggle extends StatefulWidget {
 }
 
 class _ToggleState extends State<Toggle> with InkSeed {
+  late bool _own = widget.defaultValue;
+
+  bool get _value => widget.value ?? _own;
+
+  void _toggle() {
+    final next = !_value;
+    if (widget.value == null) setState(() => _own = next);
+    widget.onChanged?.call(next);
+  }
+
   @override
   Widget build(BuildContext context) {
     final toggle = widget;
+    final value = _value;
     return Semantics(
       container: true,
       button: true,
-      toggled: toggle.value,
+      toggled: value,
       enabled: !toggle.disabled,
       label: toggle.semanticLabel,
       child: InkInteraction(
         enabled: !toggle.disabled,
-        onActivate: () => toggle.onChanged?.call(!toggle.value),
+        onActivate: _toggle,
         states: {
           ...toggle.forcedStates,
-          if (toggle.value) InkState.checked,
+          if (value) InkState.checked,
           if (toggle.invalid) InkState.invalid,
         },
         focusNode: toggle.focusNode,

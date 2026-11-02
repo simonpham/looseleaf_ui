@@ -1,29 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
-class ToggleSizesAndStatesExample extends StatefulWidget {
+class ToggleSizesAndStatesExample extends StatelessWidget {
   const ToggleSizesAndStatesExample({super.key});
 
   @override
-  State<ToggleSizesAndStatesExample> createState() =>
-      _ToggleSizesAndStatesExampleState();
-}
-
-class _ToggleSizesAndStatesExampleState
-    extends State<ToggleSizesAndStatesExample> {
-  final Set<String> _on = {'list-sm', 'list', 'list-lg', 'draw'};
-
-  ValueChanged<bool> _onChanged(String id) =>
-      (value) => setState(() {
-        if (value) {
-          _on.add(id);
-          return;
-        }
-        _on.remove(id);
-      });
-
-  @override
-  Widget build(BuildContext context) => Column(
+  Widget build(BuildContext context) => const Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     spacing: Spacing.d20,
     children: [
@@ -35,38 +17,34 @@ class _ToggleSizesAndStatesExampleState
           Toggle(
             variant: ToggleVariant.outline,
             size: ToggleSize.sm,
-            value: _on.contains('list-sm'),
-            onChanged: _onChanged('list-sm'),
+            defaultValue: true,
             semanticLabel: 'List, small',
-            child: const InkIcon('list'),
+            child: InkIcon('list'),
           ),
           Toggle(
             variant: ToggleVariant.outline,
-            value: _on.contains('list'),
-            onChanged: _onChanged('list'),
+            defaultValue: true,
             semanticLabel: 'List',
-            child: const InkIcon('list'),
+            child: InkIcon('list'),
           ),
           Toggle(
             variant: ToggleVariant.outline,
             size: ToggleSize.lg,
-            value: _on.contains('list-lg'),
-            onChanged: _onChanged('list-lg'),
+            defaultValue: true,
             semanticLabel: 'List, large',
-            child: const InkIcon('list'),
+            child: InkIcon('list'),
           ),
           Toggle(
             variant: ToggleVariant.outline,
             size: ToggleSize.lg,
             tone: ToggleTone.marker,
-            value: _on.contains('draw'),
-            onChanged: _onChanged('draw'),
-            leading: const InkIcon('pencil'),
-            child: const Text('Draw'),
+            defaultValue: true,
+            leading: InkIcon('pencil'),
+            child: Text('Draw'),
           ),
         ],
       ),
-      const Wrap(
+      Wrap(
         spacing: Spacing.d16,
         runSpacing: Spacing.d16,
         crossAxisAlignment: WrapCrossAlignment.center,

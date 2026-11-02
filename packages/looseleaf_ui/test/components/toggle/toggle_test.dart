@@ -41,6 +41,29 @@ void main() {
     expect(_states(tester), isNot(contains(InkState.checked)));
   });
 
+  testWidgets('without a value it keeps its own, from defaultValue', (
+    tester,
+  ) async {
+    final changes = <bool>[];
+    await tester.pumpWidget(
+      componentHost(
+        Toggle(
+          defaultValue: true,
+          onChanged: changes.add,
+          child: const Text('B'),
+        ),
+      ),
+    );
+    expect(_states(tester), contains(InkState.checked));
+    await tester.tap(find.byType(Toggle));
+    await tester.pump();
+    expect(_states(tester), isNot(contains(InkState.checked)));
+    await tester.tap(find.byType(Toggle));
+    await tester.pump();
+    expect(_states(tester), contains(InkState.checked));
+    expect(changes, [false, true]);
+  });
+
   testWidgets('Enter and Space press it', (tester) async {
     final focusNode = FocusNode();
     addTearDown(focusNode.dispose);

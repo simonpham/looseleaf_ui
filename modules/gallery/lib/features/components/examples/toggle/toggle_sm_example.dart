@@ -1,22 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
-class ToggleSmExample extends StatefulWidget {
+class ToggleSmExample extends StatelessWidget {
   const ToggleSmExample({super.key});
 
   @override
-  State<ToggleSmExample> createState() => _ToggleSmExampleState();
-}
-
-class _ToggleSmExampleState extends State<ToggleSmExample> {
-  bool _italic = false;
-
-  @override
-  Widget build(BuildContext context) => Toggle(
-    value: _italic,
-    onChanged: (value) => setState(() => _italic = value),
+  Widget build(BuildContext context) => const Toggle(
     size: ToggleSize.sm,
     semanticLabel: 'Toggle italic',
-    child: const InkIcon('italic'),
+    child: InkIcon('italic'),
   );
 }
