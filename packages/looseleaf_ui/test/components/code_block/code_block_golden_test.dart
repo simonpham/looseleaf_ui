@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 import '../../support/component_host.dart';
-import '../../support/ibm_plex_mono.dart';
 import '../../support/kevin_sans.dart';
 import '../../support/paper_panel.dart';
 
@@ -125,7 +124,6 @@ void main() {
     await TestWidgetsFlutterBinding.ensureInitialized().runAsync(() async {
       await InkTextures.instance.load();
       await loadKevinSans();
-      await loadIbmPlexMono();
     });
   });
 

@@ -2,13 +2,18 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 
-/// Loads the bundled Kevin Sans faces so widget text renders in the real
-/// font instead of the test font.
+/// Loads the bundled fonts, the Kevin Sans faces and IBM Plex Mono, so
+/// widget text and code render in the real fonts instead of the test font.
 Future<void> loadKevinSans() async {
-  final loader = FontLoader('packages/looseleaf_ui/KevinSans');
+  final hand = FontLoader('packages/looseleaf_ui/KevinSans');
   for (final face in ['Regular', 'Bold']) {
-    final bytes = File('assets/fonts/KevinSans-$face.ttf').readAsBytesSync();
-    loader.addFont(Future.value(ByteData.sublistView(bytes)));
+    hand.addFont(_font('KevinSans-$face.ttf'));
   }
-  await loader.load();
+  final mono = FontLoader('packages/looseleaf_ui/IBMPlexMono')
+    ..addFont(_font('IBMPlexMono-Regular.ttf'));
+  await Future.wait([hand.load(), mono.load()]);
 }
+
+Future<ByteData> _font(String file) => Future.value(
+  ByteData.sublistView(File('assets/fonts/$file').readAsBytesSync()),
+);
