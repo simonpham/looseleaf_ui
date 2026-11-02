@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/form/form_validation_mode.dart';
 
 /// Checks a value; returns the message to show, or null when it is fine.
 typedef FormValidator = String? Function(Object? value);
@@ -8,26 +9,38 @@ typedef FormValidator = String? Function(Object? value);
 /// The values and errors of an [InkForm], the small Flutter stand-in for
 /// react-hook-form's `useForm`.
 ///
-/// Fields register a name and a validator. Nothing is checked until the
-/// first [handleSubmit] (react-hook-form's `mode: "onSubmit"`); after that a
-/// field is checked again on every change (`reValidateMode: "onChange"`).
-/// [setError] puts a message on a field from outside, like a server error;
+/// Fields register a name and a validator. [mode] says when a field is
+/// checked before the first [handleSubmit]: by default only on submit
+/// (react-hook-form's `mode: "onSubmit"`); [FormValidationMode.onTouched]
+/// checks it when it first loses focus, then on every change. After a
+/// submit a field is checked again on every change
+/// (`reValidateMode: "onChange"`). `InkFormField` reports blurs through
+/// [markTouched]. [setError] puts a message on a field from outside, like a server error;
 /// the field's next change clears it.
 ///
 /// ```dart
-/// final form = FormController(initialValues: {'email': ''});
+/// final form = FormController(
+///   initialValues: {'email': ''},
+///   mode: FormValidationMode.onTouched,
+/// );
 /// form.handleSubmit((values) => save(values['email']));
 /// ```
 class FormController extends ChangeNotifier {
-  FormController({Map<String, Object?> initialValues = const {}})
-    : _initial = Map.of(initialValues),
-      _values = Map.of(initialValues);
+  FormController({
+    Map<String, Object?> initialValues = const {},
+    this.mode = FormValidationMode.onSubmit,
+  }) : _initial = Map.of(initialValues),
+       _values = Map.of(initialValues);
+
+  /// When fields are checked before the first submit.
+  final FormValidationMode mode;
 
   final Map<String, Object?> _initial;
   final Map<String, Object?> _values;
   final Map<String, String> _errors = {};
   final Map<String, FormValidator> _validators = {};
   final Map<String, FocusNode> _focus = {};
+  final Set<String> _touched = {};
   var _submitted = false;
   var _submitting = false;
 
@@ -43,6 +56,12 @@ class FormController extends ChangeNotifier {
   /// Whether a submit's callback is running.
   bool get isSubmitting => _submitting;
 
+  /// The fields that have lost focus at least once (`touchedFields`).
+  Set<String> get touchedFields => Set.unmodifiable(_touched);
+
+  /// Whether [name] has lost focus at least once.
+  bool isTouched(String name) => _touched.contains(name);
+
   /// Whether no field has an error.
   bool get isValid => _errors.isEmpty;
 
@@ -55,11 +74,22 @@ class FormController extends ChangeNotifier {
   /// The error message of [name], if any.
   String? error(String name) => _errors[name];
 
-  /// Sets [name] to [value]; after a submit, checks it again.
+  /// Sets [name] to [value]; checks it when [mode] asks for it, and
+  /// always after a submit.
   void setValue(String name, Object? value) {
     _values[name] = value;
     _errors.remove(name);
-    if (_submitted) _check(name);
+    final touched = _touched.contains(name);
+    if (_submitted || mode.checksOnChange(touched: touched)) _check(name);
+    notifyListeners();
+  }
+
+  /// Records that [name] lost focus (react-hook-form's `onBlur`); checks it
+  /// when [mode] asks for it. Called by `InkFormField`.
+  void markTouched(String name) {
+    _touched.add(name);
+    if (!mode.checksOnBlur) return;
+    _check(name);
     notifyListeners();
   }
 
@@ -109,12 +139,14 @@ class FormController extends ChangeNotifier {
     }
   }
 
-  /// Back to the initial values, no errors, not submitted.
+  /// Back to the initial values, no errors, nothing touched, not
+  /// submitted.
   void reset([Map<String, Object?>? values]) {
     _values
       ..clear()
       ..addAll(values ?? _initial);
     _errors.clear();
+    _touched.clear();
     _submitted = false;
     notifyListeners();
   }
@@ -133,6 +165,7 @@ class FormController extends ChangeNotifier {
     _validators.remove(name);
     _errors.remove(name);
     _focus.remove(name);
+    _touched.remove(name);
   }
 
   /// Registers the node holding [name]'s control, so a failed submit can

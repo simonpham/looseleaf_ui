@@ -22,40 +22,23 @@ class ForgotPassword01Form extends StatefulWidget {
 class _ForgotPassword01FormState extends State<ForgotPassword01Form> {
   static final _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
 
-  final _form = FormController(initialValues: {'email': ''});
+  final _form = FormController(
+    initialValues: {'email': ''},
+    mode: FormValidationMode.onTouched,
+  );
   final _emailFocus = FocusNode();
   final _titleFocus = FocusNode();
-  bool _touched = false;
   String? _formError;
   String? _sentTo;
   bool _again = false;
   bool _resending = false;
 
   @override
-  void initState() {
-    super.initState();
-    _emailFocus.addListener(_blurEmail);
-  }
-
-  @override
   void dispose() {
-    _emailFocus
-      ..removeListener(_blurEmail)
-      ..dispose();
+    _emailFocus.dispose();
     _titleFocus.dispose();
     _form.dispose();
     super.dispose();
-  }
-
-  void _blurEmail() {
-    if (_emailFocus.hasFocus) return;
-    _touched = true;
-    _form.validate('email');
-  }
-
-  void _change(String value) {
-    _form.setValue('email', value);
-    if (_touched) _form.validate('email');
   }
 
   static String? _validateEmail(String? value) =>
@@ -190,7 +173,7 @@ class _ForgotPassword01FormState extends State<ForgotPassword01Form> {
                         autofillHints: const [AutofillHints.email],
                         invalid: field.invalid,
                         semanticLabel: 'Email',
-                        onChanged: _change,
+                        onChanged: (value) => _form.setValue('email', value),
                         onSubmitted: (_) => _submit(),
                       ),
                       FieldError(errors: [field.error]),

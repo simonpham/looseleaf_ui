@@ -27,45 +27,19 @@ class _Login02FormState extends State<Login02Form> {
 
   final _form = FormController(
     initialValues: {'email': '', 'password': ''},
+    mode: FormValidationMode.onTouched,
   );
   final _emailFocus = FocusNode();
   final _passwordFocus = FocusNode();
-  final _touched = <String>{};
   String? _formError;
   bool _signedIn = false;
 
   @override
-  void initState() {
-    super.initState();
-    _emailFocus.addListener(_blurEmail);
-    _passwordFocus.addListener(_blurPassword);
-  }
-
-  @override
   void dispose() {
-    _emailFocus
-      ..removeListener(_blurEmail)
-      ..dispose();
-    _passwordFocus
-      ..removeListener(_blurPassword)
-      ..dispose();
+    _emailFocus.dispose();
+    _passwordFocus.dispose();
     _form.dispose();
     super.dispose();
-  }
-
-  void _blurEmail() => _blur('email', _emailFocus);
-
-  void _blurPassword() => _blur('password', _passwordFocus);
-
-  void _blur(String name, FocusNode node) {
-    if (node.hasFocus) return;
-    _touched.add(name);
-    _form.validate(name);
-  }
-
-  void _change(String name, String value) {
-    _form.setValue(name, value);
-    if (_touched.contains(name)) _form.validate(name);
   }
 
   static String? _validateEmail(String? value) =>
@@ -204,7 +178,7 @@ class _Login02FormState extends State<Login02Form> {
                   autofillHints: const [AutofillHints.email],
                   invalid: field.invalid,
                   semanticLabel: 'Email',
-                  onChanged: (value) => _change('email', value),
+                  onChanged: (value) => _form.setValue('email', value),
                 ),
                 FieldError(errors: [field.error]),
               ],
@@ -241,7 +215,7 @@ class _Login02FormState extends State<Login02Form> {
                 Login02PasswordInput(
                   focusNode: _passwordFocus,
                   invalid: field.invalid,
-                  onChanged: (value) => _change('password', value),
+                  onChanged: (value) => _form.setValue('password', value),
                   onSubmitted: (_) => _submit(),
                 ),
                 FieldError(errors: [field.error]),

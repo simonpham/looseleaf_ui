@@ -23,40 +23,23 @@ class _Login05FormState extends State<Login05Form> {
   static final _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
   static const double _twoColumnsFrom = 384;
 
-  final _form = FormController(initialValues: {'email': ''});
+  final _form = FormController(
+    initialValues: {'email': ''},
+    mode: FormValidationMode.onTouched,
+  );
   final _email = TextEditingController();
   final _emailFocus = FocusNode();
   final _sentFocus = FocusNode();
-  bool _touched = false;
   String? _formError;
   String? _sentTo;
 
   @override
-  void initState() {
-    super.initState();
-    _emailFocus.addListener(_blurEmail);
-  }
-
-  @override
   void dispose() {
-    _emailFocus
-      ..removeListener(_blurEmail)
-      ..dispose();
+    _emailFocus.dispose();
     _sentFocus.dispose();
     _email.dispose();
     _form.dispose();
     super.dispose();
-  }
-
-  void _blurEmail() {
-    if (_emailFocus.hasFocus || _sentTo != null) return;
-    _touched = true;
-    _form.validate('email');
-  }
-
-  void _change(String value) {
-    _form.setValue('email', value);
-    if (_touched) _form.validate('email');
   }
 
   static String? _validateEmail(String? value) =>
@@ -93,7 +76,6 @@ class _Login05FormState extends State<Login05Form> {
   void _submit() => unawaited(_form.handleSubmit(_send));
 
   void _useDifferentEmail(String sentTo) {
-    _touched = false;
     _form.reset({'email': sentTo});
     _email.text = sentTo;
     setState(() => _sentTo = null);
@@ -233,7 +215,7 @@ class _Login05FormState extends State<Login05Form> {
                           autofillHints: const [AutofillHints.email],
                           invalid: field.invalid,
                           semanticLabel: 'Email',
-                          onChanged: _change,
+                          onChanged: (value) => _form.setValue('email', value),
                           onSubmitted: (_) => _submit(),
                         ),
                         FieldError(errors: [field.error]),

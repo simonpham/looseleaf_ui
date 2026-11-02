@@ -16,7 +16,10 @@ class _FormServerErrorsExampleState extends State<FormServerErrorsExample> {
   static const _taken = ['ada', 'grace', 'notes'];
   static final _handlePattern = RegExp(r'^[a-z0-9_]+$');
 
-  final _form = FormController(initialValues: {'handle': 'notes'});
+  final _form = FormController(
+    initialValues: {'handle': 'notes'},
+    mode: FormValidationMode.onChange,
+  );
   final _handle = TextEditingController(text: 'notes');
   var _pending = false;
   var _done = '';
@@ -37,11 +40,7 @@ class _FormServerErrorsExampleState extends State<FormServerErrorsExample> {
     return null;
   }
 
-  void _onChanged(String value) {
-    _form
-      ..setValue('handle', value)
-      ..validate('handle');
-  }
+  void _onChanged(String value) => _form.setValue('handle', value);
 
   Future<void> _claim(Map<String, Object?> values) async {
     final handle = values['handle'];

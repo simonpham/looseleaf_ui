@@ -19,53 +19,29 @@ class ResetPassword01Form extends StatefulWidget {
 }
 
 class _ResetPassword01FormState extends State<ResetPassword01Form> {
-  final _form = FormController(initialValues: {'password': '', 'confirm': ''});
+  final _form = FormController(
+    initialValues: {'password': '', 'confirm': ''},
+    mode: FormValidationMode.onTouched,
+  );
   final _passwordFocus = FocusNode();
   final _confirmFocus = FocusNode();
   final _titleFocus = FocusNode();
-  final _touched = <String>{};
   String? _formError;
   bool _saved = false;
 
   @override
-  void initState() {
-    super.initState();
-    _passwordFocus.addListener(_blurPassword);
-    _confirmFocus.addListener(_blurConfirm);
-  }
-
-  @override
   void dispose() {
-    _passwordFocus
-      ..removeListener(_blurPassword)
-      ..dispose();
-    _confirmFocus
-      ..removeListener(_blurConfirm)
-      ..dispose();
+    _passwordFocus.dispose();
+    _confirmFocus.dispose();
     _titleFocus.dispose();
     _form.dispose();
     super.dispose();
   }
 
-  void _blurPassword() => _blur('password', _passwordFocus);
-
-  void _blurConfirm() => _blur('confirm', _confirmFocus);
-
-  void _blur(String name, FocusNode node) {
-    if (node.hasFocus) return;
-    _touched.add(name);
-    _form.validate(name);
-  }
-
   void _changePassword(String value) {
-    _change('password', value);
+    _form.setValue('password', value);
     if ((_form.value<String>('confirm') ?? '').isEmpty) return;
     _form.validate('confirm');
-  }
-
-  void _change(String name, String value) {
-    _form.setValue(name, value);
-    if (_touched.contains(name)) _form.validate(name);
   }
 
   static String? _validatePassword(String? value) {
@@ -207,7 +183,7 @@ class _ResetPassword01FormState extends State<ResetPassword01Form> {
                         invalid: field.invalid,
                         semanticLabel: 'Confirm new password',
                         toggleLabel: 'Show password confirmation',
-                        onChanged: (value) => _change('confirm', value),
+                        onChanged: (value) => _form.setValue('confirm', value),
                         onSubmitted: (_) => _submit(),
                       ),
                       FieldError(errors: [field.error]),

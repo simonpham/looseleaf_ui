@@ -29,24 +29,15 @@ class _Signup04FormState extends State<Signup04Form> {
 
   final _form = FormController(
     initialValues: {'name': '', 'email': '', 'password': '', 'confirm': ''},
+    mode: FormValidationMode.onTouched,
   );
   final _nameFocus = FocusNode();
   final _emailFocus = FocusNode();
   final _passwordFocus = FocusNode();
   final _confirmFocus = FocusNode();
-  final _touched = <String>{};
   String? _formError;
   bool _created = false;
   bool _submitting = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _checkOnLeave(_nameFocus, 'name');
-    _checkOnLeave(_emailFocus, 'email');
-    _checkOnLeave(_passwordFocus, 'password');
-    _checkOnLeave(_confirmFocus, 'confirm');
-  }
 
   @override
   void dispose() {
@@ -58,19 +49,8 @@ class _Signup04FormState extends State<Signup04Form> {
     super.dispose();
   }
 
-  void _checkOnLeave(FocusNode node, String name) => node.addListener(() {
-    if (node.hasFocus) return;
-    _touched.add(name);
-    _form.validate(name);
-  });
-
-  void _change(String name, String value) {
-    _form.setValue(name, value);
-    if (_touched.contains(name)) _form.validate(name);
-  }
-
   void _changePassword(String value) {
-    _change('password', value);
+    _form.setValue('password', value);
     if (_text('confirm').isNotEmpty) _form.validate('confirm');
   }
 
@@ -154,7 +134,7 @@ class _Signup04FormState extends State<Signup04Form> {
           invalid: field.invalid,
           keyboardType: keyboardType,
           autofillHints: autofillHints,
-          onChanged: (value) => _change(name, value),
+          onChanged: (value) => _form.setValue(name, value),
         ),
         if (hint case final hint?) FieldDescription(Text(hint)),
         if (field.error case final error?) FieldError(errors: [error]),
@@ -208,7 +188,7 @@ class _Signup04FormState extends State<Signup04Form> {
         focusNode: _confirmFocus,
         validator: _checkConfirm,
         toggleLabel: 'Show password confirmation',
-        onChanged: (value) => _change('confirm', value),
+        onChanged: (value) => _form.setValue('confirm', value),
       );
       if (constraints.maxWidth < _sideBySideFrom) {
         return Column(

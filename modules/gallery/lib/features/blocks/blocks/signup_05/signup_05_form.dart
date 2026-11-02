@@ -27,19 +27,15 @@ class _Signup05FormState extends State<Signup05Form> {
   static final _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
   static const double _twoButtonsFrom = 384;
 
-  final _form = FormController(initialValues: {'email': ''});
+  final _form = FormController(
+    initialValues: {'email': ''},
+    mode: FormValidationMode.onTouched,
+  );
   final _email = TextEditingController();
   final _emailFocus = FocusNode();
-  bool _touched = false;
   String? _formError;
   String? _sentTo;
   bool _submitting = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _emailFocus.addListener(_checkOnLeave);
-  }
 
   @override
   void dispose() {
@@ -47,17 +43,6 @@ class _Signup05FormState extends State<Signup05Form> {
     _email.dispose();
     _emailFocus.dispose();
     super.dispose();
-  }
-
-  void _checkOnLeave() {
-    if (_emailFocus.hasFocus) return;
-    _touched = true;
-    _form.validate('email');
-  }
-
-  void _change(String value) {
-    _form.setValue('email', value);
-    if (_touched) _form.validate('email');
   }
 
   String? _checkEmail(String? value) =>
@@ -98,7 +83,6 @@ class _Signup05FormState extends State<Signup05Form> {
     final email = _sentTo ?? '';
     _form.reset({'email': email});
     _email.text = email;
-    _touched = false;
     setState(() => _sentTo = null);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) _emailFocus.requestFocus();
@@ -148,7 +132,7 @@ class _Signup05FormState extends State<Signup05Form> {
             invalid: field.invalid,
             keyboardType: TextInputType.emailAddress,
             autofillHints: const [AutofillHints.email],
-            onChanged: _change,
+            onChanged: (value) => _form.setValue('email', value),
           ),
           if (field.error case final error?) FieldError(errors: [error]),
         ],

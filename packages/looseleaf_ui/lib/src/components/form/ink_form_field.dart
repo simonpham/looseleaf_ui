@@ -1,8 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/form/form.dart';
 
-/// Builds a field's control from its value and error. [validator] runs on
-/// submit, then on every change. Wrap what [builder] returns in a
+/// Builds a field's control from its value and error. [validator] runs
+/// when the form's `FormValidationMode` asks (on submit by default), and on
+/// every change after a submit. When focus leaves the field the form marks
+/// it touched, so `onBlur` / `onTouched` modes need no focus listeners. Wrap what [builder] returns in a
 /// [FormItem] so the label, control and message find this field.
 ///
 /// Named `InkFormField` because Flutter's widgets library has a
@@ -71,7 +73,16 @@ class _InkFormFieldState<T> extends State<InkFormField<T>> {
     return FormFieldDataScope(
       data: FormFieldData<Object?>(name: widget.name, controller: controller),
       error: data.error,
-      child: Builder(builder: (context) => widget.builder(context, data)),
+      child: Focus(
+        canRequestFocus: false,
+        skipTraversal: true,
+        includeSemantics: false,
+        onFocusChange: (focused) {
+          if (focused) return;
+          controller.markTouched(widget.name);
+        },
+        child: Builder(builder: (context) => widget.builder(context, data)),
+      ),
     );
   }
 }

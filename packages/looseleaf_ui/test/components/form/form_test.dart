@@ -77,6 +77,64 @@ void main() {
     expect(form.errors, isEmpty);
   });
 
+  test('onTouched checks a field on its first blur, then on every change', () {
+    final form = FormController(
+      initialValues: {'name': ''},
+      mode: FormValidationMode.onTouched,
+    );
+    addTearDown(form.dispose);
+    form.register('name', (value) => _name(value as String?));
+    form.setValue('name', 'A');
+    expect(form.error('name'), isNull);
+    form.markTouched('name');
+    expect(form.isTouched('name'), isTrue);
+    expect(form.error('name'), 'Your name needs at least 2 letters.');
+    form.setValue('name', 'Ada');
+    expect(form.error('name'), isNull);
+    form.setValue('name', 'A');
+    expect(form.error('name'), isNotNull);
+    form.reset();
+    expect(form.touchedFields, isEmpty);
+    expect(form.errors, isEmpty);
+  });
+
+  test('onSubmit ignores blurs, onChange checks every change', () {
+    final onSubmit = FormController();
+    final onChange = FormController(mode: FormValidationMode.onChange);
+    addTearDown(onSubmit.dispose);
+    addTearDown(onChange.dispose);
+    for (final form in [onSubmit, onChange]) {
+      form.register('name', (value) => _name(value as String?));
+    }
+    onSubmit
+      ..setValue('name', 'A')
+      ..markTouched('name');
+    expect(onSubmit.error('name'), isNull);
+    onChange.setValue('name', 'A');
+    expect(onChange.error('name'), isNotNull);
+  });
+
+  testWidgets('leaving a field marks it touched and checks it in onTouched '
+      'mode', (tester) async {
+    final form = FormController(mode: FormValidationMode.onTouched);
+    final focus = FocusNode();
+    addTearDown(form.dispose);
+    addTearDown(focus.dispose);
+    await tester.pumpWidget(_form(form, nameFocus: focus));
+    focus.requestFocus();
+    await tester.pump();
+    await tester.enterText(find.byType(EditableText), 'A');
+    await tester.pump();
+    expect(find.byType(FieldError), findsNothing);
+    focus.unfocus();
+    await tester.pump();
+    expect(form.isTouched('username'), isTrue);
+    expect(find.text('Your name needs at least 2 letters.'), findsOneWidget);
+    await tester.enterText(find.byType(EditableText), 'Ada');
+    await tester.pump();
+    expect(find.byType(FieldError), findsNothing);
+  });
+
   testWidgets('a failed submit turns the label red, shows the message and '
       'focuses the control', (tester) async {
     final form = FormController();
