@@ -73,7 +73,6 @@ class _ComboboxMenuWithLabelsExampleState
                         content: DropdownMenuSubContent(
                           children: [
                             Command(
-                              sheet: false,
                               semanticLabel: 'Labels',
                               children: [
                                 const CommandInput(

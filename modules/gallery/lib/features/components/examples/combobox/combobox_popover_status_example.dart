@@ -46,7 +46,6 @@ class _ComboboxPopoverStatusExampleState
             padding: EdgeInsets.zero,
             semanticLabel: 'Set status',
             child: Command(
-              sheet: false,
               children: [
                 const CommandInput(placeholder: 'Change status...'),
                 CommandList(

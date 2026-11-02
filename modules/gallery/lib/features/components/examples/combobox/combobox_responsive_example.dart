@@ -96,7 +96,6 @@ class _StatusList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Command(
-    sheet: false,
     children: [
       const CommandInput(placeholder: 'Filter status...'),
       CommandList(

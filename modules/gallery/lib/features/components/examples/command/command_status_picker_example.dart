@@ -55,7 +55,6 @@ class _CommandStatusPickerExampleState
               padding: EdgeInsets.zero,
               semanticLabel: 'Status',
               child: Command(
-                sheet: false,
                 children: [
                   const CommandInput(placeholder: 'Change status...'),
                   CommandList(
