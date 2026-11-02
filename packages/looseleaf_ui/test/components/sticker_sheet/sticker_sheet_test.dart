@@ -9,6 +9,27 @@ import '../../support/component_host.dart';
 Finder _slot(String label) => find.bySemanticsLabel(label);
 
 void main() {
+  testWidgets('a narrow sheet puts fewer stickers in a row', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Center(
+          child: SizedBox(
+            width: 200,
+            child: StickerSheet(
+              stickers: ['rocket', 'done', 'star', 'heart'],
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final rows = {
+      for (final slot in tester.widgetList(find.byType(StickerSheetItem)))
+        tester.getTopLeft(find.byWidget(slot)).dy,
+    };
+    expect(rows.length, greaterThan(1));
+  });
+
   testWidgets('a tap peels a sticker and another sticks it back', (
     tester,
   ) async {

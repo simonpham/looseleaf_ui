@@ -55,7 +55,7 @@ class StickerSheet extends StatefulWidget {
   /// The items; [stickers] when null.
   final List<StickerSheetItem>? children;
 
-  /// Cells per row.
+  /// Cells per row; fewer when the sheet is narrower than that.
   final int columns;
 
   /// The stickers' size in pixels.
@@ -219,22 +219,18 @@ class _StickerSheetState extends State<StickerSheet> with InkSeed {
               ),
             Padding(
               padding: const EdgeInsets.all(Spacing.d8),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: Spacing.d4,
-                children: [
-                  for (var row = 0; row * columns < items.length; row++)
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      spacing: Spacing.d4,
-                      children: [
-                        for (final item
-                            in items.skip(row * columns).take(columns))
-                          item,
-                      ],
-                    ),
-                ],
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth:
+                      columns * StickerSheet.cellOf(widget.size) +
+                      (columns - 1) * Spacing.d4,
+                ),
+                child: Wrap(
+                  spacing: Spacing.d4,
+                  runSpacing: Spacing.d4,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: items,
+                ),
               ),
             ),
           ],
