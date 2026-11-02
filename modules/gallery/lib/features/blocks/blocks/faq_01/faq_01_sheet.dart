@@ -11,6 +11,11 @@ class Faq01Sheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
+    final line = theme.typography.face(
+      KevinSansFace.hand,
+      cssSize: 17,
+      cssLineHeight: 28 / 17,
+    );
     return Paper(
       rules: RuleName.ruled,
       mirrorRules: Directionality.of(context) == TextDirection.rtl,
@@ -42,12 +47,25 @@ class Faq01Sheet extends StatelessWidget {
               for (final item in faq01Questions)
                 AccordionItem(
                   value: item.id,
+                  showRule: false,
+                  padding: EdgeInsets.zero,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      AccordionTrigger(child: Text(item.question)),
-                      AccordionContent(child: Text(item.answer)),
+                      AccordionTrigger(
+                        minHeight: Spacing.d56,
+                        padding: const EdgeInsets.only(top: Spacing.d28),
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        child: Text(
+                          item.question,
+                          style: line.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      AccordionContent(
+                        padding: EdgeInsets.zero,
+                        child: Text(item.answer, style: line),
+                      ),
                     ],
                   ),
                 ),
