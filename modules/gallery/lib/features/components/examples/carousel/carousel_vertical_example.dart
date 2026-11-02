@@ -11,7 +11,7 @@ const _reminders = [
 class CarouselVerticalExample extends StatelessWidget {
   const CarouselVerticalExample({super.key});
 
-  static const _trackHeight = 200.0;
+  static const _trackHeight = Spacing.d200;
 
   @override
   Widget build(BuildContext context) {
