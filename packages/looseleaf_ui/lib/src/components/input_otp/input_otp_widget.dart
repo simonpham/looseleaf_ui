@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/input_otp/input_otp_group.dart';
 import 'package:looseleaf_ui/src/components/input_otp/input_otp_metrics.dart';
 import 'package:looseleaf_ui/src/components/input_otp/input_otp_scope.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
@@ -221,19 +222,31 @@ class _InputOTPState extends State<InputOTP> {
               Positioned.fill(
                 child: ClipRect(child: Opacity(opacity: 0, child: editable)),
               ),
-              InputOTPScope(
-                text: _controller.text,
-                active: _active,
-                focused: _focusNode.hasFocus,
-                invalid: otp.invalid,
-                disabled: otp.disabled,
-                touched: _touched,
-                placeholder: otp.placeholder,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: InputOTPMetrics.gap,
-                  children: otp.children,
-                ),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final shrink = constraints.hasBoundedWidth;
+                  return InputOTPScope(
+                    text: _controller.text,
+                    active: _active,
+                    focused: _focusNode.hasFocus,
+                    invalid: otp.invalid,
+                    disabled: otp.disabled,
+                    touched: _touched,
+                    placeholder: otp.placeholder,
+                    shrink: shrink,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      spacing: InputOTPMetrics.gap,
+                      children: [
+                        for (final child in otp.children)
+                          switch ((shrink, child)) {
+                            (true, InputOTPGroup()) => Flexible(child: child),
+                            _ => child,
+                          },
+                      ],
+                    ),
+                  );
+                },
               ),
             ],
           ),

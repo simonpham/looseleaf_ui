@@ -75,15 +75,21 @@ class _InputOTPSlotState extends State<InputOTPSlot> with InkSeed {
           if (active && !disabled) InkState.focused,
         },
         still: true,
-        child: SizedBox(
-          width: InputOTPMetrics.slotWidth.resolve(theme.density),
-          height: InputOTPMetrics.slotHeight.resolve(theme.density),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              ?content,
-              if (active && char == null && !disabled) const InputOTPCaret(),
-            ],
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: InputOTPMetrics.slotMinWidth,
+            maxWidth: InputOTPMetrics.slotWidth.resolve(theme.density),
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            height: InputOTPMetrics.slotHeight.resolve(theme.density),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                ?content,
+                if (active && char == null && !disabled) const InputOTPCaret(),
+              ],
+            ),
           ),
         ),
       ),

@@ -29,6 +29,7 @@ class InputOTPScope extends InheritedWidget {
     required this.disabled,
     required this.touched,
     required this.placeholder,
+    this.shrink = false,
     required super.child,
   });
 
@@ -49,6 +50,10 @@ class InputOTPScope extends InheritedWidget {
 
   /// One placeholder character per slot; empty for none.
   final String placeholder;
+
+  /// The row has a bounded width, so groups and slots shrink to fit it
+  /// (upstream's `max-w-full` row with `min-w-0` groups and `min-w-6` slots).
+  final bool shrink;
 
   /// The nearest code input, or null outside one.
   static InputOTPScope? maybeOf(BuildContext context) =>
@@ -74,5 +79,6 @@ class InputOTPScope extends InheritedWidget {
       oldWidget.invalid != invalid ||
       oldWidget.disabled != disabled ||
       oldWidget.touched != touched ||
-      oldWidget.placeholder != placeholder;
+      oldWidget.placeholder != placeholder ||
+      oldWidget.shrink != shrink;
 }

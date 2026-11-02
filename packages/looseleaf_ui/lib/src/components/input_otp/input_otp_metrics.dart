@@ -18,6 +18,9 @@ abstract final class InputOTPMetrics {
     calm: Spacing.d32,
   );
 
+  /// The slot's `min-w-6`: how narrow it gets in a tight row.
+  static const double slotMinWidth = Spacing.d24;
+
   /// The slot's CSS font size: `text-[1.75rem] calm:text-2xl`.
   static const ByDensity<double> cssFontSize = ByDensity(
     comfortable: 28,

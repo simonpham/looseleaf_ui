@@ -41,6 +41,20 @@ List<Set<InkState>> _states(WidgetTester tester) => [
 ];
 
 void main() {
+  testWidgets('slots shrink evenly to fit a narrow row', (tester) async {
+    await tester.pumpWidget(
+      overlayHost(Center(child: SizedBox(width: 160, child: _otp()))),
+    );
+    expect(tester.takeException(), isNull);
+    final widths = [
+      for (final slot in tester.widgetList(find.byType(InputOTPSlot)))
+        tester.getSize(find.byWidget(slot)).width,
+    ];
+    expect(widths.toSet(), hasLength(1));
+    expect(widths.first, lessThan(InputOTPMetrics.slotWidth.comfortable));
+    expect(widths.first, greaterThanOrEqualTo(InputOTPMetrics.slotMinWidth));
+  });
+
   testWidgets('typing fills the slots and completes the code', (
     tester,
   ) async {
