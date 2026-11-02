@@ -24,6 +24,7 @@ class SelectTrigger extends StatefulWidget {
     this.disabled = false,
     this.invalid = false,
     this.seed,
+    this.focusNode,
     this.autofocus = false,
     this.semanticLabel,
     this.forcedStates = const {},
@@ -43,6 +44,11 @@ class SelectTrigger extends StatefulWidget {
 
   /// Pins the hand.
   final String? seed;
+
+  /// The trigger's focus node, so a [Label] or your own code can focus
+  /// it (upstream: an `id` and a label's `htmlFor`); the [Select] keeps
+  /// one of its own when null.
+  final FocusNode? focusNode;
 
   final bool autofocus;
 
@@ -90,7 +96,7 @@ class _SelectTriggerState extends State<SelectTrigger> with InkSeed {
               if (open) InkState.open,
               if (invalid) InkState.invalid,
             },
-            focusNode: select.triggerFocus,
+            focusNode: widget.focusNode ?? select.triggerFocus,
             autofocus: widget.autofocus,
             mouseCursor: SystemMouseCursors.basic,
             disabledMouseCursor: SystemMouseCursors.forbidden,

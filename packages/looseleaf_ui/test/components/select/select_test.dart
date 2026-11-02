@@ -49,6 +49,43 @@ Widget _select({
 );
 
 void main() {
+  testWidgets('a label focuses the trigger through its focusNode', (
+    tester,
+  ) async {
+    final node = FocusNode();
+    addTearDown(node.dispose);
+    final opens = <bool>[];
+    await tester.pumpWidget(
+      overlayHost(
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Label(focusNode: node, child: const Text('Fruit')),
+            SizedBox(
+              width: 190,
+              child: Select(
+                onOpenChange: opens.add,
+                content: const SelectContent(
+                  children: [SelectItem(value: 'apple', child: Text('Apple'))],
+                ),
+                child: SelectTrigger(
+                  focusNode: node,
+                  child: const SelectValue(placeholder: 'Pick a fruit'),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    await tester.tap(find.text('Fruit'));
+    await tester.pump();
+    expect(node.hasFocus, isTrue);
+    await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+    await tester.pumpAndSettle();
+    expect(opens, [true]);
+  });
+
   testWidgets('shows the placeholder, opens on tap and chooses a row', (
     tester,
   ) async {
