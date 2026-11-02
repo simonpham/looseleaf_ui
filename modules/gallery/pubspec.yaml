@@ -32,6 +32,7 @@ flutter:
     - lib/features/blocks/blocks/faq_01/
     - lib/features/blocks/blocks/file_explorer/
     - lib/features/blocks/blocks/footer_01/
+    - lib/features/blocks/blocks/forgot_password_01/
     - lib/features/blocks/blocks/inbox/
     - lib/features/blocks/blocks/kanban_board/
     - lib/features/blocks/blocks/landing_hero_02/

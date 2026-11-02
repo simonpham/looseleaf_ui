@@ -41,6 +41,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/footer_01/footer_01_block.dart',
     builder: Footer01Block.new,
   ),
+  'forgot-password-01': GalleryBlock(
+    source: 'blocks/forgot_password_01/forgot_password_01_block.dart',
+    builder: ForgotPassword01Block.new,
+  ),
   'inbox': GalleryBlock(
     source: 'blocks/inbox/inbox_block.dart',
     builder: InboxBlock.new,
