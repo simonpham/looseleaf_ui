@@ -53,6 +53,7 @@ flutter:
     - lib/features/components/examples/context_menu/
     - lib/features/components/examples/corkboard/
     - lib/features/components/examples/date_picker/
+    - lib/features/components/examples/desk/
     - lib/features/components/examples/dialog/
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/drawer/

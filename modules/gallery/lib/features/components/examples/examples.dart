@@ -25,6 +25,7 @@ export 'package:gallery/features/components/examples/command/command.dart';
 export 'package:gallery/features/components/examples/context_menu/context_menu.dart';
 export 'package:gallery/features/components/examples/corkboard/corkboard.dart';
 export 'package:gallery/features/components/examples/date_picker/date_picker.dart';
+export 'package:gallery/features/components/examples/desk/desk.dart';
 export 'package:gallery/features/components/examples/dialog/dialog.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
 export 'package:gallery/features/components/examples/drawer/drawer.dart';
