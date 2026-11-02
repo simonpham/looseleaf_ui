@@ -70,6 +70,7 @@ flutter:
     - lib/features/components/examples/napkin/
     - lib/features/components/examples/native_select/
     - lib/features/components/examples/page/
+    - lib/features/components/examples/pagination/
     - lib/features/components/examples/polaroid/
     - lib/features/components/examples/popover/
     - lib/features/components/examples/progress/

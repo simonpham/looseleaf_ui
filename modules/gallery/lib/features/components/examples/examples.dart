@@ -42,6 +42,7 @@ export 'package:gallery/features/components/examples/message_scroller/message_sc
 export 'package:gallery/features/components/examples/napkin/napkin.dart';
 export 'package:gallery/features/components/examples/native_select/native_select.dart';
 export 'package:gallery/features/components/examples/page/page.dart';
+export 'package:gallery/features/components/examples/pagination/pagination.dart';
 export 'package:gallery/features/components/examples/polaroid/polaroid.dart';
 export 'package:gallery/features/components/examples/popover/popover.dart';
 export 'package:gallery/features/components/examples/progress/progress.dart';

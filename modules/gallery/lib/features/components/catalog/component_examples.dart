@@ -48,6 +48,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'napkin': napkinExamples,
   'native-select': nativeSelectExamples,
   'page': pageExamples,
+  'pagination': paginationExamples,
   'polaroid': polaroidExamples,
   'popover': popoverExamples,
   'progress': progressExamples,
