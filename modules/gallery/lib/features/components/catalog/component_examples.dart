@@ -29,6 +29,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'date-picker': datePickerExamples,
   'dialog': dialogExamples,
   'doodle': doodleExamples,
+  'dropdown-menu': dropdownMenuExamples,
   'envelope': envelopeExamples,
   'field': fieldExamples,
   'folder': folderExamples,

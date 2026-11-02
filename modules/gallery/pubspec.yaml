@@ -51,6 +51,7 @@ flutter:
     - lib/features/components/examples/date_picker/
     - lib/features/components/examples/dialog/
     - lib/features/components/examples/doodle/
+    - lib/features/components/examples/dropdown_menu/
     - lib/features/components/examples/envelope/
     - lib/features/components/examples/field/
     - lib/features/components/examples/folder/

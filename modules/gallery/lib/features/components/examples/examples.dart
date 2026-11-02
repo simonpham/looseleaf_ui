@@ -23,6 +23,7 @@ export 'package:gallery/features/components/examples/corkboard/corkboard.dart';
 export 'package:gallery/features/components/examples/date_picker/date_picker.dart';
 export 'package:gallery/features/components/examples/dialog/dialog.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
+export 'package:gallery/features/components/examples/dropdown_menu/dropdown_menu.dart';
 export 'package:gallery/features/components/examples/envelope/envelope.dart';
 export 'package:gallery/features/components/examples/field/field.dart';
 export 'package:gallery/features/components/examples/folder/folder.dart';
