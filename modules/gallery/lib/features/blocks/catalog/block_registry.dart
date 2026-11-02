@@ -28,6 +28,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/empty_inbox/empty_inbox_block.dart',
     builder: EmptyInboxBlock.new,
   ),
+  'error-404': GalleryBlock(
+    source: 'blocks/error_404/error_404_block.dart',
+    builder: Error404Block.new,
+  ),
   'faq-01': GalleryBlock(
     source: 'blocks/faq_01/faq_01_block.dart',
     builder: Faq01Block.new,

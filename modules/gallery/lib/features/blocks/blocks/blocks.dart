@@ -3,6 +3,7 @@ export 'package:gallery/features/blocks/blocks/chat_app/chat_app.dart';
 export 'package:gallery/features/blocks/blocks/checkout_01/checkout_01.dart';
 export 'package:gallery/features/blocks/blocks/cta_01/cta_01.dart';
 export 'package:gallery/features/blocks/blocks/empty_inbox/empty_inbox.dart';
+export 'package:gallery/features/blocks/blocks/error_404/error_404.dart';
 export 'package:gallery/features/blocks/blocks/faq_01/faq_01.dart';
 export 'package:gallery/features/blocks/blocks/file_explorer/file_explorer.dart';
 export 'package:gallery/features/blocks/blocks/footer_01/footer_01.dart';
