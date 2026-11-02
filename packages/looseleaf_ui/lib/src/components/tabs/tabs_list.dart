@@ -9,7 +9,8 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// The row of [TabsTrigger]s of a [Tabs]: folder tabs on a pencil
 /// baseline, or a line under the active one ([TabsVariant.line]). One Tab
 /// stop; the arrows (mirrored right to left), Home and End move between
-/// the tabs. A row wider than its parent scrolls sideways.
+/// the tabs. A row wider than its parent scrolls sideways, unless its
+/// triggers are [Expanded] to share its width (upstream `flex-1`).
 ///
 /// Mirrors `TabsList` in upstream `src/components/ui/tabs.tsx`.
 class TabsList extends StatelessWidget {
@@ -59,9 +60,10 @@ class TabsList extends StatelessWidget {
         ),
       ),
     );
+    final stretches = children.any((child) => child is Flexible);
     return TabsListScope(
       variant: variant,
-      child: switch (vertical) {
+      child: switch (vertical || stretches) {
         true => row,
         false => InkOverflowScroll(child: row),
       },

@@ -171,4 +171,36 @@ void main() {
     expect(last.right, lessThanOrEqualTo(list.right));
     expect(last.left, greaterThanOrEqualTo(list.left));
   });
+
+  testWidgets('expanded triggers share the width instead of scrolling', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        SizedBox(
+          width: 300,
+          child: Tabs(
+            defaultValue: 'a',
+            children: [
+              TabsList(
+                children: [
+                  for (final name in ['a', 'b', 'c'])
+                    Expanded(
+                      child: TabsTrigger(value: name, child: Text('Tab $name')),
+                    ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(find.byType(SingleChildScrollView), findsNothing);
+    final widths = [
+      for (final name in ['a', 'b', 'c'])
+        tester.getSize(find.widgetWithText(TabsTrigger, 'Tab $name')).width,
+    ];
+    expect(widths, everyElement(closeTo((300 - 2 * Spacing.d4) / 3, 0.5)));
+  });
 }
