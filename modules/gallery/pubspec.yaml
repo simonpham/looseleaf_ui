@@ -31,6 +31,7 @@ flutter:
     - lib/features/components/examples/avatar/
     - lib/features/components/examples/badge/
     - lib/features/components/examples/boil/
+    - lib/features/components/examples/bracket/
     - lib/features/components/examples/button/
     - lib/features/components/examples/chart/
     - lib/features/components/examples/checkbox/
@@ -45,11 +46,14 @@ flutter:
     - lib/features/components/examples/lettering/
     - lib/features/components/examples/marquee/
     - lib/features/components/examples/mascot/
+    - lib/features/components/examples/quote/
     - lib/features/components/examples/reveal/
+    - lib/features/components/examples/ribbon/
     - lib/features/components/examples/scribble/
     - lib/features/components/examples/seal/
     - lib/features/components/examples/separator/
     - lib/features/components/examples/sidebar/
+    - lib/features/components/examples/signature/
     - lib/features/components/examples/skeleton/
     - lib/features/components/examples/slider/
     - lib/features/components/examples/squiggle/
