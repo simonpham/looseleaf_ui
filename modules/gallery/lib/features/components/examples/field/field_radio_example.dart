@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class FieldRadioExample extends StatefulWidget {
@@ -30,7 +30,7 @@ class _FieldRadioExampleState extends State<FieldRadioExample> {
         const FieldDescription(
           Text('Yearly and lifetime plans offer significant savings.'),
         ),
-        RadioGroup<String>(
+        InkRadioGroup<String>(
           value: _plan,
           onChanged: (value) => setState(() => _plan = value),
           semanticLabel: 'Subscription Plan',
@@ -39,7 +39,7 @@ class _FieldRadioExampleState extends State<FieldRadioExample> {
               Field(
                 orientation: FieldOrientation.horizontal,
                 children: [
-                  RadioGroupItem(value: value),
+                  InkRadioGroupItem(value: value),
                   FieldLabel(
                     onPressed: () => setState(() => _plan = value),
                     child: Text(

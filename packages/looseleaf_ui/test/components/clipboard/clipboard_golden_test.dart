@@ -43,7 +43,7 @@ void main() {
                 children: [
                   SizedBox(
                     width: 384,
-                    child: Clipboard(
+                    child: InkClipboard(
                       seed: 'pack',
                       tiltDegrees: -1.1,
                       children: [
@@ -81,7 +81,7 @@ void main() {
                   ].indexed)
                     SizedBox(
                       width: 192,
-                      child: Clipboard(
+                      child: InkClipboard(
                         tone: tone,
                         seed: tone?.name ?? 'hardboard',
                         tiltDegrees: switch (i % 2) {

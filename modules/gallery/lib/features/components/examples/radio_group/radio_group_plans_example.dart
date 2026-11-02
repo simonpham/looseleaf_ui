@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class RadioGroupPlansExample extends StatefulWidget {
@@ -27,13 +27,13 @@ class _RadioGroupPlansExampleState extends State<RadioGroupPlansExample> {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: Spacing.d24,
         children: [
-          RadioGroup<String>(
+          InkRadioGroup<String>(
             value: _plan,
             onChanged: (value) => setState(() => _plan = value),
             semanticLabel: 'Plan',
             children: [
               for (final (value, title, help) in _plans)
-                RadioGroupItem(
+                InkRadioGroupItem(
                   value: value,
                   size: Spacing.d20,
                   label: Column(
@@ -53,14 +53,14 @@ class _RadioGroupPlansExampleState extends State<RadioGroupPlansExample> {
                 ),
             ],
           ),
-          RadioGroup<String>(
+          InkRadioGroup<String>(
             value: _billing,
             onChanged: (value) => setState(() => _billing = value),
             direction: Axis.horizontal,
             semanticLabel: 'Billing',
             children: const [
-              RadioGroupItem(value: 'monthly', label: Text('Monthly')),
-              RadioGroupItem(value: 'yearly', label: Text('Yearly')),
+              InkRadioGroupItem(value: 'monthly', label: Text('Monthly')),
+              InkRadioGroupItem(value: 'yearly', label: Text('Yearly')),
             ],
           ),
         ],

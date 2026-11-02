@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:gallery/features/components/examples/form/form.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
@@ -79,7 +79,7 @@ class _FormRhfRadiogroupExampleState extends State<FormRhfRadiogroupExample> {
                             'You can upgrade or downgrade your plan at any time.',
                           ),
                         ),
-                        RadioGroup<String>(
+                        InkRadioGroup<String>(
                           value: field.value,
                           onChanged: field.onChanged,
                           invalid: field.invalid,
@@ -101,7 +101,7 @@ class _FormRhfRadiogroupExampleState extends State<FormRhfRadiogroupExample> {
                                         ),
                                       ],
                                     ),
-                                    RadioGroupItem(value: plan.id),
+                                    InkRadioGroupItem(value: plan.id),
                                   ],
                                 ),
                               ),

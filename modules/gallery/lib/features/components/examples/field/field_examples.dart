@@ -57,7 +57,7 @@ const fieldExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'Radio',
-    description: 'shadcn\'s `field-radio`: a RadioGroup inside a FieldSet, each option a horizontal Field with the button first and its label after it.',
+    description: 'shadcn\'s `field-radio`: a InkRadioGroup inside a FieldSet, each option a horizontal Field with the button first and its label after it.',
     source: 'field/field_radio_example.dart',
     builder: FieldRadioExample.new,
   ),

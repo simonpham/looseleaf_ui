@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:looseleaf_ui/looseleaf_ui.dart' hide Clipboard;
+import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class PopoverShareLinkExample extends StatefulWidget {
   const PopoverShareLinkExample({super.key});

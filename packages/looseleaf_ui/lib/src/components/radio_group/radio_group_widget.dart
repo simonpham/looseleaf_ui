@@ -3,7 +3,7 @@ import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/radio_group/radio_group_scope.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
-/// A set of [RadioGroupItem]s of which one is checked.
+/// A set of [InkRadioGroupItem]s of which one is checked.
 ///
 /// The group is one Tab stop (the checked item, else the first); the arrow
 /// keys move to the next item and check it, looping at the ends, and Space
@@ -11,19 +11,19 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// with 24 px between them when [direction] is [Axis.horizontal].
 ///
 /// ```dart
-/// RadioGroup<String>(
+/// InkRadioGroup<String>(
 ///   value: plan,
 ///   onChanged: (value) => setState(() => plan = value),
 ///   children: const [
-///     RadioGroupItem(value: 'free', label: Text('Free')),
-///     RadioGroupItem(value: 'pro', label: Text('Pro')),
+///     InkRadioGroupItem(value: 'free', label: Text('Free')),
+///     InkRadioGroupItem(value: 'pro', label: Text('Pro')),
 ///   ],
 /// )
 /// ```
 ///
 /// Mirrors `RadioGroup` in upstream `src/components/ui/radio-group.tsx`.
-class RadioGroup<T> extends StatelessWidget {
-  const RadioGroup({
+class InkRadioGroup<T> extends StatelessWidget {
+  const InkRadioGroup({
     super.key,
     required this.value,
     required this.children,
@@ -40,7 +40,7 @@ class RadioGroup<T> extends StatelessWidget {
   /// Called with an item's value when it is checked.
   final ValueChanged<T>? onChanged;
 
-  /// The items, usually [RadioGroupItem]s of [T].
+  /// The items, usually [InkRadioGroupItem]s of [T].
   final List<Widget> children;
 
   /// Stacked (`grid gap-3`) or in a wrapping row (`flex-wrap gap-x-6`).

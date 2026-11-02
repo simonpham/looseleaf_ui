@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/field/field.dart';
 import 'package:looseleaf_ui/src/components/radio_group/radio_group.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
@@ -20,7 +20,7 @@ class FieldSet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final density = LooseleafTheme.of(context).density;
-    final choices = children.any((child) => child is RadioGroup);
+    final choices = children.any((child) => child is InkRadioGroup);
     final gap = switch ((choices, density)) {
       (true, _) => Spacing.d12,
       (false, LooseleafDensity.calm) => Spacing.d16,

@@ -23,7 +23,7 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 ///     orientation: FieldOrientation.horizontal,
 ///     children: [
 ///       FieldContent(children: [FieldTitle(Text('Studio'))]),
-///       RadioGroupItem(value: 'studio'),
+///       InkRadioGroupItem(value: 'studio'),
 ///     ],
 ///   ),
 /// )

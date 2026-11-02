@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class FormEveryControlExample extends StatefulWidget {
@@ -93,14 +93,14 @@ class _FormEveryControlExampleState extends State<FormEveryControlExample> {
                 children: [
                   const FormLabel(Text('Plan')),
                   FormControl(
-                    child: RadioGroup<String>(
+                    child: InkRadioGroup<String>(
                       value: field.value,
                       onChanged: field.onChanged,
                       invalid: field.invalid,
                       semanticLabel: 'Plan',
                       children: [
                         for (final MapEntry(:key, :value) in _plans.entries)
-                          RadioGroupItem(value: key, label: Text(value)),
+                          InkRadioGroupItem(value: key, label: Text(value)),
                       ],
                     ),
                   ),

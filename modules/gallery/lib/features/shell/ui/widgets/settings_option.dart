@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 /// A radio choice with a hint under its label, upstream `Option` in
@@ -18,7 +18,7 @@ class SettingsOption<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return RadioGroupItem<T>(
+    return InkRadioGroupItem<T>(
       value: value,
       label: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

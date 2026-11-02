@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-/// What a [RadioGroup] tells its items: the checked value, how to check
+/// What an [InkRadioGroup] tells its items: the checked value, how to check
 /// another, and the group-wide flags.
 class RadioGroupScope<T> extends InheritedWidget {
   const RadioGroupScope({

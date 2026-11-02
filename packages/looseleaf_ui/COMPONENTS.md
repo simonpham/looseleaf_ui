@@ -18,6 +18,23 @@ lib/src/components/
 - Inside the folder, import siblings through the folder barrel.
 - Add the folder barrel to `components.dart` (the commit script's `--barrel` does it, see below).
 
+## Names that differ from shadcn
+
+Part names follow shadcn/ui, except where one would clash with a name a Flutter app imports anyway (`package:flutter/widgets.dart`, `package:flutter/services.dart`, `dart:core`) or with the engine `looseleaf_ui` re-exports. Those get an `Ink` (or `Paper`) prefix; their other parts keep shadcn's names.
+
+| shadcn / Looseleaf | Looseleaf UI | Clashes with |
+|--------------------|--------------|--------------|
+| `Icon` | `InkIcon` | widgets `Icon` |
+| `Table`, `TableRow`, `TableCell` | `InkTable`, `InkTableRow`, `InkTableCell` | widgets `Table`, `TableRow`, `TableCell` |
+| `Page` | `PaperPage` | widgets `Page` |
+| `Form`, `FormField` | `InkForm`, `InkFormField` | widgets `Form`, `FormField` |
+| `RadioGroup`, `RadioGroupItem` | `InkRadioGroup`, `InkRadioGroupItem` | widgets `RadioGroup` |
+| `Clipboard` | `InkClipboard` | services `Clipboard` |
+| `Item` | `InkItem` | the engine's `Item` |
+| typography `List` | `TypographyList` | dart:core `List` |
+
+Check a new component with `tools/names/check_clashes.sh`: it lists every public name that is ambiguous next to those imports.
+
 ## Foundation (`components/foundation/`)
 
 | Piece | What it does |

@@ -64,7 +64,7 @@ const formExamples = <GalleryExample>[
   ),
   GalleryExample(
     title: 'React Hook Form: radio group',
-    description: 'shadcn\'s `form-rhf-radiogroup`: choice cards (a FieldLabel around each Field) in a controlled RadioGroup. `invalid` on the group and on each Field paints the whole set red when nothing is chosen.',
+    description: 'shadcn\'s `form-rhf-radiogroup`: choice cards (a FieldLabel around each Field) in a controlled InkRadioGroup. `invalid` on the group and on each Field paints the whole set red when nothing is chosen.',
     source: 'form/form_rhf_radiogroup_example.dart',
     builder: FormRhfRadiogroupExample.new,
   ),

@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
@@ -10,7 +10,7 @@ Widget _item(
   bool disabled = false,
   bool? invalid,
   Set<InkState> states = const {},
-}) => RadioGroupItem<String>(
+}) => InkRadioGroupItem<String>(
   value: name,
   disabled: disabled,
   invalid: invalid,
@@ -42,7 +42,7 @@ void main() {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: Spacing.d48,
                 children: [
-                  RadioGroup<String>(
+                  InkRadioGroup<String>(
                     value: 'Comfortable',
                     children: [
                       _item('Default'),
@@ -51,7 +51,7 @@ void main() {
                       _item('Focus', states: const {InkState.focused}),
                     ],
                   ),
-                  RadioGroup<String>(
+                  InkRadioGroup<String>(
                     value: 'Disabled on',
                     children: [
                       _item('Invalid', invalid: true),
@@ -61,7 +61,7 @@ void main() {
                   ),
                 ],
               ),
-              RadioGroup<String>(
+              InkRadioGroup<String>(
                 value: 'Card',
                 direction: Axis.horizontal,
                 invalid: true,

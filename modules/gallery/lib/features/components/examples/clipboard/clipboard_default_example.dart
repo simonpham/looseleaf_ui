@@ -31,7 +31,7 @@ class _ClipboardDefaultExampleState extends State<ClipboardDefaultExample> {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return Clipboard(
+    return InkClipboard(
       seed: 'pack',
       tiltDegrees: -1.1,
       maxWidth: Spacing.d96 * 4,

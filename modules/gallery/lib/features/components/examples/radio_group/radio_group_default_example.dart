@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class RadioGroupDefaultExample extends StatefulWidget {
@@ -13,14 +13,14 @@ class _RadioGroupDefaultExampleState extends State<RadioGroupDefaultExample> {
   String _density = 'comfortable';
 
   @override
-  Widget build(BuildContext context) => RadioGroup<String>(
+  Widget build(BuildContext context) => InkRadioGroup<String>(
     value: _density,
     onChanged: (value) => setState(() => _density = value),
     semanticLabel: 'Density',
     children: const [
-      RadioGroupItem(value: 'default', label: Text('Default')),
-      RadioGroupItem(value: 'comfortable', label: Text('Comfortable')),
-      RadioGroupItem(value: 'compact', label: Text('Compact')),
+      InkRadioGroupItem(value: 'default', label: Text('Default')),
+      InkRadioGroupItem(value: 'comfortable', label: Text('Comfortable')),
+      InkRadioGroupItem(value: 'compact', label: Text('Compact')),
     ],
   );
 }

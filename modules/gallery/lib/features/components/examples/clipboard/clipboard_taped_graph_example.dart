@@ -7,7 +7,7 @@ class ClipboardTapedGraphExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return Clipboard(
+    return InkClipboard(
       tone: Accent.sky,
       seed: 'graph',
       tiltDegrees: 0.8,

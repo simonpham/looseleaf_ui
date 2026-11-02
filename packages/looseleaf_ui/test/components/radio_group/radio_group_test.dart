@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
@@ -21,17 +21,17 @@ class _HarnessState extends State<_Harness> {
   @override
   Widget build(BuildContext context) => FocusScope(
     autofocus: true,
-    child: RadioGroup<String>(
+    child: InkRadioGroup<String>(
       value: value,
       onChanged: (next) => setState(() => value = next),
       children: [
-        const RadioGroupItem(value: 'a', label: Text('Alpha')),
-        RadioGroupItem(
+        const InkRadioGroupItem(value: 'a', label: Text('Alpha')),
+        InkRadioGroupItem(
           value: 'b',
           disabled: widget.disabledMiddle,
           label: const Text('Bravo'),
         ),
-        const RadioGroupItem(value: 'c', label: Text('Charlie')),
+        const InkRadioGroupItem(value: 'c', label: Text('Charlie')),
       ],
     ),
   );
@@ -40,7 +40,7 @@ class _HarnessState extends State<_Harness> {
 Set<InkState> _states(WidgetTester tester, String label) => tester
     .widget<InkSurface>(
       find.descendant(
-        of: find.widgetWithText(RadioGroupItem<String>, label),
+        of: find.widgetWithText(InkRadioGroupItem<String>, label),
         matching: find.byType(InkSurface),
       ),
     )
@@ -122,11 +122,11 @@ void main() {
     String? changed;
     await tester.pumpWidget(
       componentHost(
-        RadioGroup<String>(
+        InkRadioGroup<String>(
           value: null,
           disabled: true,
           onChanged: (value) => changed = value,
-          children: const [RadioGroupItem(value: 'a', label: Text('Alpha'))],
+          children: const [InkRadioGroupItem(value: 'a', label: Text('Alpha'))],
         ),
       ),
     );

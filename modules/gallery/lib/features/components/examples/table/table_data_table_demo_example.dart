@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:looseleaf_ui/looseleaf_ui.dart' hide Clipboard;
+import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 enum _Column { status, email, amount }
 

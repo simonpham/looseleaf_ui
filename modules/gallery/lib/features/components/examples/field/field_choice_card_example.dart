@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class FieldChoiceCardExample extends StatefulWidget {
@@ -39,7 +39,7 @@ class _FieldChoiceCardExampleState extends State<FieldChoiceCardExample> {
             const FieldDescription(
               Text('Select the compute environment for your cluster.'),
             ),
-            RadioGroup<String>(
+            InkRadioGroup<String>(
               value: _environment,
               onChanged: (value) => setState(() => _environment = value),
               semanticLabel: 'Compute Environment',
@@ -57,7 +57,7 @@ class _FieldChoiceCardExampleState extends State<FieldChoiceCardExample> {
                             FieldDescription(Text(help)),
                           ],
                         ),
-                        RadioGroupItem(value: value),
+                        InkRadioGroupItem(value: value),
                       ],
                     ),
                   ),

@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class RadioGroupStatesExample extends StatelessWidget {
@@ -30,29 +30,29 @@ class RadioGroupStatesExample extends StatelessWidget {
                   ),
                 ),
               ),
-              RadioGroup<String>(
+              InkRadioGroup<String>(
                 value: 'on',
                 onChanged: (_) {},
                 direction: Axis.horizontal,
                 semanticLabel: name,
                 children: [
-                  RadioGroupItem(
+                  InkRadioGroupItem(
                     value: 'off',
                     size: size,
                     semanticLabel: '$name off',
                   ),
-                  RadioGroupItem(
+                  InkRadioGroupItem(
                     value: 'on',
                     size: size,
                     semanticLabel: '$name on',
                   ),
-                  RadioGroupItem(
+                  InkRadioGroupItem(
                     value: 'bad',
                     size: size,
                     invalid: true,
                     semanticLabel: '$name invalid',
                   ),
-                  RadioGroupItem(
+                  InkRadioGroupItem(
                     value: 'locked',
                     size: size,
                     disabled: true,

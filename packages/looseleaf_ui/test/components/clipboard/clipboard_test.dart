@@ -10,13 +10,13 @@ void main() {
   ) async {
     await tester.pumpWidget(
       componentHost(
-        const Clipboard(
+        const InkClipboard(
           seed: 'c',
           children: [ClipboardPaper(seed: 'p', child: Text('Visitors'))],
         ),
       ),
     );
-    final board = tester.getRect(find.byType(Clipboard));
+    final board = tester.getRect(find.byType(InkClipboard));
     final paper = tester.getRect(find.byType(ClipboardPaper));
     expect(board.width, 448);
     expect(paper.left - board.left, 24);
@@ -34,36 +34,36 @@ void main() {
       componentHost(
         const SizedBox(
           width: 300,
-          child: Clipboard(children: [ClipboardPaper(child: Text('a'))]),
+          child: InkClipboard(children: [ClipboardPaper(child: Text('a'))]),
         ),
       ),
     );
-    expect(tester.getSize(find.byType(Clipboard)).width, 300);
+    expect(tester.getSize(find.byType(InkClipboard)).width, 300);
   });
 
   testWidgets('the paper grows into a least height', (tester) async {
     await tester.pumpWidget(
       componentHost(
-        const Clipboard(
+        const InkClipboard(
           minHeight: 400,
           children: [ClipboardPaper(minHeight: 160, child: Text('jam'))],
         ),
       ),
     );
-    expect(tester.getSize(find.byType(Clipboard)).height, 400);
+    expect(tester.getSize(find.byType(InkClipboard)).height, 400);
     expect(tester.getSize(find.byType(ClipboardPaper)).height, 400 - 56);
   });
 
   testWidgets('draws the clip, hidden when calm', (tester) async {
     await tester.pumpWidget(
       componentHost(
-        const Clipboard(children: [ClipboardPaper(child: Text('a'))]),
+        const InkClipboard(children: [ClipboardPaper(child: Text('a'))]),
       ),
     );
     expect(find.byType(ClipboardClip), findsOneWidget);
     await tester.pumpWidget(
       componentHost(
-        const Clipboard(children: [ClipboardPaper(child: Text('a'))]),
+        const InkClipboard(children: [ClipboardPaper(child: Text('a'))]),
         theme: const LooseleafThemeData(density: LooseleafDensity.calm),
       ),
     );
@@ -77,7 +77,7 @@ void main() {
       componentHost(
         const Directionality(
           textDirection: TextDirection.rtl,
-          child: Clipboard(children: [ClipboardPaper(child: Text('a'))]),
+          child: InkClipboard(children: [ClipboardPaper(child: Text('a'))]),
         ),
       ),
     );
@@ -90,7 +90,7 @@ void main() {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(
       componentHost(
-        const Clipboard(
+        const InkClipboard(
           tone: Accent.teal,
           children: [ClipboardPaper(child: Text('Visitors'))],
         ),

@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class RadioGroupInAFormExample extends StatefulWidget {
@@ -44,14 +44,17 @@ class _RadioGroupInAFormExampleState extends State<RadioGroupInAFormExample> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              RadioGroup<String>(
+              InkRadioGroup<String>(
                 value: _ink,
                 onChanged: (value) => setState(() => _ink = value),
                 invalid: _tried && _ink == null,
                 semanticLabel: 'Ink of the month',
                 children: [
                   for (final ink in const ['Black', 'Blue', 'Sepia'])
-                    RadioGroupItem(value: ink.toLowerCase(), label: Text(ink)),
+                    InkRadioGroupItem(
+                      value: ink.toLowerCase(),
+                      label: Text(ink),
+                    ),
                 ],
               ),
             ],

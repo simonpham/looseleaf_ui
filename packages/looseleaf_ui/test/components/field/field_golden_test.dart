@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
@@ -90,7 +90,7 @@ Widget _choices() => SizedBox(
       FieldSet(
         children: [
           const FieldLegend(Text('Plan'), variant: FieldLegendVariant.label),
-          RadioGroup<String>(
+          InkRadioGroup<String>(
             value: 'studio',
             onChanged: (_) {},
             children: [
@@ -111,7 +111,7 @@ Widget _choices() => SizedBox(
                           FieldDescription(Text(help)),
                         ],
                       ),
-                      RadioGroupItem(value: value, seed: value),
+                      InkRadioGroupItem(value: value, seed: value),
                     ],
                   ),
                 ),

@@ -21,15 +21,15 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// at least that tall and the paper grows to fill it.
 ///
 /// ```dart
-/// const Clipboard(
+/// const InkClipboard(
 ///   tone: Accent.teal,
 ///   children: [ClipboardPaper(child: Text('Visitors'))],
 /// )
 /// ```
 ///
 /// Mirrors `Clipboard` in upstream `src/components/ui/clipboard.tsx`.
-class Clipboard extends StatefulWidget {
-  const Clipboard({
+class InkClipboard extends StatefulWidget {
+  const InkClipboard({
     super.key,
     this.tone,
     this.maxWidth = defaultMaxWidth,
@@ -78,10 +78,10 @@ class Clipboard extends StatefulWidget {
   final List<Widget> children;
 
   @override
-  State<Clipboard> createState() => _ClipboardState();
+  State<InkClipboard> createState() => _ClipboardState();
 }
 
-class _ClipboardState extends State<Clipboard> with InkSeed {
+class _ClipboardState extends State<InkClipboard> with InkSeed {
   Widget _column() {
     final column = Column(
       mainAxisSize: MainAxisSize.min,
@@ -92,7 +92,7 @@ class _ClipboardState extends State<Clipboard> with InkSeed {
     if (minHeight == null) return column;
     return ConstrainedBox(
       constraints: BoxConstraints(
-        minHeight: math.max(0, minHeight - Clipboard.padding.vertical),
+        minHeight: math.max(0, minHeight - InkClipboard.padding.vertical),
       ),
       child: IntrinsicHeight(child: column),
     );
@@ -104,7 +104,7 @@ class _ClipboardState extends State<Clipboard> with InkSeed {
     final seed = inkSeed(widget.seed);
     final degrees = switch (widget.tilt) {
       false => 0.0,
-      true => widget.tiltDegrees ?? tiltFor(seed, Clipboard.tiltMax),
+      true => widget.tiltDegrees ?? tiltFor(seed, InkClipboard.tiltMax),
     };
     final params = ClipboardBoardParams(tone: widget.tone);
     return LayoutBuilder(
@@ -131,7 +131,7 @@ class _ClipboardState extends State<Clipboard> with InkSeed {
               ),
             ),
             Padding(
-              padding: Clipboard.padding,
+              padding: InkClipboard.padding,
               child: ClipboardScope(
                 fills: widget.minHeight != null,
                 child: _column(),

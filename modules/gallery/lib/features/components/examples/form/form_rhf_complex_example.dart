@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:gallery/features/components/examples/form/form.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
@@ -113,7 +113,7 @@ class _FormRhfComplexExampleState extends State<FormRhfComplexExample> {
                         const FieldDescription(
                           Text('Choose your subscription plan.'),
                         ),
-                        RadioGroup<String>(
+                        InkRadioGroup<String>(
                           value: field.value,
                           onChanged: field.onChanged,
                           invalid: field.invalid,
@@ -134,7 +134,7 @@ class _FormRhfComplexExampleState extends State<FormRhfComplexExample> {
                                         ),
                                       ],
                                     ),
-                                    RadioGroupItem(value: plan.id),
+                                    InkRadioGroupItem(value: plan.id),
                                   ],
                                 ),
                               ),

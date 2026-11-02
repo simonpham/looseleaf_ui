@@ -7,15 +7,15 @@ import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
-/// One choice of a [RadioGroup]: an inked ring that, when checked, gets a
+/// One choice of an [InkRadioGroup]: an inked ring that, when checked, gets a
 /// marker dot with a spiral drawn on around it.
 ///
 /// A [label] sits after the ring and is part of it: tapping or hovering
 /// the label works like the ring, and screen readers read it as the name.
 ///
 /// Mirrors `RadioGroupItem` in upstream `src/components/ui/radio-group.tsx`.
-class RadioGroupItem<T> extends StatefulWidget {
-  const RadioGroupItem({
+class InkRadioGroupItem<T> extends StatefulWidget {
+  const InkRadioGroupItem({
     super.key,
     required this.value,
     this.label,
@@ -57,10 +57,10 @@ class RadioGroupItem<T> extends StatefulWidget {
   final Set<InkState> forcedStates;
 
   @override
-  State<RadioGroupItem<T>> createState() => _RadioGroupItemState<T>();
+  State<InkRadioGroupItem<T>> createState() => _RadioGroupItemState<T>();
 }
 
-class _RadioGroupItemState<T> extends State<RadioGroupItem<T>> with InkSeed {
+class _RadioGroupItemState<T> extends State<InkRadioGroupItem<T>> with InkSeed {
   FocusNode? _ownFocusNode;
   late InkRovingEntry _entry = InkRovingEntry(_focusNode);
   InkRovingFocusState? _roving;
@@ -80,7 +80,7 @@ class _RadioGroupItemState<T> extends State<RadioGroupItem<T>> with InkSeed {
   }
 
   @override
-  void didUpdateWidget(RadioGroupItem<T> oldWidget) {
+  void didUpdateWidget(InkRadioGroupItem<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (identical(_entry.focusNode, _focusNode)) return;
     _roving?.unregister(_entry);

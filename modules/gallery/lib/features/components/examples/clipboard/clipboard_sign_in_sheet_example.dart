@@ -34,7 +34,7 @@ class _ClipboardSignInSheetExampleState
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
     return Center(
-      child: Clipboard(
+      child: InkClipboard(
         tone: Accent.teal,
         seed: 'sign',
         tiltDegrees: -0.8,

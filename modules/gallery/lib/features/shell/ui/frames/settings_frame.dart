@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:gallery/features/settings/view_models/view_models.dart';
 import 'package:gallery/features/shell/ui/widgets/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
@@ -61,7 +61,7 @@ class _SettingsBody extends StatelessWidget {
       children: [
         SettingsGroup(
           label: 'Density',
-          child: RadioGroup<LooseleafDensity>(
+          child: InkRadioGroup<LooseleafDensity>(
             value: density,
             onChanged: settings.setDensity,
             semanticLabel: 'Density',
@@ -87,7 +87,7 @@ class _SettingsBody extends StatelessWidget {
         const Separator(variant: SeparatorVariant.dashed),
         SettingsGroup(
           label: 'Ink',
-          child: RadioGroup<LooseleafTier>(
+          child: InkRadioGroup<LooseleafTier>(
             value: tier,
             onChanged: settings.setTier,
             semanticLabel: 'Ink',
@@ -108,7 +108,7 @@ class _SettingsBody extends StatelessWidget {
         const Separator(variant: SeparatorVariant.dashed),
         SettingsGroup(
           label: 'Motion',
-          child: RadioGroup<LooseleafMotion>(
+          child: InkRadioGroup<LooseleafMotion>(
             value: motion,
             onChanged: settings.setMotion,
             semanticLabel: 'Motion',

@@ -107,7 +107,7 @@ class Field extends StatelessWidget {
         for (final child in children)
           switch (child) {
             FieldLabel() || FieldContent() => Expanded(child: child),
-            Checkbox() || RadioGroupItem() when withContent => Padding(
+            Checkbox() || InkRadioGroupItem() when withContent => Padding(
               padding: const EdgeInsets.only(top: Spacing.d1),
               child: child,
             ),

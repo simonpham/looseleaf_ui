@@ -27,7 +27,7 @@ class ClipboardTonesExample extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 spacing: Spacing.d12,
                 children: [
-                  Clipboard(
+                  InkClipboard(
                     tone: tone,
                     seed: name,
                     tiltDegrees: switch (index.isOdd) {

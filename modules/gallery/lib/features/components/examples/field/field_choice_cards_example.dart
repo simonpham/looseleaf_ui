@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart' hide RadioGroup;
+import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/looseleaf_ui.dart';
 
 class FieldChoiceCardsExample extends StatefulWidget {
@@ -31,7 +31,7 @@ class _FieldChoiceCardsExampleState extends State<FieldChoiceCardsExample> {
               Text('Plan'),
               variant: FieldLegendVariant.label,
             ),
-            RadioGroup<String>(
+            InkRadioGroup<String>(
               value: _plan,
               onChanged: (value) => setState(() => _plan = value),
               semanticLabel: 'Plan',
@@ -49,7 +49,7 @@ class _FieldChoiceCardsExampleState extends State<FieldChoiceCardsExample> {
                             FieldDescription(Text(help)),
                           ],
                         ),
-                        RadioGroupItem(value: value),
+                        InkRadioGroupItem(value: value),
                       ],
                     ),
                   ),
