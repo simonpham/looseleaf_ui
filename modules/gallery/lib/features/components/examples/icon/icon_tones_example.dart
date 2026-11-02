@@ -80,7 +80,14 @@ class _Row extends StatelessWidget {
             ),
           ),
         ),
-        ...icons,
+        Flexible(
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: Spacing.d20,
+            runSpacing: Spacing.d12,
+            children: icons,
+          ),
+        ),
       ],
     );
   }

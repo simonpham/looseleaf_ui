@@ -32,9 +32,10 @@ class _BoilControlsExampleState extends State<BoilControlsExample> {
         Boil(
           fps: _mode.fps,
           strength: _mode.strength,
-          builder: (context, frame, seed) => Row(
-            mainAxisSize: MainAxisSize.min,
+          builder: (context, frame, seed) => Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
             spacing: Spacing.d16,
+            runSpacing: Spacing.d16,
             children: [
               Doodle('mushroom', size: 72, seed: seed('mushroom')),
               Button(

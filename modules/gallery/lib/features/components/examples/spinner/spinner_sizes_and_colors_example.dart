@@ -11,8 +11,10 @@ class SpinnerSizesAndColorsExample extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: Spacing.d24,
       children: [
-        const Row(
+        const Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           spacing: Spacing.d24,
+          runSpacing: Spacing.d16,
           children: [
             Spinner(size: Spacing.d12, semanticLabel: 'Loading, extra small'),
             Spinner(),
@@ -22,8 +24,10 @@ class SpinnerSizesAndColorsExample extends StatelessWidget {
             Spinner(size: Spacing.d64, semanticLabel: 'Loading, huge'),
           ],
         ),
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           spacing: Spacing.d24,
+          runSpacing: Spacing.d16,
           children: [
             for (final (color, name) in [
               (colors.inkYou, 'blue'),

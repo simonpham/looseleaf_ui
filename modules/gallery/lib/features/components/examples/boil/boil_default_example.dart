@@ -5,10 +5,10 @@ class BoilDefaultExample extends StatelessWidget {
   const BoilDefaultExample({super.key});
 
   @override
-  Widget build(BuildContext context) => Row(
-    mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.end,
+  Widget build(BuildContext context) => Wrap(
+    crossAxisAlignment: WrapCrossAlignment.end,
     spacing: Spacing.d24,
+    runSpacing: Spacing.d24,
     children: [
       for (final name in const ['sun', 'flower', 'star', 'mushroom'])
         Boil(

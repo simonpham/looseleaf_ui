@@ -7,26 +7,38 @@ class SkeletonShapesExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ConstrainedBox(
     constraints: const BoxConstraints(maxWidth: Spacing.d448),
-    child: const Column(
+    child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: Spacing.d24,
       children: [
         Row(
           spacing: Spacing.d16,
           children: [
-            Skeleton(width: Spacing.d48, height: Spacing.d48, circle: true),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: Spacing.d8,
-              children: [
-                Skeleton(width: 250, height: Spacing.d16),
-                Skeleton(width: 200, height: Spacing.d16),
-              ],
+            const Skeleton(
+              width: Spacing.d48,
+              height: Spacing.d48,
+              circle: true,
+            ),
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: Spacing.d8,
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 250),
+                    child: const Skeleton(height: Spacing.d16),
+                  ),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 200),
+                    child: const Skeleton(height: Spacing.d16),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
-        Skeleton(height: 144),
-        Column(
+        const Skeleton(height: 144),
+        const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: Spacing.d8,
           children: [
@@ -41,7 +53,7 @@ class SkeletonShapesExample extends StatelessWidget {
             ),
           ],
         ),
-        Row(
+        const Row(
           spacing: Spacing.d12,
           children: [
             Skeleton(width: Spacing.d96, height: Spacing.d36),

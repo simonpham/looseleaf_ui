@@ -9,10 +9,10 @@ class MascotSizesExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.end,
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.end,
       spacing: Spacing.d32,
+      runSpacing: Spacing.d24,
       children: [
         for (final size in _sizes)
           Column(

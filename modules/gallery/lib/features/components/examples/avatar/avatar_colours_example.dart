@@ -38,9 +38,9 @@ class AvatarColoursExample extends StatelessWidget {
               ),
           ],
         ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
+        Wrap(
           spacing: Spacing.d20,
+          runSpacing: Spacing.d20,
           children: [
             const Avatar(
               size: AvatarSize.lg,

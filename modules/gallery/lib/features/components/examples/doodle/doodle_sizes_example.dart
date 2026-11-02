@@ -15,10 +15,10 @@ class DoodleSizesExample extends StatelessWidget {
       spacing: Spacing.d16,
       children: [
         for (final name in const ['sun', 'mushroom'])
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.end,
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.end,
             spacing: Spacing.d24,
+            runSpacing: Spacing.d16,
             children: [
               for (final size in _sizes)
                 Column(

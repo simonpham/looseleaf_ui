@@ -5,19 +5,27 @@ class SkeletonDemoExample extends StatelessWidget {
   const SkeletonDemoExample({super.key});
 
   @override
-  Widget build(BuildContext context) => const Row(
+  Widget build(BuildContext context) => Row(
     mainAxisSize: MainAxisSize.min,
     spacing: Spacing.d16,
     children: [
-      Skeleton(width: Spacing.d48, height: Spacing.d48, circle: true),
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: Spacing.d8,
-        children: [
-          Skeleton(width: 250, height: Spacing.d16),
-          Skeleton(width: 200, height: Spacing.d16),
-        ],
+      const Skeleton(width: Spacing.d48, height: Spacing.d48, circle: true),
+      Flexible(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: Spacing.d8,
+          children: [
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 250),
+              child: const Skeleton(height: Spacing.d16),
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 200),
+              child: const Skeleton(height: Spacing.d16),
+            ),
+          ],
+        ),
       ),
     ],
   );

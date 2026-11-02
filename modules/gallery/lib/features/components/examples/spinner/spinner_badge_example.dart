@@ -5,9 +5,9 @@ class SpinnerBadgeExample extends StatelessWidget {
   const SpinnerBadgeExample({super.key});
 
   @override
-  Widget build(BuildContext context) => const Row(
-    mainAxisSize: MainAxisSize.min,
+  Widget build(BuildContext context) => const Wrap(
     spacing: Spacing.d16,
+    runSpacing: Spacing.d12,
     children: [
       Badge(leading: Spinner(), child: Text('Syncing')),
       Badge(
