@@ -7,6 +7,7 @@ export 'package:gallery/features/blocks/blocks/faq_01/faq_01.dart';
 export 'package:gallery/features/blocks/blocks/footer_01/footer_01.dart';
 export 'package:gallery/features/blocks/blocks/inbox/inbox.dart';
 export 'package:gallery/features/blocks/blocks/kanban_board/kanban_board.dart';
+export 'package:gallery/features/blocks/blocks/landing_hero_02/landing_hero_02.dart';
 export 'package:gallery/features/blocks/blocks/login_01/login_01.dart';
 export 'package:gallery/features/blocks/blocks/login_02/login_02.dart';
 export 'package:gallery/features/blocks/blocks/login_03/login_03.dart';

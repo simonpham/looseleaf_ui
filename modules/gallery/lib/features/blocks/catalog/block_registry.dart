@@ -45,6 +45,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/kanban_board/kanban_board_block.dart',
     builder: KanbanBoardBlock.new,
   ),
+  'landing-hero-02': GalleryBlock(
+    source: 'blocks/landing_hero_02/landing_hero_02_block.dart',
+    builder: LandingHero02Block.new,
+    objects: [DeskObject.pencil, DeskObject.clips],
+  ),
   'login-01': GalleryBlock(
     source: 'blocks/login_01/login_01_block.dart',
     builder: Login01Block.new,

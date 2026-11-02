@@ -33,6 +33,7 @@ flutter:
     - lib/features/blocks/blocks/footer_01/
     - lib/features/blocks/blocks/inbox/
     - lib/features/blocks/blocks/kanban_board/
+    - lib/features/blocks/blocks/landing_hero_02/
     - lib/features/blocks/blocks/login_01/
     - lib/features/blocks/blocks/login_02/
     - lib/features/blocks/blocks/login_03/
