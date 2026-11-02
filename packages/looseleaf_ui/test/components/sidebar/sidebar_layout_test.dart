@@ -198,4 +198,38 @@ void main() {
       button.right - Spacing.d8,
     );
   });
+
+  testWidgets('a provider header spans the top, the pad and page below', (
+    tester,
+  ) async {
+    await _pump(
+      tester,
+      const SizedBox(
+        width: 900,
+        height: 500,
+        child: SidebarProvider(
+          header: SizedBox(key: Key('header'), height: 56),
+          children: [
+            Sidebar(
+              seed: 's',
+              children: [
+                SidebarHeader(children: [Text('Pad')]),
+              ],
+            ),
+            SidebarInset(child: SizedBox(key: Key('page'))),
+          ],
+        ),
+      ),
+    );
+    final provider = tester.getRect(find.byType(SidebarProvider));
+    final header = tester.getRect(find.byKey(const Key('header')));
+    final pad = tester.getRect(find.byType(SidebarDock));
+    final page = tester.getRect(find.byKey(const Key('page')));
+    expect(header.width, provider.width);
+    expect(header.top, provider.top);
+    expect(pad.top, header.bottom);
+    expect(pad.bottom, provider.bottom);
+    expect(page.top, header.bottom);
+    expect(page.left, pad.right);
+  });
 }

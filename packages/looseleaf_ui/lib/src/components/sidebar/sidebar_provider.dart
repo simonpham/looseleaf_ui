@@ -4,7 +4,8 @@ import 'package:looseleaf_ui/src/components/sidebar/sidebar.dart';
 import 'package:looseleaf_ui/src/components/tooltip/tooltip.dart';
 
 /// Holds a sidebar's open state and lays out its [children] (a [Sidebar]
-/// and a [SidebarInset]) in a row filling the height it is given.
+/// and a [SidebarInset]) in a row filling the height it is given, under an
+/// optional [header] across the full width.
 ///
 /// The desktop state is yours with [open] and [onOpenChange], or starts at
 /// [defaultOpen]. Below [mobileBreakpoint] the [Sidebar] becomes a sheet
@@ -38,6 +39,7 @@ class SidebarProvider extends StatefulWidget {
     this.widthMobile = SidebarMetrics.widthMobile,
     this.mobileBreakpoint = SidebarMetrics.mobileBreakpoint,
     this.keyboardShortcut = true,
+    this.header,
   });
 
   /// The sidebar and the page beside it, in reading order.
@@ -67,6 +69,11 @@ class SidebarProvider extends StatefulWidget {
 
   /// Whether Ctrl or Cmd + B toggles the sidebar.
   final bool keyboardShortcut;
+
+  /// A strip across the top, above both the pad and the page (upstream's
+  /// `SidebarProvider className="flex-col"` with the site header first);
+  /// it can hold a [SidebarTrigger].
+  final Widget? header;
 
   /// The nearest provider's state; throws outside one, like `useSidebar`.
   static SidebarData of(BuildContext context) {
@@ -183,21 +190,35 @@ class _SidebarProviderState extends State<SidebarProvider> {
           canRequestFocus: false,
           skipTraversal: true,
           onKeyEvent: _focusedKey,
-          // Laid out backwards so the pad paints over the page and is hit
-          // first: its rail and shadow reach past its own box. Packed to the
-          // reversed row's end, so without a SidebarInset the pad still sits
-          // at the start.
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            textDirection: switch (direction) {
-              TextDirection.ltr => TextDirection.rtl,
-              TextDirection.rtl => TextDirection.ltr,
-            },
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: widget.children.reversed.toList(),
+          child: _withHeader(
+            // Laid out backwards so the pad paints over the page and is hit
+            // first: its rail and shadow reach past its own box. Packed to
+            // the reversed row's end, so without a SidebarInset the pad
+            // still sits at the start.
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              textDirection: switch (direction) {
+                TextDirection.ltr => TextDirection.rtl,
+                TextDirection.rtl => TextDirection.ltr,
+              },
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: widget.children.reversed.toList(),
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _withHeader(Widget row) {
+    final header = widget.header;
+    if (header == null) return row;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        header,
+        Expanded(child: row),
+      ],
     );
   }
 }
