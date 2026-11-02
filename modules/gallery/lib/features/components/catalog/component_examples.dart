@@ -14,6 +14,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'bracket': bracketExamples,
   'bubble': bubbleExamples,
   'button': buttonExamples,
+  'card': cardExamples,
   'chart': chartExamples,
   'checkbox': checkboxExamples,
   'circled': circledExamples,

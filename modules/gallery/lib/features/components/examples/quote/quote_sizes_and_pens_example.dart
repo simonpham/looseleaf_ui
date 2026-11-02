@@ -5,7 +5,7 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 const _ruleMaxWidth = 320.0;
 
 /// Below this width the grid is one column (`sm:grid-cols-2`).
-const _twoColumns = 640.0;
+const _twoColumns = 400.0;
 
 class QuoteSizesAndPensExample extends StatelessWidget {
   const QuoteSizesAndPensExample({super.key});
