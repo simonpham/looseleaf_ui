@@ -96,4 +96,28 @@ void main() {
     await tester.pumpWidget(themed(const {InkState.hovered}));
     expect(tester.hasRunningAnimations, isFalse);
   });
+
+  testWidgets('swipeOnCheck wipes the swipe in as checked turns on', (
+    tester,
+  ) async {
+    final motion = InkSurfaceMotion(tester);
+    addTearDown(motion.dispose);
+    void show(Set<InkState> states) => motion.update(
+      states,
+      hasHover: false,
+      still: true,
+      animate: true,
+      swipeOnCheck: true,
+    );
+    show(const {});
+    show(const {InkState.hovered});
+    await tester.pump();
+    expect(motion.swipe.value, 1);
+    show(const {InkState.checked});
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(motion.swipe.value, inExclusiveRange(0, 1));
+    await tester.pump(InkMotion.sheet);
+    expect(motion.swipe.value, 1);
+  });
 }

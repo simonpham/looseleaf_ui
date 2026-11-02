@@ -112,6 +112,7 @@ void main() {
         .toList();
     expect(surfaces[0].states, contains(InkState.checked));
     expect(surfaces[2].states, isNot(contains(InkState.checked)));
+    expect(surfaces.every((surface) => surface.swipeOnCheck), isTrue);
     final a = tester.getRect(find.byType(InkSurface).at(0));
     final c = tester.getRect(find.byType(InkSurface).at(2));
     expect(c.top - a.top, 2);

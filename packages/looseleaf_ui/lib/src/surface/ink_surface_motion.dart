@@ -60,7 +60,7 @@ class InkSurfaceMotion {
   /// Animates to [states]. [hasHover] says whether the frame has a hover
   /// layer (only then does it tilt); [still] disables the tilt;
   /// [animate] false jumps. [swipeOnHover] wipes `swipe` parts in as hover
-  /// starts; [drawOn] draws `reveal` parts on as `checked` or
+  /// starts, [swipeOnCheck] as `checked` turns on; [drawOn] draws `reveal` parts on as `checked` or
   /// `indeterminate` turns on, over [drawOnDuration]. Returns true when new tweens were created, so
   /// the caller re-reads [listenable].
   bool update(
@@ -69,6 +69,7 @@ class InkSurfaceMotion {
     required bool still,
     required bool animate,
     bool swipeOnHover = false,
+    bool swipeOnCheck = false,
     bool drawOn = false,
     Duration drawOnDuration = InkMotion.sheet,
   }) {
@@ -162,6 +163,8 @@ class InkSurfaceMotion {
       states,
       hovered: hovered,
       swipeOnHover: swipeOnHover && animate,
+      swipeOnCheck: swipeOnCheck,
+      animate: animate,
       drawOn: drawOn && animate,
       drawOnDuration: drawOnDuration,
     );
@@ -172,14 +175,24 @@ class InkSurfaceMotion {
     Set<InkState> states, {
     required bool hovered,
     required bool swipeOnHover,
+    required bool swipeOnCheck,
+    required bool animate,
     required bool drawOn,
     required Duration drawOnDuration,
   }) {
     final wasHovered = _hoveredIn(_previous);
     final wasMarked = _markOf(_previous);
+    final wasChecked = _previous.contains(InkState.checked);
     _previous = {...states};
-    if (!hovered) swipe.to(1, Duration.zero, InkMotion.easeOut);
-    if (hovered && !wasHovered && swipeOnHover) {
+    final checked = states.contains(InkState.checked);
+    final swipeIdle = switch (swipeOnCheck) {
+      true => !checked,
+      false => !hovered,
+    };
+    if (swipeIdle) swipe.to(1, Duration.zero, InkMotion.easeOut);
+    final hoverStarted = hovered && !wasHovered && swipeOnHover;
+    final checkStarted = checked && !wasChecked && swipeOnCheck && animate;
+    if (hoverStarted || checkStarted) {
       swipe.replay(0, 1, InkMotion.sheet, InkMotion.easeOut);
     }
     final marked = _markOf(states);

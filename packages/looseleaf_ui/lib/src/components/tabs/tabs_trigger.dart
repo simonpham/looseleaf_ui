@@ -189,6 +189,7 @@ class _TabsTriggerState extends State<TabsTrigger> with InkSeed {
           seed: inkSeed(widget.seed),
           states: states,
           still: true,
+          swipeOnCheck: true,
           child: SizedBox(
             height: _height.of(context),
             child: Padding(

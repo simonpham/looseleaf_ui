@@ -29,6 +29,7 @@ class InkSurface extends StatefulWidget {
     this.eagerLayers = const {},
     this.still,
     this.swipeOnHover = false,
+    this.swipeOnCheck = false,
     this.drawOn = false,
     this.drawOnDuration = InkMotion.sheet,
   });
@@ -66,6 +67,11 @@ class InkSurface extends StatefulWidget {
   /// Wipes the frame's `swipe` parts in each time hover starts, like
   /// upstream's `hover:[&>svg_[data-part=swipe]]:animate-[ll-wipe…]`.
   final bool swipeOnHover;
+
+  /// Wipes the frame's `swipe` parts in each time `checked` turns on, like
+  /// upstream's `data-[state=active]:[&>svg_[data-part=swipe]]:animate-[ll-wipe…]`
+  /// on a tab.
+  final bool swipeOnCheck;
 
   /// Draws the frame's `reveal` parts on when `checked` or `indeterminate`
   /// turns on, like upstream's `data-touched` draw-on. Pass true only once
@@ -120,6 +126,7 @@ class _InkSurfaceState extends State<InkSurface> with TickerProviderStateMixin {
       still: widget.still ?? theme.still,
       animate: _animate && !reduced,
       swipeOnHover: widget.swipeOnHover,
+      swipeOnCheck: widget.swipeOnCheck,
       drawOn: widget.drawOn,
       drawOnDuration: widget.drawOnDuration,
     );
