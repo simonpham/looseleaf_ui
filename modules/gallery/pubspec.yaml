@@ -52,7 +52,9 @@ flutter:
     - lib/features/components/examples/message_scroller/
     - lib/features/components/examples/page/
     - lib/features/components/examples/polaroid/
+    - lib/features/components/examples/progress/
     - lib/features/components/examples/quote/
+    - lib/features/components/examples/rating/
     - lib/features/components/examples/receipt/
     - lib/features/components/examples/reveal/
     - lib/features/components/examples/ribbon/
