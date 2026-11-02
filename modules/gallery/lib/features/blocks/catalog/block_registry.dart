@@ -120,6 +120,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: Onboarding01Block.new,
     objects: [DeskObject.pencil],
   ),
+  'otp-01': GalleryBlock(
+    source: 'blocks/otp_01/otp_01_block.dart',
+    builder: Otp01Block.new,
+  ),
   'profile-page': GalleryBlock(
     source: 'blocks/profile_page/profile_page_block.dart',
     builder: ProfilePageBlock.new,

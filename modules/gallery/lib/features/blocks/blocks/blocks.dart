@@ -24,6 +24,7 @@ export 'package:gallery/features/blocks/blocks/logos_01/logos_01.dart';
 export 'package:gallery/features/blocks/blocks/newsletter_01/newsletter_01.dart';
 export 'package:gallery/features/blocks/blocks/notes_app/notes_app.dart';
 export 'package:gallery/features/blocks/blocks/onboarding_01/onboarding_01.dart';
+export 'package:gallery/features/blocks/blocks/otp_01/otp_01.dart';
 export 'package:gallery/features/blocks/blocks/profile_page/profile_page.dart';
 export 'package:gallery/features/blocks/blocks/reset_password_01/reset_password_01.dart';
 export 'package:gallery/features/blocks/blocks/settings_appearance/settings_appearance.dart';
