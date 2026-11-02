@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/signature_pad/signature_pad.dart';
 import 'package:looseleaf_ui/src/components/sketchpad/sketchpad.dart';
 import 'package:looseleaf_ui/src/painter/painter.dart';
@@ -52,7 +53,7 @@ abstract final class SignatureExport {
     return doc.replaceAllMapped(_cssVar, (match) {
       final name = (match[1] ?? '').replaceFirst('--ll-', '');
       return switch (colors.token(name)) {
-        final color? => SketchpadExport.cssColor(color),
+        final color? => InkExport.cssColor(color),
         null => match[0] ?? '',
       };
     });

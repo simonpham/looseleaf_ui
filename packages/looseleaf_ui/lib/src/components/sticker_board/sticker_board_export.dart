@@ -6,9 +6,9 @@ import 'dart:ui' as ui;
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/art/art.dart';
+import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/sticker/sticker.dart';
 import 'package:looseleaf_ui/src/components/sticker_board/sticker_board.dart';
-import 'package:looseleaf_ui/src/textures/textures.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// A sticker board saved out: the [items], the same as pretty [json], an
@@ -48,14 +48,14 @@ class StickerBoardExport {
   /// The board as a standalone SVG document on paper.
   late final String svg = composeBoardSvg(
     items,
-    _tileUri,
+    InkExport.tileUri,
     width: width,
     height: height,
     size: size,
     resolve: (svg) => svg.replaceAllMapped(
       RegExp(r'var\(--ll-([a-z0-9-]+)\)'),
       (m) => switch (theme.colors.token(m[1] ?? '')) {
-        final color? => _css(color),
+        final color? => InkExport.cssColor(color),
         null => m[0] ?? '',
       },
     ),
@@ -121,20 +121,5 @@ class StickerBoardExport {
     final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
     image.dispose();
     return bytes?.buffer.asUint8List();
-  }
-
-  static String _tileUri(String name) =>
-      switch (InkTextures.grainTile(name) ?? InkTextures.paperTile(name)) {
-        final tile? => 'data:image/png;base64,${tile.base64}',
-        null => '',
-      };
-
-  static String _css(Color color) {
-    int channel(double v) => (v * 255).round().clamp(0, 255);
-    final r = channel(color.r), g = channel(color.g), b = channel(color.b);
-    if (color.a >= 1) {
-      return '#${[r, g, b].map((v) => v.toRadixString(16).padLeft(2, '0')).join()}';
-    }
-    return 'rgba($r, $g, $b, ${JsMath.numberToString((color.a * 1000).round() / 1000)})';
   }
 }
