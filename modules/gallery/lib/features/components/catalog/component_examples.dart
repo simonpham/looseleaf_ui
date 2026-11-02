@@ -38,6 +38,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'empty': emptyExamples,
   'envelope': envelopeExamples,
   'field': fieldExamples,
+  'flip-card': flipCardExamples,
   'folder': folderExamples,
   'form': formExamples,
   'highlight': highlightExamples,
