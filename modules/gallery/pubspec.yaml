@@ -78,11 +78,13 @@ flutter:
     - lib/features/components/examples/stamp/
     - lib/features/components/examples/stamp_button/
     - lib/features/components/examples/sticker/
+    - lib/features/components/examples/sticker_board/
     - lib/features/components/examples/sticker_sheet/
     - lib/features/components/examples/sticky_note/
     - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
     - lib/features/components/examples/tabs/
+    - lib/features/components/examples/textarea/
     - lib/features/components/examples/ticket/
     - lib/features/components/examples/toggle/
     - lib/features/components/examples/typewriter/
