@@ -47,6 +47,7 @@ flutter:
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/folder/
     - lib/features/components/examples/highlight/
+    - lib/features/components/examples/hover_card/
     - lib/features/components/examples/icon/
     - lib/features/components/examples/index_card/
     - lib/features/components/examples/input/
@@ -58,6 +59,7 @@ flutter:
     - lib/features/components/examples/mascot/
     - lib/features/components/examples/message_scroller/
     - lib/features/components/examples/napkin/
+    - lib/features/components/examples/native_select/
     - lib/features/components/examples/page/
     - lib/features/components/examples/polaroid/
     - lib/features/components/examples/popover/
