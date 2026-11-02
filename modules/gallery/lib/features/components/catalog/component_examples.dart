@@ -15,6 +15,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'circled': circledExamples,
   'doodle': doodleExamples,
   'highlight': highlightExamples,
+  'input': inputExamples,
   'kbd': kbdExamples,
   'label': labelExamples,
   'label-tag': labelTagExamples,

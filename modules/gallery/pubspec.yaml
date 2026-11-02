@@ -37,6 +37,7 @@ flutter:
     - lib/features/components/examples/circled/
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/highlight/
+    - lib/features/components/examples/input/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
     - lib/features/components/examples/label_tag/

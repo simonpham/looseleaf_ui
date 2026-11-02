@@ -9,6 +9,7 @@ export 'package:gallery/features/components/examples/checkbox/checkbox.dart';
 export 'package:gallery/features/components/examples/circled/circled.dart';
 export 'package:gallery/features/components/examples/doodle/doodle.dart';
 export 'package:gallery/features/components/examples/highlight/highlight.dart';
+export 'package:gallery/features/components/examples/input/input.dart';
 export 'package:gallery/features/components/examples/kbd/kbd.dart';
 export 'package:gallery/features/components/examples/label/label.dart';
 export 'package:gallery/features/components/examples/label_tag/label_tag.dart';
