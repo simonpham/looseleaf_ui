@@ -105,4 +105,60 @@ void main() {
       );
     });
   }
+
+  testWidgets('table-wrap in the light theme', (tester) async {
+    tester.view.physicalSize = const Size(700, 600);
+    tester.view.devicePixelRatio = 2;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      componentHost(
+        paperPanel(
+          const SizedBox(
+            width: 280,
+            child: InkTable(
+              header: TableHeader(
+                rows: [
+                  InkTableRow(
+                    cells: [
+                      TableHead(child: Text('King')),
+                      TableHead(child: Text('Note')),
+                    ],
+                  ),
+                ],
+              ),
+              body: TableBody(
+                rows: [
+                  InkTableRow(
+                    cells: [
+                      InkTableCell(child: Text('Arthur')),
+                      InkTableCell(
+                        wrap: true,
+                        child: Text(
+                          'Taxed every joke in the land, then laughed at none.',
+                        ),
+                      ),
+                    ],
+                  ),
+                  InkTableRow(
+                    cells: [
+                      InkTableCell(child: Text('Jester')),
+                      InkTableCell(
+                        wrap: true,
+                        child: Text('Kept every coin and every laugh.'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await expectLater(
+      find.byType(RepaintBoundary).last,
+      matchesGoldenFile('../goldens/table-wrap.png'),
+    );
+  });
 }

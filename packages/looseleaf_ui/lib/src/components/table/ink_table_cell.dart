@@ -1,15 +1,20 @@
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/table/table.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
-/// A data cell: padded 12 by 8, on one line.
+/// A data cell: padded 12 by 8, on one line unless [wrap] is set.
 ///
 /// Named `InkTableCell` because Flutter's widgets library has a
 /// `TableCell`. Mirrors `TableCell` in upstream
 /// `src/components/ui/table.tsx`.
 class InkTableCell extends StatelessWidget {
-  const InkTableCell({super.key, required this.child});
+  const InkTableCell({super.key, required this.child, this.wrap = false});
 
   final Widget child;
+
+  /// Lets long text wrap (upstream `whitespace-normal`): the table then
+  /// narrows this column to fit its space before it scrolls sideways.
+  final bool wrap;
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -17,6 +22,11 @@ class InkTableCell extends StatelessWidget {
       horizontal: Spacing.d12,
       vertical: Spacing.d8,
     ),
-    child: DefaultTextStyle.merge(softWrap: false, child: child),
+    child: switch (wrap) {
+      true => child,
+      false => TableNoWrap(
+        child: DefaultTextStyle.merge(softWrap: false, child: child),
+      ),
+    },
   );
 }

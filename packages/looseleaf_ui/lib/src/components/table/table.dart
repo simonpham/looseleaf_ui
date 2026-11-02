@@ -4,5 +4,6 @@ export 'package:looseleaf_ui/src/components/table/ink_table_row.dart';
 export 'package:looseleaf_ui/src/components/table/table_caption.dart';
 export 'package:looseleaf_ui/src/components/table/table_cell_painter.dart';
 export 'package:looseleaf_ui/src/components/table/table_head.dart';
+export 'package:looseleaf_ui/src/components/table/table_no_wrap.dart';
 export 'package:looseleaf_ui/src/components/table/table_sections.dart';
 export 'package:looseleaf_ui/src/components/table/table_tile_documents.dart';

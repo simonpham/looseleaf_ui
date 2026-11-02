@@ -181,4 +181,45 @@ void main() {
     expect(taps, 1);
     expect(tester.getSize(find.byType(Table)).width, 400);
   });
+
+  InkTable longTable({required bool wrap}) => InkTable(
+    body: TableBody(
+      rows: [
+        InkTableRow(
+          cells: [
+            const InkTableCell(child: Text('Name')),
+            InkTableCell(
+              wrap: wrap,
+              child: const Text(
+                'a long note that runs far past the width of the table',
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+
+  testWidgets('wrapping cells fit the width; one-line cells scroll', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(SizedBox(width: 200, child: longTable(wrap: true))),
+    );
+    expect(tester.getSize(find.byType(Table)).width, 200);
+    expect(
+      tester.getSize(find.textContaining('a long note')).height,
+      greaterThan(40),
+    );
+
+    await tester.pumpWidget(
+      componentHost(SizedBox(width: 200, child: longTable(wrap: false))),
+    );
+    await tester.pump();
+    expect(tester.getSize(find.byType(Table)).width, greaterThan(200));
+    final paragraph = tester.renderObject<RenderParagraph>(
+      find.textContaining('a long note'),
+    );
+    expect(paragraph.didExceedMaxLines, isFalse);
+  });
 }

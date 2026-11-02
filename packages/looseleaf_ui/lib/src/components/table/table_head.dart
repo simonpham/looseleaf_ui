@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:looseleaf_ui/src/components/table/table.dart';
 import 'package:looseleaf_ui/src/theme/theme.dart';
 
 /// Which way a column is sorted, for [TableHead.sort].
@@ -44,10 +45,12 @@ class TableHead extends StatelessWidget {
       header: true,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Spacing.d12),
-        child: DefaultTextStyle.merge(
-          style: style,
-          softWrap: false,
-          child: child,
+        child: TableNoWrap(
+          child: DefaultTextStyle.merge(
+            style: style,
+            softWrap: false,
+            child: child,
+          ),
         ),
       ),
     );

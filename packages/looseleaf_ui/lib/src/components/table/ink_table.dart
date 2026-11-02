@@ -1,3 +1,6 @@
+import 'dart:math' as math;
+
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
 import 'package:looseleaf_ui/src/components/table/table.dart';
@@ -147,29 +150,21 @@ class _InkTableState extends State<InkTable> {
         children: rows,
       ),
     );
+    final caption = widget.caption;
+    final content = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [table, ?caption],
+    );
     return LayoutBuilder(
-      builder: (context, constraints) {
-        final caption = widget.caption;
-        return SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          clipBehavior: Clip.none,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minWidth: switch (constraints.hasBoundedWidth) {
-                true => constraints.maxWidth,
-                false => 0,
-              },
-            ),
-            child: IntrinsicWidth(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [table, ?caption],
-              ),
-            ),
-          ),
-        );
-      },
+      builder: (context, constraints) => SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        clipBehavior: Clip.none,
+        child: switch (constraints.hasBoundedWidth) {
+          true => _FitWidth(width: constraints.maxWidth, child: content),
+          false => IntrinsicWidth(child: content),
+        },
+      ),
     );
   }
 
@@ -233,5 +228,76 @@ class _InkTableState extends State<InkTable> {
           ),
       ],
     );
+  }
+}
+
+/// Lays the table out at [width], or at its narrowest when that is wider:
+/// wrapping cells shrink first, like a browser table, and only a table
+/// that cannot fit scrolls sideways.
+class _FitWidth extends SingleChildRenderObjectWidget {
+  const _FitWidth({required this.width, required super.child});
+
+  final double width;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderFitWidth(width);
+
+  @override
+  void updateRenderObject(BuildContext context, _RenderFitWidth renderObject) {
+    renderObject.width = width;
+  }
+}
+
+class _RenderFitWidth extends RenderProxyBox {
+  _RenderFitWidth(this._width);
+
+  double _width;
+
+  double get width => _width;
+
+  set width(double value) {
+    if (value == _width) return;
+    _width = value;
+    markNeedsLayout();
+  }
+
+  double _widthFor(double height) {
+    final child = this.child;
+    if (child == null) return _width;
+    return math.max(_width, child.getMinIntrinsicWidth(height));
+  }
+
+  @override
+  double computeMinIntrinsicWidth(double height) => _widthFor(height);
+
+  @override
+  double computeMaxIntrinsicWidth(double height) => _widthFor(height);
+
+  @override
+  Size computeDryLayout(BoxConstraints constraints) {
+    final child = this.child;
+    final width = _widthFor(double.infinity);
+    if (child == null) return constraints.constrain(Size(width, 0));
+    return constraints.constrain(
+      child.getDryLayout(
+        BoxConstraints.tightFor(width: width).enforce(constraints),
+      ),
+    );
+  }
+
+  @override
+  void performLayout() {
+    final child = this.child;
+    final width = _widthFor(double.infinity);
+    if (child == null) {
+      size = constraints.constrain(Size(width, 0));
+      return;
+    }
+    child.layout(
+      BoxConstraints.tightFor(width: width).enforce(constraints),
+      parentUsesSize: true,
+    );
+    size = constraints.constrain(child.size);
   }
 }
