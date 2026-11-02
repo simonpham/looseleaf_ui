@@ -53,6 +53,7 @@ export 'package:gallery/features/components/examples/ribbon/ribbon.dart';
 export 'package:gallery/features/components/examples/scribble/scribble.dart';
 export 'package:gallery/features/components/examples/seal/seal.dart';
 export 'package:gallery/features/components/examples/separator/separator.dart';
+export 'package:gallery/features/components/examples/sheet/sheet.dart';
 export 'package:gallery/features/components/examples/sidebar/sidebar.dart';
 export 'package:gallery/features/components/examples/signature/signature.dart';
 export 'package:gallery/features/components/examples/skeleton/skeleton.dart';

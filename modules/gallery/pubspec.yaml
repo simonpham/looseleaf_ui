@@ -81,6 +81,7 @@ flutter:
     - lib/features/components/examples/scribble/
     - lib/features/components/examples/seal/
     - lib/features/components/examples/separator/
+    - lib/features/components/examples/sheet/
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/signature/
     - lib/features/components/examples/skeleton/
