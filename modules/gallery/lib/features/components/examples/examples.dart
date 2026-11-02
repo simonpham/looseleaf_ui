@@ -100,6 +100,7 @@ export 'package:gallery/features/components/examples/tabs/tabs.dart';
 export 'package:gallery/features/components/examples/textarea/textarea.dart';
 export 'package:gallery/features/components/examples/ticket/ticket.dart';
 export 'package:gallery/features/components/examples/toggle/toggle.dart';
+export 'package:gallery/features/components/examples/toggle_group/toggle_group.dart';
 export 'package:gallery/features/components/examples/tooltip/tooltip.dart';
 export 'package:gallery/features/components/examples/typewriter/typewriter.dart';
 export 'package:gallery/features/components/examples/typing_indicator/typing_indicator.dart';

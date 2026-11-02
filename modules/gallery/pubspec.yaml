@@ -128,6 +128,7 @@ flutter:
     - lib/features/components/examples/textarea/
     - lib/features/components/examples/ticket/
     - lib/features/components/examples/toggle/
+    - lib/features/components/examples/toggle_group/
     - lib/features/components/examples/tooltip/
     - lib/features/components/examples/typewriter/
     - lib/features/components/examples/typing_indicator/

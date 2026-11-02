@@ -106,6 +106,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'textarea': textareaExamples,
   'ticket': ticketExamples,
   'toggle': toggleExamples,
+  'toggle-group': toggleGroupExamples,
   'tooltip': tooltipExamples,
   'typewriter': typewriterExamples,
   'typing-indicator': typingIndicatorExamples,
