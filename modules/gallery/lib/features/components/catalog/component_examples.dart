@@ -13,6 +13,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'chart': chartExamples,
   'checkbox': checkboxExamples,
   'circled': circledExamples,
+  'collapsible': collapsibleExamples,
   'doodle': doodleExamples,
   'highlight': highlightExamples,
   'input': inputExamples,
@@ -20,6 +21,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'label': labelExamples,
   'label-tag': labelTagExamples,
   'lettering': letteringExamples,
+  'marquee': marqueeExamples,
   'mascot': mascotExamples,
   'reveal': revealExamples,
   'scribble': scribbleExamples,
@@ -34,6 +36,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'strike': strikeExamples,
   'switch': switchExamples,
   'toggle': toggleExamples,
+  'typewriter': typewriterExamples,
   'typing-indicator': typingIndicatorExamples,
   'underline': underlineExamples,
 };

@@ -35,6 +35,7 @@ flutter:
     - lib/features/components/examples/chart/
     - lib/features/components/examples/checkbox/
     - lib/features/components/examples/circled/
+    - lib/features/components/examples/collapsible/
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/highlight/
     - lib/features/components/examples/input/
@@ -42,6 +43,7 @@ flutter:
     - lib/features/components/examples/label/
     - lib/features/components/examples/label_tag/
     - lib/features/components/examples/lettering/
+    - lib/features/components/examples/marquee/
     - lib/features/components/examples/mascot/
     - lib/features/components/examples/reveal/
     - lib/features/components/examples/scribble/
@@ -56,5 +58,6 @@ flutter:
     - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
     - lib/features/components/examples/toggle/
+    - lib/features/components/examples/typewriter/
     - lib/features/components/examples/typing_indicator/
     - lib/features/components/examples/underline/
