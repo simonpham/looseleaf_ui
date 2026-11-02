@@ -9,6 +9,11 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/announcement_bar/announcement_bar_block.dart',
     builder: AnnouncementBarBlock.new,
   ),
+  'chat-app': GalleryBlock(
+    source: 'blocks/chat_app/chat_app_block.dart',
+    builder: ChatAppBlock.new,
+    objects: [DeskObject.pencil],
+  ),
   'checkout-01': GalleryBlock(
     source: 'blocks/checkout_01/checkout_01_block.dart',
     builder: Checkout01Block.new,

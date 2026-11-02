@@ -25,6 +25,7 @@ dev_dependencies:
 flutter:
   assets:
     - lib/features/blocks/blocks/announcement_bar/
+    - lib/features/blocks/blocks/chat_app/
     - lib/features/blocks/blocks/checkout_01/
     - lib/features/blocks/blocks/cta_01/
     - lib/features/blocks/blocks/empty_inbox/
