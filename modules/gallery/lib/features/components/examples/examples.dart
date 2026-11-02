@@ -1,3 +1,4 @@
+export 'package:gallery/features/components/examples/accordion/accordion.dart';
 export 'package:gallery/features/components/examples/alert/alert.dart';
 export 'package:gallery/features/components/examples/arrow/arrow.dart';
 export 'package:gallery/features/components/examples/asterisk/asterisk.dart';
