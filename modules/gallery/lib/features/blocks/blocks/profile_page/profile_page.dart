@@ -1,0 +1,9 @@
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_activity.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_block.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_data.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_feed.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_header.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_notebooks.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_stats.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_stickers.dart';
+export 'package:gallery/features/blocks/blocks/profile_page/profile_page_weekly_tally.dart';

@@ -18,4 +18,9 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/login_01/login_01_block.dart',
     builder: Login01Block.new,
   ),
+  'profile-page': GalleryBlock(
+    source: 'blocks/profile_page/profile_page_block.dart',
+    builder: ProfilePageBlock.new,
+    objects: [DeskObject.clips, DeskObject.pencil],
+  ),
 };
