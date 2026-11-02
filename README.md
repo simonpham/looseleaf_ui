@@ -21,12 +21,8 @@ Hand-drawn Flutter widgets on paper. Every line is drawn with a pen, every surfa
 
 Requirements: Flutter 3.32+ / Dart 3.8+.
 
-```yaml
-dependencies:
-  looseleaf_ui:
-    git:
-      url: https://github.com/simonpham/looseleaf_ui.git
-      path: packages/looseleaf_ui
+```sh
+flutter pub add looseleaf_ui
 ```
 
 ## 🚀 Use it

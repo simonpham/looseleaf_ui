@@ -1,7 +1,13 @@
 name: looseleaf_ui
 description: Hand-drawn Flutter widgets on paper, ported from Looseleaf.
 version: 0.1.0
-publish_to: "none"
+repository: https://github.com/simonpham/looseleaf_ui/tree/main/packages/looseleaf_ui
+issue_tracker: https://github.com/simonpham/looseleaf_ui/issues
+topics:
+  - ui
+  - hand-drawn
+  - widget
+  - design-system
 resolution: workspace
 
 environment:
@@ -11,8 +17,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  looseleaf_ink:
-    path: ../looseleaf_ink
+  looseleaf_ink: ^0.1.0
 
 dev_dependencies:
   flutter_test:

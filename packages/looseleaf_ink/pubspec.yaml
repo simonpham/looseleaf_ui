@@ -1,7 +1,12 @@
 name: looseleaf_ink
 description: The hand-drawn ink engine behind Looseleaf UI. Pens, strokes, fills, paper and art, drawn as SVG markup. Pure Dart.
 version: 0.1.0
-publish_to: "none"
+repository: https://github.com/simonpham/looseleaf_ui/tree/main/packages/looseleaf_ink
+issue_tracker: https://github.com/simonpham/looseleaf_ui/issues
+topics:
+  - graphics
+  - hand-drawn
+  - svg
 resolution: workspace
 
 environment:
