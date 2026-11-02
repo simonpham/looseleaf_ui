@@ -26,9 +26,10 @@ class EmptyIconTileExample extends StatelessWidget {
         ),
         EmptyContent(
           children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
+            Wrap(
+              alignment: WrapAlignment.center,
               spacing: Spacing.d8,
+              runSpacing: Spacing.d8,
               children: [
                 Button(onPressed: () {}, child: const Text('Create project')),
                 Button(

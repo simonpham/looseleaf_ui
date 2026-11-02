@@ -18,8 +18,8 @@ class _StickerPickerDefaultExampleState
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
       spacing: Spacing.d16,
       children: [
         StickerPicker(

@@ -139,11 +139,13 @@ class _MessageScrollerChatAppExampleState
                           'field-notes',
                           style: theme.typography.title(cssSize: 27),
                         ),
-                        Text(
-                          'on feature/tags',
-                          style: theme.typography.interface(
-                            cssSize: 14,
-                            color: theme.colors.inkMuted,
+                        Flexible(
+                          child: Text(
+                            'on feature/tags',
+                            style: theme.typography.interface(
+                              cssSize: 14,
+                              color: theme.colors.inkMuted,
+                            ),
                           ),
                         ),
                       ],

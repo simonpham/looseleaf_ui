@@ -121,7 +121,7 @@ class _ToolNote extends StatelessWidget {
               spacing: Spacing.d8,
               children: [
                 const InkIcon('terminal', size: Spacing.d14),
-                Text(title),
+                Flexible(child: Text(title)),
                 Text(
                   result,
                   style: TextStyle(

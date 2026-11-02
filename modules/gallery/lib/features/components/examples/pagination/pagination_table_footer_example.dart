@@ -76,18 +76,19 @@ class _PaginationTableFooterExampleState
               ],
             ),
           ),
-          Row(
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
             spacing: Spacing.d12,
+            runSpacing: Spacing.d8,
             children: [
-              Expanded(
-                child: Semantics(
-                  liveRegion: true,
-                  child: Text(
-                    '${from + 1}–${from + rows.length} of ${_rows.length}',
-                    style: theme.typography.interface(
-                      cssSize: 14,
-                      color: theme.colors.inkMuted,
-                    ),
+              Semantics(
+                liveRegion: true,
+                child: Text(
+                  '${from + 1}–${from + rows.length} of ${_rows.length}',
+                  style: theme.typography.interface(
+                    cssSize: 14,
+                    color: theme.colors.inkMuted,
                   ),
                 ),
               ),

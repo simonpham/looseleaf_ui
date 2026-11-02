@@ -7,8 +7,8 @@ class HoverCardTapedStickerExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = LooseleafTheme.of(context);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
       spacing: Spacing.d4,
       children: [
         const Text('Read the notes for'),

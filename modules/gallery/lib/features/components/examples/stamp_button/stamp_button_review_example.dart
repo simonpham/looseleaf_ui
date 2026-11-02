@@ -84,25 +84,33 @@ class _StampButtonReviewExampleState extends State<StampButtonReviewExample> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: Spacing.d80),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                    child: Wrap(
+                      alignment: WrapAlignment.spaceBetween,
+                      crossAxisAlignment: WrapCrossAlignment.end,
                       spacing: Spacing.d16,
+                      runSpacing: Spacing.d16,
                       children: [
-                        StampButton(
-                          stamp: 'stamp-approved',
-                          impressionId: 'decision',
-                          place: const Offset(0.68, 0.44),
-                          focusNode: _approve,
-                          child: const Text('Approve'),
+                        Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.end,
+                          spacing: Spacing.d16,
+                          runSpacing: Spacing.d16,
+                          children: [
+                            StampButton(
+                              stamp: 'stamp-approved',
+                              impressionId: 'decision',
+                              place: const Offset(0.68, 0.44),
+                              focusNode: _approve,
+                              child: const Text('Approve'),
+                            ),
+                            const StampButton(
+                              stamp: 'stamp-void',
+                              text: 'Rejected',
+                              impressionId: 'decision',
+                              place: Offset(0.46, 0.5),
+                              child: Text('Reject'),
+                            ),
+                          ],
                         ),
-                        const StampButton(
-                          stamp: 'stamp-void',
-                          text: 'Rejected',
-                          impressionId: 'decision',
-                          place: Offset(0.46, 0.5),
-                          child: Text('Reject'),
-                        ),
-                        const Spacer(),
                         Button(
                           variant: ButtonVariant.ghost,
                           disabled: _marks.isEmpty,
