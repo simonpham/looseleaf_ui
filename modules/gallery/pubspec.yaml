@@ -33,6 +33,7 @@ flutter:
     - lib/features/components/examples/badge/
     - lib/features/components/examples/boil/
     - lib/features/components/examples/bracket/
+    - lib/features/components/examples/bubble/
     - lib/features/components/examples/button/
     - lib/features/components/examples/chart/
     - lib/features/components/examples/checkbox/
@@ -80,4 +81,5 @@ flutter:
     - lib/features/components/examples/toggle/
     - lib/features/components/examples/typewriter/
     - lib/features/components/examples/typing_indicator/
+    - lib/features/components/examples/typography/
     - lib/features/components/examples/underline/

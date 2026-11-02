@@ -11,6 +11,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'badge': badgeExamples,
   'boil': boilExamples,
   'bracket': bracketExamples,
+  'bubble': bubbleExamples,
   'button': buttonExamples,
   'chart': chartExamples,
   'checkbox': checkboxExamples,
@@ -58,5 +59,6 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'toggle': toggleExamples,
   'typewriter': typewriterExamples,
   'typing-indicator': typingIndicatorExamples,
+  'typography': typographyExamples,
   'underline': underlineExamples,
 };
