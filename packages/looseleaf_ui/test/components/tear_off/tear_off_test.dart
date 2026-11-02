@@ -217,4 +217,24 @@ void main() {
     expect(tester.getSize(find.byType(TearOffBody)).width, 140);
     expect(tester.getSize(find.byType(TearOffStub)).width, 120);
   });
+
+  testWidgets('a wide parent still measures the body at its own width', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const TearOff(
+          children: [
+            TearOffBody(
+              width: 150,
+              child: Text('Bakery of the month, one croissant, warm, any day'),
+            ),
+            TearOffStub(width: 100, children: [Text('free')]),
+          ],
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(tester.getSize(find.byType(TearOffBody)).width, 150);
+  });
 }
