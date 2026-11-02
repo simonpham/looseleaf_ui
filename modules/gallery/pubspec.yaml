@@ -40,6 +40,7 @@ flutter:
     - lib/features/components/examples/breadcrumb/
     - lib/features/components/examples/bubble/
     - lib/features/components/examples/button/
+    - lib/features/components/examples/calendar/
     - lib/features/components/examples/card/
     - lib/features/components/examples/chart/
     - lib/features/components/examples/checkbox/

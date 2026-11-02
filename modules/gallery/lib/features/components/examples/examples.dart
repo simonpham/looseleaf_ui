@@ -12,6 +12,7 @@ export 'package:gallery/features/components/examples/bracket/bracket.dart';
 export 'package:gallery/features/components/examples/breadcrumb/breadcrumb.dart';
 export 'package:gallery/features/components/examples/bubble/bubble.dart';
 export 'package:gallery/features/components/examples/button/button.dart';
+export 'package:gallery/features/components/examples/calendar/calendar.dart';
 export 'package:gallery/features/components/examples/card/card.dart';
 export 'package:gallery/features/components/examples/chart/chart.dart';
 export 'package:gallery/features/components/examples/checkbox/checkbox.dart';

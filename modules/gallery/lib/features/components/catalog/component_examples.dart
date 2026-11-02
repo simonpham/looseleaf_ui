@@ -18,6 +18,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'breadcrumb': breadcrumbExamples,
   'bubble': bubbleExamples,
   'button': buttonExamples,
+  'calendar': calendarExamples,
   'card': cardExamples,
   'chart': chartExamples,
   'checkbox': checkboxExamples,
