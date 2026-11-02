@@ -168,4 +168,28 @@ void main() {
     expect(find.bySemanticsLabel(RegExp(r'^Done\.')), findsOneWidget);
     handle.dispose();
   });
+
+  testWidgets('a least height under the padding lets the content decide', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const StickyNote(
+          minHeight: 0,
+          width: 112,
+          padding: EdgeInsetsDirectional.fromSTEB(12, 24, 12, 12),
+          children: [StickyNoteContent(Text('ink'))],
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final note = tester.getRect(find.byType(StickyNote));
+    expect(note.width, 112);
+    expect(note.height, lessThan(StickyNote.defaultMinHeight));
+    expect(
+      tester.getTopLeft(find.text('ink')) - note.topLeft,
+      const Offset(12, 24),
+    );
+    expect(tester.getBottomLeft(find.text('ink')).dy, note.bottom - 12);
+  });
 }

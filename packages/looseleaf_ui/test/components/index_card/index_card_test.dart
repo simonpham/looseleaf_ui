@@ -123,6 +123,73 @@ void main() {
     );
     handle.dispose();
   });
+
+  testWidgets('a least height of 0 fits the content, with custom padding', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const IndexCard(
+          minHeight: 0,
+          tilt: false,
+          padding: EdgeInsets.fromLTRB(16, 0, 16, 25),
+          children: [
+            IndexCardHeader(children: [IndexCardTitle(Text('Short'))]),
+          ],
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final card = tester.getRect(find.byType(IndexCard));
+    expect(card.height, lessThan(IndexCard.defaultMinHeight));
+    expect(tester.getTopLeft(find.text('Short')).dx - card.left, 16);
+  });
+
+  testWidgets('the content works outside the card\'s own column', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const IndexCard(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: IndexCardContent(children: [Text('nested')]),
+            ),
+          ],
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    expect(find.text('nested'), findsOneWidget);
+  });
+
+  testWidgets('a wrapping footer runs its pieces onto more lines', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const SizedBox(
+          width: 200,
+          child: IndexCard(
+            minHeight: 0,
+            children: [
+              IndexCardFooter(
+                wrap: true,
+                spacing: 16,
+                children: [Text('first piece'), Text('second piece')],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final first = tester.getTopLeft(find.text('first piece'));
+    final second = tester.getTopLeft(find.text('second piece'));
+    expect(second.dx, first.dx);
+    expect(second.dy, greaterThan(first.dy));
+  });
 }
 
 List<InkSurface> _decor(WidgetTester tester) => tester

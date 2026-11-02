@@ -1,6 +1,9 @@
+import 'dart:math' as math;
+
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
+import 'package:looseleaf_ui/src/components/napkin/napkin.dart';
 import 'package:looseleaf_ui/src/components/paper/paper.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
@@ -9,8 +12,11 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// A paper napkin to write on: tissue with a pinked edge and a pressed
 /// border, folded in four ([NapkinFold.quarter]), in half or not at all,
 /// optionally ringed by a coffee cup ([stain]). [children] ([NapkinTitle],
-/// [NapkinContent], [NapkinFooter]) stack 8 px apart inside a 36 px margin,
-/// on a napkin [width] wide and at least [minHeight] tall. The napkin and
+/// [NapkinContent], [NapkinFooter]) stack 8 px apart inside a 36 px margin
+/// ([padding] replaces it), on a napkin [width] wide and at least
+/// [minHeight] tall (under the padding, upstream's `min-h-0`, the content
+/// sets the height). A direct [NapkinContent] child fills the space left,
+/// pushing a [NapkinFooter] to the foot. The napkin and
 /// its creases turn together, at most 1.2°.
 ///
 /// ```dart
@@ -33,6 +39,7 @@ class Napkin extends StatefulWidget {
     this.stain = false,
     this.width = defaultWidth,
     this.minHeight = defaultMinHeight,
+    this.padding,
     this.edge,
     this.tilt = true,
     this.tiltDegrees,
@@ -62,6 +69,9 @@ class Napkin extends StatefulWidget {
 
   /// The napkin's least height; content past it grows the napkin.
   final double minHeight;
+
+  /// The space around the parts; upstream's `p-9` when null.
+  final EdgeInsetsGeometry? padding;
 
   /// The edges; the napkin stock's pinked edge when null.
   final EdgeSpec? edge;
@@ -110,6 +120,9 @@ class _NapkinState extends State<Napkin> with InkSeed {
       true => widget.tiltDegrees ?? tiltFor(seed, _tiltMax),
     };
     final decorated = widget.fold != NapkinFold.none || widget.stain;
+    final padding =
+        widget.padding?.resolve(Directionality.of(context)) ??
+        const EdgeInsets.all(_margin);
     final params = NapkinParams(fold: widget.fold, stain: widget.stain);
     return SizedBox(
       width: widget.width,
@@ -125,7 +138,7 @@ class _NapkinState extends State<Napkin> with InkSeed {
         fastenerTone: widget.fastenerTone,
         shadow: widget.shadow,
         seed: seed,
-        padding: const EdgeInsets.all(_margin),
+        padding: padding,
         decor: switch (decorated) {
           false => null,
           true => Transform.rotate(
@@ -143,8 +156,8 @@ class _NapkinState extends State<Napkin> with InkSeed {
         },
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            minWidth: widget.width - 2 * _margin,
-            minHeight: widget.minHeight - 2 * _margin,
+            minWidth: math.max(0.0, widget.width - padding.horizontal),
+            minHeight: math.max(0.0, widget.minHeight - padding.vertical),
           ),
           child: IntrinsicHeight(
             child: DefaultTextStyle.merge(
@@ -152,7 +165,13 @@ class _NapkinState extends State<Napkin> with InkSeed {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 spacing: Spacing.d8,
-                children: widget.children,
+                children: [
+                  for (final child in widget.children)
+                    switch (child) {
+                      NapkinContent() => Expanded(child: child),
+                      _ => child,
+                    },
+                ],
               ),
             ),
           ),

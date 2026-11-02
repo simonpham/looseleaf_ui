@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
+import 'package:looseleaf_ui/src/components/index_card/index_card.dart';
 import 'package:looseleaf_ui/src/components/paper/paper.dart';
 import 'package:looseleaf_ui/src/frame/frame.dart';
 import 'package:looseleaf_ui/src/surface/surface.dart';
@@ -12,7 +13,10 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// 30 px. [children] ([IndexCardHeader], [IndexCardContent],
 /// [IndexCardFooter]) lay out on the printed rules: body text is 17 px on a
 /// 30 px line. The card is as wide as it may up to [maxWidth] and at least
-/// [minHeight] tall; its foot stays on the grid at 104 + 30n px.
+/// [minHeight] tall (under the padding, upstream's `min-h-0`, the content
+/// sets the height); its foot stays on the grid at 104 + 30n px. [padding]
+/// replaces the 20 px sides and 25 px foot. A direct [IndexCardContent]
+/// child fills the space left, pushing an [IndexCardFooter] to the foot.
 ///
 /// [hole] punches the rod hole at the foot, [flag] sticks a translucent
 /// plastic flag over the end edge (mirrored right to left), [stack] shows up
@@ -39,6 +43,7 @@ class IndexCard extends StatefulWidget {
     this.stack = 0,
     this.maxWidth = defaultMaxWidth,
     this.minHeight = defaultMinHeight,
+    this.padding,
     this.edge,
     this.tilt = true,
     this.tiltDegrees,
@@ -71,6 +76,9 @@ class IndexCard extends StatefulWidget {
 
   /// The least height; content past it grows the card.
   final double minHeight;
+
+  /// The space around the parts; upstream's `px-5 pb-[25px]` when null.
+  final EdgeInsetsGeometry? padding;
 
   /// The edges; the stock's when null.
   final EdgeSpec? edge;
@@ -124,6 +132,8 @@ class _IndexCardState extends State<IndexCard> with InkSeed {
       true => widget.tiltDegrees ?? tiltFor(seed, _tiltMax),
     };
     final decorated = widget.hole || widget.flag != null || widget.stack > 0;
+    final padding =
+        widget.padding?.resolve(Directionality.of(context)) ?? _padding;
     final params = IndexCardParams(
       hole: widget.hole,
       flag: widget.flag,
@@ -147,7 +157,7 @@ class _IndexCardState extends State<IndexCard> with InkSeed {
             fastenerTone: widget.fastenerTone,
             shadow: widget.shadow,
             seed: seed,
-            padding: _padding,
+            padding: padding,
             decor: switch (decorated) {
               false => null,
               true => Transform.rotate(
@@ -165,8 +175,8 @@ class _IndexCardState extends State<IndexCard> with InkSeed {
             },
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                minWidth: width - _padding.horizontal,
-                minHeight: widget.minHeight - _padding.vertical,
+                minWidth: math.max(0.0, width - padding.horizontal),
+                minHeight: math.max(0.0, widget.minHeight - padding.vertical),
               ),
               child: IntrinsicHeight(
                 child: DefaultTextStyle.merge(
@@ -178,7 +188,13 @@ class _IndexCardState extends State<IndexCard> with InkSeed {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: widget.children,
+                    children: [
+                      for (final child in widget.children)
+                        switch (child) {
+                          IndexCardContent() => Expanded(child: child),
+                          _ => child,
+                        },
+                    ],
                   ),
                 ),
               ),

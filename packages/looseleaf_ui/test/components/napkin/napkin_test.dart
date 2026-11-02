@@ -71,6 +71,41 @@ void main() {
     );
     handle.dispose();
   });
+
+  testWidgets('a least height of 0 with custom padding fits the note', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Napkin(
+          minHeight: 0,
+          padding: EdgeInsets.all(28),
+          children: [NapkinContent(Text('404'))],
+        ),
+      ),
+    );
+    expect(tester.takeException(), isNull);
+    final napkin = tester.getRect(find.byType(Napkin));
+    expect(napkin.height, lessThan(Napkin.defaultMinHeight));
+    expect(
+      tester.getTopLeft(find.text('404')) - napkin.topLeft,
+      const Offset(28, 28),
+    );
+  });
+
+  testWidgets('the content can centre its note', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Napkin(
+          children: [NapkinContent(Text('404'), alignment: Alignment.center)],
+        ),
+      ),
+    );
+    final napkin = tester.getRect(find.byType(Napkin));
+    final note = tester.getCenter(find.text('404'));
+    expect(note.dx, moreOrLessEquals(napkin.center.dx, epsilon: 1));
+    expect(note.dy, moreOrLessEquals(napkin.center.dy, epsilon: 1));
+  });
 }
 
 List<InkSurface> _decor(WidgetTester tester) => tester

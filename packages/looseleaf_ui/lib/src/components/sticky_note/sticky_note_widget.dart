@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/widgets.dart';
 import 'package:looseleaf_ink/looseleaf_ink.dart';
 import 'package:looseleaf_ui/src/components/foundation/foundation.dart';
@@ -10,7 +12,10 @@ import 'package:looseleaf_ui/src/theme/theme.dart';
 /// A square of coloured paper with a gum band, written in marker script:
 /// [children] ([StickyNoteTitle], [StickyNoteContent], [StickyNoteFooter])
 /// stack 4 px apart under the band, on a note [width] wide and at least
-/// [minHeight] tall ([height] fixes it). It turns up to 1.6°, and can curl
+/// [minHeight] tall ([height] fixes it; a [minHeight] under the padding,
+/// upstream's `min-h-0`, lets the content set the height). [padding]
+/// replaces the 16 px sides, 24 px top (32 with a tick box) and 16 px foot.
+/// It turns up to 1.6°, and can curl
 /// a corner, hang from a pin or a strip of tape.
 ///
 /// Passing [done] adds a pencil tick box in the top end corner: `true`
@@ -45,6 +50,7 @@ class StickyNote extends StatefulWidget {
     this.width = defaultWidth,
     this.minHeight = defaultMinHeight,
     this.height,
+    this.padding,
     this.curl = false,
     this.edge,
     this.tilt = true,
@@ -86,6 +92,10 @@ class StickyNote extends StatefulWidget {
 
   /// A fixed height, overriding [minHeight].
   final double? height;
+
+  /// The space around the parts; upstream's `px-4 pt-6 pb-4` (`pt-8` with
+  /// a tick box) when null.
+  final EdgeInsetsGeometry? padding;
 
   /// Lifts the bottom-right corner.
   final bool curl;
@@ -153,15 +163,18 @@ class _StickyNoteState extends State<StickyNote> with InkSeed {
     final done = widget.done;
     final onDoneChange = widget.onDoneChange;
     const params = NoParams();
-    final padding = EdgeInsets.fromLTRB(
-      Spacing.d16,
-      switch (done) {
-        null => Spacing.d24,
-        _ => Spacing.d32,
-      },
-      Spacing.d16,
-      Spacing.d16,
-    );
+    final padding =
+        widget.padding?.resolve(Directionality.of(context)) ??
+        EdgeInsets.fromLTRB(
+          Spacing.d16,
+          switch (done) {
+            null => Spacing.d24,
+            _ => Spacing.d32,
+          },
+          Spacing.d16,
+          Spacing.d16,
+        );
+    final innerWidth = math.max(0.0, widget.width - padding.horizontal);
     final column = DefaultTextStyle.merge(
       style: theme.typography.face(
         KevinSansFace.script,
@@ -217,12 +230,12 @@ class _StickyNoteState extends State<StickyNote> with InkSeed {
       child: switch (height) {
         null => ConstrainedBox(
           constraints: BoxConstraints(
-            minWidth: widget.width - padding.horizontal,
-            minHeight: widget.minHeight - padding.vertical,
+            minWidth: innerWidth,
+            minHeight: math.max(0.0, widget.minHeight - padding.vertical),
           ),
           child: IntrinsicHeight(child: spoken),
         ),
-        _ => SizedBox(width: widget.width - padding.horizontal, child: spoken),
+        _ => SizedBox(width: innerWidth, child: spoken),
       },
     );
     final note = SizedBox(
