@@ -7,9 +7,20 @@ import 'package:looseleaf_ui/looseleaf_ui.dart';
 /// Mirrors `Dot` in upstream
 /// `src/blocks/calendar-planner/components/calendar-planner-agenda.tsx`.
 class CalendarPlannerDot extends StatelessWidget {
-  const CalendarPlannerDot({super.key, required this.kind});
+  const CalendarPlannerDot({
+    super.key,
+    required this.kind,
+    this.size = Spacing.d10,
+    this.ringed = true,
+  });
 
   final CalendarPlannerKind kind;
+
+  /// The dot's diameter.
+  final double size;
+
+  /// Draws the faint ink ring; off for the dots under a calendar day.
+  final bool ringed;
 
   static const double _ringAlpha = 0.4;
 
@@ -18,15 +29,18 @@ class CalendarPlannerDot extends StatelessWidget {
     final colors = LooseleafTheme.of(context).colors;
     return ExcludeSemantics(
       child: SizedBox.square(
-        dimension: Spacing.d10,
+        dimension: size,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: kind.dot(colors),
             shape: BoxShape.circle,
-            border: Border.all(
-              color: colors.ink.withValues(alpha: _ringAlpha),
-              width: Spacing.d1,
-            ),
+            border: switch (ringed) {
+              true => Border.all(
+                color: colors.ink.withValues(alpha: _ringAlpha),
+                width: Spacing.d1,
+              ),
+              false => null,
+            },
           ),
         ),
       ),

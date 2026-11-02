@@ -28,6 +28,11 @@ class _CalendarPlannerBlockState extends State<CalendarPlannerBlock> {
   static const double _lg = 1024;
   static const double _clipEnd = 50;
 
+  /// Upstream's `max-[21rem]`, where days shrink to `--cell: 2.25rem`.
+  static const double _narrow = 336;
+
+  static const int _maxDots = 3;
+
   static DateTime _monthOf(String iso) {
     final day = calendarPlannerParseDay(iso);
     return DateTime(day.year, day.month);
@@ -160,7 +165,41 @@ class _CalendarPlannerBlockState extends State<CalendarPlannerBlock> {
     );
   }
 
-  Widget _calendar(BuildContext context, {required bool wide}) {
+  Widget _dayWithDots(BuildContext context, DateTime day, Widget number) {
+    final kinds = calendarPlannerOnDay(
+      _all,
+      calendarPlannerDayKey(day),
+    ).map((event) => event.kind).take(_maxDots).toList();
+    if (kinds.isEmpty) return number;
+    return Stack(
+      clipBehavior: Clip.none,
+      alignment: Alignment.center,
+      children: [
+        number,
+        Positioned(
+          bottom: -Spacing.d6,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            spacing: Spacing.d1,
+            children: [
+              for (final kind in kinds)
+                CalendarPlannerDot(
+                  kind: kind,
+                  size: Spacing.d4,
+                  ringed: false,
+                ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _calendar(
+    BuildContext context, {
+    required bool wide,
+    required double width,
+  }) {
     final theme = LooseleafTheme.of(context);
     return Column(
       crossAxisAlignment: switch (wide) {
@@ -187,6 +226,11 @@ class _CalendarPlannerBlockState extends State<CalendarPlannerBlock> {
                 seed: 'planner-month',
                 sheet: const CalendarSheet(tilt: false),
                 formatters: CalendarFormatters(dayLabel: _dayLabel),
+                dayContentBuilder: _dayWithDots,
+                cellSize: switch (width < _narrow) {
+                  true => Spacing.d36,
+                  false => null,
+                },
               ),
               if (!PaperInk.calm(theme))
                 const PositionedDirectional(
@@ -291,14 +335,17 @@ class _CalendarPlannerBlockState extends State<CalendarPlannerBlock> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         spacing: Spacing.d24,
                         children: [
-                          _calendar(context, wide: true),
+                          _calendar(context, wide: true, width: width),
                           Expanded(child: cards),
                         ],
                       ),
                       false => Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         spacing: Spacing.d24,
-                        children: [_calendar(context, wide: false), cards],
+                        children: [
+                          _calendar(context, wide: false, width: width),
+                          cards,
+                        ],
                       ),
                     },
                     Semantics(
