@@ -41,6 +41,7 @@ flutter:
     - lib/features/components/examples/collapsible/
     - lib/features/components/examples/doodle/
     - lib/features/components/examples/highlight/
+    - lib/features/components/examples/icon/
     - lib/features/components/examples/input/
     - lib/features/components/examples/kbd/
     - lib/features/components/examples/label/
@@ -64,6 +65,7 @@ flutter:
     - lib/features/components/examples/stamp/
     - lib/features/components/examples/sticker/
     - lib/features/components/examples/sticker_sheet/
+    - lib/features/components/examples/sticky_note/
     - lib/features/components/examples/strike/
     - lib/features/components/examples/switch/
     - lib/features/components/examples/tabs/
