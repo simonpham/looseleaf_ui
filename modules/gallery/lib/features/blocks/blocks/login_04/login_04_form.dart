@@ -200,8 +200,7 @@ class _Login04FormState extends State<Login04Form> {
           children: [
             Semantics(
               header: true,
-              child: Text.rich(
-                textAlign: TextAlign.center,
+              child: DefaultTextStyle.merge(
                 style: theme.typography.face(
                   KevinSansFace.script,
                   cssSize: 32,
@@ -209,19 +208,22 @@ class _Login04FormState extends State<Login04Form> {
                   fontWeight: FontWeight.w700,
                   color: theme.colors.ink,
                 ),
-                const TextSpan(
-                  children: [
-                    TextSpan(text: 'Welcome '),
-                    WidgetSpan(
-                      alignment: PlaceholderAlignment.baseline,
-                      baseline: TextBaseline.alphabetic,
-                      child: Underline(
-                        kind: UnderlineMarkKind.double,
-                        tone: MarkPen.blue,
-                        child: Text('back'),
+                child: const Text.rich(
+                  textAlign: TextAlign.center,
+                  TextSpan(
+                    children: [
+                      TextSpan(text: 'Welcome '),
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.baseline,
+                        baseline: TextBaseline.alphabetic,
+                        child: Underline(
+                          kind: UnderlineMarkKind.double,
+                          tone: MarkPen.blue,
+                          child: Text('back'),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

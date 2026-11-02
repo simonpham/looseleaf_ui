@@ -132,26 +132,28 @@ class _Login01FormState extends State<Login01Form> {
             CardHeader(
               children: [
                 CardTitle(
-                  Text.rich(
+                  DefaultTextStyle.merge(
                     style: theme.typography.face(
                       KevinSansFace.script,
                       cssSize: 32,
                       cssLineHeight: 1,
                       fontWeight: FontWeight.w600,
                     ),
-                    const TextSpan(
-                      children: [
-                        TextSpan(text: 'Welcome '),
-                        WidgetSpan(
-                          alignment: PlaceholderAlignment.baseline,
-                          baseline: TextBaseline.alphabetic,
-                          child: Underline(
-                            kind: UnderlineMarkKind.wavy,
-                            tone: MarkPen.marker,
-                            child: Text('back'),
+                    child: const Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(text: 'Welcome '),
+                          WidgetSpan(
+                            alignment: PlaceholderAlignment.baseline,
+                            baseline: TextBaseline.alphabetic,
+                            child: Underline(
+                              kind: UnderlineMarkKind.wavy,
+                              tone: MarkPen.marker,
+                              child: Text('back'),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

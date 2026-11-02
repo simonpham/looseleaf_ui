@@ -120,28 +120,30 @@ class _Login03FormState extends State<Login03Form> {
                 SizedBox(
                   width: double.infinity,
                   child: CardTitle(
-                    Text.rich(
-                      textAlign: TextAlign.center,
+                    DefaultTextStyle.merge(
                       style: theme.typography.face(
                         KevinSansFace.script,
                         cssSize: 32,
                         cssLineHeight: 1,
                         fontWeight: FontWeight.w600,
                       ),
-                      const TextSpan(
-                        children: [
-                          TextSpan(text: 'Welcome '),
-                          WidgetSpan(
-                            alignment: PlaceholderAlignment.baseline,
-                            baseline: TextBaseline.alphabetic,
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.only(
-                                start: Spacing.d4,
+                      child: const Text.rich(
+                        textAlign: TextAlign.center,
+                        TextSpan(
+                          children: [
+                            TextSpan(text: 'Welcome '),
+                            WidgetSpan(
+                              alignment: PlaceholderAlignment.baseline,
+                              baseline: TextBaseline.alphabetic,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.only(
+                                  start: Spacing.d4,
+                                ),
+                                child: Highlight(child: Text('back')),
                               ),
-                              child: Highlight(child: Text('back')),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

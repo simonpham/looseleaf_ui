@@ -121,8 +121,7 @@ class _Login02FormState extends State<Login02Form> {
                 padding: const EdgeInsets.only(bottom: Spacing.d12),
                 child: Semantics(
                   header: true,
-                  child: Text.rich(
-                    textAlign: TextAlign.center,
+                  child: DefaultTextStyle.merge(
                     style: theme.typography.face(
                       KevinSansFace.script,
                       cssSize: 32,
@@ -130,24 +129,27 @@ class _Login02FormState extends State<Login02Form> {
                       fontWeight: FontWeight.w700,
                       color: theme.colors.ink,
                     ),
-                    const TextSpan(
-                      children: [
-                        TextSpan(text: 'Good to see '),
-                        WidgetSpan(
-                          alignment: PlaceholderAlignment.baseline,
-                          baseline: TextBaseline.alphabetic,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: Spacing.d8,
-                            ),
-                            child: Circled(
-                              tone: MarkPen.blue,
-                              child: Text('you'),
+                    child: const Text.rich(
+                      textAlign: TextAlign.center,
+                      TextSpan(
+                        children: [
+                          TextSpan(text: 'Good to see '),
+                          WidgetSpan(
+                            alignment: PlaceholderAlignment.baseline,
+                            baseline: TextBaseline.alphabetic,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: Spacing.d8,
+                              ),
+                              child: Circled(
+                                tone: MarkPen.blue,
+                                child: Text('you'),
+                              ),
                             ),
                           ),
-                        ),
-                        TextSpan(text: ' again'),
-                      ],
+                          TextSpan(text: ' again'),
+                        ],
+                      ),
                     ),
                   ),
                 ),
