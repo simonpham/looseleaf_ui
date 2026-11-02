@@ -26,6 +26,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'command': commandExamples,
   'context-menu': contextMenuExamples,
   'corkboard': corkboardExamples,
+  'date-picker': datePickerExamples,
   'dialog': dialogExamples,
   'doodle': doodleExamples,
   'envelope': envelopeExamples,
