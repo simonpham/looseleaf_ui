@@ -25,4 +25,35 @@ const formExamples = <GalleryExample>[
     source: 'form/form_server_errors_example.dart',
     builder: FormServerErrorsExample.new,
   ),
+  GalleryExample(
+    title: 'React Hook Form: bug report',
+    description: 'shadcn\'s `form-rhf-demo`, the Field way to wire a form: `InkFormField` hands the field\'s value and error to a builder, `invalid` on the Field and on the control turn it red, and `FieldError` prints the validator\'s message. Submit it empty, then fill it in.',
+    source: 'form/form_rhf_demo_example.dart',
+    builder: FormRhfDemoExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: input',
+    description: 'shadcn\'s `form-rhf-input`: one text field with a length and pattern rule. The error is announced as it appears and written under the field in red pencil.',
+    source: 'form/form_rhf_input_example.dart',
+    builder: FormRhfInputExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: select',
+    description: 'shadcn\'s `form-rhf-select`: a Select is not a text field, so `value` and `onChanged` are passed by hand and `invalid` goes on the trigger. "Auto" is a value the validator refuses.',
+    height: 420,
+    source: 'form/form_rhf_select_example.dart',
+    builder: FormRhfSelectExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: checkbox',
+    description: 'shadcn\'s `form-rhf-checkbox`: a single boolean box (here disabled and ticked) and a group that collects a list. Untick both notification types and submit to see the group\'s own error.',
+    source: 'form/form_rhf_checkbox_example.dart',
+    builder: FormRhfCheckboxExample.new,
+  ),
+  GalleryExample(
+    title: 'React Hook Form: switch',
+    description: 'shadcn\'s `form-rhf-switch`: a boolean switch that the validator insists on. Submit with it off and the switch turns red pencil with its message in the text column.',
+    source: 'form/form_rhf_switch_example.dart',
+    builder: FormRhfSwitchExample.new,
+  ),
 ];
