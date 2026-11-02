@@ -19,6 +19,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: Faq01Block.new,
     objects: [DeskObject.pencil],
   ),
+  'footer-01': GalleryBlock(
+    source: 'blocks/footer_01/footer_01_block.dart',
+    builder: Footer01Block.new,
+  ),
   'inbox': GalleryBlock(
     source: 'blocks/inbox/inbox_block.dart',
     builder: InboxBlock.new,
