@@ -83,6 +83,7 @@ flutter:
     - lib/features/components/examples/message_scroller/
     - lib/features/components/examples/napkin/
     - lib/features/components/examples/native_select/
+    - lib/features/components/examples/navigation_menu/
     - lib/features/components/examples/notebook/
     - lib/features/components/examples/page/
     - lib/features/components/examples/pagination/

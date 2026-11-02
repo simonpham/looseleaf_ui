@@ -55,6 +55,7 @@ export 'package:gallery/features/components/examples/menubar/menubar.dart';
 export 'package:gallery/features/components/examples/message_scroller/message_scroller.dart';
 export 'package:gallery/features/components/examples/napkin/napkin.dart';
 export 'package:gallery/features/components/examples/native_select/native_select.dart';
+export 'package:gallery/features/components/examples/navigation_menu/navigation_menu.dart';
 export 'package:gallery/features/components/examples/notebook/notebook.dart';
 export 'package:gallery/features/components/examples/page/page.dart';
 export 'package:gallery/features/components/examples/pagination/pagination.dart';

@@ -61,6 +61,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'message-scroller': messageScrollerExamples,
   'napkin': napkinExamples,
   'native-select': nativeSelectExamples,
+  'navigation-menu': navigationMenuExamples,
   'notebook': notebookExamples,
   'page': pageExamples,
   'pagination': paginationExamples,
