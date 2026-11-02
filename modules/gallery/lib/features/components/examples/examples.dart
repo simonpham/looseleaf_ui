@@ -66,6 +66,7 @@ export 'package:gallery/features/components/examples/quote/quote.dart';
 export 'package:gallery/features/components/examples/radio_group/radio_group.dart';
 export 'package:gallery/features/components/examples/rating/rating.dart';
 export 'package:gallery/features/components/examples/receipt/receipt.dart';
+export 'package:gallery/features/components/examples/resizable/resizable.dart';
 export 'package:gallery/features/components/examples/reveal/reveal.dart';
 export 'package:gallery/features/components/examples/ribbon/ribbon.dart';
 export 'package:gallery/features/components/examples/scribble/scribble.dart';

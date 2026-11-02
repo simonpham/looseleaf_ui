@@ -94,6 +94,7 @@ flutter:
     - lib/features/components/examples/radio_group/
     - lib/features/components/examples/rating/
     - lib/features/components/examples/receipt/
+    - lib/features/components/examples/resizable/
     - lib/features/components/examples/reveal/
     - lib/features/components/examples/ribbon/
     - lib/features/components/examples/scribble/

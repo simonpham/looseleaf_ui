@@ -72,6 +72,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'radio-group': radioGroupExamples,
   'rating': ratingExamples,
   'receipt': receiptExamples,
+  'resizable': resizableExamples,
   'reveal': revealExamples,
   'ribbon': ribbonExamples,
   'scribble': scribbleExamples,
