@@ -36,6 +36,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     source: 'blocks/error_404/error_404_block.dart',
     builder: Error404Block.new,
   ),
+  'error-500': GalleryBlock(
+    source: 'blocks/error_500/error_500_block.dart',
+    builder: Error500Block.new,
+  ),
   'faq-01': GalleryBlock(
     source: 'blocks/faq_01/faq_01_block.dart',
     builder: Faq01Block.new,

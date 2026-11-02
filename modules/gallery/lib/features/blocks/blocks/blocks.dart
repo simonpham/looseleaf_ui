@@ -5,6 +5,7 @@ export 'package:gallery/features/blocks/blocks/cta_01/cta_01.dart';
 export 'package:gallery/features/blocks/blocks/dashboard_analytics/dashboard_analytics.dart';
 export 'package:gallery/features/blocks/blocks/empty_inbox/empty_inbox.dart';
 export 'package:gallery/features/blocks/blocks/error_404/error_404.dart';
+export 'package:gallery/features/blocks/blocks/error_500/error_500.dart';
 export 'package:gallery/features/blocks/blocks/faq_01/faq_01.dart';
 export 'package:gallery/features/blocks/blocks/file_explorer/file_explorer.dart';
 export 'package:gallery/features/blocks/blocks/footer_01/footer_01.dart';
