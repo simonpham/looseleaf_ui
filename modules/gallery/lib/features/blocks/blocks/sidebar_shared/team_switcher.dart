@@ -28,6 +28,7 @@ class _TeamSwitcherState extends State<TeamSwitcher> {
     final theme = LooseleafTheme.of(context);
     if (widget.compact) {
       return SidebarMenuButton(
+        fitWidth: true,
         semanticLabel: 'Team: ${active.name}',
         onPressed: menu.toggle,
         forcedStates: {if (menu.open) InkState.hovered},

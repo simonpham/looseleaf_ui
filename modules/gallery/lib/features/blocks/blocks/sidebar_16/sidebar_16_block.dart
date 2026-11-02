@@ -13,51 +13,28 @@ class Sidebar16Block extends StatelessWidget {
   static const double _height = 640;
 
   @override
-  Widget build(BuildContext context) {
-    final reversed = switch (Directionality.of(context)) {
-      TextDirection.ltr => TextDirection.rtl,
-      TextDirection.rtl => TextDirection.ltr,
-    };
-    return SizedBox(
-      height: _height,
-      child: SidebarProvider(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget build(BuildContext context) => const SizedBox(
+    height: _height,
+    child: SidebarProvider(
+      header: Sidebar16SiteHeader(),
+      children: [
+        Sidebar16AppSidebar(),
+        SidebarPageSheet(
+          children: [
+            SidebarPageBody(
+              title: 'Margins',
+              kicker: 'Writing on paper',
               children: [
-                const Sidebar16SiteHeader(),
-                Expanded(
-                  // Laid out backwards, like SidebarProvider's own row, so
-                  // the pad paints over the page and its rail is hit first.
-                  child: Row(
-                    textDirection: reversed,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: const [
-                      SidebarPageSheet(
-                        children: [
-                          SidebarPageBody(
-                            title: 'Margins',
-                            kicker: 'Writing on paper',
-                            children: [
-                              SidebarPageNote(
-                                title: 'Header on top, pad below',
-                                pose: 'wave',
-                                description: 'The strip across the top belongs to the whole window, so the search box is always in reach, wherever you have scrolled to.',
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Sidebar16AppSidebar(),
-                    ],
-                  ),
+                SidebarPageNote(
+                  title: 'Header on top, pad below',
+                  pose: 'wave',
+                  description: 'The strip across the top belongs to the whole window, so the search box is always in reach, wherever you have scrolled to.',
                 ),
               ],
             ),
-          ),
-        ],
-      ),
-    );
-  }
+          ],
+        ),
+      ],
+    ),
+  );
 }

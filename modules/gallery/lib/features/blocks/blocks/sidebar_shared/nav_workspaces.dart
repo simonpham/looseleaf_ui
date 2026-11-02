@@ -16,7 +16,6 @@ class NavWorkspaces extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (SidebarPanelScope.iconsOf(context)) return const SizedBox.shrink();
-    final theme = LooseleafTheme.of(context);
     return SidebarGroup(
       children: [
         const SidebarGroupLabel(child: Text('Workspaces')),
@@ -27,6 +26,13 @@ class NavWorkspaces extends StatelessWidget {
                 Collapsible(
                   child: Builder(
                     builder: (context) => SidebarMenuItem(
+                      leadingAction: SidebarMenuAction(
+                        showOnHover: true,
+                        fill: true,
+                        semanticLabel: 'Show pages in ${workspace.name}',
+                        onPressed: Collapsible.of(context).toggle,
+                        child: const FoldChevron(),
+                      ),
                       action: SidebarMenuAction(
                         showOnHover: true,
                         semanticLabel: 'Add a page to ${workspace.name}',
@@ -37,28 +43,10 @@ class NavWorkspaces extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         spacing: Spacing.d4,
                         children: [
-                          Stack(
-                            children: [
-                              SidebarMenuButton(
-                                leading: InkIcon(workspace.icon),
-                                onPressed: () {},
-                                child: Text(workspace.name),
-                              ),
-                              PositionedDirectional(
-                                start: Spacing.d4,
-                                top: Spacing.d4,
-                                child: SidebarMenuAction(
-                                  showOnHover: true,
-                                  semanticLabel:
-                                      'Show pages in ${workspace.name}',
-                                  onPressed: Collapsible.of(context).toggle,
-                                  child: ColoredBox(
-                                    color: theme.colors.pad,
-                                    child: const FoldChevron(),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          SidebarMenuButton(
+                            leading: InkIcon(workspace.icon),
+                            onPressed: () {},
+                            child: Text(workspace.name),
                           ),
                           CollapsibleContent(
                             child: SidebarMenuSub(

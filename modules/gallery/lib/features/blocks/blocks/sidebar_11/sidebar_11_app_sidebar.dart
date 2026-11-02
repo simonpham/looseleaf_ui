@@ -45,12 +45,7 @@ class Sidebar11AppSidebar extends StatelessWidget {
                           leading: InkIcon(
                             Sidebar11FileTree.fileIcon(change.file),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                              end: Spacing.d24,
-                            ),
-                            child: Text(change.file),
-                          ),
+                          child: Text(change.file),
                         ),
                       ),
                   ],

@@ -28,39 +28,37 @@ class Sidebar04AppSidebar extends StatelessWidget {
           SidebarGroup(
             children: [
               SidebarMenu(
+                gap: Spacing.d8,
                 children: [
                   for (final section in docsNav)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: Spacing.d4),
-                      child: SidebarMenuItem(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          spacing: Spacing.d4,
-                          children: [
-                            SidebarMenuButton(
-                              onPressed: () {},
-                              child: Text(
-                                section.title,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                ),
+                    SidebarMenuItem(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        spacing: Spacing.d4,
+                        children: [
+                          SidebarMenuButton(
+                            onPressed: () {},
+                            child: Text(
+                              section.title,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
-                            if (section.items.isNotEmpty)
-                              SidebarMenuSub(
-                                children: [
-                                  for (final item in section.items)
-                                    SidebarMenuSubItem(
-                                      child: SidebarMenuSubButton(
-                                        isActive: item.isActive,
-                                        onPressed: () {},
-                                        child: Text(item.title),
-                                      ),
+                          ),
+                          if (section.items.isNotEmpty)
+                            SidebarMenuSub(
+                              children: [
+                                for (final item in section.items)
+                                  SidebarMenuSubItem(
+                                    child: SidebarMenuSubButton(
+                                      isActive: item.isActive,
+                                      onPressed: () {},
+                                      child: Text(item.title),
                                     ),
-                                ],
-                              ),
-                          ],
-                        ),
+                                  ),
+                              ],
+                            ),
+                        ],
                       ),
                     ),
                 ],
