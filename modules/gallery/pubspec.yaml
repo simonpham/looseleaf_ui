@@ -38,6 +38,7 @@ flutter:
     - lib/features/blocks/blocks/login_03/
     - lib/features/blocks/blocks/login_04/
     - lib/features/blocks/blocks/logos_01/
+    - lib/features/blocks/blocks/onboarding_01/
     - lib/features/blocks/blocks/profile_page/
     - lib/features/blocks/blocks/settings_appearance/
     - lib/features/blocks/blocks/settings_billing/

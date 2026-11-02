@@ -12,6 +12,7 @@ export 'package:gallery/features/blocks/blocks/login_02/login_02.dart';
 export 'package:gallery/features/blocks/blocks/login_03/login_03.dart';
 export 'package:gallery/features/blocks/blocks/login_04/login_04.dart';
 export 'package:gallery/features/blocks/blocks/logos_01/logos_01.dart';
+export 'package:gallery/features/blocks/blocks/onboarding_01/onboarding_01.dart';
 export 'package:gallery/features/blocks/blocks/profile_page/profile_page.dart';
 export 'package:gallery/features/blocks/blocks/settings_appearance/settings_appearance.dart';
 export 'package:gallery/features/blocks/blocks/settings_billing/settings_billing.dart';
