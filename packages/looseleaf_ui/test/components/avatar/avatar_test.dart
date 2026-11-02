@@ -26,6 +26,18 @@ void main() {
     }
   });
 
+  testWidgets('dimension sets any side, size-12', (tester) async {
+    await tester.pumpWidget(
+      componentHost(
+        const Avatar(
+          dimension: Spacing.d48,
+          children: [AvatarFallback(child: Text('LR'))],
+        ),
+      ),
+    );
+    expect(tester.getSize(find.byType(Avatar)), const Size.square(48));
+  });
+
   testWidgets('the fallback shows initials, reads the name and keeps a tone', (
     tester,
   ) async {

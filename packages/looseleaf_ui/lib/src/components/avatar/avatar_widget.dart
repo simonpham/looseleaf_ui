@@ -26,6 +26,7 @@ class Avatar extends StatefulWidget {
     super.key,
     required this.children,
     this.size,
+    this.dimension,
     this.ring = AvatarRing.ink,
     this.seed,
   });
@@ -34,6 +35,10 @@ class Avatar extends StatefulWidget {
 
   /// The size; null takes the [AvatarGroup]'s, else [AvatarSize.regular].
   final AvatarSize? size;
+
+  /// The avatar's side when no [size] fits, like upstream's `size-12`
+  /// class; the initials and badge keep [size]'s metrics.
+  final double? dimension;
 
   /// The hand-drawn ring; null draws none (upstream `ring="none"`).
   final AvatarRing? ring;
@@ -65,7 +70,7 @@ class _AvatarState extends State<Avatar> with InkSeed {
       child: AvatarCut(
         color: group?.cut,
         child: SizedBox.square(
-          dimension: size.dimension,
+          dimension: widget.dimension ?? size.dimension,
           child: Stack(
             clipBehavior: Clip.none,
             fit: StackFit.expand,

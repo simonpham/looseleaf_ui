@@ -11,7 +11,7 @@ class EmptyAvatarExample extends StatelessWidget {
         children: [
           EmptyMedia(
             child: Avatar(
-              size: AvatarSize.lg,
+              dimension: Spacing.d48,
               children: [AvatarFallback(child: Text('LR'))],
             ),
           ),
