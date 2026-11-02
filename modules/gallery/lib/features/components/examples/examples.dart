@@ -83,6 +83,7 @@ export 'package:gallery/features/components/examples/stamp_button/stamp_button.d
 export 'package:gallery/features/components/examples/stepper/stepper.dart';
 export 'package:gallery/features/components/examples/sticker/sticker.dart';
 export 'package:gallery/features/components/examples/sticker_board/sticker_board.dart';
+export 'package:gallery/features/components/examples/sticker_picker/sticker_picker.dart';
 export 'package:gallery/features/components/examples/sticker_sheet/sticker_sheet.dart';
 export 'package:gallery/features/components/examples/sticky_note/sticky_note.dart';
 export 'package:gallery/features/components/examples/strike/strike.dart';

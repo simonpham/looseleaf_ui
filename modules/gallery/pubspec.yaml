@@ -111,6 +111,7 @@ flutter:
     - lib/features/components/examples/stepper/
     - lib/features/components/examples/sticker/
     - lib/features/components/examples/sticker_board/
+    - lib/features/components/examples/sticker_picker/
     - lib/features/components/examples/sticker_sheet/
     - lib/features/components/examples/sticky_note/
     - lib/features/components/examples/strike/

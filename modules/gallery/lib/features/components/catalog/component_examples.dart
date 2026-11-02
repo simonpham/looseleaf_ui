@@ -89,6 +89,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'stepper': stepperExamples,
   'sticker': stickerExamples,
   'sticker-board': stickerBoardExamples,
+  'sticker-picker': stickerPickerExamples,
   'sticker-sheet': stickerSheetExamples,
   'sticky-note': stickyNoteExamples,
   'strike': strikeExamples,
