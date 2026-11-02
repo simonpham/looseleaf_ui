@@ -58,6 +58,7 @@ export 'package:gallery/features/components/examples/receipt/receipt.dart';
 export 'package:gallery/features/components/examples/reveal/reveal.dart';
 export 'package:gallery/features/components/examples/ribbon/ribbon.dart';
 export 'package:gallery/features/components/examples/scribble/scribble.dart';
+export 'package:gallery/features/components/examples/scroll_area/scroll_area.dart';
 export 'package:gallery/features/components/examples/seal/seal.dart';
 export 'package:gallery/features/components/examples/separator/separator.dart';
 export 'package:gallery/features/components/examples/sheet/sheet.dart';
