@@ -23,6 +23,10 @@ const Map<String, GalleryBlock> portedBlocks = {
     builder: ProfilePageBlock.new,
     objects: [DeskObject.clips, DeskObject.pencil],
   ),
+  'settings-appearance': GalleryBlock(
+    source: 'blocks/settings_appearance/settings_appearance_block.dart',
+    builder: SettingsAppearanceBlock.new,
+  ),
   'signup-01': GalleryBlock(
     source: 'blocks/signup_01/signup_01_block.dart',
     builder: Signup01Block.new,
