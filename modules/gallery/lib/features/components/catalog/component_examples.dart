@@ -75,6 +75,7 @@ const Map<String, List<GalleryExample>> componentExamples = {
   'sidebar': sidebarExamples,
   'signature': signatureExamples,
   'skeleton': skeletonExamples,
+  'sketchpad': sketchpadExamples,
   'slider': sliderExamples,
   'sonner': sonnerExamples,
   'spinner': spinnerExamples,

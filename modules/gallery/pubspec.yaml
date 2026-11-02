@@ -97,6 +97,7 @@ flutter:
     - lib/features/components/examples/sidebar/
     - lib/features/components/examples/signature/
     - lib/features/components/examples/skeleton/
+    - lib/features/components/examples/sketchpad/
     - lib/features/components/examples/slider/
     - lib/features/components/examples/sonner/
     - lib/features/components/examples/spinner/
