@@ -32,8 +32,14 @@ class GalleryRouterDelegate extends RouterDelegate<GalleryRoute>
   @override
   Future<bool> popRoute() => SynchronousFuture(false);
 
+  /// Keeps the one [Overlay] holding [_page] when the tree above it
+  /// changes, as the widget inspector's select mode wraps the app: a new
+  /// one would insert [_page] while the old one still holds it.
+  final _overlay = GlobalKey<OverlayState>();
+
   @override
-  Widget build(BuildContext context) => Overlay(initialEntries: [_page]);
+  Widget build(BuildContext context) =>
+      Overlay(key: _overlay, initialEntries: [_page]);
 
   @override
   void dispose() {
