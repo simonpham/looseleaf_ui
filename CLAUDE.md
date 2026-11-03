@@ -14,6 +14,8 @@ Code conventions (mandatory): [CONVENTIONS.md](CONVENTIONS.md) (`AGENTS.md` is a
 ./get.sh                                   # install dependencies
 ./run_tests.sh                             # every test suite
 cd apps/gallery && flutter run -d macos    # the gallery
+tools/web/build.sh                         # gallery web build (apps/gallery/build/web)
+tools/web/build.sh --deploy                # ...and deploy to Cloudflare (apps/gallery/wrangler.jsonc)
 
 cd packages/looseleaf_ink && flutter test test/pen_test.dart   # one file
 flutter analyze apps modules packages

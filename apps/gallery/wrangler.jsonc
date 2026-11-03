@@ -1,0 +1,10 @@
+// Cloudflare Workers static assets for the gallery web build.
+// Build first: tools/web/build.sh   Deploy: tools/web/build.sh --deploy
+{
+  "name": "looseleaf-gallery",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./build/web",
+    "not_found_handling": "single-page-application"
+  }
+}
