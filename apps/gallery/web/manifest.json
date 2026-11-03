@@ -1,12 +1,12 @@
 {
-    "name": "looseleaf_gallery",
-    "short_name": "looseleaf_gallery",
+    "name": "Looseleaf UI",
+    "short_name": "Looseleaf",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#F8F5EE",
+    "theme_color": "#F8F5EE",
+    "description": "Hand-drawn Flutter components on paper.",
+    "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
         {
